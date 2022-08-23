@@ -1,0 +1,6 @@
+SET IDENTITY_INSERT [dbo].[WebTranslateTypeEnumName] ON
+INSERT INTO [dbo].[WebTranslateTypeEnumName] ([ID], [WebTranslateTypeEnumID], [LanguageID], [Name], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES (1, 1, 1, N'סָעִיף', '2021-10-31 17:39:14.6466667 +00:00', 1, N'N', '0001ce6d-6341-42d4-ba95-8742e5c64cbb', 1, NULL)
+INSERT INTO [dbo].[WebTranslateTypeEnumName] ([ID], [WebTranslateTypeEnumID], [LanguageID], [Name], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES (2, 1, 2, N'Section', '2021-10-31 17:39:17.7400000 +00:00', 1, N'N', '7baf2e3b-885b-46f8-acdc-91fe2d6c0ae5', 1, NULL)
+INSERT INTO [dbo].[WebTranslateTypeEnumName] ([ID], [WebTranslateTypeEnumID], [LanguageID], [Name], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES (3, 2, 1, N'מפתח תרגום', '2021-10-31 17:39:20.5833333 +00:00', 1, N'N', '98e1d81e-f1f1-433a-9548-6261db9ab700', 1, NULL)
+INSERT INTO [dbo].[WebTranslateTypeEnumName] ([ID], [WebTranslateTypeEnumID], [LanguageID], [Name], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES (4, 2, 2, N'Translate key', '2021-10-31 17:39:22.6200000 +00:00', 1, N'N', 'fc9538b1-e7e9-4fe4-b68b-b1af93480d9d', 1, NULL)
+SET IDENTITY_INSERT [dbo].[WebTranslateTypeEnumName] OFF

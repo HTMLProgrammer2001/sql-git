@@ -1,0 +1,7 @@
+SET IDENTITY_INSERT [dbo].[WebTranslateCustomName] ON
+INSERT INTO [dbo].[WebTranslateCustomName] ([ID], [WebTranslateID], [LanguageID], [Name], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES (1, 2, 1, N'Custom he', '2022-03-15 15:42:42.5901118 +02:00', 1, N'N', 'b334256b-9d26-4062-85b1-4b510af93f74', 1, NULL)
+INSERT INTO [dbo].[WebTranslateCustomName] ([ID], [WebTranslateID], [LanguageID], [Name], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES (2, 3, 1, N'Test he', '2022-03-15 18:05:17.1148096 +02:00', 1, N'N', '16e2cf1b-5214-4031-b890-278805a22640', 1, NULL)
+INSERT INTO [dbo].[WebTranslateCustomName] ([ID], [WebTranslateID], [LanguageID], [Name], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES (3, 3, 2, N'Test en', '2022-03-15 18:05:17.1148096 +02:00', 1, N'N', '059160f5-47bc-4834-8f81-d80093c67fff', 1, NULL)
+INSERT INTO [dbo].[WebTranslateCustomName] ([ID], [WebTranslateID], [LanguageID], [Name], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES (4, 4, 1, N'QQQ he', '2022-03-16 10:05:25.1800834 +02:00', 1, N'N', 'b61ee04b-7c3c-44ef-b47b-8568737615d9', 1, NULL)
+INSERT INTO [dbo].[WebTranslateCustomName] ([ID], [WebTranslateID], [LanguageID], [Name], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES (5, 4, 2, N'QQQ en', '2022-03-16 10:05:25.1800834 +02:00', 1, N'N', '4308c14b-f682-440f-8b5e-fa75eb522614', 1, NULL)
+SET IDENTITY_INSERT [dbo].[WebTranslateCustomName] OFF

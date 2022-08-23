@@ -1,0 +1,2 @@
+INSERT INTO [dbo].[WebPresetTypeEnum] ([ID], [Name], [SortOrder], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES (1, N'Global', 1, '2021-10-31 14:06:45.6000000 +00:00', 1, N'N', 'cc0abbc7-ecf3-4c74-976c-77fb415742f4', 1, NULL)
+INSERT INTO [dbo].[WebPresetTypeEnum] ([ID], [Name], [SortOrder], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES (2, N'Global by role', 2, '2021-10-31 14:08:00.1966667 +00:00', 1, N'N', 'd2be4302-da6e-405d-a16d-e0e506f9c1eb', 1, NULL)

@@ -1,0 +1,6 @@
+SET IDENTITY_INSERT [dbo].[WebReportCategoryName] ON
+INSERT INTO [dbo].[WebReportCategoryName] ([ID], [WebReportCategoryID], [LanguageID], [Name], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES (3, 2, 1, N'string he', '2022-04-27 19:00:05.5484608 +03:00', 1, N'N', 'dbcfa59f-6bc0-4e6b-86a8-cf7c877cb0bf', 1, NULL)
+INSERT INTO [dbo].[WebReportCategoryName] ([ID], [WebReportCategoryID], [LanguageID], [Name], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES (4, 2, 2, N'string en', '2022-04-27 19:00:05.5484608 +03:00', 1, N'N', '2de91e3c-d986-4ceb-96e6-d26908b06439', 1, NULL)
+INSERT INTO [dbo].[WebReportCategoryName] ([ID], [WebReportCategoryID], [LanguageID], [Name], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES (5, 3, 1, N'test2 he', '2022-04-28 17:19:35.9109366 +03:00', 1, N'N', '8a7f0b69-ae2f-4b0d-b46c-8974341ad726', 1, NULL)
+INSERT INTO [dbo].[WebReportCategoryName] ([ID], [WebReportCategoryID], [LanguageID], [Name], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES (6, 3, 2, N'test2', '2022-04-28 17:19:35.9109366 +03:00', 1, N'N', '52ef9daa-c46d-4571-9794-e4e4fc8e23ea', 1, NULL)
+SET IDENTITY_INSERT [dbo].[WebReportCategoryName] OFF
