@@ -2,7 +2,7 @@ SET QUOTED_IDENTIFIER ON
 GO
 SET ANSI_NULLS ON
 GO
-CREATE FUNCTION [dbo].[WebGetMenuPath](@id BIGINT)
+CREATE FUNCTION [dbo].[WebGetMenuPath](@id uniqueidentifier)
 RETURNS TABLE
 AS RETURN
 	WITH Path AS (

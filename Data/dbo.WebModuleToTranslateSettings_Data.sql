@@ -1,7 +1,4 @@
 SET IDENTITY_INSERT [dbo].[WebModuleToTranslateSettings] ON
-INSERT INTO [dbo].[WebModuleToTranslateSettings] ([ID], [WebModuleID], [WebTranslateID_BaseTree], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES (90033, 91, 126528, '2022-08-25 18:07:14.1179405 +03:00', 1, N'N', '2a970226-c9b6-4a17-99a6-b12dcb76291d', 1, NULL)
-SET IDENTITY_INSERT [dbo].[WebModuleToTranslateSettings] OFF
-SET IDENTITY_INSERT [dbo].[WebModuleToTranslateSettings] ON
 INSERT INTO [dbo].[WebModuleToTranslateSettings] ([ID], [WebModuleID], [WebTranslateID_BaseTree], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES (3, 2, 1384, '2022-03-02 17:45:09.4198395 +02:00', 1, N'N', '59e4933a-e172-44b0-bc28-2a1ffce26465', 1, NULL)
 INSERT INTO [dbo].[WebModuleToTranslateSettings] ([ID], [WebModuleID], [WebTranslateID_BaseTree], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES (5, 3, 1, '2022-03-02 17:45:44.5991413 +02:00', 1, N'N', '9df21fc7-695d-4e55-9edb-67fb9196308f', 1, NULL)
 INSERT INTO [dbo].[WebModuleToTranslateSettings] ([ID], [WebModuleID], [WebTranslateID_BaseTree], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES (6, 4, 68, '2022-03-02 17:46:23.5275799 +02:00', 1, N'N', '4e51ea5f-2acd-457c-864f-5e28d5d47656', 1, NULL)
@@ -90,4 +87,5 @@ INSERT INTO [dbo].[WebModuleToTranslateSettings] ([ID], [WebModuleID], [WebTrans
 INSERT INTO [dbo].[WebModuleToTranslateSettings] ([ID], [WebModuleID], [WebTranslateID_BaseTree], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES (90030, 88, 126046, '2022-08-12 17:03:05.8641465 +03:00', 1, N'N', '9ae8ed31-9cdb-4525-873d-e4779a3e0fe4', 1, NULL)
 INSERT INTO [dbo].[WebModuleToTranslateSettings] ([ID], [WebModuleID], [WebTranslateID_BaseTree], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES (90031, 89, 126493, '2022-08-22 13:59:29.6351197 +03:00', 1, N'N', 'edf400e3-6898-40bd-94df-fbcc1c426016', 1, NULL)
 INSERT INTO [dbo].[WebModuleToTranslateSettings] ([ID], [WebModuleID], [WebTranslateID_BaseTree], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES (90032, 90, 126494, '2022-08-22 14:16:17.9907192 +03:00', 1, N'N', 'd29d0e33-d5df-48b4-b018-3e83ef27cdb3', 1, NULL)
+INSERT INTO [dbo].[WebModuleToTranslateSettings] ([ID], [WebModuleID], [WebTranslateID_BaseTree], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES (90033, 91, 126528, '2022-08-25 18:07:14.1179405 +03:00', 1, N'N', '2a970226-c9b6-4a17-99a6-b12dcb76291d', 1, NULL)
 SET IDENTITY_INSERT [dbo].[WebModuleToTranslateSettings] OFF

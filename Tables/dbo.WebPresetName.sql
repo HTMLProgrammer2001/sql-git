@@ -1,7 +1,7 @@
 CREATE TABLE [dbo].[WebPresetName]
 (
-[ID] [bigint] NOT NULL IDENTITY(1, 1),
-[WebPresetID] [bigint] NOT NULL,
+[ID] [uniqueidentifier] NOT NULL CONSTRAINT [DF_WebPresetName_ID2] DEFAULT (newsequentialid()),
+[WebPresetID] [uniqueidentifier] NOT NULL,
 [LanguageID] [bigint] NOT NULL,
 [Name] [nvarchar] (256) COLLATE SQL_Latin1_General_CP850_CI_AS NULL,
 [WebMenuObject] [nvarchar] (max) COLLATE SQL_Latin1_General_CP850_CI_AS NULL,
@@ -15,5 +15,7 @@ CREATE TABLE [dbo].[WebPresetName]
 GO
 ALTER TABLE [dbo].[WebPresetName] ADD CONSTRAINT [PK_WebPresetName] PRIMARY KEY CLUSTERED ([ID]) ON [PRIMARY]
 GO
-ALTER TABLE [dbo].[WebPresetName] ADD CONSTRAINT [FK_WebPresetName_WebPreset] FOREIGN KEY ([WebPresetID]) REFERENCES [dbo].[WebPreset] ([ID]) ON DELETE CASCADE
+ALTER TABLE [dbo].[WebPresetName] ADD CONSTRAINT [FK_WebPresetName_Language] FOREIGN KEY ([LanguageID]) REFERENCES [dbo].[Language] ([ID])
+GO
+ALTER TABLE [dbo].[WebPresetName] ADD CONSTRAINT [FK_WebPresetName_WebPreset] FOREIGN KEY ([WebPresetID]) REFERENCES [dbo].[WebPreset] ([ID])
 GO

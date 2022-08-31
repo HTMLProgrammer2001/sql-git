@@ -1,8 +1,8 @@
 CREATE TABLE [dbo].[WebMenu]
 (
-[ID] [bigint] NOT NULL IDENTITY(1, 1),
-[WebMenuID] [bigint] NULL,
-[WebPresetID] [bigint] NOT NULL,
+[ID] [uniqueidentifier] NOT NULL CONSTRAINT [DF_WebMenu_ID2] DEFAULT (newsequentialid()),
+[WebMenuID] [uniqueidentifier] NULL,
+[WebPresetID] [uniqueidentifier] NOT NULL,
 [WebMenuTypeEnumID] [bigint] NOT NULL,
 [WebViewID] [bigint] NULL,
 [WebIconSvgEnumID] [bigint] NULL,
@@ -26,7 +26,7 @@ ALTER TABLE [dbo].[WebMenu] ADD CONSTRAINT [PK_WebMenu] PRIMARY KEY CLUSTERED ([
 GO
 ALTER TABLE [dbo].[WebMenu] ADD CONSTRAINT [FK_WebMenu_WebIconSvgEnum] FOREIGN KEY ([WebIconSvgEnumID]) REFERENCES [dbo].[WebIconSvgEnum] ([ID])
 GO
-ALTER TABLE [dbo].[WebMenu] ADD CONSTRAINT [FK_WebMenu_WebMenu] FOREIGN KEY ([ID]) REFERENCES [dbo].[WebMenu] ([ID])
+ALTER TABLE [dbo].[WebMenu] ADD CONSTRAINT [FK_WebMenu_WebMenu] FOREIGN KEY ([WebMenuID]) REFERENCES [dbo].[WebMenu] ([ID])
 GO
 ALTER TABLE [dbo].[WebMenu] ADD CONSTRAINT [FK_WebMenu_WebMenuTypeEnum] FOREIGN KEY ([WebMenuTypeEnumID]) REFERENCES [dbo].[WebMenuTypeEnum] ([ID])
 GO
@@ -34,5 +34,5 @@ ALTER TABLE [dbo].[WebMenu] ADD CONSTRAINT [FK_WebMenu_WebPreset] FOREIGN KEY ([
 GO
 ALTER TABLE [dbo].[WebMenu] ADD CONSTRAINT [FK_WebMenu_WebTranslate] FOREIGN KEY ([WebTranslateID]) REFERENCES [dbo].[WebTranslate] ([ID])
 GO
-EXEC sp_addextendedproperty N'MS_Description', N'Test description', 'SCHEMA', N'dbo', 'TABLE', N'WebMenu', 'COLUMN', N'ID'
+ALTER TABLE [dbo].[WebMenu] ADD CONSTRAINT [FK_WebMenu_WebView] FOREIGN KEY ([WebViewID]) REFERENCES [dbo].[WebView] ([ID])
 GO

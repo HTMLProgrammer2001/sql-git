@@ -148,6 +148,63 @@ INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebViewID], [WebComponentID
     [isDisabled]="{{disabled}}"
     [(dataValue)]="self.partnerListFilter.lastName"
 ></cr-control-edit>', '2022-03-02 15:29:36.3900000 +00:00', 4, N'N', '07840e40-45f8-4788-87fc-bac348fe0de7', 1, NULL)
+INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebViewID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES (17, 10021, 15, N'partner-list-type', N'Partner type', N'{
+    "defaultValue": {
+        "isUseTranslateKey": true,
+        "translateKey": "PARTNER.FILTER.PARTNER_TYPE"
+    }
+}', N'<cr-dropdown-smart-control
+    [(value)]="self.partnerListFilter.partnerTypeId"
+    [contextMenuOperations]="[''copyToClipboard'']"
+    [dataCacheName]="''PartnerTypeDropdownSearchCache''"
+    [dataTranslateKeyField]="''translateKey''"
+    [elementName]="''smart-dropdown:Partner_list.Partner_type''"
+    [getListItemsFunction]="self.partnerTypeListFn"
+    [labelTranslateKey]="{{translateKey}}"
+    [label]="{{label}}"
+    [class]=''{{classes}}''
+    [permissionSettings]="{
+        isAccessEdit: self.authService.getEndpointAccessGranted(self.EndpointName.partner_type_GET)
+    }"
+    [textField]="''displayName''"
+    [unselectedItemValue]="{id: null, translateKey: ''COMMON.MOCK_OBJ.NOT_SELECTED''}"
+    [valueField]="''id''"
+    [isDropdownListOpenWhenKeyboardIsPrinted]="true"
+    [isDropdownListOverrideEnterKeyBehaviour]="true"
+    (onEnterKey)="self.changeFilter()"
+></cr-dropdown-smart-control>', '2022-08-26 14:39:53.0566667 +00:00', 16, N'N', '0a350bec-b6c9-4f9c-874a-40188040bf52', 1, NULL)
+INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebViewID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES (18, 10021, 15, N'partner-list-group', N'Partner group', N'{
+    "defaultValue": {
+        "isUseTranslateKey": true,
+        "translateKey": "PARTNER.FILTER.PARTNER_GROUP"
+    }
+}', N'<cr-dropdown-smart-control
+    (navigateToEvent)="self.navigateTo($event)"
+    [(value)]="self.partnerListFilter.groupId"
+    [contextMenuOperations]="[''copyToClipboard'', ''navigateTo'']"
+    [dataCacheName]="''PartnerGroupDropdownSearchCache''"
+    [dataTranslateKeyField]="''translateKey''"
+    [elementName]="''smart-dropdown:Partner_list.Partner_group''"
+    [getListItemsFunction]="self.partnerGroupListFn"
+    [isCleanListWhenAdditionalParameterChanged]="true"
+    [labelTranslateKey]="{{translateKey}}"
+    [label]="{{label}}"
+    [class]=''{{classes}}''
+    [listItemsFunctionAdditionalParameter]="self.partnerListFilter.partnerTypeId"
+    [permissionSettings]="{
+        isAccessEdit: self.authService.getEndpointAccessGranted(self.EndpointName.partner__partner_group_GET)
+    }"
+    [requestDataWhenOpen]="true"
+    [textField]="''name''"
+    [unselectedItemValue]="{id: null, translateKey: ''COMMON.MOCK_OBJ.NOT_SELECTED''}"
+    [useCodeInList]="true"
+    [useCodeInValue]="true"
+    [valueField]="''id''"
+    [isDropdownListOpenWhenKeyboardIsPrinted]="true"
+    [isDropdownListOverrideEnterKeyBehaviour]="true"
+    (onEnterKey)="self.changeFilter()"
+></cr-dropdown-smart-control>
+', '2022-08-26 14:41:44.2300000 +00:00', 13, N'N', '652d0315-f613-4536-baa5-c0a9ac819c07', 1, NULL)
 INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebViewID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES (19, 10021, 7, N'partner-list-phone-number1', N'Phone number1', N'{
     "defaultValue": {
         "isUseTranslateKey": true,
@@ -1224,63 +1281,4 @@ INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebViewID], [WebComponentID
         {{''COMMON.GRID.NO_READ_ACCESS'' | translate}}
     </div>
 </ng-template>', '2022-08-11 14:33:22.8786193 +03:00', 1, N'N', '494b3818-8c91-41e9-abde-7dd370fa6196', 1, NULL)
-SET IDENTITY_INSERT [dbo].[WebComponentViewSettings] OFF
-SET IDENTITY_INSERT [dbo].[WebComponentViewSettings] ON
-INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebViewID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES (17, 10021, 15, N'partner-list-type', N'Partner type', N'{
-    "defaultValue": {
-        "isUseTranslateKey": true,
-        "translateKey": "PARTNER.FILTER.PARTNER_TYPE"
-    }
-}', N'<cr-dropdown-smart-control
-    [(value)]="self.partnerListFilter.partnerTypeId"
-    [contextMenuOperations]="[''copyToClipboard'']"
-    [dataCacheName]="''PartnerTypeDropdownSearchCache''"
-    [dataTranslateKeyField]="''translateKey''"
-    [elementName]="''smart-dropdown:Partner_list.Partner_type''"
-    [getListItemsFunction]="self.partnerTypeListFn"
-    [labelTranslateKey]="{{translateKey}}"
-    [label]="{{label}}"
-    [class]=''{{classes}}''
-    [permissionSettings]="{
-        isAccessEdit: self.authService.getEndpointAccessGranted(self.EndpointName.partner_type_GET)
-    }"
-    [textField]="''displayName''"
-    [unselectedItemValue]="{id: null, translateKey: ''COMMON.MOCK_OBJ.NOT_SELECTED''}"
-    [valueField]="''id''"
-    [isDropdownListOpenWhenKeyboardIsPrinted]="true"
-    [isDropdownListOverrideEnterKeyBehaviour]="true"
-    (onEnterKey)="self.changeFilter()"
-></cr-dropdown-smart-control>', '2022-08-26 14:39:53.0566667 +00:00', 16, N'N', '0a350bec-b6c9-4f9c-874a-40188040bf52', 1, NULL)
-INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebViewID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES (18, 10021, 15, N'partner-list-group', N'Partner group', N'{
-    "defaultValue": {
-        "isUseTranslateKey": true,
-        "translateKey": "PARTNER.FILTER.PARTNER_GROUP"
-    }
-}', N'<cr-dropdown-smart-control
-    (navigateToEvent)="self.navigateTo($event)"
-    [(value)]="self.partnerListFilter.groupId"
-    [contextMenuOperations]="[''copyToClipboard'', ''navigateTo'']"
-    [dataCacheName]="''PartnerGroupDropdownSearchCache''"
-    [dataTranslateKeyField]="''translateKey''"
-    [elementName]="''smart-dropdown:Partner_list.Partner_group''"
-    [getListItemsFunction]="self.partnerGroupListFn"
-    [isCleanListWhenAdditionalParameterChanged]="true"
-    [labelTranslateKey]="{{translateKey}}"
-    [label]="{{label}}"
-    [class]=''{{classes}}''
-    [listItemsFunctionAdditionalParameter]="self.partnerListFilter.partnerTypeId"
-    [permissionSettings]="{
-        isAccessEdit: self.authService.getEndpointAccessGranted(self.EndpointName.partner__partner_group_GET)
-    }"
-    [requestDataWhenOpen]="true"
-    [textField]="''name''"
-    [unselectedItemValue]="{id: null, translateKey: ''COMMON.MOCK_OBJ.NOT_SELECTED''}"
-    [useCodeInList]="true"
-    [useCodeInValue]="true"
-    [valueField]="''id''"
-    [isDropdownListOpenWhenKeyboardIsPrinted]="true"
-    [isDropdownListOverrideEnterKeyBehaviour]="true"
-    (onEnterKey)="self.changeFilter()"
-></cr-dropdown-smart-control>
-', '2022-08-26 14:41:44.2300000 +00:00', 13, N'N', '652d0315-f613-4536-baa5-c0a9ac819c07', 1, NULL)
 SET IDENTITY_INSERT [dbo].[WebComponentViewSettings] OFF

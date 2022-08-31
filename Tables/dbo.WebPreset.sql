@@ -1,7 +1,7 @@
 CREATE TABLE [dbo].[WebPreset]
 (
-[ID] [bigint] NOT NULL IDENTITY(1, 1),
-[WebPresetTypeEnumID] [bigint] NULL,
+[ID] [uniqueidentifier] NOT NULL CONSTRAINT [DF_WebPreset_ID2] DEFAULT (newsequentialid()),
+[WebPresetTypeEnumID] [bigint] NOT NULL,
 [RoleID] [bigint] NULL,
 [Name] [nvarchar] (256) COLLATE SQL_Latin1_General_CP850_CI_AS NULL,
 [UpdateDate] [datetimeoffset] NOT NULL CONSTRAINT [DF_WebPreset_UpdateDate] DEFAULT (sysdatetimeoffset()),
@@ -14,6 +14,4 @@ CREATE TABLE [dbo].[WebPreset]
 ) ON [PRIMARY]
 GO
 ALTER TABLE [dbo].[WebPreset] ADD CONSTRAINT [PK_WebPreset] PRIMARY KEY CLUSTERED ([ID]) ON [PRIMARY]
-GO
-ALTER TABLE [dbo].[WebPreset] ADD CONSTRAINT [FK_WebPreset_WebPresetTypeEnum] FOREIGN KEY ([WebPresetTypeEnumID]) REFERENCES [dbo].[WebPresetTypeEnum] ([ID])
 GO
