@@ -1,4 +1,15 @@
 SET IDENTITY_INSERT [dbo].[WebMockobject] ON
+INSERT INTO [dbo].[WebMockobject] ([ID], [Name], [UpdateDate], [Version], [GUID], [IsDeleted], [AppType], [UpdateUser]) VALUES (60, N'test', '2022-08-29 18:20:53.2400000 +00:00', 2, '42c775ee-9bfe-4734-8a06-1f25a8d5c798', N'Y', 1, NULL)
+INSERT INTO [dbo].[WebMockobject] ([ID], [Name], [UpdateDate], [Version], [GUID], [IsDeleted], [AppType], [UpdateUser]) VALUES (61, N'dataSynchronizationDataSourceName', '2022-08-29 18:39:31.6071091 +03:00', 1, 'e2e572ef-95dc-4437-9be6-81ed4b7ef664', N'N', 1, NULL)
+INSERT INTO [dbo].[WebMockobject] ([ID], [Name], [UpdateDate], [Version], [GUID], [IsDeleted], [AppType], [UpdateUser]) VALUES (62, N'dataSynchronizationDirection', '2022-08-29 18:46:11.0752597 +03:00', 1, 'ec19f3a4-3a56-45d0-8d45-6131b8c7eef0', N'N', 1, NULL)
+INSERT INTO [dbo].[WebMockobject] ([ID], [Name], [UpdateDate], [Version], [GUID], [IsDeleted], [AppType], [UpdateUser]) VALUES (63, N'dataSynchronizationStatusJob', '2022-09-02 16:58:00.1266667 +00:00', 2, 'dc3f767f-22f2-405a-bfcb-589d9a90b8bd', N'N', 1, NULL)
+INSERT INTO [dbo].[WebMockobject] ([ID], [Name], [UpdateDate], [Version], [GUID], [IsDeleted], [AppType], [UpdateUser]) VALUES (64, N'dataSynchronizationStatusRecordAndData', '2022-09-02 16:58:26.5506113 +03:00', 1, 'dc65998f-c1ee-4932-8bda-eb608380f5b3', N'N', 1, NULL)
+INSERT INTO [dbo].[WebMockobject] ([ID], [Name], [UpdateDate], [Version], [GUID], [IsDeleted], [AppType], [UpdateUser]) VALUES (65, N'aggregateRevenueType', '2022-09-13 18:54:21.7348953 +03:00', 1, '1dae745a-e3eb-4621-b733-fcb0fdd10b93', N'N', 1, NULL)
+INSERT INTO [dbo].[WebMockobject] ([ID], [Name], [UpdateDate], [Version], [GUID], [IsDeleted], [AppType], [UpdateUser]) VALUES (66, N'timeSpanType', '2022-09-13 18:55:47.1945273 +03:00', 1, '3ac220b4-7b39-410c-b76e-9647513f9f46', N'N', 1, NULL)
+INSERT INTO [dbo].[WebMockobject] ([ID], [Name], [UpdateDate], [Version], [GUID], [IsDeleted], [AppType], [UpdateUser]) VALUES (67, N'topSellingItemsSorting', '2022-09-13 18:57:15.7986726 +03:00', 1, '04605175-705f-4953-a11c-62741e83620e', N'N', 1, NULL)
+INSERT INTO [dbo].[WebMockobject] ([ID], [Name], [UpdateDate], [Version], [GUID], [IsDeleted], [AppType], [UpdateUser]) VALUES (68, N'topCashierSorting', '2022-09-13 18:58:05.0681848 +03:00', 1, '9d38508e-9f13-4319-9bcc-06dd744ec79c', N'N', 1, NULL)
+SET IDENTITY_INSERT [dbo].[WebMockobject] OFF
+SET IDENTITY_INSERT [dbo].[WebMockobject] ON
 INSERT INTO [dbo].[WebMockobject] ([ID], [Name], [UpdateDate], [Version], [GUID], [IsDeleted], [AppType], [UpdateUser]) VALUES (2, N'promotionStatuses', '2022-08-04 15:02:18.3200000 +00:00', 34, '2227e3a1-e783-4c01-9670-43937d730bae', N'N', 1, NULL)
 INSERT INTO [dbo].[WebMockobject] ([ID], [Name], [UpdateDate], [Version], [GUID], [IsDeleted], [AppType], [UpdateUser]) VALUES (3, N'reportSalesTypes', '2022-07-28 12:08:26.9483898 +03:00', 1, '1f9d4201-714a-4f8e-9889-d293fb389b58', N'N', 1, NULL)
 INSERT INTO [dbo].[WebMockobject] ([ID], [Name], [UpdateDate], [Version], [GUID], [IsDeleted], [AppType], [UpdateUser]) VALUES (4, N'creditReportFilterSendingStatus', '2022-07-28 12:10:05.8628384 +03:00', 1, 'fa62d02a-0c74-428f-87ab-fa2a50310e98', N'N', 1, NULL)
@@ -56,5 +67,7 @@ INSERT INTO [dbo].[WebMockobject] ([ID], [Name], [UpdateDate], [Version], [GUID]
 INSERT INTO [dbo].[WebMockobject] ([ID], [Name], [UpdateDate], [Version], [GUID], [IsDeleted], [AppType], [UpdateUser]) VALUES (56, N'horizontalAlignTypes', '2022-08-19 16:56:09.0562297 +03:00', 1, '4708cde9-8c02-4299-9a86-331d386ccdb4', N'N', 1, NULL)
 INSERT INTO [dbo].[WebMockobject] ([ID], [Name], [UpdateDate], [Version], [GUID], [IsDeleted], [AppType], [UpdateUser]) VALUES (57, N'verticalAlignTypes', '2022-08-19 17:18:29.1616544 +03:00', 1, 'c2f1b3e9-8829-4027-bfd7-3ac0efe70abb', N'N', 1, NULL)
 INSERT INTO [dbo].[WebMockobject] ([ID], [Name], [UpdateDate], [Version], [GUID], [IsDeleted], [AppType], [UpdateUser]) VALUES (58, N'textStyleTypes', '2022-08-19 17:24:51.8057872 +03:00', 1, '2f447637-4882-4dba-988c-aeda866d149d', N'N', 1, NULL)
-INSERT INTO [dbo].[WebMockobject] ([ID], [Name], [UpdateDate], [Version], [GUID], [IsDeleted], [AppType], [UpdateUser]) VALUES (59, N'posFunctionPanelTemplateTypeList', '2022-08-19 17:59:35.3453258 +03:00', 1, 'd5d20614-ec49-46b4-89eb-91a39ea1e2f2', N'N', 1, NULL)
+SET IDENTITY_INSERT [dbo].[WebMockobject] OFF
+SET IDENTITY_INSERT [dbo].[WebMockobject] ON
+INSERT INTO [dbo].[WebMockobject] ([ID], [Name], [UpdateDate], [Version], [GUID], [IsDeleted], [AppType], [UpdateUser]) VALUES (59, N'posFunctionPanelTemplateTypeList', '2022-08-29 18:34:52.9366667 +00:00', 3, '7f663db0-1b08-483b-b230-14b02670bbe8', N'N', 1, NULL)
 SET IDENTITY_INSERT [dbo].[WebMockobject] OFF

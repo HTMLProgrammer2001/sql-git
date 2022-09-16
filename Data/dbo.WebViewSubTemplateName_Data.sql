@@ -1,266 +1,4 @@
 SET IDENTITY_INSERT [dbo].[WebViewSubTemplateName] ON
-INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [LanguageID], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES (7, 4, 1, N'<ng-container><cr-title-header
-    [titleTranslateKey]="''PARTNER.DETAILS.ADDRESS.DETAILS_TITLE''"
-    [title]="''''"
-    (buttonClickEvent)="self.onTitleButtonClick($event)"
-    [buttonSettings]="self.titleHeaderButtonSettings"
-></cr-title-header>
-      <cr-panel
-        [panelTemplateType]="''well''"
-        [customClass]="''''"
-      >
-        <ng-template crPanelContent>
-          <div class="row"><div class=''col-md-2''><cr-dropdown-smart-control
-    [elementName]="''smart-dropdown:Partner_details.Address_type''"
-    [dataCacheName]="''AddressTypeDropdownCache''"
-    [useCache]="false"
-    [(value)]="self.address.partnerAddressType.id"
-    [textField]="''name''"
-    [valueField]="''id''"
-    [dataTranslateKeyField]="''translateKey''"
-    [(currentItemValue)]="self.address.partnerAddressType"
-    [getListItemsFunction]="self.loadAddressTypeListForDropdownFn"
-    [validator]="self.addressValidator"
-    [validationField]="''partnerAddressType.id''"
-    [unselectedItemValue]="{id: null, translateKey: ''COMMON.NOT_SELECTED''}"
-    [labelTranslateKey]="''PARTNER.DETAILS.ADDRESS.ADDRESS_TYPE''"
-    [label]="''''"
-    [class]=''""''
-></cr-dropdown-smart-control>
-</div><div class=''col-md-2''><cr-combobox-smart-control
-    [elementName]="''smart-combobox:Partner_details.Address_state''"
-    [dataCacheName]="''ItemStateComboboxCache''"
-    [useCache]="false"
-    [(value)]="self.address.state.id"
-    [(currentItemValue)]="self.address.state"
-    [textField]="''name''"
-    [valueField]="''id''"
-    [getListItemsFunction]="self.loadAddressStateListFunction"
-    [translateKeys]="''PARTNER.DETAILS.ADDRESS.COUNTRY''"
-    [dataLabel]="''''"
-    [valueField]="''id''"
-    [class]=''""''
-    [useCache]="false"
-></cr-combobox-smart-control></div><div class=''col-md-2''><cr-combobox-smart-control
-    [elementName]="''smart-combobox:Partner_details.Address_country''"
-    [dataCacheName]="''ItemCountryComboboxCache''"
-    [useCache]="false"
-    [(value)]="self.address.country.id"
-    [(currentItemValue)]="self.address.country"
-    [textField]="''name''"
-    [valueField]="''id''"
-    [getListItemsFunction]="self.loadAddressCountryListFunction"
-    [translateKeys]="''PARTNER.DETAILS.ADDRESS.STATE''"
-    [dataLabel]="''''"
-    [valueField]="''id''"
-    [class]=''""''
-    [useCache]="false"
-></cr-combobox-smart-control></div><div class=''col-md-2''><cr-combobox-smart-control
-    [elementName]="''smart-combobox:Partner_details.Address_country''"
-    [useCache]="false"
-    [dataCacheName]="''ItemCountyComboboxCache''"
-    [(value)]="self.address.county.id"
-    [(currentItemValue)]="self.address.county"
-    [textField]="''name''"
-    [valueField]="''id''"
-    [getListItemsFunction]="self.loadAddressCountyListFunction"
-    [translateKeys]="''PARTNER.DETAILS.ADDRESS.COUNTY''"
-    [dataLabel]="''''"
-    [valueField]="''id''"
-    [class]=''""''
-    [useCache]="false"
-></cr-combobox-smart-control></div><div class=''col-md-2''><cr-combobox-smart-control
-    [elementName]="''smart-combobox:Partner_details.Address_city''"
-    [useCache]="false"
-    [dataCacheName]="''ItemCityComboboxCache''"
-    [(value)]="self.address.city.id"
-    [(currentItemValue)]="self.address.city"
-    [textField]="''name''"
-    [valueField]="''id''"
-    [getListItemsFunction]="self.loadAddressCityListFunction"
-    [translateKeys]="''PARTNER.DETAILS.ADDRESS.CITY''"
-    [dataLabel]="''''"
-    [valueField]="''id''"
-    [class]=''""''
-    [useCache]="false"
-></cr-combobox-smart-control></div></div><div class="row"><div class=''col-md-2''><cr-control-edit 
-    [translateKeys]="''PARTNER.DETAILS.ADDRESS.ZIP''" 
-    [dataLabel]="''''"
-    [customClass]=''""''
-    [isDisabled]="false"
-    [elementName]="''edit:Partner_details.Address_zip''"
-    [(dataValue)]="self.address.zip"
-></cr-control-edit></div><div class=''col-md-2''><cr-combobox-smart-control
-    [elementName]="''smart-combobox:Partner_details.Address_street''"
-    [useCache]="false"
-    [dataCacheName]="''ItemStreetComboboxCache''"
-    [(value)]="self.address.street.id"
-    [(currentItemValue)]="self.address.street"
-    [textField]="''name''"
-    [valueField]="''id''"
-    [getListItemsFunction]="self.loadAddressStreetListFunction"
-    [translateKeys]="''PARTNER.DETAILS.ADDRESS.STREET''"
-    [dataLabel]="''''"
-    [valueField]="''id''"
-    [class]=''""''
-    [useCache]="false"
-></cr-combobox-smart-control></div><div class=''col-md-2''><cr-control-edit 
-    [translateKeys]="''PARTNER.DETAILS.ADDRESS.BLOCK''" 
-    [dataLabel]="''''"
-    [customClass]=''""''
-    [isDisabled]="false"
-    [elementName]="''edit:Partner_details.Address_block''"
-    [(dataValue)]="self.address.block"
-></cr-control-edit></div><div class=''col-md-2''><cr-control-edit 
-    [translateKeys]="''PARTNER.DETAILS.ADDRESS.STREET_NUMBER''" 
-    [dataLabel]="''''"
-    [customClass]=''""''
-    [isDisabled]="false"
-    [elementName]="''edit:Partner_details.Address_street_number''"
-    [(dataValue)]="self.address.streetNo"
-></cr-control-edit></div><div class=''col-md-2''><cr-control-edit 
-    [translateKeys]="''PARTNER.DETAILS.ADDRESS.APARTMENT''" 
-    [dataLabel]="''''"
-    [customClass]=''""''
-    [isDisabled]="false"
-    [elementName]="''edit:Partner_details.Address_appartment''"
-    [(dataValue)]="self.address.apartment"
-    [maxlength]="20"
-></cr-control-edit></div></div>
-        </ng-template>
-      </cr-panel></ng-container>', '2022-07-15 18:18:43.7933333 +00:00', 12, N'N', '212d0826-c535-4058-8b24-227da51422b6', 1, NULL)
-INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [LanguageID], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES (8, 4, 2, N'<ng-container><cr-title-header
-    [titleTranslateKey]="''PARTNER.DETAILS.ADDRESS.DETAILS_TITLE''"
-    [title]="''''"
-    (buttonClickEvent)="self.onTitleButtonClick($event)"
-    [buttonSettings]="self.titleHeaderButtonSettings"
-></cr-title-header>
-      <cr-panel
-        [panelTemplateType]="''well''"
-        [customClass]="''''"
-      >
-        <ng-template crPanelContent>
-          <div class="row"><div class=''col-md-2''><cr-dropdown-smart-control
-    [elementName]="''smart-dropdown:Partner_details.Address_type''"
-    [dataCacheName]="''AddressTypeDropdownCache''"
-    [useCache]="false"
-    [(value)]="self.address.partnerAddressType.id"
-    [textField]="''name''"
-    [valueField]="''id''"
-    [dataTranslateKeyField]="''translateKey''"
-    [(currentItemValue)]="self.address.partnerAddressType"
-    [getListItemsFunction]="self.loadAddressTypeListForDropdownFn"
-    [validator]="self.addressValidator"
-    [validationField]="''partnerAddressType.id''"
-    [unselectedItemValue]="{id: null, translateKey: ''COMMON.NOT_SELECTED''}"
-    [labelTranslateKey]="''PARTNER.DETAILS.ADDRESS.ADDRESS_TYPE''"
-    [label]="''''"
-    [class]=''""''
-></cr-dropdown-smart-control>
-</div><div class=''col-md-2''><cr-combobox-smart-control
-    [elementName]="''smart-combobox:Partner_details.Address_state''"
-    [dataCacheName]="''ItemStateComboboxCache''"
-    [useCache]="false"
-    [(value)]="self.address.state.id"
-    [(currentItemValue)]="self.address.state"
-    [textField]="''name''"
-    [valueField]="''id''"
-    [getListItemsFunction]="self.loadAddressStateListFunction"
-    [translateKeys]="''PARTNER.DETAILS.ADDRESS.COUNTRY''"
-    [dataLabel]="''''"
-    [valueField]="''id''"
-    [class]=''""''
-    [useCache]="false"
-></cr-combobox-smart-control></div><div class=''col-md-2''><cr-combobox-smart-control
-    [elementName]="''smart-combobox:Partner_details.Address_country''"
-    [dataCacheName]="''ItemCountryComboboxCache''"
-    [useCache]="false"
-    [(value)]="self.address.country.id"
-    [(currentItemValue)]="self.address.country"
-    [textField]="''name''"
-    [valueField]="''id''"
-    [getListItemsFunction]="self.loadAddressCountryListFunction"
-    [translateKeys]="''PARTNER.DETAILS.ADDRESS.STATE''"
-    [dataLabel]="''''"
-    [valueField]="''id''"
-    [class]=''""''
-    [useCache]="false"
-></cr-combobox-smart-control></div><div class=''col-md-2''><cr-combobox-smart-control
-    [elementName]="''smart-combobox:Partner_details.Address_country''"
-    [useCache]="false"
-    [dataCacheName]="''ItemCountyComboboxCache''"
-    [(value)]="self.address.county.id"
-    [(currentItemValue)]="self.address.county"
-    [textField]="''name''"
-    [valueField]="''id''"
-    [getListItemsFunction]="self.loadAddressCountyListFunction"
-    [translateKeys]="''PARTNER.DETAILS.ADDRESS.COUNTY''"
-    [dataLabel]="''''"
-    [valueField]="''id''"
-    [class]=''""''
-    [useCache]="false"
-></cr-combobox-smart-control></div><div class=''col-md-2''><cr-combobox-smart-control
-    [elementName]="''smart-combobox:Partner_details.Address_city''"
-    [useCache]="false"
-    [dataCacheName]="''ItemCityComboboxCache''"
-    [(value)]="self.address.city.id"
-    [(currentItemValue)]="self.address.city"
-    [textField]="''name''"
-    [valueField]="''id''"
-    [getListItemsFunction]="self.loadAddressCityListFunction"
-    [translateKeys]="''PARTNER.DETAILS.ADDRESS.CITY''"
-    [dataLabel]="''''"
-    [valueField]="''id''"
-    [class]=''""''
-    [useCache]="false"
-></cr-combobox-smart-control></div></div><div class="row"><div class=''col-md-2''><cr-control-edit 
-    [translateKeys]="''PARTNER.DETAILS.ADDRESS.ZIP''" 
-    [dataLabel]="''''"
-    [customClass]=''""''
-    [isDisabled]="false"
-    [elementName]="''edit:Partner_details.Address_zip''"
-    [(dataValue)]="self.address.zip"
-></cr-control-edit></div><div class=''col-md-2''><cr-combobox-smart-control
-    [elementName]="''smart-combobox:Partner_details.Address_street''"
-    [useCache]="false"
-    [dataCacheName]="''ItemStreetComboboxCache''"
-    [(value)]="self.address.street.id"
-    [(currentItemValue)]="self.address.street"
-    [textField]="''name''"
-    [valueField]="''id''"
-    [getListItemsFunction]="self.loadAddressStreetListFunction"
-    [translateKeys]="''PARTNER.DETAILS.ADDRESS.STREET''"
-    [dataLabel]="''''"
-    [valueField]="''id''"
-    [class]=''""''
-    [useCache]="false"
-></cr-combobox-smart-control></div><div class=''col-md-2''><cr-control-edit 
-    [translateKeys]="''PARTNER.DETAILS.ADDRESS.BLOCK''" 
-    [dataLabel]="''''"
-    [customClass]=''""''
-    [isDisabled]="false"
-    [elementName]="''edit:Partner_details.Address_block''"
-    [(dataValue)]="self.address.block"
-></cr-control-edit></div><div class=''col-md-2''><cr-control-edit 
-    [translateKeys]="''PARTNER.DETAILS.ADDRESS.STREET_NUMBER''" 
-    [dataLabel]="''''"
-    [customClass]=''""''
-    [isDisabled]="false"
-    [elementName]="''edit:Partner_details.Address_street_number''"
-    [(dataValue)]="self.address.streetNo"
-></cr-control-edit></div><div class=''col-md-2''><cr-control-edit 
-    [translateKeys]="''PARTNER.DETAILS.ADDRESS.APARTMENT''" 
-    [dataLabel]="''''"
-    [customClass]=''""''
-    [isDisabled]="false"
-    [elementName]="''edit:Partner_details.Address_appartment''"
-    [(dataValue)]="self.address.apartment"
-    [maxlength]="20"
-></cr-control-edit></div></div>
-        </ng-template>
-      </cr-panel></ng-container>', '2022-07-15 18:18:43.7933333 +00:00', 12, N'N', '352f4953-8f8f-4251-9d34-672f240a995f', 1, NULL)
-SET IDENTITY_INSERT [dbo].[WebViewSubTemplateName] OFF
-SET IDENTITY_INSERT [dbo].[WebViewSubTemplateName] ON
 INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [LanguageID], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES (1, 1, 1, N'<ng-container><cr-title-header
     [titleTranslateKey]="''PARTNER.DETAILS.GENERAL.MANAGE_MAILING_CATEGORIES''"
     [title]="''''"
@@ -278,7 +16,7 @@ INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [Langu
         [validator]="self.validator"
         [validatorGroupName]="''undefined''"
         [containFields]=''[]''
-        (submit)=''false && self.onSubmit ? self.onSubmit() : null''
+        (submit)=''false && self.onSubmit ? self.onSubmit($event) : null''
       >
         <ng-template crPanelContent>
           <div class="cr-grid-wrapper-new undefined">
@@ -374,7 +112,7 @@ INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [Langu
     </div>
   </div>
         </ng-template>
-      </cr-panel></ng-container>', '2022-08-26 15:38:35.8966667 +00:00', 39, N'N', '60e35795-6ef4-4968-8c97-e17d3149ae80', 1, NULL)
+      </cr-panel></ng-container>', '2022-09-01 17:55:28.9666667 +00:00', 40, N'N', 'a5d10abd-429e-418c-ad99-f1de160bb0f7', 1, NULL)
 INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [LanguageID], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES (2, 1, 2, N'<ng-container><cr-title-header
     [titleTranslateKey]="''PARTNER.DETAILS.GENERAL.MANAGE_MAILING_CATEGORIES''"
     [title]="''''"
@@ -392,7 +130,7 @@ INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [Langu
         [validator]="self.validator"
         [validatorGroupName]="''undefined''"
         [containFields]=''[]''
-        (submit)=''false && self.onSubmit ? self.onSubmit() : null''
+        (submit)=''false && self.onSubmit ? self.onSubmit($event) : null''
       >
         <ng-template crPanelContent>
           <div class="cr-grid-wrapper-new undefined">
@@ -488,7 +226,7 @@ INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [Langu
     </div>
   </div>
         </ng-template>
-      </cr-panel></ng-container>', '2022-08-26 15:38:35.8966667 +00:00', 39, N'N', '5bde8a7d-68f8-4e05-9479-790561e5319b', 1, NULL)
+      </cr-panel></ng-container>', '2022-09-01 17:55:28.9800000 +00:00', 40, N'N', '8d9d3a7c-eb19-4b81-a349-be9b2d5aa5b5', 1, NULL)
 INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [LanguageID], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES (3, 2, 1, N'<ng-container><cr-title-header
     [titleTranslateKey]="''PARTNER.DETAILS.MANAGE_GROUP.TITLE''"
     [title]="''''"
@@ -506,7 +244,7 @@ INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [Langu
         [validator]="self.validator"
         [validatorGroupName]="''undefined''"
         [containFields]=''[]''
-        (submit)=''false && self.onSubmit ? self.onSubmit() : null''
+        (submit)=''false && self.onSubmit ? self.onSubmit($event) : null''
       >
         <ng-template crPanelContent>
           <div class="cr-grid-wrapper-new undefined">
@@ -620,7 +358,7 @@ INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [Langu
     </div>
 </div>
         </ng-template>
-      </cr-panel></ng-container>', '2022-08-26 15:38:35.9133333 +00:00', 34, N'N', '66877586-b435-4886-9132-6b207cd83c43', 1, NULL)
+      </cr-panel></ng-container>', '2022-09-01 17:55:28.9666667 +00:00', 36, N'N', '58e6c3ea-af69-4132-afee-6ae862a62a55', 1, NULL)
 INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [LanguageID], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES (4, 2, 2, N'<ng-container><cr-title-header
     [titleTranslateKey]="''PARTNER.DETAILS.MANAGE_GROUP.TITLE''"
     [title]="''''"
@@ -638,7 +376,7 @@ INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [Langu
         [validator]="self.validator"
         [validatorGroupName]="''undefined''"
         [containFields]=''[]''
-        (submit)=''false && self.onSubmit ? self.onSubmit() : null''
+        (submit)=''false && self.onSubmit ? self.onSubmit($event) : null''
       >
         <ng-template crPanelContent>
           <div class="cr-grid-wrapper-new undefined">
@@ -752,7 +490,7 @@ INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [Langu
     </div>
 </div>
         </ng-template>
-      </cr-panel></ng-container>', '2022-08-26 15:38:36.1333333 +00:00', 34, N'N', '34c8ad6e-3cbc-4ae1-82d5-c8df87fa92f6', 1, NULL)
+      </cr-panel></ng-container>', '2022-09-01 17:55:28.9666667 +00:00', 36, N'N', '81c9e302-0600-4117-aed7-61389a1ae9a1', 1, NULL)
 INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [LanguageID], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES (5, 3, 1, N'<ng-container><cr-title-header
     [titleTranslateKey]="''PARTNER.DETAILS.ADDRESS.DETAILS_TITLE''"
     [title]="''''"
@@ -1013,6 +751,266 @@ INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [Langu
 ></cr-control-edit></div></div>
         </ng-template>
       </cr-panel></ng-container>', '2022-08-26 15:38:36.3366667 +00:00', 39, N'N', '4083ab15-c1c6-417a-9498-d595e67dcc48', 1, NULL)
+INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [LanguageID], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES (7, 4, 1, N'<ng-container><cr-title-header
+    [titleTranslateKey]="''PARTNER.DETAILS.ADDRESS.DETAILS_TITLE''"
+    [title]="''''"
+    (buttonClickEvent)="self.onTitleButtonClick($event)"
+    [buttonSettings]="self.titleHeaderButtonSettings"
+></cr-title-header>
+      <cr-panel
+        [panelTemplateType]="''well''"
+        [customClass]="''''"
+      >
+        <ng-template crPanelContent>
+          <div class="row"><div class=''col-md-2''><cr-dropdown-smart-control
+    [elementName]="''smart-dropdown:Partner_details.Address_type''"
+    [dataCacheName]="''AddressTypeDropdownCache''"
+    [useCache]="false"
+    [(value)]="self.address.partnerAddressType.id"
+    [textField]="''name''"
+    [valueField]="''id''"
+    [dataTranslateKeyField]="''translateKey''"
+    [(currentItemValue)]="self.address.partnerAddressType"
+    [getListItemsFunction]="self.loadAddressTypeListForDropdownFn"
+    [validator]="self.addressValidator"
+    [validationField]="''partnerAddressType.id''"
+    [unselectedItemValue]="{id: null, translateKey: ''COMMON.NOT_SELECTED''}"
+    [labelTranslateKey]="''PARTNER.DETAILS.ADDRESS.ADDRESS_TYPE''"
+    [label]="''''"
+    [class]=''""''
+></cr-dropdown-smart-control>
+</div><div class=''col-md-2''><cr-combobox-smart-control
+    [elementName]="''smart-combobox:Partner_details.Address_state''"
+    [dataCacheName]="''ItemStateComboboxCache''"
+    [useCache]="false"
+    [(value)]="self.address.state.id"
+    [(currentItemValue)]="self.address.state"
+    [textField]="''name''"
+    [valueField]="''id''"
+    [getListItemsFunction]="self.loadAddressStateListFunction"
+    [translateKeys]="''PARTNER.DETAILS.ADDRESS.COUNTRY''"
+    [dataLabel]="''''"
+    [valueField]="''id''"
+    [class]=''""''
+    [useCache]="false"
+></cr-combobox-smart-control></div><div class=''col-md-2''><cr-combobox-smart-control
+    [elementName]="''smart-combobox:Partner_details.Address_country''"
+    [dataCacheName]="''ItemCountryComboboxCache''"
+    [useCache]="false"
+    [(value)]="self.address.country.id"
+    [(currentItemValue)]="self.address.country"
+    [textField]="''name''"
+    [valueField]="''id''"
+    [getListItemsFunction]="self.loadAddressCountryListFunction"
+    [translateKeys]="''PARTNER.DETAILS.ADDRESS.STATE''"
+    [dataLabel]="''''"
+    [valueField]="''id''"
+    [class]=''""''
+    [useCache]="false"
+></cr-combobox-smart-control></div><div class=''col-md-2''><cr-combobox-smart-control
+    [elementName]="''smart-combobox:Partner_details.Address_country''"
+    [useCache]="false"
+    [dataCacheName]="''ItemCountyComboboxCache''"
+    [(value)]="self.address.county.id"
+    [(currentItemValue)]="self.address.county"
+    [textField]="''name''"
+    [valueField]="''id''"
+    [getListItemsFunction]="self.loadAddressCountyListFunction"
+    [translateKeys]="''PARTNER.DETAILS.ADDRESS.COUNTY''"
+    [dataLabel]="''''"
+    [valueField]="''id''"
+    [class]=''""''
+    [useCache]="false"
+></cr-combobox-smart-control></div><div class=''col-md-2''><cr-combobox-smart-control
+    [elementName]="''smart-combobox:Partner_details.Address_city''"
+    [useCache]="false"
+    [dataCacheName]="''ItemCityComboboxCache''"
+    [(value)]="self.address.city.id"
+    [(currentItemValue)]="self.address.city"
+    [textField]="''name''"
+    [valueField]="''id''"
+    [getListItemsFunction]="self.loadAddressCityListFunction"
+    [translateKeys]="''PARTNER.DETAILS.ADDRESS.CITY''"
+    [dataLabel]="''''"
+    [valueField]="''id''"
+    [class]=''""''
+    [useCache]="false"
+></cr-combobox-smart-control></div></div><div class="row"><div class=''col-md-2''><cr-control-edit 
+    [translateKeys]="''PARTNER.DETAILS.ADDRESS.ZIP''" 
+    [dataLabel]="''''"
+    [customClass]=''""''
+    [isDisabled]="false"
+    [elementName]="''edit:Partner_details.Address_zip''"
+    [(dataValue)]="self.address.zip"
+></cr-control-edit></div><div class=''col-md-2''><cr-combobox-smart-control
+    [elementName]="''smart-combobox:Partner_details.Address_street''"
+    [useCache]="false"
+    [dataCacheName]="''ItemStreetComboboxCache''"
+    [(value)]="self.address.street.id"
+    [(currentItemValue)]="self.address.street"
+    [textField]="''name''"
+    [valueField]="''id''"
+    [getListItemsFunction]="self.loadAddressStreetListFunction"
+    [translateKeys]="''PARTNER.DETAILS.ADDRESS.STREET''"
+    [dataLabel]="''''"
+    [valueField]="''id''"
+    [class]=''""''
+    [useCache]="false"
+></cr-combobox-smart-control></div><div class=''col-md-2''><cr-control-edit 
+    [translateKeys]="''PARTNER.DETAILS.ADDRESS.BLOCK''" 
+    [dataLabel]="''''"
+    [customClass]=''""''
+    [isDisabled]="false"
+    [elementName]="''edit:Partner_details.Address_block''"
+    [(dataValue)]="self.address.block"
+></cr-control-edit></div><div class=''col-md-2''><cr-control-edit 
+    [translateKeys]="''PARTNER.DETAILS.ADDRESS.STREET_NUMBER''" 
+    [dataLabel]="''''"
+    [customClass]=''""''
+    [isDisabled]="false"
+    [elementName]="''edit:Partner_details.Address_street_number''"
+    [(dataValue)]="self.address.streetNo"
+></cr-control-edit></div><div class=''col-md-2''><cr-control-edit 
+    [translateKeys]="''PARTNER.DETAILS.ADDRESS.APARTMENT''" 
+    [dataLabel]="''''"
+    [customClass]=''""''
+    [isDisabled]="false"
+    [elementName]="''edit:Partner_details.Address_appartment''"
+    [(dataValue)]="self.address.apartment"
+    [maxlength]="20"
+></cr-control-edit></div></div>
+        </ng-template>
+      </cr-panel></ng-container>', '2022-07-15 18:18:43.7933333 +00:00', 12, N'N', '212d0826-c535-4058-8b24-227da51422b6', 1, NULL)
+INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [LanguageID], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES (8, 4, 2, N'<ng-container><cr-title-header
+    [titleTranslateKey]="''PARTNER.DETAILS.ADDRESS.DETAILS_TITLE''"
+    [title]="''''"
+    (buttonClickEvent)="self.onTitleButtonClick($event)"
+    [buttonSettings]="self.titleHeaderButtonSettings"
+></cr-title-header>
+      <cr-panel
+        [panelTemplateType]="''well''"
+        [customClass]="''''"
+      >
+        <ng-template crPanelContent>
+          <div class="row"><div class=''col-md-2''><cr-dropdown-smart-control
+    [elementName]="''smart-dropdown:Partner_details.Address_type''"
+    [dataCacheName]="''AddressTypeDropdownCache''"
+    [useCache]="false"
+    [(value)]="self.address.partnerAddressType.id"
+    [textField]="''name''"
+    [valueField]="''id''"
+    [dataTranslateKeyField]="''translateKey''"
+    [(currentItemValue)]="self.address.partnerAddressType"
+    [getListItemsFunction]="self.loadAddressTypeListForDropdownFn"
+    [validator]="self.addressValidator"
+    [validationField]="''partnerAddressType.id''"
+    [unselectedItemValue]="{id: null, translateKey: ''COMMON.NOT_SELECTED''}"
+    [labelTranslateKey]="''PARTNER.DETAILS.ADDRESS.ADDRESS_TYPE''"
+    [label]="''''"
+    [class]=''""''
+></cr-dropdown-smart-control>
+</div><div class=''col-md-2''><cr-combobox-smart-control
+    [elementName]="''smart-combobox:Partner_details.Address_state''"
+    [dataCacheName]="''ItemStateComboboxCache''"
+    [useCache]="false"
+    [(value)]="self.address.state.id"
+    [(currentItemValue)]="self.address.state"
+    [textField]="''name''"
+    [valueField]="''id''"
+    [getListItemsFunction]="self.loadAddressStateListFunction"
+    [translateKeys]="''PARTNER.DETAILS.ADDRESS.COUNTRY''"
+    [dataLabel]="''''"
+    [valueField]="''id''"
+    [class]=''""''
+    [useCache]="false"
+></cr-combobox-smart-control></div><div class=''col-md-2''><cr-combobox-smart-control
+    [elementName]="''smart-combobox:Partner_details.Address_country''"
+    [dataCacheName]="''ItemCountryComboboxCache''"
+    [useCache]="false"
+    [(value)]="self.address.country.id"
+    [(currentItemValue)]="self.address.country"
+    [textField]="''name''"
+    [valueField]="''id''"
+    [getListItemsFunction]="self.loadAddressCountryListFunction"
+    [translateKeys]="''PARTNER.DETAILS.ADDRESS.STATE''"
+    [dataLabel]="''''"
+    [valueField]="''id''"
+    [class]=''""''
+    [useCache]="false"
+></cr-combobox-smart-control></div><div class=''col-md-2''><cr-combobox-smart-control
+    [elementName]="''smart-combobox:Partner_details.Address_country''"
+    [useCache]="false"
+    [dataCacheName]="''ItemCountyComboboxCache''"
+    [(value)]="self.address.county.id"
+    [(currentItemValue)]="self.address.county"
+    [textField]="''name''"
+    [valueField]="''id''"
+    [getListItemsFunction]="self.loadAddressCountyListFunction"
+    [translateKeys]="''PARTNER.DETAILS.ADDRESS.COUNTY''"
+    [dataLabel]="''''"
+    [valueField]="''id''"
+    [class]=''""''
+    [useCache]="false"
+></cr-combobox-smart-control></div><div class=''col-md-2''><cr-combobox-smart-control
+    [elementName]="''smart-combobox:Partner_details.Address_city''"
+    [useCache]="false"
+    [dataCacheName]="''ItemCityComboboxCache''"
+    [(value)]="self.address.city.id"
+    [(currentItemValue)]="self.address.city"
+    [textField]="''name''"
+    [valueField]="''id''"
+    [getListItemsFunction]="self.loadAddressCityListFunction"
+    [translateKeys]="''PARTNER.DETAILS.ADDRESS.CITY''"
+    [dataLabel]="''''"
+    [valueField]="''id''"
+    [class]=''""''
+    [useCache]="false"
+></cr-combobox-smart-control></div></div><div class="row"><div class=''col-md-2''><cr-control-edit 
+    [translateKeys]="''PARTNER.DETAILS.ADDRESS.ZIP''" 
+    [dataLabel]="''''"
+    [customClass]=''""''
+    [isDisabled]="false"
+    [elementName]="''edit:Partner_details.Address_zip''"
+    [(dataValue)]="self.address.zip"
+></cr-control-edit></div><div class=''col-md-2''><cr-combobox-smart-control
+    [elementName]="''smart-combobox:Partner_details.Address_street''"
+    [useCache]="false"
+    [dataCacheName]="''ItemStreetComboboxCache''"
+    [(value)]="self.address.street.id"
+    [(currentItemValue)]="self.address.street"
+    [textField]="''name''"
+    [valueField]="''id''"
+    [getListItemsFunction]="self.loadAddressStreetListFunction"
+    [translateKeys]="''PARTNER.DETAILS.ADDRESS.STREET''"
+    [dataLabel]="''''"
+    [valueField]="''id''"
+    [class]=''""''
+    [useCache]="false"
+></cr-combobox-smart-control></div><div class=''col-md-2''><cr-control-edit 
+    [translateKeys]="''PARTNER.DETAILS.ADDRESS.BLOCK''" 
+    [dataLabel]="''''"
+    [customClass]=''""''
+    [isDisabled]="false"
+    [elementName]="''edit:Partner_details.Address_block''"
+    [(dataValue)]="self.address.block"
+></cr-control-edit></div><div class=''col-md-2''><cr-control-edit 
+    [translateKeys]="''PARTNER.DETAILS.ADDRESS.STREET_NUMBER''" 
+    [dataLabel]="''''"
+    [customClass]=''""''
+    [isDisabled]="false"
+    [elementName]="''edit:Partner_details.Address_street_number''"
+    [(dataValue)]="self.address.streetNo"
+></cr-control-edit></div><div class=''col-md-2''><cr-control-edit 
+    [translateKeys]="''PARTNER.DETAILS.ADDRESS.APARTMENT''" 
+    [dataLabel]="''''"
+    [customClass]=''""''
+    [isDisabled]="false"
+    [elementName]="''edit:Partner_details.Address_appartment''"
+    [(dataValue)]="self.address.apartment"
+    [maxlength]="20"
+></cr-control-edit></div></div>
+        </ng-template>
+      </cr-panel></ng-container>', '2022-07-15 18:18:43.7933333 +00:00', 12, N'N', '352f4953-8f8f-4251-9d34-672f240a995f', 1, NULL)
 INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [LanguageID], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES (10007, 10005, 1, N'<ng-container><cr-title-header
     [titleTranslateKey]="''PARTNER.DETAILS.CONTACT_PERSON.DETAILS_TITLE''"
     [title]="''''"
@@ -1208,7 +1206,7 @@ INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [Langu
         [validator]="self.validator"
         [validatorGroupName]="''undefined''"
         [containFields]=''[]''
-        (submit)=''false && self.onSubmit ? self.onSubmit() : null''
+        (submit)=''false && self.onSubmit ? self.onSubmit($event) : null''
       >
         <ng-template crPanelContent>
           <cr-partner-mailing-category-control
@@ -1225,7 +1223,7 @@ INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [Langu
         </ng-template>
       </cr-panel></div></div>
         </ng-template>
-      </cr-panel></ng-container>', '2022-08-26 15:38:36.5233333 +00:00', 10, N'N', '2b916501-1cda-4e94-a067-4c7fa7c569c7', 1, NULL)
+      </cr-panel></ng-container>', '2022-09-01 17:55:29.0000000 +00:00', 12, N'N', 'adbc53dc-588c-4306-8eaa-1e516cdb357b', 1, NULL)
 INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [LanguageID], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES (10008, 10005, 2, N'<ng-container><cr-title-header
     [titleTranslateKey]="''PARTNER.DETAILS.CONTACT_PERSON.DETAILS_TITLE''"
     [title]="''''"
@@ -1421,7 +1419,7 @@ INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [Langu
         [validator]="self.validator"
         [validatorGroupName]="''undefined''"
         [containFields]=''[]''
-        (submit)=''false && self.onSubmit ? self.onSubmit() : null''
+        (submit)=''false && self.onSubmit ? self.onSubmit($event) : null''
       >
         <ng-template crPanelContent>
           <cr-partner-mailing-category-control
@@ -1438,7 +1436,7 @@ INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [Langu
         </ng-template>
       </cr-panel></div></div>
         </ng-template>
-      </cr-panel></ng-container>', '2022-08-26 15:38:36.5233333 +00:00', 10, N'N', '548b91e0-700c-4d37-9ea4-aaf42672d75e', 1, NULL)
+      </cr-panel></ng-container>', '2022-09-01 17:55:32.0366667 +00:00', 12, N'N', 'b60be8e1-defc-4399-b912-66a018ee7db6', 1, NULL)
 INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [LanguageID], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES (10009, 10006, 1, N'<ng-container><cr-title-header
     [titleTranslateKey]="''PARTNER.DETAILS.ADDRESS.DETAILS_TITLE''"
     [title]="''''"
@@ -1568,7 +1566,7 @@ INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [Langu
     [maxlength]="20"
 ></cr-control-edit></div></div>
         </ng-template>
-      </cr-panel></ng-container>', '2022-08-26 15:38:36.0600000 +00:00', 4, N'N', 'e7b48d94-47b6-4147-8dc3-9929795bf371', 1, NULL)
+      </cr-panel></ng-container>', '2022-09-01 17:55:28.9766667 +00:00', 5, N'N', '69b330d0-5c41-49f1-a310-2f330e20c2b8', 1, NULL)
 INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [LanguageID], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES (10010, 10006, 2, N'<ng-container><cr-title-header
     [titleTranslateKey]="''PARTNER.DETAILS.ADDRESS.DETAILS_TITLE''"
     [title]="''''"
@@ -1698,5 +1696,5 @@ INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [Langu
     [maxlength]="20"
 ></cr-control-edit></div></div>
         </ng-template>
-      </cr-panel></ng-container>', '2022-08-26 15:38:36.4066667 +00:00', 4, N'N', '12aecd19-6bb9-45d0-b2a5-ddd50c300956', 1, NULL)
+      </cr-panel></ng-container>', '2022-09-01 17:55:29.0000000 +00:00', 5, N'N', '04192cad-d474-4bf9-bdde-d0ef338bf0f2', 1, NULL)
 SET IDENTITY_INSERT [dbo].[WebViewSubTemplateName] OFF
