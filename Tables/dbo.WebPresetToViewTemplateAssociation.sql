@@ -1,7 +1,7 @@
 CREATE TABLE [dbo].[WebPresetToViewTemplateAssociation]
 (
 [ID] [bigint] NOT NULL IDENTITY(1, 1),
-[WebPresetID] [bigint] NULL,
+[WebPresetID] [uniqueidentifier] NULL,
 [WebViewID] [bigint] NULL,
 [WebViewTemplateID] [bigint] NULL,
 [UpdateDate] [datetimeoffset] NOT NULL CONSTRAINT [DF_WebPresetToViewTemplateAssotiation_UpdateDate] DEFAULT (sysdatetimeoffset()),
@@ -14,7 +14,7 @@ CREATE TABLE [dbo].[WebPresetToViewTemplateAssociation]
 GO
 ALTER TABLE [dbo].[WebPresetToViewTemplateAssociation] ADD CONSTRAINT [PK_WebPresetToViewTemplateAssociation] PRIMARY KEY CLUSTERED ([ID]) ON [PRIMARY]
 GO
-ALTER TABLE [dbo].[WebPresetToViewTemplateAssociation] ADD CONSTRAINT [FK_WebPresetToViewTemplateAssotiation_WebPreset] FOREIGN KEY ([WebPresetID]) REFERENCES [dbo].[WebPreset] ([ID])
+ALTER TABLE [dbo].[WebPresetToViewTemplateAssociation] ADD CONSTRAINT [FK_WebPresetToViewTemplateAssociation_WebPreset] FOREIGN KEY ([WebPresetID]) REFERENCES [dbo].[WebPreset] ([ID])
 GO
 ALTER TABLE [dbo].[WebPresetToViewTemplateAssociation] ADD CONSTRAINT [FK_WebPresetToViewTemplateAssotiation_WebView] FOREIGN KEY ([WebViewID]) REFERENCES [dbo].[WebView] ([ID])
 GO

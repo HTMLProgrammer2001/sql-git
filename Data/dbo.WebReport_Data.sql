@@ -6555,7 +6555,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [Name], [Code], [Rdl], [WebReportCategoryID
             <Left>9pt</Left>
             <Top>11.25pt</Top>
             <Height>54pt</Height>
-            <Width>441.75pt</Width>
+            <Width>513.75pt</Width>
             <Style>
               <FontFamily>Arial</FontFamily>
               <Border>
@@ -6569,19 +6569,19 @@ INSERT INTO [dbo].[WebReport] ([ID], [Name], [Code], [Rdl], [WebReportCategoryID
             <TablixBody>
               <TablixColumns>
                 <TablixColumn>
-                  <Width>88.34766pt</Width>
+                  <Width>102.73828pt</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>88.34766pt</Width>
+                  <Width>102.73828pt</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>88.34766pt</Width>
+                  <Width>102.73828pt</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>88.34766pt</Width>
+                  <Width>102.73828pt</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>88.35938pt</Width>
+                  <Width>102.79688pt</Width>
                 </TablixColumn>
               </TablixColumns>
               <TablixRows>
@@ -6594,7 +6594,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [Name], [Code], [Rdl], [WebReportCategoryID
                           <Left>0in</Left>
                           <Top>0in</Top>
                           <Height>18pt</Height>
-                          <Width>88.34775pt</Width>
+                          <Width>102.738pt</Width>
                           <Style>
                             <BackgroundColor>#e3e3e3</BackgroundColor>
                             <FontFamily>Arial</FontFamily>
@@ -6651,7 +6651,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [Name], [Code], [Rdl], [WebReportCategoryID
                           <Left>0in</Left>
                           <Top>0in</Top>
                           <Height>18pt</Height>
-                          <Width>88.34775pt</Width>
+                          <Width>102.738pt</Width>
                           <Style>
                             <BackgroundColor>#e3e3e3</BackgroundColor>
                             <FontFamily>Arial</FontFamily>
@@ -6708,7 +6708,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [Name], [Code], [Rdl], [WebReportCategoryID
                           <Left>0in</Left>
                           <Top>0in</Top>
                           <Height>18pt</Height>
-                          <Width>88.34775pt</Width>
+                          <Width>102.738pt</Width>
                           <Style>
                             <BackgroundColor>#e3e3e3</BackgroundColor>
                             <FontFamily>Arial</FontFamily>
@@ -6765,7 +6765,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [Name], [Code], [Rdl], [WebReportCategoryID
                           <Left>0in</Left>
                           <Top>0in</Top>
                           <Height>18pt</Height>
-                          <Width>88.34775pt</Width>
+                          <Width>102.738pt</Width>
                           <Style>
                             <BackgroundColor>#e3e3e3</BackgroundColor>
                             <FontFamily>Arial</FontFamily>
@@ -6822,7 +6822,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [Name], [Code], [Rdl], [WebReportCategoryID
                           <Left>0in</Left>
                           <Top>0in</Top>
                           <Height>18pt</Height>
-                          <Width>88.359pt</Width>
+                          <Width>102.7965pt</Width>
                           <Style>
                             <BackgroundColor>#e3e3e3</BackgroundColor>
                             <FontFamily>Arial</FontFamily>
@@ -6884,7 +6884,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [Name], [Code], [Rdl], [WebReportCategoryID
                           <Left>0in</Left>
                           <Top>0in</Top>
                           <Height>18pt</Height>
-                          <Width>88.34775pt</Width>
+                          <Width>102.738pt</Width>
                           <Style>
                             <FontFamily>Arial</FontFamily>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -6938,7 +6938,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [Name], [Code], [Rdl], [WebReportCategoryID
                           <Left>0in</Left>
                           <Top>0in</Top>
                           <Height>18pt</Height>
-                          <Width>88.34775pt</Width>
+                          <Width>102.738pt</Width>
                           <Style>
                             <FontFamily>Arial</FontFamily>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -6998,7 +6998,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [Name], [Code], [Rdl], [WebReportCategoryID
                           <Left>0in</Left>
                           <Top>0in</Top>
                           <Height>18pt</Height>
-                          <Width>88.34775pt</Width>
+                          <Width>102.738pt</Width>
                           <Style>
                             <FontFamily>Arial</FontFamily>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -7058,7 +7058,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [Name], [Code], [Rdl], [WebReportCategoryID
                           <Left>0in</Left>
                           <Top>0in</Top>
                           <Height>18pt</Height>
-                          <Width>88.34775pt</Width>
+                          <Width>102.738pt</Width>
                           <Style>
                             <FontFamily>Arial</FontFamily>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -7118,7 +7118,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [Name], [Code], [Rdl], [WebReportCategoryID
                           <Left>0in</Left>
                           <Top>0in</Top>
                           <Height>18pt</Height>
-                          <Width>88.359pt</Width>
+                          <Width>102.7965pt</Width>
                           <Style>
                             <FontFamily>Arial</FontFamily>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -7183,7 +7183,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [Name], [Code], [Rdl], [WebReportCategoryID
                           <Left>0in</Left>
                           <Top>0in</Top>
                           <Height>18pt</Height>
-                          <Width>88.34775pt</Width>
+                          <Width>102.738pt</Width>
                           <Style>
                             <BackgroundColor>#ffffff</BackgroundColor>
                             <FontFamily>Arial</FontFamily>
@@ -7195,8 +7195,17 @@ INSERT INTO [dbo].[WebReport] ([ID], [Name], [Code], [Rdl], [WebReportCategoryID
                               <Color>LightGrey</Color>
                               <Style>None</Style>
                             </Border>
-                            <TopBorder>
+                            <BottomBorder>
+                              <Style>None</Style>
+                            </BottomBorder>
+                            <LeftBorder>
+                              <Style>None</Style>
+                            </LeftBorder>
+                            <RightBorder>
                               <Style>Solid</Style>
+                            </RightBorder>
+                            <TopBorder>
+                              <Style>None</Style>
                             </TopBorder>
                           </Style>
                           <CanGrow>true</CanGrow>
@@ -7228,7 +7237,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [Name], [Code], [Rdl], [WebReportCategoryID
                           <Left>0in</Left>
                           <Top>0in</Top>
                           <Height>18pt</Height>
-                          <Width>88.34775pt</Width>
+                          <Width>102.738pt</Width>
                           <Style>
                             <BackgroundColor>#e3e3e3</BackgroundColor>
                             <FontFamily>Arial</FontFamily>
@@ -7273,7 +7282,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [Name], [Code], [Rdl], [WebReportCategoryID
                           <Left>0in</Left>
                           <Top>0in</Top>
                           <Height>18pt</Height>
-                          <Width>88.34775pt</Width>
+                          <Width>102.738pt</Width>
                           <Style>
                             <BackgroundColor>#e3e3e3</BackgroundColor>
                             <FontFamily>Arial</FontFamily>
@@ -7325,7 +7334,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [Name], [Code], [Rdl], [WebReportCategoryID
                           <Left>0in</Left>
                           <Top>0in</Top>
                           <Height>18pt</Height>
-                          <Width>88.34775pt</Width>
+                          <Width>102.738pt</Width>
                           <Style>
                             <BackgroundColor>#e3e3e3</BackgroundColor>
                             <FontFamily>Arial</FontFamily>
@@ -7377,7 +7386,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [Name], [Code], [Rdl], [WebReportCategoryID
                           <Left>0in</Left>
                           <Top>0in</Top>
                           <Height>18pt</Height>
-                          <Width>88.359pt</Width>
+                          <Width>102.7965pt</Width>
                           <Style>
                             <BackgroundColor>#e3e3e3</BackgroundColor>
                             <FontFamily>Arial</FontFamily>
@@ -7450,11 +7459,11 @@ INSERT INTO [dbo].[WebReport] ([ID], [Name], [Code], [Rdl], [WebReportCategoryID
               </TablixMembers>
             </TablixRowHierarchy>
           </Tablix>
-          <Tablix Name="Tablix1">
+          <Tablix Name="TableCompany">
             <Left>9.75pt</Left>
             <Top>77.25pt</Top>
             <Height>54pt</Height>
-            <Width>441.75pt</Width>
+            <Width>513pt</Width>
             <Style>
               <FontFamily>Arial</FontFamily>
               <Border>
@@ -7468,19 +7477,19 @@ INSERT INTO [dbo].[WebReport] ([ID], [Name], [Code], [Rdl], [WebReportCategoryID
             <TablixBody>
               <TablixColumns>
                 <TablixColumn>
-                  <Width>88.34766pt</Width>
+                  <Width>102.59766pt</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>88.34766pt</Width>
+                  <Width>102.59766pt</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>88.34766pt</Width>
+                  <Width>102.59766pt</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>88.34766pt</Width>
+                  <Width>102.59766pt</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>88.35938pt</Width>
+                  <Width>102.60938pt</Width>
                 </TablixColumn>
               </TablixColumns>
               <TablixRows>
@@ -7493,7 +7502,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [Name], [Code], [Rdl], [WebReportCategoryID
                           <Left>0in</Left>
                           <Top>0in</Top>
                           <Height>18pt</Height>
-                          <Width>88.34775pt</Width>
+                          <Width>102.59775pt</Width>
                           <Style>
                             <BackgroundColor>#e3e3e3</BackgroundColor>
                             <FontFamily>Arial</FontFamily>
@@ -7550,7 +7559,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [Name], [Code], [Rdl], [WebReportCategoryID
                           <Left>0in</Left>
                           <Top>0in</Top>
                           <Height>18pt</Height>
-                          <Width>88.34775pt</Width>
+                          <Width>102.59775pt</Width>
                           <Style>
                             <BackgroundColor>#e3e3e3</BackgroundColor>
                             <FontFamily>Arial</FontFamily>
@@ -7607,7 +7616,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [Name], [Code], [Rdl], [WebReportCategoryID
                           <Left>0in</Left>
                           <Top>0in</Top>
                           <Height>18pt</Height>
-                          <Width>88.34775pt</Width>
+                          <Width>102.59775pt</Width>
                           <Style>
                             <BackgroundColor>#e3e3e3</BackgroundColor>
                             <FontFamily>Arial</FontFamily>
@@ -7664,7 +7673,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [Name], [Code], [Rdl], [WebReportCategoryID
                           <Left>0in</Left>
                           <Top>0in</Top>
                           <Height>18pt</Height>
-                          <Width>88.34775pt</Width>
+                          <Width>102.59775pt</Width>
                           <Style>
                             <BackgroundColor>#e3e3e3</BackgroundColor>
                             <FontFamily>Arial</FontFamily>
@@ -7721,7 +7730,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [Name], [Code], [Rdl], [WebReportCategoryID
                           <Left>0in</Left>
                           <Top>0in</Top>
                           <Height>18pt</Height>
-                          <Width>88.359pt</Width>
+                          <Width>102.609pt</Width>
                           <Style>
                             <BackgroundColor>#e3e3e3</BackgroundColor>
                             <FontFamily>Arial</FontFamily>
@@ -7779,11 +7788,11 @@ INSERT INTO [dbo].[WebReport] ([ID], [Name], [Code], [Rdl], [WebReportCategoryID
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="TextBox23">
+                        <Textbox Name="TextBox29">
                           <Left>0in</Left>
                           <Top>0in</Top>
                           <Height>18pt</Height>
-                          <Width>88.34775pt</Width>
+                          <Width>102.59775pt</Width>
                           <Style>
                             <FontFamily>Arial</FontFamily>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -7833,11 +7842,11 @@ INSERT INTO [dbo].[WebReport] ([ID], [Name], [Code], [Rdl], [WebReportCategoryID
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="TextBox22">
+                        <Textbox Name="TextBox30">
                           <Left>0in</Left>
                           <Top>0in</Top>
                           <Height>18pt</Height>
-                          <Width>88.34775pt</Width>
+                          <Width>102.59775pt</Width>
                           <Style>
                             <FontFamily>Arial</FontFamily>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -7893,11 +7902,11 @@ INSERT INTO [dbo].[WebReport] ([ID], [Name], [Code], [Rdl], [WebReportCategoryID
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="TextBox21">
+                        <Textbox Name="TextBox35">
                           <Left>0in</Left>
                           <Top>0in</Top>
                           <Height>18pt</Height>
-                          <Width>88.34775pt</Width>
+                          <Width>102.59775pt</Width>
                           <Style>
                             <FontFamily>Arial</FontFamily>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -7953,11 +7962,11 @@ INSERT INTO [dbo].[WebReport] ([ID], [Name], [Code], [Rdl], [WebReportCategoryID
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="TextBox20">
+                        <Textbox Name="TextBox36">
                           <Left>0in</Left>
                           <Top>0in</Top>
                           <Height>18pt</Height>
-                          <Width>88.34775pt</Width>
+                          <Width>102.59775pt</Width>
                           <Style>
                             <FontFamily>Arial</FontFamily>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -8013,11 +8022,11 @@ INSERT INTO [dbo].[WebReport] ([ID], [Name], [Code], [Rdl], [WebReportCategoryID
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="TextBox5">
+                        <Textbox Name="TextBox37">
                           <Left>0in</Left>
                           <Top>0in</Top>
                           <Height>18pt</Height>
-                          <Width>88.359pt</Width>
+                          <Width>102.609pt</Width>
                           <Style>
                             <FontFamily>Arial</FontFamily>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -8082,7 +8091,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [Name], [Code], [Rdl], [WebReportCategoryID
                           <Left>0in</Left>
                           <Top>0in</Top>
                           <Height>18pt</Height>
-                          <Width>88.34775pt</Width>
+                          <Width>102.59775pt</Width>
                           <Style>
                             <FontFamily>Arial</FontFamily>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -8094,7 +8103,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [Name], [Code], [Rdl], [WebReportCategoryID
                               <Style>None</Style>
                             </Border>
                             <BottomBorder>
-                              <Style>Solid</Style>
+                              <Style>None</Style>
                             </BottomBorder>
                             <LeftBorder>
                               <Style>None</Style>
@@ -8136,7 +8145,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [Name], [Code], [Rdl], [WebReportCategoryID
                           <Left>0in</Left>
                           <Top>0in</Top>
                           <Height>18pt</Height>
-                          <Width>88.34775pt</Width>
+                          <Width>102.59775pt</Width>
                           <Style>
                             <BackgroundColor>#e3e3e3</BackgroundColor>
                             <FontFamily>Arial</FontFamily>
@@ -8181,7 +8190,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [Name], [Code], [Rdl], [WebReportCategoryID
                           <Left>0in</Left>
                           <Top>0in</Top>
                           <Height>18pt</Height>
-                          <Width>88.34775pt</Width>
+                          <Width>102.59775pt</Width>
                           <Style>
                             <BackgroundColor>#e3e3e3</BackgroundColor>
                             <FontFamily>Arial</FontFamily>
@@ -8203,7 +8212,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [Name], [Code], [Rdl], [WebReportCategoryID
                               <Style>None</Style>
                             </RightBorder>
                             <TopBorder>
-                              <Style>None</Style>
+                              <Style>Solid</Style>
                             </TopBorder>
                           </Style>
                           <CanGrow>true</CanGrow>
@@ -8242,7 +8251,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [Name], [Code], [Rdl], [WebReportCategoryID
                           <Left>0in</Left>
                           <Top>0in</Top>
                           <Height>18pt</Height>
-                          <Width>88.34775pt</Width>
+                          <Width>102.59775pt</Width>
                           <Style>
                             <BackgroundColor>#e3e3e3</BackgroundColor>
                             <FontFamily>Arial</FontFamily>
@@ -8264,7 +8273,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [Name], [Code], [Rdl], [WebReportCategoryID
                               <Style>None</Style>
                             </RightBorder>
                             <TopBorder>
-                              <Style>None</Style>
+                              <Style>Solid</Style>
                             </TopBorder>
                           </Style>
                           <CanGrow>true</CanGrow>
@@ -8303,7 +8312,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [Name], [Code], [Rdl], [WebReportCategoryID
                           <Left>0in</Left>
                           <Top>0in</Top>
                           <Height>18pt</Height>
-                          <Width>88.359pt</Width>
+                          <Width>102.609pt</Width>
                           <Style>
                             <BackgroundColor>#e3e3e3</BackgroundColor>
                             <FontFamily>Arial</FontFamily>
@@ -8325,7 +8334,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [Name], [Code], [Rdl], [WebReportCategoryID
                               <Style>None</Style>
                             </RightBorder>
                             <TopBorder>
-                              <Style>None</Style>
+                              <Style>Solid</Style>
                             </TopBorder>
                           </Style>
                           <CanGrow>true</CanGrow>
@@ -8389,7 +8398,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [Name], [Code], [Rdl], [WebReportCategoryID
             <Left>10.5pt</Left>
             <Top>141.75pt</Top>
             <Height>54pt</Height>
-            <Width>441.75pt</Width>
+            <Width>511.50003pt</Width>
             <Style>
               <FontFamily>Arial</FontFamily>
               <Border>
@@ -8397,25 +8406,34 @@ INSERT INTO [dbo].[WebReport] ([ID], [Name], [Code], [Rdl], [WebReportCategoryID
               </Border>
             </Style>
             <Visibility>
-              <Hidden>=IIf(Parameters!ReportType.Value=1,False,True)</Hidden>
+              <Hidden>=IIf(Parameters!ReportType.Value=2,False,True)</Hidden>
             </Visibility>
-            <DataSetName>CompanyData</DataSetName>
+            <DataSetName>ItemData</DataSetName>
             <TablixBody>
               <TablixColumns>
                 <TablixColumn>
-                  <Width>88.34766pt</Width>
+                  <Width>71.25pt</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>88.34766pt</Width>
+                  <Width>66.75pt</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>88.34766pt</Width>
+                  <Width>68.25pt</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>88.34766pt</Width>
+                  <Width>67.5pt</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>88.35938pt</Width>
+                  <Width>63.75pt</Width>
+                </TablixColumn>
+                <TablixColumn>
+                  <Width>59.25pt</Width>
+                </TablixColumn>
+                <TablixColumn>
+                  <Width>59.25pt</Width>
+                </TablixColumn>
+                <TablixColumn>
+                  <Width>55.5pt</Width>
                 </TablixColumn>
               </TablixColumns>
               <TablixRows>
@@ -8428,7 +8446,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [Name], [Code], [Rdl], [WebReportCategoryID
                           <Left>0in</Left>
                           <Top>0in</Top>
                           <Height>18pt</Height>
-                          <Width>88.34775pt</Width>
+                          <Width>71.25pt</Width>
                           <Style>
                             <BackgroundColor>#e3e3e3</BackgroundColor>
                             <FontFamily>Arial</FontFamily>
@@ -8462,7 +8480,178 @@ INSERT INTO [dbo].[WebReport] ([ID], [Name], [Code], [Rdl], [WebReportCategoryID
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>Company</Value>
+                                  <Value>Store</Value>
+                                  <Style>
+                                    <FontFamily>Arial</FontFamily>
+                                    <Color>black</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <FontFamily>Arial</FontFamily>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                        </Textbox>
+                        <RowSpan>1</RowSpan>
+                        <ColSpan>1</ColSpan>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="TextBox68">
+                          <Left>0in</Left>
+                          <Top>0in</Top>
+                          <Height>18pt</Height>
+                          <Width>66.75pt</Width>
+                          <Style>
+                            <BackgroundColor>#e3e3e3</BackgroundColor>
+                            <FontFamily>Arial</FontFamily>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                            <Border>
+                              <Width>1.74975pt</Width>
+                              <Color>LightGrey</Color>
+                              <Style>None</Style>
+                            </Border>
+                            <BottomBorder>
+                              <Width>1.37475pt</Width>
+                              <Color>#b3b2b3</Color>
+                              <Style>Solid</Style>
+                            </BottomBorder>
+                            <LeftBorder>
+                              <Style>None</Style>
+                            </LeftBorder>
+                            <RightBorder>
+                              <Style>None</Style>
+                            </RightBorder>
+                            <TopBorder>
+                              <Style>None</Style>
+                            </TopBorder>
+                          </Style>
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>Hierarchy</Value>
+                                  <Style>
+                                    <FontFamily>Arial</FontFamily>
+                                    <Color>black</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <FontFamily>Arial</FontFamily>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                        </Textbox>
+                        <RowSpan>1</RowSpan>
+                        <ColSpan>1</ColSpan>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="TextBox70">
+                          <Left>0in</Left>
+                          <Top>0in</Top>
+                          <Height>18pt</Height>
+                          <Width>68.25pt</Width>
+                          <Style>
+                            <BackgroundColor>#e3e3e3</BackgroundColor>
+                            <FontFamily>Arial</FontFamily>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                            <Border>
+                              <Width>1.74975pt</Width>
+                              <Color>LightGrey</Color>
+                              <Style>None</Style>
+                            </Border>
+                            <BottomBorder>
+                              <Width>1.37475pt</Width>
+                              <Color>#b3b2b3</Color>
+                              <Style>Solid</Style>
+                            </BottomBorder>
+                            <LeftBorder>
+                              <Style>None</Style>
+                            </LeftBorder>
+                            <RightBorder>
+                              <Style>None</Style>
+                            </RightBorder>
+                            <TopBorder>
+                              <Style>None</Style>
+                            </TopBorder>
+                          </Style>
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>Item code</Value>
+                                  <Style>
+                                    <FontFamily>Arial</FontFamily>
+                                    <Color>black</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <FontFamily>Arial</FontFamily>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                        </Textbox>
+                        <RowSpan>1</RowSpan>
+                        <ColSpan>1</ColSpan>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="TextBox72">
+                          <Left>0in</Left>
+                          <Top>0in</Top>
+                          <Height>18pt</Height>
+                          <Width>67.5pt</Width>
+                          <Style>
+                            <BackgroundColor>#e3e3e3</BackgroundColor>
+                            <FontFamily>Arial</FontFamily>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                            <Border>
+                              <Width>1.74975pt</Width>
+                              <Color>LightGrey</Color>
+                              <Style>None</Style>
+                            </Border>
+                            <BottomBorder>
+                              <Width>1.37475pt</Width>
+                              <Color>#b3b2b3</Color>
+                              <Style>Solid</Style>
+                            </BottomBorder>
+                            <LeftBorder>
+                              <Style>None</Style>
+                            </LeftBorder>
+                            <RightBorder>
+                              <Style>None</Style>
+                            </RightBorder>
+                            <TopBorder>
+                              <Style>None</Style>
+                            </TopBorder>
+                          </Style>
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>Item Name</Value>
                                   <Style>
                                     <FontFamily>Arial</FontFamily>
                                     <Color>black</Color>
@@ -8485,7 +8674,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [Name], [Code], [Rdl], [WebReportCategoryID
                           <Left>0in</Left>
                           <Top>0in</Top>
                           <Height>18pt</Height>
-                          <Width>88.34775pt</Width>
+                          <Width>63.75pt</Width>
                           <Style>
                             <BackgroundColor>#e3e3e3</BackgroundColor>
                             <FontFamily>Arial</FontFamily>
@@ -8542,7 +8731,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [Name], [Code], [Rdl], [WebReportCategoryID
                           <Left>0in</Left>
                           <Top>0in</Top>
                           <Height>18pt</Height>
-                          <Width>88.34775pt</Width>
+                          <Width>59.25pt</Width>
                           <Style>
                             <BackgroundColor>#e3e3e3</BackgroundColor>
                             <FontFamily>Arial</FontFamily>
@@ -8599,7 +8788,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [Name], [Code], [Rdl], [WebReportCategoryID
                           <Left>0in</Left>
                           <Top>0in</Top>
                           <Height>18pt</Height>
-                          <Width>88.34775pt</Width>
+                          <Width>59.25pt</Width>
                           <Style>
                             <BackgroundColor>#e3e3e3</BackgroundColor>
                             <FontFamily>Arial</FontFamily>
@@ -8656,7 +8845,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [Name], [Code], [Rdl], [WebReportCategoryID
                           <Left>0in</Left>
                           <Top>0in</Top>
                           <Height>18pt</Height>
-                          <Width>88.359pt</Width>
+                          <Width>55.5pt</Width>
                           <Style>
                             <BackgroundColor>#e3e3e3</BackgroundColor>
                             <FontFamily>Arial</FontFamily>
@@ -8714,11 +8903,11 @@ INSERT INTO [dbo].[WebReport] ([ID], [Name], [Code], [Rdl], [WebReportCategoryID
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="TextBox47">
+                        <Textbox Name="TextBox5">
                           <Left>0in</Left>
                           <Top>0in</Top>
                           <Height>18pt</Height>
-                          <Width>88.34775pt</Width>
+                          <Width>71.25pt</Width>
                           <Style>
                             <FontFamily>Arial</FontFamily>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -8748,7 +8937,169 @@ INSERT INTO [dbo].[WebReport] ([ID], [Name], [Code], [Rdl], [WebReportCategoryID
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value />
+                                  <Value>=Fields!Store.Value</Value>
+                                  <Style>
+                                    <FontFamily>Arial</FontFamily>
+                                    <Color>black</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <FontFamily>Arial</FontFamily>
+                                <TextAlign>Left</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                        </Textbox>
+                        <RowSpan>1</RowSpan>
+                        <ColSpan>1</ColSpan>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="TextBox69">
+                          <Left>0in</Left>
+                          <Top>0in</Top>
+                          <Height>18pt</Height>
+                          <Width>66.75pt</Width>
+                          <Style>
+                            <FontFamily>Arial</FontFamily>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                            <Border>
+                              <Color>LightGrey</Color>
+                              <Style>None</Style>
+                            </Border>
+                            <BottomBorder>
+                              <Style>Solid</Style>
+                            </BottomBorder>
+                            <LeftBorder>
+                              <Style>None</Style>
+                            </LeftBorder>
+                            <RightBorder>
+                              <Style>Solid</Style>
+                            </RightBorder>
+                            <TopBorder>
+                              <Style>None</Style>
+                            </TopBorder>
+                          </Style>
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Fields!Hierarchy.Value</Value>
+                                  <Style>
+                                    <FontFamily>Arial</FontFamily>
+                                    <Color>black</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <FontFamily>Arial</FontFamily>
+                                <TextAlign>Left</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                        </Textbox>
+                        <RowSpan>1</RowSpan>
+                        <ColSpan>1</ColSpan>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="TextBox71">
+                          <Left>0in</Left>
+                          <Top>0in</Top>
+                          <Height>18pt</Height>
+                          <Width>68.25pt</Width>
+                          <Style>
+                            <FontFamily>Arial</FontFamily>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                            <Border>
+                              <Color>LightGrey</Color>
+                              <Style>None</Style>
+                            </Border>
+                            <BottomBorder>
+                              <Style>Solid</Style>
+                            </BottomBorder>
+                            <LeftBorder>
+                              <Style>None</Style>
+                            </LeftBorder>
+                            <RightBorder>
+                              <Style>Solid</Style>
+                            </RightBorder>
+                            <TopBorder>
+                              <Style>None</Style>
+                            </TopBorder>
+                          </Style>
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Fields!ItemCode.Value</Value>
+                                  <Style>
+                                    <FontFamily>Arial</FontFamily>
+                                    <Color>black</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <FontFamily>Arial</FontFamily>
+                                <TextAlign>Left</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                        </Textbox>
+                        <RowSpan>1</RowSpan>
+                        <ColSpan>1</ColSpan>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="TextBox78">
+                          <Left>0in</Left>
+                          <Top>0in</Top>
+                          <Height>18pt</Height>
+                          <Width>67.5pt</Width>
+                          <Style>
+                            <FontFamily>Arial</FontFamily>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                            <Border>
+                              <Color>LightGrey</Color>
+                              <Style>None</Style>
+                            </Border>
+                            <BottomBorder>
+                              <Style>Solid</Style>
+                            </BottomBorder>
+                            <LeftBorder>
+                              <Style>None</Style>
+                            </LeftBorder>
+                            <RightBorder>
+                              <Style>Solid</Style>
+                            </RightBorder>
+                            <TopBorder>
+                              <Style>None</Style>
+                            </TopBorder>
+                          </Style>
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Fields!ItemName.Value</Value>
                                   <Style>
                                     <FontFamily>Arial</FontFamily>
                                     <Color>black</Color>
@@ -8772,7 +9123,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [Name], [Code], [Rdl], [WebReportCategoryID
                           <Left>0in</Left>
                           <Top>0in</Top>
                           <Height>18pt</Height>
-                          <Width>88.34775pt</Width>
+                          <Width>63.75pt</Width>
                           <Style>
                             <FontFamily>Arial</FontFamily>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -8802,7 +9153,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [Name], [Code], [Rdl], [WebReportCategoryID
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value />
+                                  <Value>=Fields!AV_Amount.Value</Value>
                                   <Style>
                                     <FontFamily>Arial</FontFamily>
                                     <Format>0.00;(0.00)</Format>
@@ -8832,7 +9183,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [Name], [Code], [Rdl], [WebReportCategoryID
                           <Left>0in</Left>
                           <Top>0in</Top>
                           <Height>18pt</Height>
-                          <Width>88.34775pt</Width>
+                          <Width>59.25pt</Width>
                           <Style>
                             <FontFamily>Arial</FontFamily>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -8862,7 +9213,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [Name], [Code], [Rdl], [WebReportCategoryID
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value />
+                                  <Value>=Fields!Amount.Value</Value>
                                   <Style>
                                     <FontFamily>Arial</FontFamily>
                                     <Format>0.00;(0.00)</Format>
@@ -8892,7 +9243,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [Name], [Code], [Rdl], [WebReportCategoryID
                           <Left>0in</Left>
                           <Top>0in</Top>
                           <Height>18pt</Height>
-                          <Width>88.34775pt</Width>
+                          <Width>59.25pt</Width>
                           <Style>
                             <FontFamily>Arial</FontFamily>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -8922,7 +9273,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [Name], [Code], [Rdl], [WebReportCategoryID
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value />
+                                  <Value>=Fields!Quantity.Value</Value>
                                   <Style>
                                     <FontFamily>Arial</FontFamily>
                                     <Format>0.00;(0.00)</Format>
@@ -8952,7 +9303,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [Name], [Code], [Rdl], [WebReportCategoryID
                           <Left>0in</Left>
                           <Top>0in</Top>
                           <Height>18pt</Height>
-                          <Width>88.359pt</Width>
+                          <Width>55.5pt</Width>
                           <Style>
                             <FontFamily>Arial</FontFamily>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -8973,7 +9324,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [Name], [Code], [Rdl], [WebReportCategoryID
                               <Style>None</Style>
                             </RightBorder>
                             <TopBorder>
-                              <Style>None</Style>
+                              <Style>Solid</Style>
                             </TopBorder>
                           </Style>
                           <CanGrow>true</CanGrow>
@@ -8982,7 +9333,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [Name], [Code], [Rdl], [WebReportCategoryID
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value />
+                                  <Value>=Fields!Contribution.Value</Value>
                                   <Style>
                                     <FontFamily>Arial</FontFamily>
                                     <Format>0.00;(0.00)</Format>
@@ -9013,11 +9364,11 @@ INSERT INTO [dbo].[WebReport] ([ID], [Name], [Code], [Rdl], [WebReportCategoryID
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="TextBox38">
+                        <Textbox Name="TextBox39">
                           <Left>0in</Left>
                           <Top>0in</Top>
                           <Height>18pt</Height>
-                          <Width>88.34775pt</Width>
+                          <Width>71.25pt</Width>
                           <Style>
                             <FontFamily>Arial</FontFamily>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -9029,7 +9380,169 @@ INSERT INTO [dbo].[WebReport] ([ID], [Name], [Code], [Rdl], [WebReportCategoryID
                               <Style>None</Style>
                             </Border>
                             <BottomBorder>
-                              <Style>Solid</Style>
+                              <Style>None</Style>
+                            </BottomBorder>
+                            <LeftBorder>
+                              <Style>None</Style>
+                            </LeftBorder>
+                            <RightBorder>
+                              <Style>None</Style>
+                            </RightBorder>
+                            <TopBorder>
+                              <Style>None</Style>
+                            </TopBorder>
+                          </Style>
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value />
+                                  <Style>
+                                    <FontFamily>Arial</FontFamily>
+                                    <Color>black</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <FontFamily>Arial</FontFamily>
+                                <TextAlign>Left</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                        </Textbox>
+                        <RowSpan>1</RowSpan>
+                        <ColSpan>1</ColSpan>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="TextBox47">
+                          <Left>0in</Left>
+                          <Top>0in</Top>
+                          <Height>18pt</Height>
+                          <Width>66.75pt</Width>
+                          <Style>
+                            <FontFamily>Arial</FontFamily>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                            <Border>
+                              <Color>LightGrey</Color>
+                              <Style>None</Style>
+                            </Border>
+                            <BottomBorder>
+                              <Style>None</Style>
+                            </BottomBorder>
+                            <LeftBorder>
+                              <Style>None</Style>
+                            </LeftBorder>
+                            <RightBorder>
+                              <Style>None</Style>
+                            </RightBorder>
+                            <TopBorder>
+                              <Style>None</Style>
+                            </TopBorder>
+                          </Style>
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value />
+                                  <Style>
+                                    <FontFamily>Arial</FontFamily>
+                                    <Color>black</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <FontFamily>Arial</FontFamily>
+                                <TextAlign>Left</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                        </Textbox>
+                        <RowSpan>1</RowSpan>
+                        <ColSpan>1</ColSpan>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="TextBox49">
+                          <Left>0in</Left>
+                          <Top>0in</Top>
+                          <Height>18pt</Height>
+                          <Width>68.25pt</Width>
+                          <Style>
+                            <FontFamily>Arial</FontFamily>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                            <Border>
+                              <Color>LightGrey</Color>
+                              <Style>None</Style>
+                            </Border>
+                            <BottomBorder>
+                              <Style>None</Style>
+                            </BottomBorder>
+                            <LeftBorder>
+                              <Style>None</Style>
+                            </LeftBorder>
+                            <RightBorder>
+                              <Style>None</Style>
+                            </RightBorder>
+                            <TopBorder>
+                              <Style>None</Style>
+                            </TopBorder>
+                          </Style>
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value />
+                                  <Style>
+                                    <FontFamily>Arial</FontFamily>
+                                    <Color>black</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <FontFamily>Arial</FontFamily>
+                                <TextAlign>Left</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                        </Textbox>
+                        <RowSpan>1</RowSpan>
+                        <ColSpan>1</ColSpan>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="TextBox57">
+                          <Left>0in</Left>
+                          <Top>0in</Top>
+                          <Height>18pt</Height>
+                          <Width>67.5pt</Width>
+                          <Style>
+                            <FontFamily>Arial</FontFamily>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                            <Border>
+                              <Color>LightGrey</Color>
+                              <Style>None</Style>
+                            </Border>
+                            <BottomBorder>
+                              <Style>None</Style>
                             </BottomBorder>
                             <LeftBorder>
                               <Style>None</Style>
@@ -9067,11 +9580,11 @@ INSERT INTO [dbo].[WebReport] ([ID], [Name], [Code], [Rdl], [WebReportCategoryID
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="TextBox39">
+                        <Textbox Name="TextBox6111111">
                           <Left>0in</Left>
                           <Top>0in</Top>
                           <Height>18pt</Height>
-                          <Width>88.34775pt</Width>
+                          <Width>63.75pt</Width>
                           <Style>
                             <BackgroundColor>#e3e3e3</BackgroundColor>
                             <FontFamily>Arial</FontFamily>
@@ -9112,11 +9625,11 @@ INSERT INTO [dbo].[WebReport] ([ID], [Name], [Code], [Rdl], [WebReportCategoryID
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="TextBox40">
+                        <Textbox Name="TextBox59">
                           <Left>0in</Left>
                           <Top>0in</Top>
                           <Height>18pt</Height>
-                          <Width>88.34775pt</Width>
+                          <Width>59.25pt</Width>
                           <Style>
                             <BackgroundColor>#e3e3e3</BackgroundColor>
                             <FontFamily>Arial</FontFamily>
@@ -9138,7 +9651,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [Name], [Code], [Rdl], [WebReportCategoryID
                               <Style>None</Style>
                             </RightBorder>
                             <TopBorder>
-                              <Style>None</Style>
+                              <Style>Solid</Style>
                             </TopBorder>
                           </Style>
                           <CanGrow>true</CanGrow>
@@ -9173,11 +9686,11 @@ INSERT INTO [dbo].[WebReport] ([ID], [Name], [Code], [Rdl], [WebReportCategoryID
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="TextBox41">
+                        <Textbox Name="TextBox60">
                           <Left>0in</Left>
                           <Top>0in</Top>
                           <Height>18pt</Height>
-                          <Width>88.34775pt</Width>
+                          <Width>59.25pt</Width>
                           <Style>
                             <BackgroundColor>#e3e3e3</BackgroundColor>
                             <FontFamily>Arial</FontFamily>
@@ -9199,7 +9712,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [Name], [Code], [Rdl], [WebReportCategoryID
                               <Style>None</Style>
                             </RightBorder>
                             <TopBorder>
-                              <Style>None</Style>
+                              <Style>Solid</Style>
                             </TopBorder>
                           </Style>
                           <CanGrow>true</CanGrow>
@@ -9234,11 +9747,11 @@ INSERT INTO [dbo].[WebReport] ([ID], [Name], [Code], [Rdl], [WebReportCategoryID
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="TextBox42">
+                        <Textbox Name="TextBox62">
                           <Left>0in</Left>
                           <Top>0in</Top>
                           <Height>18pt</Height>
-                          <Width>88.359pt</Width>
+                          <Width>55.5pt</Width>
                           <Style>
                             <BackgroundColor>#e3e3e3</BackgroundColor>
                             <FontFamily>Arial</FontFamily>
@@ -9304,6 +9817,9 @@ INSERT INTO [dbo].[WebReport] ([ID], [Name], [Code], [Rdl], [WebReportCategoryID
                 <TablixMember />
                 <TablixMember />
                 <TablixMember />
+                <TablixMember />
+                <TablixMember />
+                <TablixMember />
               </TablixMembers>
             </TablixColumnHierarchy>
             <TablixRowHierarchy>
@@ -9320,11 +9836,11 @@ INSERT INTO [dbo].[WebReport] ([ID], [Name], [Code], [Rdl], [WebReportCategoryID
               </TablixMembers>
             </TablixRowHierarchy>
           </Tablix>
-          <Tablix Name="Tablix4">
+          <Tablix Name="TableHierarchy">
             <Left>11.25pt</Left>
             <Top>202.5pt</Top>
             <Height>54pt</Height>
-            <Width>441.75pt</Width>
+            <Width>513.75pt</Width>
             <Style>
               <FontFamily>Arial</FontFamily>
               <Border>
@@ -9332,13 +9848,16 @@ INSERT INTO [dbo].[WebReport] ([ID], [Name], [Code], [Rdl], [WebReportCategoryID
               </Border>
             </Style>
             <Visibility>
-              <Hidden>=IIf(Parameters!ReportType.Value=1,False,True)</Hidden>
+              <Hidden>=IIf(Parameters!ReportType.Value=3,False,True)</Hidden>
             </Visibility>
-            <DataSetName>CompanyData</DataSetName>
+            <DataSetName>HierarchyData</DataSetName>
             <TablixBody>
               <TablixColumns>
                 <TablixColumn>
                   <Width>88.34766pt</Width>
+                </TablixColumn>
+                <TablixColumn>
+                  <Width>72pt</Width>
                 </TablixColumn>
                 <TablixColumn>
                   <Width>88.34766pt</Width>
@@ -9397,7 +9916,64 @@ INSERT INTO [dbo].[WebReport] ([ID], [Name], [Code], [Rdl], [WebReportCategoryID
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>Company</Value>
+                                  <Value>Store Name</Value>
+                                  <Style>
+                                    <FontFamily>Arial</FontFamily>
+                                    <Color>black</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <FontFamily>Arial</FontFamily>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                        </Textbox>
+                        <RowSpan>1</RowSpan>
+                        <ColSpan>1</ColSpan>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="TextBox20">
+                          <Left>0in</Left>
+                          <Top>0in</Top>
+                          <Height>18pt</Height>
+                          <Width>72pt</Width>
+                          <Style>
+                            <BackgroundColor>#e3e3e3</BackgroundColor>
+                            <FontFamily>Arial</FontFamily>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                            <Border>
+                              <Width>1.74975pt</Width>
+                              <Color>LightGrey</Color>
+                              <Style>None</Style>
+                            </Border>
+                            <BottomBorder>
+                              <Width>1.37475pt</Width>
+                              <Color>#b3b2b3</Color>
+                              <Style>Solid</Style>
+                            </BottomBorder>
+                            <LeftBorder>
+                              <Style>None</Style>
+                            </LeftBorder>
+                            <RightBorder>
+                              <Style>None</Style>
+                            </RightBorder>
+                            <TopBorder>
+                              <Style>None</Style>
+                            </TopBorder>
+                          </Style>
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>Hierarchy</Value>
                                   <Style>
                                     <FontFamily>Arial</FontFamily>
                                     <Color>black</Color>
@@ -9683,7 +10259,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [Name], [Code], [Rdl], [WebReportCategoryID
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value />
+                                  <Value>=Fields!Store.Value</Value>
                                   <Style>
                                     <FontFamily>Arial</FontFamily>
                                     <Color>black</Color>
@@ -9703,7 +10279,61 @@ INSERT INTO [dbo].[WebReport] ([ID], [Name], [Code], [Rdl], [WebReportCategoryID
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="TextBox49">
+                        <Textbox Name="TextBox21">
+                          <Left>0in</Left>
+                          <Top>0in</Top>
+                          <Height>18pt</Height>
+                          <Width>72pt</Width>
+                          <Style>
+                            <FontFamily>Arial</FontFamily>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                            <Border>
+                              <Color>LightGrey</Color>
+                              <Style>None</Style>
+                            </Border>
+                            <BottomBorder>
+                              <Style>Solid</Style>
+                            </BottomBorder>
+                            <LeftBorder>
+                              <Style>None</Style>
+                            </LeftBorder>
+                            <RightBorder>
+                              <Style>Solid</Style>
+                            </RightBorder>
+                            <TopBorder>
+                              <Style>None</Style>
+                            </TopBorder>
+                          </Style>
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Fields!Hierarchy.Value</Value>
+                                  <Style>
+                                    <FontFamily>Arial</FontFamily>
+                                    <Color>black</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <FontFamily>Arial</FontFamily>
+                                <TextAlign>Left</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                        </Textbox>
+                        <RowSpan>1</RowSpan>
+                        <ColSpan>1</ColSpan>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="TextBox22">
                           <Left>0in</Left>
                           <Top>0in</Top>
                           <Height>18pt</Height>
@@ -9737,7 +10367,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [Name], [Code], [Rdl], [WebReportCategoryID
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value />
+                                  <Value>=Fields!AV_Amount.Value</Value>
                                   <Style>
                                     <FontFamily>Arial</FontFamily>
                                     <Format>0.00;(0.00)</Format>
@@ -9797,7 +10427,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [Name], [Code], [Rdl], [WebReportCategoryID
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value />
+                                  <Value>=Fields!Amount.Value</Value>
                                   <Style>
                                     <FontFamily>Arial</FontFamily>
                                     <Format>0.00;(0.00)</Format>
@@ -9857,7 +10487,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [Name], [Code], [Rdl], [WebReportCategoryID
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value />
+                                  <Value>=Fields!Quantity.Value</Value>
                                   <Style>
                                     <FontFamily>Arial</FontFamily>
                                     <Format>0.00;(0.00)</Format>
@@ -9917,7 +10547,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [Name], [Code], [Rdl], [WebReportCategoryID
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value />
+                                  <Value>=Fields!Contribution.Value</Value>
                                   <Style>
                                     <FontFamily>Arial</FontFamily>
                                     <Format>0.00;(0.00)</Format>
@@ -9948,7 +10578,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [Name], [Code], [Rdl], [WebReportCategoryID
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="TextBox73">
+                        <Textbox Name="TextBox23">
                           <Left>0in</Left>
                           <Top>0in</Top>
                           <Height>18pt</Height>
@@ -9964,7 +10594,61 @@ INSERT INTO [dbo].[WebReport] ([ID], [Name], [Code], [Rdl], [WebReportCategoryID
                               <Style>None</Style>
                             </Border>
                             <BottomBorder>
-                              <Style>Solid</Style>
+                              <Style>None</Style>
+                            </BottomBorder>
+                            <LeftBorder>
+                              <Style>None</Style>
+                            </LeftBorder>
+                            <RightBorder>
+                              <Style>None</Style>
+                            </RightBorder>
+                            <TopBorder>
+                              <Style>None</Style>
+                            </TopBorder>
+                          </Style>
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value />
+                                  <Style>
+                                    <FontFamily>Arial</FontFamily>
+                                    <Color>black</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <FontFamily>Arial</FontFamily>
+                                <TextAlign>Left</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                        </Textbox>
+                        <RowSpan>1</RowSpan>
+                        <ColSpan>1</ColSpan>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="TextBox38">
+                          <Left>0in</Left>
+                          <Top>0in</Top>
+                          <Height>18pt</Height>
+                          <Width>72pt</Width>
+                          <Style>
+                            <FontFamily>Arial</FontFamily>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                            <Border>
+                              <Color>LightGrey</Color>
+                              <Style>None</Style>
+                            </Border>
+                            <BottomBorder>
+                              <Style>None</Style>
                             </BottomBorder>
                             <LeftBorder>
                               <Style>None</Style>
@@ -10002,7 +10686,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [Name], [Code], [Rdl], [WebReportCategoryID
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="TextBox74">
+                        <Textbox Name="TextBox611111">
                           <Left>0in</Left>
                           <Top>0in</Top>
                           <Height>18pt</Height>
@@ -10047,7 +10731,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [Name], [Code], [Rdl], [WebReportCategoryID
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="TextBox75">
+                        <Textbox Name="TextBox40">
                           <Left>0in</Left>
                           <Top>0in</Top>
                           <Height>18pt</Height>
@@ -10073,7 +10757,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [Name], [Code], [Rdl], [WebReportCategoryID
                               <Style>None</Style>
                             </RightBorder>
                             <TopBorder>
-                              <Style>None</Style>
+                              <Style>Solid</Style>
                             </TopBorder>
                           </Style>
                           <CanGrow>true</CanGrow>
@@ -10108,7 +10792,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [Name], [Code], [Rdl], [WebReportCategoryID
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="TextBox76">
+                        <Textbox Name="TextBox41">
                           <Left>0in</Left>
                           <Top>0in</Top>
                           <Height>18pt</Height>
@@ -10134,7 +10818,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [Name], [Code], [Rdl], [WebReportCategoryID
                               <Style>None</Style>
                             </RightBorder>
                             <TopBorder>
-                              <Style>None</Style>
+                              <Style>Solid</Style>
                             </TopBorder>
                           </Style>
                           <CanGrow>true</CanGrow>
@@ -10169,7 +10853,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [Name], [Code], [Rdl], [WebReportCategoryID
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="TextBox77">
+                        <Textbox Name="TextBox42">
                           <Left>0in</Left>
                           <Top>0in</Top>
                           <Height>18pt</Height>
@@ -10195,7 +10879,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [Name], [Code], [Rdl], [WebReportCategoryID
                               <Style>None</Style>
                             </RightBorder>
                             <TopBorder>
-                              <Style>None</Style>
+                              <Style>Solid</Style>
                             </TopBorder>
                           </Style>
                           <CanGrow>true</CanGrow>
@@ -10239,6 +10923,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [Name], [Code], [Rdl], [WebReportCategoryID
                 <TablixMember />
                 <TablixMember />
                 <TablixMember />
+                <TablixMember />
               </TablixMembers>
             </TablixColumnHierarchy>
             <TablixRowHierarchy>
@@ -10262,10 +10947,10 @@ INSERT INTO [dbo].[WebReport] ([ID], [Name], [Code], [Rdl], [WebReportCategoryID
           </Border>
         </Style>
       </Body>
-      <Width>493.5pt</Width>
+      <Width>669.75pt</Width>
       <Page>
         <PageHeader>
-          <Height>99pt</Height>
+          <Height>93.75pt</Height>
           <PrintOnFirstPage>true</PrintOnFirstPage>
           <PrintOnLastPage>true</PrintOnLastPage>
           <ReportItems>
@@ -10308,7 +10993,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [Name], [Code], [Rdl], [WebReportCategoryID
               <Left>8.9766pt</Left>
               <Top>47.4375pt</Top>
               <Height>0pt</Height>
-              <Width>477.33984pt</Width>
+              <Width>515.58984pt</Width>
               <Style>
                 <FontFamily>Arial</FontFamily>
                 <Border>
@@ -10384,8 +11069,8 @@ INSERT INTO [dbo].[WebReport] ([ID], [Name], [Code], [Rdl], [WebReportCategoryID
                 </Paragraph>
               </Paragraphs>
             </Textbox>
-            <Textbox Name="DateFrom1">
-              <Left>60.75pt</Left>
+            <Textbox Name="DateFrom2">
+              <Left>57.75pt</Left>
               <Top>53.25pt</Top>
               <Height>18.75pt</Height>
               <Width>97.5pt</Width>
@@ -10405,21 +11090,27 @@ INSERT INTO [dbo].[WebReport] ([ID], [Name], [Code], [Rdl], [WebReportCategoryID
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>=First(Fields!DateFrom.Value, "StoreData")</Value>
+                      <Value>=First(Fields!DateFrom.Value, "Date")</Value>
                       <Style>
                         <FontFamily>Arial</FontFamily>
+                        <Format>M/d/yyyy</Format>
+                        <rd:FormatType>
+                          <rd:Format>date</rd:Format>
+                        </rd:FormatType>
+                        <Color>black</Color>
                       </Style>
                     </TextRun>
                   </TextRuns>
                   <Style>
                     <FontFamily>Arial</FontFamily>
+                    <TextAlign>Left</TextAlign>
                   </Style>
                 </Paragraph>
               </Paragraphs>
             </Textbox>
-            <Textbox Name="DateTo1">
-              <Left>63.75pt</Left>
-              <Top>80.25pt</Top>
+            <Textbox Name="DateTo2">
+              <Left>57.75pt</Left>
+              <Top>72pt</Top>
               <Height>18.75pt</Height>
               <Width>97.5pt</Width>
               <Style>
@@ -10438,14 +11129,20 @@ INSERT INTO [dbo].[WebReport] ([ID], [Name], [Code], [Rdl], [WebReportCategoryID
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>=First(Fields!DateTo.Value, "StoreData")</Value>
+                      <Value>=First(Fields!DateTo.Value, "Date")</Value>
                       <Style>
                         <FontFamily>Arial</FontFamily>
+                        <Format>M/d/yyyy</Format>
+                        <rd:FormatType>
+                          <rd:Format>date</rd:Format>
+                        </rd:FormatType>
+                        <Color>black</Color>
                       </Style>
                     </TextRun>
                   </TextRuns>
                   <Style>
                     <FontFamily>Arial</FontFamily>
+                    <TextAlign>Left</TextAlign>
                   </Style>
                 </Paragraph>
               </Paragraphs>
@@ -10471,110 +11168,21 @@ INSERT INTO [dbo].[WebReport] ([ID], [Name], [Code], [Rdl], [WebReportCategoryID
     </ReportSection>
   </ReportSections>
   <DataSources>
-    <DataSource Name="BaseDB">
-      <rd:SecurityType>None</rd:SecurityType>
-      <ConnectionProperties>
-        <DataProvider>SQL</DataProvider>
-        <ConnectString>Data Source=172.21.10.79,1433; Initial Catalog=RetailCloudNew2; User Id=sa; Password=upitec</ConnectString>
-        <rd:IsDesignState>true</rd:IsDesignState>
-      </ConnectionProperties>
-    </DataSource>
-    <DataSource Name="BaseDB_Copy1">
-      <rd:SecurityType>None</rd:SecurityType>
-      <ConnectionProperties>
-        <DataProvider>SQL</DataProvider>
-        <ConnectString>Data Source=172.21.10.79,1433; Initial Catalog=RetailCloudNew2; User Id=sa; Password=upitec</ConnectString>
-        <rd:IsDesignState>true</rd:IsDesignState>
-      </ConnectionProperties>
-    </DataSource>
+    
+          <DataSource Name="CustomerDB">
+              <ConnectionProperties>
+                <DataProvider>SQL</DataProvider>
+              </ConnectionProperties>
+          </DataSource>
+        
   </DataSources>
   <DataSets>
-    <DataSet Name="BaseData">
-      <Query>
-        <DataSourceName>BaseDB</DataSourceName>
-        <CommandText>SELECT TOP 15 c.DisplayName [Company], s.DisplayName [Store], i.Code [ItemCode], i.ShortDisplayName [ItemName], (ti.Amount+ti.Discount)/ti.Quantity [AV.Amount] ,ti.Amount+ti.Discount [Amount], ti.Quantity,
-t.TransactionDate
-FROM dbo.[Transaction] t
-INNER JOIN dbo.TransactionItem ti ON ti.TransactionID=t.ID and t.TransactionTypeID=2 and Quantity&lt;&gt;0
-INNER JOIN dbo.Item i ON i.id=ti.ItemID
-INNER JOIN dbo.Location l ON t.LocationID=l.ID
-INNER JOIN dbo.Store s ON s.ID=l.StoreID
-INNER JOIN dbo.Company c ON l.CompanyID=c.ID</CommandText>
-      </Query>
-      <Fields>
-        <Field Name="Company">
-          <DataField>Company</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="Store">
-          <DataField>Store</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="ItemCode">
-          <DataField>ItemCode</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="ItemName">
-          <DataField>ItemName</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="AV_Amount">
-          <DataField>AV.Amount</DataField>
-          <rd:TypeName>System.Decimal</rd:TypeName>
-        </Field>
-        <Field Name="Amount">
-          <DataField>Amount</DataField>
-          <rd:TypeName>System.Decimal</rd:TypeName>
-        </Field>
-        <Field Name="Quantity">
-          <DataField>Quantity</DataField>
-          <rd:TypeName>System.Decimal</rd:TypeName>
-        </Field>
-        <Field Name="TransactionDate">
-          <DataField>TransactionDate</DataField>
-          <rd:TypeName>System.DateTimeOffset</rd:TypeName>
-        </Field>
-      </Fields>
-    </DataSet>
     <DataSet Name="Company">
       <Query>
-        <DataSourceName>BaseDB</DataSourceName>
+        <DataSourceName>CustomerDB</DataSourceName>
         <CommandText>SELECT [dbo].[Company].[ID],
-[dbo].[Company].[DisplayName] FROM [dbo].[Company]</CommandText>
-        <QueryDesignerState xmlns="http://schemas.microsoft.com/ReportingServices/QueryDefinition/Relational">
-          <Tables>
-            <Table Name="Company" Schema="dbo">
-              <Columns>
-                <Column Name="ID" AliasName="" AggregateType="" IsDuplicate="false" IsSelected="true" />
-                <Column Name="Code" AliasName="" AggregateType="" IsDuplicate="false" IsSelected="false" />
-                <Column Name="SortIndex" AliasName="" AggregateType="" IsDuplicate="false" IsSelected="false" />
-                <Column Name="SubChainID" AliasName="" AggregateType="" IsDuplicate="false" IsSelected="false" />
-                <Column Name="IsActive" AliasName="" AggregateType="" IsDuplicate="false" IsSelected="false" />
-                <Column Name="UpdateDate" AliasName="" AggregateType="" IsDuplicate="false" IsSelected="false" />
-                <Column Name="Version" AliasName="" AggregateType="" IsDuplicate="false" IsSelected="false" />
-                <Column Name="IsDeleted" AliasName="" AggregateType="" IsDuplicate="false" IsSelected="false" />
-                <Column Name="GUID" AliasName="" AggregateType="" IsDuplicate="false" IsSelected="false" />
-                <Column Name="DisplayName" AliasName="" AggregateType="" IsDuplicate="false" IsSelected="true" />
-                <Column Name="AppType" AliasName="" AggregateType="" IsDuplicate="false" IsSelected="false" />
-                <Column Name="PriceListID" AliasName="" AggregateType="" IsDuplicate="false" IsSelected="false" />
-                <Column Name="PriceNumberID" AliasName="" AggregateType="" IsDuplicate="false" IsSelected="false" />
-                <Column Name="IsPriceNumberByCustomer" AliasName="" AggregateType="" IsDuplicate="false" IsSelected="false" />
-                <Column Name="UpdateUser" AliasName="" AggregateType="" IsDuplicate="false" IsSelected="false" />
-                <Column Name="VATNumber" AliasName="" AggregateType="" IsDuplicate="false" IsSelected="false" />
-                <Column Name="IRSFileNo" AliasName="" AggregateType="" IsDuplicate="false" IsSelected="false" />
-                <Column Name="Street" AliasName="" AggregateType="" IsDuplicate="false" IsSelected="false" />
-                <Column Name="StreetNo" AliasName="" AggregateType="" IsDuplicate="false" IsSelected="false" />
-                <Column Name="City" AliasName="" AggregateType="" IsDuplicate="false" IsSelected="false" />
-                <Column Name="ZipCode" AliasName="" AggregateType="" IsDuplicate="false" IsSelected="false" />
-              </Columns>
-              <SchemaLevels>
-                <SchemaInfo Name="dbo" SchemaType="Schema" />
-                <SchemaInfo Name="Tables" SchemaType="Category" />
-                <SchemaInfo Name="Company" SchemaType="Table" />
-              </SchemaLevels>
-            </Table>
-          </Tables>
-        </QueryDesignerState>
+[dbo].[Company].[DisplayName],
+[dbo].[Company].[CompanyBusinessTypeId] FROM [dbo].[Company]</CommandText>
       </Query>
       <Fields>
         <Field Name="ID">
@@ -10585,18 +11193,21 @@ INNER JOIN dbo.Company c ON l.CompanyID=c.ID</CommandText>
           <DataField>DisplayName</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
+        <Field Name="CompanyBusinessTypeId">
+          <DataField>CompanyBusinessTypeId</DataField>
+          <rd:TypeName>System.Int64</rd:TypeName>
+        </Field>
       </Fields>
     </DataSet>
     <DataSet Name="Store">
       <Query>
-        <DataSourceName>BaseDB</DataSourceName>
+        <DataSourceName>CustomerDB</DataSourceName>
         <CommandText>SELECT [dbo].[Store].[ID],
 [dbo].[Store].[DisplayName] FROM [dbo].[Store]
 where CompanyID in (@CompanyId)</CommandText>
         <QueryParameters>
-          <QueryParameter Name="CompanyId">
+          <QueryParameter Name="@CompanyId">
             <Value>=Parameters!Company.Value</Value>
-            <rd:UserDefined>true</rd:UserDefined>
           </QueryParameter>
         </QueryParameters>
       </Query>
@@ -10613,20 +11224,20 @@ where CompanyID in (@CompanyId)</CommandText>
     </DataSet>
     <DataSet Name="StoreData">
       <Query>
-        <DataSourceName>BaseDB_Copy1</DataSourceName>
+        <DataSourceName>CustomerDB</DataSourceName>
         <CommandText>Declare @s int, @DateFrom date, @DateTo date
 IF(@Store=4) set @s=4 ELSE set @s=-1
 IF(@DateF is not NULL and @DateT is not NULL) begin set @DateFrom = @DateF set @DateTo=@DateT end 
 ELSE IF(@TimeSlots=1)
-begin set @DateFrom = Getdate() set @DateFrom = Getdate() end
+begin set @DateFrom = Getdate() set @DateTo = Getdate() end
 ELSE IF(@TimeSlots=2)
-begin set @DateFrom = Getdate()-1 set @DateFrom = Getdate()-1 end
+begin set @DateFrom = Getdate()-1 set @DateTo = Getdate()-1 end
 ELSE IF(@TimeSlots=3)
-begin set @DateFrom = dateadd(day, 1-datepart(dw, getdate()), CONVERT(date,getdate())) set @DateFrom = dateadd(day, 7-datepart(dw, getdate()), CONVERT(date,getdate())) end
+begin set @DateFrom = dateadd(day, 1-datepart(dw, getdate()), CONVERT(date,getdate())) set @DateTo = dateadd(day, 7-datepart(dw, getdate()), CONVERT(date,getdate())) end
 ELSE IF(@TimeSlots=4)
-begin set @DateFrom = dateadd(dd, -day(GETDATE()), GETDATE())+1 set @DateFrom = dateadd(dd, -day(dateadd(mm, 1, GETDATE())), dateadd(mm, 1, GETDATE())) end
+begin set @DateFrom = dateadd(dd, -day(GETDATE()), GETDATE())+1 set @DateTo = dateadd(dd, -day(dateadd(mm, 1, GETDATE())), dateadd(mm, 1, GETDATE())) end
 ELSE IF(@TimeSlots=5)
-begin set @DateFrom = CAST(CAST(YEAR(Getdate()) AS nvarchar)+''-01-01'' AS DATE) set @DateFrom = CAST(CAST(YEAR(Getdate()) AS nvarchar)+''-12-31'' AS DATE)end
+begin set @DateFrom = CAST(CAST(YEAR(Getdate()) AS nvarchar)+''-01-01'' AS DATE) set @DateTo = CAST(CAST(YEAR(Getdate()) AS nvarchar)+''-12-31'' AS DATE)end
 
 SELECT s.DisplayName [Store], SUM(ti.Amount+ti.Discount)/SUM(ti.Quantity) [AV.Amount] ,SUM(ti.Amount+ti.Discount) [Amount], SUM(ti.Quantity) [Quantity], 
 SUM(ti.Amount+ti.Discount)/a.total*100 as [Contribution], @DateFrom [DateFrom], @DateTo [DateTo]
@@ -10639,8 +11250,10 @@ INNER JOIN dbo.Company c ON l.CompanyID=c.ID
 INNER JOIN (SELECT SUM(ti.Amount+ti.Discount) as total FROM dbo.[Transaction] t
 			INNER JOIN dbo.TransactionItem ti ON ti.TransactionID=t.ID and t.TransactionTypeID=2 and Quantity&lt;&gt;0
 			INNER JOIN dbo.Location l ON t.LocationID=l.ID) as a ON 1=1
-WHERE s.ID IN (@DataStore)
-GROUP BY s.DisplayName, a.total</CommandText>
+WHERE s.ID IN (@DataStore) AND ISNULL(i.ItemHierarchy1ID,-2) in (@Hierarchy1) AND ISNULL(i.ItemHierarchy2ID,-2) in (@Hierarchy2) AND ISNULL(i.ItemHierarchy3ID,-2) in (@Hierarchy3)
+AND ISNULL(i.ItemHierarchy4ID,-2) in (@Hierarchy4) AND ISNULL(i.ItemHierarchy5ID,-2) in (@Hierarchy5)
+GROUP BY s.DisplayName, a.total
+having SUM(ti.Quantity) &lt;&gt; 0</CommandText>
         <QueryParameters>
           <QueryParameter Name="@Store">
             <Value>=Parameters!ReportType.Value</Value>
@@ -10656,6 +11269,21 @@ GROUP BY s.DisplayName, a.total</CommandText>
           </QueryParameter>
           <QueryParameter Name="@TimeSlots">
             <Value>=Parameters!TimeSlots.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@Hierarchy1">
+            <Value>=Parameters!Hierarchy1.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@Hierarchy2">
+            <Value>=Parameters!Hierarchy2.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@Hierarchy3">
+            <Value>=Parameters!Hierarchy3.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@Hierarchy4">
+            <Value>=Parameters!Hierarchy4.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@Hierarchy5">
+            <Value>=Parameters!Hierarchy5.Value</Value>
           </QueryParameter>
         </QueryParameters>
       </Query>
@@ -10692,25 +11320,25 @@ GROUP BY s.DisplayName, a.total</CommandText>
     </DataSet>
     <DataSet Name="CompanyData">
       <Query>
-        <DataSourceName>BaseDB_Copy1</DataSourceName>
+        <DataSourceName>CustomerDB</DataSourceName>
         <CommandText>Declare @s int, @DateFrom date, @DateTo date
-IF(@Store=4) set @s=4 ELSE set @s=-1
+IF(@Store=1) set @s=1 ELSE set @s=-1
 IF(@DateF is not NULL and @DateT is not NULL) begin set @DateFrom = @DateF set @DateTo=@DateT end 
 ELSE IF(@TimeSlots=1)
-begin set @DateFrom = Getdate() set @DateFrom = Getdate() end
+begin set @DateFrom = Getdate() set @DateTo = Getdate() end
 ELSE IF(@TimeSlots=2)
-begin set @DateFrom = Getdate()-1 set @DateFrom = Getdate()-1 end
+begin set @DateFrom = Getdate()-1 set @DateTo = Getdate()-1 end
 ELSE IF(@TimeSlots=3)
-begin set @DateFrom = dateadd(day, 1-datepart(dw, getdate()), CONVERT(date,getdate())) set @DateFrom = dateadd(day, 7-datepart(dw, getdate()), CONVERT(date,getdate())) end
+begin set @DateFrom = dateadd(day, 1-datepart(dw, getdate()), CONVERT(date,getdate())) set @DateTo = dateadd(day, 7-datepart(dw, getdate()), CONVERT(date,getdate())) end
 ELSE IF(@TimeSlots=4)
-begin set @DateFrom = dateadd(dd, -day(GETDATE()), GETDATE())+1 set @DateFrom = dateadd(dd, -day(dateadd(mm, 1, GETDATE())), dateadd(mm, 1, GETDATE())) end
+begin set @DateFrom = dateadd(dd, -day(GETDATE()), GETDATE())+1 set @DateTo = dateadd(dd, -day(dateadd(mm, 1, GETDATE())), dateadd(mm, 1, GETDATE())) end
 ELSE IF(@TimeSlots=5)
-begin set @DateFrom = CAST(CAST(YEAR(Getdate()) AS nvarchar)+''-01-01'' AS DATE) set @DateFrom = CAST(CAST(YEAR(Getdate()) AS nvarchar)+''-12-31'' AS DATE)end
+begin set @DateFrom = CAST(CAST(YEAR(Getdate()) AS nvarchar)+''-01-01'' AS DATE) set @DateTo = CAST(CAST(YEAR(Getdate()) AS nvarchar)+''-12-31'' AS DATE)end
 
 SELECT c.Code+ '' '' + c.DisplayName [Company], SUM(ti.Amount+ti.Discount)/SUM(ti.Quantity) [AV.Amount] ,SUM(ti.Amount+ti.Discount) [Amount], SUM(ti.Quantity) [Quantity], 
 SUM(ti.Amount+ti.Discount)/a.total*100 as [Contribution]
 FROM dbo.[Transaction] t
-INNER JOIN dbo.TransactionItem ti ON ti.TransactionID=t.ID and t.TransactionTypeID=2 and Quantity&lt;&gt;0 and @s=4 and CAST(TransactionDate as Date) between @DateFrom and @DateTo
+INNER JOIN dbo.TransactionItem ti ON ti.TransactionID=t.ID and t.TransactionTypeID=2 and Quantity&lt;&gt;0 and @s=1 and CAST(TransactionDate as Date) between @DateFrom and @DateTo
 INNER JOIN dbo.Item i ON i.id=ti.ItemID 
 INNER JOIN dbo.Location l ON t.LocationID=l.ID
 INNER JOIN dbo.Store s ON s.ID=l.StoreID
@@ -10718,8 +11346,10 @@ INNER JOIN dbo.Company c ON l.CompanyID=c.ID
 INNER JOIN (SELECT SUM(ti.Amount+ti.Discount) as total FROM dbo.[Transaction] t
 			INNER JOIN dbo.TransactionItem ti ON ti.TransactionID=t.ID and t.TransactionTypeID=2 and Quantity&lt;&gt;0
 			INNER JOIN dbo.Location l ON t.LocationID=l.ID) as a ON 1=1
-WHERE s.ID IN (@DataStore)
-GROUP BY c.Code+ '' '' + c.DisplayName, a.total</CommandText>
+WHERE s.ID IN (@DataStore) AND ISNULL(i.ItemHierarchy1ID,-2) in (@Hierarchy1) AND ISNULL(i.ItemHierarchy2ID,-2) in (@Hierarchy2) AND ISNULL(i.ItemHierarchy3ID,-2) in (@Hierarchy3)
+AND ISNULL(i.ItemHierarchy4ID,-2) in (@Hierarchy4) AND ISNULL(i.ItemHierarchy5ID,-2) in (@Hierarchy5)
+GROUP BY c.Code+ '' '' + c.DisplayName, a.total
+having SUM(ti.Quantity) &lt;&gt; 0</CommandText>
         <QueryParameters>
           <QueryParameter Name="@Store">
             <Value>=Parameters!ReportType.Value</Value>
@@ -10735,6 +11365,21 @@ GROUP BY c.Code+ '' '' + c.DisplayName, a.total</CommandText>
           </QueryParameter>
           <QueryParameter Name="@DataStore">
             <Value>=Parameters!Store.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@Hierarchy1">
+            <Value>=Parameters!Hierarchy1.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@Hierarchy2">
+            <Value>=Parameters!Hierarchy2.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@Hierarchy3">
+            <Value>=Parameters!Hierarchy3.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@Hierarchy4">
+            <Value>=Parameters!Hierarchy4.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@Hierarchy5">
+            <Value>=Parameters!Hierarchy5.Value</Value>
           </QueryParameter>
         </QueryParameters>
       </Query>
@@ -10763,12 +11408,14 @@ GROUP BY c.Code+ '' '' + c.DisplayName, a.total</CommandText>
     </DataSet>
     <DataSet Name="Hierarchy1">
       <Query>
-        <DataSourceName>BaseDB</DataSourceName>
-        <CommandText>select Id,DisplayName from ItemHierarchy1</CommandText>
+        <DataSourceName>CustomerDB</DataSourceName>
+        <CommandText>select -2 id, ''Not selected'' DisplayName
+UNION ALL
+select Id,DisplayName from ItemHierarchy1</CommandText>
       </Query>
       <Fields>
-        <Field Name="Id">
-          <DataField>Id</DataField>
+        <Field Name="id">
+          <DataField>id</DataField>
           <rd:TypeName>System.Int64</rd:TypeName>
         </Field>
         <Field Name="DisplayName">
@@ -10779,12 +11426,20 @@ GROUP BY c.Code+ '' '' + c.DisplayName, a.total</CommandText>
     </DataSet>
     <DataSet Name="Hierarchy2">
       <Query>
-        <DataSourceName>BaseDB</DataSourceName>
-        <CommandText>select Id,DisplayName from ItemHierarchy2</CommandText>
+        <DataSourceName>CustomerDB</DataSourceName>
+        <CommandText>select -2 id, ''Not selected'' DisplayName
+UNION ALL
+select Id,DisplayName from ItemHierarchy2
+WHERE ItemHierarchy1ID IN (@Hierarchy1)</CommandText>
+        <QueryParameters>
+          <QueryParameter Name="@Hierarchy1">
+            <Value>=Parameters!Hierarchy1.Value</Value>
+          </QueryParameter>
+        </QueryParameters>
       </Query>
       <Fields>
-        <Field Name="Id">
-          <DataField>Id</DataField>
+        <Field Name="id">
+          <DataField>id</DataField>
           <rd:TypeName>System.Int64</rd:TypeName>
         </Field>
         <Field Name="DisplayName">
@@ -10795,12 +11450,20 @@ GROUP BY c.Code+ '' '' + c.DisplayName, a.total</CommandText>
     </DataSet>
     <DataSet Name="Hierarchy3">
       <Query>
-        <DataSourceName>BaseDB</DataSourceName>
-        <CommandText>select Id,DisplayName from ItemHierarchy3</CommandText>
+        <DataSourceName>CustomerDB</DataSourceName>
+        <CommandText>select -2 id, ''Not selected'' DisplayName
+UNION ALL
+select Id,DisplayName from ItemHierarchy3
+WHERE ItemHierarchy2ID IN (@Hierarchy2)</CommandText>
+        <QueryParameters>
+          <QueryParameter Name="@Hierarchy2">
+            <Value>=Parameters!Hierarchy2.Value</Value>
+          </QueryParameter>
+        </QueryParameters>
       </Query>
       <Fields>
-        <Field Name="Id">
-          <DataField>Id</DataField>
+        <Field Name="id">
+          <DataField>id</DataField>
           <rd:TypeName>System.Int64</rd:TypeName>
         </Field>
         <Field Name="DisplayName">
@@ -10811,12 +11474,20 @@ GROUP BY c.Code+ '' '' + c.DisplayName, a.total</CommandText>
     </DataSet>
     <DataSet Name="Hierarchy4">
       <Query>
-        <DataSourceName>BaseDB</DataSourceName>
-        <CommandText>select Id,DisplayName from ItemHierarchy4</CommandText>
+        <DataSourceName>CustomerDB</DataSourceName>
+        <CommandText>select -2 id, ''Not selected'' DisplayName
+UNION ALL
+select Id,DisplayName from ItemHierarchy4
+WHERE ItemHierarchy3ID IN (@Hierarchy3)</CommandText>
+        <QueryParameters>
+          <QueryParameter Name="@Hierarchy3">
+            <Value>=Parameters!Hierarchy3.Value</Value>
+          </QueryParameter>
+        </QueryParameters>
       </Query>
       <Fields>
-        <Field Name="Id">
-          <DataField>Id</DataField>
+        <Field Name="id">
+          <DataField>id</DataField>
           <rd:TypeName>System.Int64</rd:TypeName>
         </Field>
         <Field Name="DisplayName">
@@ -10827,17 +11498,275 @@ GROUP BY c.Code+ '' '' + c.DisplayName, a.total</CommandText>
     </DataSet>
     <DataSet Name="Hierarchy5">
       <Query>
-        <DataSourceName>BaseDB</DataSourceName>
-        <CommandText>select Id,DisplayName from ItemHierarchy5</CommandText>
+        <DataSourceName>CustomerDB</DataSourceName>
+        <CommandText>select -2 id, ''Not selected'' DisplayName
+UNION ALL
+select Id,DisplayName from ItemHierarchy5
+WHERE ItemHierarchy4ID IN (@Hierarchy4)</CommandText>
+        <QueryParameters>
+          <QueryParameter Name="@Hierarchy4">
+            <Value>=Parameters!Hierarchy4.Value</Value>
+          </QueryParameter>
+        </QueryParameters>
       </Query>
       <Fields>
-        <Field Name="Id">
-          <DataField>Id</DataField>
+        <Field Name="id">
+          <DataField>id</DataField>
           <rd:TypeName>System.Int64</rd:TypeName>
         </Field>
         <Field Name="DisplayName">
           <DataField>DisplayName</DataField>
           <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+      </Fields>
+    </DataSet>
+    <DataSet Name="HierarchyData">
+      <Query>
+        <DataSourceName>CustomerDB</DataSourceName>
+        <CommandText>Declare @s int, @DateFrom date, @DateTo date
+IF(@Store=3) set @s=4 ELSE set @s=-1
+IF(@DateF is not NULL and @DateT is not NULL) begin set @DateFrom = @DateF set @DateTo=@DateT end 
+ELSE IF(@TimeSlots=1)
+begin set @DateFrom = Getdate() set @DateTo = Getdate() end
+ELSE IF(@TimeSlots=2)
+begin set @DateFrom = Getdate()-1 set @DateTo = Getdate()-1 end
+ELSE IF(@TimeSlots=3)
+begin set @DateFrom = dateadd(day, 1-datepart(dw, getdate()), CONVERT(date,getdate())) set @DateTo = dateadd(day, 7-datepart(dw, getdate()), CONVERT(date,getdate())) end
+ELSE IF(@TimeSlots=4)
+begin set @DateFrom = dateadd(dd, -day(GETDATE()), GETDATE())+1 set @DateTo = dateadd(dd, -day(dateadd(mm, 1, GETDATE())), dateadd(mm, 1, GETDATE())) end
+ELSE IF(@TimeSlots=5)
+begin set @DateFrom = CAST(CAST(YEAR(Getdate()) AS nvarchar)+''-01-01'' AS DATE) set @DateTo = CAST(CAST(YEAR(Getdate()) AS nvarchar)+''-12-31'' AS DATE)end
+
+SELECT s.Code +'' '' + s.DisplayName [Store], ih1.Code +'' '' + ih1.DisplayName [Hierarchy], SUM(ti.Amount+ti.Discount)/SUM(ti.Quantity) [AV.Amount] ,SUM(ti.Amount+ti.Discount) [Amount], SUM(ti.Quantity) [Quantity], 
+SUM(ti.Amount+ti.Discount)/a.total*100 as [Contribution], @DateFrom [DateFrom], @DateTo [DateTo]
+FROM dbo.[Transaction] t
+INNER JOIN dbo.TransactionItem ti ON ti.TransactionID=t.ID and t.TransactionTypeID=2 and Quantity&lt;&gt;0 and @s=4 and CAST(TransactionDate as Date) between @DateFrom and @DateTo
+INNER JOIN dbo.Item i ON i.id=ti.ItemID 
+INNER JOIN dbo.Location l ON t.LocationID=l.ID
+INNER JOIN dbo.Store s ON s.ID=l.StoreID
+INNER JOIN dbo.Company c ON l.CompanyID=c.ID
+INNER JOIN (SELECT SUM(ti.Amount+ti.Discount) as total FROM dbo.[Transaction] t
+			INNER JOIN dbo.TransactionItem ti ON ti.TransactionID=t.ID and t.TransactionTypeID=2 and Quantity&lt;&gt;0
+			INNER JOIN dbo.Location l ON t.LocationID=l.ID) as a ON 1=1
+LEFT JOIN dbo.ItemHierarchy1 ih1 ON ih1.Id=i.ItemHierarchy1ID
+WHERE s.ID IN (@DataStore) AND ISNULL(i.ItemHierarchy1ID,-2) in (@Hierarchy1) AND ISNULL(i.ItemHierarchy2ID,-2) in (@Hierarchy2) AND ISNULL(i.ItemHierarchy3ID,-2) in (@Hierarchy3)
+AND ISNULL(i.ItemHierarchy4ID,-2) in (@Hierarchy4) AND ISNULL(i.ItemHierarchy5ID,-2) in (@Hierarchy5)
+GROUP BY s.Code +'' '' + s.DisplayName, a.total, ih1.Code +'' '' + ih1.DisplayName
+having SUM(ti.Quantity) &lt;&gt; 0</CommandText>
+        <QueryParameters>
+          <QueryParameter Name="@Store">
+            <Value>=Parameters!ReportType.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@DateF">
+            <Value>=Parameters!DateFrom.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@DateT">
+            <Value>=Parameters!DataTo.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@TimeSlots">
+            <Value>=Parameters!TimeSlots.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@DataStore">
+            <Value>=Parameters!Store.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@Hierarchy1">
+            <Value>=Parameters!Hierarchy1.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@Hierarchy2">
+            <Value>=Parameters!Hierarchy2.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@Hierarchy3">
+            <Value>=Parameters!Hierarchy3.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@Hierarchy4">
+            <Value>=Parameters!Hierarchy4.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@Hierarchy5">
+            <Value>=Parameters!Hierarchy5.Value</Value>
+          </QueryParameter>
+        </QueryParameters>
+      </Query>
+      <Fields>
+        <Field Name="Store">
+          <DataField>Store</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Hierarchy">
+          <DataField>Hierarchy</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="AV_Amount">
+          <DataField>AV.Amount</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="Amount">
+          <DataField>Amount</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="Quantity">
+          <DataField>Quantity</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="Contribution">
+          <DataField>Contribution</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="DateFrom">
+          <DataField>DateFrom</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="DateTo">
+          <DataField>DateTo</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+      </Fields>
+    </DataSet>
+    <DataSet Name="ItemData">
+      <Query>
+        <DataSourceName>CustomerDB</DataSourceName>
+        <CommandText>Declare @s int, @DateFrom date, @DateTo date
+IF(@Store=2) set @s=4 ELSE set @s=-1
+IF(@DateF is not NULL and @DateT is not NULL) begin set @DateFrom = @DateF set @DateTo=@DateT end 
+ELSE IF(@TimeSlots=1)
+begin set @DateFrom = Getdate() set @DateTo = Getdate() end
+ELSE IF(@TimeSlots=2)
+begin set @DateFrom = Getdate()-1 set @DateTo = Getdate()-1 end
+ELSE IF(@TimeSlots=3)
+begin set @DateFrom = dateadd(day, 1-datepart(dw, getdate()), CONVERT(date,getdate())) set @DateTo = dateadd(day, 7-datepart(dw, getdate()), CONVERT(date,getdate())) end
+ELSE IF(@TimeSlots=4)
+begin set @DateFrom = dateadd(dd, -day(GETDATE()), GETDATE())+1 set @DateTo = dateadd(dd, -day(dateadd(mm, 1, GETDATE())), dateadd(mm, 1, GETDATE())) end
+ELSE IF(@TimeSlots=5)
+begin set @DateFrom = CAST(CAST(YEAR(Getdate()) AS nvarchar)+''-01-01'' AS DATE) set @DateTo = CAST(CAST(YEAR(Getdate()) AS nvarchar)+''-12-31'' AS DATE)end
+
+SELECT s.Code +'' '' + s.DisplayName [Store], ih1.Code +'' '' + ih1.DisplayName [Hierarchy], i.Code [ItemCode], i.ShortDisplayName [ItemName], SUM(ti.Amount+ti.Discount)/SUM(ti.Quantity) [AV.Amount] ,SUM(ti.Amount+ti.Discount) [Amount], SUM(ti.Quantity) [Quantity], 
+SUM(ti.Amount+ti.Discount)/a.total*100 as [Contribution], @DateFrom [DateFrom], @DateTo [DateTo]
+FROM dbo.[Transaction] t
+INNER JOIN dbo.TransactionItem ti ON ti.TransactionID=t.ID and t.TransactionTypeID=2 and Quantity&lt;&gt;0 and @s=4 and CAST(TransactionDate as Date) between @DateFrom and @DateTo
+INNER JOIN dbo.Item i ON i.id=ti.ItemID 
+INNER JOIN dbo.Location l ON t.LocationID=l.ID
+INNER JOIN dbo.Store s ON s.ID=l.StoreID
+INNER JOIN dbo.Company c ON l.CompanyID=c.ID
+INNER JOIN (SELECT SUM(ti.Amount+ti.Discount) as total FROM dbo.[Transaction] t
+			INNER JOIN dbo.TransactionItem ti ON ti.TransactionID=t.ID and t.TransactionTypeID=2 and Quantity&lt;&gt;0
+			INNER JOIN dbo.Location l ON t.LocationID=l.ID) as a ON 1=1
+LEFT JOIN dbo.ItemHierarchy1 ih1 ON ih1.Id=i.ItemHierarchy1ID
+WHERE s.ID IN (@DataStore) AND ISNULL(i.ItemHierarchy1ID,-2) in (@Hierarchy1) AND ISNULL(i.ItemHierarchy2ID,-2) in (@Hierarchy2) AND ISNULL(i.ItemHierarchy3ID,-2) in (@Hierarchy3)
+AND ISNULL(i.ItemHierarchy4ID,-2) in (@Hierarchy4) AND ISNULL(i.ItemHierarchy5ID,-2) in (@Hierarchy5)
+GROUP BY s.Code +'' '' + s.DisplayName, a.total, ih1.Code +'' '' + ih1.DisplayName, i.Code, i.ShortDisplayName
+having SUM(ti.Quantity) &lt;&gt; 0</CommandText>
+        <QueryParameters>
+          <QueryParameter Name="@Store">
+            <Value>=Parameters!ReportType.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@DateF">
+            <Value>=Parameters!DateFrom.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@DateT">
+            <Value>=Parameters!DataTo.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@TimeSlots">
+            <Value>=Parameters!TimeSlots.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@DataStore">
+            <Value>=Parameters!Store.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@Hierarchy1">
+            <Value>=Parameters!Hierarchy1.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@Hierarchy2">
+            <Value>=Parameters!Hierarchy2.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@Hierarchy3">
+            <Value>=Parameters!Hierarchy3.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@Hierarchy4">
+            <Value>=Parameters!Hierarchy4.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@Hierarchy5">
+            <Value>=Parameters!Hierarchy5.Value</Value>
+          </QueryParameter>
+        </QueryParameters>
+      </Query>
+      <Fields>
+        <Field Name="Store">
+          <DataField>Store</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Hierarchy">
+          <DataField>Hierarchy</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="ItemCode">
+          <DataField>ItemCode</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="ItemName">
+          <DataField>ItemName</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="AV_Amount">
+          <DataField>AV.Amount</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="Amount">
+          <DataField>Amount</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="Quantity">
+          <DataField>Quantity</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="Contribution">
+          <DataField>Contribution</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="DateFrom">
+          <DataField>DateFrom</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="DateTo">
+          <DataField>DateTo</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+      </Fields>
+    </DataSet>
+    <DataSet Name="Date">
+      <Query>
+        <DataSourceName>CustomerDB</DataSourceName>
+        <CommandText>DECLARE @DateFrom date, @DateTo date
+IF(@DateF is not NULL and @DateT is not NULL) begin set @DateFrom = @DateF set @DateTo=@DateT end 
+ELSE IF(@TimeSlots=1)
+begin set @DateFrom = Getdate() set @DateTo = Getdate() end
+ELSE IF(@TimeSlots=2)
+begin set @DateFrom = Getdate()-1 set @DateTo = Getdate()-1 end
+ELSE IF(@TimeSlots=3)
+begin set @DateFrom = dateadd(day, 1-datepart(dw, getdate()), CONVERT(date,getdate())) set @DateTo = dateadd(day, 7-datepart(dw, getdate()), CONVERT(date,getdate())) end
+ELSE IF(@TimeSlots=4)
+begin set @DateFrom = dateadd(dd, -day(GETDATE()), GETDATE())+1 set @DateTo = dateadd(dd, -day(dateadd(mm, 1, GETDATE())), dateadd(mm, 1, GETDATE())) end
+ELSE IF(@TimeSlots=5)
+begin set @DateFrom = CAST(CAST(YEAR(Getdate()) AS nvarchar)+''-01-01'' AS DATE) set @DateTo = CAST(CAST(YEAR(Getdate()) AS nvarchar)+''-12-31'' AS DATE)end
+
+Select @DateFrom [DateFrom],  @DateTo [DateTo]</CommandText>
+        <QueryParameters>
+          <QueryParameter Name="@DateF">
+            <Value>=Parameters!DateFrom.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@DateT">
+            <Value>=Parameters!DataTo.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@TimeSlots">
+            <Value>=Parameters!TimeSlots.Value</Value>
+          </QueryParameter>
+        </QueryParameters>
+      </Query>
+      <Fields>
+        <Field Name="DateFrom">
+          <DataField>DateFrom</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="DateTo">
+          <DataField>DateTo</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
         </Field>
       </Fields>
     </DataSet>
@@ -10935,7 +11864,7 @@ GROUP BY c.Code+ '' '' + c.DisplayName, a.total</CommandText>
       <ValidValues>
         <DataSetReference>
           <DataSetName>Hierarchy1</DataSetName>
-          <ValueField>Id</ValueField>
+          <ValueField>id</ValueField>
           <LabelField>DisplayName</LabelField>
         </DataSetReference>
       </ValidValues>
@@ -10947,7 +11876,7 @@ GROUP BY c.Code+ '' '' + c.DisplayName, a.total</CommandText>
       <ValidValues>
         <DataSetReference>
           <DataSetName>Hierarchy2</DataSetName>
-          <ValueField>Id</ValueField>
+          <ValueField>id</ValueField>
           <LabelField>DisplayName</LabelField>
         </DataSetReference>
       </ValidValues>
@@ -10959,7 +11888,7 @@ GROUP BY c.Code+ '' '' + c.DisplayName, a.total</CommandText>
       <ValidValues>
         <DataSetReference>
           <DataSetName>Hierarchy3</DataSetName>
-          <ValueField>Id</ValueField>
+          <ValueField>id</ValueField>
           <LabelField>DisplayName</LabelField>
         </DataSetReference>
       </ValidValues>
@@ -10971,7 +11900,7 @@ GROUP BY c.Code+ '' '' + c.DisplayName, a.total</CommandText>
       <ValidValues>
         <DataSetReference>
           <DataSetName>Hierarchy4</DataSetName>
-          <ValueField>Id</ValueField>
+          <ValueField>id</ValueField>
           <LabelField>DisplayName</LabelField>
         </DataSetReference>
       </ValidValues>
@@ -10979,11 +11908,11 @@ GROUP BY c.Code+ '' '' + c.DisplayName, a.total</CommandText>
     </ReportParameter>
     <ReportParameter Name="Hierarchy5">
       <DataType>Integer</DataType>
-      <Prompt>5</Prompt>
+      <Prompt>Hierarchy5</Prompt>
       <ValidValues>
         <DataSetReference>
           <DataSetName>Hierarchy5</DataSetName>
-          <ValueField>Id</ValueField>
+          <ValueField>id</ValueField>
           <LabelField>DisplayName</LabelField>
         </DataSetReference>
       </ValidValues>
@@ -11062,7 +11991,7 @@ GROUP BY c.Code+ '' '' + c.DisplayName, a.total</CommandText>
   <rd:ReportUnitType>Inch</rd:ReportUnitType>
   <rd:PageUnit>Px</rd:PageUnit>
   <df:DefaultFontFamily>Segoe UI</df:DefaultFontFamily>
-</Report>', 1, NULL, '2022-09-15 16:45:21.9633333 +00:00', 89, N'N', '642cd302-61c8-4a38-a180-58296a8e1647', 1, NULL, 2)
+</Report>', 1, NULL, '2022-09-21 12:49:45.4300000 +00:00', 138, N'N', '83ca849c-1ebe-458e-9a26-5c3d909f04eb', 1, NULL, 2)
 INSERT INTO [dbo].[WebReport] ([ID], [Name], [Code], [Rdl], [WebReportCategoryID], [WebReportCategorySubID], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [LanguageID]) VALUES (10028, N'1', N'112233', N'<?xml version="1.0" encoding="utf-8"?>
 <Report xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner" xmlns:df="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition/defaultfontfamily" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition">
   <ReportSections>
