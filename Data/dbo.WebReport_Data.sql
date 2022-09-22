@@ -1,5 +1,4 @@
-SET IDENTITY_INSERT [dbo].[WebReport] ON
-INSERT INTO [dbo].[WebReport] ([ID], [Name], [Code], [Rdl], [WebReportCategoryID], [WebReportCategorySubID], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [LanguageID], [ID2], [WebReportCategoryID2], [WebReportCategorySubID2]) VALUES (10015, N'DONT TOUCH', N'demo_report', N'<?xml version="1.0" encoding="utf-8"?>
+INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySubID], [Name], [Code], [Rdl], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [LanguageID]) VALUES ('db39259f-803a-ed11-8e5b-4ccc6a2bb6d6', 'ce39259f-803a-ed11-8e5b-4ccc6a2bb6d6', NULL, N'DONT TOUCH', N'demo_report', N'<?xml version="1.0" encoding="utf-8"?>
 <Report xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner" xmlns:df="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition/defaultfontfamily" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition">
   <ReportSections>
     <ReportSection>
@@ -1837,8 +1836,8 @@ AND [dbo].[Partner].[PartnerCode] = IIF(IsNull(@PartnerCodeValue, '''') = '''', 
   <rd:ReportUnitType>Cm</rd:ReportUnitType>
   <rd:PageUnit />
   <df:DefaultFontFamily>Segoe UI</df:DefaultFontFamily>
-</Report>', 1, NULL, '2022-07-06 13:10:18.4133333 +00:00', 19, N'N', 'f498acdd-81f0-4da3-847b-c31a727cc3af', 1, NULL, 2, 'db39259f-803a-ed11-8e5b-4ccc6a2bb6d6', 'ce39259f-803a-ed11-8e5b-4ccc6a2bb6d6', NULL)
-INSERT INTO [dbo].[WebReport] ([ID], [Name], [Code], [Rdl], [WebReportCategoryID], [WebReportCategorySubID], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [LanguageID], [ID2], [WebReportCategoryID2], [WebReportCategorySubID2]) VALUES (10020, N'license1', N'l1', N'<?xml version="1.0" encoding="utf-8"?>
+</Report>', '2022-07-06 13:10:18.4133333 +00:00', 19, N'N', 'f498acdd-81f0-4da3-847b-c31a727cc3af', 1, NULL, 2)
+INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySubID], [Name], [Code], [Rdl], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [LanguageID]) VALUES ('dc39259f-803a-ed11-8e5b-4ccc6a2bb6d6', 'ce39259f-803a-ed11-8e5b-4ccc6a2bb6d6', NULL, N'license1', N'l1', N'<?xml version="1.0" encoding="utf-8"?>
 <Report xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner" xmlns:df="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition/defaultfontfamily" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition">
   <ReportSections>
     <ReportSection>
@@ -1928,8 +1927,8 @@ INSERT INTO [dbo].[WebReport] ([ID], [Name], [Code], [Rdl], [WebReportCategoryID
   <rd:ReportUnitType>Inch</rd:ReportUnitType>
   <rd:PageUnit>Px</rd:PageUnit>
   <df:DefaultFontFamily>Segoe UI</df:DefaultFontFamily>
-</Report>', 1, NULL, '2022-09-14 15:39:35.0633333 +00:00', 2, N'N', 'e7f041e0-3834-443c-ad0f-923773c63aee', 1, NULL, 2, 'dc39259f-803a-ed11-8e5b-4ccc6a2bb6d6', 'ce39259f-803a-ed11-8e5b-4ccc6a2bb6d6', NULL)
-INSERT INTO [dbo].[WebReport] ([ID], [Name], [Code], [Rdl], [WebReportCategoryID], [WebReportCategorySubID], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [LanguageID], [ID2], [WebReportCategoryID2], [WebReportCategorySubID2]) VALUES (10021, N'Test', N'01', N'<?xml version="1.0" encoding="utf-8"?>
+</Report>', '2022-09-14 15:39:35.0633333 +00:00', 2, N'N', 'e7f041e0-3834-443c-ad0f-923773c63aee', 1, NULL, 2)
+INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySubID], [Name], [Code], [Rdl], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [LanguageID]) VALUES ('dd39259f-803a-ed11-8e5b-4ccc6a2bb6d6', 'ce39259f-803a-ed11-8e5b-4ccc6a2bb6d6', 'd539259f-803a-ed11-8e5b-4ccc6a2bb6d6', N'Test', N'01', N'<?xml version="1.0" encoding="utf-8"?>
 <Report xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner" xmlns:df="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition/defaultfontfamily" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition">
   <ReportSections>
     <ReportSection>
@@ -2598,8 +2597,8 @@ where p.PartnerCode=@partnerCode</CommandText>
   <rd:ReportUnitType>Inch</rd:ReportUnitType>
   <rd:PageUnit>Px</rd:PageUnit>
   <df:DefaultFontFamily>Segoe UI</df:DefaultFontFamily>
-</Report>', 1, 1, '2022-08-01 18:03:26.8333333 +00:00', 2, N'N', 'f86cd0eb-43d6-4775-89e0-f32368ff68ed', 1, NULL, 2, 'dd39259f-803a-ed11-8e5b-4ccc6a2bb6d6', 'ce39259f-803a-ed11-8e5b-4ccc6a2bb6d6', 'd539259f-803a-ed11-8e5b-4ccc6a2bb6d6')
-INSERT INTO [dbo].[WebReport] ([ID], [Name], [Code], [Rdl], [WebReportCategoryID], [WebReportCategorySubID], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [LanguageID], [ID2], [WebReportCategoryID2], [WebReportCategorySubID2]) VALUES (10022, N'test yuriy', N'0011', N'<?xml version="1.0" encoding="utf-8"?>
+</Report>', '2022-08-01 18:03:26.8333333 +00:00', 2, N'N', 'f86cd0eb-43d6-4775-89e0-f32368ff68ed', 1, NULL, 2)
+INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySubID], [Name], [Code], [Rdl], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [LanguageID]) VALUES ('de39259f-803a-ed11-8e5b-4ccc6a2bb6d6', 'ce39259f-803a-ed11-8e5b-4ccc6a2bb6d6', NULL, N'test yuriy', N'0011', N'<?xml version="1.0" encoding="utf-8"?>
 <Report xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner" xmlns:df="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition/defaultfontfamily" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition">
   <ReportSections>
     <ReportSection>
@@ -3025,8 +3024,8 @@ INSERT INTO [dbo].[WebReport] ([ID], [Name], [Code], [Rdl], [WebReportCategoryID
   <rd:ReportUnitType>Inch</rd:ReportUnitType>
   <rd:PageUnit>Px</rd:PageUnit>
   <df:DefaultFontFamily>Segoe UI</df:DefaultFontFamily>
-</Report>', 1, NULL, '2022-08-15 15:54:14.2666667 +00:00', 2, N'N', '001e6d9a-6e07-4ee8-b2af-c465d1e2d785', 1, NULL, 2, 'de39259f-803a-ed11-8e5b-4ccc6a2bb6d6', 'ce39259f-803a-ed11-8e5b-4ccc6a2bb6d6', NULL)
-INSERT INTO [dbo].[WebReport] ([ID], [Name], [Code], [Rdl], [WebReportCategoryID], [WebReportCategorySubID], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [LanguageID], [ID2], [WebReportCategoryID2], [WebReportCategorySubID2]) VALUES (10023, N'Yura', N'112233', N'<?xml version="1.0" encoding="utf-8"?>
+</Report>', '2022-08-15 15:54:14.2666667 +00:00', 2, N'N', '001e6d9a-6e07-4ee8-b2af-c465d1e2d785', 1, NULL, 2)
+INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySubID], [Name], [Code], [Rdl], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [LanguageID]) VALUES ('df39259f-803a-ed11-8e5b-4ccc6a2bb6d6', 'd039259f-803a-ed11-8e5b-4ccc6a2bb6d6', NULL, N'Yura', N'112233', N'<?xml version="1.0" encoding="utf-8"?>
 <Report xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner" xmlns:df="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition/defaultfontfamily" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition">
   <ReportSections>
     <ReportSection>
@@ -3790,8 +3789,8 @@ INSERT INTO [dbo].[WebReport] ([ID], [Name], [Code], [Rdl], [WebReportCategoryID
   <rd:ReportUnitType>Inch</rd:ReportUnitType>
   <rd:PageUnit>Px</rd:PageUnit>
   <df:DefaultFontFamily>Segoe UI</df:DefaultFontFamily>
-</Report>', 3, NULL, '2022-09-15 15:59:12.4200000 +00:00', 6, N'N', 'dadd7674-b1a8-4386-aac0-f5388ce1d29f', 1, NULL, 2, 'df39259f-803a-ed11-8e5b-4ccc6a2bb6d6', 'd039259f-803a-ed11-8e5b-4ccc6a2bb6d6', NULL)
-INSERT INTO [dbo].[WebReport] ([ID], [Name], [Code], [Rdl], [WebReportCategoryID], [WebReportCategorySubID], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [LanguageID], [ID2], [WebReportCategoryID2], [WebReportCategorySubID2]) VALUES (10024, N'TEST 1', N'TEST1', N'<?xml version="1.0" encoding="utf-8"?>
+</Report>', '2022-09-15 15:59:12.4200000 +00:00', 6, N'N', 'dadd7674-b1a8-4386-aac0-f5388ce1d29f', 1, NULL, 2)
+INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySubID], [Name], [Code], [Rdl], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [LanguageID]) VALUES ('e039259f-803a-ed11-8e5b-4ccc6a2bb6d6', 'ce39259f-803a-ed11-8e5b-4ccc6a2bb6d6', 'd539259f-803a-ed11-8e5b-4ccc6a2bb6d6', N'TEST 1', N'TEST1', N'<?xml version="1.0" encoding="utf-8"?>
 <Report xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner" xmlns:df="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition/defaultfontfamily" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition">
   <ReportSections>
     <ReportSection>
@@ -3845,8 +3844,8 @@ INSERT INTO [dbo].[WebReport] ([ID], [Name], [Code], [Rdl], [WebReportCategoryID
   <rd:ReportUnitType>Inch</rd:ReportUnitType>
   <rd:PageUnit>Px</rd:PageUnit>
   <df:DefaultFontFamily>Segoe UI</df:DefaultFontFamily>
-</Report>', 1, 1, '2022-08-12 14:52:42.1333225 +03:00', 1, N'N', '2c4fe9ac-52f3-4313-a38e-2b5958df0975', 1, NULL, 2, 'e039259f-803a-ed11-8e5b-4ccc6a2bb6d6', 'ce39259f-803a-ed11-8e5b-4ccc6a2bb6d6', 'd539259f-803a-ed11-8e5b-4ccc6a2bb6d6')
-INSERT INTO [dbo].[WebReport] ([ID], [Name], [Code], [Rdl], [WebReportCategoryID], [WebReportCategorySubID], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [LanguageID], [ID2], [WebReportCategoryID2], [WebReportCategorySubID2]) VALUES (10025, N'Itest1', N'Itest1', N'<?xml version="1.0" encoding="utf-8"?>
+</Report>', '2022-08-12 14:52:42.1333225 +03:00', 1, N'N', '2c4fe9ac-52f3-4313-a38e-2b5958df0975', 1, NULL, 2)
+INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySubID], [Name], [Code], [Rdl], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [LanguageID]) VALUES ('e139259f-803a-ed11-8e5b-4ccc6a2bb6d6', 'ce39259f-803a-ed11-8e5b-4ccc6a2bb6d6', 'd539259f-803a-ed11-8e5b-4ccc6a2bb6d6', N'Itest1', N'Itest1', N'<?xml version="1.0" encoding="utf-8"?>
 <Report xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner" xmlns:df="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition/defaultfontfamily" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition">
   <ReportSections>
     <ReportSection>
@@ -4704,8 +4703,8 @@ INSERT INTO [dbo].[WebReport] ([ID], [Name], [Code], [Rdl], [WebReportCategoryID
   <rd:ReportUnitType>Inch</rd:ReportUnitType>
   <rd:PageUnit>Px</rd:PageUnit>
   <df:DefaultFontFamily>Segoe UI</df:DefaultFontFamily>
-</Report>', 1, 1, '2022-08-15 15:36:09.9300000 +00:00', 11, N'N', 'b3b9a858-beb6-461b-9b0f-f3fa2704e190', 1, NULL, 2, 'e139259f-803a-ed11-8e5b-4ccc6a2bb6d6', 'ce39259f-803a-ed11-8e5b-4ccc6a2bb6d6', 'd539259f-803a-ed11-8e5b-4ccc6a2bb6d6')
-INSERT INTO [dbo].[WebReport] ([ID], [Name], [Code], [Rdl], [WebReportCategoryID], [WebReportCategorySubID], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [LanguageID], [ID2], [WebReportCategoryID2], [WebReportCategorySubID2]) VALUES (10026, N'test-SIR-7335', N'test-SIR-7335', N'<?xml version="1.0" encoding="utf-8"?>
+</Report>', '2022-08-15 15:36:09.9300000 +00:00', 11, N'N', 'b3b9a858-beb6-461b-9b0f-f3fa2704e190', 1, NULL, 2)
+INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySubID], [Name], [Code], [Rdl], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [LanguageID]) VALUES ('e239259f-803a-ed11-8e5b-4ccc6a2bb6d6', 'ce39259f-803a-ed11-8e5b-4ccc6a2bb6d6', 'd539259f-803a-ed11-8e5b-4ccc6a2bb6d6', N'test-SIR-7335', N'test-SIR-7335', N'<?xml version="1.0" encoding="utf-8"?>
 <Report xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner" xmlns:df="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition/defaultfontfamily" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition">
   <ReportSections>
     <ReportSection>
@@ -6543,8 +6542,8 @@ AND [dbo].[Partner].[PartnerCode] = IIF(IsNull(@PartnerCodeValue, '''') = '''', 
   <rd:ReportUnitType>Cm</rd:ReportUnitType>
   <rd:PageUnit />
   <df:DefaultFontFamily>Segoe UI</df:DefaultFontFamily>
-</Report>', 1, 1, '2022-08-19 15:06:21.1889831 +03:00', 1, N'N', 'b76abc3c-9f63-48eb-be5d-902fff9af53c', 1, NULL, 2, 'e239259f-803a-ed11-8e5b-4ccc6a2bb6d6', 'ce39259f-803a-ed11-8e5b-4ccc6a2bb6d6', 'd539259f-803a-ed11-8e5b-4ccc6a2bb6d6')
-INSERT INTO [dbo].[WebReport] ([ID], [Name], [Code], [Rdl], [WebReportCategoryID], [WebReportCategorySubID], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [LanguageID], [ID2], [WebReportCategoryID2], [WebReportCategorySubID2]) VALUES (10027, N'Sales Report', N'SR', N'<?xml version="1.0" encoding="utf-8"?>
+</Report>', '2022-08-19 15:06:21.1889831 +03:00', 1, N'N', 'b76abc3c-9f63-48eb-be5d-902fff9af53c', 1, NULL, 2)
+INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySubID], [Name], [Code], [Rdl], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [LanguageID]) VALUES ('e339259f-803a-ed11-8e5b-4ccc6a2bb6d6', 'ce39259f-803a-ed11-8e5b-4ccc6a2bb6d6', NULL, N'Sales Report', N'SR', N'<?xml version="1.0" encoding="utf-8"?>
 <Report xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner" xmlns:df="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition/defaultfontfamily" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition">
   <ReportSections>
     <ReportSection>
@@ -11991,8 +11990,8 @@ Select @DateFrom [DateFrom],  @DateTo [DateTo]</CommandText>
   <rd:ReportUnitType>Inch</rd:ReportUnitType>
   <rd:PageUnit>Px</rd:PageUnit>
   <df:DefaultFontFamily>Segoe UI</df:DefaultFontFamily>
-</Report>', 1, NULL, '2022-09-21 12:49:45.4300000 +00:00', 138, N'N', '83ca849c-1ebe-458e-9a26-5c3d909f04eb', 1, NULL, 2, 'e339259f-803a-ed11-8e5b-4ccc6a2bb6d6', 'ce39259f-803a-ed11-8e5b-4ccc6a2bb6d6', NULL)
-INSERT INTO [dbo].[WebReport] ([ID], [Name], [Code], [Rdl], [WebReportCategoryID], [WebReportCategorySubID], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [LanguageID], [ID2], [WebReportCategoryID2], [WebReportCategorySubID2]) VALUES (10028, N'1', N'112233', N'<?xml version="1.0" encoding="utf-8"?>
+</Report>', '2022-09-21 12:49:45.4300000 +00:00', 138, N'N', '83ca849c-1ebe-458e-9a26-5c3d909f04eb', 1, NULL, 2)
+INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySubID], [Name], [Code], [Rdl], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [LanguageID]) VALUES ('e439259f-803a-ed11-8e5b-4ccc6a2bb6d6', 'd039259f-803a-ed11-8e5b-4ccc6a2bb6d6', NULL, N'1', N'112233', N'<?xml version="1.0" encoding="utf-8"?>
 <Report xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner" xmlns:df="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition/defaultfontfamily" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition">
   <ReportSections>
     <ReportSection>
@@ -12756,8 +12755,8 @@ INSERT INTO [dbo].[WebReport] ([ID], [Name], [Code], [Rdl], [WebReportCategoryID
   <rd:ReportUnitType>Inch</rd:ReportUnitType>
   <rd:PageUnit>Px</rd:PageUnit>
   <df:DefaultFontFamily>Segoe UI</df:DefaultFontFamily>
-</Report>', 3, NULL, '2022-09-15 16:05:32.7300000 +00:00', 2, N'Y', '9ffeb4a2-193d-4ddf-a173-26f52852779a', 1, NULL, 2, 'e439259f-803a-ed11-8e5b-4ccc6a2bb6d6', 'd039259f-803a-ed11-8e5b-4ccc6a2bb6d6', NULL)
-INSERT INTO [dbo].[WebReport] ([ID], [Name], [Code], [Rdl], [WebReportCategoryID], [WebReportCategorySubID], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [LanguageID], [ID2], [WebReportCategoryID2], [WebReportCategorySubID2]) VALUES (10029, N'2', N'112233', N'<?xml version="1.0" encoding="utf-8"?>
+</Report>', '2022-09-15 16:05:32.7300000 +00:00', 2, N'Y', '9ffeb4a2-193d-4ddf-a173-26f52852779a', 1, NULL, 2)
+INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySubID], [Name], [Code], [Rdl], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [LanguageID]) VALUES ('e539259f-803a-ed11-8e5b-4ccc6a2bb6d6', 'd039259f-803a-ed11-8e5b-4ccc6a2bb6d6', NULL, N'2', N'112233', N'<?xml version="1.0" encoding="utf-8"?>
 <Report xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner" xmlns:df="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition/defaultfontfamily" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition">
   <ReportSections>
     <ReportSection>
@@ -13521,5 +13520,4 @@ INSERT INTO [dbo].[WebReport] ([ID], [Name], [Code], [Rdl], [WebReportCategoryID
   <rd:ReportUnitType>Inch</rd:ReportUnitType>
   <rd:PageUnit>Px</rd:PageUnit>
   <df:DefaultFontFamily>Segoe UI</df:DefaultFontFamily>
-</Report>', 3, NULL, '2022-09-15 16:01:41.4639408 +03:00', 1, N'N', '379aa018-fcdf-4c72-841b-4ee8741203cf', 1, NULL, 2, 'e539259f-803a-ed11-8e5b-4ccc6a2bb6d6', 'd039259f-803a-ed11-8e5b-4ccc6a2bb6d6', NULL)
-SET IDENTITY_INSERT [dbo].[WebReport] OFF
+</Report>', '2022-09-15 16:01:41.4639408 +03:00', 1, N'N', '379aa018-fcdf-4c72-841b-4ee8741203cf', 1, NULL, 2)

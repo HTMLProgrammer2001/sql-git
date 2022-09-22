@@ -91,11 +91,6 @@
     <DataFile>dbo.WebPresetTypeEnumName_Data.sql</DataFile>
     <DataFile>dbo.WebPresetTypeEnum_Data.sql</DataFile>
     <DataFile>dbo.WebPreset_Data.sql</DataFile>
-    <DataFile>dbo.WebReportCategoryName_Data.sql</DataFile>
-    <DataFile>dbo.WebReportCategorySubName_Data.sql</DataFile>
-    <DataFile>dbo.WebReportCategorySub_Data.sql</DataFile>
-    <DataFile>dbo.WebReportCategory_Data.sql</DataFile>
-    <DataFile>dbo.WebReport_Data.sql</DataFile>
     <DataFile>dbo.WebTranslateCacheName_Data.sql</DataFile>
     <DataFile>dbo.WebTranslateCustomName_Data.sql</DataFile>
     <DataFile>dbo.WebTranslateName_Data.sql</DataFile>
@@ -112,5 +107,10 @@
     <DataFile>dbo.WebViewTemplate_Data.sql</DataFile>
     <DataFile>dbo.WebViewToViewSubAssociation_Data.sql</DataFile>
     <DataFile>dbo.WebView_Data.sql</DataFile>
+    <DataFile>dbo.WebReportCategory_Data.sql</DataFile>
+    <DataFile>dbo.WebReport_Data.sql</DataFile>
+    <DataFile>dbo.WebReportCategoryName_Data.sql</DataFile>
+    <DataFile>dbo.WebReportCategorySub_Data.sql</DataFile>
+    <DataFile>dbo.WebReportCategorySubName_Data.sql</DataFile>
   </DataFileSet>
 </DatabaseInformation>
