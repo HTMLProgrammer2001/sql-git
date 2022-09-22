@@ -1,6 +1,6 @@
 CREATE TABLE [dbo].[WebMenu]
 (
-[ID] [uniqueidentifier] NOT NULL CONSTRAINT [DF_WebMenu_ID2] DEFAULT (newsequentialid()),
+[ID] [uniqueidentifier] NOT NULL CONSTRAINT [DF_WebMenu_ID] DEFAULT (newsequentialid()),
 [WebMenuID] [uniqueidentifier] NULL,
 [WebPresetID] [uniqueidentifier] NOT NULL,
 [WebMenuTypeEnumID] [bigint] NOT NULL,

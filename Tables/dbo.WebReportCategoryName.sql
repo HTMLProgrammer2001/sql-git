@@ -9,7 +9,9 @@ CREATE TABLE [dbo].[WebReportCategoryName]
 [IsDeleted] [char] (1) COLLATE SQL_Latin1_General_CP850_CI_AS NOT NULL CONSTRAINT [DF_WebReportCategoryName_IsDeleted] DEFAULT ('N'),
 [GUID] [uniqueidentifier] NOT NULL CONSTRAINT [DF_WebReportCategoryName_GUID] DEFAULT (newid()),
 [AppType] [int] NULL CONSTRAINT [DF_WebReportCategoryName_AppType] DEFAULT ((1)),
-[UpdateUser] [bigint] NULL
+[UpdateUser] [bigint] NULL,
+[ID2] [uniqueidentifier] NOT NULL CONSTRAINT [DF_WebReportCategoryName_ID] DEFAULT (newsequentialid()),
+[WebReportCategoryID2] [uniqueidentifier] NULL
 ) ON [PRIMARY]
 GO
 ALTER TABLE [dbo].[WebReportCategoryName] ADD CONSTRAINT [PK_WebReportCategoryName] PRIMARY KEY CLUSTERED ([ID]) ON [PRIMARY]

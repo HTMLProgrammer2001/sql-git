@@ -1,6 +1,6 @@
 CREATE TABLE [dbo].[WebMenuName]
 (
-[ID] [uniqueidentifier] NOT NULL CONSTRAINT [DF_WebMenuName_ID2] DEFAULT (newsequentialid()),
+[ID] [uniqueidentifier] NOT NULL CONSTRAINT [DF_WebMenuName_ID] DEFAULT (newsequentialid()),
 [WebMenuID] [uniqueidentifier] NOT NULL,
 [LanguageID] [bigint] NOT NULL,
 [Name] [nvarchar] (256) COLLATE SQL_Latin1_General_CP850_CI_AS NULL,
