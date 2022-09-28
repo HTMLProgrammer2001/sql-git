@@ -19,7 +19,8 @@ CREATE TABLE [dbo].[WebMenu]
 [GUID] [uniqueidentifier] NOT NULL CONSTRAINT [DF_WebMenu_GUID] DEFAULT (newid()),
 [AppType] [int] NULL CONSTRAINT [DF_WebMenu_AppType] DEFAULT ((1)),
 [UpdateUser] [bigint] NULL,
-[IsActive] [char] (1) COLLATE SQL_Latin1_General_CP850_CI_AS NULL CONSTRAINT [DF_WebMenu_IsActive] DEFAULT ('Y')
+[IsActive] [char] (1) COLLATE SQL_Latin1_General_CP850_CI_AS NULL CONSTRAINT [DF_WebMenu_IsActive] DEFAULT ('Y'),
+[CreateDate] [datetimeoffset] NOT NULL CONSTRAINT [DF_WebMenu_CreateDate] DEFAULT (sysdatetimeoffset())
 ) ON [PRIMARY]
 GO
 ALTER TABLE [dbo].[WebMenu] ADD CONSTRAINT [PK_WebMenu] PRIMARY KEY CLUSTERED ([ID]) ON [PRIMARY]

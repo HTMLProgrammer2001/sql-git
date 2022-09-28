@@ -9,7 +9,8 @@ CREATE TABLE [dbo].[WebViewSubTemplate]
 [IsDeleted] [char] (1) COLLATE SQL_Latin1_General_CP850_CI_AS NOT NULL CONSTRAINT [DF_WebViewSubTemplate_IsDeleted] DEFAULT ('N'),
 [GUID] [uniqueidentifier] NOT NULL CONSTRAINT [DF_WebViewSubTemplate_GUID] DEFAULT (newid()),
 [AppType] [int] NULL CONSTRAINT [DF_WebViewSubTemplate_AppType] DEFAULT ((1)),
-[UpdateUser] [bigint] NULL
+[UpdateUser] [bigint] NULL,
+[CreateDate] [datetimeoffset] NOT NULL CONSTRAINT [DF_WebViewSubTemplate_CreateDate] DEFAULT (sysdatetimeoffset())
 ) ON [PRIMARY]
 GO
 ALTER TABLE [dbo].[WebViewSubTemplate] ADD CONSTRAINT [PK_WebViewSubTemplate] PRIMARY KEY CLUSTERED ([ID]) ON [PRIMARY]

@@ -7,7 +7,8 @@ CREATE TABLE [dbo].[WebMockobject]
 [GUID] [uniqueidentifier] NOT NULL CONSTRAINT [DF_WebMockobject_GUID] DEFAULT (newid()),
 [IsDeleted] [char] (1) COLLATE SQL_Latin1_General_CP850_CI_AS NOT NULL CONSTRAINT [DF_WebMockobject_IsDeleted] DEFAULT ('N'),
 [AppType] [int] NULL CONSTRAINT [DF_WebMockobject_AppType] DEFAULT ((1)),
-[UpdateUser] [bigint] NULL
+[UpdateUser] [bigint] NULL,
+[CreateDate] [datetimeoffset] NOT NULL CONSTRAINT [DF_WebMockobject_CreateDate] DEFAULT (sysdatetimeoffset())
 ) ON [PRIMARY]
 GO
 ALTER TABLE [dbo].[WebMockobject] ADD CONSTRAINT [PK_WebMockobject] PRIMARY KEY CLUSTERED ([ID]) ON [PRIMARY]

@@ -12,7 +12,8 @@ CREATE TABLE [dbo].[WebComponentViewSettings]
 [IsDeleted] [char] (1) COLLATE SQL_Latin1_General_CP850_CI_AS NOT NULL CONSTRAINT [DF_WebComponentViewSettings_IsDeleted] DEFAULT ('N'),
 [GUID] [uniqueidentifier] NOT NULL CONSTRAINT [DF_WebComponentViewSettings_GUID] DEFAULT (newid()),
 [AppType] [int] NULL CONSTRAINT [DF_WebComponentViewSettings_AppType] DEFAULT ((1)),
-[UpdateUser] [bigint] NULL
+[UpdateUser] [bigint] NULL,
+[CreateDate] [datetimeoffset] NOT NULL CONSTRAINT [DF_WebComponentViewSettings_CreateDate] DEFAULT (sysdatetimeoffset())
 ) ON [PRIMARY]
 GO
 ALTER TABLE [dbo].[WebComponentViewSettings] ADD CONSTRAINT [PK_WebComponentViewSettings] PRIMARY KEY CLUSTERED ([ID]) ON [PRIMARY]

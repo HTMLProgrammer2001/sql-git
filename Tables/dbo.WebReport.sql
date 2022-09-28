@@ -12,7 +12,8 @@ CREATE TABLE [dbo].[WebReport]
 [GUID] [uniqueidentifier] NOT NULL CONSTRAINT [DF_WebReport_GUID] DEFAULT (newid()),
 [AppType] [int] NULL CONSTRAINT [DF_WebReport_AppType] DEFAULT ((1)),
 [UpdateUser] [bigint] NULL,
-[LanguageID] [bigint] NOT NULL
+[LanguageID] [bigint] NOT NULL,
+[CreateDate] [datetimeoffset] NOT NULL CONSTRAINT [DF_WebReport_CreateDate] DEFAULT (sysdatetimeoffset())
 ) ON [PRIMARY]
 GO
 ALTER TABLE [dbo].[WebReport] ADD CONSTRAINT [PK_WebReport] PRIMARY KEY CLUSTERED ([ID]) ON [PRIMARY]

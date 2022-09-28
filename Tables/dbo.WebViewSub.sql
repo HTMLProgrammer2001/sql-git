@@ -9,7 +9,8 @@ CREATE TABLE [dbo].[WebViewSub]
 [AppType] [int] NULL CONSTRAINT [DF_WebViewSub_AppType] DEFAULT ((1)),
 [UpdateUser] [bigint] NULL,
 [ComponentHtml] [nvarchar] (max) COLLATE SQL_Latin1_General_CP850_CI_AS NULL,
-[Code] [nvarchar] (256) COLLATE SQL_Latin1_General_CP850_CI_AS NULL
+[Code] [nvarchar] (256) COLLATE SQL_Latin1_General_CP850_CI_AS NULL,
+[CreateDate] [datetimeoffset] NOT NULL CONSTRAINT [DF_WebViewSub_CreateDate] DEFAULT (sysdatetimeoffset())
 ) ON [PRIMARY]
 GO
 ALTER TABLE [dbo].[WebViewSub] ADD CONSTRAINT [PK_WebViewSub] PRIMARY KEY CLUSTERED ([ID]) ON [PRIMARY]

@@ -13,7 +13,8 @@ CREATE TABLE [dbo].[WebTranslate]
 [IsDeleted] [char] (1) COLLATE SQL_Latin1_General_CP850_CI_AS NOT NULL CONSTRAINT [DF_WebTranslate_IsDeleted] DEFAULT ('N'),
 [GUID] [uniqueidentifier] NOT NULL CONSTRAINT [DF_WebTranslate_GUID] DEFAULT (newid()),
 [AppType] [int] NULL CONSTRAINT [DF_WebTranslate_AppType] DEFAULT ((1)),
-[UpdateUser] [bigint] NULL
+[UpdateUser] [bigint] NULL,
+[CreateDate] [datetimeoffset] NOT NULL CONSTRAINT [DF_WebTranslate_CreateDate] DEFAULT (sysdatetimeoffset())
 ) ON [PRIMARY]
 GO
 ALTER TABLE [dbo].[WebTranslate] ADD CONSTRAINT [PK_WebTranslate] PRIMARY KEY CLUSTERED ([ID]) ON [PRIMARY]

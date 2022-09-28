@@ -1,4 +1,4 @@
-INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySubID], [Name], [Code], [Rdl], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [LanguageID]) VALUES ('366c565d-433e-ed11-8e5b-4ccc6a2bb6d6', '296c565d-433e-ed11-8e5b-4ccc6a2bb6d6', NULL, N'DONT TOUCH', N'demo_report', N'<?xml version="1.0" encoding="utf-8"?>
+INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySubID], [Name], [Code], [Rdl], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [LanguageID], [CreateDate]) VALUES ('366c565d-433e-ed11-8e5b-4ccc6a2bb6d6', '296c565d-433e-ed11-8e5b-4ccc6a2bb6d6', NULL, N'DONT TOUCH', N'demo_report', N'<?xml version="1.0" encoding="utf-8"?>
 <Report xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner" xmlns:df="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition/defaultfontfamily" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition">
   <ReportSections>
     <ReportSection>
@@ -1836,8 +1836,8 @@ AND [dbo].[Partner].[PartnerCode] = IIF(IsNull(@PartnerCodeValue, '''') = '''', 
   <rd:ReportUnitType>Cm</rd:ReportUnitType>
   <rd:PageUnit />
   <df:DefaultFontFamily>Segoe UI</df:DefaultFontFamily>
-</Report>', '2022-07-06 13:10:18.4133333 +00:00', 19, N'N', 'f498acdd-81f0-4da3-847b-c31a727cc3af', 1, NULL, 2)
-INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySubID], [Name], [Code], [Rdl], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [LanguageID]) VALUES ('3e6c565d-433e-ed11-8e5b-4ccc6a2bb6d6', '296c565d-433e-ed11-8e5b-4ccc6a2bb6d6', NULL, N'Sales Report', N'SR', N'<?xml version="1.0" encoding="utf-8"?>
+</Report>', '2022-07-06 13:10:18.4133333 +00:00', 19, N'N', 'f498acdd-81f0-4da3-847b-c31a727cc3af', 1, NULL, 2, '2022-09-28 17:31:50.1416447 +03:00')
+INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySubID], [Name], [Code], [Rdl], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [LanguageID], [CreateDate]) VALUES ('3e6c565d-433e-ed11-8e5b-4ccc6a2bb6d6', '296c565d-433e-ed11-8e5b-4ccc6a2bb6d6', NULL, N'Sales Report', N'SR', N'<?xml version="1.0" encoding="utf-8"?>
 <Report xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner" xmlns:df="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition/defaultfontfamily" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition">
   <ReportSections>
     <ReportSection>
@@ -8887,8 +8887,8 @@ Select @DateFrom [DateFrom],  @DateTo [DateTo]</CommandText>
   <rd:ReportUnitType>Inch</rd:ReportUnitType>
   <rd:PageUnit>Px</rd:PageUnit>
   <df:DefaultFontFamily>Segoe UI</df:DefaultFontFamily>
-</Report>', '2022-09-23 10:16:07.6000000 +00:00', 191, N'N', 'dc8eeb4b-dcc7-4563-af98-0be8e738acf9', 1, NULL, 2)
-INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySubID], [Name], [Code], [Rdl], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [LanguageID]) VALUES ('416c565d-433e-ed11-8e5b-4ccc6a2bb6d6', '296c565d-433e-ed11-8e5b-4ccc6a2bb6d6', NULL, N'SR test', N'SR', N'<?xml version="1.0" encoding="utf-8"?>
+</Report>', '2022-09-23 10:16:07.6000000 +00:00', 191, N'N', 'dc8eeb4b-dcc7-4563-af98-0be8e738acf9', 1, NULL, 2, '2022-09-28 17:31:50.1416447 +03:00')
+INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySubID], [Name], [Code], [Rdl], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [LanguageID], [CreateDate]) VALUES ('416c565d-433e-ed11-8e5b-4ccc6a2bb6d6', '296c565d-433e-ed11-8e5b-4ccc6a2bb6d6', NULL, N'SR test', N'SR', N'<?xml version="1.0" encoding="utf-8"?>
 <Report xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner" xmlns:df="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition/defaultfontfamily" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition">
   <ReportSections>
     <ReportSection>
@@ -15938,4 +15938,4 @@ Select @DateFrom [DateFrom],  @DateTo [DateTo]</CommandText>
   <rd:ReportUnitType>Inch</rd:ReportUnitType>
   <rd:PageUnit>Px</rd:PageUnit>
   <df:DefaultFontFamily>Segoe UI</df:DefaultFontFamily>
-</Report>', '2022-09-23 16:12:37.5851040 +03:00', 1, N'N', 'c215638a-b426-4a74-9c30-10c1f852b5ef', 1, NULL, 2)
+</Report>', '2022-09-23 16:12:37.5851040 +03:00', 1, N'N', 'c215638a-b426-4a74-9c30-10c1f852b5ef', 1, NULL, 2, '2022-09-28 17:31:50.1416447 +03:00')

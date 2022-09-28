@@ -7,7 +7,8 @@ CREATE TABLE [dbo].[WebModule]
 [IsDeleted] [char] (1) COLLATE SQL_Latin1_General_CP850_CI_AS NOT NULL CONSTRAINT [DF_WebModule_IsDeleted] DEFAULT ('N'),
 [GUID] [uniqueidentifier] NOT NULL CONSTRAINT [DF_WebModule_GUID] DEFAULT (newid()),
 [AppType] [int] NULL CONSTRAINT [DF_WebModule_AppType] DEFAULT ((1)),
-[UpdateUser] [bigint] NULL
+[UpdateUser] [bigint] NULL,
+[CreateDate] [datetimeoffset] NOT NULL CONSTRAINT [DF_WebModule_CreateDate] DEFAULT (sysdatetimeoffset())
 ) ON [PRIMARY]
 GO
 ALTER TABLE [dbo].[WebModule] ADD CONSTRAINT [PK_WebModule] PRIMARY KEY CLUSTERED ([ID]) ON [PRIMARY]
