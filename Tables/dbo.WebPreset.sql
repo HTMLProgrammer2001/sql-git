@@ -1,6 +1,6 @@
 CREATE TABLE [dbo].[WebPreset]
 (
-[ID] [uniqueidentifier] NOT NULL CONSTRAINT [DF_WebPreset_ID2] DEFAULT (newsequentialid()),
+[ID] [uniqueidentifier] NOT NULL CONSTRAINT [DF_WebPreset_ID] DEFAULT (newsequentialid()),
 [WebPresetTypeEnumID] [bigint] NOT NULL,
 [RoleID] [bigint] NULL,
 [Name] [nvarchar] (256) COLLATE SQL_Latin1_General_CP850_CI_AS NULL,

@@ -1,7 +1,7 @@
 CREATE TABLE [dbo].[WebReportCategorySubName]
 (
-[ID] [bigint] NOT NULL IDENTITY(1, 1),
-[WebReportCategorySubID] [bigint] NOT NULL,
+[ID] [uniqueidentifier] NOT NULL CONSTRAINT [DF_WebReportCategorySubName_ID] DEFAULT (newsequentialid()),
+[WebReportCategorySubID] [uniqueidentifier] NOT NULL,
 [LanguageID] [bigint] NOT NULL,
 [Name] [nvarchar] (256) COLLATE SQL_Latin1_General_CP850_CI_AS NULL,
 [UpdateDate] [datetimeoffset] NOT NULL CONSTRAINT [DF_WebReportCategorySubName_UpdateDate] DEFAULT (sysdatetimeoffset()),
@@ -16,5 +16,5 @@ ALTER TABLE [dbo].[WebReportCategorySubName] ADD CONSTRAINT [PK_WebReportCategor
 GO
 ALTER TABLE [dbo].[WebReportCategorySubName] ADD CONSTRAINT [FK_WebReportCategorySubName_Language] FOREIGN KEY ([LanguageID]) REFERENCES [dbo].[Language] ([ID])
 GO
-ALTER TABLE [dbo].[WebReportCategorySubName] ADD CONSTRAINT [FK_WebReportCategorySubName_WebReportCategorySub] FOREIGN KEY ([WebReportCategorySubID]) REFERENCES [dbo].[WebReportCategorySub] ([ID])
+ALTER TABLE [dbo].[WebReportCategorySubName] ADD CONSTRAINT [FK_WebReportCategorySubName_WebReportCategorySub] FOREIGN KEY ([WebReportCategorySubID]) REFERENCES [dbo].[WebReportCategorySub] ([ID]) ON DELETE CASCADE ON UPDATE CASCADE
 GO

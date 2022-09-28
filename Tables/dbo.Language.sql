@@ -12,5 +12,5 @@ CREATE TABLE [dbo].[Language]
 [UpdateUser] [bigint] NULL
 ) ON [PRIMARY]
 GO
-ALTER TABLE [dbo].[Language] ADD CONSTRAINT [PK__Language] PRIMARY KEY CLUSTERED ([ID]) ON [PRIMARY]
+ALTER TABLE [dbo].[Language] ADD CONSTRAINT [PK_Language] PRIMARY KEY CLUSTERED ([ID]) ON [PRIMARY]
 GO

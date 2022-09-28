@@ -1,6 +1,6 @@
 CREATE TABLE [dbo].[WebReportCategory]
 (
-[ID] [bigint] NOT NULL IDENTITY(1, 1),
+[ID] [uniqueidentifier] NOT NULL CONSTRAINT [DF_WebReportCategory_ID] DEFAULT (newsequentialid()),
 [Name] [nvarchar] (256) COLLATE SQL_Latin1_General_CP850_CI_AS NULL,
 [UpdateDate] [datetimeoffset] NOT NULL CONSTRAINT [DF_WebReportCategory_UpdateDate] DEFAULT (sysdatetimeoffset()),
 [Version] [int] NOT NULL CONSTRAINT [DF_WebReportCategory_Version] DEFAULT ((1)),
