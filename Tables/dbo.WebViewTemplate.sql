@@ -22,7 +22,8 @@ CREATE TABLE [dbo].[WebViewTemplate]
 [GUID] [uniqueidentifier] NOT NULL CONSTRAINT [DF_WebViewTemplate_GUID] DEFAULT (newid()),
 [AppType] [int] NULL CONSTRAINT [DF_WebViewTemplate_AppType] DEFAULT ((1)),
 [UpdateUser] [bigint] NULL,
-[CreateDate] [datetimeoffset] NOT NULL CONSTRAINT [DF_WebViewTemplate_CreateDate] DEFAULT (sysdatetimeoffset())
+[CreateDate] [datetimeoffset] NOT NULL CONSTRAINT [DF_WebViewTemplate_CreateDate] DEFAULT (sysdatetimeoffset()),
+[WebIconSvgEnumID_ForBookmark2] [uniqueidentifier] NULL
 ) ON [PRIMARY]
 GO
 ALTER TABLE [dbo].[WebViewTemplate] ADD CONSTRAINT [PK_WebViewTemplate] PRIMARY KEY CLUSTERED ([ID]) ON [PRIMARY]

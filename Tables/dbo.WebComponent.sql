@@ -14,7 +14,8 @@ CREATE TABLE [dbo].[WebComponent]
 [GUID] [uniqueidentifier] NOT NULL CONSTRAINT [DF_WebComponent_GUID] DEFAULT (newid()),
 [AppType] [int] NULL CONSTRAINT [DF_WebComponent_AppType] DEFAULT ((1)),
 [UpdateUser] [bigint] NULL,
-[CreateDate] [datetimeoffset] NOT NULL CONSTRAINT [DF_WebComponent_CreateDate] DEFAULT (sysdatetimeoffset())
+[CreateDate] [datetimeoffset] NOT NULL CONSTRAINT [DF_WebComponent_CreateDate] DEFAULT (sysdatetimeoffset()),
+[WebIconSvgEnumID2] [uniqueidentifier] NULL
 ) ON [PRIMARY]
 GO
 ALTER TABLE [dbo].[WebComponent] ADD CONSTRAINT [PK_WebComponent] PRIMARY KEY CLUSTERED ([ID]) ON [PRIMARY]

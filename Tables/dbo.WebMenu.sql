@@ -20,7 +20,8 @@ CREATE TABLE [dbo].[WebMenu]
 [AppType] [int] NULL CONSTRAINT [DF_WebMenu_AppType] DEFAULT ((1)),
 [UpdateUser] [bigint] NULL,
 [IsActive] [char] (1) COLLATE SQL_Latin1_General_CP850_CI_AS NULL CONSTRAINT [DF_WebMenu_IsActive] DEFAULT ('Y'),
-[CreateDate] [datetimeoffset] NOT NULL CONSTRAINT [DF_WebMenu_CreateDate] DEFAULT (sysdatetimeoffset())
+[CreateDate] [datetimeoffset] NOT NULL CONSTRAINT [DF_WebMenu_CreateDate] DEFAULT (sysdatetimeoffset()),
+[WebIconSvgEnumID2] [uniqueidentifier] NULL
 ) ON [PRIMARY]
 GO
 ALTER TABLE [dbo].[WebMenu] ADD CONSTRAINT [PK_WebMenu] PRIMARY KEY CLUSTERED ([ID]) ON [PRIMARY]
