@@ -15,5 +15,5 @@ CREATE TABLE [dbo].[WebViewSubTemplate]
 GO
 ALTER TABLE [dbo].[WebViewSubTemplate] ADD CONSTRAINT [PK_WebViewSubTemplate] PRIMARY KEY CLUSTERED ([ID]) ON [PRIMARY]
 GO
-ALTER TABLE [dbo].[WebViewSubTemplate] ADD CONSTRAINT [FK_WebViewSubTemplate_WebViewSub] FOREIGN KEY ([WebViewSubID]) REFERENCES [dbo].[WebViewSub] ([ID])
+ALTER TABLE [dbo].[WebViewSubTemplate] ADD CONSTRAINT [FK_WebViewSubTemplate_WebViewSub] FOREIGN KEY ([WebViewSubID]) REFERENCES [dbo].[WebViewSub] ([ID]) ON DELETE CASCADE ON UPDATE CASCADE
 GO

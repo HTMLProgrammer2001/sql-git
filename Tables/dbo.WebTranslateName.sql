@@ -14,5 +14,7 @@ CREATE TABLE [dbo].[WebTranslateName]
 GO
 ALTER TABLE [dbo].[WebTranslateName] ADD CONSTRAINT [PK_WebTranslateName] PRIMARY KEY CLUSTERED ([ID]) ON [PRIMARY]
 GO
-ALTER TABLE [dbo].[WebTranslateName] ADD CONSTRAINT [FK_WebTranslateName_WebTranslate] FOREIGN KEY ([WebTranslateID]) REFERENCES [dbo].[WebTranslate] ([ID]) ON DELETE CASCADE
+ALTER TABLE [dbo].[WebTranslateName] ADD CONSTRAINT [FK_WebTranslateName_Language] FOREIGN KEY ([LanguageID]) REFERENCES [dbo].[Language] ([ID]) ON DELETE CASCADE ON UPDATE CASCADE
+GO
+ALTER TABLE [dbo].[WebTranslateName] ADD CONSTRAINT [FK_WebTranslateName_WebTranslate] FOREIGN KEY ([WebTranslateID]) REFERENCES [dbo].[WebTranslate] ([ID]) ON DELETE CASCADE ON UPDATE CASCADE
 GO

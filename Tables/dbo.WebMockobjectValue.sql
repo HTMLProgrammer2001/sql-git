@@ -1,7 +1,7 @@
 CREATE TABLE [dbo].[WebMockobjectValue]
 (
-[ID] [bigint] NOT NULL IDENTITY(1, 1),
-[WebMockobjectID] [bigint] NOT NULL,
+[ID] [uniqueidentifier] NOT NULL CONSTRAINT [DF_WebMockobjectValue_ID] DEFAULT (newsequentialid()),
+[WebMockobjectID] [uniqueidentifier] NULL,
 [UID] [bigint] NULL,
 [Code] [nvarchar] (256) COLLATE SQL_Latin1_General_CP850_CI_AS NULL,
 [Name] [nvarchar] (256) COLLATE SQL_Latin1_General_CP850_CI_AS NULL,
@@ -16,12 +16,10 @@ CREATE TABLE [dbo].[WebMockobjectValue]
 [IsDeleted] [char] (1) COLLATE SQL_Latin1_General_CP850_CI_AS NOT NULL CONSTRAINT [DF_WebMockobjectValue_IsDeleted] DEFAULT ('N'),
 [AppType] [int] NULL CONSTRAINT [DF_WebMockobjectValue_AppType] DEFAULT ((1)),
 [UpdateUser] [bigint] NULL,
-[CreateDate] [datetimeoffset] NOT NULL CONSTRAINT [DF_WebMockobjectValue_CreateDate] DEFAULT (sysdatetimeoffset()),
-[ID2] [uniqueidentifier] NOT NULL CONSTRAINT [DF_WebMockobjectValue_ID] DEFAULT (newsequentialid()),
-[WebMockobjectID2] [uniqueidentifier] NULL
+[CreateDate] [datetimeoffset] NOT NULL CONSTRAINT [DF_WebMockobjectValue_CreateDate] DEFAULT (sysdatetimeoffset())
 ) ON [PRIMARY]
 GO
 ALTER TABLE [dbo].[WebMockobjectValue] ADD CONSTRAINT [PK_WebMockobjectValue] PRIMARY KEY CLUSTERED ([ID]) ON [PRIMARY]
 GO
-ALTER TABLE [dbo].[WebMockobjectValue] ADD CONSTRAINT [FK_WebMockobjectValue_WebMockobject] FOREIGN KEY ([WebMockobjectID]) REFERENCES [dbo].[WebMockobject] ([ID]) ON DELETE CASCADE
+ALTER TABLE [dbo].[WebMockobjectValue] ADD CONSTRAINT [FK_WebMockobjectValue_WebMockobject] FOREIGN KEY ([WebMockobjectID]) REFERENCES [dbo].[WebMockobject] ([ID]) ON DELETE CASCADE ON UPDATE CASCADE
 GO

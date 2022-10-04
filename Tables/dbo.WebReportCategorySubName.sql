@@ -14,7 +14,7 @@ CREATE TABLE [dbo].[WebReportCategorySubName]
 GO
 ALTER TABLE [dbo].[WebReportCategorySubName] ADD CONSTRAINT [PK_WebReportCategorySubName] PRIMARY KEY CLUSTERED ([ID]) ON [PRIMARY]
 GO
-ALTER TABLE [dbo].[WebReportCategorySubName] ADD CONSTRAINT [FK_WebReportCategorySubName_Language] FOREIGN KEY ([LanguageID]) REFERENCES [dbo].[Language] ([ID])
+ALTER TABLE [dbo].[WebReportCategorySubName] ADD CONSTRAINT [FK_WebReportCategorySubName_Language] FOREIGN KEY ([LanguageID]) REFERENCES [dbo].[Language] ([ID]) ON DELETE CASCADE ON UPDATE CASCADE
 GO
 ALTER TABLE [dbo].[WebReportCategorySubName] ADD CONSTRAINT [FK_WebReportCategorySubName_WebReportCategorySub] FOREIGN KEY ([WebReportCategorySubID]) REFERENCES [dbo].[WebReportCategorySub] ([ID]) ON DELETE CASCADE ON UPDATE CASCADE
 GO

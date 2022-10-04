@@ -14,5 +14,7 @@ CREATE TABLE [dbo].[WebMenuTypeEnumName]
 GO
 ALTER TABLE [dbo].[WebMenuTypeEnumName] ADD CONSTRAINT [PK_WebMenuTypeEnumName] PRIMARY KEY CLUSTERED ([ID]) ON [PRIMARY]
 GO
-ALTER TABLE [dbo].[WebMenuTypeEnumName] ADD CONSTRAINT [FK_WebMenuTypeEnumName_WebMenuTypeEnum] FOREIGN KEY ([WebMenuTypeEnumID]) REFERENCES [dbo].[WebMenuTypeEnum] ([ID]) ON DELETE CASCADE
+ALTER TABLE [dbo].[WebMenuTypeEnumName] ADD CONSTRAINT [FK_WebMenuTypeEnumName_Language] FOREIGN KEY ([LanguageID]) REFERENCES [dbo].[Language] ([ID]) ON DELETE CASCADE ON UPDATE CASCADE
+GO
+ALTER TABLE [dbo].[WebMenuTypeEnumName] ADD CONSTRAINT [FK_WebMenuTypeEnumName_WebMenuTypeEnum] FOREIGN KEY ([WebMenuTypeEnumID]) REFERENCES [dbo].[WebMenuTypeEnum] ([ID]) ON DELETE CASCADE ON UPDATE CASCADE
 GO

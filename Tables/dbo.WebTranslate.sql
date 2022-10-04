@@ -23,5 +23,5 @@ ALTER TABLE [dbo].[WebTranslate] ADD CONSTRAINT [FK_WebTranslate_WebTranslate_Ba
 GO
 ALTER TABLE [dbo].[WebTranslate] ADD CONSTRAINT [FK_WebTranslate_WebTranslate_Tree] FOREIGN KEY ([WebTranslateID]) REFERENCES [dbo].[WebTranslate] ([ID])
 GO
-ALTER TABLE [dbo].[WebTranslate] ADD CONSTRAINT [FK_WebTranslate_WebTranslateTypeEnum] FOREIGN KEY ([WebTranslateTypeEnumID]) REFERENCES [dbo].[WebTranslateTypeEnum] ([ID])
+ALTER TABLE [dbo].[WebTranslate] ADD CONSTRAINT [FK_WebTranslate_WebTranslateTypeEnum] FOREIGN KEY ([WebTranslateTypeEnumID]) REFERENCES [dbo].[WebTranslateTypeEnum] ([ID]) ON DELETE CASCADE ON UPDATE CASCADE
 GO

@@ -1,7 +1,7 @@
 CREATE TABLE [dbo].[WebIconSvgEnumName]
 (
-[ID] [bigint] NOT NULL IDENTITY(1, 1),
-[WebIconSvgEnumID] [bigint] NOT NULL,
+[ID] [uniqueidentifier] NOT NULL CONSTRAINT [DF_WebIconSvgEnumName_ID] DEFAULT (newsequentialid()),
+[WebIconSvgEnumID] [uniqueidentifier] NOT NULL,
 [LanguageID] [bigint] NOT NULL,
 [Name] [nvarchar] (256) COLLATE SQL_Latin1_General_CP850_CI_AS NULL,
 [UpdateDate] [datetimeoffset] NOT NULL CONSTRAINT [DF_WebIconSvgEnumName_UpdateDate] DEFAULT (sysdatetimeoffset()),
@@ -9,12 +9,12 @@ CREATE TABLE [dbo].[WebIconSvgEnumName]
 [IsDeleted] [char] (1) COLLATE SQL_Latin1_General_CP850_CI_AS NOT NULL CONSTRAINT [DF_WebIconSvgEnumName_IsDeleted] DEFAULT ('N'),
 [GUID] [uniqueidentifier] NOT NULL CONSTRAINT [DF_WebIconSvgEnumName_GUID] DEFAULT (newid()),
 [AppType] [int] NULL CONSTRAINT [DF_WebIconSvgEnumName_AppType] DEFAULT ((1)),
-[UpdateUser] [bigint] NULL,
-[ID2] [uniqueidentifier] NOT NULL CONSTRAINT [DF_WebIconSvgEnumName_ID] DEFAULT (newsequentialid()),
-[WebIconSvgEnumID2] [uniqueidentifier] NULL
+[UpdateUser] [bigint] NULL
 ) ON [PRIMARY]
 GO
 ALTER TABLE [dbo].[WebIconSvgEnumName] ADD CONSTRAINT [PK_WebIconSvgEnumName] PRIMARY KEY CLUSTERED ([ID]) ON [PRIMARY]
 GO
-ALTER TABLE [dbo].[WebIconSvgEnumName] ADD CONSTRAINT [FK_WebIconSvgEnumName_WebIconSvgEnum] FOREIGN KEY ([WebIconSvgEnumID]) REFERENCES [dbo].[WebIconSvgEnum] ([ID]) ON DELETE CASCADE
+ALTER TABLE [dbo].[WebIconSvgEnumName] ADD CONSTRAINT [FK_WebIconSvgEnumName_Language] FOREIGN KEY ([LanguageID]) REFERENCES [dbo].[Language] ([ID]) ON DELETE CASCADE ON UPDATE CASCADE
+GO
+ALTER TABLE [dbo].[WebIconSvgEnumName] ADD CONSTRAINT [FK_WebIconSvgEnumName_WebIconSvgEnum] FOREIGN KEY ([WebIconSvgEnumID]) REFERENCES [dbo].[WebIconSvgEnum] ([ID]) ON DELETE CASCADE ON UPDATE CASCADE
 GO
