@@ -15,5 +15,5 @@ ALTER TABLE [dbo].[WebViewToViewSubAssociation] ADD CONSTRAINT [PK_WebViewToView
 GO
 ALTER TABLE [dbo].[WebViewToViewSubAssociation] ADD CONSTRAINT [FK_WebViewToViewSubAssotiation_WebView] FOREIGN KEY ([WebViewID]) REFERENCES [dbo].[WebView] ([ID])
 GO
-ALTER TABLE [dbo].[WebViewToViewSubAssociation] ADD CONSTRAINT [FK_WebViewToViewSubAssotiation_WebViewSub] FOREIGN KEY ([WebViewSubID]) REFERENCES [dbo].[WebViewSub] ([ID])
+ALTER TABLE [dbo].[WebViewToViewSubAssociation] ADD CONSTRAINT [FK_WebViewToViewSubAssotiation_WebViewSub] FOREIGN KEY ([WebViewSubID]) REFERENCES [dbo].[WebViewSub] ([ID]) ON DELETE CASCADE ON UPDATE CASCADE
 GO

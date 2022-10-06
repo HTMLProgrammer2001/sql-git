@@ -13,7 +13,7 @@ CREATE TABLE [dbo].[WebModuleToTranslateSettings]
 GO
 ALTER TABLE [dbo].[WebModuleToTranslateSettings] ADD CONSTRAINT [PK_WebModuleToTranslateSettings] PRIMARY KEY CLUSTERED ([ID]) ON [PRIMARY]
 GO
-ALTER TABLE [dbo].[WebModuleToTranslateSettings] ADD CONSTRAINT [FK_WebModuleToTranslateSettings_WebModule] FOREIGN KEY ([WebModuleID]) REFERENCES [dbo].[WebModule] ([ID])
+ALTER TABLE [dbo].[WebModuleToTranslateSettings] ADD CONSTRAINT [FK_WebModuleToTranslateSettings_WebModule] FOREIGN KEY ([WebModuleID]) REFERENCES [dbo].[WebModule] ([ID]) ON DELETE CASCADE ON UPDATE CASCADE
 GO
-ALTER TABLE [dbo].[WebModuleToTranslateSettings] ADD CONSTRAINT [FK_WebModuleToTranslateSettings_WebTranslate] FOREIGN KEY ([WebTranslateID_BaseTree]) REFERENCES [dbo].[WebTranslate] ([ID])
+ALTER TABLE [dbo].[WebModuleToTranslateSettings] ADD CONSTRAINT [FK_WebModuleToTranslateSettings_WebTranslate] FOREIGN KEY ([WebTranslateID_BaseTree]) REFERENCES [dbo].[WebTranslate] ([ID]) ON DELETE CASCADE ON UPDATE CASCADE
 GO

@@ -1,5 +1,5 @@
 SET IDENTITY_INSERT [dbo].[WebComponent] ON
-INSERT INTO [dbo].[WebComponent] ([ID], [WebIconSvgEnumID], [Code], [Name], [Title], [ComponentHtml], [ComponentFormBuilderHtml], [ComponentPreviewHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES (7, 8, N'edit-text-form-element', N'DONT TOUCH. Edit', N'DONT TOUCH. Edit', N'                ', N'<div *ngIf="self.settings?.is">
+INSERT INTO [dbo].[WebComponent] ([ID], [WebIconSvgEnumID], [Code], [Name], [Title], [ComponentHtml], [ComponentFormBuilderHtml], [ComponentPreviewHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES (7, '0d69f0a0-5c45-ed11-8e5c-4ccc6a2bb6d6', N'edit-text-form-element', N'DONT TOUCH. Edit', N'DONT TOUCH. Edit', N'                ', N'<div *ngIf="self.settings?.is">
       <cr-control-edit
         [dataLabel]="!self.settings.isUseTranslateKey ? self.currentText : null"
         [translateKeys]="self.settings.isUseTranslateKey ? self.settings.translateKey : null"
@@ -14,7 +14,7 @@ INSERT INTO [dbo].[WebComponent] ([ID], [WebIconSvgEnumID], [Code], [Name], [Tit
     [customClass]=''{{classes}}'' 
     [isDisabled]="{{disabled}}"
 ></cr-control-edit>', '2022-07-27 12:43:35.6200000 +00:00', 27, N'N', '5b82e14c-02ff-43b6-b188-621def5bb184', 1, NULL, '2022-09-28 17:31:50.0946998 +03:00')
-INSERT INTO [dbo].[WebComponent] ([ID], [WebIconSvgEnumID], [Code], [Name], [Title], [ComponentHtml], [ComponentFormBuilderHtml], [ComponentPreviewHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES (9, 6, N'checkbox-form-element', N'DONT TOUCH. Checkbox', N'DONT TOUCH. Checkbox', N'', N'<div *ngIf="self.settings?.is">
+INSERT INTO [dbo].[WebComponent] ([ID], [WebIconSvgEnumID], [Code], [Name], [Title], [ComponentHtml], [ComponentFormBuilderHtml], [ComponentPreviewHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES (9, '0b69f0a0-5c45-ed11-8e5c-4ccc6a2bb6d6', N'checkbox-form-element', N'DONT TOUCH. Checkbox', N'DONT TOUCH. Checkbox', N'', N'<div *ngIf="self.settings?.is">
     <cr-checkbox-control 
         [dataLabel]="!self.settings.isUseTranslateKey ? self.currentText : null"
         [translateKeys]="self.settings.isUseTranslateKey ? self.settings.translateKey : null"
@@ -50,7 +50,7 @@ INSERT INTO [dbo].[WebComponent] ([ID], [WebIconSvgEnumID], [Code], [Name], [Tit
         [uniqueField]="{{uniqueField}}"
     ></cr-edit-grid-server-paging>
 </div>', '2022-03-10 13:04:57.0366667 +00:00', 8, N'N', '015d05d9-612f-44d7-b959-55eab108ac9b', 1, NULL, '2022-09-28 17:31:50.0946998 +03:00')
-INSERT INTO [dbo].[WebComponent] ([ID], [WebIconSvgEnumID], [Code], [Name], [Title], [ComponentHtml], [ComponentFormBuilderHtml], [ComponentPreviewHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES (11, 9, N'button-form-element', N'DONT TOUCH. Button', N'DONT TOUCH. Button', N'test', N'<div *ngIf="self.settings?.is">
+INSERT INTO [dbo].[WebComponent] ([ID], [WebIconSvgEnumID], [Code], [Name], [Title], [ComponentHtml], [ComponentFormBuilderHtml], [ComponentPreviewHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES (11, '0e69f0a0-5c45-ed11-8e5c-4ccc6a2bb6d6', N'button-form-element', N'DONT TOUCH. Button', N'DONT TOUCH. Button', N'test', N'<div *ngIf="self.settings?.is">
       <cr-button-control
         [buttonTemplateType]="self.settings.buttonType"
         [text]="!self.settings.isUseTranslateKey ? self.currentText : null"
@@ -301,7 +301,7 @@ INSERT INTO [dbo].[WebComponent] ([ID], [WebIconSvgEnumID], [Code], [Name], [Tit
     [class]=''{{classes}}''
     [useCache]="false"
 ></cr-combobox-smart-control>', '2022-03-10 13:11:15.5300000 +00:00', 6, N'N', 'f126ea3e-9954-4143-8376-a9981c1edbbc', 1, NULL, '2022-09-28 17:31:50.0946998 +03:00')
-INSERT INTO [dbo].[WebComponent] ([ID], [WebIconSvgEnumID], [Code], [Name], [Title], [ComponentHtml], [ComponentFormBuilderHtml], [ComponentPreviewHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES (20025, 1, N'test', N'Test 1', N'test 2', N'', N'1', N'1', '2022-04-13 12:54:09.0200000 +00:00', 2, N'Y', 'e60bd583-14d8-40dd-b3d3-039ad6bb3e21', 1, NULL, '2022-09-28 17:31:50.0946998 +03:00')
+INSERT INTO [dbo].[WebComponent] ([ID], [WebIconSvgEnumID], [Code], [Name], [Title], [ComponentHtml], [ComponentFormBuilderHtml], [ComponentPreviewHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES (20025, '0669f0a0-5c45-ed11-8e5c-4ccc6a2bb6d6', N'test', N'Test 1', N'test 2', N'', N'1', N'1', '2022-04-13 12:54:09.0200000 +00:00', 2, N'Y', 'e60bd583-14d8-40dd-b3d3-039ad6bb3e21', 1, NULL, '2022-09-28 17:31:50.0946998 +03:00')
 INSERT INTO [dbo].[WebComponent] ([ID], [WebIconSvgEnumID], [Code], [Name], [Title], [ComponentHtml], [ComponentFormBuilderHtml], [ComponentPreviewHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES (30025, NULL, N'udf-list-form-element', N'DONT TOUCH. UDF list', N'DONT TOUCH.  UDF list', N'', N'<div *ngIf="self.settings.is">
     <cr-udf-list
         [isMock]="true"

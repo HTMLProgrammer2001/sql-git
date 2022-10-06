@@ -14,5 +14,5 @@ CREATE TABLE [dbo].[WebTranslateTypeEnumName]
 GO
 ALTER TABLE [dbo].[WebTranslateTypeEnumName] ADD CONSTRAINT [PK_WebTranslateTypeEnumName] PRIMARY KEY CLUSTERED ([ID]) ON [PRIMARY]
 GO
-ALTER TABLE [dbo].[WebTranslateTypeEnumName] ADD CONSTRAINT [FK_WebTranslateTypeEnumName_WebTranslateTypeEnum] FOREIGN KEY ([WebTranslateTypeEnumID]) REFERENCES [dbo].[WebTranslateTypeEnum] ([ID]) ON DELETE CASCADE
+ALTER TABLE [dbo].[WebTranslateTypeEnumName] ADD CONSTRAINT [FK_WebTranslateTypeEnumName_WebTranslateTypeEnum] FOREIGN KEY ([WebTranslateTypeEnumID]) REFERENCES [dbo].[WebTranslateTypeEnum] ([ID]) ON DELETE CASCADE ON UPDATE CASCADE
 GO

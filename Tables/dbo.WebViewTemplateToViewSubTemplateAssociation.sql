@@ -15,9 +15,9 @@ CREATE TABLE [dbo].[WebViewTemplateToViewSubTemplateAssociation]
 GO
 ALTER TABLE [dbo].[WebViewTemplateToViewSubTemplateAssociation] ADD CONSTRAINT [PK_WebViewTemplateToViewSubTemplateAssociation] PRIMARY KEY CLUSTERED ([ID]) ON [PRIMARY]
 GO
-ALTER TABLE [dbo].[WebViewTemplateToViewSubTemplateAssociation] ADD CONSTRAINT [FK_WebViewTempateToViewSubTemplateAssociation_WebViewSub] FOREIGN KEY ([WebViewSubID]) REFERENCES [dbo].[WebViewSub] ([ID])
+ALTER TABLE [dbo].[WebViewTemplateToViewSubTemplateAssociation] ADD CONSTRAINT [FK_WebViewTempateToViewSubTemplateAssociation_WebViewSub] FOREIGN KEY ([WebViewSubID]) REFERENCES [dbo].[WebViewSub] ([ID]) ON DELETE CASCADE ON UPDATE CASCADE
 GO
 ALTER TABLE [dbo].[WebViewTemplateToViewSubTemplateAssociation] ADD CONSTRAINT [FK_WebViewTempateToViewSubTemplateAssociation_WebViewSubTemplate] FOREIGN KEY ([WebViewSubTemplateID]) REFERENCES [dbo].[WebViewSubTemplate] ([ID])
 GO
-ALTER TABLE [dbo].[WebViewTemplateToViewSubTemplateAssociation] ADD CONSTRAINT [FK_WebViewTempateToViewSubTemplateAssociation_WebViewTemplate] FOREIGN KEY ([WebViewTemplateID]) REFERENCES [dbo].[WebViewTemplate] ([ID])
+ALTER TABLE [dbo].[WebViewTemplateToViewSubTemplateAssociation] ADD CONSTRAINT [FK_WebViewTempateToViewSubTemplateAssociation_WebViewTemplate] FOREIGN KEY ([WebViewTemplateID]) REFERENCES [dbo].[WebViewTemplate] ([ID]) ON DELETE CASCADE ON UPDATE CASCADE
 GO

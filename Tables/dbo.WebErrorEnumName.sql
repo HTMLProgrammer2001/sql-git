@@ -14,5 +14,7 @@ CREATE TABLE [dbo].[WebErrorEnumName]
 GO
 ALTER TABLE [dbo].[WebErrorEnumName] ADD CONSTRAINT [PK_WebErrorEnumName] PRIMARY KEY CLUSTERED ([ID]) ON [PRIMARY]
 GO
-ALTER TABLE [dbo].[WebErrorEnumName] ADD CONSTRAINT [FK_WebErrorEnumName_WebErrorEnum] FOREIGN KEY ([WebErrorEnumID]) REFERENCES [dbo].[WebErrorEnum] ([ID]) ON DELETE CASCADE
+ALTER TABLE [dbo].[WebErrorEnumName] ADD CONSTRAINT [FK_WebErrorEnumName_Language] FOREIGN KEY ([LanguageID]) REFERENCES [dbo].[Language] ([ID]) ON DELETE CASCADE ON UPDATE CASCADE
+GO
+ALTER TABLE [dbo].[WebErrorEnumName] ADD CONSTRAINT [FK_WebErrorEnumName_WebErrorEnum] FOREIGN KEY ([WebErrorEnumID]) REFERENCES [dbo].[WebErrorEnum] ([ID]) ON DELETE CASCADE ON UPDATE CASCADE
 GO

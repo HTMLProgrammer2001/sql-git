@@ -1,300 +1,4 @@
 SET IDENTITY_INSERT [dbo].[WebComponentViewSettings] ON
-INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebViewID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES (30054, 20025, 14, N'vat-group-list-title-header', N'Title header', N'{
-    "defaultValue": {
-        "isUseTranslateKey": true,
-        "translateKey": "TAX_GROUP.LIST.TITLE",
-        "elements": [
-            {
-                "appearance": "icon-button",
-                "iconSvg": "icon-pin",
-                "template": "custom"
-            },
-            {
-                "appearance": "icon-button",
-                "iconSvg": "icon-add",
-                "template": "custom"
-            },
-            {
-                "appearance": "icon-button",
-                "iconSvg": "icon-close",
-                "template": "custom"
-            }
-        ]
-    }
-}', N'<cr-title-header
-    [titleTranslateKey]="{{translateKey}}"
-    [title]="{{label}}"
-    (buttonClickEvent)="self.onTitleButtonClick($event)"
-    [buttonSettings]="self.titleHeaderButtonSettings"
-></cr-title-header>', '2022-10-05 15:41:51.6224251 +03:00', 1, N'N', 'be728670-b069-46bd-8e61-dd8ef0ad7f2e', 1, NULL, '2022-10-05 15:41:51.6224251 +03:00')
-INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebViewID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES (30055, 20025, 7, N'vat-group-list-code', N'Code', N'{
-    "defaultValue": {
-        "isUseTranslateKey": true,
-        "translateKey": "TAX_GROUP.LIST.FILTER.CODE"
-    }
-}', N'<cr-control-edit 
-    [translateKeys]="{{translateKey}}" 
-    [dataLabel]="{{label}}"
-    [customClass]=''{{classes}}''
-    [isDisabled]="{{disabled}}"
-    [elementName]="''edit:Tax_group_list.Code''"
-    [(dataValue)]="self.taxGroupFilterRequest.code"
-></cr-control-edit>', '2022-10-05 15:46:56.5347421 +03:00', 1, N'N', 'ba4598ba-c8cc-4ae5-aba9-31b5634b23c5', 1, NULL, '2022-10-05 15:46:56.5347421 +03:00')
-INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebViewID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES (30056, 20025, 7, N'vat-group-list-name', N'Name', N'{
-    "defaultValue": {
-        "isUseTranslateKey": true,
-        "translateKey": "TAX_GROUP.LIST.FILTER.NAME"
-    }
-}', N'<cr-control-edit 
-    [translateKeys]="{{translateKey}}" 
-    [dataLabel]="{{label}}"
-    [customClass]=''{{classes}}''
-    [isDisabled]="{{disabled}}"
-    [elementName]="''edit:Tax_group_list.Name''"
-    [(dataValue)]="self.taxGroupFilterRequest.name"
-></cr-control-edit>', '2022-10-05 15:47:55.2083456 +03:00', 1, N'N', '1f6d81c7-3337-448c-aff8-8e74996856e1', 1, NULL, '2022-10-05 15:47:55.2083456 +03:00')
-INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebViewID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES (30057, 20025, 11, N'vat-group-list-search', N'Search', N'{
-    "defaultValue": {
-        "isUseTranslateKey": true,
-        "translateKey": "COMMON.SEARCH",
-        "buttonType": "underlined-action-button"
-    }
-}', N'<cr-button-control 
-    [buttonTemplateType]="{{buttonTemplateType}}"
-    [text]="{{label}}"
-    [textTranslateKey]="{{translateKey}}"
-    [classArray]=''{{classes}}''
-    [width]="{{width}}"
-    [height]="{{height}}"
-    [icon]="{{icon}}"
-    (buttonClickEvent)="self.changeFilter()"
-    *ngIf="(self.EndpointName.tax_group_GET | endpointAccessGrantedPipe)"
-></cr-button-control>', '2022-10-05 15:49:57.1014460 +03:00', 1, N'N', '42bfd7c1-c17f-4a7e-9825-42c7289f5e73', 1, NULL, '2022-10-05 15:49:57.1014460 +03:00')
-INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebViewID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES (30058, 20025, 10, N'vat-groups-list-grid', N'Grid', N'{
-    "defaultValue": {
-        "uniqueField": "id",
-        "dataSource": {
-            "responseList": [
-                {
-                    "id": 1,
-                    "code": "Foo 1",
-                    "name": "Bar 1"
-                },
-                {
-                    "id": 2,
-                    "code": "Foo 2",
-                    "name": "Bar 2"
-                }
-            ],
-            "page": 1,
-            "size": 5,
-            "totalElements": 5
-        },
-        "columns": [
-            {
-                "title": "Code",
-                "field": "code",
-                "type": "text"
-            },
-            {
-                "title": "Name",
-                "field": "name",
-                "type": "text"
-            }
-        ]
-    }
-}', N'<div class="cr-grid-wrapper-new">
-    <cr-edit-grid-server-paging
-        (cellClickEvent)="self.cellClick($event)"
-        (pageChangeEvent)="self.changePage($event)"
-        [columnSettings]="self.columnSettings"
-        [dataCacheName]="''TaxGroupGrid''"
-        [dataSource]="self.gridData"
-        [elementName]="''edit-grid-server-paging:TaxGroup_list.Grid''"
-        [pageable]="true"
-        [resizable]="true"
-        [uniqueField]="''id''"
-        [class]="{{classes}}"
-      ></cr-edit-grid-server-paging>
-</div>', '2022-10-05 15:54:58.0200000 +00:00', 2, N'N', '09224093-7f46-45d5-bad4-1987ae90e878', 1, NULL, '2022-10-05 15:54:13.4471104 +03:00')
-INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebViewID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES (30059, 20026, 14, N'vat-group-details-title-header', N'Header', N'{
-    "defaultValue": {
-        "isUseTranslateKey": true,
-        "translateKey": "TAX_GROUP.DETAILS.TITLE",
-        "elements": [
-            {
-                "appearance": "icon-button",
-                "iconSvg": "icon-delete",
-                "template": "custom"
-            },
-            {
-                "appearance": "icon-button",
-                "iconSvg": "icon-refresh",
-                "template": "custom"
-            },
-            {
-                "appearance": "icon-button",
-                "iconSvg": "icon-add",
-                "template": "custom"
-            },
-            {
-                "appearance": "primary-button",
-                "nameTranslateKey": "COMMON.BUTTON.SAVE",
-                "template": "custom"
-            },
-            {
-                "appearance": "icon-button",
-                "iconSvg": "icon-close",
-                "template": "custom"
-            }
-        ]
-    }
-}', N'<cr-title-header
-    [titleTranslateKey]="{{translateKey}}"
-    [title]="{{label}}"
-    (buttonClickEvent)="self.onTitleButtonClick($event)"
-    [buttonSettings]="self.titleHeaderButtonSettings"
-    [titleValue]="self.titleValueText"
-></cr-title-header>', '2022-10-06 11:38:16.8955230 +03:00', 1, N'N', 'eeb3427d-282d-4082-84fc-528997abf9fb', 1, NULL, '2022-10-06 11:38:16.8955230 +03:00')
-INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebViewID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES (30060, 20026, 7, N'vat-group-details-code', N'Code', N'{
-    "defaultValue": {
-        "isUseTranslateKey": true,
-        "translateKey": "TAX_GROUP.DETAILS.CODE",
-        "validationField": "code"
-    }
-}', N'<cr-control-edit
-    [(dataValue)]="self.taxGroup.code"
-    [elementName]="''edit:TaxGroup_details.Code''"
-    [validator]="self.validator"
-    [validationField]="''code''"
-    (dataValueChange)="self.onChangeTitleValue()"
-    [translateKeys]="{{translateKey}}" 
-    [dataLabel]="{{label}}"
-    [customClass]=''{{classes}}''
-    [isDisabled]="self.taxGroup.isPredefined || {{disabled}}"
-></cr-control-edit>', '2022-10-06 11:41:56.2186922 +03:00', 1, N'N', '6ee89b37-7cdd-4ba6-8a09-236521e44681', 1, NULL, '2022-10-06 11:41:56.2186922 +03:00')
-INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebViewID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES (30061, 20026, 7, N'vat-group-details-name', N'Name', N'{
-    "defaultValue": {
-        "isUseTranslateKey": true,
-        "translateKey": "TAX_GROUP.DETAILS.NAME",
-        "validationField": "name"
-    }
-}', N'<cr-control-edit
-    [(dataValue)]="self.taxGroup.name"
-    [elementName]="''edit:TaxGroup_details.Name''"
-    [validator]="self.validator"
-    [validationField]="''name''"
-    [translateKeys]="{{translateKey}}" 
-    [dataLabel]="{{label}}"
-    [customClass]=''{{classes}}''
-    [isDisabled]="{{disabled}}"
-></cr-control-edit>', '2022-10-06 11:43:40.1317372 +03:00', 1, N'N', '47075ce2-f0f2-4dd2-bdbe-1317eab2e0e5', 1, NULL, '2022-10-06 11:43:40.1317372 +03:00')
-INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebViewID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES (30062, 20026, 10, N'vat-group-details-definitions-grid', N'Definitions grid', N'{
-    "defaultValue": {
-        "uniqueField": "id",
-        "dataSource": {
-            "responseList": [
-                {
-                    "id": 1,
-                    "name": "Bar 1"
-                },
-                {
-                    "id": 2,
-                    "name": "Bar 2"
-                }
-            ],
-            "page": 1,
-            "size": 5,
-            "totalElements": 5
-        },
-        "columns": [
-            {
-                "title": "Name",
-                "field": "name",
-                "type": "text"
-            }
-        ]
-    }
-}', N'<div class="cr-grid-wrapper-new cr-grid-with-collapse cr-tax-group-grid">
-    <kendo-grid
-        #grid
-        (pageChange)="self.pageChange($event)"
-        [(selectedKeys)]="self.mySelection"
-        [attr.data-element-name]="''grid:TaxGroup_details_definition.Definitions_grid''"
-        [data]="self.gridView"
-        [kendoGridSelectBy]="self.mySelectionKey"
-        [pageSize]="self.taxGroup.taxGroupLocationList.paginator?.size"
-        [skip]="self.taxGroup.taxGroupLocationList.paginator?.skip"
-        [pageable]="true"
-        [resizable]="true"
-        (add)="self.addHandler()"
-        (edit)="self.editHandler($event)"
-        (remove)="self.removeHandler($event)"
-                    >
-                      <ng-template kendoGridToolbarTemplate>
-                        <div
-                          class="row cr-row-padding-revert">
-                          <div class="col-lg-12 cr-col-content-align-right cr-col-no-padding">
-                            <cr-button-control
-                              [buttonTemplateType]="''grid-add-command''"
-                              [elementName]="''button:PriceList.Add''"
-                              *ngIf="(self.EndpointName.tax_group_id_PUT | endpointAccessGrantedPipe)"
-                            ></cr-button-control>
-                          </div>
-                        </div>
-                      </ng-template>
-
-                      <kendo-grid-column field="name">
-                        <ng-template kendoGridHeaderTemplate>
-                            <span [attr.data-translate]="''TAX_GROUP.DETAILS.GRID.NAME''">
-                              {{''TAX_GROUP.DETAILS.GRID.NAME'' | translate}}
-                            </span>
-                        </ng-template>
-                        <ng-template kendoGridCellTemplate
-                                     let-dataItem>
-                            <span>
-                              {{dataItem.name}}
-                            </span>
-                        </ng-template>
-                        <ng-template kendoGridEditTemplate let-dataItem>
-                          <cr-control-edit
-                            [(dataValue)]="self.taxGroup.cache.changeItem.name"
-                            [elementName]="''edit:TaxGroup.Name''"
-                            [translateKeys]="''TAX_GROUP.DETAILS.GRID.NAME''"
-                          ></cr-control-edit>
-                        </ng-template>
-                      </kendo-grid-column>
-
-                      <kendo-grid-column class="action-group" width="250">
-                        <ng-template kendoGridCellTemplate
-                                     let-dataItem="dataItem"
-                                     let-isNew="isNew"
-                                     let-rowIndex="rowIndex">
-                          <cr-button-control
-                            [buttonTemplateType]="''grid-edit-command''"
-                            [elementName]="''edit:TaxGroup.Details_Edit_Command''"
-                          ></cr-button-control>
-                          <!-- Delete row (trash button)-->
-                          <cr-button-control
-                            *ngIf="(self.EndpointName.tax_group_id_PUT | endpointAccessGrantedPipe)"
-                            [buttonTemplateType]="''grid-remove-command''"
-                            [elementName]="''edit:TaxGroup.Details_Remove_Command''"
-                          ></cr-button-control>
-                        </ng-template>
-                      </kendo-grid-column>
-                      <ng-template kendoGridNoRecordsTemplate>
-                          <span [attr.data-translate]="''COMMON.GRID.NO_RECORDS''">
-                            {{ ''COMMON.GRID.NO_RECORDS'' | translate }}
-                          </span>
-                      </ng-template>
-                      <ng-template kendoPagerTemplate>
-                        <cr-grid-paginator
-                          [totalElements]="self.gridView?.total"></cr-grid-paginator>
-                      </ng-template>
-                    </kendo-grid>
-                  </div>', '2022-10-06 11:49:26.7233333 +00:00', 2, N'N', '1c774e6c-e190-4085-83b9-af928e8ac715', 1, NULL, '2022-10-06 11:48:25.3768319 +03:00')
-SET IDENTITY_INSERT [dbo].[WebComponentViewSettings] OFF
-SET IDENTITY_INSERT [dbo].[WebComponentViewSettings] ON
 INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebViewID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES (10, 10021, 7, N'partner-list-first-name', N'First name', N'{
     "defaultValue": {
         "isUseTranslateKey": true,
@@ -1577,4 +1281,298 @@ INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebViewID], [WebComponentID
         {{''COMMON.GRID.NO_READ_ACCESS'' | translate}}
     </div>
 </ng-template>', '2022-09-01 17:55:26.8766667 +00:00', 3, N'N', '1a287586-3a6a-457c-90de-51e69e8fab39', 1, NULL, '2022-09-28 17:31:50.0946998 +03:00')
+INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebViewID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES (30054, 20025, 14, N'vat-group-list-title-header', N'Title header', N'{
+    "defaultValue": {
+        "isUseTranslateKey": true,
+        "translateKey": "TAX_GROUP.LIST.TITLE",
+        "elements": [
+            {
+                "appearance": "icon-button",
+                "iconSvg": "icon-pin",
+                "template": "custom"
+            },
+            {
+                "appearance": "icon-button",
+                "iconSvg": "icon-add",
+                "template": "custom"
+            },
+            {
+                "appearance": "icon-button",
+                "iconSvg": "icon-close",
+                "template": "custom"
+            }
+        ]
+    }
+}', N'<cr-title-header
+    [titleTranslateKey]="{{translateKey}}"
+    [title]="{{label}}"
+    (buttonClickEvent)="self.onTitleButtonClick($event)"
+    [buttonSettings]="self.titleHeaderButtonSettings"
+></cr-title-header>', '2022-10-05 15:41:51.6224251 +03:00', 1, N'N', 'be728670-b069-46bd-8e61-dd8ef0ad7f2e', 1, NULL, '2022-10-05 15:41:51.6224251 +03:00')
+INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebViewID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES (30055, 20025, 7, N'vat-group-list-code', N'Code', N'{
+    "defaultValue": {
+        "isUseTranslateKey": true,
+        "translateKey": "TAX_GROUP.LIST.FILTER.CODE"
+    }
+}', N'<cr-control-edit 
+    [translateKeys]="{{translateKey}}" 
+    [dataLabel]="{{label}}"
+    [customClass]=''{{classes}}''
+    [isDisabled]="{{disabled}}"
+    [elementName]="''edit:Tax_group_list.Code''"
+    [(dataValue)]="self.taxGroupFilterRequest.code"
+></cr-control-edit>', '2022-10-05 15:46:56.5347421 +03:00', 1, N'N', 'ba4598ba-c8cc-4ae5-aba9-31b5634b23c5', 1, NULL, '2022-10-05 15:46:56.5347421 +03:00')
+INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebViewID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES (30056, 20025, 7, N'vat-group-list-name', N'Name', N'{
+    "defaultValue": {
+        "isUseTranslateKey": true,
+        "translateKey": "TAX_GROUP.LIST.FILTER.NAME"
+    }
+}', N'<cr-control-edit 
+    [translateKeys]="{{translateKey}}" 
+    [dataLabel]="{{label}}"
+    [customClass]=''{{classes}}''
+    [isDisabled]="{{disabled}}"
+    [elementName]="''edit:Tax_group_list.Name''"
+    [(dataValue)]="self.taxGroupFilterRequest.name"
+></cr-control-edit>', '2022-10-05 15:47:55.2083456 +03:00', 1, N'N', '1f6d81c7-3337-448c-aff8-8e74996856e1', 1, NULL, '2022-10-05 15:47:55.2083456 +03:00')
+INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebViewID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES (30057, 20025, 11, N'vat-group-list-search', N'Search', N'{
+    "defaultValue": {
+        "isUseTranslateKey": true,
+        "translateKey": "COMMON.SEARCH",
+        "buttonType": "underlined-action-button"
+    }
+}', N'<cr-button-control 
+    [buttonTemplateType]="{{buttonTemplateType}}"
+    [text]="{{label}}"
+    [textTranslateKey]="{{translateKey}}"
+    [classArray]=''{{classes}}''
+    [width]="{{width}}"
+    [height]="{{height}}"
+    [icon]="{{icon}}"
+    (buttonClickEvent)="self.changeFilter()"
+    *ngIf="(self.EndpointName.tax_group_GET | endpointAccessGrantedPipe)"
+></cr-button-control>', '2022-10-05 15:49:57.1014460 +03:00', 1, N'N', '42bfd7c1-c17f-4a7e-9825-42c7289f5e73', 1, NULL, '2022-10-05 15:49:57.1014460 +03:00')
+INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebViewID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES (30058, 20025, 10, N'vat-groups-list-grid', N'Grid', N'{
+    "defaultValue": {
+        "uniqueField": "id",
+        "dataSource": {
+            "responseList": [
+                {
+                    "id": 1,
+                    "code": "Foo 1",
+                    "name": "Bar 1"
+                },
+                {
+                    "id": 2,
+                    "code": "Foo 2",
+                    "name": "Bar 2"
+                }
+            ],
+            "page": 1,
+            "size": 5,
+            "totalElements": 5
+        },
+        "columns": [
+            {
+                "title": "Code",
+                "field": "code",
+                "type": "text"
+            },
+            {
+                "title": "Name",
+                "field": "name",
+                "type": "text"
+            }
+        ]
+    }
+}', N'<div class="cr-grid-wrapper-new">
+    <cr-edit-grid-server-paging
+        (cellClickEvent)="self.cellClick($event)"
+        (pageChangeEvent)="self.changePage($event)"
+        [columnSettings]="self.columnSettings"
+        [dataCacheName]="''TaxGroupGrid''"
+        [dataSource]="self.gridData"
+        [elementName]="''edit-grid-server-paging:TaxGroup_list.Grid''"
+        [pageable]="true"
+        [resizable]="true"
+        [uniqueField]="''id''"
+        [class]="{{classes}}"
+      ></cr-edit-grid-server-paging>
+</div>', '2022-10-05 15:54:58.0200000 +00:00', 2, N'N', '09224093-7f46-45d5-bad4-1987ae90e878', 1, NULL, '2022-10-05 15:54:13.4471104 +03:00')
+INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebViewID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES (30059, 20026, 14, N'vat-group-details-title-header', N'Header', N'{
+    "defaultValue": {
+        "isUseTranslateKey": true,
+        "translateKey": "TAX_GROUP.DETAILS.TITLE",
+        "elements": [
+            {
+                "appearance": "icon-button",
+                "iconSvg": "icon-delete",
+                "template": "custom"
+            },
+            {
+                "appearance": "icon-button",
+                "iconSvg": "icon-refresh",
+                "template": "custom"
+            },
+            {
+                "appearance": "icon-button",
+                "iconSvg": "icon-add",
+                "template": "custom"
+            },
+            {
+                "appearance": "primary-button",
+                "nameTranslateKey": "COMMON.BUTTON.SAVE",
+                "template": "custom"
+            },
+            {
+                "appearance": "icon-button",
+                "iconSvg": "icon-close",
+                "template": "custom"
+            }
+        ]
+    }
+}', N'<cr-title-header
+    [titleTranslateKey]="{{translateKey}}"
+    [title]="{{label}}"
+    (buttonClickEvent)="self.onTitleButtonClick($event)"
+    [buttonSettings]="self.titleHeaderButtonSettings"
+    [titleValue]="self.titleValueText"
+></cr-title-header>', '2022-10-06 11:38:16.8955230 +03:00', 1, N'N', 'eeb3427d-282d-4082-84fc-528997abf9fb', 1, NULL, '2022-10-06 11:38:16.8955230 +03:00')
+INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebViewID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES (30060, 20026, 7, N'vat-group-details-code', N'Code', N'{
+    "defaultValue": {
+        "isUseTranslateKey": true,
+        "translateKey": "TAX_GROUP.DETAILS.CODE",
+        "validationField": "code"
+    }
+}', N'<cr-control-edit
+    [(dataValue)]="self.taxGroup.code"
+    [elementName]="''edit:TaxGroup_details.Code''"
+    [validator]="self.validator"
+    [validationField]="''code''"
+    (dataValueChange)="self.onChangeTitleValue()"
+    [translateKeys]="{{translateKey}}" 
+    [dataLabel]="{{label}}"
+    [customClass]=''{{classes}}''
+    [isDisabled]="self.taxGroup.isPredefined || {{disabled}}"
+></cr-control-edit>', '2022-10-06 11:41:56.2186922 +03:00', 1, N'N', '6ee89b37-7cdd-4ba6-8a09-236521e44681', 1, NULL, '2022-10-06 11:41:56.2186922 +03:00')
+INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebViewID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES (30061, 20026, 7, N'vat-group-details-name', N'Name', N'{
+    "defaultValue": {
+        "isUseTranslateKey": true,
+        "translateKey": "TAX_GROUP.DETAILS.NAME",
+        "validationField": "name"
+    }
+}', N'<cr-control-edit
+    [(dataValue)]="self.taxGroup.name"
+    [elementName]="''edit:TaxGroup_details.Name''"
+    [validator]="self.validator"
+    [validationField]="''name''"
+    [translateKeys]="{{translateKey}}" 
+    [dataLabel]="{{label}}"
+    [customClass]=''{{classes}}''
+    [isDisabled]="{{disabled}}"
+></cr-control-edit>', '2022-10-06 11:43:40.1317372 +03:00', 1, N'N', '47075ce2-f0f2-4dd2-bdbe-1317eab2e0e5', 1, NULL, '2022-10-06 11:43:40.1317372 +03:00')
+INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebViewID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES (30062, 20026, 10, N'vat-group-details-definitions-grid', N'Definitions grid', N'{
+    "defaultValue": {
+        "uniqueField": "id",
+        "dataSource": {
+            "responseList": [
+                {
+                    "id": 1,
+                    "name": "Bar 1"
+                },
+                {
+                    "id": 2,
+                    "name": "Bar 2"
+                }
+            ],
+            "page": 1,
+            "size": 5,
+            "totalElements": 5
+        },
+        "columns": [
+            {
+                "title": "Name",
+                "field": "name",
+                "type": "text"
+            }
+        ]
+    }
+}', N'<div class="cr-grid-wrapper-new cr-grid-with-collapse cr-tax-group-grid">
+    <kendo-grid
+        #grid
+        (pageChange)="self.pageChange($event)"
+        [(selectedKeys)]="self.mySelection"
+        [attr.data-element-name]="''grid:TaxGroup_details_definition.Definitions_grid''"
+        [data]="self.gridView"
+        [kendoGridSelectBy]="self.mySelectionKey"
+        [pageSize]="self.taxGroup.taxGroupLocationList.paginator?.size"
+        [skip]="self.taxGroup.taxGroupLocationList.paginator?.skip"
+        [pageable]="true"
+        [resizable]="true"
+        (add)="self.addHandler()"
+        (edit)="self.editHandler($event)"
+        (remove)="self.removeHandler($event)"
+                    >
+                      <ng-template kendoGridToolbarTemplate>
+                        <div
+                          class="row cr-row-padding-revert">
+                          <div class="col-lg-12 cr-col-content-align-right cr-col-no-padding">
+                            <cr-button-control
+                              [buttonTemplateType]="''grid-add-command''"
+                              [elementName]="''button:PriceList.Add''"
+                              *ngIf="(self.EndpointName.tax_group_id_PUT | endpointAccessGrantedPipe)"
+                            ></cr-button-control>
+                          </div>
+                        </div>
+                      </ng-template>
+
+                      <kendo-grid-column field="name">
+                        <ng-template kendoGridHeaderTemplate>
+                            <span [attr.data-translate]="''TAX_GROUP.DETAILS.GRID.NAME''">
+                              {{''TAX_GROUP.DETAILS.GRID.NAME'' | translate}}
+                            </span>
+                        </ng-template>
+                        <ng-template kendoGridCellTemplate
+                                     let-dataItem>
+                            <span>
+                              {{dataItem.name}}
+                            </span>
+                        </ng-template>
+                        <ng-template kendoGridEditTemplate let-dataItem>
+                          <cr-control-edit
+                            [(dataValue)]="self.taxGroup.cache.changeItem.name"
+                            [elementName]="''edit:TaxGroup.Name''"
+                            [translateKeys]="''TAX_GROUP.DETAILS.GRID.NAME''"
+                          ></cr-control-edit>
+                        </ng-template>
+                      </kendo-grid-column>
+
+                      <kendo-grid-column class="action-group" width="250">
+                        <ng-template kendoGridCellTemplate
+                                     let-dataItem="dataItem"
+                                     let-isNew="isNew"
+                                     let-rowIndex="rowIndex">
+                          <cr-button-control
+                            [buttonTemplateType]="''grid-edit-command''"
+                            [elementName]="''edit:TaxGroup.Details_Edit_Command''"
+                          ></cr-button-control>
+                          <!-- Delete row (trash button)-->
+                          <cr-button-control
+                            *ngIf="(self.EndpointName.tax_group_id_PUT | endpointAccessGrantedPipe)"
+                            [buttonTemplateType]="''grid-remove-command''"
+                            [elementName]="''edit:TaxGroup.Details_Remove_Command''"
+                          ></cr-button-control>
+                        </ng-template>
+                      </kendo-grid-column>
+                      <ng-template kendoGridNoRecordsTemplate>
+                          <span [attr.data-translate]="''COMMON.GRID.NO_RECORDS''">
+                            {{ ''COMMON.GRID.NO_RECORDS'' | translate }}
+                          </span>
+                      </ng-template>
+                      <ng-template kendoPagerTemplate>
+                        <cr-grid-paginator
+                          [totalElements]="self.gridView?.total"></cr-grid-paginator>
+                      </ng-template>
+                    </kendo-grid>
+                  </div>', '2022-10-06 11:49:26.7233333 +00:00', 2, N'N', '1c774e6c-e190-4085-83b9-af928e8ac715', 1, NULL, '2022-10-06 11:48:25.3768319 +03:00')
 SET IDENTITY_INSERT [dbo].[WebComponentViewSettings] OFF

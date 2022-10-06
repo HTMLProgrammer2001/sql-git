@@ -1,7 +1,7 @@
 CREATE TABLE [dbo].[WebComponent]
 (
 [ID] [bigint] NOT NULL IDENTITY(1, 1),
-[WebIconSvgEnumID] [bigint] NULL,
+[WebIconSvgEnumID] [uniqueidentifier] NULL,
 [Code] [nvarchar] (256) COLLATE SQL_Latin1_General_CP850_CI_AS NULL,
 [Name] [nvarchar] (256) COLLATE SQL_Latin1_General_CP850_CI_AS NULL,
 [Title] [nvarchar] (256) COLLATE SQL_Latin1_General_CP850_CI_AS NULL,
@@ -18,4 +18,6 @@ CREATE TABLE [dbo].[WebComponent]
 ) ON [PRIMARY]
 GO
 ALTER TABLE [dbo].[WebComponent] ADD CONSTRAINT [PK_WebComponent] PRIMARY KEY CLUSTERED ([ID]) ON [PRIMARY]
+GO
+ALTER TABLE [dbo].[WebComponent] ADD CONSTRAINT [FK_WebComponent_WebIconSvgEnum] FOREIGN KEY ([WebIconSvgEnumID]) REFERENCES [dbo].[WebIconSvgEnum] ([ID]) ON DELETE SET NULL ON UPDATE SET NULL
 GO

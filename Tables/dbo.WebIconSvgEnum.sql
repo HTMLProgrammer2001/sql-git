@@ -1,6 +1,6 @@
 CREATE TABLE [dbo].[WebIconSvgEnum]
 (
-[ID] [bigint] NOT NULL IDENTITY(1, 1),
+[ID] [uniqueidentifier] NOT NULL CONSTRAINT [DF_WebIconSvgEnum_ID] DEFAULT (newsequentialid()),
 [Name] [nvarchar] (256) COLLATE SQL_Latin1_General_CP850_CI_AS NULL,
 [Code] [nvarchar] (256) COLLATE SQL_Latin1_General_CP850_CI_AS NULL,
 [UpdateDate] [datetimeoffset] NOT NULL CONSTRAINT [DF_WebIconSvgEnum_UpdateDate] DEFAULT (sysdatetimeoffset()),

@@ -15,7 +15,7 @@ CREATE TABLE [dbo].[WebErrorEnum]
 GO
 ALTER TABLE [dbo].[WebErrorEnum] ADD CONSTRAINT [PK_WebErrorEnum] PRIMARY KEY CLUSTERED ([ID]) ON [PRIMARY]
 GO
-ALTER TABLE [dbo].[WebErrorEnum] ADD CONSTRAINT [FK_WebErrorEnum_WebErrorCodeEnum] FOREIGN KEY ([WebErrorCodeEnumID]) REFERENCES [dbo].[WebErrorCodeEnum] ([ID])
+ALTER TABLE [dbo].[WebErrorEnum] ADD CONSTRAINT [FK_WebErrorEnum_WebErrorCodeEnum] FOREIGN KEY ([WebErrorCodeEnumID]) REFERENCES [dbo].[WebErrorCodeEnum] ([ID]) ON DELETE CASCADE ON UPDATE CASCADE
 GO
-ALTER TABLE [dbo].[WebErrorEnum] ADD CONSTRAINT [FK_WebErrorEnum_WebErrorGroupEnum] FOREIGN KEY ([WebErrorGroupEnumID]) REFERENCES [dbo].[WebErrorGroupEnum] ([ID])
+ALTER TABLE [dbo].[WebErrorEnum] ADD CONSTRAINT [FK_WebErrorEnum_WebErrorGroupEnum] FOREIGN KEY ([WebErrorGroupEnumID]) REFERENCES [dbo].[WebErrorGroupEnum] ([ID]) ON DELETE CASCADE ON UPDATE CASCADE
 GO

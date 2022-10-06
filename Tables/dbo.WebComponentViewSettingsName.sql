@@ -14,5 +14,7 @@ CREATE TABLE [dbo].[WebComponentViewSettingsName]
 GO
 ALTER TABLE [dbo].[WebComponentViewSettingsName] ADD CONSTRAINT [PK_WebComponentViewSettingsName] PRIMARY KEY CLUSTERED ([ID]) ON [PRIMARY]
 GO
-ALTER TABLE [dbo].[WebComponentViewSettingsName] ADD CONSTRAINT [FK_WebComponentViewSettingsName_WebComponentViewSettings] FOREIGN KEY ([WebComponentViewSettingsID]) REFERENCES [dbo].[WebComponentViewSettings] ([ID]) ON DELETE CASCADE
+ALTER TABLE [dbo].[WebComponentViewSettingsName] ADD CONSTRAINT [FK_WebComponentViewSettingsName_Language] FOREIGN KEY ([LanguageID]) REFERENCES [dbo].[Language] ([ID]) ON DELETE CASCADE ON UPDATE CASCADE
+GO
+ALTER TABLE [dbo].[WebComponentViewSettingsName] ADD CONSTRAINT [FK_WebComponentViewSettingsName_WebComponentViewSettings] FOREIGN KEY ([WebComponentViewSettingsID]) REFERENCES [dbo].[WebComponentViewSettings] ([ID]) ON DELETE CASCADE ON UPDATE CASCADE
 GO
