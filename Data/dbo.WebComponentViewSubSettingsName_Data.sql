@@ -1,4 +1,8 @@
 SET IDENTITY_INSERT [dbo].[WebComponentViewSubSettingsName] ON
+INSERT INTO [dbo].[WebComponentViewSubSettingsName] ([ID], [WebComponentViewSubSettingsID], [LanguageID], [Name], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES (10133, 10035, 1, N'Header he', '2022-10-06 12:06:33.6979278 +03:00', 1, N'N', '9a1e03e5-f7f7-424a-9b88-007773bc18d1', 1, NULL)
+INSERT INTO [dbo].[WebComponentViewSubSettingsName] ([ID], [WebComponentViewSubSettingsID], [LanguageID], [Name], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES (10134, 10035, 2, N'Header', '2022-10-06 12:06:33.6979278 +03:00', 1, N'N', 'fd72162d-fe32-4617-a0c0-cbb1fc5d3ffb', 1, NULL)
+SET IDENTITY_INSERT [dbo].[WebComponentViewSubSettingsName] OFF
+SET IDENTITY_INSERT [dbo].[WebComponentViewSubSettingsName] ON
 INSERT INTO [dbo].[WebComponentViewSubSettingsName] ([ID], [WebComponentViewSubSettingsID], [LanguageID], [Name], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES (67, 2, 1, N'Grid he', '2022-03-09 17:55:44.4685509 +02:00', 1, N'N', '930fb551-1d08-4bf1-aaf1-7c60163ecba4', 1, NULL)
 INSERT INTO [dbo].[WebComponentViewSubSettingsName] ([ID], [WebComponentViewSubSettingsID], [LanguageID], [Name], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES (68, 2, 2, N'Grid', '2022-03-09 17:55:44.4685509 +02:00', 1, N'N', '080d1fd6-c657-442f-a518-a9f4177eccd5', 1, NULL)
 INSERT INTO [dbo].[WebComponentViewSubSettingsName] ([ID], [WebComponentViewSubSettingsID], [LanguageID], [Name], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES (69, 3, 1, N'Title header he', '2022-03-09 18:13:27.7709527 +02:00', 1, N'N', 'e512f75f-b866-428e-b400-67bddf6bc752', 1, NULL)

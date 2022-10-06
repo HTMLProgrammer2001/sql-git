@@ -1,4 +1,10 @@
 SET IDENTITY_INSERT [dbo].[WebViewName] ON
+INSERT INTO [dbo].[WebViewName] ([ID], [WebViewID], [LanguageID], [Name], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES (60325, 20025, 1, N'VAT Group list he', '2022-10-05 15:19:11.9749106 +03:00', 1, N'N', '8a0d6f1a-3aa3-4cb2-8c90-f83f27ebaa73', 1, NULL)
+INSERT INTO [dbo].[WebViewName] ([ID], [WebViewID], [LanguageID], [Name], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES (60326, 20025, 2, N'VAT Group list', '2022-10-05 15:19:11.9749106 +03:00', 1, N'N', '00949fa3-9004-4c94-9542-ee1fe43751d7', 1, NULL)
+INSERT INTO [dbo].[WebViewName] ([ID], [WebViewID], [LanguageID], [Name], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES (60329, 20026, 1, N'VAT Group details he', '2022-10-06 11:34:56.1304670 +03:00', 1, N'N', '373f9272-5061-4066-a7ae-c3107e78c8f4', 1, NULL)
+INSERT INTO [dbo].[WebViewName] ([ID], [WebViewID], [LanguageID], [Name], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES (60330, 20026, 2, N'VAT Group details', '2022-10-06 11:34:56.1304670 +03:00', 1, N'N', '6ad3740a-0943-48b8-9a45-f5c89241f7b4', 1, NULL)
+SET IDENTITY_INSERT [dbo].[WebViewName] OFF
+SET IDENTITY_INSERT [dbo].[WebViewName] ON
 INSERT INTO [dbo].[WebViewName] ([ID], [WebViewID], [LanguageID], [Name], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES (20295, 10025, 1, N'test-1234', '2022-03-03 12:41:21.0732679 +02:00', 1, N'N', 'a44bea4b-3c23-4baa-85dd-45b68aa60bdf', 1, NULL)
 INSERT INTO [dbo].[WebViewName] ([ID], [WebViewID], [LanguageID], [Name], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES (20296, 10025, 2, N'test-1234', '2022-03-03 12:41:21.0732679 +02:00', 1, N'N', '98374fb2-d692-4694-ad3a-c093f5c7b2ca', 1, NULL)
 INSERT INTO [dbo].[WebViewName] ([ID], [WebViewID], [LanguageID], [Name], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES (60293, 20024, 1, N'Dashboard he', '2022-06-23 10:07:37.7822631 +03:00', 1, N'N', 'e96c9d8c-88ab-41d1-b6f9-e23909298004', 1, NULL)

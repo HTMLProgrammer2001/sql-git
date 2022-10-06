@@ -1,4 +1,27 @@
 SET IDENTITY_INSERT [dbo].[WebComponentViewSubSettings] ON
+INSERT INTO [dbo].[WebComponentViewSubSettings] ([ID], [WebViewSubID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES (10035, 10006, 14, N'tax-group-definition-title', N'Header', N'{
+    "defaultValue": {
+        "isUseTranslateKey": true,
+        "translateKey": "TAX_GROUP.DETAILS.PANEL.TITLE_DEFINITIONS",
+        "elements": [
+            {
+                "appearance": "primary-button",
+                "nameTranslateKey": "COMMON.BUTTON.CONFIRM",
+                "template": "custom"
+            }
+        ]
+    }
+}', N'<cr-title-header
+    [titleTranslateKey]="{{translateKey}}"
+    [title]="{{label}}"
+    [additionalTranslateKeys]="''COMMON.NEW''"
+    (buttonClickEvent)="self.onTitleButtonClick($event)"
+    [buttonSettings]="self.titleHeaderButtonSettings"
+    [titleValue]="self.titleValueText"
+></cr-title-header>
+', '2022-10-06 12:06:33.6966667 +00:00', 2, N'N', '19bd012d-78c7-4466-9429-115ae3e3256a', 1, NULL, '2022-10-06 12:05:15.6069016 +03:00')
+SET IDENTITY_INSERT [dbo].[WebComponentViewSubSettings] OFF
+SET IDENTITY_INSERT [dbo].[WebComponentViewSubSettings] ON
 INSERT INTO [dbo].[WebComponentViewSubSettings] ([ID], [WebViewSubID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES (1, 1, 14, N'manage-mailing-category-title-header', N'Title header', N'{
     "defaultValue": {
         "isUseTranslateKey": true,

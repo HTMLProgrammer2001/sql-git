@@ -1,4 +1,8 @@
 SET IDENTITY_INSERT [dbo].[WebViewSubName] ON
+INSERT INTO [dbo].[WebViewSubName] ([ID], [WebViewSubID], [LanguageID], [Name], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES (20041, 10006, 1, N'Tax group definition he', '2022-10-06 11:26:40.9818570 +03:00', 1, N'N', 'b53aa239-c56d-4431-bc2e-1b72287f03a3', 1, NULL)
+INSERT INTO [dbo].[WebViewSubName] ([ID], [WebViewSubID], [LanguageID], [Name], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES (20042, 10006, 2, N'Tax group definition', '2022-10-06 11:26:40.9818570 +03:00', 1, N'N', '0df12334-b580-430d-9bbf-246132a266c1', 1, NULL)
+SET IDENTITY_INSERT [dbo].[WebViewSubName] OFF
+SET IDENTITY_INSERT [dbo].[WebViewSubName] ON
 INSERT INTO [dbo].[WebViewSubName] ([ID], [WebViewSubID], [LanguageID], [Name], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES (17, 4, 1, N'Create partner addresses he', '2022-03-10 10:40:01.4783074 +02:00', 1, N'N', '55ab1f58-b732-4e52-b2eb-8cfd8d0ab38b', 1, NULL)
 INSERT INTO [dbo].[WebViewSubName] ([ID], [WebViewSubID], [LanguageID], [Name], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES (18, 4, 2, N'Create partner addresses', '2022-03-10 10:40:01.4783074 +02:00', 1, N'N', '6c9ea202-3fe8-407e-89dc-1e9b4c8b8fd5', 1, NULL)
 INSERT INTO [dbo].[WebViewSubName] ([ID], [WebViewSubID], [LanguageID], [Name], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES (20019, 10004, 1, N'Manage partner contact person he', '2022-07-15 16:06:12.9885999 +03:00', 1, N'N', 'bf6d9855-5d75-41d4-b407-8701e8b88af6', 1, NULL)

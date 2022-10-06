@@ -1,4 +1,14 @@
 SET IDENTITY_INSERT [dbo].[WebViewSub] ON
+INSERT INTO [dbo].[WebViewSub] ([ID], [Name], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [ComponentHtml], [Code], [CreateDate]) VALUES (10006, N'Tax group definition', '2022-10-06 11:26:40.9663417 +03:00', 1, N'N', '20b7dea5-e747-40fe-8688-de2139e9c950', 1, NULL, N'<cr-tax-group-definition
+    [taxGroupLocation]="self.getTaxGroupLocation()"
+    [basketSet]="self.basketSetNotModified"
+    (addLocationsEvent)="self.addBasketLocationsPopulation()"
+    (editLocationsEvent)="self.onEditLocationsPopulation()"
+    (closeEvent)="self.popupTab.close()"
+    (updateEvent)="self.updateDefinition($event)"
+></cr-tax-group-definition>', N'tax-group-definition', '2022-10-06 11:26:40.9663417 +03:00')
+SET IDENTITY_INSERT [dbo].[WebViewSub] OFF
+SET IDENTITY_INSERT [dbo].[WebViewSub] ON
 INSERT INTO [dbo].[WebViewSub] ([ID], [Name], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [ComponentHtml], [Code], [CreateDate]) VALUES (1, N'Manage mailing categories', '2022-08-04 16:42:16.9600000 +00:00', 8, N'N', 'd875b722-ebd2-465a-8e11-67f79411618a', 1, NULL, N'<cr-partner-mailing-category-manage-dynamic
     *ngIf="self.popupTab.tabs[self.popupTab.activeTabIndex].details === ''partner''"
     [subTemplateId]="{{subTemplateId}}"

@@ -8893,7 +8893,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
   <ReportSections>
     <ReportSection>
       <Body>
-        <Height>107.25pt</Height>
+        <Height>110.25pt</Height>
         <ReportItems>
           <Tablix Name="TableCompany">
             <Left>10.5pt</Left>
@@ -9767,7 +9767,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                                   <Style>
                                     <FontFamily>Arial</FontFamily>
                                     <FontWeight>Bold</FontWeight>
-                                    <Format>0.00;(0.00)</Format>
+                                    <Format>0;(0)</Format>
                                     <rd:FormatType>
                                       <rd:Format>Number</rd:Format>
                                       <rd:Representation>None</rd:Representation>
@@ -9805,6 +9805,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
               <TablixMembers>
                 <TablixMember>
                   <KeepWithGroup>After</KeepWithGroup>
+                  <RepeatOnNewPage>true</RepeatOnNewPage>
                 </TablixMember>
                 <TablixMember>
                   <Group Name="Details1" />
@@ -9814,10 +9815,12 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                 </TablixMember>
               </TablixMembers>
             </TablixRowHierarchy>
+            <RepeatColumnHeaders>true</RepeatColumnHeaders>
+            <RepeatRowHeaders>true</RepeatRowHeaders>
           </Tablix>
           <Tablix Name="Tablix2">
-            <Left>10.5pt</Left>
-            <Top>12.69141pt</Top>
+            <Left>11.25pt</Left>
+            <Top>13.44141pt</Top>
             <Height>90pt</Height>
             <Width>651.1172pt</Width>
             <Style>
@@ -10272,7 +10275,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                               <Style>Solid</Style>
                             </BottomBorder>
                             <LeftBorder>
-                              <Style>None</Style>
+                              <Style>Solid</Style>
                             </LeftBorder>
                             <RightBorder>
                               <Style>Solid</Style>
@@ -10326,7 +10329,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                               <Style>Solid</Style>
                             </BottomBorder>
                             <LeftBorder>
-                              <Style>None</Style>
+                              <Style>Solid</Style>
                             </LeftBorder>
                             <RightBorder>
                               <Style>Solid</Style>
@@ -10377,13 +10380,13 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                               <Style>None</Style>
                             </Border>
                             <BottomBorder>
-                              <Style>None</Style>
+                              <Style>Solid</Style>
                             </BottomBorder>
                             <LeftBorder>
-                              <Style>None</Style>
+                              <Style>Solid</Style>
                             </LeftBorder>
                             <RightBorder>
-                              <Style>None</Style>
+                              <Style>Solid</Style>
                             </RightBorder>
                             <TopBorder>
                               <Style>None</Style>
@@ -10437,13 +10440,13 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                               <Style>None</Style>
                             </Border>
                             <BottomBorder>
-                              <Style>None</Style>
+                              <Style>Solid</Style>
                             </BottomBorder>
                             <LeftBorder>
-                              <Style>None</Style>
+                              <Style>Solid</Style>
                             </LeftBorder>
                             <RightBorder>
-                              <Style>None</Style>
+                              <Style>Solid</Style>
                             </RightBorder>
                             <TopBorder>
                               <Style>None</Style>
@@ -10497,13 +10500,13 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                               <Style>None</Style>
                             </Border>
                             <BottomBorder>
-                              <Style>None</Style>
+                              <Style>Solid</Style>
                             </BottomBorder>
                             <LeftBorder>
-                              <Style>None</Style>
+                              <Style>Solid</Style>
                             </LeftBorder>
                             <RightBorder>
-                              <Style>None</Style>
+                              <Style>Solid</Style>
                             </RightBorder>
                             <TopBorder>
                               <Style>None</Style>
@@ -10557,13 +10560,13 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                               <Style>None</Style>
                             </Border>
                             <BottomBorder>
-                              <Style>None</Style>
+                              <Style>Solid</Style>
                             </BottomBorder>
                             <LeftBorder>
-                              <Style>None</Style>
+                              <Style>Solid</Style>
                             </LeftBorder>
                             <RightBorder>
-                              <Style>None</Style>
+                              <Style>Solid</Style>
                             </RightBorder>
                             <TopBorder>
                               <Style>None</Style>
@@ -11661,7 +11664,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                                   <Style>
                                     <FontFamily>Arial</FontFamily>
                                     <FontWeight>Bold</FontWeight>
-                                    <Format>0.00;(0.00)</Format>
+                                    <Format>0;(0)</Format>
                                     <rd:FormatType>
                                       <rd:Format>Number</rd:Format>
                                       <rd:Representation>None</rd:Representation>
@@ -11830,10 +11833,15 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                         </CellContents>
                       </TablixHeader>
                       <TablixMembers>
-                        <TablixMember />
+                        <TablixMember>
+                          <RepeatOnNewPage>true</RepeatOnNewPage>
+                        </TablixMember>
                       </TablixMembers>
+                      <RepeatOnNewPage>true</RepeatOnNewPage>
                     </TablixMember>
                   </TablixMembers>
+                  <KeepWithGroup>After</KeepWithGroup>
+                  <RepeatOnNewPage>true</RepeatOnNewPage>
                 </TablixMember>
                 <TablixMember>
                   <Group Name="Store3">
@@ -12158,8 +12166,6 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
             </TablixRowHierarchy>
             <RepeatColumnHeaders>true</RepeatColumnHeaders>
             <RepeatRowHeaders>true</RepeatRowHeaders>
-            <FixedColumnHeaders>true</FixedColumnHeaders>
-            <FixedRowHeaders>true</FixedRowHeaders>
           </Tablix>
           <Tablix Name="Tablix1">
             <Left>10.5pt</Left>
@@ -13097,7 +13103,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                                   <Style>
                                     <FontFamily>Arial</FontFamily>
                                     <FontWeight>Bold</FontWeight>
-                                    <Format>0.00;(0.00)</Format>
+                                    <Format>0;(0)</Format>
                                     <rd:FormatType>
                                       <rd:Format>Number</rd:Format>
                                       <rd:Representation>None</rd:Representation>
@@ -13135,6 +13141,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
               <TablixMembers>
                 <TablixMember>
                   <KeepWithGroup>After</KeepWithGroup>
+                  <RepeatOnNewPage>true</RepeatOnNewPage>
                 </TablixMember>
                 <TablixMember>
                   <Group Name="Details12" />
@@ -13146,14 +13153,12 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
             </TablixRowHierarchy>
             <RepeatColumnHeaders>true</RepeatColumnHeaders>
             <RepeatRowHeaders>true</RepeatRowHeaders>
-            <FixedColumnHeaders>true</FixedColumnHeaders>
-            <FixedRowHeaders>true</FixedRowHeaders>
           </Tablix>
           <Tablix Name="TableHierarchy">
-            <Left>10.44141pt</Left>
-            <Top>12.71484pt</Top>
-            <Height>72pt</Height>
-            <Width>510.89062pt</Width>
+            <Left>10.42969pt</Left>
+            <Top>12.67969pt</Top>
+            <Height>71.99998pt</Height>
+            <Width>510.8905pt</Width>
             <Style>
               <FontFamily>Arial</FontFamily>
               <Border>
@@ -13454,13 +13459,13 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                               <Style>None</Style>
                             </Border>
                             <BottomBorder>
-                              <Style>None</Style>
+                              <Style>Solid</Style>
                             </BottomBorder>
                             <LeftBorder>
-                              <Style>None</Style>
+                              <Style>Solid</Style>
                             </LeftBorder>
                             <RightBorder>
-                              <Style>None</Style>
+                              <Style>Solid</Style>
                             </RightBorder>
                             <TopBorder>
                               <Style>None</Style>
@@ -13514,13 +13519,13 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                               <Style>None</Style>
                             </Border>
                             <BottomBorder>
-                              <Style>None</Style>
+                              <Style>Solid</Style>
                             </BottomBorder>
                             <LeftBorder>
-                              <Style>None</Style>
+                              <Style>Solid</Style>
                             </LeftBorder>
                             <RightBorder>
-                              <Style>None</Style>
+                              <Style>Solid</Style>
                             </RightBorder>
                             <TopBorder>
                               <Style>None</Style>
@@ -13574,13 +13579,13 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                               <Style>None</Style>
                             </Border>
                             <BottomBorder>
-                              <Style>None</Style>
+                              <Style>Solid</Style>
                             </BottomBorder>
                             <LeftBorder>
-                              <Style>None</Style>
+                              <Style>Solid</Style>
                             </LeftBorder>
                             <RightBorder>
-                              <Style>None</Style>
+                              <Style>Solid</Style>
                             </RightBorder>
                             <TopBorder>
                               <Style>None</Style>
@@ -13634,13 +13639,13 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                               <Style>None</Style>
                             </Border>
                             <BottomBorder>
-                              <Style>None</Style>
+                              <Style>Solid</Style>
                             </BottomBorder>
                             <LeftBorder>
-                              <Style>None</Style>
+                              <Style>Solid</Style>
                             </LeftBorder>
                             <RightBorder>
-                              <Style>None</Style>
+                              <Style>Solid</Style>
                             </RightBorder>
                             <TopBorder>
                               <Style>None</Style>
@@ -14150,7 +14155,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                                   <Style>
                                     <FontFamily>Arial</FontFamily>
                                     <FontWeight>Bold</FontWeight>
-                                    <Format>0.00;(0.00)</Format>
+                                    <Format>0;(0)</Format>
                                     <rd:FormatType>
                                       <rd:Format>Number</rd:Format>
                                       <rd:Representation>None</rd:Representation>
@@ -14311,11 +14316,15 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                         </CellContents>
                       </TablixHeader>
                       <TablixMembers>
-                        <TablixMember />
+                        <TablixMember>
+                          <RepeatOnNewPage>true</RepeatOnNewPage>
+                        </TablixMember>
                       </TablixMembers>
+                      <RepeatOnNewPage>true</RepeatOnNewPage>
                     </TablixMember>
                   </TablixMembers>
                   <KeepWithGroup>After</KeepWithGroup>
+                  <RepeatOnNewPage>true</RepeatOnNewPage>
                 </TablixMember>
                 <TablixMember>
                   <Group Name="Store1">
@@ -14418,7 +14427,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                                 <Style>Solid</Style>
                               </BottomBorder>
                               <LeftBorder>
-                                <Style>None</Style>
+                                <Style>Solid</Style>
                               </LeftBorder>
                               <RightBorder>
                                 <Style>Solid</Style>
@@ -14577,18 +14586,26 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                 </TablixMember>
               </TablixMembers>
             </TablixRowHierarchy>
+            <RepeatColumnHeaders>true</RepeatColumnHeaders>
+            <RepeatRowHeaders>true</RepeatRowHeaders>
           </Tablix>
         </ReportItems>
         <Style>
           <Border>
             <Style>None</Style>
           </Border>
+          <BackgroundImage>
+            <Source>Embedded</Source>
+            <BackgroundRepeat>Default</BackgroundRepeat>
+          </BackgroundImage>
         </Style>
       </Body>
-      <Width>919.83984pt</Width>
+      <Width>666.75pt</Width>
       <Page>
+        <PageHeight>841.68pt</PageHeight>
+        <PageWidth>595.44pt</PageWidth>
         <PageHeader>
-          <Height>93.75pt</Height>
+          <Height>90.75pt</Height>
           <PrintOnFirstPage>true</PrintOnFirstPage>
           <PrintOnLastPage>true</PrintOnLastPage>
           <ReportItems>
@@ -14812,7 +14829,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
           </Style>
         </PageHeader>
         <PageFooter>
-          <Height>67.5pt</Height>
+          <Height>68.25pt</Height>
           <PrintOnFirstPage>true</PrintOnFirstPage>
           <PrintOnLastPage>true</PrintOnLastPage>
           <ReportItems>
@@ -15029,6 +15046,8 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
             </Border>
           </Style>
         </PageFooter>
+        <InteractiveHeight>0pt</InteractiveHeight>
+        <InteractiveWidth>612pt</InteractiveWidth>
         <LeftMargin>1in</LeftMargin>
         <RightMargin>1in</RightMargin>
         <TopMargin>1in</TopMargin>
@@ -15868,7 +15887,7 @@ Select @DateFrom [DateFrom],  @DateTo [DateTo]</CommandText>
   </ReportParameters>
   <ReportParametersLayout>
     <GridLayoutDefinition>
-      <NumberOfColumns>4</NumberOfColumns>
+      <NumberOfColumns>5</NumberOfColumns>
       <NumberOfRows>3</NumberOfRows>
       <CellDefinitions>
         <CellDefinition>
@@ -15887,42 +15906,42 @@ Select @DateFrom [DateFrom],  @DateTo [DateTo]</CommandText>
           <ParameterName>Store</ParameterName>
         </CellDefinition>
         <CellDefinition>
-          <ColumnIndex>3</ColumnIndex>
-          <RowIndex>0</RowIndex>
+          <ColumnIndex>0</ColumnIndex>
+          <RowIndex>1</RowIndex>
           <ParameterName>TimeSlots</ParameterName>
         </CellDefinition>
         <CellDefinition>
-          <ColumnIndex>0</ColumnIndex>
+          <ColumnIndex>1</ColumnIndex>
           <RowIndex>1</RowIndex>
           <ParameterName>DateFrom</ParameterName>
         </CellDefinition>
         <CellDefinition>
-          <ColumnIndex>1</ColumnIndex>
+          <ColumnIndex>2</ColumnIndex>
           <RowIndex>1</RowIndex>
           <ParameterName>DataTo</ParameterName>
         </CellDefinition>
         <CellDefinition>
-          <ColumnIndex>2</ColumnIndex>
-          <RowIndex>1</RowIndex>
-          <ParameterName>Hierarchy1</ParameterName>
-        </CellDefinition>
-        <CellDefinition>
-          <ColumnIndex>3</ColumnIndex>
-          <RowIndex>1</RowIndex>
-          <ParameterName>Hierarchy2</ParameterName>
-        </CellDefinition>
-        <CellDefinition>
           <ColumnIndex>0</ColumnIndex>
           <RowIndex>2</RowIndex>
-          <ParameterName>Hierarchy3</ParameterName>
+          <ParameterName>Hierarchy1</ParameterName>
         </CellDefinition>
         <CellDefinition>
           <ColumnIndex>1</ColumnIndex>
           <RowIndex>2</RowIndex>
-          <ParameterName>Hierarchy4</ParameterName>
+          <ParameterName>Hierarchy2</ParameterName>
         </CellDefinition>
         <CellDefinition>
           <ColumnIndex>2</ColumnIndex>
+          <RowIndex>2</RowIndex>
+          <ParameterName>Hierarchy3</ParameterName>
+        </CellDefinition>
+        <CellDefinition>
+          <ColumnIndex>3</ColumnIndex>
+          <RowIndex>2</RowIndex>
+          <ParameterName>Hierarchy4</ParameterName>
+        </CellDefinition>
+        <CellDefinition>
+          <ColumnIndex>4</ColumnIndex>
           <RowIndex>2</RowIndex>
           <ParameterName>Hierarchy5</ParameterName>
         </CellDefinition>
@@ -15938,4 +15957,4 @@ Select @DateFrom [DateFrom],  @DateTo [DateTo]</CommandText>
   <rd:ReportUnitType>Inch</rd:ReportUnitType>
   <rd:PageUnit>Px</rd:PageUnit>
   <df:DefaultFontFamily>Segoe UI</df:DefaultFontFamily>
-</Report>', '2022-10-03 12:12:25.7600000 +00:00', 192, N'N', 'a9705ea7-3da7-46c5-a7f2-f7add345c4c2', 1, NULL, 2, '2022-09-28 17:31:50.1416447 +03:00')
+</Report>', '2022-10-05 16:56:15.5200000 +00:00', 222, N'N', '5a8024a0-4776-4cc4-9ef1-1b8a8f9e53e8', 1, NULL, 2, '2022-09-28 17:31:50.1416447 +03:00')
