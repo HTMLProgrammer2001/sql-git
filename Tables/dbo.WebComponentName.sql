@@ -1,7 +1,7 @@
 CREATE TABLE [dbo].[WebComponentName]
 (
-[ID] [bigint] NOT NULL IDENTITY(1, 1),
-[WebComponentID] [bigint] NOT NULL,
+[ID] [uniqueidentifier] NOT NULL CONSTRAINT [DF_WebComponentName_ID2] DEFAULT (newsequentialid()),
+[WebComponentID] [uniqueidentifier] NOT NULL,
 [LanguageID] [bigint] NOT NULL,
 [Name] [nvarchar] (256) COLLATE SQL_Latin1_General_CP850_CI_AS NULL,
 [Title] [nvarchar] (256) COLLATE SQL_Latin1_General_CP850_CI_AS NULL,
@@ -17,6 +17,4 @@ GO
 ALTER TABLE [dbo].[WebComponentName] ADD CONSTRAINT [PK_WebComponentName] PRIMARY KEY CLUSTERED ([ID]) ON [PRIMARY]
 GO
 ALTER TABLE [dbo].[WebComponentName] ADD CONSTRAINT [FK_WebComponentName_Language] FOREIGN KEY ([LanguageID]) REFERENCES [dbo].[Language] ([ID]) ON DELETE CASCADE ON UPDATE CASCADE
-GO
-ALTER TABLE [dbo].[WebComponentName] ADD CONSTRAINT [FK_WebComponentName_WebComponent] FOREIGN KEY ([WebComponentID]) REFERENCES [dbo].[WebComponent] ([ID]) ON DELETE CASCADE ON UPDATE CASCADE
 GO

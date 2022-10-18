@@ -1,6 +1,6 @@
 CREATE TABLE [dbo].[WebComponent]
 (
-[ID] [bigint] NOT NULL IDENTITY(1, 1),
+[ID] [uniqueidentifier] NOT NULL CONSTRAINT [DF_WebComponent_ID2] DEFAULT (newsequentialid()),
 [WebIconSvgEnumID] [uniqueidentifier] NULL,
 [Code] [nvarchar] (256) COLLATE SQL_Latin1_General_CP850_CI_AS NULL,
 [Name] [nvarchar] (256) COLLATE SQL_Latin1_General_CP850_CI_AS NULL,
