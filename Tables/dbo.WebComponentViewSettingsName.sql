@@ -1,7 +1,7 @@
 CREATE TABLE [dbo].[WebComponentViewSettingsName]
 (
-[ID] [bigint] NOT NULL IDENTITY(1, 1),
-[WebComponentViewSettingsID] [bigint] NOT NULL,
+[ID] [uniqueidentifier] NOT NULL CONSTRAINT [DF_WebComponentViewSettingsName_ID2] DEFAULT (newsequentialid()),
+[WebComponentViewSettingsID] [uniqueidentifier] NOT NULL,
 [LanguageID] [bigint] NOT NULL,
 [Name] [nvarchar] (256) COLLATE SQL_Latin1_General_CP850_CI_AS NULL,
 [UpdateDate] [datetimeoffset] NOT NULL CONSTRAINT [DF_WebComponentViewSettingsName_UpdateDate] DEFAULT (sysdatetimeoffset()),
@@ -15,6 +15,4 @@ GO
 ALTER TABLE [dbo].[WebComponentViewSettingsName] ADD CONSTRAINT [PK_WebComponentViewSettingsName] PRIMARY KEY CLUSTERED ([ID]) ON [PRIMARY]
 GO
 ALTER TABLE [dbo].[WebComponentViewSettingsName] ADD CONSTRAINT [FK_WebComponentViewSettingsName_Language] FOREIGN KEY ([LanguageID]) REFERENCES [dbo].[Language] ([ID]) ON DELETE CASCADE ON UPDATE CASCADE
-GO
-ALTER TABLE [dbo].[WebComponentViewSettingsName] ADD CONSTRAINT [FK_WebComponentViewSettingsName_WebComponentViewSettings] FOREIGN KEY ([WebComponentViewSettingsID]) REFERENCES [dbo].[WebComponentViewSettings] ([ID]) ON DELETE CASCADE ON UPDATE CASCADE
 GO
