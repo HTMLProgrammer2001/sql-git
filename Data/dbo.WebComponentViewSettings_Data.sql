@@ -9,7 +9,7 @@ INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebViewID], [WebComponentID
     [customClass]=''{{classes}}''
     [isDisabled]="{{disabled}}"
     [(dataValue)]="self.partnerListFilter.firstName"
-></cr-control-edit>', '2022-08-04 15:26:51.1233333 +00:00', 9, N'N', '39ec967c-7b3f-4eba-a5e9-a68b829cd4eb', 1, NULL, '2022-09-28 17:31:50.0946998 +03:00')
+></cr-control-edit>', '2022-10-18 18:26:16.7766667 +00:00', 10, N'N', '4bb8633e-62f6-4b94-a83d-b55eb972594b', 1, NULL, '2022-09-28 17:31:50.0946998 +03:00')
 INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebViewID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('993fe7fc-e84e-ed11-8e5d-4ccc6a2bb6d6', 10021, '373c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'partner-list-code', N'Partner code', N'{
     "defaultValue": {
         "isUseTranslateKey": true,

@@ -16,3 +16,5 @@ ALTER TABLE [dbo].[WebComponentViewSubSettingsName] ADD CONSTRAINT [PK_WebCompon
 GO
 ALTER TABLE [dbo].[WebComponentViewSubSettingsName] ADD CONSTRAINT [FK_WebComponentViewSubSettingsName_Language] FOREIGN KEY ([LanguageID]) REFERENCES [dbo].[Language] ([ID]) ON DELETE CASCADE ON UPDATE CASCADE
 GO
+ALTER TABLE [dbo].[WebComponentViewSubSettingsName] ADD CONSTRAINT [FK_WebComponentViewSubSettingsName_WebComponentViewSubSettings] FOREIGN KEY ([WebComponentViewSubSettingsID]) REFERENCES [dbo].[WebComponentViewSubSettings] ([ID])
+GO

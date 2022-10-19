@@ -18,5 +18,7 @@ CREATE TABLE [dbo].[WebComponentViewSubSettings]
 GO
 ALTER TABLE [dbo].[WebComponentViewSubSettings] ADD CONSTRAINT [PK_WebComponentViewSubSettings] PRIMARY KEY CLUSTERED ([ID]) ON [PRIMARY]
 GO
+ALTER TABLE [dbo].[WebComponentViewSubSettings] ADD CONSTRAINT [FK_WebComponentViewSubSettings_WebComponent] FOREIGN KEY ([WebComponentID]) REFERENCES [dbo].[WebComponent] ([ID]) ON DELETE CASCADE ON UPDATE CASCADE
+GO
 ALTER TABLE [dbo].[WebComponentViewSubSettings] ADD CONSTRAINT [FK_WebComponentViewSubSettings_WebViewSub] FOREIGN KEY ([WebViewSubID]) REFERENCES [dbo].[WebViewSub] ([ID]) ON DELETE CASCADE ON UPDATE CASCADE
 GO

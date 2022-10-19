@@ -12,7 +12,7 @@ INSERT INTO [dbo].[WebComponent] ([ID], [WebIconSvgEnumID], [Code], [Name], [Tit
     [translateKeys]="{{translateKey}}"
     [customClass]=''{{classes}}'' 
     [isDisabled]="{{disabled}}"
-></cr-control-edit>', '2022-07-27 12:43:35.6200000 +00:00', 27, N'N', '5b82e14c-02ff-43b6-b188-621def5bb184', 1, NULL, '2022-09-28 17:31:50.0946998 +03:00')
+></cr-control-edit>', '2022-10-18 18:26:09.8566667 +00:00', 29, N'N', 'f2b7f534-8e2e-4267-9d71-875f9da9f3af', 1, NULL, '2022-09-28 17:31:50.0946998 +03:00')
 INSERT INTO [dbo].[WebComponent] ([ID], [WebIconSvgEnumID], [Code], [Name], [Title], [ComponentHtml], [ComponentFormBuilderHtml], [ComponentPreviewHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('383c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', '0b69f0a0-5c45-ed11-8e5c-4ccc6a2bb6d6', N'checkbox-form-element', N'DONT TOUCH. Checkbox', N'DONT TOUCH. Checkbox', N'', N'<div *ngIf="self.settings?.is">
     <cr-checkbox-control 
         [dataLabel]="!self.settings.isUseTranslateKey ? self.currentText : null"

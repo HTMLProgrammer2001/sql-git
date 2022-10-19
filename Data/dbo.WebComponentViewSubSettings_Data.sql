@@ -20,7 +20,7 @@ INSERT INTO [dbo].[WebComponentViewSubSettings] ([ID], [WebViewSubID], [WebCompo
     [title]="{{label}}"
     (buttonClickEvent)="self.onTitleButtonClick($event)"
     [buttonSettings]="self.titleHeaderButtonSettings"
-></cr-title-header>', '2022-08-04 16:38:05.5200000 +00:00', 5, N'N', '67d497b6-085d-4423-8daf-b37137fa565c', 1, NULL, '2022-09-28 17:31:50.1102942 +03:00')
+></cr-title-header>', '2022-10-18 18:26:21.5366667 +00:00', 6, N'N', 'e9116b91-1a0f-4407-a615-03fe010765b5', 1, NULL, '2022-09-28 17:31:50.1102942 +03:00')
 INSERT INTO [dbo].[WebComponentViewSubSettings] ([ID], [WebViewSubID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('e313903c-e94e-ed11-8e5d-4ccc6a2bb6d6', 1, '393c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'manage-mailing-category-grid', N'Grid', N'{
     "defaultValue": {
         "allowMultiSelect": true,
