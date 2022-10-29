@@ -1,11 +1,8 @@
 CREATE TABLE [dbo].[WebViewTemplate]
 (
-[ID] [bigint] NOT NULL IDENTITY(1, 1),
-[WebViewID] [bigint] NULL,
-[IsUseTranslateKey_ForTitle] [char] (1) COLLATE SQL_Latin1_General_CP850_CI_AS NOT NULL CONSTRAINT [DF_WebViewTemplate_IsUseTranslateKey_ForTitle] DEFAULT ('Y'),
-[WebTranslateID_ForTitle] [bigint] NULL,
+[ID] [uniqueidentifier] NOT NULL CONSTRAINT [DF_WebViewTemplate_ID2] DEFAULT (newsequentialid()),
+[WebViewID] [uniqueidentifier] NOT NULL,
 [Name] [nvarchar] (256) COLLATE SQL_Latin1_General_CP850_CI_AS NULL,
-[Title] [nvarchar] (256) COLLATE SQL_Latin1_General_CP850_CI_AS NULL,
 [IsUseTranslateKey_ForBookmarkName] [char] (1) COLLATE SQL_Latin1_General_CP850_CI_AS NOT NULL CONSTRAINT [DF_WebViewTemplate_IsUseTranslateKey_ForBookmarkName] DEFAULT ('Y'),
 [WebTranslateID_ForBookmarkName] [bigint] NULL,
 [BookmarkName] [nvarchar] (256) COLLATE SQL_Latin1_General_CP850_CI_AS NULL,
@@ -13,7 +10,6 @@ CREATE TABLE [dbo].[WebViewTemplate]
 [WebTranslateID_ForBookmarkDescription] [bigint] NULL,
 [BookmarkDescription] [nvarchar] (256) COLLATE SQL_Latin1_General_CP850_CI_AS NULL,
 [WebIconSvgEnumID_ForBookmark] [uniqueidentifier] NULL,
-[PermissionObject] [nvarchar] (max) COLLATE SQL_Latin1_General_CP850_CI_AS NULL,
 [TemplateJsonFragment] [nvarchar] (max) COLLATE SQL_Latin1_General_CP850_CI_AS NULL,
 [TemplateJsonFull] [nvarchar] (max) COLLATE SQL_Latin1_General_CP850_CI_AS NULL,
 [UpdateDate] [datetimeoffset] NOT NULL CONSTRAINT [DF_WebViewTemplate_UpdateDate] DEFAULT (sysdatetimeoffset()),
@@ -33,5 +29,5 @@ ALTER TABLE [dbo].[WebViewTemplate] ADD CONSTRAINT [FK_WebViewTemplate_WebTransl
 GO
 ALTER TABLE [dbo].[WebViewTemplate] ADD CONSTRAINT [FK_WebViewTemplate_WebTranslate1] FOREIGN KEY ([WebTranslateID_ForBookmarkName]) REFERENCES [dbo].[WebTranslate] ([ID])
 GO
-ALTER TABLE [dbo].[WebViewTemplate] ADD CONSTRAINT [FK_WebViewTemplate_WebTranslate2] FOREIGN KEY ([WebTranslateID_ForTitle]) REFERENCES [dbo].[WebTranslate] ([ID])
+ALTER TABLE [dbo].[WebViewTemplate] ADD CONSTRAINT [FK_WebViewTemplate_WebView] FOREIGN KEY ([WebViewID]) REFERENCES [dbo].[WebView] ([ID])
 GO

@@ -1,5 +1,4 @@
-SET IDENTITY_INSERT [dbo].[WebViewTemplateName] ON
-INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID], [Title], [BookmarkName], [BookmarkDescription], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES (20028, 10043, 1, NULL, NULL, NULL, N'
+INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID], [BookmarkName], [BookmarkDescription], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('ee819b05-4351-ed11-8e5d-4ccc6a2bb6d6', 'd4ae82e8-4251-ed11-8e5d-4ccc6a2bb6d6', 1, NULL, NULL, N'
         <div class=''cr-popup-content-wrapper'' [class.cr-popup-is-shown]=''self.popupTab.tabs.length > 1''>
           <cr-popup-tabs
             [popupTabs]=''self.popupTab.tabs''
@@ -31,7 +30,6 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
         [validator]="self.validator"
         [validatorGroupName]="''general''"
         [containFields]=''[]''
-        (submit)=''true && self.onSubmit ? self.onSubmit($event) : null''
       >
         <ng-template crPanelContent>
           <div class="row"><div class=''col-md-2''><cr-control-edit 
@@ -151,7 +149,6 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
         [validator]="self.validator"
         [validatorGroupName]="''undefined''"
         [containFields]=''[]''
-        (submit)=''false && self.onSubmit ? self.onSubmit($event) : null''
       >
         <ng-template crPanelContent>
           <div class="cr-grid-wrapper-new">
@@ -176,8 +173,8 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
               </ng-container>
             </ng-container>
           </div>
-        </div>', '2022-09-29 13:20:04.1166667 +00:00', 148, N'N', 'eddab8b3-454d-4ba3-ac21-a486e910325c', 1, NULL)
-INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID], [Title], [BookmarkName], [BookmarkDescription], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES (20029, 10043, 2, NULL, NULL, NULL, N'
+        </div>', '2022-10-21 19:29:07.8366667 +00:00', 153, N'N', 'b1e1024c-6be8-4a2c-8b34-f7a6be967231', 1, NULL)
+INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID], [BookmarkName], [BookmarkDescription], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('ef819b05-4351-ed11-8e5d-4ccc6a2bb6d6', 'd4ae82e8-4251-ed11-8e5d-4ccc6a2bb6d6', 2, NULL, NULL, N'
         <div class=''cr-popup-content-wrapper'' [class.cr-popup-is-shown]=''self.popupTab.tabs.length > 1''>
           <cr-popup-tabs
             [popupTabs]=''self.popupTab.tabs''
@@ -209,7 +206,6 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
         [validator]="self.validator"
         [validatorGroupName]="''general''"
         [containFields]=''[]''
-        (submit)=''true && self.onSubmit ? self.onSubmit($event) : null''
       >
         <ng-template crPanelContent>
           <div class="row"><div class=''col-md-2''><cr-control-edit 
@@ -329,7 +325,6 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
         [validator]="self.validator"
         [validatorGroupName]="''undefined''"
         [containFields]=''[]''
-        (submit)=''false && self.onSubmit ? self.onSubmit($event) : null''
       >
         <ng-template crPanelContent>
           <div class="cr-grid-wrapper-new">
@@ -354,8 +349,8 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
               </ng-container>
             </ng-container>
           </div>
-        </div>', '2022-09-29 13:20:04.1166667 +00:00', 148, N'N', '56c14ae9-8faf-4dc2-b36c-31fcd3b9acfc', 1, NULL)
-INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID], [Title], [BookmarkName], [BookmarkDescription], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES (30032, 20045, 1, NULL, NULL, NULL, N'
+        </div>', '2022-10-21 19:29:07.8366667 +00:00', 153, N'N', '6e05f0b0-1340-4c09-b07d-c0a1e8b4504a', 1, NULL)
+INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID], [BookmarkName], [BookmarkDescription], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('f0819b05-4351-ed11-8e5d-4ccc6a2bb6d6', 'd5ae82e8-4251-ed11-8e5d-4ccc6a2bb6d6', 1, NULL, NULL, N'
         <div class=''cr-popup-content-wrapper'' [class.cr-popup-is-shown]=''self.popupTab.tabs.length > 1''>
           <cr-popup-tabs
             [popupTabs]=''self.popupTab.tabs''
@@ -489,7 +484,6 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
         [validator]="self.validator"
         [validatorGroupName]="''general''"
         [containFields]=''["bDay","eMail","passport","govId","validFrom","validTo","frozenFrom","frozenTo"]''
-        (submit)=''false && self.onSubmit ? self.onSubmit($event) : null''
       >
         <ng-template crPanelContent>
           <div class="row"><div class=''col-md-2''><cr-dropdown-smart-control
@@ -784,7 +778,6 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
         [validator]="self.validator"
         [validatorGroupName]="''undefined''"
         [containFields]=''[]''
-        (submit)=''false && self.onSubmit ? self.onSubmit($event) : null''
       >
         <ng-template crPanelContent>
           <cr-partner-mailing-category-control
@@ -813,7 +806,6 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
         [validator]="self.validator"
         [validatorGroupName]="''paymentTerms''"
         [containFields]=''[]''
-        (submit)=''false && self.onSubmit ? self.onSubmit($event) : null''
       >
         <ng-template crPanelContent>
           <div class="row"><div class=''col-md-2''><cr-dropdown-smart-control
@@ -966,7 +958,6 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
         [validator]="self.validator"
         [validatorGroupName]="''statistic''"
         [containFields]=''[]''
-        (submit)=''false && self.onSubmit ? self.onSubmit($event) : null''
       >
         <ng-template crPanelContent>
           <div class="row"><div class=''col-md-2''><cr-numeric-control
@@ -1065,7 +1056,6 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
         [validator]="self.validator"
         [validatorGroupName]="''groups''"
         [containFields]=''["partnerGroups"]''
-        (submit)=''false && self.onSubmit ? self.onSubmit($event) : null''
       >
         <ng-template crPanelContent>
           <cr-partner-group-control
@@ -1092,7 +1082,6 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
         [validator]="self.validator"
         [validatorGroupName]="''addresses''"
         [containFields]=''[]''
-        (submit)=''false && self.onSubmit ? self.onSubmit($event) : null''
       >
         <ng-template crPanelContent>
           <cr-partner-address-list
@@ -1116,7 +1105,6 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
         [validator]="self.validator"
         [validatorGroupName]="''contactPersons''"
         [containFields]=''[]''
-        (submit)=''false && self.onSubmit ? self.onSubmit($event) : null''
       >
         <ng-template crPanelContent>
           <cr-partner-contact-persons-list
@@ -1141,7 +1129,6 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
         [validator]="self.validator"
         [validatorGroupName]="''cards''"
         [containFields]=''[]''
-        (submit)=''false && self.onSubmit ? self.onSubmit($event) : null''
       >
         <ng-template crPanelContent>
           <cr-partner-cards-list
@@ -1163,7 +1150,6 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
         [validator]="self.validator"
         [validatorGroupName]="''points''"
         [containFields]=''[]''
-        (submit)=''false && self.onSubmit ? self.onSubmit($event) : null''
       >
         <ng-template crPanelContent>
           <cr-partner-point 
@@ -1183,7 +1169,6 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
         [validator]="self.validator"
         [validatorGroupName]="''pointHistory''"
         [containFields]=''[]''
-        (submit)=''false && self.onSubmit ? self.onSubmit($event) : null''
       >
         <ng-template crPanelContent>
           <cr-partner-point-history
@@ -1203,7 +1188,6 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
         [validator]="self.validator"
         [validatorGroupName]="''transactionHistory''"
         [containFields]=''[]''
-        (submit)=''false && self.onSubmit ? self.onSubmit($event) : null''
       >
         <ng-template crPanelContent>
           <cr-partner-transaction-history
@@ -1224,7 +1208,6 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
         [validator]="self.validator"
         [validatorGroupName]="''discountBudget''"
         [containFields]=''[]''
-        (submit)=''false && self.onSubmit ? self.onSubmit($event) : null''
       >
         <ng-template crPanelContent>
           <cr-partner-discount-budget 
@@ -1246,7 +1229,6 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
         [validator]="self.validator"
         [validatorGroupName]="''udf''"
         [containFields]=''[]''
-        (submit)=''false && self.onSubmit ? self.onSubmit($event) : null''
       >
         <ng-template crPanelContent>
           <cr-udf-list
@@ -1280,7 +1262,6 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
         [validator]="self.validator"
         [validatorGroupName]="''remark''"
         [containFields]=''[]''
-        (submit)=''false && self.onSubmit ? self.onSubmit($event) : null''
       >
         <ng-template crPanelContent>
           <div class="row"><div class=''col-md-12''><cr-text-area-control
@@ -1309,7 +1290,7 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
             <div *ngIf=''self.popupTab.activeTabIndex != self.popupTab.tabs.length - 1'' class=''cr-popup-blocker''></div>
             <cr-partner-mailing-category-manage-dynamic
     *ngIf="self.popupTab.tabs[self.popupTab.activeTabIndex].details === ''partner''"
-    [subTemplateId]="1"
+    [subTemplateId]="''0900AEBD-4251-ED11-8E5D-4CCC6A2BB6D6''"
     [entityId]="self.partnerDetails.id"
     [(selectedMailingCategory)]="self.partnerDetails.mailingCategories"
     (cancelClickEvent)="self.onCloseMailingCategory()"
@@ -1319,7 +1300,7 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
 
 <cr-partner-mailing-category-manage-dynamic
     *ngIf="self.popupTab.tabs[self.popupTab.activeTabIndex].details === ''contact-person''"
-    [subTemplateId]="1"
+    [subTemplateId]="''0900AEBD-4251-ED11-8E5D-4CCC6A2BB6D6''"
     [entityId]="self.partnerDetailsContactPerson.id"
     (selectedMailingCategoryChange)="self.partnerDetailsContactPerson.mailingCategories = $event"
     [(selectedMailingCategory)]="self.partnerDetailsContactPerson.mailingCategories"
@@ -1336,7 +1317,7 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
             [ngIf]="self.popupTab.tabs[self.popupTab.activeTabIndex].type == ''manage-partner-groups'' && self.popupTab.activeTabIndex == i">
             <div *ngIf=''self.popupTab.activeTabIndex != self.popupTab.tabs.length - 1'' class=''cr-popup-blocker''></div>
             <cr-partner-group-manage-dynamic
-    [subTemplateId]="2"
+    [subTemplateId]="''0A00AEBD-4251-ED11-8E5D-4CCC6A2BB6D6''"
     [partnerId]="self.partnerDetails.id"
     [partnerTypeId]="self.partnerDetails.partnerTypeId"
     [(selectedGroups)]="self.partnerDetails.partnerGroups"
@@ -1352,7 +1333,7 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
             <div *ngIf=''self.popupTab.activeTabIndex != self.popupTab.tabs.length - 1'' class=''cr-popup-blocker''></div>
             <cr-addresses-details-dynamic
     *ngIf="self.popupTab.tabs[self.popupTab.activeTabIndex].details === ''edit''"
-    [subTemplateId]="3"
+    [subTemplateId]="''0B00AEBD-4251-ED11-8E5D-4CCC6A2BB6D6''"
     [isNew]="false"
     (closeClickEvent)="self.onClosePartnerAddresses()"
     (confirmAddress)="self.onConfirmPartnerAddresses($event)"
@@ -1361,7 +1342,7 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
 
 <cr-addresses-details-dynamic
     *ngIf="self.popupTab.tabs[self.popupTab.activeTabIndex].details === ''create''"
-    [subTemplateId]="3"
+    [subTemplateId]="''0B00AEBD-4251-ED11-8E5D-4CCC6A2BB6D6''"
     (closeClickEvent)="self.onClosePartnerAddresses()"
     [isNew]="true"
     [itemAddress]="self.partnerDetailsAddress"
@@ -1377,7 +1358,7 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
             <div *ngIf=''self.popupTab.activeTabIndex != self.popupTab.tabs.length - 1'' class=''cr-popup-blocker''></div>
             <cr-partner-contact-persons-details
     *ngIf="self.popupTab.tabs[self.popupTab.activeTabIndex].details === ''edit''"
-    [subTemplateId]="10005"
+    [subTemplateId]="''0E00AEBD-4251-ED11-8E5D-4CCC6A2BB6D6''"
     (openMailingCategory)="self.onEditContactPersonMailingCategory()"
     (closeClickEvent)="self.onClosePartnerContactPersons()"
     (confirmContactPerson)="self.onConfirmPartnerContactPersons($event)"
@@ -1386,7 +1367,7 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
 
 <cr-partner-contact-persons-details
     *ngIf="self.popupTab.tabs[self.popupTab.activeTabIndex].details === ''create''"
-    [subTemplateId]="10005"
+    [subTemplateId]="''0E00AEBD-4251-ED11-8E5D-4CCC6A2BB6D6''"
     (openMailingCategory)="self.onEditContactPersonMailingCategory()"
     (closeClickEvent)="self.onClosePartnerContactPersons()"
     [isNew]="true"
@@ -1399,8 +1380,8 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
               </ng-container>
             </ng-container>
           </div>
-        </div>', '2022-09-01 17:55:29.0600000 +00:00', 176, N'N', 'a5f1989f-8100-4864-9051-90005eaa966d', 1, NULL)
-INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID], [Title], [BookmarkName], [BookmarkDescription], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES (30033, 20045, 2, NULL, NULL, NULL, N'
+        </div>', '2022-10-21 19:29:10.0200000 +00:00', 178, N'N', '12757638-3eda-4bdd-9f52-93bc93b81fdd', 1, NULL)
+INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID], [BookmarkName], [BookmarkDescription], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('f1819b05-4351-ed11-8e5d-4ccc6a2bb6d6', 'd5ae82e8-4251-ed11-8e5d-4ccc6a2bb6d6', 2, NULL, NULL, N'
         <div class=''cr-popup-content-wrapper'' [class.cr-popup-is-shown]=''self.popupTab.tabs.length > 1''>
           <cr-popup-tabs
             [popupTabs]=''self.popupTab.tabs''
@@ -1534,7 +1515,6 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
         [validator]="self.validator"
         [validatorGroupName]="''general''"
         [containFields]=''["bDay","eMail","passport","govId","validFrom","validTo","frozenFrom","frozenTo"]''
-        (submit)=''false && self.onSubmit ? self.onSubmit($event) : null''
       >
         <ng-template crPanelContent>
           <div class="row"><div class=''col-md-2''><cr-dropdown-smart-control
@@ -1829,7 +1809,6 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
         [validator]="self.validator"
         [validatorGroupName]="''undefined''"
         [containFields]=''[]''
-        (submit)=''false && self.onSubmit ? self.onSubmit($event) : null''
       >
         <ng-template crPanelContent>
           <cr-partner-mailing-category-control
@@ -1858,7 +1837,6 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
         [validator]="self.validator"
         [validatorGroupName]="''paymentTerms''"
         [containFields]=''[]''
-        (submit)=''false && self.onSubmit ? self.onSubmit($event) : null''
       >
         <ng-template crPanelContent>
           <div class="row"><div class=''col-md-2''><cr-dropdown-smart-control
@@ -2011,7 +1989,6 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
         [validator]="self.validator"
         [validatorGroupName]="''statistic''"
         [containFields]=''[]''
-        (submit)=''false && self.onSubmit ? self.onSubmit($event) : null''
       >
         <ng-template crPanelContent>
           <div class="row"><div class=''col-md-2''><cr-numeric-control
@@ -2110,7 +2087,6 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
         [validator]="self.validator"
         [validatorGroupName]="''groups''"
         [containFields]=''["partnerGroups"]''
-        (submit)=''false && self.onSubmit ? self.onSubmit($event) : null''
       >
         <ng-template crPanelContent>
           <cr-partner-group-control
@@ -2137,7 +2113,6 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
         [validator]="self.validator"
         [validatorGroupName]="''addresses''"
         [containFields]=''[]''
-        (submit)=''false && self.onSubmit ? self.onSubmit($event) : null''
       >
         <ng-template crPanelContent>
           <cr-partner-address-list
@@ -2161,7 +2136,6 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
         [validator]="self.validator"
         [validatorGroupName]="''contactPersons''"
         [containFields]=''[]''
-        (submit)=''false && self.onSubmit ? self.onSubmit($event) : null''
       >
         <ng-template crPanelContent>
           <cr-partner-contact-persons-list
@@ -2186,7 +2160,6 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
         [validator]="self.validator"
         [validatorGroupName]="''cards''"
         [containFields]=''[]''
-        (submit)=''false && self.onSubmit ? self.onSubmit($event) : null''
       >
         <ng-template crPanelContent>
           <cr-partner-cards-list
@@ -2208,7 +2181,6 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
         [validator]="self.validator"
         [validatorGroupName]="''points''"
         [containFields]=''[]''
-        (submit)=''false && self.onSubmit ? self.onSubmit($event) : null''
       >
         <ng-template crPanelContent>
           <cr-partner-point 
@@ -2228,7 +2200,6 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
         [validator]="self.validator"
         [validatorGroupName]="''pointHistory''"
         [containFields]=''[]''
-        (submit)=''false && self.onSubmit ? self.onSubmit($event) : null''
       >
         <ng-template crPanelContent>
           <cr-partner-point-history
@@ -2248,7 +2219,6 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
         [validator]="self.validator"
         [validatorGroupName]="''transactionHistory''"
         [containFields]=''[]''
-        (submit)=''false && self.onSubmit ? self.onSubmit($event) : null''
       >
         <ng-template crPanelContent>
           <cr-partner-transaction-history
@@ -2269,7 +2239,6 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
         [validator]="self.validator"
         [validatorGroupName]="''discountBudget''"
         [containFields]=''[]''
-        (submit)=''false && self.onSubmit ? self.onSubmit($event) : null''
       >
         <ng-template crPanelContent>
           <cr-partner-discount-budget 
@@ -2291,7 +2260,6 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
         [validator]="self.validator"
         [validatorGroupName]="''udf''"
         [containFields]=''[]''
-        (submit)=''false && self.onSubmit ? self.onSubmit($event) : null''
       >
         <ng-template crPanelContent>
           <cr-udf-list
@@ -2309,6 +2277,7 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
 <ng-template #noAccess>
     <div class="cr-no-read-access p-2">
         {{''COMMON.GRID.NO_READ_ACCESS'' | translate}}
+
     </div>
 </ng-template>
         </ng-template>
@@ -2325,7 +2294,6 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
         [validator]="self.validator"
         [validatorGroupName]="''remark''"
         [containFields]=''[]''
-        (submit)=''false && self.onSubmit ? self.onSubmit($event) : null''
       >
         <ng-template crPanelContent>
           <div class="row"><div class=''col-md-12''><cr-text-area-control
@@ -2354,7 +2322,7 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
             <div *ngIf=''self.popupTab.activeTabIndex != self.popupTab.tabs.length - 1'' class=''cr-popup-blocker''></div>
             <cr-partner-mailing-category-manage-dynamic
     *ngIf="self.popupTab.tabs[self.popupTab.activeTabIndex].details === ''partner''"
-    [subTemplateId]="1"
+    [subTemplateId]="''0900AEBD-4251-ED11-8E5D-4CCC6A2BB6D6''"
     [entityId]="self.partnerDetails.id"
     [(selectedMailingCategory)]="self.partnerDetails.mailingCategories"
     (cancelClickEvent)="self.onCloseMailingCategory()"
@@ -2364,7 +2332,7 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
 
 <cr-partner-mailing-category-manage-dynamic
     *ngIf="self.popupTab.tabs[self.popupTab.activeTabIndex].details === ''contact-person''"
-    [subTemplateId]="1"
+    [subTemplateId]="''0900AEBD-4251-ED11-8E5D-4CCC6A2BB6D6''"
     [entityId]="self.partnerDetailsContactPerson.id"
     (selectedMailingCategoryChange)="self.partnerDetailsContactPerson.mailingCategories = $event"
     [(selectedMailingCategory)]="self.partnerDetailsContactPerson.mailingCategories"
@@ -2381,7 +2349,7 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
             [ngIf]="self.popupTab.tabs[self.popupTab.activeTabIndex].type == ''manage-partner-groups'' && self.popupTab.activeTabIndex == i">
             <div *ngIf=''self.popupTab.activeTabIndex != self.popupTab.tabs.length - 1'' class=''cr-popup-blocker''></div>
             <cr-partner-group-manage-dynamic
-    [subTemplateId]="2"
+    [subTemplateId]="''0A00AEBD-4251-ED11-8E5D-4CCC6A2BB6D6''"
     [partnerId]="self.partnerDetails.id"
     [partnerTypeId]="self.partnerDetails.partnerTypeId"
     [(selectedGroups)]="self.partnerDetails.partnerGroups"
@@ -2397,7 +2365,7 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
             <div *ngIf=''self.popupTab.activeTabIndex != self.popupTab.tabs.length - 1'' class=''cr-popup-blocker''></div>
             <cr-addresses-details-dynamic
     *ngIf="self.popupTab.tabs[self.popupTab.activeTabIndex].details === ''edit''"
-    [subTemplateId]="3"
+    [subTemplateId]="''0B00AEBD-4251-ED11-8E5D-4CCC6A2BB6D6''"
     [isNew]="false"
     (closeClickEvent)="self.onClosePartnerAddresses()"
     (confirmAddress)="self.onConfirmPartnerAddresses($event)"
@@ -2406,7 +2374,7 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
 
 <cr-addresses-details-dynamic
     *ngIf="self.popupTab.tabs[self.popupTab.activeTabIndex].details === ''create''"
-    [subTemplateId]="3"
+    [subTemplateId]="''0B00AEBD-4251-ED11-8E5D-4CCC6A2BB6D6''"
     (closeClickEvent)="self.onClosePartnerAddresses()"
     [isNew]="true"
     [itemAddress]="self.partnerDetailsAddress"
@@ -2422,7 +2390,7 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
             <div *ngIf=''self.popupTab.activeTabIndex != self.popupTab.tabs.length - 1'' class=''cr-popup-blocker''></div>
             <cr-partner-contact-persons-details
     *ngIf="self.popupTab.tabs[self.popupTab.activeTabIndex].details === ''edit''"
-    [subTemplateId]="10005"
+    [subTemplateId]="''0E00AEBD-4251-ED11-8E5D-4CCC6A2BB6D6''"
     (openMailingCategory)="self.onEditContactPersonMailingCategory()"
     (closeClickEvent)="self.onClosePartnerContactPersons()"
     (confirmContactPerson)="self.onConfirmPartnerContactPersons($event)"
@@ -2431,7 +2399,7 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
 
 <cr-partner-contact-persons-details
     *ngIf="self.popupTab.tabs[self.popupTab.activeTabIndex].details === ''create''"
-    [subTemplateId]="10005"
+    [subTemplateId]="''0E00AEBD-4251-ED11-8E5D-4CCC6A2BB6D6''"
     (openMailingCategory)="self.onEditContactPersonMailingCategory()"
     (closeClickEvent)="self.onClosePartnerContactPersons()"
     [isNew]="true"
@@ -2444,8 +2412,8 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
               </ng-container>
             </ng-container>
           </div>
-        </div>', '2022-09-01 17:55:29.0600000 +00:00', 176, N'N', '43646be1-f034-4a90-a984-f7a564eb62ea', 1, NULL)
-INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID], [Title], [BookmarkName], [BookmarkDescription], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES (40032, 30045, 1, NULL, NULL, NULL, N'
+        </div>', '2022-10-21 19:29:10.0566667 +00:00', 178, N'N', '3cee3771-dc7e-4dad-9109-742a934b89b2', 1, NULL)
+INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID], [BookmarkName], [BookmarkDescription], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('f2819b05-4351-ed11-8e5d-4ccc6a2bb6d6', 'd6ae82e8-4251-ed11-8e5d-4ccc6a2bb6d6', 1, NULL, NULL, N'
         <div class=''cr-popup-content-wrapper'' [class.cr-popup-is-shown]=''self.popupTab.tabs.length > 1''>
           <cr-popup-tabs
             [popupTabs]=''self.popupTab.tabs''
@@ -3406,7 +3374,7 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
             </ng-container>
           </div>
         </div>', '2022-03-17 20:50:44.3476085 +02:00', 1, N'N', '16eceebb-5222-42ad-96c6-0f9e8767f1e9', 1, NULL)
-INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID], [Title], [BookmarkName], [BookmarkDescription], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES (40033, 30045, 2, NULL, NULL, NULL, N'
+INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID], [BookmarkName], [BookmarkDescription], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('f3819b05-4351-ed11-8e5d-4ccc6a2bb6d6', 'd6ae82e8-4251-ed11-8e5d-4ccc6a2bb6d6', 2, NULL, NULL, N'
         <div class=''cr-popup-content-wrapper'' [class.cr-popup-is-shown]=''self.popupTab.tabs.length > 1''>
           <cr-popup-tabs
             [popupTabs]=''self.popupTab.tabs''
@@ -3908,6 +3876,7 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
     [useCodeInValue]="true"
     [unselectedItemValue]="{id: null, translateKey: ''COMMON.MOCK_OBJ.NOT_SELECTED''}"
     [dataTranslateKeyField]="''translateKey''"
+
     [labelTranslateKey]="''PARTNER.DETAILS.PAYMENT_TERMS.PRICE_NUMBER''"
     [label]="''''"
     [class]=''""''
@@ -4322,6 +4291,7 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
         </ng-template>
       
         <ng-template [ngSwitchCase]="''manage-partner-group''">
+
           <ng-template
             [ngIf]="self.popupTab.tabs[self.popupTab.activeTabIndex].type == ''manage-partner-group'' && self.popupTab.activeTabIndex == i">
             <div *ngIf=''self.popupTab.activeTabIndex != self.popupTab.tabs.length - 1'' class=''cr-popup-blocker''></div>
@@ -4367,7 +4337,7 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
             </ng-container>
           </div>
         </div>', '2022-03-17 20:50:44.3476085 +02:00', 1, N'N', '27f683c6-c9ea-4173-a3f4-d38c5cbe2b4c', 1, NULL)
-INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID], [Title], [BookmarkName], [BookmarkDescription], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES (40034, 30046, 1, NULL, NULL, NULL, N'
+INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID], [BookmarkName], [BookmarkDescription], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('f4819b05-4351-ed11-8e5d-4ccc6a2bb6d6', 'd7ae82e8-4251-ed11-8e5d-4ccc6a2bb6d6', 1, NULL, NULL, N'
         <div class=''cr-popup-content-wrapper'' [class.cr-popup-is-shown]=''self.popupTab.tabs.length > 1''>
           <cr-popup-tabs
             [popupTabs]=''self.popupTab.tabs''
@@ -4962,6 +4932,7 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
         [headerClass]="''''"
         [validator]="self.validator"
         [validatorGroupName]="''statistic''"
+
         [containFields]=''[]''
       >
         <ng-template crPanelContent>
@@ -5269,7 +5240,7 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
             </ng-container>
           </div>
         </div>', '2022-03-22 23:53:16.2399824 +02:00', 1, N'N', '35f0cd8a-0478-4b74-ab23-6a8c3d533a0e', 1, NULL)
-INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID], [Title], [BookmarkName], [BookmarkDescription], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES (40035, 30046, 2, NULL, NULL, NULL, N'
+INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID], [BookmarkName], [BookmarkDescription], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('f5819b05-4351-ed11-8e5d-4ccc6a2bb6d6', 'd7ae82e8-4251-ed11-8e5d-4ccc6a2bb6d6', 2, NULL, NULL, N'
         <div class=''cr-popup-content-wrapper'' [class.cr-popup-is-shown]=''self.popupTab.tabs.length > 1''>
           <cr-popup-tabs
             [popupTabs]=''self.popupTab.tabs''
@@ -6171,9 +6142,197 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
             </ng-container>
           </div>
         </div>', '2022-03-22 23:53:16.2399824 +02:00', 1, N'N', '7cbf22bd-d7f6-4d7d-9b2b-daa0262b40c9', 1, NULL)
-INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID], [Title], [BookmarkName], [BookmarkDescription], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES (50034, 40046, 1, N'רשימת פרטנרים 2', NULL, NULL, N'', '2022-09-20 10:13:11.9866667 +00:00', 22, N'N', '4c3df850-7107-4692-ad67-03609c60b95e', 1, NULL)
-INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID], [Title], [BookmarkName], [BookmarkDescription], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES (50035, 40046, 2, N'Partner List 2', NULL, NULL, N'', '2022-09-20 10:13:11.9866667 +00:00', 22, N'N', '02d6b149-4ef8-47fc-a5b4-c081cd09af7c', 1, NULL)
-INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID], [Title], [BookmarkName], [BookmarkDescription], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES (50036, 40047, 1, NULL, NULL, NULL, N'
+INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID], [BookmarkName], [BookmarkDescription], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('f6819b05-4351-ed11-8e5d-4ccc6a2bb6d6', 'd8ae82e8-4251-ed11-8e5d-4ccc6a2bb6d6', 1, NULL, NULL, N'
+        <div class=''cr-popup-content-wrapper'' [class.cr-popup-is-shown]=''self.popupTab.tabs.length > 1''>
+          <cr-popup-tabs
+            [popupTabs]=''self.popupTab.tabs''
+            [activePopup]=''self.popupTab.activeTabIndex''
+            (closePopup)=''self.removePopupTab()''
+            (changeActive)=''self.changeActiveTab($event)''
+          ></cr-popup-tabs>
+          <div class=''cr-details-inner-container''>
+            <ng-container *ngFor=''let tab of self.popupTab.tabs; index as i;''>
+              <ng-container [ngSwitch]=''tab.type''>
+                
+    <ng-template [ngSwitchCase]="''general''">
+      <ng-template [ngIf]="self.popupTab.tabs[self.popupTab.activeTabIndex].type == ''general'' && self.popupTab.activeTabIndex == i">
+        <div *ngIf=''self.popupTab.activeTabIndex != self.popupTab.tabs.length - 1'' class=''cr-popup-blocker''></div>
+        <cr-title-header
+    [titleTranslateKey]="''PARTNER.GRID.TITLE''"
+    [title]="''''"
+    (buttonClickEvent)="self.onTitleButtonClick($event)"
+    [buttonSettings]="self.titleHeaderButtonSettings"
+></cr-title-header>
+      <cr-panel
+        [panelTemplateType]="''panel''"
+        [expanded]="self.panelsViewState?.[''undefined''] ?? true"
+        (expandedChange)="self.panelStateChange(''undefined'', $event)"
+        [titleTranslateKey]="false ? ''undefined'' : null"
+        [title]="false ? null : ''Panel he''"
+        [customClass]="''''"
+        [headerClass]="''''"
+        [validator]="self.validator"
+        [validatorGroupName]="''undefined''"
+        [containFields]=''[]''
+      >
+        <ng-template crPanelContent>
+          <div class="row"><div class=''col-md-4''><cr-control-edit 
+    [translateKeys]="''PARTNER.FILTER.FIRST_NAME''" 
+    [dataLabel]="''''"
+    [customClass]=''""''
+    [isDisabled]="false"
+    [(dataValue)]="self.partnerListFilter.firstName"
+></cr-control-edit></div><div class=''col-md-4''><cr-control-edit 
+    [translateKeys]="''PARTNER.FILTER.EMAIL''" 
+    [dataLabel]="''''"
+    [customClass]=''""''
+    [isDisabled]="false"
+    [(dataValue)]="self.partnerListFilter.EMail"
+></cr-control-edit></div><div class=''col-md-2''></div><div class=''col-md-2''><cr-button-control 
+    [buttonTemplateType]="''underlined-action-button''"
+    [text]="''''"
+    [textTranslateKey]="''COMMON.SEARCH''"
+    [classArray]=''""''
+    [width]="''''"
+    [height]="''''"
+    [icon]="''undefined''"
+    (buttonClickEvent)="self.changeFilter()"
+    *ngIf="self.authService.getEndpointAccessGranted(self.EndpointName.partner_GET)"
+></cr-button-control></div></div>
+        </ng-template>
+      </cr-panel>
+      <cr-panel
+        [panelTemplateType]="''panel''"
+        [expanded]="self.panelsViewState?.[''undefined''] ?? true"
+        (expandedChange)="self.panelStateChange(''undefined'', $event)"
+        [titleTranslateKey]="true ? ''PARTNER.GRID.TITLE'' : null"
+        [title]="true ? null : ''רשימת כרטיסים''"
+        [customClass]="''''"
+        [headerClass]="''''"
+        [validator]="self.validator"
+        [validatorGroupName]="''undefined''"
+        [containFields]=''[]''
+      >
+        <ng-template crPanelContent>
+          <div class="cr-grid-wrapper-new">
+    <cr-edit-grid-server-paging
+        (cellClickEvent)="self.cellClick($event)"
+        (pageChangeEvent)="self.changePage($event)"
+        [columnSettings]="self.columnSettings"
+        [dataCacheName]="''partnerGrid''"
+        [dataSource]="self.dataSource"
+        [elementName]="''edit-grid-server-paging:Partner_list.Grid''"
+        [pageable]="true"
+        [resizable]="true"
+        [uniqueField]="''id''"
+        [class]="undefined"
+      ></cr-edit-grid-server-paging>
+</div>
+        </ng-template>
+      </cr-panel>
+      </ng-template>
+    </ng-template>
+    
+              </ng-container>
+            </ng-container>
+          </div>
+        </div>', '2022-10-21 19:29:08.4733333 +00:00', 24, N'N', '1ae69edc-e213-47d6-84d8-ba6d62064ac1', 1, NULL)
+INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID], [BookmarkName], [BookmarkDescription], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('f7819b05-4351-ed11-8e5d-4ccc6a2bb6d6', 'd8ae82e8-4251-ed11-8e5d-4ccc6a2bb6d6', 2, NULL, NULL, N'
+        <div class=''cr-popup-content-wrapper'' [class.cr-popup-is-shown]=''self.popupTab.tabs.length > 1''>
+          <cr-popup-tabs
+            [popupTabs]=''self.popupTab.tabs''
+            [activePopup]=''self.popupTab.activeTabIndex''
+            (closePopup)=''self.removePopupTab()''
+            (changeActive)=''self.changeActiveTab($event)''
+          ></cr-popup-tabs>
+          <div class=''cr-details-inner-container''>
+            <ng-container *ngFor=''let tab of self.popupTab.tabs; index as i;''>
+              <ng-container [ngSwitch]=''tab.type''>
+                
+    <ng-template [ngSwitchCase]="''general''">
+      <ng-template [ngIf]="self.popupTab.tabs[self.popupTab.activeTabIndex].type == ''general'' && self.popupTab.activeTabIndex == i">
+        <div *ngIf=''self.popupTab.activeTabIndex != self.popupTab.tabs.length - 1'' class=''cr-popup-blocker''></div>
+        <cr-title-header
+    [titleTranslateKey]="''PARTNER.GRID.TITLE''"
+    [title]="''''"
+    (buttonClickEvent)="self.onTitleButtonClick($event)"
+    [buttonSettings]="self.titleHeaderButtonSettings"
+></cr-title-header>
+      <cr-panel
+        [panelTemplateType]="''panel''"
+        [expanded]="self.panelsViewState?.[''undefined''] ?? true"
+        (expandedChange)="self.panelStateChange(''undefined'', $event)"
+        [titleTranslateKey]="false ? ''undefined'' : null"
+        [title]="false ? null : ''חתך הגדרות''"
+        [customClass]="''''"
+        [headerClass]="''''"
+        [validator]="self.validator"
+        [validatorGroupName]="''undefined''"
+        [containFields]=''[]''
+      >
+        <ng-template crPanelContent>
+          <div class="row"><div class=''col-md-4''><cr-control-edit 
+    [translateKeys]="''PARTNER.FILTER.FIRST_NAME''" 
+    [dataLabel]="''''"
+    [customClass]=''""''
+    [isDisabled]="false"
+    [(dataValue)]="self.partnerListFilter.firstName"
+></cr-control-edit></div><div class=''col-md-4''><cr-control-edit 
+    [translateKeys]="''PARTNER.FILTER.EMAIL''" 
+    [dataLabel]="''''"
+    [customClass]=''""''
+    [isDisabled]="false"
+    [(dataValue)]="self.partnerListFilter.EMail"
+></cr-control-edit></div><div class=''col-md-2''></div><div class=''col-md-2''><cr-button-control 
+    [buttonTemplateType]="''underlined-action-button''"
+    [text]="''''"
+    [textTranslateKey]="''COMMON.SEARCH''"
+    [classArray]=''""''
+    [width]="''''"
+    [height]="''''"
+    [icon]="''undefined''"
+    (buttonClickEvent)="self.changeFilter()"
+    *ngIf="self.authService.getEndpointAccessGranted(self.EndpointName.partner_GET)"
+></cr-button-control></div></div>
+        </ng-template>
+      </cr-panel>
+      <cr-panel
+        [panelTemplateType]="''panel''"
+        [expanded]="self.panelsViewState?.[''undefined''] ?? true"
+        (expandedChange)="self.panelStateChange(''undefined'', $event)"
+        [titleTranslateKey]="true ? ''PARTNER.GRID.TITLE'' : null"
+        [title]="true ? null : ''Partner List''"
+        [customClass]="''''"
+        [headerClass]="''''"
+        [validator]="self.validator"
+        [validatorGroupName]="''undefined''"
+        [containFields]=''[]''
+      >
+        <ng-template crPanelContent>
+          <div class="cr-grid-wrapper-new">
+    <cr-edit-grid-server-paging
+        (cellClickEvent)="self.cellClick($event)"
+        (pageChangeEvent)="self.changePage($event)"
+        [columnSettings]="self.columnSettings"
+        [dataCacheName]="''partnerGrid''"
+        [dataSource]="self.dataSource"
+        [elementName]="''edit-grid-server-paging:Partner_list.Grid''"
+        [pageable]="true"
+        [resizable]="true"
+        [uniqueField]="''id''"
+        [class]="undefined"
+      ></cr-edit-grid-server-paging>
+</div>
+        </ng-template>
+      </cr-panel>
+      </ng-template>
+    </ng-template>
+    
+              </ng-container>
+            </ng-container>
+          </div>
+        </div>', '2022-10-21 19:29:09.8300000 +00:00', 24, N'N', '24580714-2627-4fcf-8e31-e01d9fc84fed', 1, NULL)
+INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID], [BookmarkName], [BookmarkDescription], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('f8819b05-4351-ed11-8e5d-4ccc6a2bb6d6', 'd9ae82e8-4251-ed11-8e5d-4ccc6a2bb6d6', 1, NULL, NULL, N'
         <div class=''cr-popup-content-wrapper'' [class.cr-popup-is-shown]=''self.popupTab.tabs.length > 1''>
           <cr-popup-tabs
             [popupTabs]=''self.popupTab.tabs''
@@ -6307,7 +6466,6 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
         [validator]="self.validator"
         [validatorGroupName]="''general''"
         [containFields]=''["bDay","eMail","passport","govId","validFrom","validTo","frozenFrom","frozenTo"]''
-        (submit)=''false && self.onSubmit ? self.onSubmit($event) : null''
       >
         <ng-template crPanelContent>
           <div class="row"><div class=''col-md-2''><cr-dropdown-smart-control
@@ -6602,7 +6760,6 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
         [validator]="self.validator"
         [validatorGroupName]="''undefined''"
         [containFields]=''[]''
-        (submit)=''false && self.onSubmit ? self.onSubmit($event) : null''
       >
         <ng-template crPanelContent>
           <cr-partner-mailing-category-control
@@ -6631,7 +6788,6 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
         [validator]="self.validator"
         [validatorGroupName]="''paymentTerms''"
         [containFields]=''[]''
-        (submit)=''false && self.onSubmit ? self.onSubmit($event) : null''
       >
         <ng-template crPanelContent>
           <div class="row"><div class=''col-md-2''><cr-dropdown-smart-control
@@ -6781,7 +6937,6 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
         [validator]="self.validator"
         [validatorGroupName]="''statistic''"
         [containFields]=''[]''
-        (submit)=''false && self.onSubmit ? self.onSubmit($event) : null''
       >
         <ng-template crPanelContent>
           <div class="row"><div class=''col-md-2''><cr-numeric-control
@@ -6880,7 +7035,6 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
         [validator]="self.validator"
         [validatorGroupName]="''groups''"
         [containFields]=''["partnerGroups"]''
-        (submit)=''false && self.onSubmit ? self.onSubmit($event) : null''
       >
         <ng-template crPanelContent>
           <cr-partner-group-control
@@ -6907,7 +7061,6 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
         [validator]="self.validator"
         [validatorGroupName]="''addresses''"
         [containFields]=''[]''
-        (submit)=''false && self.onSubmit ? self.onSubmit($event) : null''
       >
         <ng-template crPanelContent>
           <cr-partner-address-list
@@ -6931,7 +7084,6 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
         [validator]="self.validator"
         [validatorGroupName]="''contactPersons''"
         [containFields]=''[]''
-        (submit)=''false && self.onSubmit ? self.onSubmit($event) : null''
       >
         <ng-template crPanelContent>
           <cr-partner-contact-persons-list
@@ -6956,7 +7108,6 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
         [validator]="self.validator"
         [validatorGroupName]="''cards''"
         [containFields]=''[]''
-        (submit)=''false && self.onSubmit ? self.onSubmit($event) : null''
       >
         <ng-template crPanelContent>
           <cr-partner-cards-list
@@ -6978,7 +7129,6 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
         [validator]="self.validator"
         [validatorGroupName]="''points''"
         [containFields]=''[]''
-        (submit)=''false && self.onSubmit ? self.onSubmit($event) : null''
       >
         <ng-template crPanelContent>
           <cr-partner-point 
@@ -6998,7 +7148,6 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
         [validator]="self.validator"
         [validatorGroupName]="''pointHistory''"
         [containFields]=''[]''
-        (submit)=''false && self.onSubmit ? self.onSubmit($event) : null''
       >
         <ng-template crPanelContent>
           <cr-partner-point-history
@@ -7018,7 +7167,6 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
         [validator]="self.validator"
         [validatorGroupName]="''transactionHistory''"
         [containFields]=''[]''
-        (submit)=''false && self.onSubmit ? self.onSubmit($event) : null''
       >
         <ng-template crPanelContent>
           <cr-partner-transaction-history
@@ -7039,7 +7187,6 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
         [validator]="self.validator"
         [validatorGroupName]="''discountBudget''"
         [containFields]=''[]''
-        (submit)=''false && self.onSubmit ? self.onSubmit($event) : null''
       >
         <ng-template crPanelContent>
           <cr-partner-discount-budget 
@@ -7061,7 +7208,6 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
         [validator]="self.validator"
         [validatorGroupName]="''udf''"
         [containFields]=''[]''
-        (submit)=''false && self.onSubmit ? self.onSubmit($event) : null''
       >
         <ng-template crPanelContent>
           <div data-component-type="partner-udf-list-form-element"> partner-udf-list-form-element is uknown component type </div>
@@ -7079,7 +7225,6 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
         [validator]="self.validator"
         [validatorGroupName]="''remark''"
         [containFields]=''[]''
-        (submit)=''false && self.onSubmit ? self.onSubmit($event) : null''
       >
         <ng-template crPanelContent>
           <div class="row"><div class=''col-md-12''><cr-text-area-control
@@ -7108,7 +7253,7 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
             <div *ngIf=''self.popupTab.activeTabIndex != self.popupTab.tabs.length - 1'' class=''cr-popup-blocker''></div>
             <cr-partner-mailing-category-manage-dynamic
     *ngIf="self.popupTab.tabs[self.popupTab.activeTabIndex].details === ''partner''"
-    [subTemplateId]="1"
+    [subTemplateId]="''0900AEBD-4251-ED11-8E5D-4CCC6A2BB6D6''"
     [entityId]="self.partnerDetails.id"
     [(selectedMailingCategory)]="self.partnerDetails.mailingCategories"
     (cancelClickEvent)="self.onCloseMailingCategory()"
@@ -7118,7 +7263,7 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
 
 <cr-partner-mailing-category-manage-dynamic
     *ngIf="self.popupTab.tabs[self.popupTab.activeTabIndex].details === ''contact-person''"
-    [subTemplateId]="1"
+    [subTemplateId]="''0900AEBD-4251-ED11-8E5D-4CCC6A2BB6D6''"
     [entityId]="self.partnerDetailsContactPerson.id"
     (selectedMailingCategoryChange)="self.partnerDetailsContactPerson.mailingCategories = $event"
     [(selectedMailingCategory)]="self.partnerDetailsContactPerson.mailingCategories"
@@ -7135,7 +7280,7 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
             [ngIf]="self.popupTab.tabs[self.popupTab.activeTabIndex].type == ''manage-partner-groups'' && self.popupTab.activeTabIndex == i">
             <div *ngIf=''self.popupTab.activeTabIndex != self.popupTab.tabs.length - 1'' class=''cr-popup-blocker''></div>
             <cr-partner-group-manage-dynamic
-    [subTemplateId]="2"
+    [subTemplateId]="''0A00AEBD-4251-ED11-8E5D-4CCC6A2BB6D6''"
     [partnerId]="self.partnerDetails.id"
     [partnerTypeId]="self.partnerDetails.partnerTypeId"
     [(selectedGroups)]="self.partnerDetails.partnerGroups"
@@ -7151,7 +7296,7 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
             <div *ngIf=''self.popupTab.activeTabIndex != self.popupTab.tabs.length - 1'' class=''cr-popup-blocker''></div>
             <cr-addresses-details-dynamic
     *ngIf="self.popupTab.tabs[self.popupTab.activeTabIndex].details === ''edit''"
-    [subTemplateId]="10006"
+    [subTemplateId]="''0F00AEBD-4251-ED11-8E5D-4CCC6A2BB6D6''"
     [isNew]="false"
     (closeClickEvent)="self.onClosePartnerAddresses()"
     (confirmAddress)="self.onConfirmPartnerAddresses($event)"
@@ -7160,7 +7305,7 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
 
 <cr-addresses-details-dynamic
     *ngIf="self.popupTab.tabs[self.popupTab.activeTabIndex].details === ''create''"
-    [subTemplateId]="10006"
+    [subTemplateId]="''0F00AEBD-4251-ED11-8E5D-4CCC6A2BB6D6''"
     (closeClickEvent)="self.onClosePartnerAddresses()"
     [isNew]="true"
     [itemAddress]="self.partnerDetailsAddress"
@@ -7176,7 +7321,7 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
             <div *ngIf=''self.popupTab.activeTabIndex != self.popupTab.tabs.length - 1'' class=''cr-popup-blocker''></div>
             <cr-partner-contact-persons-details
     *ngIf="self.popupTab.tabs[self.popupTab.activeTabIndex].details === ''edit''"
-    [subTemplateId]="10005"
+    [subTemplateId]="''0E00AEBD-4251-ED11-8E5D-4CCC6A2BB6D6''"
     (openMailingCategory)="self.onEditContactPersonMailingCategory()"
     (closeClickEvent)="self.onClosePartnerContactPersons()"
     (confirmContactPerson)="self.onConfirmPartnerContactPersons($event)"
@@ -7185,7 +7330,7 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
 
 <cr-partner-contact-persons-details
     *ngIf="self.popupTab.tabs[self.popupTab.activeTabIndex].details === ''create''"
-    [subTemplateId]="10005"
+    [subTemplateId]="''0E00AEBD-4251-ED11-8E5D-4CCC6A2BB6D6''"
     (openMailingCategory)="self.onEditContactPersonMailingCategory()"
     (closeClickEvent)="self.onClosePartnerContactPersons()"
     [isNew]="true"
@@ -7198,8 +7343,8 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
               </ng-container>
             </ng-container>
           </div>
-        </div>', '2022-09-01 17:55:29.0700000 +00:00', 12, N'N', 'a91a3fb1-e65b-42b6-a582-3cb56ec5fb9d', 1, NULL)
-INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID], [Title], [BookmarkName], [BookmarkDescription], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES (50037, 40047, 2, NULL, NULL, NULL, N'
+        </div>', '2022-10-21 19:29:10.0200000 +00:00', 13, N'N', '856f125b-8b9e-4407-9c9a-a7ef320b45ff', 1, NULL)
+INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID], [BookmarkName], [BookmarkDescription], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('f9819b05-4351-ed11-8e5d-4ccc6a2bb6d6', 'd9ae82e8-4251-ed11-8e5d-4ccc6a2bb6d6', 2, NULL, NULL, N'
         <div class=''cr-popup-content-wrapper'' [class.cr-popup-is-shown]=''self.popupTab.tabs.length > 1''>
           <cr-popup-tabs
             [popupTabs]=''self.popupTab.tabs''
@@ -7333,7 +7478,6 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
         [validator]="self.validator"
         [validatorGroupName]="''general''"
         [containFields]=''["bDay","eMail","passport","govId","validFrom","validTo","frozenFrom","frozenTo"]''
-        (submit)=''false && self.onSubmit ? self.onSubmit($event) : null''
       >
         <ng-template crPanelContent>
           <div class="row"><div class=''col-md-2''><cr-dropdown-smart-control
@@ -7628,7 +7772,6 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
         [validator]="self.validator"
         [validatorGroupName]="''undefined''"
         [containFields]=''[]''
-        (submit)=''false && self.onSubmit ? self.onSubmit($event) : null''
       >
         <ng-template crPanelContent>
           <cr-partner-mailing-category-control
@@ -7657,7 +7800,6 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
         [validator]="self.validator"
         [validatorGroupName]="''paymentTerms''"
         [containFields]=''[]''
-        (submit)=''false && self.onSubmit ? self.onSubmit($event) : null''
       >
         <ng-template crPanelContent>
           <div class="row"><div class=''col-md-2''><cr-dropdown-smart-control
@@ -7807,7 +7949,6 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
         [validator]="self.validator"
         [validatorGroupName]="''statistic''"
         [containFields]=''[]''
-        (submit)=''false && self.onSubmit ? self.onSubmit($event) : null''
       >
         <ng-template crPanelContent>
           <div class="row"><div class=''col-md-2''><cr-numeric-control
@@ -7906,7 +8047,6 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
         [validator]="self.validator"
         [validatorGroupName]="''groups''"
         [containFields]=''["partnerGroups"]''
-        (submit)=''false && self.onSubmit ? self.onSubmit($event) : null''
       >
         <ng-template crPanelContent>
           <cr-partner-group-control
@@ -7933,7 +8073,6 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
         [validator]="self.validator"
         [validatorGroupName]="''addresses''"
         [containFields]=''[]''
-        (submit)=''false && self.onSubmit ? self.onSubmit($event) : null''
       >
         <ng-template crPanelContent>
           <cr-partner-address-list
@@ -7957,7 +8096,6 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
         [validator]="self.validator"
         [validatorGroupName]="''contactPersons''"
         [containFields]=''[]''
-        (submit)=''false && self.onSubmit ? self.onSubmit($event) : null''
       >
         <ng-template crPanelContent>
           <cr-partner-contact-persons-list
@@ -7982,7 +8120,6 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
         [validator]="self.validator"
         [validatorGroupName]="''cards''"
         [containFields]=''[]''
-        (submit)=''false && self.onSubmit ? self.onSubmit($event) : null''
       >
         <ng-template crPanelContent>
           <cr-partner-cards-list
@@ -8004,7 +8141,6 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
         [validator]="self.validator"
         [validatorGroupName]="''points''"
         [containFields]=''[]''
-        (submit)=''false && self.onSubmit ? self.onSubmit($event) : null''
       >
         <ng-template crPanelContent>
           <cr-partner-point 
@@ -8024,7 +8160,6 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
         [validator]="self.validator"
         [validatorGroupName]="''pointHistory''"
         [containFields]=''[]''
-        (submit)=''false && self.onSubmit ? self.onSubmit($event) : null''
       >
         <ng-template crPanelContent>
           <cr-partner-point-history
@@ -8044,7 +8179,6 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
         [validator]="self.validator"
         [validatorGroupName]="''transactionHistory''"
         [containFields]=''[]''
-        (submit)=''false && self.onSubmit ? self.onSubmit($event) : null''
       >
         <ng-template crPanelContent>
           <cr-partner-transaction-history
@@ -8065,7 +8199,6 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
         [validator]="self.validator"
         [validatorGroupName]="''discountBudget''"
         [containFields]=''[]''
-        (submit)=''false && self.onSubmit ? self.onSubmit($event) : null''
       >
         <ng-template crPanelContent>
           <cr-partner-discount-budget 
@@ -8087,7 +8220,6 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
         [validator]="self.validator"
         [validatorGroupName]="''udf''"
         [containFields]=''[]''
-        (submit)=''false && self.onSubmit ? self.onSubmit($event) : null''
       >
         <ng-template crPanelContent>
           <div data-component-type="partner-udf-list-form-element"> partner-udf-list-form-element is uknown component type </div>
@@ -8105,7 +8237,6 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
         [validator]="self.validator"
         [validatorGroupName]="''remark''"
         [containFields]=''[]''
-        (submit)=''false && self.onSubmit ? self.onSubmit($event) : null''
       >
         <ng-template crPanelContent>
           <div class="row"><div class=''col-md-12''><cr-text-area-control
@@ -8134,7 +8265,7 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
             <div *ngIf=''self.popupTab.activeTabIndex != self.popupTab.tabs.length - 1'' class=''cr-popup-blocker''></div>
             <cr-partner-mailing-category-manage-dynamic
     *ngIf="self.popupTab.tabs[self.popupTab.activeTabIndex].details === ''partner''"
-    [subTemplateId]="1"
+    [subTemplateId]="''0900AEBD-4251-ED11-8E5D-4CCC6A2BB6D6''"
     [entityId]="self.partnerDetails.id"
     [(selectedMailingCategory)]="self.partnerDetails.mailingCategories"
     (cancelClickEvent)="self.onCloseMailingCategory()"
@@ -8144,7 +8275,7 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
 
 <cr-partner-mailing-category-manage-dynamic
     *ngIf="self.popupTab.tabs[self.popupTab.activeTabIndex].details === ''contact-person''"
-    [subTemplateId]="1"
+    [subTemplateId]="''0900AEBD-4251-ED11-8E5D-4CCC6A2BB6D6''"
     [entityId]="self.partnerDetailsContactPerson.id"
     (selectedMailingCategoryChange)="self.partnerDetailsContactPerson.mailingCategories = $event"
     [(selectedMailingCategory)]="self.partnerDetailsContactPerson.mailingCategories"
@@ -8161,7 +8292,7 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
             [ngIf]="self.popupTab.tabs[self.popupTab.activeTabIndex].type == ''manage-partner-groups'' && self.popupTab.activeTabIndex == i">
             <div *ngIf=''self.popupTab.activeTabIndex != self.popupTab.tabs.length - 1'' class=''cr-popup-blocker''></div>
             <cr-partner-group-manage-dynamic
-    [subTemplateId]="2"
+    [subTemplateId]="''0A00AEBD-4251-ED11-8E5D-4CCC6A2BB6D6''"
     [partnerId]="self.partnerDetails.id"
     [partnerTypeId]="self.partnerDetails.partnerTypeId"
     [(selectedGroups)]="self.partnerDetails.partnerGroups"
@@ -8177,7 +8308,7 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
             <div *ngIf=''self.popupTab.activeTabIndex != self.popupTab.tabs.length - 1'' class=''cr-popup-blocker''></div>
             <cr-addresses-details-dynamic
     *ngIf="self.popupTab.tabs[self.popupTab.activeTabIndex].details === ''edit''"
-    [subTemplateId]="10006"
+    [subTemplateId]="''0F00AEBD-4251-ED11-8E5D-4CCC6A2BB6D6''"
     [isNew]="false"
     (closeClickEvent)="self.onClosePartnerAddresses()"
     (confirmAddress)="self.onConfirmPartnerAddresses($event)"
@@ -8186,7 +8317,7 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
 
 <cr-addresses-details-dynamic
     *ngIf="self.popupTab.tabs[self.popupTab.activeTabIndex].details === ''create''"
-    [subTemplateId]="10006"
+    [subTemplateId]="''0F00AEBD-4251-ED11-8E5D-4CCC6A2BB6D6''"
     (closeClickEvent)="self.onClosePartnerAddresses()"
     [isNew]="true"
     [itemAddress]="self.partnerDetailsAddress"
@@ -8202,7 +8333,7 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
             <div *ngIf=''self.popupTab.activeTabIndex != self.popupTab.tabs.length - 1'' class=''cr-popup-blocker''></div>
             <cr-partner-contact-persons-details
     *ngIf="self.popupTab.tabs[self.popupTab.activeTabIndex].details === ''edit''"
-    [subTemplateId]="10005"
+    [subTemplateId]="''0E00AEBD-4251-ED11-8E5D-4CCC6A2BB6D6''"
     (openMailingCategory)="self.onEditContactPersonMailingCategory()"
     (closeClickEvent)="self.onClosePartnerContactPersons()"
     (confirmContactPerson)="self.onConfirmPartnerContactPersons($event)"
@@ -8211,7 +8342,7 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
 
 <cr-partner-contact-persons-details
     *ngIf="self.popupTab.tabs[self.popupTab.activeTabIndex].details === ''create''"
-    [subTemplateId]="10005"
+    [subTemplateId]="''0E00AEBD-4251-ED11-8E5D-4CCC6A2BB6D6''"
     (openMailingCategory)="self.onEditContactPersonMailingCategory()"
     (closeClickEvent)="self.onClosePartnerContactPersons()"
     [isNew]="true"
@@ -8224,8 +8355,8 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
               </ng-container>
             </ng-container>
           </div>
-        </div>', '2022-09-01 17:55:29.0700000 +00:00', 12, N'N', 'ed64dc3e-8e0f-462d-9e41-c18d18b18127', 1, NULL)
-INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID], [Title], [BookmarkName], [BookmarkDescription], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES (50038, 40048, 1, N'רשימת פרטנרים 2', NULL, NULL, N'
+        </div>', '2022-10-21 19:29:10.1766667 +00:00', 13, N'N', '350e3ecb-4e93-42d4-9d1d-4f03e736795f', 1, NULL)
+INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID], [BookmarkName], [BookmarkDescription], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('fa819b05-4351-ed11-8e5d-4ccc6a2bb6d6', 'daae82e8-4251-ed11-8e5d-4ccc6a2bb6d6', 1, NULL, NULL, N'
         <div class=''cr-popup-content-wrapper'' [class.cr-popup-is-shown]=''self.popupTab.tabs.length > 1''>
           <cr-popup-tabs
             [popupTabs]=''self.popupTab.tabs''
@@ -8257,7 +8388,6 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
         [validator]="self.validator"
         [validatorGroupName]="''general''"
         [containFields]=''[]''
-        (submit)=''true && self.onSubmit ? self.onSubmit($event) : null''
       >
         <ng-template crPanelContent>
           <div class="row"><div class=''col-md-2''><cr-control-edit 
@@ -8377,7 +8507,6 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
         [validator]="self.validator"
         [validatorGroupName]="''undefined''"
         [containFields]=''[]''
-        (submit)=''false && self.onSubmit ? self.onSubmit($event) : null''
       >
         <ng-template crPanelContent>
           <div class="cr-grid-wrapper-new">
@@ -8402,8 +8531,8 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
               </ng-container>
             </ng-container>
           </div>
-        </div>', '2022-09-20 10:23:05.2100000 +00:00', 7, N'N', '55fd9ae1-f0fa-4c4c-921e-b21392680ccb', 1, NULL)
-INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID], [Title], [BookmarkName], [BookmarkDescription], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES (50039, 40048, 2, N'Partner List 2', NULL, NULL, N'
+        </div>', '2022-10-21 19:29:09.5500000 +00:00', 8, N'N', 'be0866d9-fa14-4784-96c4-45030a369761', 1, NULL)
+INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID], [BookmarkName], [BookmarkDescription], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('fb819b05-4351-ed11-8e5d-4ccc6a2bb6d6', 'daae82e8-4251-ed11-8e5d-4ccc6a2bb6d6', 2, NULL, NULL, N'
         <div class=''cr-popup-content-wrapper'' [class.cr-popup-is-shown]=''self.popupTab.tabs.length > 1''>
           <cr-popup-tabs
             [popupTabs]=''self.popupTab.tabs''
@@ -8435,7 +8564,6 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
         [validator]="self.validator"
         [validatorGroupName]="''general''"
         [containFields]=''[]''
-        (submit)=''true && self.onSubmit ? self.onSubmit($event) : null''
       >
         <ng-template crPanelContent>
           <div class="row"><div class=''col-md-2''><cr-control-edit 
@@ -8555,7 +8683,6 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
         [validator]="self.validator"
         [validatorGroupName]="''undefined''"
         [containFields]=''[]''
-        (submit)=''false && self.onSubmit ? self.onSubmit($event) : null''
       >
         <ng-template crPanelContent>
           <div class="cr-grid-wrapper-new">
@@ -8580,8 +8707,8 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
               </ng-container>
             </ng-container>
           </div>
-        </div>', '2022-09-20 10:23:05.2100000 +00:00', 7, N'N', 'd24bcbfc-d906-44e5-aaa5-92989e5848fe', 1, NULL)
-INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID], [Title], [BookmarkName], [BookmarkDescription], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES (50040, 40049, 1, N'', N'', N'', N'
+        </div>', '2022-10-21 19:29:09.8900000 +00:00', 8, N'N', 'dae78f53-3752-4224-aa24-2da8ce6d4acc', 1, NULL)
+INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID], [BookmarkName], [BookmarkDescription], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('fc819b05-4351-ed11-8e5d-4ccc6a2bb6d6', 'dbae82e8-4251-ed11-8e5d-4ccc6a2bb6d6', 1, N'', N'', N'
         <div class=''cr-popup-content-wrapper'' [class.cr-popup-is-shown]=''self.popupTab.tabs.length > 1''>
           <cr-popup-tabs
             [popupTabs]=''self.popupTab.tabs''
@@ -8613,7 +8740,6 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
         [validator]="self.validator"
         [validatorGroupName]="''undefined''"
         [containFields]=''[]''
-        (submit)=''true && self.onSubmit ? self.onSubmit($event) : null''
       >
         <ng-template crPanelContent>
           <div class="row"><div class=''col-md-2''><cr-control-edit 
@@ -8654,7 +8780,6 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
         [validator]="self.validator"
         [validatorGroupName]="''undefined''"
         [containFields]=''[]''
-        (submit)=''false && self.onSubmit ? self.onSubmit($event) : null''
       >
         <ng-template crPanelContent>
           <div class="cr-grid-wrapper-new">
@@ -8679,8 +8804,8 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
               </ng-container>
             </ng-container>
           </div>
-        </div>', '2022-10-05 15:59:49.9333333 +00:00', 2, N'N', '315defbc-cea3-4062-b519-dce1c1163fe6', 1, NULL)
-INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID], [Title], [BookmarkName], [BookmarkDescription], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES (50041, 40049, 2, N'', N'', N'', N'
+        </div>', '2022-10-21 19:29:09.6700000 +00:00', 3, N'N', 'f6ae726c-afd9-42f6-8fcc-79796e252b60', 1, NULL)
+INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID], [BookmarkName], [BookmarkDescription], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('fd819b05-4351-ed11-8e5d-4ccc6a2bb6d6', 'dbae82e8-4251-ed11-8e5d-4ccc6a2bb6d6', 2, N'', N'', N'
         <div class=''cr-popup-content-wrapper'' [class.cr-popup-is-shown]=''self.popupTab.tabs.length > 1''>
           <cr-popup-tabs
             [popupTabs]=''self.popupTab.tabs''
@@ -8712,7 +8837,6 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
         [validator]="self.validator"
         [validatorGroupName]="''undefined''"
         [containFields]=''[]''
-        (submit)=''true && self.onSubmit ? self.onSubmit($event) : null''
       >
         <ng-template crPanelContent>
           <div class="row"><div class=''col-md-2''><cr-control-edit 
@@ -8753,7 +8877,6 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
         [validator]="self.validator"
         [validatorGroupName]="''undefined''"
         [containFields]=''[]''
-        (submit)=''false && self.onSubmit ? self.onSubmit($event) : null''
       >
         <ng-template crPanelContent>
           <div class="cr-grid-wrapper-new">
@@ -8778,8 +8901,8 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
               </ng-container>
             </ng-container>
           </div>
-        </div>', '2022-10-05 15:59:49.9333333 +00:00', 2, N'N', '5043c872-4a19-48d8-9d8e-837d8a1e655e', 1, NULL)
-INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID], [Title], [BookmarkName], [BookmarkDescription], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES (50042, 40050, 1, NULL, NULL, NULL, N'
+        </div>', '2022-10-21 19:29:09.9466667 +00:00', 3, N'N', '60eb928f-b0db-4472-ae1d-27d60c7dbafb', 1, NULL)
+INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID], [BookmarkName], [BookmarkDescription], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('fe819b05-4351-ed11-8e5d-4ccc6a2bb6d6', 'dcae82e8-4251-ed11-8e5d-4ccc6a2bb6d6', 1, NULL, NULL, N'
         <div class=''cr-popup-content-wrapper'' [class.cr-popup-is-shown]=''self.popupTab.tabs.length > 1''>
           <cr-popup-tabs
             [popupTabs]=''self.popupTab.tabs''
@@ -8839,7 +8962,6 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
         [validator]="self.validator"
         [validatorGroupName]="''taxDefinition''"
         [containFields]=''[]''
-        (submit)=''false && self.onSubmit ? self.onSubmit($event) : null''
       >
         <ng-template crPanelContent>
           <div class="cr-grid-wrapper-new cr-grid-with-collapse cr-tax-group-grid">
@@ -8925,11 +9047,26 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
       </ng-template>
     </ng-template>
     
+        <ng-template [ngSwitchCase]="''tax-group-definition''">
+          <ng-template
+            [ngIf]="self.popupTab.tabs[self.popupTab.activeTabIndex].type == ''tax-group-definition'' && self.popupTab.activeTabIndex == i">
+            <div *ngIf=''self.popupTab.activeTabIndex != self.popupTab.tabs.length - 1'' class=''cr-popup-blocker''></div>
+            <cr-tax-group-definition
+    [taxGroupLocation]="self.getTaxGroupLocation()"
+    [basketSet]="self.basketSetNotModified"
+    (addLocationsEvent)="self.addBasketLocationsPopulation()"
+    (editLocationsEvent)="self.onEditLocationsPopulation()"
+    (closeEvent)="self.popupTab.close()"
+    (updateEvent)="self.updateDefinition($event)"
+></cr-tax-group-definition>
+          </ng-template>
+        </ng-template>
+      
               </ng-container>
             </ng-container>
           </div>
-        </div>', '2022-10-06 11:52:23.7800000 +00:00', 2, N'N', 'f98f57be-92f1-450f-8621-b613df1d5b50', 1, NULL)
-INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID], [Title], [BookmarkName], [BookmarkDescription], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES (50043, 40050, 2, NULL, NULL, NULL, N'
+        </div>', '2022-10-21 19:29:09.7933333 +00:00', 3, N'N', '2122143c-721b-4b20-8c31-a0de822d62cf', 1, NULL)
+INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID], [BookmarkName], [BookmarkDescription], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('ff819b05-4351-ed11-8e5d-4ccc6a2bb6d6', 'dcae82e8-4251-ed11-8e5d-4ccc6a2bb6d6', 2, NULL, NULL, N'
         <div class=''cr-popup-content-wrapper'' [class.cr-popup-is-shown]=''self.popupTab.tabs.length > 1''>
           <cr-popup-tabs
             [popupTabs]=''self.popupTab.tabs''
@@ -8989,7 +9126,6 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
         [validator]="self.validator"
         [validatorGroupName]="''taxDefinition''"
         [containFields]=''[]''
-        (submit)=''false && self.onSubmit ? self.onSubmit($event) : null''
       >
         <ng-template crPanelContent>
           <div class="cr-grid-wrapper-new cr-grid-with-collapse cr-tax-group-grid">
@@ -9075,8 +9211,212 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
       </ng-template>
     </ng-template>
     
+        <ng-template [ngSwitchCase]="''tax-group-definition''">
+          <ng-template
+            [ngIf]="self.popupTab.tabs[self.popupTab.activeTabIndex].type == ''tax-group-definition'' && self.popupTab.activeTabIndex == i">
+            <div *ngIf=''self.popupTab.activeTabIndex != self.popupTab.tabs.length - 1'' class=''cr-popup-blocker''></div>
+            <cr-tax-group-definition
+    [taxGroupLocation]="self.getTaxGroupLocation()"
+    [basketSet]="self.basketSetNotModified"
+    (addLocationsEvent)="self.addBasketLocationsPopulation()"
+    (editLocationsEvent)="self.onEditLocationsPopulation()"
+    (closeEvent)="self.popupTab.close()"
+    (updateEvent)="self.updateDefinition($event)"
+></cr-tax-group-definition>
+          </ng-template>
+        </ng-template>
+      
               </ng-container>
             </ng-container>
           </div>
-        </div>', '2022-10-06 11:52:23.7800000 +00:00', 2, N'N', '7ca285ee-538c-4766-9dd8-e13d6da984f8', 1, NULL)
-SET IDENTITY_INSERT [dbo].[WebViewTemplateName] OFF
+        </div>', '2022-10-21 19:29:10.0100000 +00:00', 3, N'N', '0d79ac06-1a4c-41e0-8997-2cc7df0bbc1d', 1, NULL)
+INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID], [BookmarkName], [BookmarkDescription], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('8ca5acaf-8553-ed11-8e5d-4ccc6a2bb6d6', '8ba5acaf-8553-ed11-8e5d-4ccc6a2bb6d6', 1, NULL, NULL, N'
+        <div class=''cr-popup-content-wrapper'' [class.cr-popup-is-shown]=''self.popupTab.tabs.length > 1''>
+          <cr-popup-tabs
+            [popupTabs]=''self.popupTab.tabs''
+            [activePopup]=''self.popupTab.activeTabIndex''
+            (closePopup)=''self.removePopupTab()''
+            (changeActive)=''self.changeActiveTab($event)''
+          ></cr-popup-tabs>
+          <div class=''cr-details-inner-container''>
+            <ng-container *ngFor=''let tab of self.popupTab.tabs; index as i;''>
+              <ng-container [ngSwitch]=''tab.type''>
+                
+    <ng-template [ngSwitchCase]="''general''">
+      <ng-template [ngIf]="self.popupTab.tabs[self.popupTab.activeTabIndex].type == ''general'' && self.popupTab.activeTabIndex == i">
+        <div *ngIf=''self.popupTab.activeTabIndex != self.popupTab.tabs.length - 1'' class=''cr-popup-blocker''></div>
+        <cr-title-header
+    [titleTranslateKey]="''PARTNER.GRID.TITLE''"
+    [title]="''''"
+    (buttonClickEvent)="self.onTitleButtonClick($event)"
+    [buttonSettings]="self.titleHeaderButtonSettings"
+></cr-title-header>
+      <cr-panel
+        [panelTemplateType]="''panel''"
+        [expanded]="self.panelsViewState?.[''undefined''] ?? true"
+        (expandedChange)="self.panelStateChange(''undefined'', $event)"
+        [titleTranslateKey]="false ? ''undefined'' : null"
+        [title]="false ? null : ''Panel he''"
+        [customClass]="''''"
+        [headerClass]="''''"
+        [validator]="self.validator"
+        [validatorGroupName]="''undefined''"
+        [containFields]=''[]''
+      >
+        <ng-template crPanelContent>
+          <div class="row"><div class=''col-md-4''><cr-control-edit 
+    [translateKeys]="''PARTNER.FILTER.FIRST_NAME''" 
+    [dataLabel]="''''"
+    [customClass]=''""''
+    [isDisabled]="false"
+    [(dataValue)]="self.partnerListFilter.firstName"
+></cr-control-edit></div><div class=''col-md-4''><cr-control-edit 
+    [translateKeys]="''PARTNER.FILTER.EMAIL''" 
+    [dataLabel]="''''"
+    [customClass]=''""''
+    [isDisabled]="false"
+    [(dataValue)]="self.partnerListFilter.EMail"
+></cr-control-edit></div><div class=''col-md-2''></div><div class=''col-md-2''><cr-button-control 
+    [buttonTemplateType]="''underlined-action-button''"
+    [text]="''''"
+    [textTranslateKey]="''COMMON.SEARCH''"
+    [classArray]=''""''
+    [width]="''''"
+    [height]="''''"
+    [icon]="''undefined''"
+    (buttonClickEvent)="self.changeFilter()"
+    *ngIf="self.authService.getEndpointAccessGranted(self.EndpointName.partner_GET)"
+></cr-button-control></div></div>
+        </ng-template>
+      </cr-panel>
+      <cr-panel
+        [panelTemplateType]="''panel''"
+        [expanded]="self.panelsViewState?.[''undefined''] ?? true"
+        (expandedChange)="self.panelStateChange(''undefined'', $event)"
+        [titleTranslateKey]="true ? ''PARTNER.GRID.TITLE'' : null"
+        [title]="true ? null : ''רשימת כרטיסים''"
+        [customClass]="''''"
+        [headerClass]="''''"
+        [validator]="self.validator"
+        [validatorGroupName]="''undefined''"
+        [containFields]=''[]''
+      >
+        <ng-template crPanelContent>
+          <div class="cr-grid-wrapper-new">
+    <cr-edit-grid-server-paging
+        (cellClickEvent)="self.cellClick($event)"
+        (pageChangeEvent)="self.changePage($event)"
+        [columnSettings]="self.columnSettings"
+        [dataCacheName]="''partnerGrid''"
+        [dataSource]="self.dataSource"
+        [elementName]="''edit-grid-server-paging:Partner_list.Grid''"
+        [pageable]="true"
+        [resizable]="true"
+        [uniqueField]="''id''"
+        [class]="undefined"
+      ></cr-edit-grid-server-paging>
+</div>
+        </ng-template>
+      </cr-panel>
+      </ng-template>
+    </ng-template>
+    
+              </ng-container>
+            </ng-container>
+          </div>
+        </div>', '2022-10-24 13:21:57.1747982 +03:00', 1, N'N', '7d47532f-57a8-400c-b5af-96d9b43183c8', 1, NULL)
+INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID], [BookmarkName], [BookmarkDescription], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('8da5acaf-8553-ed11-8e5d-4ccc6a2bb6d6', '8ba5acaf-8553-ed11-8e5d-4ccc6a2bb6d6', 2, NULL, NULL, N'
+        <div class=''cr-popup-content-wrapper'' [class.cr-popup-is-shown]=''self.popupTab.tabs.length > 1''>
+          <cr-popup-tabs
+            [popupTabs]=''self.popupTab.tabs''
+            [activePopup]=''self.popupTab.activeTabIndex''
+            (closePopup)=''self.removePopupTab()''
+            (changeActive)=''self.changeActiveTab($event)''
+          ></cr-popup-tabs>
+          <div class=''cr-details-inner-container''>
+            <ng-container *ngFor=''let tab of self.popupTab.tabs; index as i;''>
+              <ng-container [ngSwitch]=''tab.type''>
+                
+    <ng-template [ngSwitchCase]="''general''">
+      <ng-template [ngIf]="self.popupTab.tabs[self.popupTab.activeTabIndex].type == ''general'' && self.popupTab.activeTabIndex == i">
+        <div *ngIf=''self.popupTab.activeTabIndex != self.popupTab.tabs.length - 1'' class=''cr-popup-blocker''></div>
+        <cr-title-header
+    [titleTranslateKey]="''PARTNER.GRID.TITLE''"
+    [title]="''''"
+    (buttonClickEvent)="self.onTitleButtonClick($event)"
+    [buttonSettings]="self.titleHeaderButtonSettings"
+></cr-title-header>
+      <cr-panel
+        [panelTemplateType]="''panel''"
+        [expanded]="self.panelsViewState?.[''undefined''] ?? true"
+        (expandedChange)="self.panelStateChange(''undefined'', $event)"
+        [titleTranslateKey]="false ? ''undefined'' : null"
+        [title]="false ? null : ''חתך הגדרות''"
+        [customClass]="''''"
+        [headerClass]="''''"
+        [validator]="self.validator"
+        [validatorGroupName]="''undefined''"
+        [containFields]=''[]''
+      >
+        <ng-template crPanelContent>
+          <div class="row"><div class=''col-md-4''><cr-control-edit 
+    [translateKeys]="''PARTNER.FILTER.FIRST_NAME''" 
+    [dataLabel]="''''"
+    [customClass]=''""''
+    [isDisabled]="false"
+    [(dataValue)]="self.partnerListFilter.firstName"
+></cr-control-edit></div><div class=''col-md-4''><cr-control-edit 
+    [translateKeys]="''PARTNER.FILTER.EMAIL''" 
+    [dataLabel]="''''"
+    [customClass]=''""''
+    [isDisabled]="false"
+    [(dataValue)]="self.partnerListFilter.EMail"
+></cr-control-edit></div><div class=''col-md-2''></div><div class=''col-md-2''><cr-button-control 
+    [buttonTemplateType]="''underlined-action-button''"
+    [text]="''''"
+    [textTranslateKey]="''COMMON.SEARCH''"
+    [classArray]=''""''
+    [width]="''''"
+    [height]="''''"
+    [icon]="''undefined''"
+    (buttonClickEvent)="self.changeFilter()"
+    *ngIf="self.authService.getEndpointAccessGranted(self.EndpointName.partner_GET)"
+></cr-button-control></div></div>
+        </ng-template>
+      </cr-panel>
+      <cr-panel
+        [panelTemplateType]="''panel''"
+        [expanded]="self.panelsViewState?.[''undefined''] ?? true"
+        (expandedChange)="self.panelStateChange(''undefined'', $event)"
+        [titleTranslateKey]="true ? ''PARTNER.GRID.TITLE'' : null"
+        [title]="true ? null : ''Partner List''"
+        [customClass]="''''"
+        [headerClass]="''''"
+        [validator]="self.validator"
+        [validatorGroupName]="''undefined''"
+        [containFields]=''[]''
+      >
+        <ng-template crPanelContent>
+          <div class="cr-grid-wrapper-new">
+    <cr-edit-grid-server-paging
+        (cellClickEvent)="self.cellClick($event)"
+        (pageChangeEvent)="self.changePage($event)"
+        [columnSettings]="self.columnSettings"
+        [dataCacheName]="''partnerGrid''"
+        [dataSource]="self.dataSource"
+        [elementName]="''edit-grid-server-paging:Partner_list.Grid''"
+        [pageable]="true"
+        [resizable]="true"
+        [uniqueField]="''id''"
+        [class]="undefined"
+      ></cr-edit-grid-server-paging>
+</div>
+        </ng-template>
+      </cr-panel>
+      </ng-template>
+    </ng-template>
+    
+              </ng-container>
+            </ng-container>
+          </div>
+        </div>', '2022-10-24 13:21:57.1747982 +03:00', 1, N'N', '061b39d4-7160-40f8-be72-760af8f9219a', 1, NULL)

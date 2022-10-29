@@ -1,5 +1,4 @@
-SET IDENTITY_INSERT [dbo].[WebViewSubTemplateName] ON
-INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [LanguageID], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES (1, 1, 1, N'<ng-container><cr-title-header
+INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [LanguageID], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('9f2eded3-4251-ed11-8e5d-4ccc6a2bb6d6', '0900aebd-4251-ed11-8e5d-4ccc6a2bb6d6', 1, N'<ng-container><cr-title-header
     [titleTranslateKey]="''PARTNER.DETAILS.GENERAL.MANAGE_MAILING_CATEGORIES''"
     [title]="''''"
     (buttonClickEvent)="self.onTitleButtonClick($event)"
@@ -16,7 +15,6 @@ INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [Langu
         [validator]="self.validator"
         [validatorGroupName]="''undefined''"
         [containFields]=''[]''
-        (submit)=''false && self.onSubmit ? self.onSubmit($event) : null''
       >
         <ng-template crPanelContent>
           <div class="cr-grid-wrapper-new undefined">
@@ -112,8 +110,8 @@ INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [Langu
     </div>
   </div>
         </ng-template>
-      </cr-panel></ng-container>', '2022-09-01 17:55:28.9666667 +00:00', 40, N'N', 'a5d10abd-429e-418c-ad99-f1de160bb0f7', 1, NULL)
-INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [LanguageID], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES (2, 1, 2, N'<ng-container><cr-title-header
+      </cr-panel></ng-container>', '2022-10-21 19:29:06.3700000 +00:00', 42, N'N', 'd1f40c1b-4aa1-4a5a-9111-8aeacba4406d', 1, NULL)
+INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [LanguageID], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('a02eded3-4251-ed11-8e5d-4ccc6a2bb6d6', '0900aebd-4251-ed11-8e5d-4ccc6a2bb6d6', 2, N'<ng-container><cr-title-header
     [titleTranslateKey]="''PARTNER.DETAILS.GENERAL.MANAGE_MAILING_CATEGORIES''"
     [title]="''''"
     (buttonClickEvent)="self.onTitleButtonClick($event)"
@@ -130,7 +128,6 @@ INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [Langu
         [validator]="self.validator"
         [validatorGroupName]="''undefined''"
         [containFields]=''[]''
-        (submit)=''false && self.onSubmit ? self.onSubmit($event) : null''
       >
         <ng-template crPanelContent>
           <div class="cr-grid-wrapper-new undefined">
@@ -226,8 +223,8 @@ INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [Langu
     </div>
   </div>
         </ng-template>
-      </cr-panel></ng-container>', '2022-09-01 17:55:28.9800000 +00:00', 40, N'N', '8d9d3a7c-eb19-4b81-a349-be9b2d5aa5b5', 1, NULL)
-INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [LanguageID], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES (3, 2, 1, N'<ng-container><cr-title-header
+      </cr-panel></ng-container>', '2022-10-21 19:29:06.3700000 +00:00', 42, N'N', '9ba0211f-59e9-4823-b6f0-4b9e4209ada0', 1, NULL)
+INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [LanguageID], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('a12eded3-4251-ed11-8e5d-4ccc6a2bb6d6', '0a00aebd-4251-ed11-8e5d-4ccc6a2bb6d6', 1, N'<ng-container><cr-title-header
     [titleTranslateKey]="''PARTNER.DETAILS.MANAGE_GROUP.TITLE''"
     [title]="''''"
     (buttonClickEvent)="self.onTitleButtonClick($event)"
@@ -244,7 +241,6 @@ INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [Langu
         [validator]="self.validator"
         [validatorGroupName]="''undefined''"
         [containFields]=''[]''
-        (submit)=''false && self.onSubmit ? self.onSubmit($event) : null''
       >
         <ng-template crPanelContent>
           <div class="cr-grid-wrapper-new undefined">
@@ -358,8 +354,8 @@ INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [Langu
     </div>
 </div>
         </ng-template>
-      </cr-panel></ng-container>', '2022-09-01 17:55:28.9666667 +00:00', 36, N'N', '58e6c3ea-af69-4132-afee-6ae862a62a55', 1, NULL)
-INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [LanguageID], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES (4, 2, 2, N'<ng-container><cr-title-header
+      </cr-panel></ng-container>', '2022-10-21 19:29:06.4300000 +00:00', 38, N'N', '521c1279-9603-4591-ae58-71875e978740', 1, NULL)
+INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [LanguageID], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('a22eded3-4251-ed11-8e5d-4ccc6a2bb6d6', '0a00aebd-4251-ed11-8e5d-4ccc6a2bb6d6', 2, N'<ng-container><cr-title-header
     [titleTranslateKey]="''PARTNER.DETAILS.MANAGE_GROUP.TITLE''"
     [title]="''''"
     (buttonClickEvent)="self.onTitleButtonClick($event)"
@@ -376,7 +372,6 @@ INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [Langu
         [validator]="self.validator"
         [validatorGroupName]="''undefined''"
         [containFields]=''[]''
-        (submit)=''false && self.onSubmit ? self.onSubmit($event) : null''
       >
         <ng-template crPanelContent>
           <div class="cr-grid-wrapper-new undefined">
@@ -490,8 +485,8 @@ INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [Langu
     </div>
 </div>
         </ng-template>
-      </cr-panel></ng-container>', '2022-09-01 17:55:28.9666667 +00:00', 36, N'N', '81c9e302-0600-4117-aed7-61389a1ae9a1', 1, NULL)
-INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [LanguageID], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES (5, 3, 1, N'<ng-container><cr-title-header
+      </cr-panel></ng-container>', '2022-10-21 19:29:06.8100000 +00:00', 38, N'N', 'ca84d5a1-fb98-410c-817c-e95821b4abea', 1, NULL)
+INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [LanguageID], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('a32eded3-4251-ed11-8e5d-4ccc6a2bb6d6', '0b00aebd-4251-ed11-8e5d-4ccc6a2bb6d6', 1, N'<ng-container><cr-title-header
     [titleTranslateKey]="''PARTNER.DETAILS.ADDRESS.DETAILS_TITLE''"
     [title]="''''"
     (buttonClickEvent)="self.onTitleButtonClick($event)"
@@ -620,8 +615,8 @@ INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [Langu
     [maxlength]="20"
 ></cr-control-edit></div></div>
         </ng-template>
-      </cr-panel></ng-container>', '2022-08-26 15:38:35.9333333 +00:00', 39, N'N', '75122439-d41c-45ff-b572-28b2c111094a', 1, NULL)
-INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [LanguageID], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES (6, 3, 2, N'<ng-container><cr-title-header
+      </cr-panel></ng-container>', '2022-10-21 19:29:06.5366667 +00:00', 41, N'N', '94540bb1-5659-4164-8e34-c42e2dec9099', 1, NULL)
+INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [LanguageID], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('a42eded3-4251-ed11-8e5d-4ccc6a2bb6d6', '0b00aebd-4251-ed11-8e5d-4ccc6a2bb6d6', 2, N'<ng-container><cr-title-header
     [titleTranslateKey]="''PARTNER.DETAILS.ADDRESS.DETAILS_TITLE''"
     [title]="''''"
     (buttonClickEvent)="self.onTitleButtonClick($event)"
@@ -750,8 +745,8 @@ INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [Langu
     [maxlength]="20"
 ></cr-control-edit></div></div>
         </ng-template>
-      </cr-panel></ng-container>', '2022-08-26 15:38:36.3366667 +00:00', 39, N'N', '4083ab15-c1c6-417a-9498-d595e67dcc48', 1, NULL)
-INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [LanguageID], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES (7, 4, 1, N'<ng-container><cr-title-header
+      </cr-panel></ng-container>', '2022-10-21 19:29:07.0000000 +00:00', 41, N'N', '7dcebe19-c5db-4e5c-8580-56e2a186a12f', 1, NULL)
+INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [LanguageID], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('a52eded3-4251-ed11-8e5d-4ccc6a2bb6d6', '0c00aebd-4251-ed11-8e5d-4ccc6a2bb6d6', 1, N'<ng-container><cr-title-header
     [titleTranslateKey]="''PARTNER.DETAILS.ADDRESS.DETAILS_TITLE''"
     [title]="''''"
     (buttonClickEvent)="self.onTitleButtonClick($event)"
@@ -881,7 +876,7 @@ INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [Langu
 ></cr-control-edit></div></div>
         </ng-template>
       </cr-panel></ng-container>', '2022-07-15 18:18:43.7933333 +00:00', 12, N'N', '212d0826-c535-4058-8b24-227da51422b6', 1, NULL)
-INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [LanguageID], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES (8, 4, 2, N'<ng-container><cr-title-header
+INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [LanguageID], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('a62eded3-4251-ed11-8e5d-4ccc6a2bb6d6', '0c00aebd-4251-ed11-8e5d-4ccc6a2bb6d6', 2, N'<ng-container><cr-title-header
     [titleTranslateKey]="''PARTNER.DETAILS.ADDRESS.DETAILS_TITLE''"
     [title]="''''"
     (buttonClickEvent)="self.onTitleButtonClick($event)"
@@ -1011,7 +1006,7 @@ INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [Langu
 ></cr-control-edit></div></div>
         </ng-template>
       </cr-panel></ng-container>', '2022-07-15 18:18:43.7933333 +00:00', 12, N'N', '352f4953-8f8f-4251-9d34-672f240a995f', 1, NULL)
-INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [LanguageID], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES (10007, 10005, 1, N'<ng-container><cr-title-header
+INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [LanguageID], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('a72eded3-4251-ed11-8e5d-4ccc6a2bb6d6', '0e00aebd-4251-ed11-8e5d-4ccc6a2bb6d6', 1, N'<ng-container><cr-title-header
     [titleTranslateKey]="''PARTNER.DETAILS.CONTACT_PERSON.DETAILS_TITLE''"
     [title]="''''"
     (buttonClickEvent)="self.onTitleButtonClick($event)"
@@ -1206,7 +1201,6 @@ INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [Langu
         [validator]="self.validator"
         [validatorGroupName]="''undefined''"
         [containFields]=''[]''
-        (submit)=''false && self.onSubmit ? self.onSubmit($event) : null''
       >
         <ng-template crPanelContent>
           <cr-partner-mailing-category-control
@@ -1223,8 +1217,8 @@ INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [Langu
         </ng-template>
       </cr-panel></div></div>
         </ng-template>
-      </cr-panel></ng-container>', '2022-09-01 17:55:29.0000000 +00:00', 12, N'N', 'adbc53dc-588c-4306-8eaa-1e516cdb357b', 1, NULL)
-INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [LanguageID], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES (10008, 10005, 2, N'<ng-container><cr-title-header
+      </cr-panel></ng-container>', '2022-10-21 19:29:06.6333333 +00:00', 14, N'N', 'f1c4628e-6dc3-48a9-954a-2c1080485b8c', 1, NULL)
+INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [LanguageID], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('a82eded3-4251-ed11-8e5d-4ccc6a2bb6d6', '0e00aebd-4251-ed11-8e5d-4ccc6a2bb6d6', 2, N'<ng-container><cr-title-header
     [titleTranslateKey]="''PARTNER.DETAILS.CONTACT_PERSON.DETAILS_TITLE''"
     [title]="''''"
     (buttonClickEvent)="self.onTitleButtonClick($event)"
@@ -1419,7 +1413,6 @@ INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [Langu
         [validator]="self.validator"
         [validatorGroupName]="''undefined''"
         [containFields]=''[]''
-        (submit)=''false && self.onSubmit ? self.onSubmit($event) : null''
       >
         <ng-template crPanelContent>
           <cr-partner-mailing-category-control
@@ -1436,8 +1429,8 @@ INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [Langu
         </ng-template>
       </cr-panel></div></div>
         </ng-template>
-      </cr-panel></ng-container>', '2022-09-01 17:55:32.0366667 +00:00', 12, N'N', 'b60be8e1-defc-4399-b912-66a018ee7db6', 1, NULL)
-INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [LanguageID], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES (10009, 10006, 1, N'<ng-container><cr-title-header
+      </cr-panel></ng-container>', '2022-10-21 19:29:07.4133333 +00:00', 14, N'N', 'd0f8c61d-b515-4741-be4d-a350525a2507', 1, NULL)
+INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [LanguageID], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('a92eded3-4251-ed11-8e5d-4ccc6a2bb6d6', '0f00aebd-4251-ed11-8e5d-4ccc6a2bb6d6', 1, N'<ng-container><cr-title-header
     [titleTranslateKey]="''PARTNER.DETAILS.ADDRESS.DETAILS_TITLE''"
     [title]="''''"
     (buttonClickEvent)="self.onTitleButtonClick($event)"
@@ -1566,8 +1559,8 @@ INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [Langu
     [maxlength]="20"
 ></cr-control-edit></div></div>
         </ng-template>
-      </cr-panel></ng-container>', '2022-09-01 17:55:28.9766667 +00:00', 5, N'N', '69b330d0-5c41-49f1-a310-2f330e20c2b8', 1, NULL)
-INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [LanguageID], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES (10010, 10006, 2, N'<ng-container><cr-title-header
+      </cr-panel></ng-container>', '2022-10-21 19:29:06.6833333 +00:00', 7, N'N', '5be796e5-cf3b-4306-b8b7-a78bb14ed572', 1, NULL)
+INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [LanguageID], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('aa2eded3-4251-ed11-8e5d-4ccc6a2bb6d6', '0f00aebd-4251-ed11-8e5d-4ccc6a2bb6d6', 2, N'<ng-container><cr-title-header
     [titleTranslateKey]="''PARTNER.DETAILS.ADDRESS.DETAILS_TITLE''"
     [title]="''''"
     (buttonClickEvent)="self.onTitleButtonClick($event)"
@@ -1696,5 +1689,6 @@ INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [Langu
     [maxlength]="20"
 ></cr-control-edit></div></div>
         </ng-template>
-      </cr-panel></ng-container>', '2022-09-01 17:55:29.0000000 +00:00', 5, N'N', '04192cad-d474-4bf9-bdde-d0ef338bf0f2', 1, NULL)
-SET IDENTITY_INSERT [dbo].[WebViewSubTemplateName] OFF
+      </cr-panel></ng-container>', '2022-10-21 19:29:07.5766667 +00:00', 7, N'N', '246dce70-744c-4d0a-a906-297268399d88', 1, NULL)
+INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [LanguageID], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('02bc7c81-5c51-ed11-8e5d-4ccc6a2bb6d6', '1000aebd-4251-ed11-8e5d-4ccc6a2bb6d6', 1, N'<ng-container></ng-container>', '2022-10-21 19:29:06.6900000 +00:00', 2, N'N', 'aa144aed-0485-47e4-9e76-98a0cf86caba', 1, NULL)
+INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [LanguageID], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('03bc7c81-5c51-ed11-8e5d-4ccc6a2bb6d6', '1000aebd-4251-ed11-8e5d-4ccc6a2bb6d6', 2, N'<ng-container></ng-container>', '2022-10-21 19:29:07.7433333 +00:00', 2, N'N', 'b3e8b523-9771-4ecb-bb87-d2bfdcbfc96c', 1, NULL)

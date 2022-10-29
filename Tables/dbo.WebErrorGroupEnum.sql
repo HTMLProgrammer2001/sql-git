@@ -1,6 +1,6 @@
 CREATE TABLE [dbo].[WebErrorGroupEnum]
 (
-[ID] [bigint] NOT NULL IDENTITY(1, 1),
+[ID] [uniqueidentifier] NOT NULL CONSTRAINT [DF_WebErrorGroupEnum_ID2] DEFAULT (newsequentialid()),
 [Name] [nvarchar] (256) COLLATE SQL_Latin1_General_CP850_CI_AS NOT NULL,
 [UpdateDate] [datetimeoffset] NOT NULL CONSTRAINT [DF_WebErrorGroupEnum_UpdateDate] DEFAULT (sysdatetimeoffset()),
 [Version] [int] NOT NULL CONSTRAINT [DF_WebErrorGroupEnum_Version] DEFAULT ((1)),

@@ -1,9 +1,9 @@
 CREATE TABLE [dbo].[WebViewTemplateToViewSubTemplateAssociation]
 (
-[ID] [bigint] NOT NULL IDENTITY(1, 1),
-[WebViewTemplateID] [bigint] NOT NULL,
-[WebViewSubID] [bigint] NOT NULL,
-[WebViewSubTemplateID] [bigint] NULL,
+[ID] [uniqueidentifier] NOT NULL CONSTRAINT [DF_WebViewTemplateToViewSubTemplateAssociation_ID2] DEFAULT (newsequentialid()),
+[WebViewTemplateID] [uniqueidentifier] NOT NULL,
+[WebViewSubID] [uniqueidentifier] NOT NULL,
+[WebViewSubTemplateID] [uniqueidentifier] NOT NULL,
 [IsUse] [char] (1) COLLATE SQL_Latin1_General_CP850_CI_AS NOT NULL CONSTRAINT [DF_WebViewTempateToViewSubTemplateAssociation_IsUse] DEFAULT ('Y'),
 [UpdateDate] [datetimeoffset] NOT NULL CONSTRAINT [DF_WebViewTempateToViewSubTemplateAssociation_UpdateDate] DEFAULT (sysdatetimeoffset()),
 [Version] [int] NOT NULL CONSTRAINT [DF_WebViewTempateToViewSubTemplateAssociation_Version] DEFAULT ((1)),
@@ -15,9 +15,9 @@ CREATE TABLE [dbo].[WebViewTemplateToViewSubTemplateAssociation]
 GO
 ALTER TABLE [dbo].[WebViewTemplateToViewSubTemplateAssociation] ADD CONSTRAINT [PK_WebViewTemplateToViewSubTemplateAssociation] PRIMARY KEY CLUSTERED ([ID]) ON [PRIMARY]
 GO
-ALTER TABLE [dbo].[WebViewTemplateToViewSubTemplateAssociation] ADD CONSTRAINT [FK_WebViewTempateToViewSubTemplateAssociation_WebViewSub] FOREIGN KEY ([WebViewSubID]) REFERENCES [dbo].[WebViewSub] ([ID]) ON DELETE CASCADE ON UPDATE CASCADE
+ALTER TABLE [dbo].[WebViewTemplateToViewSubTemplateAssociation] ADD CONSTRAINT [FK_WebViewTemplateToViewSubTemplateAssociation_WebViewSub] FOREIGN KEY ([WebViewSubID]) REFERENCES [dbo].[WebViewSub] ([ID]) ON DELETE CASCADE ON UPDATE CASCADE
 GO
-ALTER TABLE [dbo].[WebViewTemplateToViewSubTemplateAssociation] ADD CONSTRAINT [FK_WebViewTempateToViewSubTemplateAssociation_WebViewSubTemplate] FOREIGN KEY ([WebViewSubTemplateID]) REFERENCES [dbo].[WebViewSubTemplate] ([ID])
+ALTER TABLE [dbo].[WebViewTemplateToViewSubTemplateAssociation] ADD CONSTRAINT [FK_WebViewTemplateToViewSubTemplateAssociation_WebViewSubTemplate] FOREIGN KEY ([WebViewSubTemplateID]) REFERENCES [dbo].[WebViewSubTemplate] ([ID])
 GO
-ALTER TABLE [dbo].[WebViewTemplateToViewSubTemplateAssociation] ADD CONSTRAINT [FK_WebViewTempateToViewSubTemplateAssociation_WebViewTemplate] FOREIGN KEY ([WebViewTemplateID]) REFERENCES [dbo].[WebViewTemplate] ([ID]) ON DELETE CASCADE ON UPDATE CASCADE
+ALTER TABLE [dbo].[WebViewTemplateToViewSubTemplateAssociation] ADD CONSTRAINT [FK_WebViewTemplateToViewSubTemplateAssociation_WebViewTemplate] FOREIGN KEY ([WebViewTemplateID]) REFERENCES [dbo].[WebViewTemplate] ([ID]) ON DELETE CASCADE ON UPDATE CASCADE
 GO

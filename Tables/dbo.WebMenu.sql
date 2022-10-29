@@ -4,7 +4,7 @@ CREATE TABLE [dbo].[WebMenu]
 [WebMenuID] [uniqueidentifier] NULL,
 [WebPresetID] [uniqueidentifier] NOT NULL,
 [WebMenuTypeEnumID] [bigint] NOT NULL,
-[WebViewID] [bigint] NULL,
+[WebViewID] [uniqueidentifier] NULL,
 [WebIconSvgEnumID] [uniqueidentifier] NULL,
 [Name] [nvarchar] (256) COLLATE SQL_Latin1_General_CP850_CI_AS NULL,
 [IsUseTranslateKey] [char] (1) COLLATE SQL_Latin1_General_CP850_CI_AS NOT NULL CONSTRAINT [DF_WebMenu_IsUseTranslateKey] DEFAULT ('Y'),
@@ -34,6 +34,4 @@ GO
 ALTER TABLE [dbo].[WebMenu] ADD CONSTRAINT [FK_WebMenu_WebPreset] FOREIGN KEY ([WebPresetID]) REFERENCES [dbo].[WebPreset] ([ID]) ON DELETE CASCADE ON UPDATE CASCADE
 GO
 ALTER TABLE [dbo].[WebMenu] ADD CONSTRAINT [FK_WebMenu_WebTranslate] FOREIGN KEY ([WebTranslateID]) REFERENCES [dbo].[WebTranslate] ([ID]) ON DELETE SET NULL ON UPDATE SET NULL
-GO
-ALTER TABLE [dbo].[WebMenu] ADD CONSTRAINT [FK_WebMenu_WebView] FOREIGN KEY ([WebViewID]) REFERENCES [dbo].[WebView] ([ID]) ON DELETE CASCADE ON UPDATE CASCADE
 GO

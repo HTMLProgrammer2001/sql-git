@@ -1469,6 +1469,7 @@ AND [dbo].[Partner].[PartnerCode] = IIF(IsNull(@PartnerCodeValue, '''') = '''', 
         <Field Name="Amount">
           <DataField>Amount</DataField>
           <rd:TypeName>System.Decimal</rd:TypeName>
+
         </Field>
       </Fields>
     </DataSet>
@@ -1862,19 +1863,19 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
             <TablixBody>
               <TablixColumns>
                 <TablixColumn>
-                  <Width>102.59766pt</Width>
+                  <Width>102.59063pt</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>102.59766pt</Width>
+                  <Width>102.59063pt</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>102.59766pt</Width>
+                  <Width>102.59063pt</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>102.59766pt</Width>
+                  <Width>102.59063pt</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>102.60938pt</Width>
+                  <Width>102.6375pt</Width>
                 </TablixColumn>
               </TablixColumns>
               <TablixRows>
@@ -1887,7 +1888,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                           <Left>0in</Left>
                           <Top>0in</Top>
                           <Height>18pt</Height>
-                          <Width>102.59775pt</Width>
+                          <Width>102.591pt</Width>
                           <Style>
                             <BackgroundColor>#e3e3e3</BackgroundColor>
                             <FontFamily>Arial</FontFamily>
@@ -1949,7 +1950,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                           <Left>0in</Left>
                           <Top>0in</Top>
                           <Height>18pt</Height>
-                          <Width>102.59775pt</Width>
+                          <Width>102.591pt</Width>
                           <Style>
                             <BackgroundColor>#e3e3e3</BackgroundColor>
                             <FontFamily>Arial</FontFamily>
@@ -2011,7 +2012,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                           <Left>0in</Left>
                           <Top>0in</Top>
                           <Height>18pt</Height>
-                          <Width>102.59775pt</Width>
+                          <Width>102.591pt</Width>
                           <Style>
                             <BackgroundColor>#e3e3e3</BackgroundColor>
                             <FontFamily>Arial</FontFamily>
@@ -2073,7 +2074,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                           <Left>0in</Left>
                           <Top>0in</Top>
                           <Height>18pt</Height>
-                          <Width>102.59775pt</Width>
+                          <Width>102.591pt</Width>
                           <Style>
                             <BackgroundColor>#e3e3e3</BackgroundColor>
                             <FontFamily>Arial</FontFamily>
@@ -2135,7 +2136,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                           <Left>0in</Left>
                           <Top>0in</Top>
                           <Height>18pt</Height>
-                          <Width>102.609pt</Width>
+                          <Width>102.6375pt</Width>
                           <Style>
                             <BackgroundColor>#e3e3e3</BackgroundColor>
                             <FontFamily>Arial</FontFamily>
@@ -2202,7 +2203,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                           <Left>0in</Left>
                           <Top>0in</Top>
                           <Height>18pt</Height>
-                          <Width>102.59775pt</Width>
+                          <Width>102.591pt</Width>
                           <Style>
                             <FontFamily>Arial</FontFamily>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -2256,7 +2257,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                           <Left>0in</Left>
                           <Top>0in</Top>
                           <Height>18pt</Height>
-                          <Width>102.59775pt</Width>
+                          <Width>102.591pt</Width>
                           <Style>
                             <FontFamily>Arial</FontFamily>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -2316,7 +2317,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                           <Left>0in</Left>
                           <Top>0in</Top>
                           <Height>18pt</Height>
-                          <Width>102.59775pt</Width>
+                          <Width>102.591pt</Width>
                           <Style>
                             <FontFamily>Arial</FontFamily>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -2376,7 +2377,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                           <Left>0in</Left>
                           <Top>0in</Top>
                           <Height>18pt</Height>
-                          <Width>102.59775pt</Width>
+                          <Width>102.591pt</Width>
                           <Style>
                             <FontFamily>Arial</FontFamily>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -2436,7 +2437,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                           <Left>0in</Left>
                           <Top>0in</Top>
                           <Height>18pt</Height>
-                          <Width>102.609pt</Width>
+                          <Width>102.6375pt</Width>
                           <Style>
                             <FontFamily>Arial</FontFamily>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -2501,7 +2502,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                           <Left>0in</Left>
                           <Top>0in</Top>
                           <Height>18pt</Height>
-                          <Width>205.1955pt</Width>
+                          <Width>205.18124pt</Width>
                           <Style>
                             <BackgroundColor>#e3e3e3</BackgroundColor>
                             <FontFamily>Arial</FontFamily>
@@ -2557,7 +2558,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                           <Left>0in</Left>
                           <Top>0in</Top>
                           <Height>18pt</Height>
-                          <Width>102.59775pt</Width>
+                          <Width>102.591pt</Width>
                           <Style>
                             <BackgroundColor>#e3e3e3</BackgroundColor>
                             <FontFamily>Arial</FontFamily>
@@ -2619,7 +2620,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                           <Left>0in</Left>
                           <Top>0in</Top>
                           <Height>18pt</Height>
-                          <Width>102.59775pt</Width>
+                          <Width>102.591pt</Width>
                           <Style>
                             <BackgroundColor>#e3e3e3</BackgroundColor>
                             <FontFamily>Arial</FontFamily>
@@ -2681,7 +2682,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                           <Left>0in</Left>
                           <Top>0in</Top>
                           <Height>18pt</Height>
-                          <Width>102.609pt</Width>
+                          <Width>102.6375pt</Width>
                           <Style>
                             <BackgroundColor>#e3e3e3</BackgroundColor>
                             <FontFamily>Arial</FontFamily>
@@ -2785,22 +2786,22 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
             <TablixBody>
               <TablixColumns>
                 <TablixColumn>
-                  <Width>85.01953pt</Width>
+                  <Width>85.0125pt</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>84.26953pt</Width>
+                  <Width>84.2625pt</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>80.51953pt</Width>
+                  <Width>80.5125pt</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>76.01953pt</Width>
+                  <Width>76.0125pt</Width>
                 </TablixColumn>
                 <TablixColumn>
                   <Width>69.75pt</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>78pt</Width>
+                  <Width>78.03751pt</Width>
                 </TablixColumn>
               </TablixColumns>
               <TablixRows>
@@ -2813,7 +2814,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                           <Left>0in</Left>
                           <Top>0in</Top>
                           <Height>18pt</Height>
-                          <Width>85.01925pt</Width>
+                          <Width>85.0125pt</Width>
                           <Style>
                             <BackgroundColor>#e3e3e3</BackgroundColor>
                             <FontFamily>Arial</FontFamily>
@@ -2878,7 +2879,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                           <Left>0in</Left>
                           <Top>0in</Top>
                           <Height>18pt</Height>
-                          <Width>84.26925pt</Width>
+                          <Width>84.2625pt</Width>
                           <Style>
                             <BackgroundColor>#e3e3e3</BackgroundColor>
                             <FontFamily>Arial</FontFamily>
@@ -2943,7 +2944,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                           <Left>0in</Left>
                           <Top>0in</Top>
                           <Height>18pt</Height>
-                          <Width>80.51925pt</Width>
+                          <Width>80.5125pt</Width>
                           <Style>
                             <BackgroundColor>#e3e3e3</BackgroundColor>
                             <FontFamily>Arial</FontFamily>
@@ -3008,7 +3009,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                           <Left>0in</Left>
                           <Top>0in</Top>
                           <Height>18pt</Height>
-                          <Width>76.01925pt</Width>
+                          <Width>76.0125pt</Width>
                           <Style>
                             <BackgroundColor>#e3e3e3</BackgroundColor>
                             <FontFamily>Arial</FontFamily>
@@ -3138,7 +3139,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                           <Left>0in</Left>
                           <Top>0in</Top>
                           <Height>18pt</Height>
-                          <Width>78pt</Width>
+                          <Width>78.0375pt</Width>
                           <Style>
                             <BackgroundColor>#e3e3e3</BackgroundColor>
                             <FontFamily>Arial</FontFamily>
@@ -3209,7 +3210,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                           <Left>0in</Left>
                           <Top>0in</Top>
                           <Height>18pt</Height>
-                          <Width>85.01925pt</Width>
+                          <Width>85.0125pt</Width>
                           <Style>
                             <FontFamily>Arial</FontFamily>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -3263,7 +3264,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                           <Left>0in</Left>
                           <Top>0in</Top>
                           <Height>18pt</Height>
-                          <Width>84.26925pt</Width>
+                          <Width>84.2625pt</Width>
                           <Style>
                             <FontFamily>Arial</FontFamily>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -3317,7 +3318,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                           <Left>0in</Left>
                           <Top>0in</Top>
                           <Height>18pt</Height>
-                          <Width>80.51925pt</Width>
+                          <Width>80.5125pt</Width>
                           <Style>
                             <FontFamily>Arial</FontFamily>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -3377,7 +3378,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                           <Left>0in</Left>
                           <Top>0in</Top>
                           <Height>18pt</Height>
-                          <Width>76.01925pt</Width>
+                          <Width>76.0125pt</Width>
                           <Style>
                             <FontFamily>Arial</FontFamily>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -3497,7 +3498,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                           <Left>0in</Left>
                           <Top>0in</Top>
                           <Height>18pt</Height>
-                          <Width>78pt</Width>
+                          <Width>78.0375pt</Width>
                           <Style>
                             <FontFamily>Arial</FontFamily>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -3562,7 +3563,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                           <Left>0in</Left>
                           <Top>0in</Top>
                           <Height>18pt</Height>
-                          <Width>85.01925pt</Width>
+                          <Width>85.0125pt</Width>
                           <Style>
                             <BackgroundColor>#e3e3e3</BackgroundColor>
                             <FontFamily>Arial</FontFamily>
@@ -3618,7 +3619,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                           <Left>0in</Left>
                           <Top>0in</Top>
                           <Height>18pt</Height>
-                          <Width>84.26925pt</Width>
+                          <Width>84.2625pt</Width>
                           <Style>
                             <BackgroundColor>#e3e3e3</BackgroundColor>
                             <FontFamily>Arial</FontFamily>
@@ -3673,7 +3674,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                           <Left>0in</Left>
                           <Top>0in</Top>
                           <Height>18pt</Height>
-                          <Width>80.51925pt</Width>
+                          <Width>80.5125pt</Width>
                           <Style>
                             <BackgroundColor>#e3e3e3</BackgroundColor>
                             <FontFamily>Arial</FontFamily>
@@ -3735,7 +3736,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                           <Left>0in</Left>
                           <Top>0in</Top>
                           <Height>18pt</Height>
-                          <Width>76.01925pt</Width>
+                          <Width>76.0125pt</Width>
                           <Style>
                             <BackgroundColor>#e3e3e3</BackgroundColor>
                             <FontFamily>Arial</FontFamily>
@@ -3859,7 +3860,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                           <Left>0in</Left>
                           <Top>0in</Top>
                           <Height>18pt</Height>
-                          <Width>78pt</Width>
+                          <Width>78.0375pt</Width>
                           <Style>
                             <BackgroundColor>#e3e3e3</BackgroundColor>
                             <FontFamily>Arial</FontFamily>
@@ -3926,7 +3927,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                           <Left>0in</Left>
                           <Top>0in</Top>
                           <Height>18pt</Height>
-                          <Width>85.01925pt</Width>
+                          <Width>85.0125pt</Width>
                           <Style>
                             <BackgroundColor>#e3e3e3</BackgroundColor>
                             <FontFamily>Arial</FontFamily>
@@ -3981,7 +3982,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                           <Left>0in</Left>
                           <Top>0in</Top>
                           <Height>18pt</Height>
-                          <Width>84.26925pt</Width>
+                          <Width>84.2625pt</Width>
                           <Style>
                             <BackgroundColor>#e3e3e3</BackgroundColor>
                             <FontFamily>Arial</FontFamily>
@@ -4036,7 +4037,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                           <Left>0in</Left>
                           <Top>0in</Top>
                           <Height>18pt</Height>
-                          <Width>80.51925pt</Width>
+                          <Width>80.5125pt</Width>
                           <Style>
                             <BackgroundColor>#e3e3e3</BackgroundColor>
                             <FontFamily>Arial</FontFamily>
@@ -4098,7 +4099,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                           <Left>0in</Left>
                           <Top>0in</Top>
                           <Height>18pt</Height>
-                          <Width>76.01925pt</Width>
+                          <Width>76.0125pt</Width>
                           <Style>
                             <BackgroundColor>#e3e3e3</BackgroundColor>
                             <FontFamily>Arial</FontFamily>
@@ -4222,7 +4223,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                           <Left>0in</Left>
                           <Top>0in</Top>
                           <Height>18pt</Height>
-                          <Width>78pt</Width>
+                          <Width>78.0375pt</Width>
                           <Style>
                             <BackgroundColor>#e3e3e3</BackgroundColor>
                             <FontFamily>Arial</FontFamily>
@@ -4289,7 +4290,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                           <Left>0in</Left>
                           <Top>0in</Top>
                           <Height>18pt</Height>
-                          <Width>85.01925pt</Width>
+                          <Width>85.0125pt</Width>
                           <Style>
                             <BackgroundColor>#e3e3e3</BackgroundColor>
                             <FontFamily>Arial</FontFamily>
@@ -4344,7 +4345,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                           <Left>0in</Left>
                           <Top>0in</Top>
                           <Height>18pt</Height>
-                          <Width>84.26925pt</Width>
+                          <Width>84.2625pt</Width>
                           <Style>
                             <BackgroundColor>#e3e3e3</BackgroundColor>
                             <FontFamily>Arial</FontFamily>
@@ -4399,7 +4400,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                           <Left>0in</Left>
                           <Top>0in</Top>
                           <Height>18pt</Height>
-                          <Width>80.51925pt</Width>
+                          <Width>80.5125pt</Width>
                           <Style>
                             <BackgroundColor>#e3e3e3</BackgroundColor>
                             <FontFamily>Arial</FontFamily>
@@ -4454,7 +4455,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                           <Left>0in</Left>
                           <Top>0in</Top>
                           <Height>18pt</Height>
-                          <Width>76.01925pt</Width>
+                          <Width>76.0125pt</Width>
                           <Style>
                             <BackgroundColor>#e3e3e3</BackgroundColor>
                             <FontFamily>Arial</FontFamily>
@@ -4578,7 +4579,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                           <Left>0in</Left>
                           <Top>0in</Top>
                           <Height>18pt</Height>
-                          <Width>78pt</Width>
+                          <Width>78.0375pt</Width>
                           <Style>
                             <BackgroundColor>#e3e3e3</BackgroundColor>
                             <FontFamily>Arial</FontFamily>
@@ -4652,13 +4653,13 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
               <TablixMembers>
                 <TablixMember>
                   <TablixHeader>
-                    <Size>88.76953pt</Size>
+                    <Size>88.7625pt</Size>
                     <CellContents>
                       <Textbox Name="TextBox241">
                         <Left>0in</Left>
                         <Top>0in</Top>
                         <Height>18pt</Height>
-                        <Width>88.76953pt</Width>
+                        <Width>88.7625pt</Width>
                         <Style>
                           <BackgroundColor>#e3e3e3</BackgroundColor>
                           <FontFamily>Arial</FontFamily>
@@ -4718,13 +4719,13 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                   <TablixMembers>
                     <TablixMember>
                       <TablixHeader>
-                        <Size>88.76953pt</Size>
+                        <Size>88.7625pt</Size>
                         <CellContents>
                           <Textbox Name="TextBox681">
                             <Left>0in</Left>
                             <Top>0in</Top>
                             <Height>18pt</Height>
-                            <Width>88.76953pt</Width>
+                            <Width>88.7625pt</Width>
                             <Style>
                               <BackgroundColor>#e3e3e3</BackgroundColor>
                               <FontFamily>Arial</FontFamily>
@@ -4805,13 +4806,13 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                     </SortExpression>
                   </SortExpressions>
                   <TablixHeader>
-                    <Size>88.76953pt</Size>
+                    <Size>88.7625pt</Size>
                     <CellContents>
                       <Textbox Name="Store31">
                         <Left>0in</Left>
                         <Top>0in</Top>
                         <Height>18pt</Height>
-                        <Width>88.76953pt</Width>
+                        <Width>88.7625pt</Width>
                         <Style>
                           <FontFamily>Arial</FontFamily>
                           <PaddingLeft>2pt</PaddingLeft>
@@ -4872,13 +4873,13 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                         </SortExpression>
                       </SortExpressions>
                       <TablixHeader>
-                        <Size>88.76953pt</Size>
+                        <Size>88.7625pt</Size>
                         <CellContents>
                           <Textbox Name="Hierarchy11">
                             <Left>0in</Left>
                             <Top>0in</Top>
                             <Height>18pt</Height>
-                            <Width>88.76953pt</Width>
+                            <Width>88.7625pt</Width>
                             <Style>
                               <FontFamily>Arial</FontFamily>
                               <PaddingLeft>2pt</PaddingLeft>
@@ -4936,13 +4937,13 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                     </TablixMember>
                     <TablixMember>
                       <TablixHeader>
-                        <Size>88.76953pt</Size>
+                        <Size>88.7625pt</Size>
                         <CellContents>
                           <Textbox Name="TextBox68">
                             <Left>0in</Left>
                             <Top>0in</Top>
                             <Height>18pt</Height>
-                            <Width>88.76953pt</Width>
+                            <Width>88.7625pt</Width>
                             <Style>
                               <BackgroundColor>#e3e3e3</BackgroundColor>
                               <FontFamily>Arial</FontFamily>
@@ -4996,13 +4997,13 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                 </TablixMember>
                 <TablixMember>
                   <TablixHeader>
-                    <Size>88.76953pt</Size>
+                    <Size>88.7625pt</Size>
                     <CellContents>
                       <Textbox Name="TextBox61111111">
                         <Left>0in</Left>
                         <Top>0in</Top>
                         <Height>18pt</Height>
-                        <Width>88.76953pt</Width>
+                        <Width>88.7625pt</Width>
                         <Style>
                           <BackgroundColor>#e3e3e3</BackgroundColor>
                           <FontFamily>Arial</FontFamily>
@@ -5052,13 +5053,13 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                   <TablixMembers>
                     <TablixMember>
                       <TablixHeader>
-                        <Size>88.76953pt</Size>
+                        <Size>88.7625pt</Size>
                         <CellContents>
                           <Textbox Name="TextBox113">
                             <Left>0in</Left>
                             <Top>0in</Top>
                             <Height>18pt</Height>
-                            <Width>88.76953pt</Width>
+                            <Width>88.7625pt</Width>
                             <Style>
                               <BackgroundColor>#e3e3e3</BackgroundColor>
                               <FontFamily>Arial</FontFamily>
@@ -5134,19 +5135,19 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
             <TablixBody>
               <TablixColumns>
                 <TablixColumn>
-                  <Width>102.59766pt</Width>
+                  <Width>102.59063pt</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>102.59766pt</Width>
+                  <Width>102.59063pt</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>102.59766pt</Width>
+                  <Width>102.59063pt</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>102.59766pt</Width>
+                  <Width>102.59063pt</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>102.60938pt</Width>
+                  <Width>102.6375pt</Width>
                 </TablixColumn>
               </TablixColumns>
               <TablixRows>
@@ -5159,7 +5160,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                           <Left>0in</Left>
                           <Top>0in</Top>
                           <Height>18pt</Height>
-                          <Width>102.59775pt</Width>
+                          <Width>102.591pt</Width>
                           <Style>
                             <BackgroundColor>#e3e3e3</BackgroundColor>
                             <FontFamily>Arial</FontFamily>
@@ -5221,7 +5222,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                           <Left>0in</Left>
                           <Top>0in</Top>
                           <Height>18pt</Height>
-                          <Width>102.59775pt</Width>
+                          <Width>102.591pt</Width>
                           <Style>
                             <BackgroundColor>#e3e3e3</BackgroundColor>
                             <FontFamily>Arial</FontFamily>
@@ -5283,7 +5284,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                           <Left>0in</Left>
                           <Top>0in</Top>
                           <Height>18pt</Height>
-                          <Width>102.59775pt</Width>
+                          <Width>102.591pt</Width>
                           <Style>
                             <BackgroundColor>#e3e3e3</BackgroundColor>
                             <FontFamily>Arial</FontFamily>
@@ -5345,7 +5346,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                           <Left>0in</Left>
                           <Top>0in</Top>
                           <Height>18pt</Height>
-                          <Width>102.59775pt</Width>
+                          <Width>102.591pt</Width>
                           <Style>
                             <BackgroundColor>#e3e3e3</BackgroundColor>
                             <FontFamily>Arial</FontFamily>
@@ -5407,7 +5408,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                           <Left>0in</Left>
                           <Top>0in</Top>
                           <Height>18pt</Height>
-                          <Width>102.609pt</Width>
+                          <Width>102.6375pt</Width>
                           <Style>
                             <BackgroundColor>#e3e3e3</BackgroundColor>
                             <FontFamily>Arial</FontFamily>
@@ -5474,7 +5475,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                           <Left>0in</Left>
                           <Top>0in</Top>
                           <Height>18pt</Height>
-                          <Width>102.59775pt</Width>
+                          <Width>102.591pt</Width>
                           <Style>
                             <FontFamily>Arial</FontFamily>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -5530,7 +5531,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                           <Left>0in</Left>
                           <Top>0in</Top>
                           <Height>18pt</Height>
-                          <Width>102.59775pt</Width>
+                          <Width>102.591pt</Width>
                           <Style>
                             <FontFamily>Arial</FontFamily>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -5592,7 +5593,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                           <Left>0in</Left>
                           <Top>0in</Top>
                           <Height>18pt</Height>
-                          <Width>102.59775pt</Width>
+                          <Width>102.591pt</Width>
                           <Style>
                             <FontFamily>Arial</FontFamily>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -5654,7 +5655,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                           <Left>0in</Left>
                           <Top>0in</Top>
                           <Height>18pt</Height>
-                          <Width>102.59775pt</Width>
+                          <Width>102.591pt</Width>
                           <Style>
                             <FontFamily>Arial</FontFamily>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -5716,7 +5717,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                           <Left>0in</Left>
                           <Top>0in</Top>
                           <Height>18pt</Height>
-                          <Width>102.609pt</Width>
+                          <Width>102.6375pt</Width>
                           <Style>
                             <FontFamily>Arial</FontFamily>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -5783,7 +5784,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                           <Left>0in</Left>
                           <Top>0in</Top>
                           <Height>18pt</Height>
-                          <Width>102.59775pt</Width>
+                          <Width>102.591pt</Width>
                           <Style>
                             <BackgroundColor>#e3e3e3</BackgroundColor>
                             <FontFamily>Arial</FontFamily>
@@ -5838,7 +5839,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                           <Left>0in</Left>
                           <Top>0in</Top>
                           <Height>18pt</Height>
-                          <Width>102.59775pt</Width>
+                          <Width>102.591pt</Width>
                           <Style>
                             <BackgroundColor>#e3e3e3</BackgroundColor>
                             <FontFamily>Arial</FontFamily>
@@ -5893,7 +5894,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                           <Left>0in</Left>
                           <Top>0in</Top>
                           <Height>18pt</Height>
-                          <Width>102.59775pt</Width>
+                          <Width>102.591pt</Width>
                           <Style>
                             <BackgroundColor>#e3e3e3</BackgroundColor>
                             <FontFamily>Arial</FontFamily>
@@ -5955,7 +5956,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                           <Left>0in</Left>
                           <Top>0in</Top>
                           <Height>18pt</Height>
-                          <Width>102.59775pt</Width>
+                          <Width>102.591pt</Width>
                           <Style>
                             <BackgroundColor>#e3e3e3</BackgroundColor>
                             <FontFamily>Arial</FontFamily>
@@ -6017,7 +6018,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                           <Left>0in</Left>
                           <Top>0in</Top>
                           <Height>18pt</Height>
-                          <Width>102.609pt</Width>
+                          <Width>102.6375pt</Width>
                           <Style>
                             <BackgroundColor>#e3e3e3</BackgroundColor>
                             <FontFamily>Arial</FontFamily>
@@ -6121,16 +6122,16 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
             <TablixBody>
               <TablixColumns>
                 <TablixColumn>
-                  <Width>90.58594pt</Width>
+                  <Width>90.58125pt</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>90.58594pt</Width>
+                  <Width>90.58125pt</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>90.58594pt</Width>
+                  <Width>90.58125pt</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>90.65625pt</Width>
+                  <Width>90.68437pt</Width>
                 </TablixColumn>
               </TablixColumns>
               <TablixRows>
@@ -6143,7 +6144,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                           <Left>0in</Left>
                           <Top>0in</Top>
                           <Height>18pt</Height>
-                          <Width>90.58575pt</Width>
+                          <Width>90.58125pt</Width>
                           <Style>
                             <BackgroundColor>#e3e3e3</BackgroundColor>
                             <FontFamily>Arial</FontFamily>
@@ -6205,7 +6206,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                           <Left>0in</Left>
                           <Top>0in</Top>
                           <Height>18pt</Height>
-                          <Width>90.58575pt</Width>
+                          <Width>90.58125pt</Width>
                           <Style>
                             <BackgroundColor>#e3e3e3</BackgroundColor>
                             <FontFamily>Arial</FontFamily>
@@ -6267,7 +6268,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                           <Left>0in</Left>
                           <Top>0in</Top>
                           <Height>18pt</Height>
-                          <Width>90.58575pt</Width>
+                          <Width>90.58125pt</Width>
                           <Style>
                             <BackgroundColor>#e3e3e3</BackgroundColor>
                             <FontFamily>Arial</FontFamily>
@@ -6329,7 +6330,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                           <Left>0in</Left>
                           <Top>0in</Top>
                           <Height>18pt</Height>
-                          <Width>90.65625pt</Width>
+                          <Width>90.684pt</Width>
                           <Style>
                             <BackgroundColor>#e3e3e3</BackgroundColor>
                             <FontFamily>Arial</FontFamily>
@@ -6396,7 +6397,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                           <Left>0in</Left>
                           <Top>0in</Top>
                           <Height>18pt</Height>
-                          <Width>90.58575pt</Width>
+                          <Width>90.58125pt</Width>
                           <Style>
                             <FontFamily>Arial</FontFamily>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -6456,7 +6457,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                           <Left>0in</Left>
                           <Top>0in</Top>
                           <Height>18pt</Height>
-                          <Width>90.58575pt</Width>
+                          <Width>90.58125pt</Width>
                           <Style>
                             <FontFamily>Arial</FontFamily>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -6516,7 +6517,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                           <Left>0in</Left>
                           <Top>0in</Top>
                           <Height>18pt</Height>
-                          <Width>90.58575pt</Width>
+                          <Width>90.58125pt</Width>
                           <Style>
                             <FontFamily>Arial</FontFamily>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -6576,7 +6577,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                           <Left>0in</Left>
                           <Top>0in</Top>
                           <Height>18pt</Height>
-                          <Width>90.65625pt</Width>
+                          <Width>90.684pt</Width>
                           <Style>
                             <FontFamily>Arial</FontFamily>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -6641,7 +6642,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                           <Left>0in</Left>
                           <Top>0in</Top>
                           <Height>18pt</Height>
-                          <Width>90.58575pt</Width>
+                          <Width>90.58125pt</Width>
                           <Style>
                             <BackgroundColor>#e3e3e3</BackgroundColor>
                             <FontFamily>Arial</FontFamily>
@@ -6702,7 +6703,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                           <Left>0in</Left>
                           <Top>0in</Top>
                           <Height>18pt</Height>
-                          <Width>90.58575pt</Width>
+                          <Width>90.58125pt</Width>
                           <Style>
                             <BackgroundColor>#e3e3e3</BackgroundColor>
                             <FontFamily>Arial</FontFamily>
@@ -6763,7 +6764,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                           <Left>0in</Left>
                           <Top>0in</Top>
                           <Height>18pt</Height>
-                          <Width>90.58575pt</Width>
+                          <Width>90.58125pt</Width>
                           <Style>
                             <BackgroundColor>#e3e3e3</BackgroundColor>
                             <FontFamily>Arial</FontFamily>
@@ -6824,7 +6825,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                           <Left>0in</Left>
                           <Top>0in</Top>
                           <Height>18pt</Height>
-                          <Width>90.65625pt</Width>
+                          <Width>90.684pt</Width>
                           <Style>
                             <BackgroundColor>#e3e3e3</BackgroundColor>
                             <FontFamily>Arial</FontFamily>
@@ -6890,7 +6891,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                           <Left>0in</Left>
                           <Top>0in</Top>
                           <Height>18pt</Height>
-                          <Width>90.58575pt</Width>
+                          <Width>90.58125pt</Width>
                           <Style>
                             <BackgroundColor>#e3e3e3</BackgroundColor>
                             <FontFamily>Arial</FontFamily>
@@ -6945,7 +6946,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                           <Left>0in</Left>
                           <Top>0in</Top>
                           <Height>18pt</Height>
-                          <Width>90.58575pt</Width>
+                          <Width>90.58125pt</Width>
                           <Style>
                             <BackgroundColor>#e3e3e3</BackgroundColor>
                             <FontFamily>Arial</FontFamily>
@@ -7007,7 +7008,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                           <Left>0in</Left>
                           <Top>0in</Top>
                           <Height>18pt</Height>
-                          <Width>90.58575pt</Width>
+                          <Width>90.58125pt</Width>
                           <Style>
                             <BackgroundColor>#e3e3e3</BackgroundColor>
                             <FontFamily>Arial</FontFamily>
@@ -7069,7 +7070,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                           <Left>0in</Left>
                           <Top>0in</Top>
                           <Height>18pt</Height>
-                          <Width>90.65625pt</Width>
+                          <Width>90.684pt</Width>
                           <Style>
                             <BackgroundColor>#e3e3e3</BackgroundColor>
                             <FontFamily>Arial</FontFamily>
@@ -7141,13 +7142,13 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
               <TablixMembers>
                 <TablixMember>
                   <TablixHeader>
-                    <Size>74.23828pt</Size>
+                    <Size>74.23125pt</Size>
                     <CellContents>
                       <Textbox Name="TextBox631">
                         <Left>0in</Left>
                         <Top>0in</Top>
                         <Height>18pt</Height>
-                        <Width>74.23828pt</Width>
+                        <Width>74.23125pt</Width>
                         <Style>
                           <BackgroundColor>#e3e3e3</BackgroundColor>
                           <FontFamily>Arial</FontFamily>
@@ -7204,13 +7205,13 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                   <TablixMembers>
                     <TablixMember>
                       <TablixHeader>
-                        <Size>74.23828pt</Size>
+                        <Size>74.23125pt</Size>
                         <CellContents>
                           <Textbox Name="TextBox201">
                             <Left>0in</Left>
                             <Top>0in</Top>
                             <Height>18pt</Height>
-                            <Width>74.23828pt</Width>
+                            <Width>74.23125pt</Width>
                             <Style>
                               <BackgroundColor>#e3e3e3</BackgroundColor>
                               <FontFamily>Arial</FontFamily>
@@ -7288,13 +7289,13 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                     </SortExpression>
                   </SortExpressions>
                   <TablixHeader>
-                    <Size>74.23828pt</Size>
+                    <Size>74.23125pt</Size>
                     <CellContents>
                       <Textbox Name="Store11">
                         <Left>0in</Left>
                         <Top>0in</Top>
                         <Height>18pt</Height>
-                        <Width>74.23828pt</Width>
+                        <Width>74.23125pt</Width>
                         <Style>
                           <FontFamily>Arial</FontFamily>
                           <PaddingLeft>2pt</PaddingLeft>
@@ -7355,13 +7356,13 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                         </SortExpression>
                       </SortExpressions>
                       <TablixHeader>
-                        <Size>74.23828pt</Size>
+                        <Size>74.23125pt</Size>
                         <CellContents>
                           <Textbox Name="Hierarchy21">
                             <Left>0in</Left>
                             <Top>0in</Top>
                             <Height>18pt</Height>
-                            <Width>74.23828pt</Width>
+                            <Width>74.23125pt</Width>
                             <Style>
                               <FontFamily>Arial</FontFamily>
                               <PaddingLeft>2pt</PaddingLeft>
@@ -7415,13 +7416,13 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                     </TablixMember>
                     <TablixMember>
                       <TablixHeader>
-                        <Size>74.23828pt</Size>
+                        <Size>74.23125pt</Size>
                         <CellContents>
                           <Textbox Name="TextBox63">
                             <Left>0in</Left>
                             <Top>0in</Top>
                             <Height>18pt</Height>
-                            <Width>74.23828pt</Width>
+                            <Width>74.23125pt</Width>
                             <Style>
                               <BackgroundColor>#e3e3e3</BackgroundColor>
                               <FontFamily>Arial</FontFamily>
@@ -7475,13 +7476,13 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                 </TablixMember>
                 <TablixMember>
                   <TablixHeader>
-                    <Size>148.47656pt</Size>
+                    <Size>148.4625pt</Size>
                     <CellContents>
                       <Textbox Name="TextBox611111112">
                         <Left>0in</Left>
                         <Top>0in</Top>
                         <Height>18pt</Height>
-                        <Width>148.47656pt</Width>
+                        <Width>148.4625pt</Width>
                         <Style>
                           <BackgroundColor>#e3e3e3</BackgroundColor>
                           <FontFamily>Arial</FontFamily>
@@ -8746,6 +8747,11 @@ Select @DateFrom [DateFrom],  @DateTo [DateTo]</CommandText>
     <ReportParameter Name="ReportType">
       <DataType>Integer</DataType>
       <Prompt>Report Type</Prompt>
+      <DefaultValue>
+        <Values>
+          <Value>1</Value>
+        </Values>
+      </DefaultValue>
       <ValidValues>
         <ParameterValues>
           <ParameterValue>
@@ -8949,8 +8955,8 @@ Select @DateFrom [DateFrom],  @DateTo [DateTo]</CommandText>
   </ReportParameters>
   <ReportParametersLayout>
     <GridLayoutDefinition>
-      <NumberOfColumns>5</NumberOfColumns>
-      <NumberOfRows>4</NumberOfRows>
+      <NumberOfColumns>3</NumberOfColumns>
+      <NumberOfRows>5</NumberOfRows>
       <CellDefinitions>
         <CellDefinition>
           <ColumnIndex>0</ColumnIndex>
@@ -8998,23 +9004,23 @@ Select @DateFrom [DateFrom],  @DateTo [DateTo]</CommandText>
           <ParameterName>Hierarchy3</ParameterName>
         </CellDefinition>
         <CellDefinition>
-          <ColumnIndex>3</ColumnIndex>
-          <RowIndex>2</RowIndex>
-          <ParameterName>Hierarchy4</ParameterName>
-        </CellDefinition>
-        <CellDefinition>
-          <ColumnIndex>4</ColumnIndex>
-          <RowIndex>2</RowIndex>
-          <ParameterName>Hierarchy5</ParameterName>
-        </CellDefinition>
-        <CellDefinition>
           <ColumnIndex>0</ColumnIndex>
           <RowIndex>3</RowIndex>
-          <ParameterName>CurrentUserName</ParameterName>
+          <ParameterName>Hierarchy4</ParameterName>
         </CellDefinition>
         <CellDefinition>
           <ColumnIndex>1</ColumnIndex>
           <RowIndex>3</RowIndex>
+          <ParameterName>Hierarchy5</ParameterName>
+        </CellDefinition>
+        <CellDefinition>
+          <ColumnIndex>0</ColumnIndex>
+          <RowIndex>4</RowIndex>
+          <ParameterName>CurrentUserName</ParameterName>
+        </CellDefinition>
+        <CellDefinition>
+          <ColumnIndex>1</ColumnIndex>
+          <RowIndex>4</RowIndex>
           <ParameterName>CurrentCompanyName</ParameterName>
         </CellDefinition>
       </CellDefinitions>
@@ -9025,11 +9031,15 @@ Select @DateFrom [DateFrom],  @DateTo [DateTo]</CommandText>
       <Name>UniqueValueParameters</Name>
       <Value>ReportType,TimeSlots</Value>
     </CustomProperty>
+    <CustomProperty>
+      <Name>EnableFilterSearch</Name>
+      <Value>True</Value>
+    </CustomProperty>
   </CustomProperties>
   <rd:ReportUnitType>Inch</rd:ReportUnitType>
   <rd:PageUnit>Px</rd:PageUnit>
   <df:DefaultFontFamily>Segoe UI</df:DefaultFontFamily>
-</Report>', '2022-10-13 11:44:50.6933333 +00:00', 230, N'N', '4b1d5917-3772-476b-83ec-0eda8d62df59', 1, NULL, 2, '2022-09-28 17:31:50.1416447 +03:00')
+</Report>', '2022-10-25 16:52:26.8433333 +00:00', 233, N'N', 'e2d202bf-e6de-4f5b-bda7-6c70e84b8faf', 1, NULL, 2, '2022-09-28 17:31:50.1416447 +03:00')
 INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySubID], [Name], [Code], [Rdl], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [LanguageID], [CreateDate]) VALUES ('416c565d-433e-ed11-8e5b-4ccc6a2bb6d6', '296c565d-433e-ed11-8e5b-4ccc6a2bb6d6', NULL, N'SR test', N'SR', N'<?xml version="1.0" encoding="utf-8"?>
 <Report xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner" xmlns:df="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition/defaultfontfamily" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition">
   <ReportSections>
@@ -14353,6 +14363,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                             <Color>#b3b2b3</Color>
                             <Style>Solid</Style>
                           </BottomBorder>
+
                           <LeftBorder>
                             <Style>None</Style>
                           </LeftBorder>
@@ -15240,6 +15251,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
         <CommandText>SELECT [dbo].[Company].[ID],
 [dbo].[Company].[DisplayName],
 [dbo].[Company].[CompanyBusinessTypeId] FROM [dbo].[Company]</CommandText>
+
       </Query>
       <Fields>
         <Field Name="ID">
@@ -16232,6 +16244,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
+
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
@@ -18035,6 +18048,7 @@ left join [TransactionMediaItem] tip on tip.BaseTransactionMediaItemID=tmi.ID</C
         </Field>
         <Field Name="ID3">
           <DataField>ID3</DataField>
+
           <rd:TypeName>System.Int64</rd:TypeName>
         </Field>
         <Field Name="TransactionID1">
@@ -18150,6 +18164,7 @@ left join [TransactionMediaItem] tip on tip.BaseTransactionMediaItemID=tmi.ID</C
       <DataType>Integer</DataType>
       <Prompt>Pos</Prompt>
       <Nullable>true</Nullable>
+
     </ReportParameter>
     <ReportParameter Name="CountSalesAs">
       <DataType>String</DataType>

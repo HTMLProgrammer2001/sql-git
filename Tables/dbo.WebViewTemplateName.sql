@@ -1,9 +1,8 @@
 CREATE TABLE [dbo].[WebViewTemplateName]
 (
-[ID] [bigint] NOT NULL IDENTITY(1, 1),
-[WebViewTemplateID] [bigint] NOT NULL,
+[ID] [uniqueidentifier] NOT NULL CONSTRAINT [DF_WebViewTemplateName_ID2] DEFAULT (newsequentialid()),
+[WebViewTemplateID] [uniqueidentifier] NOT NULL,
 [LanguageID] [bigint] NOT NULL,
-[Title] [nvarchar] (256) COLLATE SQL_Latin1_General_CP850_CI_AS NULL,
 [BookmarkName] [nvarchar] (256) COLLATE SQL_Latin1_General_CP850_CI_AS NULL,
 [BookmarkDescription] [nvarchar] (256) COLLATE SQL_Latin1_General_CP850_CI_AS NULL,
 [TemplateHtml] [nvarchar] (max) COLLATE SQL_Latin1_General_CP850_CI_AS NULL,
@@ -16,6 +15,8 @@ CREATE TABLE [dbo].[WebViewTemplateName]
 ) ON [PRIMARY]
 GO
 ALTER TABLE [dbo].[WebViewTemplateName] ADD CONSTRAINT [PK_WebViewTemplateName] PRIMARY KEY CLUSTERED ([ID]) ON [PRIMARY]
+GO
+ALTER TABLE [dbo].[WebViewTemplateName] ADD CONSTRAINT [FK_WebViewTemplateName_Language] FOREIGN KEY ([LanguageID]) REFERENCES [dbo].[Language] ([ID]) ON DELETE CASCADE ON UPDATE CASCADE
 GO
 ALTER TABLE [dbo].[WebViewTemplateName] ADD CONSTRAINT [FK_WebViewTemplateName_WebViewTemplate] FOREIGN KEY ([WebViewTemplateID]) REFERENCES [dbo].[WebViewTemplate] ([ID]) ON DELETE CASCADE ON UPDATE CASCADE
 GO

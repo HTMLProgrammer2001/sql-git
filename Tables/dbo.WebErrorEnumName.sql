@@ -1,7 +1,7 @@
 CREATE TABLE [dbo].[WebErrorEnumName]
 (
-[ID] [bigint] NOT NULL IDENTITY(1, 1),
-[WebErrorEnumID] [bigint] NOT NULL,
+[ID] [uniqueidentifier] NOT NULL CONSTRAINT [DF_WebErrorEnumName_ID2] DEFAULT (newsequentialid()),
+[WebErrorEnumID] [uniqueidentifier] NOT NULL,
 [LanguageID] [bigint] NOT NULL,
 [ErrorMessage] [nvarchar] (256) COLLATE SQL_Latin1_General_CP850_CI_AS NULL,
 [UpdateDate] [datetimeoffset] NOT NULL CONSTRAINT [DF_WebErrorEnumName_UpdateDate] DEFAULT (sysdatetimeoffset()),
@@ -16,5 +16,5 @@ ALTER TABLE [dbo].[WebErrorEnumName] ADD CONSTRAINT [PK_WebErrorEnumName] PRIMAR
 GO
 ALTER TABLE [dbo].[WebErrorEnumName] ADD CONSTRAINT [FK_WebErrorEnumName_Language] FOREIGN KEY ([LanguageID]) REFERENCES [dbo].[Language] ([ID]) ON DELETE CASCADE ON UPDATE CASCADE
 GO
-ALTER TABLE [dbo].[WebErrorEnumName] ADD CONSTRAINT [FK_WebErrorEnumName_WebErrorEnum] FOREIGN KEY ([WebErrorEnumID]) REFERENCES [dbo].[WebErrorEnum] ([ID]) ON DELETE CASCADE ON UPDATE CASCADE
+ALTER TABLE [dbo].[WebErrorEnumName] ADD CONSTRAINT [FK_WebErrorEnumName_WebErrorEnumName] FOREIGN KEY ([WebErrorEnumID]) REFERENCES [dbo].[WebErrorEnum] ([ID])
 GO

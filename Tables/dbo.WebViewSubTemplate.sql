@@ -1,7 +1,7 @@
 CREATE TABLE [dbo].[WebViewSubTemplate]
 (
-[ID] [bigint] NOT NULL IDENTITY(1, 1),
-[WebViewSubID] [bigint] NOT NULL,
+[ID] [uniqueidentifier] NOT NULL CONSTRAINT [DF_WebViewSubTemplate_ID2] DEFAULT (newsequentialid()),
+[WebViewSubID] [uniqueidentifier] NOT NULL,
 [Name] [nvarchar] (256) COLLATE SQL_Latin1_General_CP850_CI_AS NULL,
 [TemplateJsonFragment] [nvarchar] (max) COLLATE SQL_Latin1_General_CP850_CI_AS NULL,
 [UpdateDate] [datetimeoffset] NOT NULL CONSTRAINT [DF_WebViewSubTemplate_UpdateDate] DEFAULT (sysdatetimeoffset()),

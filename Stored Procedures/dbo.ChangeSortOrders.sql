@@ -2,6 +2,12 @@ SET QUOTED_IDENTIFIER ON
 GO
 SET ANSI_NULLS ON
 GO
+
+
+/* ---------------------------------------------------------------------- */
+/* Add procedures                                                         */
+/* ---------------------------------------------------------------------- */
+
 CREATE Procedure [dbo].[ChangeSortOrders] @tableName nvarchar(50), @idToChange bigint, @operation int, @appType int, @updateUser bigint
 AS
 BEGIN
