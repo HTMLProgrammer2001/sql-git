@@ -8,7 +8,7 @@ CREATE TABLE [dbo].[WebMenu]
 [WebIconSvgEnumID] [uniqueidentifier] NULL,
 [Name] [nvarchar] (256) COLLATE SQL_Latin1_General_CP850_CI_AS NULL,
 [IsUseTranslateKey] [char] (1) COLLATE SQL_Latin1_General_CP850_CI_AS NOT NULL CONSTRAINT [DF_WebMenu_IsUseTranslateKey] DEFAULT ('Y'),
-[WebTranslateID] [bigint] NULL,
+[WebTranslateID] [uniqueidentifier] NULL,
 [IsUseViewPermissions] [char] (1) COLLATE SQL_Latin1_General_CP850_CI_AS NOT NULL,
 [URL] [nvarchar] (256) COLLATE SQL_Latin1_General_CP850_CI_AS NULL,
 [PermissionObject] [nvarchar] (max) COLLATE SQL_Latin1_General_CP850_CI_AS NULL,
@@ -25,7 +25,7 @@ CREATE TABLE [dbo].[WebMenu]
 GO
 ALTER TABLE [dbo].[WebMenu] ADD CONSTRAINT [PK_WebMenu] PRIMARY KEY CLUSTERED ([ID]) ON [PRIMARY]
 GO
-ALTER TABLE [dbo].[WebMenu] ADD CONSTRAINT [FK_WebMenu_WebIconSvgEnum] FOREIGN KEY ([WebIconSvgEnumID]) REFERENCES [dbo].[WebIconSvgEnum] ([ID]) ON DELETE SET NULL ON UPDATE SET NULL
+ALTER TABLE [dbo].[WebMenu] ADD CONSTRAINT [FK_WebMenu_WebIconSvgEnum] FOREIGN KEY ([WebIconSvgEnumID]) REFERENCES [dbo].[WebIconSvgEnum] ([ID]) ON DELETE SET NULL ON UPDATE CASCADE
 GO
 ALTER TABLE [dbo].[WebMenu] ADD CONSTRAINT [FK_WebMenu_WebMenu] FOREIGN KEY ([WebMenuID]) REFERENCES [dbo].[WebMenu] ([ID])
 GO
@@ -33,5 +33,5 @@ ALTER TABLE [dbo].[WebMenu] ADD CONSTRAINT [FK_WebMenu_WebMenuTypeEnum] FOREIGN 
 GO
 ALTER TABLE [dbo].[WebMenu] ADD CONSTRAINT [FK_WebMenu_WebPreset] FOREIGN KEY ([WebPresetID]) REFERENCES [dbo].[WebPreset] ([ID]) ON DELETE CASCADE ON UPDATE CASCADE
 GO
-ALTER TABLE [dbo].[WebMenu] ADD CONSTRAINT [FK_WebMenu_WebTranslate] FOREIGN KEY ([WebTranslateID]) REFERENCES [dbo].[WebTranslate] ([ID]) ON DELETE SET NULL ON UPDATE SET NULL
+ALTER TABLE [dbo].[WebMenu] ADD CONSTRAINT [FK_WebMenu_WebTranslate] FOREIGN KEY ([WebTranslateID]) REFERENCES [dbo].[WebTranslate] ([ID]) ON DELETE SET NULL ON UPDATE CASCADE
 GO

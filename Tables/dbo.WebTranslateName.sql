@@ -1,7 +1,7 @@
 CREATE TABLE [dbo].[WebTranslateName]
 (
-[ID] [bigint] NOT NULL IDENTITY(1, 1),
-[WebTranslateID] [bigint] NULL,
+[ID] [uniqueidentifier] NOT NULL CONSTRAINT [DF_WebTranslateName_ID2] DEFAULT (newsequentialid()),
+[WebTranslateID] [uniqueidentifier] NULL,
 [LanguageID] [bigint] NOT NULL,
 [Name] [nvarchar] (256) COLLATE SQL_Latin1_General_CP850_CI_AS NULL,
 [UpdateDate] [datetimeoffset] NOT NULL CONSTRAINT [DF_WebTranslateName_UpdateDate] DEFAULT (sysdatetimeoffset()),

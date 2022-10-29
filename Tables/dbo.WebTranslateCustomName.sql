@@ -1,7 +1,7 @@
 CREATE TABLE [dbo].[WebTranslateCustomName]
 (
-[ID] [bigint] NOT NULL IDENTITY(1, 1),
-[WebTranslateID] [bigint] NOT NULL,
+[ID] [uniqueidentifier] NOT NULL CONSTRAINT [DF_WebTranslateCustomName_ID2] DEFAULT (newsequentialid()),
+[WebTranslateID] [uniqueidentifier] NOT NULL,
 [LanguageID] [bigint] NOT NULL,
 [Name] [nvarchar] (256) COLLATE SQL_Latin1_General_CP850_CI_AS NULL,
 [UpdateDate] [datetimeoffset] NOT NULL CONSTRAINT [DF_WebTranslateCustomName_UpdateDate] DEFAULT (sysdatetimeoffset()),
@@ -12,7 +12,5 @@ CREATE TABLE [dbo].[WebTranslateCustomName]
 [UpdateUser] [bigint] NULL
 ) ON [PRIMARY]
 GO
-ALTER TABLE [dbo].[WebTranslateCustomName] ADD CONSTRAINT [PK_WebTranslateCustomName] PRIMARY KEY CLUSTERED ([ID]) ON [PRIMARY]
-GO
-ALTER TABLE [dbo].[WebTranslateCustomName] ADD CONSTRAINT [FK_WebTranslateCustomName_WebTranslate] FOREIGN KEY ([WebTranslateID]) REFERENCES [dbo].[WebTranslate] ([ID])
+ALTER TABLE [dbo].[WebTranslateCustomName] ADD CONSTRAINT [PK_WebTranslateCustomName_1] PRIMARY KEY CLUSTERED ([ID]) ON [PRIMARY]
 GO

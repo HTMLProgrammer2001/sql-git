@@ -1,8 +1,8 @@
 CREATE TABLE [dbo].[WebModuleToTranslateSettings]
 (
-[ID] [bigint] NOT NULL IDENTITY(1, 1),
-[WebModuleID] [bigint] NOT NULL,
-[WebTranslateID_BaseTree] [bigint] NOT NULL,
+[ID] [uniqueidentifier] NOT NULL CONSTRAINT [DF_WebModuleToTranslateSettings_ID2] DEFAULT (newsequentialid()),
+[WebModuleID] [uniqueidentifier] NOT NULL,
+[WebTranslateID_BaseTree] [uniqueidentifier] NOT NULL,
 [UpdateDate] [datetimeoffset] NOT NULL CONSTRAINT [DF_WebModuleToTranslateSettings_UpdateDate] DEFAULT (sysdatetimeoffset()),
 [Version] [int] NOT NULL CONSTRAINT [DF_WebModuleToTranslateSettings_Version] DEFAULT ((1)),
 [IsDeleted] [char] (1) COLLATE SQL_Latin1_General_CP850_CI_AS NOT NULL CONSTRAINT [DF_WebModuleToTranslateSettings_IsDeleted] DEFAULT ('N'),

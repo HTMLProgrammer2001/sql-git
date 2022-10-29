@@ -4,10 +4,10 @@ CREATE TABLE [dbo].[WebViewTemplate]
 [WebViewID] [uniqueidentifier] NOT NULL,
 [Name] [nvarchar] (256) COLLATE SQL_Latin1_General_CP850_CI_AS NULL,
 [IsUseTranslateKey_ForBookmarkName] [char] (1) COLLATE SQL_Latin1_General_CP850_CI_AS NOT NULL CONSTRAINT [DF_WebViewTemplate_IsUseTranslateKey_ForBookmarkName] DEFAULT ('Y'),
-[WebTranslateID_ForBookmarkName] [bigint] NULL,
+[WebTranslateID_ForBookmarkName] [uniqueidentifier] NULL,
 [BookmarkName] [nvarchar] (256) COLLATE SQL_Latin1_General_CP850_CI_AS NULL,
 [IsUseTranslateKey_ForBookmarkDescription] [char] (1) COLLATE SQL_Latin1_General_CP850_CI_AS NOT NULL CONSTRAINT [DF_WebViewTemplate_IsUseTranslateKey_ForBookmarkDescription] DEFAULT ('Y'),
-[WebTranslateID_ForBookmarkDescription] [bigint] NULL,
+[WebTranslateID_ForBookmarkDescription] [uniqueidentifier] NULL,
 [BookmarkDescription] [nvarchar] (256) COLLATE SQL_Latin1_General_CP850_CI_AS NULL,
 [WebIconSvgEnumID_ForBookmark] [uniqueidentifier] NULL,
 [TemplateJsonFragment] [nvarchar] (max) COLLATE SQL_Latin1_General_CP850_CI_AS NULL,
@@ -25,9 +25,9 @@ ALTER TABLE [dbo].[WebViewTemplate] ADD CONSTRAINT [PK_WebViewTemplate] PRIMARY 
 GO
 ALTER TABLE [dbo].[WebViewTemplate] ADD CONSTRAINT [FK_WebViewTemplate_WebIconSvgEnum] FOREIGN KEY ([WebIconSvgEnumID_ForBookmark]) REFERENCES [dbo].[WebIconSvgEnum] ([ID]) ON DELETE SET NULL ON UPDATE SET NULL
 GO
-ALTER TABLE [dbo].[WebViewTemplate] ADD CONSTRAINT [FK_WebViewTemplate_WebTranslate] FOREIGN KEY ([WebTranslateID_ForBookmarkDescription]) REFERENCES [dbo].[WebTranslate] ([ID])
+ALTER TABLE [dbo].[WebViewTemplate] ADD CONSTRAINT [FK_WebViewTemplate_WebTranslate_BookmarkDescription] FOREIGN KEY ([WebTranslateID_ForBookmarkDescription]) REFERENCES [dbo].[WebTranslate] ([ID])
 GO
-ALTER TABLE [dbo].[WebViewTemplate] ADD CONSTRAINT [FK_WebViewTemplate_WebTranslate1] FOREIGN KEY ([WebTranslateID_ForBookmarkName]) REFERENCES [dbo].[WebTranslate] ([ID])
+ALTER TABLE [dbo].[WebViewTemplate] ADD CONSTRAINT [FK_WebViewTemplate_WebTranslate_BookmarkName] FOREIGN KEY ([WebTranslateID_ForBookmarkName]) REFERENCES [dbo].[WebTranslate] ([ID])
 GO
 ALTER TABLE [dbo].[WebViewTemplate] ADD CONSTRAINT [FK_WebViewTemplate_WebView] FOREIGN KEY ([WebViewID]) REFERENCES [dbo].[WebView] ([ID])
 GO

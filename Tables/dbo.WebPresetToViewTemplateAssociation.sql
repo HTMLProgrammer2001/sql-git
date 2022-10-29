@@ -1,6 +1,6 @@
 CREATE TABLE [dbo].[WebPresetToViewTemplateAssociation]
 (
-[ID] [bigint] NOT NULL IDENTITY(1, 1),
+[ID] [uniqueidentifier] NOT NULL CONSTRAINT [DF_WebPresetToViewTemplateAssociation_ID2] DEFAULT (newsequentialid()),
 [WebPresetID] [uniqueidentifier] NULL,
 [WebViewID] [uniqueidentifier] NULL,
 [WebViewTemplateID] [uniqueidentifier] NULL,

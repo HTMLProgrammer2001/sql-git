@@ -62,7 +62,7 @@
     <DataWriteAllFilesInOneDirectory>True</DataWriteAllFilesInOneDirectory>
   </WriteToFileOptions>
   <DataFileSet>
-    <Count>48</Count>
+    <Count>46</Count>
     <DataFile>dbo.Language_Data.sql</DataFile>
     <DataFile>dbo.WebComponentName_Data.sql</DataFile>
     <DataFile>dbo.WebComponentViewSettingsName_Data.sql</DataFile>
@@ -79,14 +79,10 @@
     <DataFile>dbo.WebMenuName_Data.sql</DataFile>
     <DataFile>dbo.WebMenuTypeEnumName_Data.sql</DataFile>
     <DataFile>dbo.WebMenuTypeEnum_Data.sql</DataFile>
-    <DataFile>dbo.WebMenu_Data.sql</DataFile>
     <DataFile>dbo.WebMockobjectValueName_Data.sql</DataFile>
     <DataFile>dbo.WebMockobjectValue_Data.sql</DataFile>
     <DataFile>dbo.WebMockobject_Data.sql</DataFile>
-    <DataFile>dbo.WebModuleToTranslateSettings_Data.sql</DataFile>
-    <DataFile>dbo.WebModule_Data.sql</DataFile>
     <DataFile>dbo.WebPresetName_Data.sql</DataFile>
-    <DataFile>dbo.WebPresetToViewTemplateAssociation_Data.sql</DataFile>
     <DataFile>dbo.WebPresetTypeEnumName_Data.sql</DataFile>
     <DataFile>dbo.WebPresetTypeEnum_Data.sql</DataFile>
     <DataFile>dbo.WebPreset_Data.sql</DataFile>
@@ -95,12 +91,8 @@
     <DataFile>dbo.WebReportCategorySub_Data.sql</DataFile>
     <DataFile>dbo.WebReportCategory_Data.sql</DataFile>
     <DataFile>dbo.WebReport_Data.sql</DataFile>
-    <DataFile>dbo.WebTranslateCacheName_Data.sql</DataFile>
-    <DataFile>dbo.WebTranslateCustomName_Data.sql</DataFile>
-    <DataFile>dbo.WebTranslateName_Data.sql</DataFile>
     <DataFile>dbo.WebTranslateTypeEnumName_Data.sql</DataFile>
     <DataFile>dbo.WebTranslateTypeEnum_Data.sql</DataFile>
-    <DataFile>dbo.WebTranslate_Data.sql</DataFile>
     <DataFile>dbo.WebViewName_Data.sql</DataFile>
     <DataFile>dbo.WebViewSubName_Data.sql</DataFile>
     <DataFile>dbo.WebViewSubTemplateName_Data.sql</DataFile>
@@ -108,8 +100,14 @@
     <DataFile>dbo.WebViewSub_Data.sql</DataFile>
     <DataFile>dbo.WebViewTemplateName_Data.sql</DataFile>
     <DataFile>dbo.WebViewTemplateToViewSubTemplateAssociation_Data.sql</DataFile>
-    <DataFile>dbo.WebViewTemplate_Data.sql</DataFile>
     <DataFile>dbo.WebViewToViewSubAssociation_Data.sql</DataFile>
+    <DataFile>dbo.WebModule_Data.sql</DataFile>
+    <DataFile>dbo.WebTranslate_Data.sql</DataFile>
+    <DataFile>dbo.WebMenu_Data.sql</DataFile>
+    <DataFile>dbo.WebModuleToTranslateSettings_Data.sql</DataFile>
+    <DataFile>dbo.WebTranslateName_Data.sql</DataFile>
     <DataFile>dbo.WebView_Data.sql</DataFile>
+    <DataFile>dbo.WebViewTemplate_Data.sql</DataFile>
+    <DataFile>dbo.WebPresetToViewTemplateAssociation_Data.sql</DataFile>
   </DataFileSet>
 </DatabaseInformation>
