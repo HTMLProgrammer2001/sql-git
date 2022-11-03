@@ -9,7 +9,6 @@ CREATE TABLE [dbo].[WebViewSub]
 [GUID] [uniqueidentifier] NOT NULL CONSTRAINT [DF_WebViewSub_GUID] DEFAULT (newid()),
 [AppType] [int] NULL CONSTRAINT [DF_WebViewSub_AppType] DEFAULT ((1)),
 [UpdateUser] [bigint] NULL,
-[ComponentHtml] [nvarchar] (max) COLLATE SQL_Latin1_General_CP850_CI_AS NULL,
 [CreateDate] [datetimeoffset] NOT NULL CONSTRAINT [DF_WebViewSub_CreateDate] DEFAULT (sysdatetimeoffset())
 ) ON [PRIMARY]
 GO

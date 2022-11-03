@@ -1573,4 +1573,4 @@ INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebComponentID], [Code], [N
     [customClass]=''{{classes}}''
     [isDisabled]="{{disabled}}"
     [(dataValue)]="self.partnerListFilter.firstName"
-></cr-control-edit>', '2022-11-03 13:17:22.2133333 +00:00', 15, N'N', 'e8b818b0-5774-4e98-8715-c115c8552764', 1, NULL, '2022-09-28 17:31:50.0946998 +03:00')
+></cr-control-edit>', '2022-11-03 15:17:06.2866667 +00:00', 18, N'N', '001263e5-789a-43ab-bff3-6ef0f9da8ec5', 1, NULL, '2022-09-28 17:31:50.0946998 +03:00')
