@@ -1,7 +1,6 @@
 CREATE TABLE [dbo].[WebComponentViewSubSettings]
 (
 [ID] [uniqueidentifier] NOT NULL CONSTRAINT [DF_WebComponentViewSubSettings_ID2] DEFAULT (newsequentialid()),
-[WebViewSubID] [uniqueidentifier] NOT NULL,
 [WebComponentID] [uniqueidentifier] NOT NULL,
 [Code] [nvarchar] (256) COLLATE SQL_Latin1_General_CP850_CI_AS NULL,
 [Name] [nvarchar] (256) COLLATE SQL_Latin1_General_CP850_CI_AS NULL,
@@ -19,6 +18,4 @@ GO
 ALTER TABLE [dbo].[WebComponentViewSubSettings] ADD CONSTRAINT [PK_WebComponentViewSubSettings] PRIMARY KEY CLUSTERED ([ID]) ON [PRIMARY]
 GO
 ALTER TABLE [dbo].[WebComponentViewSubSettings] ADD CONSTRAINT [FK_WebComponentViewSubSettings_WebComponent] FOREIGN KEY ([WebComponentID]) REFERENCES [dbo].[WebComponent] ([ID]) ON DELETE CASCADE ON UPDATE CASCADE
-GO
-ALTER TABLE [dbo].[WebComponentViewSubSettings] ADD CONSTRAINT [FK_WebComponentViewSubSettings_WebViewSub] FOREIGN KEY ([WebViewSubID]) REFERENCES [dbo].[WebViewSub] ([ID]) ON DELETE CASCADE ON UPDATE CASCADE
 GO

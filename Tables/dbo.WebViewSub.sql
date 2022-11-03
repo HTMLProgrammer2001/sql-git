@@ -1,6 +1,7 @@
 CREATE TABLE [dbo].[WebViewSub]
 (
 [ID] [uniqueidentifier] NOT NULL CONSTRAINT [DF_WebViewSub_ID2] DEFAULT (newsequentialid()),
+[Code] [nvarchar] (256) COLLATE SQL_Latin1_General_CP850_CI_AS NOT NULL,
 [Name] [nvarchar] (256) COLLATE SQL_Latin1_General_CP850_CI_AS NULL,
 [UpdateDate] [datetimeoffset] NOT NULL CONSTRAINT [DF_WebViewSub_UpdateDate] DEFAULT (sysdatetimeoffset()),
 [Version] [int] NOT NULL CONSTRAINT [DF_WebViewSub_Version] DEFAULT ((1)),
@@ -9,7 +10,6 @@ CREATE TABLE [dbo].[WebViewSub]
 [AppType] [int] NULL CONSTRAINT [DF_WebViewSub_AppType] DEFAULT ((1)),
 [UpdateUser] [bigint] NULL,
 [ComponentHtml] [nvarchar] (max) COLLATE SQL_Latin1_General_CP850_CI_AS NULL,
-[Code] [nvarchar] (256) COLLATE SQL_Latin1_General_CP850_CI_AS NULL,
 [CreateDate] [datetimeoffset] NOT NULL CONSTRAINT [DF_WebViewSub_CreateDate] DEFAULT (sysdatetimeoffset())
 ) ON [PRIMARY]
 GO

@@ -1,8 +1,9 @@
 CREATE TABLE [dbo].[WebView]
 (
 [ID] [uniqueidentifier] NOT NULL CONSTRAINT [DF_WebView_ID2] DEFAULT (newsequentialid()),
-[WebModuleID] [uniqueidentifier] NULL,
+[Code] [nvarchar] (256) COLLATE SQL_Latin1_General_CP850_CI_AS NOT NULL,
 [Name] [nvarchar] (256) COLLATE SQL_Latin1_General_CP850_CI_AS NULL,
+[WebModuleID] [uniqueidentifier] NULL,
 [IsAllowForMenu] [char] (1) COLLATE SQL_Latin1_General_CP850_CI_AS NULL,
 [WebIconSvgEnumID_DefaultForMenu] [uniqueidentifier] NULL,
 [WebIconSvgEnumID_DefaultForBookmark] [uniqueidentifier] NULL,
