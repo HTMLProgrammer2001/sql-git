@@ -152,6 +152,29 @@ INSERT INTO [dbo].[WebComponentViewSubSettings] ([ID], [WebComponentID], [Code],
       </kendo-grid>
     </div>
   </div>', '2022-03-09 17:55:44.4633333 +00:00', 13, N'N', '807bd660-0601-44d7-ae67-4b7168fffcff', 1, NULL, '2022-09-28 17:31:50.1102942 +03:00')
+INSERT INTO [dbo].[WebComponentViewSubSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('e413903c-e94e-ed11-8e5d-4ccc6a2bb6d6', '3c3c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'manage-partner-group-title-header', N'Title header', N'{
+    "defaultValue": {
+        "isUseTranslateKey": true,
+        "translateKey": "PARTNER.DETAILS.MANAGE_GROUP.TITLE",
+        "elements": [
+            {
+                "appearance": "primary-button",
+                "nameTranslateKey": "COMMON.BUTTON.CONFIRM",
+                "template": "custom"
+            },
+            {
+                "appearance": "primary-button",
+                "nameTranslateKey": "COMMON.BUTTON.CANCEL",
+                "template": "custom"
+            }
+        ]
+    }
+}', N'<cr-title-header
+    [titleTranslateKey]="{{translateKey}}"
+    [title]="{{label}}"
+    (buttonClickEvent)="self.onTitleButtonClick($event)"
+    [buttonSettings]="self.titleHeaderButtonSettings"
+></cr-title-header>', '2022-11-04 13:17:22.2766667 +00:00', 3, N'N', '8d0a3ff5-6d34-4d08-aaa9-851849e8c3e3', 1, NULL, '2022-09-28 17:31:50.1102942 +03:00')
 INSERT INTO [dbo].[WebComponentViewSubSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('e513903c-e94e-ed11-8e5d-4ccc6a2bb6d6', '393c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'manage-partner-groups-grid', N'Grid', N'{
     "defaultValue": {
         "allowMultiSelect": true,
@@ -309,205 +332,6 @@ INSERT INTO [dbo].[WebComponentViewSubSettings] ([ID], [WebComponentID], [Code],
       </kendo-grid>
     </div>
 </div>', '2022-03-09 18:17:14.8200000 +00:00', 5, N'N', 'e1f3f5f1-1aeb-4749-acf1-0dc4aa3d2ee8', 1, NULL, '2022-09-28 17:31:50.1102942 +03:00')
-INSERT INTO [dbo].[WebComponentViewSubSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('e613903c-e94e-ed11-8e5d-4ccc6a2bb6d6', '3c3c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'manage-partner-addresses-title-header', N'Title header', N'{
-    "defaultValue": {
-        "isUseTranslateKey": true,
-        "translateKey": "PARTNER.DETAILS.ADDRESS.DETAILS_TITLE",
-        "elements": [
-            {
-                "appearance": "primary-button",
-                "nameTranslateKey": "COMMON.BUTTON.CONFIRM",
-                "template": "custom"
-            },
-            {
-                "appearance": "icon-button",
-                "iconSvg": "icon-close",
-                "template": "custom"
-            }
-        ]
-    }
-}', N'<cr-title-header
-    [titleTranslateKey]="{{translateKey}}"
-    [title]="{{label}}"
-    (buttonClickEvent)="self.onTitleButtonClick($event)"
-    [buttonSettings]="self.titleHeaderButtonSettings"
-></cr-title-header>', '2022-03-10 11:16:47.4266667 +00:00', 4, N'N', '034c9744-1dc8-4159-a2e8-13fadd08994d', 1, NULL, '2022-09-28 17:31:50.1102942 +03:00')
-INSERT INTO [dbo].[WebComponentViewSubSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('e713903c-e94e-ed11-8e5d-4ccc6a2bb6d6', '3d3c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'manage-addresses-type', N'Address type', N'{
-    "defaultValue": {
-        "isUseTranslateKey": true,
-        "translateKey": "PARTNER.DETAILS.ADDRESS.ADDRESS_TYPE"
-    }
-}', N'<cr-dropdown-smart-control
-    [elementName]="''smart-dropdown:Partner_details.Address_type''"
-    [dataCacheName]="''AddressTypeDropdownCache''"
-    [useCache]="false"
-    [(value)]="self.address.partnerAddressType.id"
-    [textField]="''name''"
-    [valueField]="''id''"
-    [dataTranslateKeyField]="''translateKey''"
-    [(currentItemValue)]="self.address.partnerAddressType"
-    [getListItemsFunction]="self.loadAddressTypeListForDropdownFn"
-    [validator]="self.addressValidator"
-    [validationField]="''partnerAddressType.id''"
-    [unselectedItemValue]="{id: null, translateKey: ''COMMON.NOT_SELECTED''}"
-    [labelTranslateKey]="{{translateKey}}"
-    [label]="{{label}}"
-    [class]=''{{classes}}''
-></cr-dropdown-smart-control>
-', '2022-03-10 09:51:07.0866667 +00:00', 2, N'N', '748cb230-79b9-492b-9e18-82e77a5fc4d0', 1, NULL, '2022-09-28 17:31:50.1102942 +03:00')
-INSERT INTO [dbo].[WebComponentViewSubSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('e813903c-e94e-ed11-8e5d-4ccc6a2bb6d6', '4a3c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'manage-partner-addresses-state', N'State', N'{
-    "defaultValue": {
-        "isUseTranslateKey": true,
-        "translateKey": "PARTNER.DETAILS.ADDRESS.STATE"
-    }
-}', N'<cr-combobox-smart-control
-    [elementName]="''smart-combobox:Partner_details.Address_country''"
-    [dataCacheName]="''ItemCountryComboboxCache''"
-    [useCache]="false"
-    [(value)]="self.address.country.id"
-    [(currentItemValue)]="self.address.country"
-    [textField]="''name''"
-    [valueField]="''id''"
-    [getListItemsFunction]="self.loadAddressCountryListFunction"
-    [translateKeys]="{{translateKey}}"
-    [dataLabel]="{{label}}"
-    [valueField]="''id''"
-    [class]=''{{classes}}''
-    [useCache]="false"
-></cr-combobox-smart-control>', '2022-03-10 09:52:13.1600000 +00:00', 3, N'N', '2dbd7d6e-bb3f-4e34-bb6c-12036c1aa674', 1, NULL, '2022-09-28 17:31:50.1102942 +03:00')
-INSERT INTO [dbo].[WebComponentViewSubSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('e913903c-e94e-ed11-8e5d-4ccc6a2bb6d6', '4a3c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'manage-partner-addresses-country', N'Country', N'{
-    "defaultValue": {
-        "isUseTranslateKey": true,
-        "translateKey": "PARTNER.DETAILS.ADDRESS.COUNTRY"
-    }
-}', N'<cr-combobox-smart-control
-    [elementName]="''smart-combobox:Partner_details.Address_state''"
-    [dataCacheName]="''ItemStateComboboxCache''"
-    [useCache]="false"
-    [(value)]="self.address.state.id"
-    [(currentItemValue)]="self.address.state"
-    [textField]="''name''"
-    [valueField]="''id''"
-    [getListItemsFunction]="self.loadAddressStateListFunction"
-    [translateKeys]="{{translateKey}}"
-    [dataLabel]="{{label}}"
-    [valueField]="''id''"
-    [class]=''{{classes}}''
-    [useCache]="false"
-></cr-combobox-smart-control>', '2022-03-10 10:49:30.6933333 +00:00', 2, N'N', '83f784c4-db3c-45a3-9b34-ed09072111ee', 1, NULL, '2022-09-28 17:31:50.1102942 +03:00')
-INSERT INTO [dbo].[WebComponentViewSubSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('ea13903c-e94e-ed11-8e5d-4ccc6a2bb6d6', '4a3c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'manage-partner-addresses-county', N'County', N'{
-    "defaultValue": {
-        "isUseTranslateKey": true,
-        "translateKey": "PARTNER.DETAILS.ADDRESS.COUNTY"
-    }
-}', N'<cr-combobox-smart-control
-    [elementName]="''smart-combobox:Partner_details.Address_country''"
-    [useCache]="false"
-    [dataCacheName]="''ItemCountyComboboxCache''"
-    [(value)]="self.address.county.id"
-    [(currentItemValue)]="self.address.county"
-    [textField]="''name''"
-    [valueField]="''id''"
-    [getListItemsFunction]="self.loadAddressCountyListFunction"
-    [translateKeys]="{{translateKey}}"
-    [dataLabel]="{{label}}"
-    [valueField]="''id''"
-    [class]=''{{classes}}''
-    [useCache]="false"
-></cr-combobox-smart-control>', '2022-03-10 10:50:24.6533333 +00:00', 2, N'N', 'd0ee8e0e-6193-493d-b657-22a76a9b33dd', 1, NULL, '2022-09-28 17:31:50.1102942 +03:00')
-INSERT INTO [dbo].[WebComponentViewSubSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('eb13903c-e94e-ed11-8e5d-4ccc6a2bb6d6', '4a3c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'manage-partner-addresses-city', N'City', N'{
-    "defaultValue": {
-        "isUseTranslateKey": true,
-        "translateKey": "PARTNER.DETAILS.ADDRESS.CITY"
-    }
-}', N'<cr-combobox-smart-control
-    [elementName]="''smart-combobox:Partner_details.Address_city''"
-    [useCache]="false"
-    [dataCacheName]="''ItemCityComboboxCache''"
-    [(value)]="self.address.city.id"
-    [(currentItemValue)]="self.address.city"
-    [textField]="''name''"
-    [valueField]="''id''"
-    [getListItemsFunction]="self.loadAddressCityListFunction"
-    [translateKeys]="{{translateKey}}"
-    [dataLabel]="{{label}}"
-    [valueField]="''id''"
-    [class]=''{{classes}}''
-    [useCache]="false"
-></cr-combobox-smart-control>', '2022-03-10 10:51:22.8266667 +00:00', 2, N'N', '4702fe5a-6c70-449a-aca6-7de1c4188e2d', 1, NULL, '2022-09-28 17:31:50.1102942 +03:00')
-INSERT INTO [dbo].[WebComponentViewSubSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('ec13903c-e94e-ed11-8e5d-4ccc6a2bb6d6', '373c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'manage-partner-addresses-zip', N'Zip', N'{
-    "defaultValue": {
-        "isUseTranslateKey": true,
-        "translateKey": "PARTNER.DETAILS.ADDRESS.ZIP"
-    }
-}', N'<cr-control-edit 
-    [translateKeys]="{{translateKey}}" 
-    [dataLabel]="{{label}}"
-    [customClass]=''{{classes}}''
-    [isDisabled]="{{disabled}}"
-    [elementName]="''edit:Partner_details.Address_zip''"
-    [(dataValue)]="self.address.zip"
-></cr-control-edit>', '2022-03-10 10:54:01.8433333 +00:00', 4, N'N', '0b513b6f-7db7-4529-9bec-971312e96f9b', 1, NULL, '2022-09-28 17:31:50.1102942 +03:00')
-INSERT INTO [dbo].[WebComponentViewSubSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('ed13903c-e94e-ed11-8e5d-4ccc6a2bb6d6', '4a3c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'manage-partner-addresses-street', N'Street', N'{
-    "defaultValue": {
-        "isUseTranslateKey": true,
-        "translateKey": "PARTNER.DETAILS.ADDRESS.STREET"
-    }
-}', N'<cr-combobox-smart-control
-    [elementName]="''smart-combobox:Partner_details.Address_street''"
-    [useCache]="false"
-    [dataCacheName]="''ItemStreetComboboxCache''"
-    [(value)]="self.address.street.id"
-    [(currentItemValue)]="self.address.street"
-    [textField]="''name''"
-    [valueField]="''id''"
-    [getListItemsFunction]="self.loadAddressStreetListFunction"
-    [translateKeys]="{{translateKey}}"
-    [dataLabel]="{{label}}"
-    [valueField]="''id''"
-    [class]=''{{classes}}''
-    [useCache]="false"
-></cr-combobox-smart-control>', '2022-03-10 10:52:08.8000000 +00:00', 2, N'N', '55c380ac-1496-4b27-b7a9-b3b6939aa17b', 1, NULL, '2022-09-28 17:31:50.1102942 +03:00')
-INSERT INTO [dbo].[WebComponentViewSubSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('ee13903c-e94e-ed11-8e5d-4ccc6a2bb6d6', '373c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'manage-partner-addresses-block', N'Block', N'{
-    "defaultValue": {
-        "isUseTranslateKey": true,
-        "translateKey": "PARTNER.DETAILS.ADDRESS.BLOCK"
-    }
-}', N'<cr-control-edit 
-    [translateKeys]="{{translateKey}}" 
-    [dataLabel]="{{label}}"
-    [customClass]=''{{classes}}''
-    [isDisabled]="{{disabled}}"
-    [elementName]="''edit:Partner_details.Address_block''"
-    [(dataValue)]="self.address.block"
-></cr-control-edit>', '2022-03-10 10:54:07.4966667 +00:00', 3, N'N', '1a5ec3ab-a4e4-4670-b73a-a6f0a29746c8', 1, NULL, '2022-09-28 17:31:50.1102942 +03:00')
-INSERT INTO [dbo].[WebComponentViewSubSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('ef13903c-e94e-ed11-8e5d-4ccc6a2bb6d6', '373c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'manage-partner-addresses-street-no', N'Street no', N'{
-    "defaultValue": {
-        "isUseTranslateKey": true,
-        "translateKey": "PARTNER.DETAILS.ADDRESS.STREET_NUMBER"
-    }
-}', N'<cr-control-edit 
-    [translateKeys]="{{translateKey}}" 
-    [dataLabel]="{{label}}"
-    [customClass]=''{{classes}}''
-    [isDisabled]="{{disabled}}"
-    [elementName]="''edit:Partner_details.Address_street_number''"
-    [(dataValue)]="self.address.streetNo"
-></cr-control-edit>', '2022-03-10 10:55:23.7066667 +00:00', 2, N'N', '8633aade-2179-4da1-954b-c32287f348ea', 1, NULL, '2022-09-28 17:31:50.1102942 +03:00')
-INSERT INTO [dbo].[WebComponentViewSubSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('f013903c-e94e-ed11-8e5d-4ccc6a2bb6d6', '373c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'manage-partner-addresses-apartment', N'Apartment', N'{
-    "defaultValue": {
-        "isUseTranslateKey": true,
-        "translateKey": "PARTNER.DETAILS.ADDRESS.APARTMENT"
-    }
-}', N'<cr-control-edit 
-    [translateKeys]="{{translateKey}}" 
-    [dataLabel]="{{label}}"
-    [customClass]=''{{classes}}''
-    [isDisabled]="{{disabled}}"
-    [elementName]="''edit:Partner_details.Address_appartment''"
-    [(dataValue)]="self.address.apartment"
-    [maxlength]="20"
-></cr-control-edit>', '2022-03-10 10:55:53.8233333 +00:00', 2, N'N', 'a121e92d-c5dd-4e9a-aad4-2de5b6d02fb7', 1, NULL, '2022-09-28 17:31:50.1102942 +03:00')
 INSERT INTO [dbo].[WebComponentViewSubSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('f113903c-e94e-ed11-8e5d-4ccc6a2bb6d6', '3c3c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'create-partner-addresses-title-header', N'Title header', N'{
     "defaultValue": {
         "isUseTranslateKey": true,
@@ -707,6 +531,226 @@ INSERT INTO [dbo].[WebComponentViewSubSettings] ([ID], [WebComponentID], [Code],
     [(dataValue)]="self.address.apartment"
     [maxlength]="20"
 ></cr-control-edit>', '2022-03-10 11:10:54.1933333 +00:00', 2, N'N', '585e10b8-6b84-4dd1-884d-0f3a15530dff', 1, NULL, '2022-09-28 17:31:50.1102942 +03:00')
+INSERT INTO [dbo].[WebComponentViewSubSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('0f14903c-e94e-ed11-8e5d-4ccc6a2bb6d6', '3c3c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'tax-group-definition-title', N'Header', N'{
+    "defaultValue": {
+        "isUseTranslateKey": true,
+        "translateKey": "TAX_GROUP.DETAILS.PANEL.TITLE_DEFINITIONS",
+        "elements": [
+            {
+                "appearance": "primary-button",
+                "nameTranslateKey": "COMMON.BUTTON.CONFIRM",
+                "template": "custom"
+            }
+        ]
+    }
+}', N'<cr-title-header
+    [titleTranslateKey]="{{translateKey}}"
+    [title]="{{label}}"
+    [additionalTranslateKeys]="''COMMON.NEW''"
+    (buttonClickEvent)="self.onTitleButtonClick($event)"
+    [buttonSettings]="self.titleHeaderButtonSettings"
+    [titleValue]="self.titleValueText"
+></cr-title-header>
+', '2022-10-06 12:06:33.6966667 +00:00', 2, N'N', '19bd012d-78c7-4466-9429-115ae3e3256a', 1, NULL, '2022-10-06 12:05:15.6069016 +03:00')
+INSERT INTO [dbo].[WebComponentViewSubSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('e613903c-e94e-ed11-8e5d-4ccc6a2bb6d6', '3c3c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'manage-partner-addresses-title-header', N'Title header', N'{
+    "defaultValue": {
+        "isUseTranslateKey": true,
+        "translateKey": "PARTNER.DETAILS.ADDRESS.DETAILS_TITLE",
+        "elements": [
+            {
+                "appearance": "primary-button",
+                "nameTranslateKey": "COMMON.BUTTON.CONFIRM",
+                "template": "custom"
+            },
+            {
+                "appearance": "icon-button",
+                "iconSvg": "icon-close",
+                "template": "custom"
+            }
+        ]
+    }
+}', N'<cr-title-header
+    [titleTranslateKey]="{{translateKey}}"
+    [title]="{{label}}"
+    (buttonClickEvent)="self.onTitleButtonClick($event)"
+    [buttonSettings]="self.titleHeaderButtonSettings"
+></cr-title-header>', '2022-11-04 17:16:45.3266667 +00:00', 5, N'N', 'dd0345a6-bec2-408c-8397-ffc1f0600de1', 1, NULL, '2022-09-28 17:31:50.1102942 +03:00')
+INSERT INTO [dbo].[WebComponentViewSubSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('e713903c-e94e-ed11-8e5d-4ccc6a2bb6d6', '3d3c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'manage-addresses-type', N'Address type', N'{
+    "defaultValue": {
+        "isUseTranslateKey": true,
+        "translateKey": "PARTNER.DETAILS.ADDRESS.ADDRESS_TYPE"
+    }
+}', N'<cr-dropdown-smart-control
+    [elementName]="''smart-dropdown:Partner_details.Address_type''"
+    [dataCacheName]="''AddressTypeDropdownCache''"
+    [useCache]="false"
+    [(value)]="self.address.partnerAddressType.id"
+    [textField]="''name''"
+    [valueField]="''id''"
+    [dataTranslateKeyField]="''translateKey''"
+    [(currentItemValue)]="self.address.partnerAddressType"
+    [getListItemsFunction]="self.loadAddressTypeListForDropdownFn"
+    [validator]="self.addressValidator"
+    [validationField]="''partnerAddressType.id''"
+    [unselectedItemValue]="{id: null, translateKey: ''COMMON.NOT_SELECTED''}"
+    [labelTranslateKey]="{{translateKey}}"
+    [label]="{{label}}"
+    [class]=''{{classes}}''
+></cr-dropdown-smart-control>
+', '2022-11-04 17:16:56.2300000 +00:00', 3, N'N', '582b63e7-a796-40b0-9e89-292a0495fd0e', 1, NULL, '2022-09-28 17:31:50.1102942 +03:00')
+INSERT INTO [dbo].[WebComponentViewSubSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('e813903c-e94e-ed11-8e5d-4ccc6a2bb6d6', '4a3c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'manage-partner-addresses-state', N'State', N'{
+    "defaultValue": {
+        "isUseTranslateKey": true,
+        "translateKey": "PARTNER.DETAILS.ADDRESS.STATE"
+    }
+}', N'<cr-combobox-smart-control
+    [elementName]="''smart-combobox:Partner_details.Address_country''"
+    [dataCacheName]="''ItemCountryComboboxCache''"
+    [useCache]="false"
+    [(value)]="self.address.country.id"
+    [(currentItemValue)]="self.address.country"
+    [textField]="''name''"
+    [valueField]="''id''"
+    [getListItemsFunction]="self.loadAddressCountryListFunction"
+    [translateKeys]="{{translateKey}}"
+    [dataLabel]="{{label}}"
+    [valueField]="''id''"
+    [class]=''{{classes}}''
+    [useCache]="false"
+></cr-combobox-smart-control>', '2022-11-04 17:17:04.1400000 +00:00', 4, N'N', '3ea29945-5fbd-41af-a03e-ff8eef08fcb4', 1, NULL, '2022-09-28 17:31:50.1102942 +03:00')
+INSERT INTO [dbo].[WebComponentViewSubSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('e913903c-e94e-ed11-8e5d-4ccc6a2bb6d6', '4a3c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'manage-partner-addresses-country', N'Country', N'{
+    "defaultValue": {
+        "isUseTranslateKey": true,
+        "translateKey": "PARTNER.DETAILS.ADDRESS.COUNTRY"
+    }
+}', N'<cr-combobox-smart-control
+    [elementName]="''smart-combobox:Partner_details.Address_state''"
+    [dataCacheName]="''ItemStateComboboxCache''"
+    [useCache]="false"
+    [(value)]="self.address.state.id"
+    [(currentItemValue)]="self.address.state"
+    [textField]="''name''"
+    [valueField]="''id''"
+    [getListItemsFunction]="self.loadAddressStateListFunction"
+    [translateKeys]="{{translateKey}}"
+    [dataLabel]="{{label}}"
+    [valueField]="''id''"
+    [class]=''{{classes}}''
+    [useCache]="false"
+></cr-combobox-smart-control>', '2022-11-04 17:17:12.2700000 +00:00', 3, N'N', '184c0339-8d0f-4e2c-b634-0127741b808c', 1, NULL, '2022-09-28 17:31:50.1102942 +03:00')
+INSERT INTO [dbo].[WebComponentViewSubSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('ea13903c-e94e-ed11-8e5d-4ccc6a2bb6d6', '4a3c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'manage-partner-addresses-county', N'County', N'{
+    "defaultValue": {
+        "isUseTranslateKey": true,
+        "translateKey": "PARTNER.DETAILS.ADDRESS.COUNTY"
+    }
+}', N'<cr-combobox-smart-control
+    [elementName]="''smart-combobox:Partner_details.Address_country''"
+    [useCache]="false"
+    [dataCacheName]="''ItemCountyComboboxCache''"
+    [(value)]="self.address.county.id"
+    [(currentItemValue)]="self.address.county"
+    [textField]="''name''"
+    [valueField]="''id''"
+    [getListItemsFunction]="self.loadAddressCountyListFunction"
+    [translateKeys]="{{translateKey}}"
+    [dataLabel]="{{label}}"
+    [valueField]="''id''"
+    [class]=''{{classes}}''
+    [useCache]="false"
+></cr-combobox-smart-control>', '2022-11-04 17:17:21.1533333 +00:00', 3, N'N', '24d83443-56c6-40d3-b038-151c5bb410d4', 1, NULL, '2022-09-28 17:31:50.1102942 +03:00')
+INSERT INTO [dbo].[WebComponentViewSubSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('eb13903c-e94e-ed11-8e5d-4ccc6a2bb6d6', '4a3c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'manage-partner-addresses-city', N'City', N'{
+    "defaultValue": {
+        "isUseTranslateKey": true,
+        "translateKey": "PARTNER.DETAILS.ADDRESS.CITY"
+    }
+}', N'<cr-combobox-smart-control
+    [elementName]="''smart-combobox:Partner_details.Address_city''"
+    [useCache]="false"
+    [dataCacheName]="''ItemCityComboboxCache''"
+    [(value)]="self.address.city.id"
+    [(currentItemValue)]="self.address.city"
+    [textField]="''name''"
+    [valueField]="''id''"
+    [getListItemsFunction]="self.loadAddressCityListFunction"
+    [translateKeys]="{{translateKey}}"
+    [dataLabel]="{{label}}"
+    [valueField]="''id''"
+    [class]=''{{classes}}''
+    [useCache]="false"
+></cr-combobox-smart-control>', '2022-11-04 17:17:31.3933333 +00:00', 3, N'N', 'd39266c1-d9c2-4833-86b0-c16378934a9b', 1, NULL, '2022-09-28 17:31:50.1102942 +03:00')
+INSERT INTO [dbo].[WebComponentViewSubSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('ec13903c-e94e-ed11-8e5d-4ccc6a2bb6d6', '373c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'manage-partner-addresses-zip', N'Zip', N'{
+    "defaultValue": {
+        "isUseTranslateKey": true,
+        "translateKey": "PARTNER.DETAILS.ADDRESS.ZIP"
+    }
+}', N'<cr-control-edit 
+    [translateKeys]="{{translateKey}}" 
+    [dataLabel]="{{label}}"
+    [customClass]=''{{classes}}''
+    [isDisabled]="{{disabled}}"
+    [elementName]="''edit:Partner_details.Address_zip''"
+    [(dataValue)]="self.address.zip"
+></cr-control-edit>', '2022-11-04 17:17:42.5600000 +00:00', 5, N'N', '9e609193-73aa-4c17-bcc1-f452460011ef', 1, NULL, '2022-09-28 17:31:50.1102942 +03:00')
+INSERT INTO [dbo].[WebComponentViewSubSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('ed13903c-e94e-ed11-8e5d-4ccc6a2bb6d6', '4a3c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'manage-partner-addresses-street', N'Street', N'{
+    "defaultValue": {
+        "isUseTranslateKey": true,
+        "translateKey": "PARTNER.DETAILS.ADDRESS.STREET"
+    }
+}', N'<cr-combobox-smart-control
+    [elementName]="''smart-combobox:Partner_details.Address_street''"
+    [useCache]="false"
+    [dataCacheName]="''ItemStreetComboboxCache''"
+    [(value)]="self.address.street.id"
+    [(currentItemValue)]="self.address.street"
+    [textField]="''name''"
+    [valueField]="''id''"
+    [getListItemsFunction]="self.loadAddressStreetListFunction"
+    [translateKeys]="{{translateKey}}"
+    [dataLabel]="{{label}}"
+    [valueField]="''id''"
+    [class]=''{{classes}}''
+    [useCache]="false"
+></cr-combobox-smart-control>', '2022-11-04 17:17:49.9500000 +00:00', 3, N'N', '01b8838e-d7e8-44cb-bd0f-c31440e534df', 1, NULL, '2022-09-28 17:31:50.1102942 +03:00')
+INSERT INTO [dbo].[WebComponentViewSubSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('ee13903c-e94e-ed11-8e5d-4ccc6a2bb6d6', '373c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'manage-partner-addresses-block', N'Block', N'{
+    "defaultValue": {
+        "isUseTranslateKey": true,
+        "translateKey": "PARTNER.DETAILS.ADDRESS.BLOCK"
+    }
+}', N'<cr-control-edit 
+    [translateKeys]="{{translateKey}}" 
+    [dataLabel]="{{label}}"
+    [customClass]=''{{classes}}''
+    [isDisabled]="{{disabled}}"
+    [elementName]="''edit:Partner_details.Address_block''"
+    [(dataValue)]="self.address.block"
+></cr-control-edit>', '2022-11-04 17:18:04.0633333 +00:00', 4, N'N', '8d6e666f-8492-44b9-83bf-a84cbebbb0bf', 1, NULL, '2022-09-28 17:31:50.1102942 +03:00')
+INSERT INTO [dbo].[WebComponentViewSubSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('ef13903c-e94e-ed11-8e5d-4ccc6a2bb6d6', '373c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'manage-partner-addresses-street-no', N'Street no', N'{
+    "defaultValue": {
+        "isUseTranslateKey": true,
+        "translateKey": "PARTNER.DETAILS.ADDRESS.STREET_NUMBER"
+    }
+}', N'<cr-control-edit 
+    [translateKeys]="{{translateKey}}" 
+    [dataLabel]="{{label}}"
+    [customClass]=''{{classes}}''
+    [isDisabled]="{{disabled}}"
+    [elementName]="''edit:Partner_details.Address_street_number''"
+    [(dataValue)]="self.address.streetNo"
+></cr-control-edit>', '2022-11-04 17:18:16.5566667 +00:00', 3, N'N', '5c321e8a-daea-4143-9572-84ee17e29e72', 1, NULL, '2022-09-28 17:31:50.1102942 +03:00')
+INSERT INTO [dbo].[WebComponentViewSubSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('f013903c-e94e-ed11-8e5d-4ccc6a2bb6d6', '373c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'manage-partner-addresses-apartment', N'Apartment', N'{
+    "defaultValue": {
+        "isUseTranslateKey": true,
+        "translateKey": "PARTNER.DETAILS.ADDRESS.APARTMENT"
+    }
+}', N'<cr-control-edit 
+    [translateKeys]="{{translateKey}}" 
+    [dataLabel]="{{label}}"
+    [customClass]=''{{classes}}''
+    [isDisabled]="{{disabled}}"
+    [elementName]="''edit:Partner_details.Address_appartment''"
+    [(dataValue)]="self.address.apartment"
+    [maxlength]="20"
+></cr-control-edit>', '2022-11-04 17:18:24.4900000 +00:00', 3, N'N', '39c20e20-c2b4-4c83-9e4d-cc172e17e618', 1, NULL, '2022-09-28 17:31:50.1102942 +03:00')
 INSERT INTO [dbo].[WebComponentViewSubSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('fc13903c-e94e-ed11-8e5d-4ccc6a2bb6d6', '3c3c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'manage-partner-contact-persons-title-header', N'Title header', N'{
     "defaultValue": {
         "isUseTranslateKey": true,
@@ -730,7 +774,7 @@ INSERT INTO [dbo].[WebComponentViewSubSettings] ([ID], [WebComponentID], [Code],
     (buttonClickEvent)="self.onTitleButtonClick($event)"
     [buttonSettings]="self.titleHeaderButtonSettings"
 ></cr-title-header>
-', '2022-07-15 19:10:18.7362387 +03:00', 1, N'N', '97a65a32-f218-4894-8db6-950d4825fbbc', 1, NULL, '2022-09-28 17:31:50.1102942 +03:00')
+', '2022-11-04 18:11:46.5800000 +00:00', 2, N'N', 'ad007be6-7483-4e5e-b685-a475b11702d0', 1, NULL, '2022-09-28 17:31:50.1102942 +03:00')
 INSERT INTO [dbo].[WebComponentViewSubSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('fd13903c-e94e-ed11-8e5d-4ccc6a2bb6d6', '373c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'manage-partner-contact-person-code', N'Code', N'{
     "defaultValue": {
         "isUseTranslateKey": true,
@@ -745,7 +789,7 @@ INSERT INTO [dbo].[WebComponentViewSubSettings] ([ID], [WebComponentID], [Code],
     [(dataValue)]="self.contactPerson.code"
     [validator]="self.contactPersonValidator"
     [validationField]="''code''"
-></cr-control-edit>', '2022-07-15 19:29:33.2333333 +00:00', 3, N'N', 'b94e23db-a736-42fa-8fe8-4937de293fee', 1, NULL, '2022-09-28 17:31:50.1102942 +03:00')
+></cr-control-edit>', '2022-11-04 18:12:00.6866667 +00:00', 4, N'N', '0202424c-639a-44f6-b1c7-da59423c42dd', 1, NULL, '2022-09-28 17:31:50.1102942 +03:00')
 INSERT INTO [dbo].[WebComponentViewSubSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('fe13903c-e94e-ed11-8e5d-4ccc6a2bb6d6', '373c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'manage-partner-contact-person-first-name', N'First name', N'{
     "defaultValue": {
         "isUseTranslateKey": true,
@@ -760,7 +804,7 @@ INSERT INTO [dbo].[WebComponentViewSubSettings] ([ID], [WebComponentID], [Code],
     [(dataValue)]="self.contactPerson.firstName"
     [validator]="self.contactPersonValidator"
     [validationField]="''firstName''"
-></cr-control-edit>', '2022-07-15 19:30:34.2646260 +03:00', 1, N'N', '5490cf7e-f140-48d8-a25f-249456399d28', 1, NULL, '2022-09-28 17:31:50.1102942 +03:00')
+></cr-control-edit>', '2022-11-04 18:12:08.7900000 +00:00', 2, N'N', '29f6211a-b147-4c22-a64d-3495024b47b1', 1, NULL, '2022-09-28 17:31:50.1102942 +03:00')
 INSERT INTO [dbo].[WebComponentViewSubSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('ff13903c-e94e-ed11-8e5d-4ccc6a2bb6d6', '373c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'manage-partner-contact-person-last-name', N'Last name', N'{
     "defaultValue": {
         "isUseTranslateKey": true,
@@ -775,7 +819,7 @@ INSERT INTO [dbo].[WebComponentViewSubSettings] ([ID], [WebComponentID], [Code],
     [(dataValue)]="self.contactPerson.lastName"
     [validator]="self.contactPersonValidator"
     [validationField]="''lastName''"
-></cr-control-edit>', '2022-07-15 19:31:50.9184547 +03:00', 1, N'N', '61e5bb38-2ef7-4f4f-81ba-7f1dd5a1e1d3', 1, NULL, '2022-09-28 17:31:50.1102942 +03:00')
+></cr-control-edit>', '2022-11-04 18:12:15.9466667 +00:00', 2, N'N', '4b43940c-41da-4ecb-af74-2ccc6d9827ba', 1, NULL, '2022-09-28 17:31:50.1102942 +03:00')
 INSERT INTO [dbo].[WebComponentViewSubSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('0014903c-e94e-ed11-8e5d-4ccc6a2bb6d6', '373c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'manage-partner-contact-person-display-name', N'Display name', N'{
     "defaultValue": {
         "isUseTranslateKey": true,
@@ -790,7 +834,7 @@ INSERT INTO [dbo].[WebComponentViewSubSettings] ([ID], [WebComponentID], [Code],
     [(dataValue)]="self.contactPerson.displayName"
     [validator]="self.contactPersonValidator"
     [validationField]="''displayName''"
-></cr-control-edit>', '2022-07-15 19:32:59.7773453 +03:00', 1, N'N', '8c699f7b-b419-42e6-9b2e-ee0551f549d4', 1, NULL, '2022-09-28 17:31:50.1102942 +03:00')
+></cr-control-edit>', '2022-11-04 18:12:24.4033333 +00:00', 2, N'N', '33b7228b-dd44-4083-a9b3-3a7a546ffc3d', 1, NULL, '2022-09-28 17:31:50.1102942 +03:00')
 INSERT INTO [dbo].[WebComponentViewSubSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('0114903c-e94e-ed11-8e5d-4ccc6a2bb6d6', '373c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'manage-partner-contact-person-email', N'Email', N'{
     "defaultValue": {
         "isUseTranslateKey": true,
@@ -805,7 +849,7 @@ INSERT INTO [dbo].[WebComponentViewSubSettings] ([ID], [WebComponentID], [Code],
     [(dataValue)]="self.contactPerson.email"
     [validator]="self.contactPersonValidator"
     [validationField]="''email''"
-></cr-control-edit>', '2022-07-15 19:34:01.1223502 +03:00', 1, N'N', '10aa1384-0026-4e88-80e4-9157abdfdf33', 1, NULL, '2022-09-28 17:31:50.1102942 +03:00')
+></cr-control-edit>', '2022-11-04 18:12:33.5566667 +00:00', 2, N'N', '514da2f5-de5b-4e21-aa6d-1fe434b695a2', 1, NULL, '2022-09-28 17:31:50.1102942 +03:00')
 INSERT INTO [dbo].[WebComponentViewSubSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('0214903c-e94e-ed11-8e5d-4ccc6a2bb6d6', '373c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'manage-partner-contact-person-cellural', N'Cellural', N'{
     "defaultValue": {
         "isUseTranslateKey": true,
@@ -818,7 +862,7 @@ INSERT INTO [dbo].[WebComponentViewSubSettings] ([ID], [WebComponentID], [Code],
     [isDisabled]="{{disabled}}"
     [elementName]="''edit:Partner_details.Contact_person_cellular''"
     [(dataValue)]="self.contactPerson.cellular"
-></cr-control-edit>', '2022-07-15 19:35:06.7007533 +03:00', 1, N'N', '0ed55427-677e-4111-8ca8-f5f27da516f8', 1, NULL, '2022-09-28 17:31:50.1102942 +03:00')
+></cr-control-edit>', '2022-11-04 18:12:44.6933333 +00:00', 2, N'N', 'bf446781-3d2d-463c-963c-475eb6a4825c', 1, NULL, '2022-09-28 17:31:50.1102942 +03:00')
 INSERT INTO [dbo].[WebComponentViewSubSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('0314903c-e94e-ed11-8e5d-4ccc6a2bb6d6', '373c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'manage-partner-contact-person-passport', N'Passport', N'{
     "defaultValue": {
         "isUseTranslateKey": true,
@@ -831,7 +875,7 @@ INSERT INTO [dbo].[WebComponentViewSubSettings] ([ID], [WebComponentID], [Code],
     [isDisabled]="{{disabled}}"
     [elementName]="''edit:Partner_details.Contact_person_passport''"
     [(dataValue)]="self.contactPerson.passport"
-></cr-control-edit>', '2022-07-15 19:36:25.5573944 +03:00', 1, N'N', '60651a5e-8818-45cd-b561-d42c6608064e', 1, NULL, '2022-09-28 17:31:50.1102942 +03:00')
+></cr-control-edit>', '2022-11-04 18:12:53.7266667 +00:00', 2, N'N', '44675ae6-71e7-4a00-ac4a-5fdbf3fd392d', 1, NULL, '2022-09-28 17:31:50.1102942 +03:00')
 INSERT INTO [dbo].[WebComponentViewSubSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('0414903c-e94e-ed11-8e5d-4ccc6a2bb6d6', '373c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'manage-partner-contact-person-fax', N'Fax', N'{
     "defaultValue": {
         "isUseTranslateKey": true,
@@ -844,7 +888,7 @@ INSERT INTO [dbo].[WebComponentViewSubSettings] ([ID], [WebComponentID], [Code],
     [isDisabled]="{{disabled}}"
     [elementName]="''edit:Partner_details.Contact_person_fax''"
     [(dataValue)]="self.contactPerson.fax"
-></cr-control-edit>', '2022-07-15 19:36:59.6118249 +03:00', 1, N'N', '135e3c75-8d65-4555-81c9-1ef1de7df7c0', 1, NULL, '2022-09-28 17:31:50.1102942 +03:00')
+></cr-control-edit>', '2022-11-04 18:13:01.4233333 +00:00', 2, N'N', '7f18d8f4-de26-45ca-b469-c888c0ef6b5f', 1, NULL, '2022-09-28 17:31:50.1102942 +03:00')
 INSERT INTO [dbo].[WebComponentViewSubSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('0514903c-e94e-ed11-8e5d-4ccc6a2bb6d6', '373c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'manage-partner-contact-person-phone1', N'Phone 1', N'{
     "defaultValue": {
         "isUseTranslateKey": true,
@@ -857,7 +901,7 @@ INSERT INTO [dbo].[WebComponentViewSubSettings] ([ID], [WebComponentID], [Code],
     [isDisabled]="{{disabled}}"
     [elementName]="''edit:Partner_details.Contact_person_first_phone''"
     [(dataValue)]="self.contactPerson.phone1"
-></cr-control-edit>', '2022-07-15 19:37:59.8946829 +03:00', 1, N'N', 'fb976142-655d-409c-bcfe-f563d4d75545', 1, NULL, '2022-09-28 17:31:50.1102942 +03:00')
+></cr-control-edit>', '2022-11-04 18:13:09.4366667 +00:00', 2, N'N', '3a6a0a46-db2b-49d6-aa7e-2df48c8baf84', 1, NULL, '2022-09-28 17:31:50.1102942 +03:00')
 INSERT INTO [dbo].[WebComponentViewSubSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('0614903c-e94e-ed11-8e5d-4ccc6a2bb6d6', '373c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'manage-partner-contact-person-phone2', N'Phone 2', N'{
     "defaultValue": {
         "isUseTranslateKey": true,
@@ -870,7 +914,7 @@ INSERT INTO [dbo].[WebComponentViewSubSettings] ([ID], [WebComponentID], [Code],
     [isDisabled]="{{disabled}}"
     [elementName]="''edit:Partner_details.Contact_person_second_phone''"
     [(dataValue)]="self.contactPerson.phone2"
-></cr-control-edit>', '2022-07-15 19:38:43.4001231 +03:00', 1, N'N', '6aec8a29-a348-436f-92ad-5815299995fb', 1, NULL, '2022-09-28 17:31:50.1102942 +03:00')
+></cr-control-edit>', '2022-11-04 18:13:17.3100000 +00:00', 2, N'N', '9c8e249f-2218-4dee-b874-9d9993ae3072', 1, NULL, '2022-09-28 17:31:50.1102942 +03:00')
 INSERT INTO [dbo].[WebComponentViewSubSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('0714903c-e94e-ed11-8e5d-4ccc6a2bb6d6', '373c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'manage-partner-contact-person-remark', N'Remark', N'{
     "defaultValue": {
         "isUseTranslateKey": true,
@@ -883,7 +927,7 @@ INSERT INTO [dbo].[WebComponentViewSubSettings] ([ID], [WebComponentID], [Code],
     [isDisabled]="{{disabled}}"
     [elementName]="''edit:Partner_details.Contact_person_remark''"
     [(dataValue)]="self.contactPerson.remark"
-></cr-control-edit>', '2022-07-15 19:39:37.1687873 +03:00', 1, N'N', '57ce84f4-43dc-45fd-b71c-c72e037b673f', 1, NULL, '2022-09-28 17:31:50.1102942 +03:00')
+></cr-control-edit>', '2022-11-04 18:13:24.4033333 +00:00', 2, N'N', '9128fab9-92a9-47a4-a9ee-969843dc4719', 1, NULL, '2022-09-28 17:31:50.1102942 +03:00')
 INSERT INTO [dbo].[WebComponentViewSubSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('0814903c-e94e-ed11-8e5d-4ccc6a2bb6d6', '3d3c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'manage-contact-person-type', N'Type', N'{
     "defaultValue": {
         "isUseTranslateKey": true,
@@ -906,7 +950,7 @@ INSERT INTO [dbo].[WebComponentViewSubSettings] ([ID], [WebComponentID], [Code],
     [label]="{{label}}"
     [class]=''{{classes}}''
 ></cr-dropdown-smart-control>
-', '2022-07-15 19:48:12.2668658 +03:00', 1, N'N', '4bc9967a-3596-47aa-929b-ca348570f24e', 1, NULL, '2022-09-28 17:31:50.1102942 +03:00')
+', '2022-11-04 19:03:01.4200000 +00:00', 2, N'N', '70493037-c9e5-4c11-8346-4c795e555061', 1, NULL, '2022-09-28 17:31:50.1102942 +03:00')
 INSERT INTO [dbo].[WebComponentViewSubSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('0914903c-e94e-ed11-8e5d-4ccc6a2bb6d6', '3d3c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'manage-contact-person-partner', N'Partner', N'{
     "defaultValue": {
         "isUseTranslateKey": true,
@@ -935,7 +979,7 @@ INSERT INTO [dbo].[WebComponentViewSubSettings] ([ID], [WebComponentID], [Code],
     [label]="{{label}}"
     [class]=''{{classes}}''
 ></cr-dropdown-smart-control>
-', '2022-07-15 19:51:11.0843978 +03:00', 1, N'N', '4288b178-c53c-4f4f-af88-94315112e349', 1, NULL, '2022-09-28 17:31:50.1102942 +03:00')
+', '2022-11-04 18:13:31.3900000 +00:00', 2, N'N', 'dca13f21-58a2-47f3-801c-80f1d989926c', 1, NULL, '2022-09-28 17:31:50.1102942 +03:00')
 INSERT INTO [dbo].[WebComponentViewSubSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('0a14903c-e94e-ed11-8e5d-4ccc6a2bb6d6', '3d3c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'manage-contact-person-creation-store', N'Creation store', N'{
     "defaultValue": {
         "isUseTranslateKey": true,
@@ -964,7 +1008,7 @@ INSERT INTO [dbo].[WebComponentViewSubSettings] ([ID], [WebComponentID], [Code],
     [label]="{{label}}"
     [class]=''{{classes}}''
 ></cr-dropdown-smart-control>
-', '2022-07-15 19:54:48.2633333 +00:00', 2, N'N', 'cae79ba6-bcda-48f3-a794-d85c5e11a1bb', 1, NULL, '2022-09-28 17:31:50.1102942 +03:00')
+', '2022-11-04 18:13:43.4866667 +00:00', 3, N'N', '42e01a81-7ed9-4e8e-8a3f-3fc3a969a3f5', 1, NULL, '2022-09-28 17:31:50.1102942 +03:00')
 INSERT INTO [dbo].[WebComponentViewSubSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('0b14903c-e94e-ed11-8e5d-4ccc6a2bb6d6', '3f3c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'manage-partner-contact-person-birthday', N'Birthday', N'{
     "defaultValue": {
         "isUseTranslateKey": true,
@@ -977,7 +1021,7 @@ INSERT INTO [dbo].[WebComponentViewSubSettings] ([ID], [WebComponentID], [Code],
     [translateKeys]="{{translateKey}}"
     [class]=''{{classes}}'' 
     [isDisabled]="{{disabled}}"
-></cr-control-datepicker>', '2022-07-15 20:00:22.5646831 +03:00', 1, N'N', '7e90bdae-d2cc-4a4a-8b73-5507ba65ba06', 1, NULL, '2022-09-28 17:31:50.1102942 +03:00')
+></cr-control-datepicker>', '2022-11-04 18:13:52.0700000 +00:00', 2, N'N', '01885a14-7867-4c38-914f-49ed39221c5f', 1, NULL, '2022-09-28 17:31:50.1102942 +03:00')
 INSERT INTO [dbo].[WebComponentViewSubSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('0c14903c-e94e-ed11-8e5d-4ccc6a2bb6d6', '3f3c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'manage-partner-contact-person-registration-date', N'Registration date', N'{
     "defaultValue": {
         "isUseTranslateKey": true,
@@ -990,7 +1034,7 @@ INSERT INTO [dbo].[WebComponentViewSubSettings] ([ID], [WebComponentID], [Code],
     [translateKeys]="{{translateKey}}"
     [class]=''{{classes}}'' 
     [isDisabled]="{{disabled}}"
-></cr-control-datepicker>', '2022-07-15 20:01:27.7369967 +03:00', 1, N'N', '63cbd499-e76b-439c-a333-cd9cc9726fa1', 1, NULL, '2022-09-28 17:31:50.1102942 +03:00')
+></cr-control-datepicker>', '2022-11-04 18:14:00.7900000 +00:00', 2, N'N', '4a6ad749-c66e-4e1f-bb3f-284b8e049527', 1, NULL, '2022-09-28 17:31:50.1102942 +03:00')
 INSERT INTO [dbo].[WebComponentViewSubSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('0d14903c-e94e-ed11-8e5d-4ccc6a2bb6d6', '383c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'manage-partner-contact-person-is-partner-club', N'Is partner club', N'{
     "defaultValue": {
         "isUseTranslateKey": true,
@@ -1003,7 +1047,7 @@ INSERT INTO [dbo].[WebComponentViewSubSettings] ([ID], [WebComponentID], [Code],
     [class]=''{{classes}}''
     [elementName]="''edit:Partner_details.Contact_person_is_partner_club''"
     [(dataValue)]="self.contactPerson.isPartnerClub"
-></cr-checkbox-control>', '2022-07-15 20:04:39.9420038 +03:00', 1, N'N', '50257331-9256-4c54-b0eb-cf6a9af2b4f6', 1, NULL, '2022-09-28 17:31:50.1102942 +03:00')
+></cr-checkbox-control>', '2022-11-04 18:14:09.0400000 +00:00', 2, N'N', 'f9265f1a-f07c-4c10-aec0-757b9e568ee8', 1, NULL, '2022-09-28 17:31:50.1102942 +03:00')
 INSERT INTO [dbo].[WebComponentViewSubSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('0e14903c-e94e-ed11-8e5d-4ccc6a2bb6d6', '403c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'manage-partner-contact-person-mailing-category', N'Mailing category', N'{
     "defaultValue": {
         "editIcon": "icon-edit",
@@ -1019,48 +1063,4 @@ INSERT INTO [dbo].[WebComponentViewSubSettings] ([ID], [WebComponentID], [Code],
     (editClickEvent)="self.onEditMailingCategory()"
     [class]=''{{classes}}''
     [editIcon]="{{editIcon}}"
-></cr-partner-mailing-category-control>', '2022-07-15 20:06:43.8348768 +03:00', 1, N'N', '73f50e0e-75c9-4d7c-b872-517836b93ea0', 1, NULL, '2022-09-28 17:31:50.1102942 +03:00')
-INSERT INTO [dbo].[WebComponentViewSubSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('0f14903c-e94e-ed11-8e5d-4ccc6a2bb6d6', '3c3c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'tax-group-definition-title', N'Header', N'{
-    "defaultValue": {
-        "isUseTranslateKey": true,
-        "translateKey": "TAX_GROUP.DETAILS.PANEL.TITLE_DEFINITIONS",
-        "elements": [
-            {
-                "appearance": "primary-button",
-                "nameTranslateKey": "COMMON.BUTTON.CONFIRM",
-                "template": "custom"
-            }
-        ]
-    }
-}', N'<cr-title-header
-    [titleTranslateKey]="{{translateKey}}"
-    [title]="{{label}}"
-    [additionalTranslateKeys]="''COMMON.NEW''"
-    (buttonClickEvent)="self.onTitleButtonClick($event)"
-    [buttonSettings]="self.titleHeaderButtonSettings"
-    [titleValue]="self.titleValueText"
-></cr-title-header>
-', '2022-10-06 12:06:33.6966667 +00:00', 2, N'N', '19bd012d-78c7-4466-9429-115ae3e3256a', 1, NULL, '2022-10-06 12:05:15.6069016 +03:00')
-INSERT INTO [dbo].[WebComponentViewSubSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('e413903c-e94e-ed11-8e5d-4ccc6a2bb6d6', '3c3c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'manage-partner-group-title-header', N'Title header', N'{
-    "defaultValue": {
-        "isUseTranslateKey": true,
-        "translateKey": "PARTNER.DETAILS.MANAGE_GROUP.TITLE",
-        "elements": [
-            {
-                "appearance": "primary-button",
-                "nameTranslateKey": "COMMON.BUTTON.CONFIRM",
-                "template": "custom"
-            },
-            {
-                "appearance": "primary-button",
-                "nameTranslateKey": "COMMON.BUTTON.CANCEL",
-                "template": "custom"
-            }
-        ]
-    }
-}', N'<cr-title-header
-    [titleTranslateKey]="{{translateKey}}"
-    [title]="{{label}}"
-    (buttonClickEvent)="self.onTitleButtonClick($event)"
-    [buttonSettings]="self.titleHeaderButtonSettings"
-></cr-title-header>', '2022-11-04 13:17:22.2766667 +00:00', 3, N'N', '8d0a3ff5-6d34-4d08-aaa9-851849e8c3e3', 1, NULL, '2022-09-28 17:31:50.1102942 +03:00')
+></cr-partner-mailing-category-control>', '2022-11-04 18:14:16.7800000 +00:00', 2, N'N', '81f66fcf-ff72-4d30-aeca-91fd86597823', 1, NULL, '2022-09-28 17:31:50.1102942 +03:00')

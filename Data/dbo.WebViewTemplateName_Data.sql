@@ -3727,7 +3727,7 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
             </ng-container>
           </div>
         </div>', '2022-03-22 23:53:16.2399824 +02:00', 1, N'N', '7cbf22bd-d7f6-4d7d-9b2b-daa0262b40c9', 1, NULL)
-INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID], [BookmarkName], [BookmarkDescription], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('fc819b05-4351-ed11-8e5d-4ccc6a2bb6d6', 'dbae82e8-4251-ed11-8e5d-4ccc6a2bb6d6', 1, N'', N'', N'
+INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID], [BookmarkName], [BookmarkDescription], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('8ca5acaf-8553-ed11-8e5d-4ccc6a2bb6d6', '8ba5acaf-8553-ed11-8e5d-4ccc6a2bb6d6', 1, NULL, NULL, N'
         <div class=''cr-popup-content-wrapper'' [class.cr-popup-is-shown]=''self.popupTab.tabs.length > 1''>
           <cr-popup-tabs
             [popupTabs]=''self.popupTab.tabs''
@@ -3743,7 +3743,7 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
       <ng-template [ngIf]="self.popupTab.tabs[self.popupTab.activeTabIndex].type == ''general'' && self.popupTab.activeTabIndex == i">
         <div *ngIf=''self.popupTab.activeTabIndex != self.popupTab.tabs.length - 1'' class=''cr-popup-blocker''></div>
         <cr-title-header
-    [titleTranslateKey]="''TAX_GROUP.LIST.TITLE''"
+    [titleTranslateKey]="''PARTNER.GRID.TITLE''"
     [title]="''''"
     (buttonClickEvent)="self.onTitleButtonClick($event)"
     [buttonSettings]="self.titleHeaderButtonSettings"
@@ -3752,8 +3752,8 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
         [panelTemplateType]="''panel''"
         [expanded]="self.panelsViewState?.[''undefined''] ?? true"
         (expandedChange)="self.panelStateChange(''undefined'', $event)"
-        [titleTranslateKey]="true ? ''TAX_GROUP.LIST.FILTER.TITLE'' : null"
-        [title]="true ? null : ''Selection criteria he''"
+        [titleTranslateKey]="false ? ''undefined'' : null"
+        [title]="false ? null : ''Panel he''"
         [customClass]="''''"
         [headerClass]="''''"
         [validator]="self.validator"
@@ -3761,21 +3761,19 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
         [containFields]=''[]''
       >
         <ng-template crPanelContent>
-          <div class="row"><div class=''col-md-2''><cr-control-edit 
-    [translateKeys]="''TAX_GROUP.LIST.FILTER.CODE''" 
+          <div class="row"><div class=''col-md-4''><cr-control-edit 
+    [translateKeys]="''PARTNER.FILTER.FIRST_NAME''" 
     [dataLabel]="''''"
     [customClass]=''""''
     [isDisabled]="false"
-    [elementName]="''edit:Tax_group_list.Code''"
-    [(dataValue)]="self.taxGroupFilterRequest.code"
-></cr-control-edit></div><div class=''col-md-2''><cr-control-edit 
-    [translateKeys]="''TAX_GROUP.LIST.FILTER.NAME''" 
+    [(dataValue)]="self.partnerListFilter.firstName"
+></cr-control-edit></div><div class=''col-md-4''><cr-control-edit 
+    [translateKeys]="''PARTNER.FILTER.EMAIL''" 
     [dataLabel]="''''"
     [customClass]=''""''
     [isDisabled]="false"
-    [elementName]="''edit:Tax_group_list.Name''"
-    [(dataValue)]="self.taxGroupFilterRequest.name"
-></cr-control-edit></div><div class=''col-md-8''><cr-button-control 
+    [(dataValue)]="self.partnerListFilter.EMail"
+></cr-control-edit></div><div class=''col-md-2''></div><div class=''col-md-2''><cr-button-control 
     [buttonTemplateType]="''underlined-action-button''"
     [text]="''''"
     [textTranslateKey]="''COMMON.SEARCH''"
@@ -3784,7 +3782,7 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
     [height]="''''"
     [icon]="''undefined''"
     (buttonClickEvent)="self.changeFilter()"
-    *ngIf="(self.EndpointName.tax_group_GET | endpointAccessGrantedPipe)"
+    *ngIf="self.authService.getEndpointAccessGranted(self.EndpointName.partner_GET)"
 ></cr-button-control></div></div>
         </ng-template>
       </cr-panel>
@@ -3792,8 +3790,8 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
         [panelTemplateType]="''panel''"
         [expanded]="self.panelsViewState?.[''undefined''] ?? true"
         (expandedChange)="self.panelStateChange(''undefined'', $event)"
-        [titleTranslateKey]="true ? ''TAX_GROUP.LIST.GRID.TITLE'' : null"
-        [title]="true ? null : ''VAT Groups he''"
+        [titleTranslateKey]="true ? ''PARTNER.GRID.TITLE'' : null"
+        [title]="true ? null : ''רשימת כרטיסים''"
         [customClass]="''''"
         [headerClass]="''''"
         [validator]="self.validator"
@@ -3806,9 +3804,9 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
         (cellClickEvent)="self.cellClick($event)"
         (pageChangeEvent)="self.changePage($event)"
         [columnSettings]="self.columnSettings"
-        [dataCacheName]="''TaxGroupGrid''"
-        [dataSource]="self.gridData"
-        [elementName]="''edit-grid-server-paging:TaxGroup_list.Grid''"
+        [dataCacheName]="''partnerGrid''"
+        [dataSource]="self.dataSource"
+        [elementName]="''edit-grid-server-paging:Partner_list.Grid''"
         [pageable]="true"
         [resizable]="true"
         [uniqueField]="''id''"
@@ -3823,8 +3821,8 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
               </ng-container>
             </ng-container>
           </div>
-        </div>', '2022-10-21 19:29:09.6700000 +00:00', 3, N'N', 'f6ae726c-afd9-42f6-8fcc-79796e252b60', 1, NULL)
-INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID], [BookmarkName], [BookmarkDescription], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('fd819b05-4351-ed11-8e5d-4ccc6a2bb6d6', 'dbae82e8-4251-ed11-8e5d-4ccc6a2bb6d6', 2, N'', N'', N'
+        </div>', '2022-11-04 14:28:21.9933333 +00:00', 2, N'N', '01b9991a-607d-4e05-8bfb-2b83e05fde3b', 1, NULL)
+INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID], [BookmarkName], [BookmarkDescription], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('8da5acaf-8553-ed11-8e5d-4ccc6a2bb6d6', '8ba5acaf-8553-ed11-8e5d-4ccc6a2bb6d6', 2, NULL, NULL, N'
         <div class=''cr-popup-content-wrapper'' [class.cr-popup-is-shown]=''self.popupTab.tabs.length > 1''>
           <cr-popup-tabs
             [popupTabs]=''self.popupTab.tabs''
@@ -3840,7 +3838,7 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
       <ng-template [ngIf]="self.popupTab.tabs[self.popupTab.activeTabIndex].type == ''general'' && self.popupTab.activeTabIndex == i">
         <div *ngIf=''self.popupTab.activeTabIndex != self.popupTab.tabs.length - 1'' class=''cr-popup-blocker''></div>
         <cr-title-header
-    [titleTranslateKey]="''TAX_GROUP.LIST.TITLE''"
+    [titleTranslateKey]="''PARTNER.GRID.TITLE''"
     [title]="''''"
     (buttonClickEvent)="self.onTitleButtonClick($event)"
     [buttonSettings]="self.titleHeaderButtonSettings"
@@ -3849,8 +3847,8 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
         [panelTemplateType]="''panel''"
         [expanded]="self.panelsViewState?.[''undefined''] ?? true"
         (expandedChange)="self.panelStateChange(''undefined'', $event)"
-        [titleTranslateKey]="true ? ''TAX_GROUP.LIST.FILTER.TITLE'' : null"
-        [title]="true ? null : ''Selection criteria''"
+        [titleTranslateKey]="false ? ''undefined'' : null"
+        [title]="false ? null : ''חתך הגדרות''"
         [customClass]="''''"
         [headerClass]="''''"
         [validator]="self.validator"
@@ -3858,21 +3856,19 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
         [containFields]=''[]''
       >
         <ng-template crPanelContent>
-          <div class="row"><div class=''col-md-2''><cr-control-edit 
-    [translateKeys]="''TAX_GROUP.LIST.FILTER.CODE''" 
+          <div class="row"><div class=''col-md-4''><cr-control-edit 
+    [translateKeys]="''PARTNER.FILTER.FIRST_NAME''" 
     [dataLabel]="''''"
     [customClass]=''""''
     [isDisabled]="false"
-    [elementName]="''edit:Tax_group_list.Code''"
-    [(dataValue)]="self.taxGroupFilterRequest.code"
-></cr-control-edit></div><div class=''col-md-2''><cr-control-edit 
-    [translateKeys]="''TAX_GROUP.LIST.FILTER.NAME''" 
+    [(dataValue)]="self.partnerListFilter.firstName"
+></cr-control-edit></div><div class=''col-md-4''><cr-control-edit 
+    [translateKeys]="''PARTNER.FILTER.EMAIL''" 
     [dataLabel]="''''"
     [customClass]=''""''
     [isDisabled]="false"
-    [elementName]="''edit:Tax_group_list.Name''"
-    [(dataValue)]="self.taxGroupFilterRequest.name"
-></cr-control-edit></div><div class=''col-md-8''><cr-button-control 
+    [(dataValue)]="self.partnerListFilter.EMail"
+></cr-control-edit></div><div class=''col-md-2''></div><div class=''col-md-2''><cr-button-control 
     [buttonTemplateType]="''underlined-action-button''"
     [text]="''''"
     [textTranslateKey]="''COMMON.SEARCH''"
@@ -3881,7 +3877,7 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
     [height]="''''"
     [icon]="''undefined''"
     (buttonClickEvent)="self.changeFilter()"
-    *ngIf="(self.EndpointName.tax_group_GET | endpointAccessGrantedPipe)"
+    *ngIf="self.authService.getEndpointAccessGranted(self.EndpointName.partner_GET)"
 ></cr-button-control></div></div>
         </ng-template>
       </cr-panel>
@@ -3889,8 +3885,8 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
         [panelTemplateType]="''panel''"
         [expanded]="self.panelsViewState?.[''undefined''] ?? true"
         (expandedChange)="self.panelStateChange(''undefined'', $event)"
-        [titleTranslateKey]="true ? ''TAX_GROUP.LIST.GRID.TITLE'' : null"
-        [title]="true ? null : ''VAT Groups''"
+        [titleTranslateKey]="true ? ''PARTNER.GRID.TITLE'' : null"
+        [title]="true ? null : ''Partner List''"
         [customClass]="''''"
         [headerClass]="''''"
         [validator]="self.validator"
@@ -3903,9 +3899,9 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
         (cellClickEvent)="self.cellClick($event)"
         (pageChangeEvent)="self.changePage($event)"
         [columnSettings]="self.columnSettings"
-        [dataCacheName]="''TaxGroupGrid''"
-        [dataSource]="self.gridData"
-        [elementName]="''edit-grid-server-paging:TaxGroup_list.Grid''"
+        [dataCacheName]="''partnerGrid''"
+        [dataSource]="self.dataSource"
+        [elementName]="''edit-grid-server-paging:Partner_list.Grid''"
         [pageable]="true"
         [resizable]="true"
         [uniqueField]="''id''"
@@ -3920,341 +3916,13 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
               </ng-container>
             </ng-container>
           </div>
-        </div>', '2022-10-21 19:29:09.9466667 +00:00', 3, N'N', '60eb928f-b0db-4472-ae1d-27d60c7dbafb', 1, NULL)
-INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID], [BookmarkName], [BookmarkDescription], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('fe819b05-4351-ed11-8e5d-4ccc6a2bb6d6', 'dcae82e8-4251-ed11-8e5d-4ccc6a2bb6d6', 1, NULL, NULL, N'
-        <div class=''cr-popup-content-wrapper'' [class.cr-popup-is-shown]=''self.popupTab.tabs.length > 1''>
-          <cr-popup-tabs
-            [popupTabs]=''self.popupTab.tabs''
-            [activePopup]=''self.popupTab.activeTabIndex''
-            (closePopup)=''self.removePopupTab()''
-            (changeActive)=''self.changeActiveTab($event)''
-          ></cr-popup-tabs>
-          <div class=''cr-details-inner-container''>
-            <ng-container *ngFor=''let tab of self.popupTab.tabs; index as i;''>
-              <ng-container [ngSwitch]=''tab.type''>
-                
-    <ng-template [ngSwitchCase]="''general''">
-      <ng-template [ngIf]="self.popupTab.tabs[self.popupTab.activeTabIndex].type == ''general'' && self.popupTab.activeTabIndex == i">
-        <div *ngIf=''self.popupTab.activeTabIndex != self.popupTab.tabs.length - 1'' class=''cr-popup-blocker''></div>
-        <cr-title-header
-    [titleTranslateKey]="''TAX_GROUP.DETAILS.TITLE''"
-    [title]="''''"
-    (buttonClickEvent)="self.onTitleButtonClick($event)"
-    [buttonSettings]="self.titleHeaderButtonSettings"
-    [titleValue]="self.titleValueText"
-></cr-title-header>
-      <cr-panel
-        [panelTemplateType]="''well''"
-        [customClass]="''''"
-      >
-        <ng-template crPanelContent>
-          <div class="row"><div class=''col-md-2''><cr-control-edit
-    [(dataValue)]="self.taxGroup.code"
-    [elementName]="''edit:TaxGroup_details.Code''"
-    [validator]="self.validator"
-    [validationField]="''code''"
-    (dataValueChange)="self.onChangeTitleValue()"
-    [translateKeys]="''TAX_GROUP.DETAILS.CODE''" 
-    [dataLabel]="''''"
-    [customClass]=''""''
-    [isDisabled]="self.taxGroup.isPredefined || false"
-></cr-control-edit></div><div class=''col-md-2''><cr-control-edit
-    [(dataValue)]="self.taxGroup.name"
-    [elementName]="''edit:TaxGroup_details.Name''"
-    [validator]="self.validator"
-    [validationField]="''name''"
-    [translateKeys]="''TAX_GROUP.DETAILS.NAME''" 
-    [dataLabel]="''''"
-    [customClass]=''""''
-    [isDisabled]="false"
-></cr-control-edit></div></div>
-        </ng-template>
-      </cr-panel>
-      <cr-panel
-        [panelTemplateType]="''collapsible-panel''"
-        [expanded]="self.panelsViewState?.[''taxDefinition''] ?? true"
-        (expandedChange)="self.panelStateChange(''taxDefinition'', $event)"
-        [titleTranslateKey]="true ? ''TAX_GROUP.DETAILS.PANEL.TITLE_DEFINITIONS'' : null"
-        [title]="true ? null : ''Tax definitions he''"
-        [customClass]="''''"
-        [headerClass]="''''"
-        [validator]="self.validator"
-        [validatorGroupName]="''taxDefinition''"
-        [containFields]=''[]''
-      >
-        <ng-template crPanelContent>
-          <div class="cr-grid-wrapper-new cr-grid-with-collapse cr-tax-group-grid">
-    <kendo-grid
-        #grid
-        (pageChange)="self.pageChange($event)"
-        [(selectedKeys)]="self.mySelection"
-        [attr.data-element-name]="''grid:TaxGroup_details_definition.Definitions_grid''"
-        [data]="self.gridView"
-        [kendoGridSelectBy]="self.mySelectionKey"
-        [pageSize]="self.taxGroup.taxGroupLocationList.paginator?.size"
-        [skip]="self.taxGroup.taxGroupLocationList.paginator?.skip"
-        [pageable]="true"
-        [resizable]="true"
-        (add)="self.addHandler()"
-        (edit)="self.editHandler($event)"
-        (remove)="self.removeHandler($event)"
-                    >
-                      <ng-template kendoGridToolbarTemplate>
-                        <div
-                          class="row cr-row-padding-revert">
-                          <div class="col-lg-12 cr-col-content-align-right cr-col-no-padding">
-                            <cr-button-control
-                              [buttonTemplateType]="''grid-add-command''"
-                              [elementName]="''button:PriceList.Add''"
-                              *ngIf="(self.EndpointName.tax_group_id_PUT | endpointAccessGrantedPipe)"
-                            ></cr-button-control>
-                          </div>
-                        </div>
-                      </ng-template>
-
-                      <kendo-grid-column field="name">
-                        <ng-template kendoGridHeaderTemplate>
-                            <span [attr.data-translate]="''TAX_GROUP.DETAILS.GRID.NAME''">
-                              {{''TAX_GROUP.DETAILS.GRID.NAME'' | translate}}
-                            </span>
-                        </ng-template>
-                        <ng-template kendoGridCellTemplate
-                                     let-dataItem>
-                            <span>
-                              {{dataItem.name}}
-                            </span>
-                        </ng-template>
-                        <ng-template kendoGridEditTemplate let-dataItem>
-                          <cr-control-edit
-                            [(dataValue)]="self.taxGroup.cache.changeItem.name"
-                            [elementName]="''edit:TaxGroup.Name''"
-                            [translateKeys]="''TAX_GROUP.DETAILS.GRID.NAME''"
-                          ></cr-control-edit>
-                        </ng-template>
-                      </kendo-grid-column>
-
-                      <kendo-grid-column class="action-group" width="250">
-                        <ng-template kendoGridCellTemplate
-                                     let-dataItem="dataItem"
-                                     let-isNew="isNew"
-                                     let-rowIndex="rowIndex">
-                          <cr-button-control
-                            [buttonTemplateType]="''grid-edit-command''"
-                            [elementName]="''edit:TaxGroup.Details_Edit_Command''"
-                          ></cr-button-control>
-                          <!-- Delete row (trash button)-->
-                          <cr-button-control
-                            *ngIf="(self.EndpointName.tax_group_id_PUT | endpointAccessGrantedPipe)"
-                            [buttonTemplateType]="''grid-remove-command''"
-                            [elementName]="''edit:TaxGroup.Details_Remove_Command''"
-                          ></cr-button-control>
-                        </ng-template>
-                      </kendo-grid-column>
-                      <ng-template kendoGridNoRecordsTemplate>
-                          <span [attr.data-translate]="''COMMON.GRID.NO_RECORDS''">
-                            {{ ''COMMON.GRID.NO_RECORDS'' | translate }}
-                          </span>
-                      </ng-template>
-                      <ng-template kendoPagerTemplate>
-                        <cr-grid-paginator
-                          [totalElements]="self.gridView?.total"></cr-grid-paginator>
-                      </ng-template>
-                    </kendo-grid>
-                  </div>
-        </ng-template>
-      </cr-panel>
-      </ng-template>
-    </ng-template>
-    
-        <ng-template [ngSwitchCase]="''tax-group-definition''">
-          <ng-template
-            [ngIf]="self.popupTab.tabs[self.popupTab.activeTabIndex].type == ''tax-group-definition'' && self.popupTab.activeTabIndex == i">
-            <div *ngIf=''self.popupTab.activeTabIndex != self.popupTab.tabs.length - 1'' class=''cr-popup-blocker''></div>
-            <cr-tax-group-definition
-    [taxGroupLocation]="self.getTaxGroupLocation()"
-    [basketSet]="self.basketSetNotModified"
-    (addLocationsEvent)="self.addBasketLocationsPopulation()"
-    (editLocationsEvent)="self.onEditLocationsPopulation()"
-    (closeEvent)="self.popupTab.close()"
-    (updateEvent)="self.updateDefinition($event)"
-></cr-tax-group-definition>
-          </ng-template>
-        </ng-template>
-      
-              </ng-container>
-            </ng-container>
-          </div>
-        </div>', '2022-10-21 19:29:09.7933333 +00:00', 3, N'N', '2122143c-721b-4b20-8c31-a0de822d62cf', 1, NULL)
-INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID], [BookmarkName], [BookmarkDescription], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('ff819b05-4351-ed11-8e5d-4ccc6a2bb6d6', 'dcae82e8-4251-ed11-8e5d-4ccc6a2bb6d6', 2, NULL, NULL, N'
-        <div class=''cr-popup-content-wrapper'' [class.cr-popup-is-shown]=''self.popupTab.tabs.length > 1''>
-          <cr-popup-tabs
-            [popupTabs]=''self.popupTab.tabs''
-            [activePopup]=''self.popupTab.activeTabIndex''
-            (closePopup)=''self.removePopupTab()''
-            (changeActive)=''self.changeActiveTab($event)''
-          ></cr-popup-tabs>
-          <div class=''cr-details-inner-container''>
-            <ng-container *ngFor=''let tab of self.popupTab.tabs; index as i;''>
-              <ng-container [ngSwitch]=''tab.type''>
-                
-    <ng-template [ngSwitchCase]="''general''">
-      <ng-template [ngIf]="self.popupTab.tabs[self.popupTab.activeTabIndex].type == ''general'' && self.popupTab.activeTabIndex == i">
-        <div *ngIf=''self.popupTab.activeTabIndex != self.popupTab.tabs.length - 1'' class=''cr-popup-blocker''></div>
-        <cr-title-header
-    [titleTranslateKey]="''TAX_GROUP.DETAILS.TITLE''"
-    [title]="''''"
-    (buttonClickEvent)="self.onTitleButtonClick($event)"
-    [buttonSettings]="self.titleHeaderButtonSettings"
-    [titleValue]="self.titleValueText"
-></cr-title-header>
-      <cr-panel
-        [panelTemplateType]="''well''"
-        [customClass]="''''"
-      >
-        <ng-template crPanelContent>
-          <div class="row"><div class=''col-md-2''><cr-control-edit
-    [(dataValue)]="self.taxGroup.code"
-    [elementName]="''edit:TaxGroup_details.Code''"
-    [validator]="self.validator"
-    [validationField]="''code''"
-    (dataValueChange)="self.onChangeTitleValue()"
-    [translateKeys]="''TAX_GROUP.DETAILS.CODE''" 
-    [dataLabel]="''''"
-    [customClass]=''""''
-    [isDisabled]="self.taxGroup.isPredefined || false"
-></cr-control-edit></div><div class=''col-md-2''><cr-control-edit
-    [(dataValue)]="self.taxGroup.name"
-    [elementName]="''edit:TaxGroup_details.Name''"
-    [validator]="self.validator"
-    [validationField]="''name''"
-    [translateKeys]="''TAX_GROUP.DETAILS.NAME''" 
-    [dataLabel]="''''"
-    [customClass]=''""''
-    [isDisabled]="false"
-></cr-control-edit></div></div>
-        </ng-template>
-      </cr-panel>
-      <cr-panel
-        [panelTemplateType]="''collapsible-panel''"
-        [expanded]="self.panelsViewState?.[''taxDefinition''] ?? true"
-        (expandedChange)="self.panelStateChange(''taxDefinition'', $event)"
-        [titleTranslateKey]="true ? ''TAX_GROUP.DETAILS.PANEL.TITLE_DEFINITIONS'' : null"
-        [title]="true ? null : ''Tax definitions''"
-        [customClass]="''''"
-        [headerClass]="''''"
-        [validator]="self.validator"
-        [validatorGroupName]="''taxDefinition''"
-        [containFields]=''[]''
-      >
-        <ng-template crPanelContent>
-          <div class="cr-grid-wrapper-new cr-grid-with-collapse cr-tax-group-grid">
-    <kendo-grid
-        #grid
-        (pageChange)="self.pageChange($event)"
-        [(selectedKeys)]="self.mySelection"
-        [attr.data-element-name]="''grid:TaxGroup_details_definition.Definitions_grid''"
-        [data]="self.gridView"
-        [kendoGridSelectBy]="self.mySelectionKey"
-        [pageSize]="self.taxGroup.taxGroupLocationList.paginator?.size"
-        [skip]="self.taxGroup.taxGroupLocationList.paginator?.skip"
-        [pageable]="true"
-        [resizable]="true"
-        (add)="self.addHandler()"
-        (edit)="self.editHandler($event)"
-        (remove)="self.removeHandler($event)"
-                    >
-                      <ng-template kendoGridToolbarTemplate>
-                        <div
-                          class="row cr-row-padding-revert">
-                          <div class="col-lg-12 cr-col-content-align-right cr-col-no-padding">
-                            <cr-button-control
-                              [buttonTemplateType]="''grid-add-command''"
-                              [elementName]="''button:PriceList.Add''"
-                              *ngIf="(self.EndpointName.tax_group_id_PUT | endpointAccessGrantedPipe)"
-                            ></cr-button-control>
-                          </div>
-                        </div>
-                      </ng-template>
-
-                      <kendo-grid-column field="name">
-                        <ng-template kendoGridHeaderTemplate>
-                            <span [attr.data-translate]="''TAX_GROUP.DETAILS.GRID.NAME''">
-                              {{''TAX_GROUP.DETAILS.GRID.NAME'' | translate}}
-                            </span>
-                        </ng-template>
-                        <ng-template kendoGridCellTemplate
-                                     let-dataItem>
-                            <span>
-                              {{dataItem.name}}
-                            </span>
-                        </ng-template>
-                        <ng-template kendoGridEditTemplate let-dataItem>
-                          <cr-control-edit
-                            [(dataValue)]="self.taxGroup.cache.changeItem.name"
-                            [elementName]="''edit:TaxGroup.Name''"
-                            [translateKeys]="''TAX_GROUP.DETAILS.GRID.NAME''"
-                          ></cr-control-edit>
-                        </ng-template>
-                      </kendo-grid-column>
-
-                      <kendo-grid-column class="action-group" width="250">
-                        <ng-template kendoGridCellTemplate
-                                     let-dataItem="dataItem"
-                                     let-isNew="isNew"
-                                     let-rowIndex="rowIndex">
-                          <cr-button-control
-                            [buttonTemplateType]="''grid-edit-command''"
-                            [elementName]="''edit:TaxGroup.Details_Edit_Command''"
-                          ></cr-button-control>
-                          <!-- Delete row (trash button)-->
-                          <cr-button-control
-                            *ngIf="(self.EndpointName.tax_group_id_PUT | endpointAccessGrantedPipe)"
-                            [buttonTemplateType]="''grid-remove-command''"
-                            [elementName]="''edit:TaxGroup.Details_Remove_Command''"
-                          ></cr-button-control>
-                        </ng-template>
-                      </kendo-grid-column>
-                      <ng-template kendoGridNoRecordsTemplate>
-                          <span [attr.data-translate]="''COMMON.GRID.NO_RECORDS''">
-                            {{ ''COMMON.GRID.NO_RECORDS'' | translate }}
-                          </span>
-                      </ng-template>
-                      <ng-template kendoPagerTemplate>
-                        <cr-grid-paginator
-                          [totalElements]="self.gridView?.total"></cr-grid-paginator>
-                      </ng-template>
-                    </kendo-grid>
-                  </div>
-        </ng-template>
-      </cr-panel>
-      </ng-template>
-    </ng-template>
-    
-        <ng-template [ngSwitchCase]="''tax-group-definition''">
-          <ng-template
-            [ngIf]="self.popupTab.tabs[self.popupTab.activeTabIndex].type == ''tax-group-definition'' && self.popupTab.activeTabIndex == i">
-            <div *ngIf=''self.popupTab.activeTabIndex != self.popupTab.tabs.length - 1'' class=''cr-popup-blocker''></div>
-            <cr-tax-group-definition
-    [taxGroupLocation]="self.getTaxGroupLocation()"
-    [basketSet]="self.basketSetNotModified"
-    (addLocationsEvent)="self.addBasketLocationsPopulation()"
-    (editLocationsEvent)="self.onEditLocationsPopulation()"
-    (closeEvent)="self.popupTab.close()"
-    (updateEvent)="self.updateDefinition($event)"
-></cr-tax-group-definition>
-          </ng-template>
-        </ng-template>
-      
-              </ng-container>
-            </ng-container>
-          </div>
-        </div>', '2022-10-21 19:29:10.0100000 +00:00', 3, N'N', '0d79ac06-1a4c-41e0-8997-2cc7df0bbc1d', 1, NULL)
+        </div>', '2022-11-04 14:28:27.4233333 +00:00', 2, N'N', 'd27ff221-850f-44d4-9532-d70346e99f13', 1, NULL)
 INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID], [BookmarkName], [BookmarkDescription], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('ee819b05-4351-ed11-8e5d-4ccc6a2bb6d6', 'd4ae82e8-4251-ed11-8e5d-4ccc6a2bb6d6', 1, NULL, NULL, N'
         <div class=''cr-popup-content-wrapper'' [class.cr-popup-is-shown]=''self.popupTab.tabs.length > 1''>
           <cr-popup-tabs
             [popupTabs]=''self.popupTab.tabs''
             [activePopup]=''self.popupTab.activeTabIndex''
-            (closePopup)=''self.removePopupTab()''
+            (closePopup)=''self.removePopupTab($event)''
             (changeActive)=''self.changeActiveTab($event)''
           ></cr-popup-tabs>
           <div class=''cr-details-inner-container''>
@@ -4424,13 +4092,13 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
               </ng-container>
             </ng-container>
           </div>
-        </div>', '2022-11-04 14:29:05.7500000 +00:00', 155, N'N', '54ece505-ef3f-4517-8a83-281f3e953714', 1, NULL)
+        </div>', '2022-11-04 19:03:12.4700000 +00:00', 172, N'N', 'e1e81662-def5-4cf5-bec6-118c6c7883f7', 1, NULL)
 INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID], [BookmarkName], [BookmarkDescription], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('ef819b05-4351-ed11-8e5d-4ccc6a2bb6d6', 'd4ae82e8-4251-ed11-8e5d-4ccc6a2bb6d6', 2, NULL, NULL, N'
         <div class=''cr-popup-content-wrapper'' [class.cr-popup-is-shown]=''self.popupTab.tabs.length > 1''>
           <cr-popup-tabs
             [popupTabs]=''self.popupTab.tabs''
             [activePopup]=''self.popupTab.activeTabIndex''
-            (closePopup)=''self.removePopupTab()''
+            (closePopup)=''self.removePopupTab($event)''
             (changeActive)=''self.changeActiveTab($event)''
           ></cr-popup-tabs>
           <div class=''cr-details-inner-container''>
@@ -4600,13 +4268,13 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
               </ng-container>
             </ng-container>
           </div>
-        </div>', '2022-11-04 14:29:05.7500000 +00:00', 155, N'N', 'b56cae50-bbc3-4e6b-9460-a2b05aae490e', 1, NULL)
+        </div>', '2022-11-04 19:03:12.4700000 +00:00', 172, N'N', '320c8e82-47ff-4a00-bad7-e40778d60856', 1, NULL)
 INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID], [BookmarkName], [BookmarkDescription], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('f0819b05-4351-ed11-8e5d-4ccc6a2bb6d6', 'd5ae82e8-4251-ed11-8e5d-4ccc6a2bb6d6', 1, NULL, NULL, N'
         <div class=''cr-popup-content-wrapper'' [class.cr-popup-is-shown]=''self.popupTab.tabs.length > 1''>
           <cr-popup-tabs
             [popupTabs]=''self.popupTab.tabs''
             [activePopup]=''self.popupTab.activeTabIndex''
-            (closePopup)=''self.removePopupTab()''
+            (closePopup)=''self.removePopupTab($event)''
             (changeActive)=''self.changeActiveTab($event)''
           ></cr-popup-tabs>
           <div class=''cr-details-inner-container''>
@@ -5535,26 +5203,13 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
       </ng-template>
     </ng-template>
     
-        <ng-template [ngSwitchCase]="''manage-mailing-category''">
+        <ng-template [ngSwitchCase]="''manage-mailing-category-partner''">
           <ng-template
-            [ngIf]="self.popupTab.tabs[self.popupTab.activeTabIndex].type == ''manage-mailing-category'' && self.popupTab.activeTabIndex == i">
+            [ngIf]="self.popupTab.tabs[self.popupTab.activeTabIndex].type == ''manage-mailing-category-partner'' && self.popupTab.activeTabIndex == i">
             <div *ngIf=''self.popupTab.activeTabIndex != self.popupTab.tabs.length - 1'' class=''cr-popup-blocker''></div>
             <cr-partner-mailing-category-manage-dynamic
-    *ngIf="self.popupTab.tabs[self.popupTab.activeTabIndex].details === ''partner''"
     [subTemplateId]="''0900AEBD-4251-ED11-8E5D-4CCC6A2BB6D6''"
-    [entityId]="self.partnerDetails.id"
     [(selectedMailingCategory)]="self.partnerDetails.mailingCategories"
-    (cancelClickEvent)="self.onCloseMailingCategory()"
-    (confirmClickEvent)="self.onCloseMailingCategory()"
-    [isNew]="!self.isNew"
-></cr-partner-mailing-category-manage-dynamic>
-
-<cr-partner-mailing-category-manage-dynamic
-    *ngIf="self.popupTab.tabs[self.popupTab.activeTabIndex].details === ''contact-person''"
-    [subTemplateId]="''0900AEBD-4251-ED11-8E5D-4CCC6A2BB6D6''"
-    [entityId]="self.partnerDetailsContactPerson.id"
-    (selectedMailingCategoryChange)="self.partnerDetailsContactPerson.mailingCategories = $event"
-    [(selectedMailingCategory)]="self.partnerDetailsContactPerson.mailingCategories"
     (cancelClickEvent)="self.onCloseMailingCategory()"
     (confirmClickEvent)="self.onCloseMailingCategory()"
     [isNew]="!self.isNew"
@@ -5578,21 +5233,11 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
           </ng-template>
         </ng-template>
       
-        <ng-template [ngSwitchCase]="''manage-partner-addresses''">
+        <ng-template [ngSwitchCase]="''manage-partner-addresses-create''">
           <ng-template
-            [ngIf]="self.popupTab.tabs[self.popupTab.activeTabIndex].type == ''manage-partner-addresses'' && self.popupTab.activeTabIndex == i">
+            [ngIf]="self.popupTab.tabs[self.popupTab.activeTabIndex].type == ''manage-partner-addresses-create'' && self.popupTab.activeTabIndex == i">
             <div *ngIf=''self.popupTab.activeTabIndex != self.popupTab.tabs.length - 1'' class=''cr-popup-blocker''></div>
             <cr-addresses-details-dynamic
-    *ngIf="self.popupTab.tabs[self.popupTab.activeTabIndex].details === ''edit''"
-    [subTemplateId]="''0B00AEBD-4251-ED11-8E5D-4CCC6A2BB6D6''"
-    [isNew]="false"
-    (closeClickEvent)="self.onClosePartnerAddresses()"
-    (confirmAddress)="self.onConfirmPartnerAddresses($event)"
-    [itemAddress]="self.partnerDetailsAddress"
-></cr-addresses-details-dynamic>
-
-<cr-addresses-details-dynamic
-    *ngIf="self.popupTab.tabs[self.popupTab.activeTabIndex].details === ''create''"
     [subTemplateId]="''0B00AEBD-4251-ED11-8E5D-4CCC6A2BB6D6''"
     (closeClickEvent)="self.onClosePartnerAddresses()"
     [isNew]="true"
@@ -5603,21 +5248,55 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
           </ng-template>
         </ng-template>
       
-        <ng-template [ngSwitchCase]="''manage-partner-contact-persons-list''">
+        <ng-template [ngSwitchCase]="''manage-mailing-category-contact-person''">
           <ng-template
-            [ngIf]="self.popupTab.tabs[self.popupTab.activeTabIndex].type == ''manage-partner-contact-persons-list'' && self.popupTab.activeTabIndex == i">
+            [ngIf]="self.popupTab.tabs[self.popupTab.activeTabIndex].type == ''manage-mailing-category-contact-person'' && self.popupTab.activeTabIndex == i">
+            <div *ngIf=''self.popupTab.activeTabIndex != self.popupTab.tabs.length - 1'' class=''cr-popup-blocker''></div>
+            <cr-partner-mailing-category-manage-dynamic
+    [subTemplateId]="''0900AEBD-4251-ED11-8E5D-4CCC6A2BB6D6''"
+    (selectedMailingCategoryChange)="self.partnerDetailsContactPerson.mailingCategories = $event"
+    [(selectedMailingCategory)]="self.partnerDetailsContactPerson.mailingCategories"
+    (cancelClickEvent)="self.onCloseMailingCategory()"
+    (confirmClickEvent)="self.onCloseMailingCategory()"
+    [isNew]="!self.isNew"
+></cr-partner-mailing-category-manage-dynamic>
+
+          </ng-template>
+        </ng-template>
+      
+        <ng-template [ngSwitchCase]="''manage-partner-addresses-update''">
+          <ng-template
+            [ngIf]="self.popupTab.tabs[self.popupTab.activeTabIndex].type == ''manage-partner-addresses-update'' && self.popupTab.activeTabIndex == i">
+            <div *ngIf=''self.popupTab.activeTabIndex != self.popupTab.tabs.length - 1'' class=''cr-popup-blocker''></div>
+            <cr-addresses-details-dynamic
+    [subTemplateId]="''7BCDF1FD-535C-ED11-8E5E-4CCC6A2BB6D6''"
+    [isNew]="false"
+    (closeClickEvent)="self.onClosePartnerAddresses()"
+    (confirmAddress)="self.onConfirmPartnerAddresses($event)"
+    [itemAddress]="self.partnerDetailsAddress"
+></cr-addresses-details-dynamic>
+          </ng-template>
+        </ng-template>
+      
+        <ng-template [ngSwitchCase]="''manage-partner-contact-persons-update''">
+          <ng-template
+            [ngIf]="self.popupTab.tabs[self.popupTab.activeTabIndex].type == ''manage-partner-contact-persons-update'' && self.popupTab.activeTabIndex == i">
             <div *ngIf=''self.popupTab.activeTabIndex != self.popupTab.tabs.length - 1'' class=''cr-popup-blocker''></div>
             <cr-partner-contact-persons-details
-    *ngIf="self.popupTab.tabs[self.popupTab.activeTabIndex].details === ''edit''"
-    [subTemplateId]="''0E00AEBD-4251-ED11-8E5D-4CCC6A2BB6D6''"
+    [subTemplateId]="''BBD312CC-5B5C-ED11-8E5E-4CCC6A2BB6D6''"
     (openMailingCategory)="self.onEditContactPersonMailingCategory()"
     (closeClickEvent)="self.onClosePartnerContactPersons()"
     (confirmContactPerson)="self.onConfirmPartnerContactPersons($event)"
     [itemContactPerson]="self.partnerDetailsContactPerson"
 ></cr-partner-contact-persons-details>
-
-<cr-partner-contact-persons-details
-    *ngIf="self.popupTab.tabs[self.popupTab.activeTabIndex].details === ''create''"
+          </ng-template>
+        </ng-template>
+      
+        <ng-template [ngSwitchCase]="''manage-partner-contact-persons-create''">
+          <ng-template
+            [ngIf]="self.popupTab.tabs[self.popupTab.activeTabIndex].type == ''manage-partner-contact-persons-create'' && self.popupTab.activeTabIndex == i">
+            <div *ngIf=''self.popupTab.activeTabIndex != self.popupTab.tabs.length - 1'' class=''cr-popup-blocker''></div>
+            <cr-partner-contact-persons-details
     [subTemplateId]="''0E00AEBD-4251-ED11-8E5D-4CCC6A2BB6D6''"
     (openMailingCategory)="self.onEditContactPersonMailingCategory()"
     (closeClickEvent)="self.onClosePartnerContactPersons()"
@@ -5625,19 +5304,20 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
     [itemContactPerson]="self.partnerDetailsContactPerson"
     (newContactPerson)="self.onConfirmPartnerContactPersons($event, true)"
 ></cr-partner-contact-persons-details>
+
           </ng-template>
         </ng-template>
       
               </ng-container>
             </ng-container>
           </div>
-        </div>', '2022-11-04 14:29:05.9900000 +00:00', 180, N'N', '4888c607-c0f6-4e58-bc67-8846b192de40', 1, NULL)
+        </div>', '2022-11-04 19:03:12.5700000 +00:00', 198, N'N', 'c9901972-4aa8-4a87-96be-6feaac582d7c', 1, NULL)
 INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID], [BookmarkName], [BookmarkDescription], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('f1819b05-4351-ed11-8e5d-4ccc6a2bb6d6', 'd5ae82e8-4251-ed11-8e5d-4ccc6a2bb6d6', 2, NULL, NULL, N'
         <div class=''cr-popup-content-wrapper'' [class.cr-popup-is-shown]=''self.popupTab.tabs.length > 1''>
           <cr-popup-tabs
             [popupTabs]=''self.popupTab.tabs''
             [activePopup]=''self.popupTab.activeTabIndex''
-            (closePopup)=''self.removePopupTab()''
+            (closePopup)=''self.removePopupTab($event)''
             (changeActive)=''self.changeActiveTab($event)''
           ></cr-popup-tabs>
           <div class=''cr-details-inner-container''>
@@ -6566,26 +6246,13 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
       </ng-template>
     </ng-template>
     
-        <ng-template [ngSwitchCase]="''manage-mailing-category''">
+        <ng-template [ngSwitchCase]="''manage-mailing-category-partner''">
           <ng-template
-            [ngIf]="self.popupTab.tabs[self.popupTab.activeTabIndex].type == ''manage-mailing-category'' && self.popupTab.activeTabIndex == i">
+            [ngIf]="self.popupTab.tabs[self.popupTab.activeTabIndex].type == ''manage-mailing-category-partner'' && self.popupTab.activeTabIndex == i">
             <div *ngIf=''self.popupTab.activeTabIndex != self.popupTab.tabs.length - 1'' class=''cr-popup-blocker''></div>
             <cr-partner-mailing-category-manage-dynamic
-    *ngIf="self.popupTab.tabs[self.popupTab.activeTabIndex].details === ''partner''"
     [subTemplateId]="''0900AEBD-4251-ED11-8E5D-4CCC6A2BB6D6''"
-    [entityId]="self.partnerDetails.id"
     [(selectedMailingCategory)]="self.partnerDetails.mailingCategories"
-    (cancelClickEvent)="self.onCloseMailingCategory()"
-    (confirmClickEvent)="self.onCloseMailingCategory()"
-    [isNew]="!self.isNew"
-></cr-partner-mailing-category-manage-dynamic>
-
-<cr-partner-mailing-category-manage-dynamic
-    *ngIf="self.popupTab.tabs[self.popupTab.activeTabIndex].details === ''contact-person''"
-    [subTemplateId]="''0900AEBD-4251-ED11-8E5D-4CCC6A2BB6D6''"
-    [entityId]="self.partnerDetailsContactPerson.id"
-    (selectedMailingCategoryChange)="self.partnerDetailsContactPerson.mailingCategories = $event"
-    [(selectedMailingCategory)]="self.partnerDetailsContactPerson.mailingCategories"
     (cancelClickEvent)="self.onCloseMailingCategory()"
     (confirmClickEvent)="self.onCloseMailingCategory()"
     [isNew]="!self.isNew"
@@ -6609,21 +6276,11 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
           </ng-template>
         </ng-template>
       
-        <ng-template [ngSwitchCase]="''manage-partner-addresses''">
+        <ng-template [ngSwitchCase]="''manage-partner-addresses-create''">
           <ng-template
-            [ngIf]="self.popupTab.tabs[self.popupTab.activeTabIndex].type == ''manage-partner-addresses'' && self.popupTab.activeTabIndex == i">
+            [ngIf]="self.popupTab.tabs[self.popupTab.activeTabIndex].type == ''manage-partner-addresses-create'' && self.popupTab.activeTabIndex == i">
             <div *ngIf=''self.popupTab.activeTabIndex != self.popupTab.tabs.length - 1'' class=''cr-popup-blocker''></div>
             <cr-addresses-details-dynamic
-    *ngIf="self.popupTab.tabs[self.popupTab.activeTabIndex].details === ''edit''"
-    [subTemplateId]="''0B00AEBD-4251-ED11-8E5D-4CCC6A2BB6D6''"
-    [isNew]="false"
-    (closeClickEvent)="self.onClosePartnerAddresses()"
-    (confirmAddress)="self.onConfirmPartnerAddresses($event)"
-    [itemAddress]="self.partnerDetailsAddress"
-></cr-addresses-details-dynamic>
-
-<cr-addresses-details-dynamic
-    *ngIf="self.popupTab.tabs[self.popupTab.activeTabIndex].details === ''create''"
     [subTemplateId]="''0B00AEBD-4251-ED11-8E5D-4CCC6A2BB6D6''"
     (closeClickEvent)="self.onClosePartnerAddresses()"
     [isNew]="true"
@@ -6634,21 +6291,55 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
           </ng-template>
         </ng-template>
       
-        <ng-template [ngSwitchCase]="''manage-partner-contact-persons-list''">
+        <ng-template [ngSwitchCase]="''manage-mailing-category-contact-person''">
           <ng-template
-            [ngIf]="self.popupTab.tabs[self.popupTab.activeTabIndex].type == ''manage-partner-contact-persons-list'' && self.popupTab.activeTabIndex == i">
+            [ngIf]="self.popupTab.tabs[self.popupTab.activeTabIndex].type == ''manage-mailing-category-contact-person'' && self.popupTab.activeTabIndex == i">
+            <div *ngIf=''self.popupTab.activeTabIndex != self.popupTab.tabs.length - 1'' class=''cr-popup-blocker''></div>
+            <cr-partner-mailing-category-manage-dynamic
+    [subTemplateId]="''0900AEBD-4251-ED11-8E5D-4CCC6A2BB6D6''"
+    (selectedMailingCategoryChange)="self.partnerDetailsContactPerson.mailingCategories = $event"
+    [(selectedMailingCategory)]="self.partnerDetailsContactPerson.mailingCategories"
+    (cancelClickEvent)="self.onCloseMailingCategory()"
+    (confirmClickEvent)="self.onCloseMailingCategory()"
+    [isNew]="!self.isNew"
+></cr-partner-mailing-category-manage-dynamic>
+
+          </ng-template>
+        </ng-template>
+      
+        <ng-template [ngSwitchCase]="''manage-partner-addresses-update''">
+          <ng-template
+            [ngIf]="self.popupTab.tabs[self.popupTab.activeTabIndex].type == ''manage-partner-addresses-update'' && self.popupTab.activeTabIndex == i">
+            <div *ngIf=''self.popupTab.activeTabIndex != self.popupTab.tabs.length - 1'' class=''cr-popup-blocker''></div>
+            <cr-addresses-details-dynamic
+    [subTemplateId]="''7BCDF1FD-535C-ED11-8E5E-4CCC6A2BB6D6''"
+    [isNew]="false"
+    (closeClickEvent)="self.onClosePartnerAddresses()"
+    (confirmAddress)="self.onConfirmPartnerAddresses($event)"
+    [itemAddress]="self.partnerDetailsAddress"
+></cr-addresses-details-dynamic>
+          </ng-template>
+        </ng-template>
+      
+        <ng-template [ngSwitchCase]="''manage-partner-contact-persons-update''">
+          <ng-template
+            [ngIf]="self.popupTab.tabs[self.popupTab.activeTabIndex].type == ''manage-partner-contact-persons-update'' && self.popupTab.activeTabIndex == i">
             <div *ngIf=''self.popupTab.activeTabIndex != self.popupTab.tabs.length - 1'' class=''cr-popup-blocker''></div>
             <cr-partner-contact-persons-details
-    *ngIf="self.popupTab.tabs[self.popupTab.activeTabIndex].details === ''edit''"
-    [subTemplateId]="''0E00AEBD-4251-ED11-8E5D-4CCC6A2BB6D6''"
+    [subTemplateId]="''BBD312CC-5B5C-ED11-8E5E-4CCC6A2BB6D6''"
     (openMailingCategory)="self.onEditContactPersonMailingCategory()"
     (closeClickEvent)="self.onClosePartnerContactPersons()"
     (confirmContactPerson)="self.onConfirmPartnerContactPersons($event)"
     [itemContactPerson]="self.partnerDetailsContactPerson"
 ></cr-partner-contact-persons-details>
-
-<cr-partner-contact-persons-details
-    *ngIf="self.popupTab.tabs[self.popupTab.activeTabIndex].details === ''create''"
+          </ng-template>
+        </ng-template>
+      
+        <ng-template [ngSwitchCase]="''manage-partner-contact-persons-create''">
+          <ng-template
+            [ngIf]="self.popupTab.tabs[self.popupTab.activeTabIndex].type == ''manage-partner-contact-persons-create'' && self.popupTab.activeTabIndex == i">
+            <div *ngIf=''self.popupTab.activeTabIndex != self.popupTab.tabs.length - 1'' class=''cr-popup-blocker''></div>
+            <cr-partner-contact-persons-details
     [subTemplateId]="''0E00AEBD-4251-ED11-8E5D-4CCC6A2BB6D6''"
     (openMailingCategory)="self.onEditContactPersonMailingCategory()"
     (closeClickEvent)="self.onClosePartnerContactPersons()"
@@ -6656,13 +6347,14 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
     [itemContactPerson]="self.partnerDetailsContactPerson"
     (newContactPerson)="self.onConfirmPartnerContactPersons($event, true)"
 ></cr-partner-contact-persons-details>
+
           </ng-template>
         </ng-template>
       
               </ng-container>
             </ng-container>
           </div>
-        </div>', '2022-11-04 14:29:16.4633333 +00:00', 180, N'N', '3a9eff76-d936-4541-8288-269492259bb1', 1, NULL)
+        </div>', '2022-11-04 19:03:14.7800000 +00:00', 198, N'N', '33367622-4c6d-4e0a-9253-865c0b5131bc', 1, NULL)
 INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID], [BookmarkName], [BookmarkDescription], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('f6819b05-4351-ed11-8e5d-4ccc6a2bb6d6', 'd8ae82e8-4251-ed11-8e5d-4ccc6a2bb6d6', 1, NULL, NULL, N'
         <div class=''cr-popup-content-wrapper'' [class.cr-popup-is-shown]=''self.popupTab.tabs.length > 1''>
           <cr-popup-tabs
@@ -6757,7 +6449,7 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
               </ng-container>
             </ng-container>
           </div>
-        </div>', '2022-11-04 14:29:05.8166667 +00:00', 25, N'N', '15a211fa-3fb5-4a79-a8cf-5ed383958a0b', 1, NULL)
+        </div>', '2022-11-04 18:24:21.9866667 +00:00', 31, N'N', '67d4dbc2-d5ea-4cbf-a22c-da513b28228f', 1, NULL)
 INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID], [BookmarkName], [BookmarkDescription], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('f7819b05-4351-ed11-8e5d-4ccc6a2bb6d6', 'd8ae82e8-4251-ed11-8e5d-4ccc6a2bb6d6', 2, NULL, NULL, N'
         <div class=''cr-popup-content-wrapper'' [class.cr-popup-is-shown]=''self.popupTab.tabs.length > 1''>
           <cr-popup-tabs
@@ -6852,7 +6544,7 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
               </ng-container>
             </ng-container>
           </div>
-        </div>', '2022-11-04 14:29:05.9400000 +00:00', 25, N'N', 'f5fdfe36-1dea-49d0-a7bc-4a0b67822528', 1, NULL)
+        </div>', '2022-11-04 18:24:22.0666667 +00:00', 31, N'N', 'db6bf9b0-4575-4124-b031-4442671ba11d', 1, NULL)
 INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID], [BookmarkName], [BookmarkDescription], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('f8819b05-4351-ed11-8e5d-4ccc6a2bb6d6', 'd9ae82e8-4251-ed11-8e5d-4ccc6a2bb6d6', 1, NULL, NULL, N'
         <div class=''cr-popup-content-wrapper'' [class.cr-popup-is-shown]=''self.popupTab.tabs.length > 1''>
           <cr-popup-tabs
@@ -7768,103 +7460,10 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
       </ng-template>
     </ng-template>
     
-        <ng-template [ngSwitchCase]="''manage-mailing-category2''">
-          <ng-template
-            [ngIf]="self.popupTab.tabs[self.popupTab.activeTabIndex].type == ''manage-mailing-category2'' && self.popupTab.activeTabIndex == i">
-            <div *ngIf=''self.popupTab.activeTabIndex != self.popupTab.tabs.length - 1'' class=''cr-popup-blocker''></div>
-            <cr-partner-mailing-category-manage-dynamic
-    *ngIf="self.popupTab.tabs[self.popupTab.activeTabIndex].details === ''partner''"
-    [subTemplateId]="''0900AEBD-4251-ED11-8E5D-4CCC6A2BB6D6''"
-    [entityId]="self.partnerDetails.id"
-    [(selectedMailingCategory)]="self.partnerDetails.mailingCategories"
-    (cancelClickEvent)="self.onCloseMailingCategory()"
-    (confirmClickEvent)="self.onCloseMailingCategory()"
-    [isNew]="!self.isNew"
-></cr-partner-mailing-category-manage-dynamic>
-
-<cr-partner-mailing-category-manage-dynamic
-    *ngIf="self.popupTab.tabs[self.popupTab.activeTabIndex].details === ''contact-person''"
-    [subTemplateId]="''0900AEBD-4251-ED11-8E5D-4CCC6A2BB6D6''"
-    [entityId]="self.partnerDetailsContactPerson.id"
-    (selectedMailingCategoryChange)="self.partnerDetailsContactPerson.mailingCategories = $event"
-    [(selectedMailingCategory)]="self.partnerDetailsContactPerson.mailingCategories"
-    (cancelClickEvent)="self.onCloseMailingCategory()"
-    (confirmClickEvent)="self.onCloseMailingCategory()"
-    [isNew]="!self.isNew"
-></cr-partner-mailing-category-manage-dynamic>
-
-          </ng-template>
-        </ng-template>
-      
-        <ng-template [ngSwitchCase]="''manage-partner-groups''">
-          <ng-template
-            [ngIf]="self.popupTab.tabs[self.popupTab.activeTabIndex].type == ''manage-partner-groups'' && self.popupTab.activeTabIndex == i">
-            <div *ngIf=''self.popupTab.activeTabIndex != self.popupTab.tabs.length - 1'' class=''cr-popup-blocker''></div>
-            <cr-partner-group-manage-dynamic
-    [subTemplateId]="''0A00AEBD-4251-ED11-8E5D-4CCC6A2BB6D6''"
-    [partnerId]="self.partnerDetails.id"
-    [partnerTypeId]="self.partnerDetails.partnerTypeId"
-    [(selectedGroups)]="self.partnerDetails.partnerGroups"
-    (cancelClickEvent)="self.onClosePartnerGroup()"
-    (confirmClickEvent)="self.onClosePartnerGroup()"
-></cr-partner-group-manage-dynamic>
-          </ng-template>
-        </ng-template>
-      
-        <ng-template [ngSwitchCase]="''manage-partner-addresses''">
-          <ng-template
-            [ngIf]="self.popupTab.tabs[self.popupTab.activeTabIndex].type == ''manage-partner-addresses'' && self.popupTab.activeTabIndex == i">
-            <div *ngIf=''self.popupTab.activeTabIndex != self.popupTab.tabs.length - 1'' class=''cr-popup-blocker''></div>
-            <cr-addresses-details-dynamic
-    *ngIf="self.popupTab.tabs[self.popupTab.activeTabIndex].details === ''edit''"
-    [subTemplateId]="''0F00AEBD-4251-ED11-8E5D-4CCC6A2BB6D6''"
-    [isNew]="false"
-    (closeClickEvent)="self.onClosePartnerAddresses()"
-    (confirmAddress)="self.onConfirmPartnerAddresses($event)"
-    [itemAddress]="self.partnerDetailsAddress"
-></cr-addresses-details-dynamic>
-
-<cr-addresses-details-dynamic
-    *ngIf="self.popupTab.tabs[self.popupTab.activeTabIndex].details === ''create''"
-    [subTemplateId]="''0F00AEBD-4251-ED11-8E5D-4CCC6A2BB6D6''"
-    (closeClickEvent)="self.onClosePartnerAddresses()"
-    [isNew]="true"
-    [itemAddress]="self.partnerDetailsAddress"
-    (newAddress)="self.onConfirmPartnerAddresses($event, true)"
-></cr-addresses-details-dynamic>
-
-          </ng-template>
-        </ng-template>
-      
-        <ng-template [ngSwitchCase]="''manage-partner-contact-persons-list''">
-          <ng-template
-            [ngIf]="self.popupTab.tabs[self.popupTab.activeTabIndex].type == ''manage-partner-contact-persons-list'' && self.popupTab.activeTabIndex == i">
-            <div *ngIf=''self.popupTab.activeTabIndex != self.popupTab.tabs.length - 1'' class=''cr-popup-blocker''></div>
-            <cr-partner-contact-persons-details
-    *ngIf="self.popupTab.tabs[self.popupTab.activeTabIndex].details === ''edit''"
-    [subTemplateId]="''0E00AEBD-4251-ED11-8E5D-4CCC6A2BB6D6''"
-    (openMailingCategory)="self.onEditContactPersonMailingCategory()"
-    (closeClickEvent)="self.onClosePartnerContactPersons()"
-    (confirmContactPerson)="self.onConfirmPartnerContactPersons($event)"
-    [itemContactPerson]="self.partnerDetailsContactPerson"
-></cr-partner-contact-persons-details>
-
-<cr-partner-contact-persons-details
-    *ngIf="self.popupTab.tabs[self.popupTab.activeTabIndex].details === ''create''"
-    [subTemplateId]="''0E00AEBD-4251-ED11-8E5D-4CCC6A2BB6D6''"
-    (openMailingCategory)="self.onEditContactPersonMailingCategory()"
-    (closeClickEvent)="self.onClosePartnerContactPersons()"
-    [isNew]="true"
-    [itemContactPerson]="self.partnerDetailsContactPerson"
-    (newContactPerson)="self.onConfirmPartnerContactPersons($event, true)"
-></cr-partner-contact-persons-details>
-          </ng-template>
-        </ng-template>
-      
               </ng-container>
             </ng-container>
           </div>
-        </div>', '2022-11-04 14:28:21.9733333 +00:00', 14, N'N', '01e0a9ed-ab06-4851-ae6a-6d7b0d62d27e', 1, NULL)
+        </div>', '2022-11-04 18:18:11.5800000 +00:00', 15, N'N', '19ca0b9a-b3e7-4c7d-9dc2-74b19c890052', 1, NULL)
 INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID], [BookmarkName], [BookmarkDescription], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('f9819b05-4351-ed11-8e5d-4ccc6a2bb6d6', 'd9ae82e8-4251-ed11-8e5d-4ccc6a2bb6d6', 2, NULL, NULL, N'
         <div class=''cr-popup-content-wrapper'' [class.cr-popup-is-shown]=''self.popupTab.tabs.length > 1''>
           <cr-popup-tabs
@@ -8780,103 +8379,10 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
       </ng-template>
     </ng-template>
     
-        <ng-template [ngSwitchCase]="''manage-mailing-category2''">
-          <ng-template
-            [ngIf]="self.popupTab.tabs[self.popupTab.activeTabIndex].type == ''manage-mailing-category2'' && self.popupTab.activeTabIndex == i">
-            <div *ngIf=''self.popupTab.activeTabIndex != self.popupTab.tabs.length - 1'' class=''cr-popup-blocker''></div>
-            <cr-partner-mailing-category-manage-dynamic
-    *ngIf="self.popupTab.tabs[self.popupTab.activeTabIndex].details === ''partner''"
-    [subTemplateId]="''0900AEBD-4251-ED11-8E5D-4CCC6A2BB6D6''"
-    [entityId]="self.partnerDetails.id"
-    [(selectedMailingCategory)]="self.partnerDetails.mailingCategories"
-    (cancelClickEvent)="self.onCloseMailingCategory()"
-    (confirmClickEvent)="self.onCloseMailingCategory()"
-    [isNew]="!self.isNew"
-></cr-partner-mailing-category-manage-dynamic>
-
-<cr-partner-mailing-category-manage-dynamic
-    *ngIf="self.popupTab.tabs[self.popupTab.activeTabIndex].details === ''contact-person''"
-    [subTemplateId]="''0900AEBD-4251-ED11-8E5D-4CCC6A2BB6D6''"
-    [entityId]="self.partnerDetailsContactPerson.id"
-    (selectedMailingCategoryChange)="self.partnerDetailsContactPerson.mailingCategories = $event"
-    [(selectedMailingCategory)]="self.partnerDetailsContactPerson.mailingCategories"
-    (cancelClickEvent)="self.onCloseMailingCategory()"
-    (confirmClickEvent)="self.onCloseMailingCategory()"
-    [isNew]="!self.isNew"
-></cr-partner-mailing-category-manage-dynamic>
-
-          </ng-template>
-        </ng-template>
-      
-        <ng-template [ngSwitchCase]="''manage-partner-groups''">
-          <ng-template
-            [ngIf]="self.popupTab.tabs[self.popupTab.activeTabIndex].type == ''manage-partner-groups'' && self.popupTab.activeTabIndex == i">
-            <div *ngIf=''self.popupTab.activeTabIndex != self.popupTab.tabs.length - 1'' class=''cr-popup-blocker''></div>
-            <cr-partner-group-manage-dynamic
-    [subTemplateId]="''0A00AEBD-4251-ED11-8E5D-4CCC6A2BB6D6''"
-    [partnerId]="self.partnerDetails.id"
-    [partnerTypeId]="self.partnerDetails.partnerTypeId"
-    [(selectedGroups)]="self.partnerDetails.partnerGroups"
-    (cancelClickEvent)="self.onClosePartnerGroup()"
-    (confirmClickEvent)="self.onClosePartnerGroup()"
-></cr-partner-group-manage-dynamic>
-          </ng-template>
-        </ng-template>
-      
-        <ng-template [ngSwitchCase]="''manage-partner-addresses''">
-          <ng-template
-            [ngIf]="self.popupTab.tabs[self.popupTab.activeTabIndex].type == ''manage-partner-addresses'' && self.popupTab.activeTabIndex == i">
-            <div *ngIf=''self.popupTab.activeTabIndex != self.popupTab.tabs.length - 1'' class=''cr-popup-blocker''></div>
-            <cr-addresses-details-dynamic
-    *ngIf="self.popupTab.tabs[self.popupTab.activeTabIndex].details === ''edit''"
-    [subTemplateId]="''0F00AEBD-4251-ED11-8E5D-4CCC6A2BB6D6''"
-    [isNew]="false"
-    (closeClickEvent)="self.onClosePartnerAddresses()"
-    (confirmAddress)="self.onConfirmPartnerAddresses($event)"
-    [itemAddress]="self.partnerDetailsAddress"
-></cr-addresses-details-dynamic>
-
-<cr-addresses-details-dynamic
-    *ngIf="self.popupTab.tabs[self.popupTab.activeTabIndex].details === ''create''"
-    [subTemplateId]="''0F00AEBD-4251-ED11-8E5D-4CCC6A2BB6D6''"
-    (closeClickEvent)="self.onClosePartnerAddresses()"
-    [isNew]="true"
-    [itemAddress]="self.partnerDetailsAddress"
-    (newAddress)="self.onConfirmPartnerAddresses($event, true)"
-></cr-addresses-details-dynamic>
-
-          </ng-template>
-        </ng-template>
-      
-        <ng-template [ngSwitchCase]="''manage-partner-contact-persons-list''">
-          <ng-template
-            [ngIf]="self.popupTab.tabs[self.popupTab.activeTabIndex].type == ''manage-partner-contact-persons-list'' && self.popupTab.activeTabIndex == i">
-            <div *ngIf=''self.popupTab.activeTabIndex != self.popupTab.tabs.length - 1'' class=''cr-popup-blocker''></div>
-            <cr-partner-contact-persons-details
-    *ngIf="self.popupTab.tabs[self.popupTab.activeTabIndex].details === ''edit''"
-    [subTemplateId]="''0E00AEBD-4251-ED11-8E5D-4CCC6A2BB6D6''"
-    (openMailingCategory)="self.onEditContactPersonMailingCategory()"
-    (closeClickEvent)="self.onClosePartnerContactPersons()"
-    (confirmContactPerson)="self.onConfirmPartnerContactPersons($event)"
-    [itemContactPerson]="self.partnerDetailsContactPerson"
-></cr-partner-contact-persons-details>
-
-<cr-partner-contact-persons-details
-    *ngIf="self.popupTab.tabs[self.popupTab.activeTabIndex].details === ''create''"
-    [subTemplateId]="''0E00AEBD-4251-ED11-8E5D-4CCC6A2BB6D6''"
-    (openMailingCategory)="self.onEditContactPersonMailingCategory()"
-    (closeClickEvent)="self.onClosePartnerContactPersons()"
-    [isNew]="true"
-    [itemContactPerson]="self.partnerDetailsContactPerson"
-    (newContactPerson)="self.onConfirmPartnerContactPersons($event, true)"
-></cr-partner-contact-persons-details>
-          </ng-template>
-        </ng-template>
-      
               </ng-container>
             </ng-container>
           </div>
-        </div>', '2022-11-04 14:28:27.3600000 +00:00', 14, N'N', '63f00f84-bc2b-4e27-bb1a-e88d3804a248', 1, NULL)
+        </div>', '2022-11-04 18:18:11.6866667 +00:00', 15, N'N', '3020460f-5784-4781-9c4b-579f58e67b24', 1, NULL)
 INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID], [BookmarkName], [BookmarkDescription], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('fa819b05-4351-ed11-8e5d-4ccc6a2bb6d6', 'daae82e8-4251-ed11-8e5d-4ccc6a2bb6d6', 1, NULL, NULL, N'
         <div class=''cr-popup-content-wrapper'' [class.cr-popup-is-shown]=''self.popupTab.tabs.length > 1''>
           <cr-popup-tabs
@@ -9052,7 +8558,7 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
               </ng-container>
             </ng-container>
           </div>
-        </div>', '2022-11-04 14:29:05.9100000 +00:00', 10, N'N', 'e6728f6c-38fe-42b8-ab04-6c91797d1e69', 1, NULL)
+        </div>', '2022-11-04 18:24:22.0366667 +00:00', 13, N'N', '13628203-aa25-4f1f-afa7-696a9f4fa7f9', 1, NULL)
 INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID], [BookmarkName], [BookmarkDescription], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('fb819b05-4351-ed11-8e5d-4ccc6a2bb6d6', 'daae82e8-4251-ed11-8e5d-4ccc6a2bb6d6', 2, NULL, NULL, N'
         <div class=''cr-popup-content-wrapper'' [class.cr-popup-is-shown]=''self.popupTab.tabs.length > 1''>
           <cr-popup-tabs
@@ -9228,13 +8734,13 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
               </ng-container>
             </ng-container>
           </div>
-        </div>', '2022-11-04 14:29:05.9666667 +00:00', 10, N'N', 'c3c59fd6-63c0-46d9-8c41-70823cb6861c', 1, NULL)
-INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID], [BookmarkName], [BookmarkDescription], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('8ca5acaf-8553-ed11-8e5d-4ccc6a2bb6d6', '8ba5acaf-8553-ed11-8e5d-4ccc6a2bb6d6', 1, NULL, NULL, N'
+        </div>', '2022-11-04 18:24:22.0966667 +00:00', 13, N'N', '64e9fa0d-5282-42a0-82b1-38a3d44a4e70', 1, NULL)
+INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID], [BookmarkName], [BookmarkDescription], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('fc819b05-4351-ed11-8e5d-4ccc6a2bb6d6', 'dbae82e8-4251-ed11-8e5d-4ccc6a2bb6d6', 1, N'', N'', N'
         <div class=''cr-popup-content-wrapper'' [class.cr-popup-is-shown]=''self.popupTab.tabs.length > 1''>
           <cr-popup-tabs
             [popupTabs]=''self.popupTab.tabs''
             [activePopup]=''self.popupTab.activeTabIndex''
-            (closePopup)=''self.removePopupTab()''
+            (closePopup)=''self.removePopupTab($event)''
             (changeActive)=''self.changeActiveTab($event)''
           ></cr-popup-tabs>
           <div class=''cr-details-inner-container''>
@@ -9245,7 +8751,7 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
       <ng-template [ngIf]="self.popupTab.tabs[self.popupTab.activeTabIndex].type == ''general'' && self.popupTab.activeTabIndex == i">
         <div *ngIf=''self.popupTab.activeTabIndex != self.popupTab.tabs.length - 1'' class=''cr-popup-blocker''></div>
         <cr-title-header
-    [titleTranslateKey]="''PARTNER.GRID.TITLE''"
+    [titleTranslateKey]="''TAX_GROUP.LIST.TITLE''"
     [title]="''''"
     (buttonClickEvent)="self.onTitleButtonClick($event)"
     [buttonSettings]="self.titleHeaderButtonSettings"
@@ -9254,8 +8760,8 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
         [panelTemplateType]="''panel''"
         [expanded]="self.panelsViewState?.[''undefined''] ?? true"
         (expandedChange)="self.panelStateChange(''undefined'', $event)"
-        [titleTranslateKey]="false ? ''undefined'' : null"
-        [title]="false ? null : ''Panel he''"
+        [titleTranslateKey]="true ? ''TAX_GROUP.LIST.FILTER.TITLE'' : null"
+        [title]="true ? null : ''Selection criteria he''"
         [customClass]="''''"
         [headerClass]="''''"
         [validator]="self.validator"
@@ -9263,19 +8769,21 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
         [containFields]=''[]''
       >
         <ng-template crPanelContent>
-          <div class="row"><div class=''col-md-4''><cr-control-edit 
-    [translateKeys]="''PARTNER.FILTER.FIRST_NAME''" 
+          <div class="row"><div class=''col-md-2''><cr-control-edit 
+    [translateKeys]="''TAX_GROUP.LIST.FILTER.CODE''" 
     [dataLabel]="''''"
     [customClass]=''""''
     [isDisabled]="false"
-    [(dataValue)]="self.partnerListFilter.firstName"
-></cr-control-edit></div><div class=''col-md-4''><cr-control-edit 
-    [translateKeys]="''PARTNER.FILTER.EMAIL''" 
+    [elementName]="''edit:Tax_group_list.Code''"
+    [(dataValue)]="self.taxGroupFilterRequest.code"
+></cr-control-edit></div><div class=''col-md-2''><cr-control-edit 
+    [translateKeys]="''TAX_GROUP.LIST.FILTER.NAME''" 
     [dataLabel]="''''"
     [customClass]=''""''
     [isDisabled]="false"
-    [(dataValue)]="self.partnerListFilter.EMail"
-></cr-control-edit></div><div class=''col-md-2''></div><div class=''col-md-2''><cr-button-control 
+    [elementName]="''edit:Tax_group_list.Name''"
+    [(dataValue)]="self.taxGroupFilterRequest.name"
+></cr-control-edit></div><div class=''col-md-8''><cr-button-control 
     [buttonTemplateType]="''underlined-action-button''"
     [text]="''''"
     [textTranslateKey]="''COMMON.SEARCH''"
@@ -9284,7 +8792,7 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
     [height]="''''"
     [icon]="''undefined''"
     (buttonClickEvent)="self.changeFilter()"
-    *ngIf="self.authService.getEndpointAccessGranted(self.EndpointName.partner_GET)"
+    *ngIf="(self.EndpointName.tax_group_GET | endpointAccessGrantedPipe)"
 ></cr-button-control></div></div>
         </ng-template>
       </cr-panel>
@@ -9292,8 +8800,8 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
         [panelTemplateType]="''panel''"
         [expanded]="self.panelsViewState?.[''undefined''] ?? true"
         (expandedChange)="self.panelStateChange(''undefined'', $event)"
-        [titleTranslateKey]="true ? ''PARTNER.GRID.TITLE'' : null"
-        [title]="true ? null : ''רשימת כרטיסים''"
+        [titleTranslateKey]="true ? ''TAX_GROUP.LIST.GRID.TITLE'' : null"
+        [title]="true ? null : ''VAT Groups he''"
         [customClass]="''''"
         [headerClass]="''''"
         [validator]="self.validator"
@@ -9306,9 +8814,9 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
         (cellClickEvent)="self.cellClick($event)"
         (pageChangeEvent)="self.changePage($event)"
         [columnSettings]="self.columnSettings"
-        [dataCacheName]="''partnerGrid''"
-        [dataSource]="self.dataSource"
-        [elementName]="''edit-grid-server-paging:Partner_list.Grid''"
+        [dataCacheName]="''TaxGroupGrid''"
+        [dataSource]="self.gridData"
+        [elementName]="''edit-grid-server-paging:TaxGroup_list.Grid''"
         [pageable]="true"
         [resizable]="true"
         [uniqueField]="''id''"
@@ -9323,13 +8831,13 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
               </ng-container>
             </ng-container>
           </div>
-        </div>', '2022-11-04 14:28:21.9933333 +00:00', 2, N'N', '01b9991a-607d-4e05-8bfb-2b83e05fde3b', 1, NULL)
-INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID], [BookmarkName], [BookmarkDescription], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('8da5acaf-8553-ed11-8e5d-4ccc6a2bb6d6', '8ba5acaf-8553-ed11-8e5d-4ccc6a2bb6d6', 2, NULL, NULL, N'
+        </div>', '2022-11-04 19:03:12.5266667 +00:00', 12, N'N', '3a7e10a2-8f62-4e3c-95b7-c6552d458ad7', 1, NULL)
+INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID], [BookmarkName], [BookmarkDescription], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('fd819b05-4351-ed11-8e5d-4ccc6a2bb6d6', 'dbae82e8-4251-ed11-8e5d-4ccc6a2bb6d6', 2, N'', N'', N'
         <div class=''cr-popup-content-wrapper'' [class.cr-popup-is-shown]=''self.popupTab.tabs.length > 1''>
           <cr-popup-tabs
             [popupTabs]=''self.popupTab.tabs''
             [activePopup]=''self.popupTab.activeTabIndex''
-            (closePopup)=''self.removePopupTab()''
+            (closePopup)=''self.removePopupTab($event)''
             (changeActive)=''self.changeActiveTab($event)''
           ></cr-popup-tabs>
           <div class=''cr-details-inner-container''>
@@ -9340,7 +8848,7 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
       <ng-template [ngIf]="self.popupTab.tabs[self.popupTab.activeTabIndex].type == ''general'' && self.popupTab.activeTabIndex == i">
         <div *ngIf=''self.popupTab.activeTabIndex != self.popupTab.tabs.length - 1'' class=''cr-popup-blocker''></div>
         <cr-title-header
-    [titleTranslateKey]="''PARTNER.GRID.TITLE''"
+    [titleTranslateKey]="''TAX_GROUP.LIST.TITLE''"
     [title]="''''"
     (buttonClickEvent)="self.onTitleButtonClick($event)"
     [buttonSettings]="self.titleHeaderButtonSettings"
@@ -9349,8 +8857,8 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
         [panelTemplateType]="''panel''"
         [expanded]="self.panelsViewState?.[''undefined''] ?? true"
         (expandedChange)="self.panelStateChange(''undefined'', $event)"
-        [titleTranslateKey]="false ? ''undefined'' : null"
-        [title]="false ? null : ''חתך הגדרות''"
+        [titleTranslateKey]="true ? ''TAX_GROUP.LIST.FILTER.TITLE'' : null"
+        [title]="true ? null : ''Selection criteria''"
         [customClass]="''''"
         [headerClass]="''''"
         [validator]="self.validator"
@@ -9358,19 +8866,21 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
         [containFields]=''[]''
       >
         <ng-template crPanelContent>
-          <div class="row"><div class=''col-md-4''><cr-control-edit 
-    [translateKeys]="''PARTNER.FILTER.FIRST_NAME''" 
+          <div class="row"><div class=''col-md-2''><cr-control-edit 
+    [translateKeys]="''TAX_GROUP.LIST.FILTER.CODE''" 
     [dataLabel]="''''"
     [customClass]=''""''
     [isDisabled]="false"
-    [(dataValue)]="self.partnerListFilter.firstName"
-></cr-control-edit></div><div class=''col-md-4''><cr-control-edit 
-    [translateKeys]="''PARTNER.FILTER.EMAIL''" 
+    [elementName]="''edit:Tax_group_list.Code''"
+    [(dataValue)]="self.taxGroupFilterRequest.code"
+></cr-control-edit></div><div class=''col-md-2''><cr-control-edit 
+    [translateKeys]="''TAX_GROUP.LIST.FILTER.NAME''" 
     [dataLabel]="''''"
     [customClass]=''""''
     [isDisabled]="false"
-    [(dataValue)]="self.partnerListFilter.EMail"
-></cr-control-edit></div><div class=''col-md-2''></div><div class=''col-md-2''><cr-button-control 
+    [elementName]="''edit:Tax_group_list.Name''"
+    [(dataValue)]="self.taxGroupFilterRequest.name"
+></cr-control-edit></div><div class=''col-md-8''><cr-button-control 
     [buttonTemplateType]="''underlined-action-button''"
     [text]="''''"
     [textTranslateKey]="''COMMON.SEARCH''"
@@ -9379,7 +8889,7 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
     [height]="''''"
     [icon]="''undefined''"
     (buttonClickEvent)="self.changeFilter()"
-    *ngIf="self.authService.getEndpointAccessGranted(self.EndpointName.partner_GET)"
+    *ngIf="(self.EndpointName.tax_group_GET | endpointAccessGrantedPipe)"
 ></cr-button-control></div></div>
         </ng-template>
       </cr-panel>
@@ -9387,8 +8897,8 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
         [panelTemplateType]="''panel''"
         [expanded]="self.panelsViewState?.[''undefined''] ?? true"
         (expandedChange)="self.panelStateChange(''undefined'', $event)"
-        [titleTranslateKey]="true ? ''PARTNER.GRID.TITLE'' : null"
-        [title]="true ? null : ''Partner List''"
+        [titleTranslateKey]="true ? ''TAX_GROUP.LIST.GRID.TITLE'' : null"
+        [title]="true ? null : ''VAT Groups''"
         [customClass]="''''"
         [headerClass]="''''"
         [validator]="self.validator"
@@ -9401,9 +8911,9 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
         (cellClickEvent)="self.cellClick($event)"
         (pageChangeEvent)="self.changePage($event)"
         [columnSettings]="self.columnSettings"
-        [dataCacheName]="''partnerGrid''"
-        [dataSource]="self.dataSource"
-        [elementName]="''edit-grid-server-paging:Partner_list.Grid''"
+        [dataCacheName]="''TaxGroupGrid''"
+        [dataSource]="self.gridData"
+        [elementName]="''edit-grid-server-paging:TaxGroup_list.Grid''"
         [pageable]="true"
         [resizable]="true"
         [uniqueField]="''id''"
@@ -9418,4 +8928,302 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
               </ng-container>
             </ng-container>
           </div>
-        </div>', '2022-11-04 14:28:27.4233333 +00:00', 2, N'N', 'd27ff221-850f-44d4-9532-d70346e99f13', 1, NULL)
+        </div>', '2022-11-04 19:03:12.5633333 +00:00', 12, N'N', '8b77eaa0-342b-4ff5-a0bd-b208579acbf2', 1, NULL)
+INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID], [BookmarkName], [BookmarkDescription], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('fe819b05-4351-ed11-8e5d-4ccc6a2bb6d6', 'dcae82e8-4251-ed11-8e5d-4ccc6a2bb6d6', 1, NULL, NULL, N'
+        <div class=''cr-popup-content-wrapper'' [class.cr-popup-is-shown]=''self.popupTab.tabs.length > 1''>
+          <cr-popup-tabs
+            [popupTabs]=''self.popupTab.tabs''
+            [activePopup]=''self.popupTab.activeTabIndex''
+            (closePopup)=''self.removePopupTab($event)''
+            (changeActive)=''self.changeActiveTab($event)''
+          ></cr-popup-tabs>
+          <div class=''cr-details-inner-container''>
+            <ng-container *ngFor=''let tab of self.popupTab.tabs; index as i;''>
+              <ng-container [ngSwitch]=''tab.type''>
+                
+    <ng-template [ngSwitchCase]="''general''">
+      <ng-template [ngIf]="self.popupTab.tabs[self.popupTab.activeTabIndex].type == ''general'' && self.popupTab.activeTabIndex == i">
+        <div *ngIf=''self.popupTab.activeTabIndex != self.popupTab.tabs.length - 1'' class=''cr-popup-blocker''></div>
+        <cr-title-header
+    [titleTranslateKey]="''TAX_GROUP.DETAILS.TITLE''"
+    [title]="''''"
+    (buttonClickEvent)="self.onTitleButtonClick($event)"
+    [buttonSettings]="self.titleHeaderButtonSettings"
+    [titleValue]="self.titleValueText"
+></cr-title-header>
+      <cr-panel
+        [panelTemplateType]="''well''"
+        [customClass]="''''"
+      >
+        <ng-template crPanelContent>
+          <div class="row"><div class=''col-md-2''><cr-control-edit
+    [(dataValue)]="self.taxGroup.code"
+    [elementName]="''edit:TaxGroup_details.Code''"
+    [validator]="self.validator"
+    [validationField]="''code''"
+    (dataValueChange)="self.onChangeTitleValue()"
+    [translateKeys]="''TAX_GROUP.DETAILS.CODE''" 
+    [dataLabel]="''''"
+    [customClass]=''""''
+    [isDisabled]="self.taxGroup.isPredefined || false"
+></cr-control-edit></div><div class=''col-md-2''><cr-control-edit
+    [(dataValue)]="self.taxGroup.name"
+    [elementName]="''edit:TaxGroup_details.Name''"
+    [validator]="self.validator"
+    [validationField]="''name''"
+    [translateKeys]="''TAX_GROUP.DETAILS.NAME''" 
+    [dataLabel]="''''"
+    [customClass]=''""''
+    [isDisabled]="false"
+></cr-control-edit></div></div>
+        </ng-template>
+      </cr-panel>
+      <cr-panel
+        [panelTemplateType]="''collapsible-panel''"
+        [expanded]="self.panelsViewState?.[''taxDefinition''] ?? true"
+        (expandedChange)="self.panelStateChange(''taxDefinition'', $event)"
+        [titleTranslateKey]="true ? ''TAX_GROUP.DETAILS.PANEL.TITLE_DEFINITIONS'' : null"
+        [title]="true ? null : ''Tax definitions he''"
+        [customClass]="''''"
+        [headerClass]="''''"
+        [validator]="self.validator"
+        [validatorGroupName]="''taxDefinition''"
+        [containFields]=''[]''
+      >
+        <ng-template crPanelContent>
+          <div class="cr-grid-wrapper-new cr-grid-with-collapse cr-tax-group-grid">
+    <kendo-grid
+        #grid
+        (pageChange)="self.pageChange($event)"
+        [(selectedKeys)]="self.mySelection"
+        [attr.data-element-name]="''grid:TaxGroup_details_definition.Definitions_grid''"
+        [data]="self.gridView"
+        [kendoGridSelectBy]="self.mySelectionKey"
+        [pageSize]="self.taxGroup.taxGroupLocationList.paginator?.size"
+        [skip]="self.taxGroup.taxGroupLocationList.paginator?.skip"
+        [pageable]="true"
+        [resizable]="true"
+        (add)="self.addHandler()"
+        (edit)="self.editHandler($event)"
+        (remove)="self.removeHandler($event)"
+                    >
+                      <ng-template kendoGridToolbarTemplate>
+                        <div
+                          class="row cr-row-padding-revert">
+                          <div class="col-lg-12 cr-col-content-align-right cr-col-no-padding">
+                            <cr-button-control
+                              [buttonTemplateType]="''grid-add-command''"
+                              [elementName]="''button:PriceList.Add''"
+                              *ngIf="(self.EndpointName.tax_group_id_PUT | endpointAccessGrantedPipe)"
+                            ></cr-button-control>
+                          </div>
+                        </div>
+                      </ng-template>
+
+                      <kendo-grid-column field="name">
+                        <ng-template kendoGridHeaderTemplate>
+                            <span [attr.data-translate]="''TAX_GROUP.DETAILS.GRID.NAME''">
+                              {{''TAX_GROUP.DETAILS.GRID.NAME'' | translate}}
+                            </span>
+                        </ng-template>
+                        <ng-template kendoGridCellTemplate
+                                     let-dataItem>
+                            <span>
+                              {{dataItem.name}}
+                            </span>
+                        </ng-template>
+                        <ng-template kendoGridEditTemplate let-dataItem>
+                          <cr-control-edit
+                            [(dataValue)]="self.taxGroup.cache.changeItem.name"
+                            [elementName]="''edit:TaxGroup.Name''"
+                            [translateKeys]="''TAX_GROUP.DETAILS.GRID.NAME''"
+                          ></cr-control-edit>
+                        </ng-template>
+                      </kendo-grid-column>
+
+                      <kendo-grid-column class="action-group" width="250">
+                        <ng-template kendoGridCellTemplate
+                                     let-dataItem="dataItem"
+                                     let-isNew="isNew"
+                                     let-rowIndex="rowIndex">
+                          <cr-button-control
+                            [buttonTemplateType]="''grid-edit-command''"
+                            [elementName]="''edit:TaxGroup.Details_Edit_Command''"
+                          ></cr-button-control>
+                          <!-- Delete row (trash button)-->
+                          <cr-button-control
+                            *ngIf="(self.EndpointName.tax_group_id_PUT | endpointAccessGrantedPipe)"
+                            [buttonTemplateType]="''grid-remove-command''"
+                            [elementName]="''edit:TaxGroup.Details_Remove_Command''"
+                          ></cr-button-control>
+                        </ng-template>
+                      </kendo-grid-column>
+                      <ng-template kendoGridNoRecordsTemplate>
+                          <span [attr.data-translate]="''COMMON.GRID.NO_RECORDS''">
+                            {{ ''COMMON.GRID.NO_RECORDS'' | translate }}
+                          </span>
+                      </ng-template>
+                      <ng-template kendoPagerTemplate>
+                        <cr-grid-paginator
+                          [totalElements]="self.gridView?.total"></cr-grid-paginator>
+                      </ng-template>
+                    </kendo-grid>
+                  </div>
+        </ng-template>
+      </cr-panel>
+      </ng-template>
+    </ng-template>
+    
+              </ng-container>
+            </ng-container>
+          </div>
+        </div>', '2022-11-04 18:55:49.1000000 +00:00', 9, N'N', 'd49778d9-f5e6-4fb0-a562-920400977b20', 1, NULL)
+INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID], [BookmarkName], [BookmarkDescription], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('ff819b05-4351-ed11-8e5d-4ccc6a2bb6d6', 'dcae82e8-4251-ed11-8e5d-4ccc6a2bb6d6', 2, NULL, NULL, N'
+        <div class=''cr-popup-content-wrapper'' [class.cr-popup-is-shown]=''self.popupTab.tabs.length > 1''>
+          <cr-popup-tabs
+            [popupTabs]=''self.popupTab.tabs''
+            [activePopup]=''self.popupTab.activeTabIndex''
+            (closePopup)=''self.removePopupTab($event)''
+            (changeActive)=''self.changeActiveTab($event)''
+          ></cr-popup-tabs>
+          <div class=''cr-details-inner-container''>
+            <ng-container *ngFor=''let tab of self.popupTab.tabs; index as i;''>
+              <ng-container [ngSwitch]=''tab.type''>
+                
+    <ng-template [ngSwitchCase]="''general''">
+      <ng-template [ngIf]="self.popupTab.tabs[self.popupTab.activeTabIndex].type == ''general'' && self.popupTab.activeTabIndex == i">
+        <div *ngIf=''self.popupTab.activeTabIndex != self.popupTab.tabs.length - 1'' class=''cr-popup-blocker''></div>
+        <cr-title-header
+    [titleTranslateKey]="''TAX_GROUP.DETAILS.TITLE''"
+    [title]="''''"
+    (buttonClickEvent)="self.onTitleButtonClick($event)"
+    [buttonSettings]="self.titleHeaderButtonSettings"
+    [titleValue]="self.titleValueText"
+></cr-title-header>
+      <cr-panel
+        [panelTemplateType]="''well''"
+        [customClass]="''''"
+      >
+        <ng-template crPanelContent>
+          <div class="row"><div class=''col-md-2''><cr-control-edit
+    [(dataValue)]="self.taxGroup.code"
+    [elementName]="''edit:TaxGroup_details.Code''"
+    [validator]="self.validator"
+    [validationField]="''code''"
+    (dataValueChange)="self.onChangeTitleValue()"
+    [translateKeys]="''TAX_GROUP.DETAILS.CODE''" 
+    [dataLabel]="''''"
+    [customClass]=''""''
+    [isDisabled]="self.taxGroup.isPredefined || false"
+></cr-control-edit></div><div class=''col-md-2''><cr-control-edit
+    [(dataValue)]="self.taxGroup.name"
+    [elementName]="''edit:TaxGroup_details.Name''"
+    [validator]="self.validator"
+    [validationField]="''name''"
+    [translateKeys]="''TAX_GROUP.DETAILS.NAME''" 
+    [dataLabel]="''''"
+    [customClass]=''""''
+    [isDisabled]="false"
+></cr-control-edit></div></div>
+        </ng-template>
+      </cr-panel>
+      <cr-panel
+        [panelTemplateType]="''collapsible-panel''"
+        [expanded]="self.panelsViewState?.[''taxDefinition''] ?? true"
+        (expandedChange)="self.panelStateChange(''taxDefinition'', $event)"
+        [titleTranslateKey]="true ? ''TAX_GROUP.DETAILS.PANEL.TITLE_DEFINITIONS'' : null"
+        [title]="true ? null : ''Tax definitions''"
+        [customClass]="''''"
+        [headerClass]="''''"
+        [validator]="self.validator"
+        [validatorGroupName]="''taxDefinition''"
+        [containFields]=''[]''
+      >
+        <ng-template crPanelContent>
+          <div class="cr-grid-wrapper-new cr-grid-with-collapse cr-tax-group-grid">
+    <kendo-grid
+        #grid
+        (pageChange)="self.pageChange($event)"
+        [(selectedKeys)]="self.mySelection"
+        [attr.data-element-name]="''grid:TaxGroup_details_definition.Definitions_grid''"
+        [data]="self.gridView"
+        [kendoGridSelectBy]="self.mySelectionKey"
+        [pageSize]="self.taxGroup.taxGroupLocationList.paginator?.size"
+        [skip]="self.taxGroup.taxGroupLocationList.paginator?.skip"
+        [pageable]="true"
+        [resizable]="true"
+        (add)="self.addHandler()"
+        (edit)="self.editHandler($event)"
+        (remove)="self.removeHandler($event)"
+                    >
+                      <ng-template kendoGridToolbarTemplate>
+                        <div
+                          class="row cr-row-padding-revert">
+                          <div class="col-lg-12 cr-col-content-align-right cr-col-no-padding">
+                            <cr-button-control
+                              [buttonTemplateType]="''grid-add-command''"
+                              [elementName]="''button:PriceList.Add''"
+                              *ngIf="(self.EndpointName.tax_group_id_PUT | endpointAccessGrantedPipe)"
+                            ></cr-button-control>
+                          </div>
+                        </div>
+                      </ng-template>
+
+                      <kendo-grid-column field="name">
+                        <ng-template kendoGridHeaderTemplate>
+                            <span [attr.data-translate]="''TAX_GROUP.DETAILS.GRID.NAME''">
+                              {{''TAX_GROUP.DETAILS.GRID.NAME'' | translate}}
+                            </span>
+                        </ng-template>
+                        <ng-template kendoGridCellTemplate
+                                     let-dataItem>
+                            <span>
+                              {{dataItem.name}}
+                            </span>
+                        </ng-template>
+                        <ng-template kendoGridEditTemplate let-dataItem>
+                          <cr-control-edit
+                            [(dataValue)]="self.taxGroup.cache.changeItem.name"
+                            [elementName]="''edit:TaxGroup.Name''"
+                            [translateKeys]="''TAX_GROUP.DETAILS.GRID.NAME''"
+                          ></cr-control-edit>
+                        </ng-template>
+                      </kendo-grid-column>
+
+                      <kendo-grid-column class="action-group" width="250">
+                        <ng-template kendoGridCellTemplate
+                                     let-dataItem="dataItem"
+                                     let-isNew="isNew"
+                                     let-rowIndex="rowIndex">
+                          <cr-button-control
+                            [buttonTemplateType]="''grid-edit-command''"
+                            [elementName]="''edit:TaxGroup.Details_Edit_Command''"
+                          ></cr-button-control>
+                          <!-- Delete row (trash button)-->
+                          <cr-button-control
+                            *ngIf="(self.EndpointName.tax_group_id_PUT | endpointAccessGrantedPipe)"
+                            [buttonTemplateType]="''grid-remove-command''"
+                            [elementName]="''edit:TaxGroup.Details_Remove_Command''"
+                          ></cr-button-control>
+                        </ng-template>
+                      </kendo-grid-column>
+                      <ng-template kendoGridNoRecordsTemplate>
+                          <span [attr.data-translate]="''COMMON.GRID.NO_RECORDS''">
+                            {{ ''COMMON.GRID.NO_RECORDS'' | translate }}
+                          </span>
+                      </ng-template>
+                      <ng-template kendoPagerTemplate>
+                        <cr-grid-paginator
+                          [totalElements]="self.gridView?.total"></cr-grid-paginator>
+                      </ng-template>
+                    </kendo-grid>
+                  </div>
+        </ng-template>
+      </cr-panel>
+      </ng-template>
+    </ng-template>
+    
+              </ng-container>
+            </ng-container>
+          </div>
+        </div>', '2022-11-04 18:55:49.1966667 +00:00', 9, N'N', '5f682a86-2fcd-4694-b0fb-f38069f62a97', 1, NULL)
