@@ -1,88 +1,9 @@
-INSERT INTO [dbo].[WebViewSub] ([ID], [Name], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [ComponentHtml], [Code], [CreateDate]) VALUES ('9453528c-4a51-ed11-8e5d-4ccc6a2bb6d6', N'Manage mailing categories', '2022-10-21 19:28:06.2066667 +00:00', 9, N'N', 'd29b53d6-5296-4b75-8d2b-c1216b9c57ee', 1, NULL, N'<cr-partner-mailing-category-manage-dynamic
-    *ngIf="self.popupTab.tabs[self.popupTab.activeTabIndex].details === ''partner''"
-    [subTemplateId]="''{{subTemplateId}}''"
-    [entityId]="self.partnerDetails.id"
-    [(selectedMailingCategory)]="self.partnerDetails.mailingCategories"
-    (cancelClickEvent)="self.onCloseMailingCategory()"
-    (confirmClickEvent)="self.onCloseMailingCategory()"
-    [isNew]="!self.isNew"
-></cr-partner-mailing-category-manage-dynamic>
-
-<cr-partner-mailing-category-manage-dynamic
-    *ngIf="self.popupTab.tabs[self.popupTab.activeTabIndex].details === ''contact-person''"
-    [subTemplateId]="''{{subTemplateId}}''"
-    [entityId]="self.partnerDetailsContactPerson.id"
-    (selectedMailingCategoryChange)="self.partnerDetailsContactPerson.mailingCategories = $event"
-    [(selectedMailingCategory)]="self.partnerDetailsContactPerson.mailingCategories"
-    (cancelClickEvent)="self.onCloseMailingCategory()"
-    (confirmClickEvent)="self.onCloseMailingCategory()"
-    [isNew]="!self.isNew"
-></cr-partner-mailing-category-manage-dynamic>
-', N'manage-mailing-category', '2022-09-28 17:31:50.1884343 +03:00')
-INSERT INTO [dbo].[WebViewSub] ([ID], [Name], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [ComponentHtml], [Code], [CreateDate]) VALUES ('9553528c-4a51-ed11-8e5d-4ccc6a2bb6d6', N'Manage partner group', '2022-10-21 19:28:16.4566667 +00:00', 5, N'N', 'caf51637-477b-4c92-b87a-fc5f2abf1ebc', 1, NULL, N'<cr-partner-group-manage-dynamic
-    [subTemplateId]="''{{subTemplateId}}''"
-    [partnerId]="self.partnerDetails.id"
-    [partnerTypeId]="self.partnerDetails.partnerTypeId"
-    [(selectedGroups)]="self.partnerDetails.partnerGroups"
-    (cancelClickEvent)="self.onClosePartnerGroup()"
-    (confirmClickEvent)="self.onClosePartnerGroup()"
-></cr-partner-group-manage-dynamic>', N'manage-partner-groups', '2022-09-28 17:31:50.1884343 +03:00')
-INSERT INTO [dbo].[WebViewSub] ([ID], [Name], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [ComponentHtml], [Code], [CreateDate]) VALUES ('9653528c-4a51-ed11-8e5d-4ccc6a2bb6d6', N'Manage partner addresses', '2022-10-21 19:28:30.9966667 +00:00', 6, N'N', 'c2a53895-3ebe-422d-ad6a-71d440c6244b', 1, NULL, N'<cr-addresses-details-dynamic
-    *ngIf="self.popupTab.tabs[self.popupTab.activeTabIndex].details === ''edit''"
-    [subTemplateId]="''{{subTemplateId}}''"
-    [isNew]="false"
-    (closeClickEvent)="self.onClosePartnerAddresses()"
-    (confirmAddress)="self.onConfirmPartnerAddresses($event)"
-    [itemAddress]="self.partnerDetailsAddress"
-></cr-addresses-details-dynamic>
-
-<cr-addresses-details-dynamic
-    *ngIf="self.popupTab.tabs[self.popupTab.activeTabIndex].details === ''create''"
-    [subTemplateId]="''{{subTemplateId}}''"
-    (closeClickEvent)="self.onClosePartnerAddresses()"
-    [isNew]="true"
-    [itemAddress]="self.partnerDetailsAddress"
-    (newAddress)="self.onConfirmPartnerAddresses($event, true)"
-></cr-addresses-details-dynamic>
-', N'manage-partner-addresses', '2022-09-28 17:31:50.1884343 +03:00')
-INSERT INTO [dbo].[WebViewSub] ([ID], [Name], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [ComponentHtml], [Code], [CreateDate]) VALUES ('9753528c-4a51-ed11-8e5d-4ccc6a2bb6d6', N'Create partner addresses', '2022-07-15 18:30:08.0566667 +00:00', 2, N'Y', '72a20b70-7366-4f91-9da6-ba776183c556', 1, NULL, N'<cr-addresses-details-dynamic
-    [subTemplateId]="{{subTemplateId}}"
-    (closeClickEvent)="self.onClosePartnerAddresses()"
-    [isNew]="true"
-    [itemAddress]="self.partnerDetailsAddress"
-    (newAddress)="self.onConfirmPartnerAddresses($event, true)"
-></cr-addresses-details-dynamic>', N'create-partner-addresses', '2022-09-28 17:31:50.1884343 +03:00')
-INSERT INTO [dbo].[WebViewSub] ([ID], [Name], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [ComponentHtml], [Code], [CreateDate]) VALUES ('9853528c-4a51-ed11-8e5d-4ccc6a2bb6d6', N'Manage partner contact person', '2022-07-15 18:54:23.1500000 +00:00', 3, N'Y', '78c219a1-8bc4-4214-a152-14cb6eac1990', 1, NULL, N'<cr-partner-contact-persons-details
-    [subTemplateId]="{{subTemplateId}}"
-    [isNew]="false"
-    (openMailingCategory)="self.onEditContactPersonMailingCategory()"
-    (closeClickEvent)="self.onClosePartnerContactPersons()"
-    (confirmContactPerson)="self.onConfirmPartnerContactPersons($event)"
-    [itemContactPerson]="self.partnerDetailsContactPerson"
-></cr-partner-contact-persons-details>', N'manage-partner-contact-persons', '2022-09-28 17:31:50.1884343 +03:00')
-INSERT INTO [dbo].[WebViewSub] ([ID], [Name], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [ComponentHtml], [Code], [CreateDate]) VALUES ('9953528c-4a51-ed11-8e5d-4ccc6a2bb6d6', N'Manage partner contact persons list', '2022-10-21 19:28:47.0700000 +00:00', 4, N'N', 'dbfcc636-1ed0-4d49-a856-713562a2ca4b', 1, NULL, N'<cr-partner-contact-persons-details
-    *ngIf="self.popupTab.tabs[self.popupTab.activeTabIndex].details === ''edit''"
-    [subTemplateId]="''{{subTemplateId}}''"
-    (openMailingCategory)="self.onEditContactPersonMailingCategory()"
-    (closeClickEvent)="self.onClosePartnerContactPersons()"
-    (confirmContactPerson)="self.onConfirmPartnerContactPersons($event)"
-    [itemContactPerson]="self.partnerDetailsContactPerson"
-></cr-partner-contact-persons-details>
-
-<cr-partner-contact-persons-details
-    *ngIf="self.popupTab.tabs[self.popupTab.activeTabIndex].details === ''create''"
-    [subTemplateId]="''{{subTemplateId}}''"
-    (openMailingCategory)="self.onEditContactPersonMailingCategory()"
-    (closeClickEvent)="self.onClosePartnerContactPersons()"
-    [isNew]="true"
-    [itemContactPerson]="self.partnerDetailsContactPerson"
-    (newContactPerson)="self.onConfirmPartnerContactPersons($event, true)"
-></cr-partner-contact-persons-details>', N'manage-partner-contact-persons-list', '2022-09-28 17:31:50.1884343 +03:00')
-INSERT INTO [dbo].[WebViewSub] ([ID], [Name], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [ComponentHtml], [Code], [CreateDate]) VALUES ('9a53528c-4a51-ed11-8e5d-4ccc6a2bb6d6', N'Tax group definition', '2022-10-06 11:26:40.9663417 +03:00', 1, N'N', '20b7dea5-e747-40fe-8688-de2139e9c950', 1, NULL, N'<cr-tax-group-definition
-    [taxGroupLocation]="self.getTaxGroupLocation()"
-    [basketSet]="self.basketSetNotModified"
-    (addLocationsEvent)="self.addBasketLocationsPopulation()"
-    (editLocationsEvent)="self.onEditLocationsPopulation()"
-    (closeEvent)="self.popupTab.close()"
-    (updateEvent)="self.updateDefinition($event)"
-></cr-tax-group-definition>', N'tax-group-definition', '2022-10-06 11:26:40.9663417 +03:00')
+INSERT INTO [dbo].[WebViewSub] ([ID], [Code], [Name], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('787f7aa3-535c-ed11-8e5e-4ccc6a2bb6d6', N'manage-partner-addresses-update', N'Manage partner addresses - update', '2022-11-04 17:16:22.3108600 +02:00', 1, N'N', 'e82bf793-623c-4da7-9c06-a59c6eded1d9', 1, NULL, '2022-11-04 17:16:22.3108600 +02:00')
+INSERT INTO [dbo].[WebViewSub] ([ID], [Code], [Name], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('e0c1dc2a-5b5c-ed11-8e5e-4ccc6a2bb6d6', N'manage-partner-contact-persons-update', N'Manage partner contact persons - update', '2022-11-04 18:11:27.0033333 +00:00', 2, N'N', '826e4280-dbf1-41d1-891e-861963f04a00', 1, NULL, '2022-11-04 18:10:15.9243360 +02:00')
+INSERT INTO [dbo].[WebViewSub] ([ID], [Code], [Name], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('9453528c-4a51-ed11-8e5d-4ccc6a2bb6d6', N'manage-mailing-category', N'Manage mailing categories', '2022-11-04 13:24:52.6900000 +00:00', 10, N'N', 'f1953328-11bc-4170-9497-b33c43faa5a1', 1, NULL, '2022-09-28 17:31:50.1884343 +03:00')
+INSERT INTO [dbo].[WebViewSub] ([ID], [Code], [Name], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('9553528c-4a51-ed11-8e5d-4ccc6a2bb6d6', N'manage-partner-groups', N'Manage partner group', '2022-10-21 19:28:16.4566667 +00:00', 5, N'N', 'caf51637-477b-4c92-b87a-fc5f2abf1ebc', 1, NULL, '2022-09-28 17:31:50.1884343 +03:00')
+INSERT INTO [dbo].[WebViewSub] ([ID], [Code], [Name], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('9753528c-4a51-ed11-8e5d-4ccc6a2bb6d6', N'create-partner-addresses', N'Create partner addresses', '2022-07-15 18:30:08.0566667 +00:00', 2, N'Y', '72a20b70-7366-4f91-9da6-ba776183c556', 1, NULL, '2022-09-28 17:31:50.1884343 +03:00')
+INSERT INTO [dbo].[WebViewSub] ([ID], [Code], [Name], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('9853528c-4a51-ed11-8e5d-4ccc6a2bb6d6', N'manage-partner-contact-persons', N'Manage partner contact person', '2022-07-15 18:54:23.1500000 +00:00', 3, N'Y', '78c219a1-8bc4-4214-a152-14cb6eac1990', 1, NULL, '2022-09-28 17:31:50.1884343 +03:00')
+INSERT INTO [dbo].[WebViewSub] ([ID], [Code], [Name], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('9a53528c-4a51-ed11-8e5d-4ccc6a2bb6d6', N'tax-group-definition', N'Tax group definition', '2022-10-06 11:26:40.9663417 +03:00', 1, N'N', '20b7dea5-e747-40fe-8688-de2139e9c950', 1, NULL, '2022-10-06 11:26:40.9663417 +03:00')
+INSERT INTO [dbo].[WebViewSub] ([ID], [Code], [Name], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('9653528c-4a51-ed11-8e5d-4ccc6a2bb6d6', N'manage-partner-addresses-create', N'Manage partner addresses - create', '2022-11-04 17:15:28.2866667 +00:00', 7, N'N', '7daec673-6037-481f-aa7b-1123202f2596', 1, NULL, '2022-09-28 17:31:50.1884343 +03:00')
+INSERT INTO [dbo].[WebViewSub] ([ID], [Code], [Name], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('9953528c-4a51-ed11-8e5d-4ccc6a2bb6d6', N'manage-partner-contact-persons-create', N'Manage partner contact persons - create', '2022-11-04 18:11:12.4866667 +00:00', 6, N'N', '06f69499-adc1-407b-979e-a69e2e20f180', 1, NULL, '2022-09-28 17:31:50.1884343 +03:00')
