@@ -1,3 +1,15 @@
+INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('983fe7fc-e84e-ed11-8e5d-4ccc6a2bb6d6', '373c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'partner-list-first-name', N'First name', N'{
+    "defaultValue": {
+        "isUseTranslateKey": true,
+        "translateKey": "PARTNER.FILTER.FIRST_NAME"
+    }
+}', N'<cr-control-edit 
+    [translateKeys]="{{translateKey}}" 
+    [dataLabel]="{{label}}"
+    [customClass]=''{{classes}}''
+    [isDisabled]="{{disabled}}"
+    [(dataValue)]="self.partnerListFilter.firstName"
+></cr-control-edit>', '2022-11-04 13:42:07.4633333 +00:00', 25, N'N', '5c521365-ed38-4343-a82b-7e4bd3a81054', 1, NULL, '2022-09-28 17:31:50.0946998 +03:00')
 INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('993fe7fc-e84e-ed11-8e5d-4ccc6a2bb6d6', '373c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'partner-list-code', N'Partner code', N'{
     "defaultValue": {
         "isUseTranslateKey": true,
@@ -268,50 +280,6 @@ INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebComponentID], [Code], [N
     (buttonClickEvent)="self.onTitleButtonClick($event)"
     [buttonSettings]="self.titleHeaderButtonSettings"
 ></cr-title-header>', '2022-03-02 15:31:38.3100000 +00:00', 8, N'N', '11598767-d054-4a58-a3f8-791a6c5be80b', 1, NULL, '2022-09-28 17:31:50.0946998 +03:00')
-INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('a63fe7fc-e84e-ed11-8e5d-4ccc6a2bb6d6', '373c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'partner-details-code', N'Partner code', N'{
-    "defaultValue": {
-        "isUseTranslateKey": true,
-        "translateKey": "PARTNER.DETAILS.HEADER.PARTNER_CODE",
-        "validationField": "partnerCode"
-    }
-}', N'<cr-control-edit
-    [elementName]="''edit:Partner_details.Partner_code''"
-    [permissionSettings]="{
-        isAccessEdit: self.isNew ? self.authService.getEndpointAccessGranted(self.EndpointName.partner_POST) :
-            self.authService.getEndpointAccessGranted(self.EndpointName.partner_id_PUT)
-    }"
-
-    [(dataValue)]="self.partnerDetails.partnerCode"
-    [validator]="self.validator"
-    [validationField]="''partnerCode''"
-    [translateKeys]="{{translateKey}}" 
-    [dataLabel]="{{label}}"
-    [customClass]=''{{classes}}''
-    [isDisabled]="!self.isNew || {{disabled}}"
-></cr-control-edit>', '2022-04-21 12:58:12.3700000 +00:00', 8, N'N', '67829d28-a543-44ae-9ebb-37c511052e6e', 1, NULL, '2022-09-28 17:31:50.0946998 +03:00')
-INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('a73fe7fc-e84e-ed11-8e5d-4ccc6a2bb6d6', '373c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'partner-details-first-name', N'First name', N'{
-    "defaultValue": {
-        "isUseTranslateKey": true,
-        "translateKey": "PARTNER.DETAILS.HEADER.FIRST_NAME",
-        "isDisabled": false,
-        "validationField": "firstName"
-    }
-}', N'<cr-control-edit
-    [elementName]="''edit:Partner_details.First_name''"
-    [permissionSettings]="{
-        isAccessEdit: self.isNew ? self.authService.getEndpointAccessGranted(self.EndpointName.partner_POST) :
-            self.authService.getEndpointAccessGranted(self.EndpointName.partner_id_PUT)
-    }"
-
-    [(dataValue)]="self.partnerDetails.firstName"
-    (dataValueChange)="self.onChangeTitleValue()"
-    [validationField]="''firstName''"
-    [validator]="self.validator"
-    [translateKeys]="{{translateKey}}" 
-    [dataLabel]="{{label}}"
-    [customClass]=''{{classes}}''
-    [isDisabled]="{{disabled}}"
-></cr-control-edit>', '2022-04-21 12:58:22.9100000 +00:00', 7, N'N', 'df850202-cfc8-4c98-8cae-da893ec844d9', 1, NULL, '2022-09-28 17:31:50.0946998 +03:00')
 INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('a83fe7fc-e84e-ed11-8e5d-4ccc6a2bb6d6', '373c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'partner-details-last-name', N'Last name', N'{
     "defaultValue": {
         "isUseTranslateKey": true,
@@ -1206,6 +1174,12 @@ INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebComponentID], [Code], [N
     [class]=''{{classes}}''
     [partnerID]="self.partnerDetails.id"
 ></cr-partner-point>', '2022-03-09 17:27:53.5100000 +00:00', 3, N'N', '345948b2-7e78-4976-9af8-30d9974d0869', 1, NULL, '2022-09-28 17:31:50.0946998 +03:00')
+INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('d43fe7fc-e84e-ed11-8e5d-4ccc6a2bb6d6', '473c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'partner-details-point-history', N'Point history', N'{
+    "defaultValue": {}
+}', N'<cr-partner-point-history
+    [class]=''{{classes}}''
+    [partnerId]="self.partnerDetails.id"
+></cr-partner-point-history>', '2022-11-04 13:45:54.0266667 +00:00', 5, N'N', 'd4f31513-022e-468d-b752-d89397a38e16', 1, NULL, '2022-09-28 17:31:50.0946998 +03:00')
 INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('d53fe7fc-e84e-ed11-8e5d-4ccc6a2bb6d6', '483c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'partner-details-transaction-history', N'Partner transaction history', N'{
     "defaultValue": {}
 }', N'<cr-partner-transaction-history
@@ -1556,21 +1530,47 @@ INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebComponentID], [Code], [N
                       </ng-template>
                     </kendo-grid>
                   </div>', '2022-10-06 11:49:26.7233333 +00:00', 2, N'N', '1c774e6c-e190-4085-83b9-af928e8ac715', 1, NULL, '2022-10-06 11:48:25.3768319 +03:00')
-INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('983fe7fc-e84e-ed11-8e5d-4ccc6a2bb6d6', '373c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'partner-list-first-name', N'First name', N'{
+INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('a63fe7fc-e84e-ed11-8e5d-4ccc6a2bb6d6', '373c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'partner-details-code', N'Partner code', N'{
     "defaultValue": {
         "isUseTranslateKey": true,
-        "translateKey": "PARTNER.FILTER.FIRST_NAME"
+        "translateKey": "PARTNER.DETAILS.HEADER.PARTNER_CODE",
+        "validationField": "partnerCode"
     }
-}', N'<cr-control-edit 
+}', N'<cr-control-edit
+    [elementName]="''edit:Partner_details.Partner_code''"
+    [permissionSettings]="{
+        isAccessEdit: self.isNew ? self.authService.getEndpointAccessGranted(self.EndpointName.partner_POST) :
+            self.authService.getEndpointAccessGranted(self.EndpointName.partner_id_PUT)
+    }"
+
+    [(dataValue)]="self.partnerDetails.partnerCode"
+    [validator]="self.validator"
+    [validationField]="''partnerCode''"
+    [translateKeys]="{{translateKey}}" 
+    [dataLabel]="{{label}}"
+    [customClass]=''{{classes}}''
+    [isDisabled]="!self.isNew || {{disabled}}"
+></cr-control-edit>', '2022-11-04 19:20:35.5533333 +00:00', 10, N'N', '2ef32249-7482-4383-8f50-a8ffcf0990fd', 1, NULL, '2022-09-28 17:31:50.0946998 +03:00')
+INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('a73fe7fc-e84e-ed11-8e5d-4ccc6a2bb6d6', '373c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'partner-details-first-name', N'First name', N'{
+    "defaultValue": {
+        "isUseTranslateKey": true,
+        "translateKey": "PARTNER.DETAILS.HEADER.FIRST_NAME",
+        "isDisabled": false,
+        "validationField": "firstName"
+    }
+}', N'<cr-control-edit
+    [elementName]="''edit:Partner_details.First_name''"
+    [permissionSettings]="{
+        isAccessEdit: self.isNew ? self.authService.getEndpointAccessGranted(self.EndpointName.partner_POST) :
+            self.authService.getEndpointAccessGranted(self.EndpointName.partner_id_PUT)
+    }"
+
+    [(dataValue)]="self.partnerDetails.firstName"
+    (dataValueChange)="self.onChangeTitleValue()"
+    [validationField]="''firstName''"
+    [validator]="self.validator"
     [translateKeys]="{{translateKey}}" 
     [dataLabel]="{{label}}"
     [customClass]=''{{classes}}''
     [isDisabled]="{{disabled}}"
-    [(dataValue)]="self.partnerListFilter.firstName"
-></cr-control-edit>', '2022-11-04 13:42:07.4633333 +00:00', 25, N'N', '5c521365-ed38-4343-a82b-7e4bd3a81054', 1, NULL, '2022-09-28 17:31:50.0946998 +03:00')
-INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('d43fe7fc-e84e-ed11-8e5d-4ccc6a2bb6d6', '473c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'partner-details-point-history', N'Point history', N'{
-    "defaultValue": {}
-}', N'<cr-partner-point-history
-    [class]=''{{classes}}''
-    [partnerId]="self.partnerDetails.id"
-></cr-partner-point-history>', '2022-11-04 13:45:54.0266667 +00:00', 5, N'N', 'd4f31513-022e-468d-b752-d89397a38e16', 1, NULL, '2022-09-28 17:31:50.0946998 +03:00')
+></cr-control-edit>', '2022-11-04 19:20:29.3000000 +00:00', 9, N'N', '9008aa69-7ec9-4d15-927a-7ea28cedf820', 1, NULL, '2022-09-28 17:31:50.0946998 +03:00')
