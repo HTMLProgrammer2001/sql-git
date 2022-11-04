@@ -1,3 +1,26 @@
+INSERT INTO [dbo].[WebComponentViewSubSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('e213903c-e94e-ed11-8e5d-4ccc6a2bb6d6', '3c3c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'manage-mailing-category-title-header', N'Title header', N'{
+    "defaultValue": {
+        "isUseTranslateKey": true,
+        "translateKey": "PARTNER.DETAILS.GENERAL.MANAGE_MAILING_CATEGORIES",
+        "elements": [
+            {
+                "appearance": "primary-button",
+                "nameTranslateKey": "COMMON.BUTTON.CONFIRM",
+                "template": "custom"
+            },
+            {
+                "appearance": "primary-button",
+                "nameTranslateKey": "COMMON.BUTTON.CANCEL",
+                "template": "custom"
+            }
+        ]
+    }
+}', N'<cr-title-header
+    [titleTranslateKey]="{{translateKey}}"
+    [title]="{{label}}"
+    (buttonClickEvent)="self.onTitleButtonClick($event)"
+    [buttonSettings]="self.titleHeaderButtonSettings"
+></cr-title-header>', '2022-11-03 15:23:53.5533333 +00:00', 7, N'N', 'de49bb74-a9c9-4656-8d37-87cf44ffd596', 1, NULL, '2022-09-28 17:31:50.1102942 +03:00')
 INSERT INTO [dbo].[WebComponentViewSubSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('e313903c-e94e-ed11-8e5d-4ccc6a2bb6d6', '393c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'manage-mailing-category-grid', N'Grid', N'{
     "defaultValue": {
         "allowMultiSelect": true,
@@ -129,29 +152,6 @@ INSERT INTO [dbo].[WebComponentViewSubSettings] ([ID], [WebComponentID], [Code],
       </kendo-grid>
     </div>
   </div>', '2022-03-09 17:55:44.4633333 +00:00', 13, N'N', '807bd660-0601-44d7-ae67-4b7168fffcff', 1, NULL, '2022-09-28 17:31:50.1102942 +03:00')
-INSERT INTO [dbo].[WebComponentViewSubSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('e413903c-e94e-ed11-8e5d-4ccc6a2bb6d6', '3c3c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'manage-partner-group-title-header', N'Title header', N'{
-    "defaultValue": {
-        "isUseTranslateKey": true,
-        "translateKey": "PARTNER.DETAILS.MANAGE_GROUP.TITLE",
-        "elements": [
-            {
-                "appearance": "primary-button",
-                "nameTranslateKey": "COMMON.BUTTON.CONFIRM",
-                "template": "custom"
-            },
-            {
-                "appearance": "primary-button",
-                "nameTranslateKey": "COMMON.BUTTON.CANCEL",
-                "template": "custom"
-            }
-        ]
-    }
-}', N'<cr-title-header
-    [titleTranslateKey]="{{translateKey}}"
-    [title]="{{label}}"
-    (buttonClickEvent)="self.onTitleButtonClick($event)"
-    [buttonSettings]="self.titleHeaderButtonSettings"
-></cr-title-header>', '2022-03-09 18:13:27.7733333 +00:00', 2, N'N', '4ee5e615-abd1-4acd-a8b6-5d126ee2ee35', 1, NULL, '2022-09-28 17:31:50.1102942 +03:00')
 INSERT INTO [dbo].[WebComponentViewSubSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('e513903c-e94e-ed11-8e5d-4ccc6a2bb6d6', '393c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'manage-partner-groups-grid', N'Grid', N'{
     "defaultValue": {
         "allowMultiSelect": true,
@@ -1041,10 +1041,10 @@ INSERT INTO [dbo].[WebComponentViewSubSettings] ([ID], [WebComponentID], [Code],
     [titleValue]="self.titleValueText"
 ></cr-title-header>
 ', '2022-10-06 12:06:33.6966667 +00:00', 2, N'N', '19bd012d-78c7-4466-9429-115ae3e3256a', 1, NULL, '2022-10-06 12:05:15.6069016 +03:00')
-INSERT INTO [dbo].[WebComponentViewSubSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('e213903c-e94e-ed11-8e5d-4ccc6a2bb6d6', '3c3c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'manage-mailing-category-title-header', N'Title header', N'{
+INSERT INTO [dbo].[WebComponentViewSubSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('e413903c-e94e-ed11-8e5d-4ccc6a2bb6d6', '3c3c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'manage-partner-group-title-header', N'Title header', N'{
     "defaultValue": {
         "isUseTranslateKey": true,
-        "translateKey": "PARTNER.DETAILS.GENERAL.MANAGE_MAILING_CATEGORIES",
+        "translateKey": "PARTNER.DETAILS.MANAGE_GROUP.TITLE",
         "elements": [
             {
                 "appearance": "primary-button",
@@ -1063,4 +1063,4 @@ INSERT INTO [dbo].[WebComponentViewSubSettings] ([ID], [WebComponentID], [Code],
     [title]="{{label}}"
     (buttonClickEvent)="self.onTitleButtonClick($event)"
     [buttonSettings]="self.titleHeaderButtonSettings"
-></cr-title-header>', '2022-11-03 15:23:53.5533333 +00:00', 7, N'N', 'de49bb74-a9c9-4656-8d37-87cf44ffd596', 1, NULL, '2022-09-28 17:31:50.1102942 +03:00')
+></cr-title-header>', '2022-11-04 13:17:22.2766667 +00:00', 3, N'N', '8d0a3ff5-6d34-4d08-aaa9-851849e8c3e3', 1, NULL, '2022-09-28 17:31:50.1102942 +03:00')

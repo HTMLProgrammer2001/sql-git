@@ -1206,12 +1206,6 @@ INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebComponentID], [Code], [N
     [class]=''{{classes}}''
     [partnerID]="self.partnerDetails.id"
 ></cr-partner-point>', '2022-03-09 17:27:53.5100000 +00:00', 3, N'N', '345948b2-7e78-4976-9af8-30d9974d0869', 1, NULL, '2022-09-28 17:31:50.0946998 +03:00')
-INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('d43fe7fc-e84e-ed11-8e5d-4ccc6a2bb6d6', '473c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'partner-details-point-history', N'Point history', N'{
-    "defaultValue": {}
-}', N'<cr-partner-point-history
-    [class]=''{{classes}}''
-    [partnerId]="self.partnerDetails.id"
-></cr-partner-point-history>', '2022-03-09 17:28:26.8333333 +00:00', 3, N'N', 'ea729629-3f64-41c1-bbf4-b3f28284ae61', 1, NULL, '2022-09-28 17:31:50.0946998 +03:00')
 INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('d53fe7fc-e84e-ed11-8e5d-4ccc6a2bb6d6', '483c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'partner-details-transaction-history', N'Partner transaction history', N'{
     "defaultValue": {}
 }', N'<cr-partner-transaction-history
@@ -1573,4 +1567,10 @@ INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebComponentID], [Code], [N
     [customClass]=''{{classes}}''
     [isDisabled]="{{disabled}}"
     [(dataValue)]="self.partnerListFilter.firstName"
-></cr-control-edit>', '2022-11-03 15:17:06.2866667 +00:00', 18, N'N', '001263e5-789a-43ab-bff3-6ef0f9da8ec5', 1, NULL, '2022-09-28 17:31:50.0946998 +03:00')
+></cr-control-edit>', '2022-11-04 13:42:07.4633333 +00:00', 25, N'N', '5c521365-ed38-4343-a82b-7e4bd3a81054', 1, NULL, '2022-09-28 17:31:50.0946998 +03:00')
+INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('d43fe7fc-e84e-ed11-8e5d-4ccc6a2bb6d6', '473c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'partner-details-point-history', N'Point history', N'{
+    "defaultValue": {}
+}', N'<cr-partner-point-history
+    [class]=''{{classes}}''
+    [partnerId]="self.partnerDetails.id"
+></cr-partner-point-history>', '2022-11-04 13:45:54.0266667 +00:00', 5, N'N', 'd4f31513-022e-468d-b752-d89397a38e16', 1, NULL, '2022-09-28 17:31:50.0946998 +03:00')

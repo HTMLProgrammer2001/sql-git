@@ -1,11 +1,3 @@
-INSERT INTO [dbo].[WebViewToViewSubAssociation] ([ID], [WebViewID], [WebViewSubID], [HtmlCode], [Html], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('61c66446-4351-ed11-8e5d-4ccc6a2bb6d6', 'ddfe3a70-4251-ed11-8e5d-4ccc6a2bb6d6', '9a53528c-4a51-ed11-8e5d-4ccc6a2bb6d6', N'tax-group-definition', N'<cr-tax-group-definition
-    [taxGroupLocation]="self.getTaxGroupLocation()"
-    [basketSet]="self.basketSetNotModified"
-    (addLocationsEvent)="self.addBasketLocationsPopulation()"
-    (editLocationsEvent)="self.onEditLocationsPopulation()"
-    (closeEvent)="self.popupTab.close()"
-    (updateEvent)="self.updateDefinition($event)"
-></cr-tax-group-definition>', '2022-10-06 11:34:56.1304670 +03:00', 1, N'N', '1a0f881d-ed8a-46d4-b2b9-348c135caea3', 1, NULL)
 INSERT INTO [dbo].[WebViewToViewSubAssociation] ([ID], [WebViewID], [WebViewSubID], [HtmlCode], [Html], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('95f78b5e-a258-ed11-8e5e-4ccc6a2bb6d6', 'd9fe3a70-4251-ed11-8e5d-4ccc6a2bb6d6', '9453528c-4a51-ed11-8e5d-4ccc6a2bb6d6', N'manage-mailing-category', N'<cr-partner-mailing-category-manage-dynamic
     *ngIf="self.popupTab.tabs[self.popupTab.activeTabIndex].details === ''partner''"
     [subTemplateId]="''{{subTemplateId}}''"
@@ -26,7 +18,7 @@ INSERT INTO [dbo].[WebViewToViewSubAssociation] ([ID], [WebViewID], [WebViewSubI
     (confirmClickEvent)="self.onCloseMailingCategory()"
     [isNew]="!self.isNew"
 ></cr-partner-mailing-category-manage-dynamic>
-', '2022-10-31 00:29:52.2530835 +02:00', 1, N'N', 'e5b479b0-6bf2-48eb-9a03-eeb41c93506f', 1, NULL)
+', '2022-11-04 14:29:00.4133333 +00:00', 5, N'N', 'db77e291-dccd-4200-8400-d116dd7b07eb', 1, NULL)
 INSERT INTO [dbo].[WebViewToViewSubAssociation] ([ID], [WebViewID], [WebViewSubID], [HtmlCode], [Html], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('96f78b5e-a258-ed11-8e5e-4ccc6a2bb6d6', 'd9fe3a70-4251-ed11-8e5d-4ccc6a2bb6d6', '9553528c-4a51-ed11-8e5d-4ccc6a2bb6d6', N'manage-partner-groups', N'<cr-partner-group-manage-dynamic
     [subTemplateId]="''{{subTemplateId}}''"
     [partnerId]="self.partnerDetails.id"
@@ -34,7 +26,7 @@ INSERT INTO [dbo].[WebViewToViewSubAssociation] ([ID], [WebViewID], [WebViewSubI
     [(selectedGroups)]="self.partnerDetails.partnerGroups"
     (cancelClickEvent)="self.onClosePartnerGroup()"
     (confirmClickEvent)="self.onClosePartnerGroup()"
-></cr-partner-group-manage-dynamic>', '2022-10-31 00:29:52.2530835 +02:00', 1, N'N', '691ba187-880b-426e-98c0-1a11c9804a42', 1, NULL)
+></cr-partner-group-manage-dynamic>', '2022-11-04 14:29:00.4133333 +00:00', 5, N'N', 'd8a1fe64-0c74-4b1a-ad17-5f3e846119e8', 1, NULL)
 INSERT INTO [dbo].[WebViewToViewSubAssociation] ([ID], [WebViewID], [WebViewSubID], [HtmlCode], [Html], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('97f78b5e-a258-ed11-8e5e-4ccc6a2bb6d6', 'd9fe3a70-4251-ed11-8e5d-4ccc6a2bb6d6', '9653528c-4a51-ed11-8e5d-4ccc6a2bb6d6', N'manage-partner-addresses', N'<cr-addresses-details-dynamic
     *ngIf="self.popupTab.tabs[self.popupTab.activeTabIndex].details === ''edit''"
     [subTemplateId]="''{{subTemplateId}}''"
@@ -52,7 +44,7 @@ INSERT INTO [dbo].[WebViewToViewSubAssociation] ([ID], [WebViewID], [WebViewSubI
     [itemAddress]="self.partnerDetailsAddress"
     (newAddress)="self.onConfirmPartnerAddresses($event, true)"
 ></cr-addresses-details-dynamic>
-', '2022-10-31 00:29:52.2530835 +02:00', 1, N'N', '5d0bd827-52c4-46a3-b965-8bead2eba724', 1, NULL)
+', '2022-11-04 14:29:00.4133333 +00:00', 5, N'N', '09db065d-c03c-4b40-932e-730476152b04', 1, NULL)
 INSERT INTO [dbo].[WebViewToViewSubAssociation] ([ID], [WebViewID], [WebViewSubID], [HtmlCode], [Html], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('98f78b5e-a258-ed11-8e5e-4ccc6a2bb6d6', 'd9fe3a70-4251-ed11-8e5d-4ccc6a2bb6d6', '9953528c-4a51-ed11-8e5d-4ccc6a2bb6d6', N'manage-partner-contact-persons-list', N'<cr-partner-contact-persons-details
     *ngIf="self.popupTab.tabs[self.popupTab.activeTabIndex].details === ''edit''"
     [subTemplateId]="''{{subTemplateId}}''"
@@ -70,4 +62,4 @@ INSERT INTO [dbo].[WebViewToViewSubAssociation] ([ID], [WebViewID], [WebViewSubI
     [isNew]="true"
     [itemContactPerson]="self.partnerDetailsContactPerson"
     (newContactPerson)="self.onConfirmPartnerContactPersons($event, true)"
-></cr-partner-contact-persons-details>', '2022-10-31 00:29:52.2530835 +02:00', 1, N'N', '825b5247-eb4f-4bd3-bba5-34d58683e2b2', 1, NULL)
+></cr-partner-contact-persons-details>', '2022-11-04 14:29:00.4133333 +00:00', 5, N'N', '00593ae4-35d9-4526-98f6-5971fa220516', 1, NULL)
