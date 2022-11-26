@@ -1,4 +1,2350 @@
-INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID], [BookmarkName], [BookmarkDescription], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('9e2dcb25-645c-ed11-8e5e-4ccc6a2bb6d6', '9d2dcb25-645c-ed11-8e5e-4ccc6a2bb6d6', 1, N'', N'', N'
+INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID], [BookmarkName], [BookmarkDescription], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('9b16e302-a86c-ed11-835f-02f176033ddb', '9a16e302-a86c-ed11-835f-02f176033ddb', 1, N'', N'', N'
+        <div class=''cr-popup-content-wrapper'' [class.cr-popup-is-shown]=''self.popupTab.tabs.length > 1''>
+          <cr-popup-tabs
+            [popupTabs]=''self.popupTab.tabs''
+            [activePopup]=''self.popupTab.activeTabIndex''
+            (closePopup)=''self.removePopupTab($event)''
+            (changeActive)=''self.changeActiveTab($event)''
+          ></cr-popup-tabs>
+          <div class=''cr-details-inner-container''>
+            <ng-container *ngFor=''let tab of self.popupTab.tabs; index as i;''>
+              <ng-container [ngSwitch]=''tab.type''>
+                
+    <ng-template [ngSwitchCase]="''general''">
+      <ng-template [ngIf]="self.popupTab.tabs[self.popupTab.activeTabIndex].type == ''general'' && self.popupTab.activeTabIndex == i">
+        <div *ngIf=''self.popupTab.activeTabIndex != self.popupTab.tabs.length - 1'' class=''cr-popup-blocker''></div>
+        
+        <ng-template [ngIf]="self.item">
+            <cr-title-header
+    [titleTranslateKey]="''ITEM.DETAILS.TITLE''"
+    [title]="''''"
+    (buttonClickEvent)="self.onTitleButtonClick($event)"
+    [additionalTranslateKeys]="''COMMON.NEW''"
+    [titleValueTranslateKey]="self.isNewItem ? ''COMMON.NEW'' : null"
+    [buttonSettings]="self.titleHeaderButtonSettings"
+    [titleValue]="self.titleValueText"
+></cr-title-header>
+
+      <cr-panel
+        [panelTemplateType]="''well''"
+        [customClass]="''''"
+      >
+        <ng-template crPanelContent>
+          <div class="row cr-bottom-row-border"><div class=''col-md-2''><cr-control-edit 
+    [translateKeys]="''ITEM.DETAILS.HEADER.ITEM_CODE''" 
+    [dataLabel]="''''"
+    [customClass]=''""''
+    [isDisabled]="false || !self.isNewItem || self.item.isDeleted"
+    [elementName]="''edit:Item_details.Item_code''"
+    [(dataValue)]="self.item.code"
+    [permissionSettings]="{
+        isAccessEdit: self.isNewItem ? (self.EndpointName.item_POST | endpointAccessGrantedPipe) :
+            (self.EndpointName.item_id_PUT | endpointAccessGrantedPipe)
+    }"
+    [validationField]="''code''"
+    [validator]="self.validator"
+></cr-control-edit></div><div class=''col-md-2''><cr-control-edit 
+    [translateKeys]="''ITEM.DETAILS.HEADER.SHORT_DISPLAY_NAME''" 
+    [dataLabel]="''''"
+    [customClass]=''""''
+    [isDisabled]="false || self.item.isDeleted"
+    [elementName]="''edit:Item_details.Display_name''"
+    [(dataValue)]="self.item.shortDisplayName"
+    (dataValueChange)="self.changeTitle()"
+    [permissionSettings]="{
+        isAccessEdit: self.isNewItem ? (self.EndpointName.item_POST | endpointAccessGrantedPipe) :
+            (self.EndpointName.item_id_PUT | endpointAccessGrantedPipe)
+    }"
+    [validationField]="''shortDisplayName''"
+    [validator]="self.validator"
+></cr-control-edit></div><div class=''col-md-2''><cr-dropdown-smart-control
+    [elementName]="''smart-dropdown:Item_details.Model''"
+    [permissionSettings]="{
+        isAccessRead: (self.EndpointName.item__item_model_id_dropdown_GET | endpointAccessGrantedPipe),
+        isAccessEdit: (self.isNewItem ? (self.EndpointName.item_POST | endpointAccessGrantedPipe) :
+            (self.EndpointName.item_id_PUT | endpointAccessGrantedPipe)) &&
+            (self.EndpointName.item__item_model_dropdown_GET | endpointAccessGrantedPipe)
+    }"
+    [isDisabled]="self.item.isDeleted"
+    [dataCacheName]="''ItemModelValueDropdownCache''"
+    [(value)]="self.item.itemModelID"
+    [textField]="''name''"
+    [codeField]="''code''"
+    [valueField]="''id''"
+    [useCodeInList]="true"
+    [useCodeInValue]="true"
+    [getOneItemFunction]="self.loadModelDropdownFunction"
+    [getListItemsFunction]="self.loadModelsListDropdownFunction"
+    [listItemsFunctionAdditionalParameter]="self.item.itemModelID"
+    [unselectedItemValue]="{id: null, translateKey: ''COMMON.MOCK_OBJ.NOT_SELECTED''}"
+    [dataTranslateKeyField]="''translateKey''"
+    [labelTranslateKey]="''ITEM.DETAILS.HEADER.MODEL''"
+    [label]="''''"
+    [class]=''""''
+></cr-dropdown-smart-control></div><div class=''col-md-2''><cr-control-edit
+    [elementName]="''edit:Item_details.Short_print_name''"
+    [permissionSettings]="{
+        isAccessEdit: self.isNewItem ? (self.EndpointName.item_POST | endpointAccessGrantedPipe) :
+            (self.EndpointName.item_id_PUT | endpointAccessGrantedPipe)
+    }"
+    [(dataValue)]="self.item.shortPrintName"
+    [validator]="self.validator"
+    [validationField]="''shortPrintName''"
+    [translateKeys]="''ITEM.DETAILS.HEADER.SHORT_PRINT_NAME''" 
+    [dataLabel]="''''"
+    [customClass]=''""''
+    [isDisabled]="false"
+></cr-control-edit></div><div class=''col-md-2''><cr-control-datepicker
+    [elementName]="''date:Item_details.Registration_date''"
+    [permissionSettings]="{
+        isAccessEdit: self.isNew ? self.authService.getEndpointAccessGranted(self.EndpointName.item_POST) :
+            self.authService.getEndpointAccessGranted(self.EndpointName.item_id_PUT)
+    }"
+
+    [(dataValue)]="self.item.registrationDate"
+    [dataLabel]="''''"
+    [translateKeys]="''ITEM.DETAILS.HEADER.REGISTRATION_DATE''"
+    [class]=''""'' 
+    [isDisabled]="self.item.isDeleted || false"
+></cr-control-datepicker></div></div><div class="row cr-bottom-row-border"><div class=''col-md-2''><cr-dropdown-smart-control
+    [elementName]="''smart-dropdown:Item_details.Metric_type_1''"
+    [permissionSettings]="{
+        isAccessRead: (self.EndpointName.item__item_metric_type_id_GET | endpointAccessGrantedPipe),
+        isAccessEdit: (self.isNewItem ? (self.EndpointName.item_POST | endpointAccessGrantedPipe) :
+            (self.EndpointName.item_id_PUT | endpointAccessGrantedPipe)) &&
+            (self.EndpointName.item__item_metric_type_GET | endpointAccessGrantedPipe)
+    }"
+    [isDisabled]="self.item.isDeleted"
+    [dataCacheName]="''ItemMetricTypeFirstDropdownCache''"
+    (currentItemValueChange)="self.metricTypeChanged(''metric1'')"
+    [(value)]="self.item.metric1.type"
+    [textField]="''displayName''"
+    [codeField]="''code''"
+    [valueField]="''id''"
+    [useCodeInList]="true"
+    [useCodeInValue]="true"
+    [getOneItemFunction]="self.loadItemMetricTypeForDropdownFunction"
+    [getListItemsFunction]="self.loadItemMetricTypeListForDropdownFunction"
+    [unselectedItemValue]="{id: null, translateKey: ''COMMON.MOCK_OBJ.NOT_SELECTED''}"
+    [dataTranslateKeyField]="''translateKey''"
+    [validator]="self.validator"
+    [validationField]="''metric1''"
+    [labelTranslateKey]="''ITEM.DETAILS.HEADER.METRIC_TYPE1''"
+    [label]="''''"
+    [class]=''""''
+></cr-dropdown-smart-control></div><div class=''col-md-2''><cr-dropdown-smart-control
+    [elementName]="''smart-dropdown:Item_details.Metric_value_1''"
+    [permissionSettings]="{
+        isAccessRead: (self.EndpointName.item__item_metric_type_metricTypeId_value_id_dropdown_GET | endpointAccessGrantedPipe),
+        isAccessEdit: (self.isNewItem ? (self.EndpointName.item_POST | endpointAccessGrantedPipe) :
+            (self.EndpointName.item_id_PUT | endpointAccessGrantedPipe)) &&
+            (self.EndpointName.item__item_metric_type_metricTypeId_value_dropdown_GET | endpointAccessGrantedPipe)
+    }"
+    [isDisabled]="!self.item.metric1.type || self.item.isDeleted"
+    [dataCacheName]="''ItemMetricValueFirstDropdownCache''"
+    [(value)]="self.item.metric1.value"
+    [textField]="''name''"
+    [codeField]="''code''"
+    [valueField]="''id''"
+    [useCodeInList]="true"
+    [useCodeInValue]="true"
+    [getOneItemFunction]="self.loadItemMetricValueForDropdownFunction"
+    [getListItemsFunction]="self.loadItemMetricValueListForDropdownFunction"
+    [listItemsFunctionAdditionalParameter]="self.item.metric1.type"
+    [unselectedItemValue]="{id: null, translateKey: ''COMMON.MOCK_OBJ.NOT_SELECTED''}"
+    [dataTranslateKeyField]="''translateKey''"
+    [validator]="self.validator"
+    [validationField]="''metric1''"
+    [labelTranslateKey]="''ITEM.DETAILS.HEADER.METRIC_VALUE1''"
+    [label]="''''"
+    [class]=''""''
+></cr-dropdown-smart-control></div><div class=''col-md-2''><cr-dropdown-smart-control
+    [elementName]="''smart-dropdown:Item_details.Metric_type_2''"
+    [permissionSettings]="{
+        isAccessRead: (self.EndpointName.item__item_metric_type_id_GET | endpointAccessGrantedPipe),
+        isAccessEdit: (self.isNewItem ? (self.EndpointName.item_POST | endpointAccessGrantedPipe) :
+            (self.EndpointName.item_id_PUT | endpointAccessGrantedPipe)) &&
+            (self.EndpointName.item__item_metric_type_GET | endpointAccessGrantedPipe)
+    }"
+    [isDisabled]="self.item.isDeleted"
+    [dataCacheName]="''ItemMetricTypeSecondDropdownCache''"
+    (currentItemValueChange)="self.metricTypeChanged(''metric2'')"
+    [(value)]="self.item.metric2.type"
+    [textField]="''displayName''"
+    [codeField]="''code''"
+    [valueField]="''id''"
+    [useCodeInList]="true"
+    [useCodeInValue]="true"
+    [getOneItemFunction]="self.loadItemMetricTypeForDropdownFunction"
+    [getListItemsFunction]="self.loadItemMetricTypeListForDropdownFunction"
+    [unselectedItemValue]="{id: null, translateKey: ''COMMON.MOCK_OBJ.NOT_SELECTED''}"
+    [dataTranslateKeyField]="''translateKey''"
+    [validator]="self.validator"
+    [validationField]="''metric2''"
+    [labelTranslateKey]="''ITEM.DETAILS.HEADER.METRIC_TYPE2''"
+    [label]="''''"
+    [class]=''""''
+></cr-dropdown-smart-control></div><div class=''col-md-2''><cr-dropdown-smart-control
+    [elementName]="''smart-dropdown:Item_details.Metric_value_2''"
+    [permissionSettings]="{
+        isAccessRead: (self.EndpointName.item__item_metric_type_metricTypeId_value_id_dropdown_GET | endpointAccessGrantedPipe),
+        isAccessEdit: (self.isNewItem ? (self.EndpointName.item_POST | endpointAccessGrantedPipe) :
+            (self.EndpointName.item_id_PUT | endpointAccessGrantedPipe)) &&
+            (self.EndpointName.item__item_metric_type_metricTypeId_value_dropdown_GET | endpointAccessGrantedPipe)
+    }"
+    [isDisabled]="!self.item.metric2.type || self.item.isDeleted"
+    [dataCacheName]="''ItemMetricValueSecondDropdownCache''"
+    [(value)]="self.item.metric2.value"
+    [textField]="''name''"
+    [codeField]="''code''"
+    [valueField]="''id''"
+    [useCodeInList]="true"
+    [useCodeInValue]="true"
+    [getOneItemFunction]="self.loadItemMetricValueForDropdownFunction"
+    [getListItemsFunction]="self.loadItemMetricValueListForDropdownFunction"
+    [listItemsFunctionAdditionalParameter]="self.item.metric2.type"
+    [unselectedItemValue]="{id: null, translateKey: ''COMMON.MOCK_OBJ.NOT_SELECTED''}"
+    [dataTranslateKeyField]="''translateKey''"
+    [validator]="self.validator"
+    [validationField]="''metric2''"
+    [labelTranslateKey]="''ITEM.DETAILS.HEADER.METRIC_VALUE2''"
+    [label]="''''"
+    [class]=''""''
+></cr-dropdown-smart-control></div><div class=''col-md-2''><cr-dropdown-smart-control
+    [elementName]="''smart-dropdown:Item_details.Metric_type_3''"
+    [permissionSettings]="{
+        isAccessRead: (self.EndpointName.item__item_metric_type_id_GET | endpointAccessGrantedPipe),
+        isAccessEdit: (self.isNewItem ? (self.EndpointName.item_POST | endpointAccessGrantedPipe) :
+            (self.EndpointName.item_id_PUT | endpointAccessGrantedPipe)) &&
+            (self.EndpointName.item__item_metric_type_GET | endpointAccessGrantedPipe)
+    }"
+    [isDisabled]="self.item.isDeleted"
+    [dataCacheName]="''ItemMetricTypeThirdDropdownCache''"
+    (currentItemValueChange)="self.metricTypeChanged(''metric3'')"
+    [(value)]="self.item.metric3.type"
+    [textField]="''displayName''"
+    [codeField]="''code''"
+    [valueField]="''id''"
+    [useCodeInList]="true"
+    [useCodeInValue]="true"
+    [getOneItemFunction]="self.loadItemMetricTypeForDropdownFunction"
+    [getListItemsFunction]="self.loadItemMetricTypeListForDropdownFunction"
+    [unselectedItemValue]="{id: null, translateKey: ''COMMON.MOCK_OBJ.NOT_SELECTED''}"
+    [dataTranslateKeyField]="''translateKey''"
+    [validator]="self.validator"
+    [validationField]="''metric3''"
+    [labelTranslateKey]="''ITEM.DETAILS.HEADER.METRIC_TYPE3''"
+    [label]="''''"
+    [class]=''""''
+></cr-dropdown-smart-control></div><div class=''col-md-2''><cr-dropdown-smart-control
+    [elementName]="''smart-dropdown:Item_details.Metric_value_3''"
+    [permissionSettings]="{
+        isAccessRead: (self.EndpointName.item__item_metric_type_metricTypeId_value_id_dropdown_GET | endpointAccessGrantedPipe),
+        isAccessEdit: (self.isNewItem ? (self.EndpointName.item_POST | endpointAccessGrantedPipe) :
+            (self.EndpointName.item_id_PUT | endpointAccessGrantedPipe)) &&
+            (self.EndpointName.item__item_metric_type_metricTypeId_value_dropdown_GET | endpointAccessGrantedPipe)
+    }"
+    [isDisabled]="!self.item.metric3.type || self.item.isDeleted"
+    [dataCacheName]="''ItemMetricValueThirdDropdownCache''"
+    [(value)]="self.item.metric3.value"
+    [textField]="''name''"
+    [codeField]="''code''"
+    [valueField]="''id''"
+    [useCodeInList]="true"
+    [useCodeInValue]="true"
+    [getOneItemFunction]="self.loadItemMetricValueForDropdownFunction"
+    [getListItemsFunction]="self.loadItemMetricValueListForDropdownFunction"
+    [listItemsFunctionAdditionalParameter]="self.item.metric3.type"
+    [unselectedItemValue]="{id: null, translateKey: ''COMMON.MOCK_OBJ.NOT_SELECTED''}"
+    [dataTranslateKeyField]="''translateKey''"
+    [validator]="self.validator"
+    [validationField]="''metric3''"
+    [labelTranslateKey]="''ITEM.DETAILS.HEADER.METRIC_VALUE3''"
+    [label]="''''"
+    [class]=''""''
+></cr-dropdown-smart-control></div></div>
+        </ng-template>
+      </cr-panel>
+      <cr-panel
+        [panelTemplateType]="''collapsible-panel''"
+        [expanded]="self.panelsViewState?.[''general''] ?? false"
+        (expandedChange)="self.panelStateChange(''general'', $event)"
+        [titleTranslateKey]="true ? ''ITEM.DETAILS.PANEL.GENERAL'' : null"
+        [title]="true ? null : ''כללי''"
+        [customClass]="''''"
+        [headerClass]="''''"
+        [validator]="self.validator"
+        [validatorGroupName]="''general''"
+        [containFields]=''["itemHierarchyValues.1","supplierCatNum","validFrom","validTo","frozenFrom","frozenTo"]''
+      >
+        <ng-template crPanelContent>
+          <div class="row cr-bottom-row-border"><div class=''col-md-2''><cr-dropdown-smart-control
+    [elementName]="''smart-dropdown:Item_details.Hierarchy_1''"
+    [permissionSettings]="{
+        isAccessRead: (self.EndpointName.item__item_hierarchy_level_id_dropdown_GET | endpointAccessGrantedPipe),
+        isAccessEdit: (self.isNewItem ? (self.EndpointName.item_POST | endpointAccessGrantedPipe) :
+                      (self.EndpointName.item_id_PUT | endpointAccessGrantedPipe)) &&
+                      (self.EndpointName.item__item_hierarchy_level_dropdown_GET | endpointAccessGrantedPipe)
+    }"
+    [isDisabled]="self.item.isDeleted"
+    [requestDataWhenOpen]="true"
+    [dataCacheName]="''ItemHierarchyLevel1DropdownCache''"
+    (valueChange)="self.onSelectValue($event, 1)"
+    [(value)]="self.item.itemHierarchyValues[''1'']"
+    [listItemsFunctionAdditionalParameter]="{hierarchyLevel: 1, hierarchyParentId: null}"
+    [textField]="''name''"
+    [codeField]="''code''"
+    [valueField]="''id''"
+    [useCodeInList]="true"
+    [useCodeInValue]="true"
+    [getListItemsFunction]="self.loadItemHierarchyListDropdownFunction"
+    [getOneItemFunction]="self.loadItemHierarchyDropdownFunction"
+    [unselectedItemValue]="{id: null, translateKey: ''COMMON.MOCK_OBJ.NOT_SELECTED''}"
+    [dataTranslateKeyField]="''translateKey''"
+    [validator]="self.validator"
+    [validationField]="''itemHierarchyValues.1''"
+    [labelTranslateKey]="''''"
+    [label]="true ? self.levelLabels?.levelLabels[''1''] : ''undefined''"
+    [class]=''""''
+></cr-dropdown-smart-control></div><div class=''col-md-2''><cr-dropdown-smart-control
+    [elementName]="''smart-dropdown:Item_details.Hierarchy_2''"
+    [permissionSettings]="{
+        isAccessRead: (self.EndpointName.item__item_hierarchy_level_id_dropdown_GET | endpointAccessGrantedPipe),
+        isAccessEdit: (self.isNewItem ? (self.EndpointName.item_POST | endpointAccessGrantedPipe) :
+                      (self.EndpointName.item_id_PUT | endpointAccessGrantedPipe)) &&
+                      (self.EndpointName.item__item_hierarchy_level_dropdown_GET | endpointAccessGrantedPipe)
+    }"
+    [isDisabled]="!self.item.itemHierarchyValues[''1''] || self.item.isDeleted"
+    [requestDataWhenOpen]="true"
+    [dataCacheName]="''ItemHierarchyLevel2DropdownCache''"
+    (valueChange)="self.onSelectValue($event, 2)"
+    [(value)]="self.item.itemHierarchyValues[''2'']"
+    [listItemsFunctionAdditionalParameter]="{hierarchyLevel: 2, hierarchyParentId: self.item.itemHierarchyValues[''1'']}"
+    [textField]="''name''"
+    [codeField]="''code''"
+    [valueField]="''id''"
+    [useCodeInList]="true"
+    [useCodeInValue]="true"
+    [getListItemsFunction]="self.loadItemHierarchyListDropdownFunction"
+    [getOneItemFunction]="self.loadItemHierarchyDropdownFunction"
+    [unselectedItemValue]="{id: null, translateKey: ''COMMON.MOCK_OBJ.NOT_SELECTED''}"
+    [dataTranslateKeyField]="''translateKey''"
+    [labelTranslateKey]="''''"
+    [label]="true ? self.levelLabels?.levelLabels[''2''] : ''undefined''"
+    [class]=''""''
+></cr-dropdown-smart-control></div><div class=''col-md-2''><cr-dropdown-smart-control
+    [elementName]="''smart-dropdown:Item_details.Hierarchy_3''"
+    [permissionSettings]="{
+        isAccessRead: (self.EndpointName.item__item_hierarchy_level_id_dropdown_GET | endpointAccessGrantedPipe),
+        isAccessEdit: (self.isNewItem ? (self.EndpointName.item_POST | endpointAccessGrantedPipe) :
+                      (self.EndpointName.item_id_PUT | endpointAccessGrantedPipe)) &&
+                      (self.EndpointName.item__item_hierarchy_level_dropdown_GET | endpointAccessGrantedPipe)
+    }"
+    [isDisabled]="!self.item.itemHierarchyValues[''2''] || self.item.isDeleted"
+    [requestDataWhenOpen]="true"
+    [dataCacheName]="''ItemHierarchyLevel3DropdownCache''"
+    (valueChange)="self.onSelectValue($event, 3)"
+    [(value)]="self.item.itemHierarchyValues[''3'']"
+    [listItemsFunctionAdditionalParameter]="{hierarchyLevel: 3, hierarchyParentId: self.item.itemHierarchyValues[''2'']}"
+    [textField]="''name''"
+    [codeField]="''code''"
+    [valueField]="''id''"
+    [useCodeInList]="true"
+    [useCodeInValue]="true"
+    [getListItemsFunction]="self.loadItemHierarchyListDropdownFunction"
+    [getOneItemFunction]="self.loadItemHierarchyDropdownFunction"
+    [unselectedItemValue]="{id: null, translateKey: ''COMMON.MOCK_OBJ.NOT_SELECTED''}"
+    [dataTranslateKeyField]="''translateKey''"
+    [labelTranslateKey]="''''"
+    [label]="true ? self.levelLabels?.levelLabels[''3''] : ''undefined''"
+    [class]=''""''
+></cr-dropdown-smart-control></div><div class=''col-md-2''><cr-dropdown-smart-control
+    [elementName]="''smart-dropdown:Item_details.Hierarchy_4''"
+    [permissionSettings]="{
+        isAccessRead: (self.EndpointName.item__item_hierarchy_level_id_dropdown_GET | endpointAccessGrantedPipe),
+        isAccessEdit: (self.isNewItem ? (self.EndpointName.item_POST | endpointAccessGrantedPipe) :
+                      (self.EndpointName.item_id_PUT | endpointAccessGrantedPipe)) &&
+                      (self.EndpointName.item__item_hierarchy_level_dropdown_GET | endpointAccessGrantedPipe)
+    }"
+    [isDisabled]="!self.item.itemHierarchyValues[''3''] || self.item.isDeleted"
+    [requestDataWhenOpen]="true"
+    [dataCacheName]="''ItemHierarchyLevel4DropdownCache''"
+    (valueChange)="self.onSelectValue($event, 4)"
+    [(value)]="self.item.itemHierarchyValues[''4'']"
+    [listItemsFunctionAdditionalParameter]="{hierarchyLevel: 4, hierarchyParentId: self.item.itemHierarchyValues[''3'']}"
+    [textField]="''name''"
+    [codeField]="''code''"
+    [valueField]="''id''"
+    [useCodeInList]="true"
+    [useCodeInValue]="true"
+    [getListItemsFunction]="self.loadItemHierarchyListDropdownFunction"
+    [getOneItemFunction]="self.loadItemHierarchyDropdownFunction"
+    [unselectedItemValue]="{id: null, translateKey: ''COMMON.MOCK_OBJ.NOT_SELECTED''}"
+    [dataTranslateKeyField]="''translateKey''"
+    [labelTranslateKey]="''''"
+    [label]="true ? self.levelLabels?.levelLabels[''4''] : ''undefined''"
+    [class]=''""''
+></cr-dropdown-smart-control></div><div class=''col-md-2''><cr-dropdown-smart-control
+    [elementName]="''smart-dropdown:Item_details.Hierarchy_5''"
+    [permissionSettings]="{
+        isAccessRead: (self.EndpointName.item__item_hierarchy_level_id_dropdown_GET | endpointAccessGrantedPipe),
+        isAccessEdit: (self.isNewItem ? (self.EndpointName.item_POST | endpointAccessGrantedPipe) :
+                      (self.EndpointName.item_id_PUT | endpointAccessGrantedPipe)) &&
+                      (self.EndpointName.item__item_hierarchy_level_dropdown_GET | endpointAccessGrantedPipe)
+    }"
+    [isDisabled]="!self.item.itemHierarchyValues[''4''] || self.item.isDeleted"
+    [requestDataWhenOpen]="true"
+    [dataCacheName]="''ItemHierarchyLevel5DropdownCache''"
+    (valueChange)="self.onSelectValue($event, 5)"
+    [(value)]="self.item.itemHierarchyValues[''5'']"
+    [listItemsFunctionAdditionalParameter]="{hierarchyLevel: 5, hierarchyParentId: self.item.itemHierarchyValues[''4'']}"
+    [textField]="''name''"
+    [codeField]="''code''"
+    [valueField]="''id''"
+    [useCodeInList]="true"
+    [useCodeInValue]="true"
+    [getListItemsFunction]="self.loadItemHierarchyListDropdownFunction"
+    [getOneItemFunction]="self.loadItemHierarchyDropdownFunction"
+    [unselectedItemValue]="{id: null, translateKey: ''COMMON.MOCK_OBJ.NOT_SELECTED''}"
+    [dataTranslateKeyField]="''translateKey''"
+    [labelTranslateKey]="''''"
+    [label]="true ? self.levelLabels?.levelLabels[''5''] : ''undefined''"
+    [class]=''""''
+></cr-dropdown-smart-control></div><div class=''col-md-2''></div></div><div class="row cr-bottom-row-border"><div class=''col-md-2''><cr-dropdown-smart-control
+    [elementName]="''smart-dropdown:Item_details.Manufacture''"
+    [permissionSettings]="{
+        isAccessRead: (self.EndpointName.item__item_manufacture_id_dropdown_GET | endpointAccessGrantedPipe),
+        isAccessEdit: (self.isNewItem ? (self.EndpointName.item_POST | endpointAccessGrantedPipe) :
+                      (self.EndpointName.item_id_PUT | endpointAccessGrantedPipe)) &&
+                      (self.EndpointName.item__item_manufacture_dropdown_GET | endpointAccessGrantedPipe)
+    }"
+    [isDisabled]="self.item.isDeleted"
+    [dataCacheName]="''ItemManufactureDropdownCache''"
+    [(value)]="self.item.manufactureID"
+    [textField]="''name''"
+    [codeField]="''code''"
+    [valueField]="''id''"
+    [useCodeInList]="true"
+    [useCodeInValue]="true"
+    [getListItemsFunction]="self.loadManufacturesListDropdownFunction"
+    [getOneItemFunction]="self.loadManufactureDropdownFunction"
+    [unselectedItemValue]="{id: null, translateKey: ''COMMON.MOCK_OBJ.NOT_SELECTED''}"
+    [dataTranslateKeyField]="''translateKey''"
+    [labelTranslateKey]="''ITEM.DETAILS.GENERAL.MANUFACTURE''"
+    [label]="''''"
+    [class]=''""''
+></cr-dropdown-smart-control></div><div class=''col-md-2''><cr-control-edit
+    [elementName]="''edit:Item_details.Supplier_cat_num''"
+    [permissionSettings]="{
+        isAccessEdit: self.isNewItem ? (self.EndpointName.item_POST | endpointAccessGrantedPipe) :
+            (self.EndpointName.item_id_PUT | endpointAccessGrantedPipe)
+    }"
+    [(dataValue)]="self.item.supplierCatNum"
+    [validator]="self.validator"
+    [validationField]="''supplierCatNum''"
+    [translateKeys]="''ITEM.DETAILS.GENERAL.SUPPLIER_CAT_NUM''" 
+    [dataLabel]="''''"
+    [customClass]=''""''
+    [isDisabled]="self.item.isDeleted || false"
+></cr-control-edit></div><div class=''col-md-2''><cr-dropdown-smart-control
+    [elementName]="''smart-dropdown:Item_details.General_brand''"
+    [permissionSettings]="{
+        isAccessRead: (self.EndpointName.item__item_brand_id_dropdown_GET | endpointAccessGrantedPipe),
+        isAccessEdit: (self.isNewItem ? (self.EndpointName.item_POST | endpointAccessGrantedPipe) :
+                      (self.EndpointName.item_id_PUT | endpointAccessGrantedPipe)) &&
+                      (self.EndpointName.item__item_brand_dropdown_GET | endpointAccessGrantedPipe)
+    }"
+    [isDisabled]="self.item.isDeleted"
+    [dataCacheName]="''ItemBrandDropdownCache''"
+    [(value)]="self.item.itemBrandID"
+    [textField]="''name''"
+    [codeField]="''code''"
+    [valueField]="''id''"
+    [useCodeInList]="true"
+    [useCodeInValue]="true"
+    [getListItemsFunction]="self.loadItemBrandListDropdownFunction"
+    [getOneItemFunction]="self.loadItemBrandDropdownFunction"
+    [unselectedItemValue]="{id: null, translateKey: ''COMMON.MOCK_OBJ.NOT_SELECTED''}"
+    [dataTranslateKeyField]="''translateKey''"
+    [labelTranslateKey]="''ITEM.DETAILS.GENERAL.BRAND''"
+    [label]="''''"
+    [class]=''""''
+></cr-dropdown-smart-control></div><div class=''col-md-2''><cr-dropdown-smart-control
+    [elementName]="''smart-dropdown:Item_details.Preferred_supplier''"
+    [permissionSettings]="{
+        isAccessRead: (self.EndpointName.item__partner_id_dropdown_GET | endpointAccessGrantedPipe),
+        isAccessEdit: (self.isNewItem ? (self.EndpointName.item_POST | endpointAccessGrantedPipe) :
+                      (self.EndpointName.item_id_PUT | endpointAccessGrantedPipe)) &&
+                      (self.EndpointName.item__partner_dropdown_GET | endpointAccessGrantedPipe)
+    }"
+    [isDisabled]="self.item.isDeleted"
+    [dataCacheName]="''PreferredSupplierDropdownCache''"
+    [(value)]="self.item.prefferedSupplierID"
+    [textField]="''name''"
+    [codeField]="''code''"
+    [valueField]="''id''"
+    [useCodeInList]="true"
+    [useCodeInValue]="true"
+    [getListItemsFunction]="self.loadPreferredSupplierListDropdownFunction"
+    [getOneItemFunction]="self.loadPreferredSupplierDropdownFunction"
+    [unselectedItemValue]="{id: null, translateKey: ''COMMON.MOCK_OBJ.NOT_SELECTED''}"
+    [dataTranslateKeyField]="''translateKey''"
+    [labelTranslateKey]="''ITEM.DETAILS.GENERAL.PREFERRED_SUPPLIER''"
+    [label]="''''"
+    [class]=''""''
+></cr-dropdown-smart-control></div><div class=''col-md-2''><cr-control-dropdown 
+    [(dataValue)]="self.item.unitTypeId" 
+    [isDisabled]="self.item.isDeleted" 
+    [dataSource]="self.unitTypesForDropdown"
+    [dataValueField]="''id''" 
+    [dataDisplayField]="''name''" 
+    [elementName]="''dropdown:Item_details.Unit_type''"
+    [permissionSettings]="{
+        isAccessEdit: self.isNewItem ? (self.EndpointName.item_POST | endpointAccessGrantedPipe) :
+            (self.EndpointName.item_id_PUT | endpointAccessGrantedPipe)
+    }"
+    [translateKeys]="''ITEM.DETAILS.GENERAL.UNIT_TYPE''"
+    [dataLabel]="''''"
+    [class]=''""''
+></cr-control-dropdown></div><div class=''col-md-2''></div></div><div class="row cr-bottom-row-border"><div class=''col-md-12''><cr-multi-select-smart-control
+    [(values)]="self.item.collections"
+    [dataCacheName]="''CollectionsDropdownCache111''"
+    [isDisabled]="self.item.isDeleted"
+    [elementName]="''smart-multi-select:Item_details.Collections''"
+    [getListItemsFunction]="self.loadCollectionListMultiselectFunction"
+    [getSelectedItemsFunction]="self.loadCollectionMultiselectFunction"
+    [permissionSettings]="{
+        isAccessRead: (self.EndpointName.item__item_collection_dropdown_ids_GET | endpointAccessGrantedPipe),
+        isAccessEdit: (self.isNewItem ? (self.EndpointName.item_POST | endpointAccessGrantedPipe) :
+            (self.EndpointName.item_id_PUT | endpointAccessGrantedPipe)) &&
+            (self.EndpointName.item__item_collection_dropdown_GET | endpointAccessGrantedPipe)
+    }"
+    [textField]="''name''"
+    [useCodeInList]="true"
+    [useCodeInValue]="true"
+    [valueField]="''id''"
+    [translateKeys]="''ITEM.DETAILS.GENERAL.COLLECTIONS''"
+    [dataLabel]="''''"
+    [class]=''""''
+></cr-multi-select-smart-control></div><div class=''col-md-6''></div></div><div class="row cr-bottom-row-border"><div class=''col-md-12''><cr-dropdown-smart-control
+    [elementName]="''smart-dropdown:Item_details.Tax_group''"
+    [permissionSettings]="{
+        isAccessRead: (self.EndpointName.item__tax_group_id_GET | endpointAccessGrantedPipe),
+        isAccessEdit: (self.isNewItem ? (self.EndpointName.item_POST | endpointAccessGrantedPipe) :
+                      (self.EndpointName.item_id_PUT | endpointAccessGrantedPipe)) &&
+                      (self.EndpointName.item__tax_group_GET | endpointAccessGrantedPipe)
+    }"
+    [isDisabled]="self.item.isDeleted"
+    [dataCacheName]="''TaxGroupDropdownCache''"
+    [(currentItemValue)]="self.item.taxGroup"
+    [textField]="''name''"
+    [codeField]="''code''"
+    [valueField]="''id''"
+    [useCodeInList]="true"
+    [useCodeInValue]="true"
+    [getListItemsFunction]="self.loadTaxGroupListDropdownFunction"
+    [getOneItemFunction]="self.loadTaxGroupDropdownFunction"
+    [unselectedItemValue]="{id: null, translateKey: ''COMMON.MOCK_OBJ.NOT_SELECTED''}"
+    [dataTranslateKeyField]="''translateKey''"
+    [labelTranslateKey]="''ITEM.DETAILS.GENERAL.TAX_GROUP''"
+    [label]="''''"
+    [class]=''""''
+></cr-dropdown-smart-control></div><div class=''col-md-6''></div></div><div class="row cr-bottom-row-border"><div class=''col-md-2''><cr-checkbox-control
+    [elementName]="''checkbox:Item_details.Active''"
+    [permissionSettings]="{
+        isAccessEdit: self.isNewItem ? (self.EndpointName.item_POST | endpointAccessGrantedPipe) :
+            (self.EndpointName.item_id_PUT | endpointAccessGrantedPipe)
+    }"
+
+    (dataValueChange)="self.changeActiveCheckbox($event)"
+    [(dataValue)]="self.item.isValid"
+    [dataLabel]="''''"
+    [translateKeys]="''ITEM.DETAILS.GENERAL.ACTIVE''"
+    [isDisabled]="self.item.isDeleted || false"
+    [class]=''""''
+></cr-checkbox-control></div><div class=''col-md-2''><cr-control-datepicker
+    [elementName]="''date:Item_details.Active_date_from''"
+    [permissionSettings]="{
+        isAccessEdit: self.isNewItem ? (self.EndpointName.item_POST | endpointAccessGrantedPipe) :
+            (self.EndpointName.item_id_PUT | endpointAccessGrantedPipe)
+    }"
+
+    [(dataValue)]="self.item.validFrom"
+    [validator]="self.validator"
+    [validationField]="''validFrom''"
+    [dataLabel]="''''"
+    [translateKeys]="''ITEM.DETAILS.GENERAL.ACTIVE_FROM''"
+    [class]=''""'' 
+    [isDisabled]="!self.item.isValid || self.item.isDeleted || false"
+></cr-control-datepicker></div><div class=''col-md-2''><cr-control-datepicker
+    [elementName]="''date:Item_details.Active_date_to''"
+    [permissionSettings]="{
+        isAccessEdit: self.isNewItem ? (self.EndpointName.item_POST | endpointAccessGrantedPipe) :
+            (self.EndpointName.item_id_PUT | endpointAccessGrantedPipe)
+    }"
+
+    [(dataValue)]="self.item.validTo"
+    [validator]="self.validator"
+    [validationField]="''validTo''"
+    [dataLabel]="''''"
+    [translateKeys]="''ITEM.DETAILS.GENERAL.ACTIVE_TO''"
+    [class]=''""'' 
+    [isDisabled]="!self.item.isValid || self.item.isDeleted || false"
+></cr-control-datepicker></div></div><div class="row cr-bottom-row-border"><div class=''col-md-2''><cr-checkbox-control
+    [elementName]="''checkbox:Item_details.Frozen''"
+    [permissionSettings]="{
+        isAccessEdit: self.isNewItem ? (self.EndpointName.item_POST | endpointAccessGrantedPipe) :
+            (self.EndpointName.item_id_PUT | endpointAccessGrantedPipe)
+    }"
+
+    (dataValueChange)="self.changeFrozenCheckbox($event)"
+    [(dataValue)]="self.item.isFrozen"
+    [dataLabel]="''''"
+    [translateKeys]="''ITEM.DETAILS.GENERAL.FROZEN''"
+    [isDisabled]="self.item.isDeleted || false"
+    [class]=''""''
+></cr-checkbox-control></div><div class=''col-md-2''><cr-control-datepicker
+    [elementName]="''date:Item_details.Frozen_date_from''"
+    [permissionSettings]="{
+        isAccessEdit: self.isNewItem ? (self.EndpointName.item_POST | endpointAccessGrantedPipe) :
+            (self.EndpointName.item_id_PUT | endpointAccessGrantedPipe)
+    }"
+
+    [(dataValue)]="self.item.frozenFrom"
+    [validator]="self.validator"
+    [validationField]="''frozenFrom''"
+    [dataLabel]="''''"
+    [translateKeys]="''ITEM.DETAILS.GENERAL.FROZEN_FROM''"
+    [class]=''""'' 
+    [isDisabled]="!self.item.isFrozen || self.item.isDeleted || false"
+></cr-control-datepicker></div><div class=''col-md-2''><cr-control-datepicker
+    [elementName]="''date:Item_details.Frozen_date_to''"
+    [permissionSettings]="{
+        isAccessEdit: self.isNewItem ? (self.EndpointName.item_POST | endpointAccessGrantedPipe) :
+            (self.EndpointName.item_id_PUT | endpointAccessGrantedPipe)
+    }"
+
+    [(dataValue)]="self.item.frozenTo"
+    [validator]="self.validator"
+    [validationField]="''frozenTo''"
+    [dataLabel]="''''"
+    [translateKeys]="''ITEM.DETAILS.GENERAL.FROZEN_TO''"
+    [class]=''""'' 
+    [isDisabled]="!self.item.isFrozen || self.item.isDeleted || false"
+></cr-control-datepicker></div></div><div class="row cr-bottom-row-border"><div class=''col-md-2''><cr-checkbox-control
+    [elementName]="''checkbox:Item_details.Sale_item''"
+    [permissionSettings]="{
+        isAccessEdit: self.isNewItem ? (self.EndpointName.item_POST | endpointAccessGrantedPipe) :
+            (self.EndpointName.item_id_PUT | endpointAccessGrantedPipe)
+    }"
+
+    [(dataValue)]="self.item.saleItem"
+    [dataLabel]="''''"
+    [translateKeys]="''ITEM.DETAILS.GENERAL.SALE_ITEM''"
+    [isDisabled]="self.item.isDeleted || false"
+    [class]=''""''
+></cr-checkbox-control></div><div class=''col-md-2''><cr-checkbox-control
+    [elementName]="''checkbox:Item_details.Inventory_item''"
+    [permissionSettings]="{
+        isAccessEdit: self.isNewItem ? (self.EndpointName.item_POST | endpointAccessGrantedPipe) :
+            (self.EndpointName.item_id_PUT | endpointAccessGrantedPipe)
+    }"
+
+    [(dataValue)]="self.item.inventoryItem"
+    [dataLabel]="''''"
+    [translateKeys]="''ITEM.DETAILS.GENERAL.INVENTORY_ITEM''"
+    [isDisabled]="self.item.isDeleted || false"
+    [class]=''""''
+></cr-checkbox-control></div><div class=''col-md-2''><cr-checkbox-control
+    [elementName]="''checkbox:Item_details.Purchase_item''"
+    [permissionSettings]="{
+        isAccessEdit: self.isNewItem ? (self.EndpointName.item_POST | endpointAccessGrantedPipe) :
+            (self.EndpointName.item_id_PUT | endpointAccessGrantedPipe)
+    }"
+
+    [(dataValue)]="self.item.purchaseItem"
+    [dataLabel]="''''"
+    [translateKeys]="''ITEM.DETAILS.GENERAL.PURCHASE_ITEM''"
+    [isDisabled]="self.item.isDeleted || false"
+    [class]=''""''
+></cr-checkbox-control></div><div class=''col-md-2''><cr-checkbox-control
+    [elementName]="''checkbox:Item_details.Refundable''"
+    [permissionSettings]="{
+        isAccessEdit: self.isNewItem ? (self.EndpointName.item_POST | endpointAccessGrantedPipe) :
+            (self.EndpointName.item_id_PUT | endpointAccessGrantedPipe)
+    }"
+
+    [(dataValue)]="self.item.refundable"
+    [dataLabel]="''''"
+    [translateKeys]="''ITEM.DETAILS.GENERAL.REFUNDABLE''"
+    [isDisabled]="self.item.isDeleted || false"
+    [class]=''""''
+></cr-checkbox-control></div><div class=''col-md-2''><cr-checkbox-control
+    [elementName]="''checkbox:Item_details.Download_to_pos''"
+    [permissionSettings]="{
+        isAccessEdit: self.isNewItem ? (self.EndpointName.item_POST | endpointAccessGrantedPipe) :
+            (self.EndpointName.item_id_PUT | endpointAccessGrantedPipe)
+    }"
+
+    [(dataValue)]="self.item.downloadToPOS"
+    [dataLabel]="''''"
+    [translateKeys]="''ITEM.DETAILS.GENERAL.DOWNLOAD_TO_POS''"
+    [isDisabled]="self.item.isDeleted || false"
+    [class]=''""''
+></cr-checkbox-control></div><div class=''col-md-2''><cr-checkbox-control
+    [elementName]="''checkbox:Item_details.Consignment_item''"
+    [permissionSettings]="{
+        isAccessEdit: self.isNewItem ? (self.EndpointName.item_POST | endpointAccessGrantedPipe) :
+            (self.EndpointName.item_id_PUT | endpointAccessGrantedPipe)
+    }"
+
+    [(dataValue)]="self.item.isConsignmentItem"
+    [dataLabel]="''''"
+    [translateKeys]="''ITEM.DETAILS.GENERAL.CONSIGNMENT_ITEM''"
+    [isDisabled]="self.item.isDeleted || false"
+    [class]=''""''
+></cr-checkbox-control></div></div><div class="row cr-bottom-row-border"><div class=''col-md-2''><cr-checkbox-control
+    [elementName]="''checkbox:Item_details.Gift_card_item''"
+    [permissionSettings]="{
+        isAccessEdit: self.isNewItem ? (self.EndpointName.item_POST | endpointAccessGrantedPipe) :
+            (self.EndpointName.item_id_PUT | endpointAccessGrantedPipe)
+    }"
+
+    [(dataValue)]="self.item.giftCard"
+    [dataLabel]="''''"
+    [translateKeys]="''ITEM.DETAILS.GENERAL.GIFT_CARD_ITEM''"
+    [isDisabled]="self.item.isDeleted || false"
+    [class]=''""''
+></cr-checkbox-control></div><div class=''col-md-2''><cr-checkbox-control
+    [elementName]="''checkbox:Item_details.Distribution_recommendation''"
+    [permissionSettings]="{
+        isAccessEdit: self.isNewItem ? (self.EndpointName.item_POST | endpointAccessGrantedPipe) :
+            (self.EndpointName.item_id_PUT | endpointAccessGrantedPipe)
+    }"
+
+    [(dataValue)]="self.item.distributionRecommendation"
+    [dataLabel]="''''"
+    [translateKeys]="''ITEM.DETAILS.GENERAL.DISTRIBUTION_RECOMMENDATION''"
+    [isDisabled]="self.item.isDeleted || false"
+    [class]=''""''
+></cr-checkbox-control></div><div class=''col-md-2''><cr-checkbox-control
+    [elementName]="''checkbox:Item_details.Purchase_recommendation''"
+    [permissionSettings]="{
+        isAccessEdit: self.isNewItem ? (self.EndpointName.item_POST | endpointAccessGrantedPipe) :
+            (self.EndpointName.item_id_PUT | endpointAccessGrantedPipe)
+    }"
+
+    [(dataValue)]="self.item.purchaseRecommendation"
+    [dataLabel]="''''"
+    [translateKeys]="''ITEM.DETAILS.GENERAL.PURCHASE_RECOMMENDATION''"
+    [isDisabled]="self.item.isDeleted || false"
+    [class]=''""''
+></cr-checkbox-control></div><div class=''col-md-2''><cr-checkbox-control
+    [elementName]="''checkbox:Item_details.Direct_supply''"
+    [permissionSettings]="{
+        isAccessEdit: self.isNewItem ? (self.EndpointName.item_POST | endpointAccessGrantedPipe) :
+            (self.EndpointName.item_id_PUT | endpointAccessGrantedPipe)
+    }"
+
+    [(dataValue)]="self.item.directSupply"
+    [dataLabel]="''''"
+    [translateKeys]="''ITEM.DETAILS.GENERAL.DIRECT_SUPPLY''"
+    [isDisabled]="self.item.isDeleted || false"
+    [class]=''""''
+></cr-checkbox-control></div><div class=''col-md-2''><cr-checkbox-control
+    [elementName]="''checkbox:Item_details.History''"
+    [permissionSettings]="{
+        isAccessEdit: self.isNewItem ? (self.EndpointName.item_POST | endpointAccessGrantedPipe) :
+            (self.EndpointName.item_id_PUT | endpointAccessGrantedPipe)
+    }"
+
+    [(dataValue)]="self.item.history"
+    [dataLabel]="''''"
+    [translateKeys]="''ITEM.DETAILS.GENERAL.HISTORY''"
+    [isDisabled]="self.item.isDeleted || false"
+    [class]=''""''
+></cr-checkbox-control></div><div class=''col-md-2''><cr-checkbox-control
+    [elementName]="''checkbox:Item_details.Allow_zero_price''"
+    [permissionSettings]="{
+        isAccessEdit: self.isNewItem ? (self.EndpointName.item_POST | endpointAccessGrantedPipe) :
+            (self.EndpointName.item_id_PUT | endpointAccessGrantedPipe)
+    }"
+
+    [(dataValue)]="self.item.isAllowZeroPrice"
+    [dataLabel]="''''"
+    [translateKeys]="''ITEM.DETAILS.GENERAL.ALLOW_ZERO_PRICE''"
+    [isDisabled]="self.item.isDeleted || false"
+    [class]=''""''
+></cr-checkbox-control></div></div><div class="row undefined"><div class=''col-md-2''><cr-checkbox-control
+    [elementName]="''checkbox:Item_details.Is_modifier''"
+    [permissionSettings]="{
+        isAccessEdit: (self.isNewItem ? (self.EndpointName.item_POST | endpointAccessGrantedPipe) :
+            (self.EndpointName.item_id_PUT | endpointAccessGrantedPipe)) 
+            && (self.EndpointName.item__item_modifier_group_GET | endpointAccessGrantedPipe)
+    }"
+
+    [(dataValue)]="self.item.isModifier"
+    [dataLabel]="''''"
+    [translateKeys]="''ITEM.DETAILS.GENERAL.IS_MODIFIER''"
+    [isDisabled]="self.item.isComboMeal || self.item.isDeleted || false"
+    [class]=''""''
+></cr-checkbox-control></div><div class=''col-md-2''><cr-checkbox-control
+    [elementName]="''checkbox:Item_details.Is_combo_meal''"
+    [permissionSettings]="{
+        isAccessEdit: (self.isNewItem ? (self.EndpointName.item_POST | endpointAccessGrantedPipe) :
+            (self.EndpointName.item_id_PUT | endpointAccessGrantedPipe)) 
+            && (self.EndpointName.item__combo_meal_category_GET | endpointAccessGrantedPipe)
+    }"
+
+    [(dataValue)]="self.item.isComboMeal"
+    [dataLabel]="''''"
+    [translateKeys]="''ITEM.DETAILS.GENERAL.IS_COMBO_MEAL''"
+    [isDisabled]="self.item.isModifier || self.item.isDeleted || false"
+    [class]=''""''
+></cr-checkbox-control></div></div>
+        </ng-template>
+      </cr-panel>
+      <cr-panel
+        [panelTemplateType]="''collapsible-panel''"
+        [expanded]="self.panelsViewState?.[''properties''] ?? false"
+        (expandedChange)="self.panelStateChange(''properties'', $event)"
+        [titleTranslateKey]="true ? ''ITEM.DETAILS.PANEL.PROPERTIES'' : null"
+        [title]="true ? null : ''מאפיינים''"
+        [customClass]="''''"
+        [headerClass]="''''"
+        [validator]="self.validator"
+        [validatorGroupName]="''properties''"
+        [containFields]=''[]''
+      >
+        <ng-template crPanelContent>
+          <div class="cr-grid-wrapper-new cr-grid-no-inner-borders">
+    <cr-item-property-list 
+        [itemDetails]="self.item" 
+        [class]=''""''
+    ></cr-item-property-list>
+</div>
+
+        </ng-template>
+      </cr-panel>
+      <cr-panel
+        [panelTemplateType]="''collapsible-panel''"
+        [expanded]="self.panelsViewState?.[''price''] ?? false"
+        (expandedChange)="self.panelStateChange(''price'', $event)"
+        [titleTranslateKey]="true ? ''ITEM.DETAILS.PANEL.PRICES'' : null"
+        [title]="true ? null : ''מחירים''"
+        [customClass]="''''"
+        [headerClass]="''''"
+        [validator]="self.validator"
+        [validatorGroupName]="''price''"
+        [containFields]=''["prices"]''
+      >
+        <ng-template crPanelContent>
+          <div class="cr-item-price-wrapper">
+    <cr-item-price-list
+        *ngIf="(self.EndpointName.item__item_price_GET | endpointAccessGrantedPipe) &&
+            (self.EndpointName.item__item_property_value_id_dropdown_GET | endpointAccessGrantedPipe); else noAccess"
+        [editable]="self.isNewItem ? (self.EndpointName.item_POST | endpointAccessGrantedPipe) :
+            (self.EndpointName.item_id_PUT | endpointAccessGrantedPipe)"
+        [item]="self.item"
+        [panelsViewState]="self.panelsViewState"
+        [class]=''""''
+    ></cr-item-price-list>
+
+    <ng-template #noAccess>
+        <div class="cr-no-read-access p-2">
+            {{''COMMON.GRID.NO_READ_ACCESS'' | translate}}
+        </div>
+    </ng-template>
+</div>
+
+        </ng-template>
+      </cr-panel>
+      <cr-panel
+        [panelTemplateType]="''collapsible-panel''"
+        [expanded]="self.panelsViewState?.[''barcodes''] ?? false"
+        (expandedChange)="self.panelStateChange(''barcodes'', $event)"
+        [titleTranslateKey]="true ? ''ITEM.DETAILS.PANEL.BARCODES'' : null"
+        [title]="true ? null : ''ברקודים''"
+        [customClass]="''''"
+        [headerClass]="''''"
+        [validator]="self.validator"
+        [validatorGroupName]="''barcodes''"
+        [containFields]=''["barcodes"]''
+      >
+        <ng-template crPanelContent>
+          <div class="cr-grid-wrapper-new">
+    <cr-item-barcodes-list
+        [isNew]="self.isNewItem"
+        [item]="self.item"
+        [editable]="self.isNewItem
+            ? (self.EndpointName.item_POST | endpointAccessGrantedPipe)
+            : (self.EndpointName.item_id_PUT | endpointAccessGrantedPipe)"
+        (barcodesChanged)="self.onBarcodesChanged()"
+        [class]=''""''
+    ></cr-item-barcodes-list>
+</div>
+        </ng-template>
+      </cr-panel>
+      <cr-panel
+        [panelTemplateType]="''collapsible-panel''"
+        [expanded]="self.panelsViewState?.[''userFields''] ?? false"
+        (expandedChange)="self.panelStateChange(''userFields'', $event)"
+        [titleTranslateKey]="true ? ''ITEM.DETAILS.PANEL.USER_FIELDS'' : null"
+        [title]="true ? null : ''UDF he''"
+        [customClass]="''''"
+        [headerClass]="''''"
+        [validator]="self.validator"
+        [validatorGroupName]="''userFields''"
+        [containFields]=''[]''
+      >
+        <ng-template crPanelContent>
+          <div class="cr-grid-wrapper-new">
+    <cr-udf-list
+        *ngIf="(self.EndpointName.item__user_defined_field_GET | endpointAccessGrantedPipe) &&
+            (self.EndpointName.item__user_defined_field_default_value_GET | endpointAccessGrantedPipe); else noAccess"
+        [isNew]="self.isNewItem"
+        [udf]="self.item.udf"
+        [cacheName]="''itemUserFieldViewStateCache''"
+        [viewName]="''Item_details''"
+        [loadUserDefinedFieldListForDropdownFn$]="self.loadUserDefinedFieldListForDropdownFn$"
+        [getUserFields$]="self.getUserFields$"
+        [loadUserFields$]="self.loadUserFields$"
+        [getUserFieldsDefault$]="self.getUserFieldsDefault$"
+        [class]=''""''
+    ></cr-udf-list>
+    <ng-template #noAccess>
+        <div class="cr-no-read-access p-2">
+            {{''COMMON.GRID.NO_READ_ACCESS'' | translate}}
+        </div>
+    </ng-template>
+</div>
+        </ng-template>
+      </cr-panel>
+      <cr-panel
+        [panelTemplateType]="''collapsible-panel''"
+        [expanded]="self.panelsViewState?.[''basketImage''] ?? false"
+        (expandedChange)="self.panelStateChange(''basketImage'', $event)"
+        [titleTranslateKey]="true ? ''ITEM.DETAILS.PANEL.IMAGE_BASKET'' : null"
+        [title]="true ? null : ''Images he''"
+        [customClass]="''''"
+        [headerClass]="''''"
+        [validator]="self.validator"
+        [validatorGroupName]="''basketImage''"
+        [containFields]=''[]''
+      >
+        <ng-template crPanelContent>
+          <div class="cr-grid-wrapper-new">
+    <cr-item-image-basket-list
+        [imageBasketId]="self.item.imageBasketSetId"
+        [isDeleted]="self.item.isDeleted"
+        [refreshList$]="self.itemImageBasketContentListRefresh$"
+        (onCreateItem)="self.onCreateImageBasketPopup()"
+        (onUpdateItem)="self.onUpdateImageBasketPopup($event)"
+        (onDeleteItem)="self.onDeleteImageBasketContent($event)"
+        [class]=''""''
+    ></cr-item-image-basket-list>
+</div>
+        </ng-template>
+      </cr-panel>
+        </ng-template>
+      </ng-template>
+    </ng-template>
+    
+        <ng-template [ngSwitchCase]="''image-content-create''">
+          <ng-template
+            [ngIf]="self.popupTab.tabs[self.popupTab.activeTabIndex].type == ''image-content-create'' && self.popupTab.activeTabIndex == i">
+            <div *ngIf=''self.popupTab.activeTabIndex != self.popupTab.tabs.length - 1'' class=''cr-popup-blocker''></div>
+            <cr-image-basket-details
+    [subTemplateId]="''D98D4CF1-1D6B-ED11-835F-02F176033DDB''"
+    [image]="self.cache.selectedImageBasketContent"
+    [isNew]="true"
+    [validator]="self.itemImageBasketContentValidator"
+    [permissionSettings]="{
+        isAccessRead: (self.EndpointName.item__file_storage_basket_content_GET | endpointAccessGrantedPipe),
+        isAccessCreate: !self.item.isDeleted && (self.EndpointName.item__file_storage_basket_content_POST | endpointAccessGrantedPipe)
+    }"
+    (closePopup)="self.removePopupTab(popupTab.activeTabIndex)"
+    (create)="self.onCreateImageBasketContent($event)"
+></cr-image-basket-details>
+          </ng-template>
+        </ng-template>
+      
+        <ng-template [ngSwitchCase]="''image-content-update''">
+          <ng-template
+            [ngIf]="self.popupTab.tabs[self.popupTab.activeTabIndex].type == ''image-content-update'' && self.popupTab.activeTabIndex == i">
+            <div *ngIf=''self.popupTab.activeTabIndex != self.popupTab.tabs.length - 1'' class=''cr-popup-blocker''></div>
+            <cr-image-basket-details
+    [subTemplateId]="''38B2C3FD-1D6B-ED11-835F-02F176033DDB''"
+    [image]="self.cache.selectedImageBasketContent"
+    [isNew]="false"
+    [validator]="self.itemImageBasketContentValidator"
+    [permissionSettings]="{
+        isAccessRead: (self.EndpointName.item__file_storage_basket_content_GET | endpointAccessGrantedPipe),
+        isAccessDelete: !self.item.isDeleted && (EndpointName.item__file_storage_basket_content_id_DELETE | endpointAccessGrantedPipe),
+        isAccessUpdate: !self.item.isDeleted && (EndpointName.item__file_storage_basket_content_id_PUT | endpointAccessGrantedPipe)
+    }"
+    (closePopup)="self.removePopupTab(popupTab.activeTabIndex)"
+    (update)="self.onUpdateImageBasketContent($event)"
+    (delete)="self.onDeleteImageBasketContentPopUp($event)"
+    (refresh)="self.onRefreshImageBasketContent()"
+></cr-image-basket-details>
+          </ng-template>
+        </ng-template>
+      
+              </ng-container>
+            </ng-container>
+          </div>
+        </div>', '2022-11-25 10:18:05.9300000 +00:00', 3, N'N', '1979e754-f13a-46bc-985f-9d3bbfccb87d', 1, NULL)
+INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID], [BookmarkName], [BookmarkDescription], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('9c16e302-a86c-ed11-835f-02f176033ddb', '9a16e302-a86c-ed11-835f-02f176033ddb', 2, N'', N'', N'
+        <div class=''cr-popup-content-wrapper'' [class.cr-popup-is-shown]=''self.popupTab.tabs.length > 1''>
+          <cr-popup-tabs
+            [popupTabs]=''self.popupTab.tabs''
+            [activePopup]=''self.popupTab.activeTabIndex''
+            (closePopup)=''self.removePopupTab($event)''
+            (changeActive)=''self.changeActiveTab($event)''
+          ></cr-popup-tabs>
+          <div class=''cr-details-inner-container''>
+            <ng-container *ngFor=''let tab of self.popupTab.tabs; index as i;''>
+              <ng-container [ngSwitch]=''tab.type''>
+                
+    <ng-template [ngSwitchCase]="''general''">
+      <ng-template [ngIf]="self.popupTab.tabs[self.popupTab.activeTabIndex].type == ''general'' && self.popupTab.activeTabIndex == i">
+        <div *ngIf=''self.popupTab.activeTabIndex != self.popupTab.tabs.length - 1'' class=''cr-popup-blocker''></div>
+        
+        <ng-template [ngIf]="self.item">
+            <cr-title-header
+    [titleTranslateKey]="''ITEM.DETAILS.TITLE''"
+    [title]="''''"
+    (buttonClickEvent)="self.onTitleButtonClick($event)"
+    [additionalTranslateKeys]="''COMMON.NEW''"
+    [titleValueTranslateKey]="self.isNewItem ? ''COMMON.NEW'' : null"
+    [buttonSettings]="self.titleHeaderButtonSettings"
+    [titleValue]="self.titleValueText"
+></cr-title-header>
+
+      <cr-panel
+        [panelTemplateType]="''well''"
+        [customClass]="''''"
+      >
+        <ng-template crPanelContent>
+          <div class="row cr-bottom-row-border"><div class=''col-md-2''><cr-control-edit 
+    [translateKeys]="''ITEM.DETAILS.HEADER.ITEM_CODE''" 
+    [dataLabel]="''''"
+    [customClass]=''""''
+    [isDisabled]="false || !self.isNewItem || self.item.isDeleted"
+    [elementName]="''edit:Item_details.Item_code''"
+    [(dataValue)]="self.item.code"
+    [permissionSettings]="{
+        isAccessEdit: self.isNewItem ? (self.EndpointName.item_POST | endpointAccessGrantedPipe) :
+            (self.EndpointName.item_id_PUT | endpointAccessGrantedPipe)
+    }"
+    [validationField]="''code''"
+    [validator]="self.validator"
+></cr-control-edit></div><div class=''col-md-2''><cr-control-edit 
+    [translateKeys]="''ITEM.DETAILS.HEADER.SHORT_DISPLAY_NAME''" 
+    [dataLabel]="''''"
+    [customClass]=''""''
+    [isDisabled]="false || self.item.isDeleted"
+    [elementName]="''edit:Item_details.Display_name''"
+    [(dataValue)]="self.item.shortDisplayName"
+    (dataValueChange)="self.changeTitle()"
+    [permissionSettings]="{
+        isAccessEdit: self.isNewItem ? (self.EndpointName.item_POST | endpointAccessGrantedPipe) :
+            (self.EndpointName.item_id_PUT | endpointAccessGrantedPipe)
+    }"
+    [validationField]="''shortDisplayName''"
+    [validator]="self.validator"
+></cr-control-edit></div><div class=''col-md-2''><cr-dropdown-smart-control
+    [elementName]="''smart-dropdown:Item_details.Model''"
+    [permissionSettings]="{
+        isAccessRead: (self.EndpointName.item__item_model_id_dropdown_GET | endpointAccessGrantedPipe),
+        isAccessEdit: (self.isNewItem ? (self.EndpointName.item_POST | endpointAccessGrantedPipe) :
+            (self.EndpointName.item_id_PUT | endpointAccessGrantedPipe)) &&
+            (self.EndpointName.item__item_model_dropdown_GET | endpointAccessGrantedPipe)
+    }"
+    [isDisabled]="self.item.isDeleted"
+    [dataCacheName]="''ItemModelValueDropdownCache''"
+    [(value)]="self.item.itemModelID"
+    [textField]="''name''"
+    [codeField]="''code''"
+    [valueField]="''id''"
+    [useCodeInList]="true"
+    [useCodeInValue]="true"
+    [getOneItemFunction]="self.loadModelDropdownFunction"
+    [getListItemsFunction]="self.loadModelsListDropdownFunction"
+    [listItemsFunctionAdditionalParameter]="self.item.itemModelID"
+    [unselectedItemValue]="{id: null, translateKey: ''COMMON.MOCK_OBJ.NOT_SELECTED''}"
+    [dataTranslateKeyField]="''translateKey''"
+    [labelTranslateKey]="''ITEM.DETAILS.HEADER.MODEL''"
+    [label]="''''"
+    [class]=''""''
+></cr-dropdown-smart-control></div><div class=''col-md-2''><cr-control-edit
+    [elementName]="''edit:Item_details.Short_print_name''"
+    [permissionSettings]="{
+        isAccessEdit: self.isNewItem ? (self.EndpointName.item_POST | endpointAccessGrantedPipe) :
+            (self.EndpointName.item_id_PUT | endpointAccessGrantedPipe)
+    }"
+    [(dataValue)]="self.item.shortPrintName"
+    [validator]="self.validator"
+    [validationField]="''shortPrintName''"
+    [translateKeys]="''ITEM.DETAILS.HEADER.SHORT_PRINT_NAME''" 
+    [dataLabel]="''''"
+    [customClass]=''""''
+    [isDisabled]="false"
+></cr-control-edit></div><div class=''col-md-2''><cr-control-datepicker
+    [elementName]="''date:Item_details.Registration_date''"
+    [permissionSettings]="{
+        isAccessEdit: self.isNew ? self.authService.getEndpointAccessGranted(self.EndpointName.item_POST) :
+            self.authService.getEndpointAccessGranted(self.EndpointName.item_id_PUT)
+    }"
+
+    [(dataValue)]="self.item.registrationDate"
+    [dataLabel]="''''"
+    [translateKeys]="''ITEM.DETAILS.HEADER.REGISTRATION_DATE''"
+    [class]=''""'' 
+    [isDisabled]="self.item.isDeleted || false"
+></cr-control-datepicker></div></div><div class="row cr-bottom-row-border"><div class=''col-md-2''><cr-dropdown-smart-control
+    [elementName]="''smart-dropdown:Item_details.Metric_type_1''"
+    [permissionSettings]="{
+        isAccessRead: (self.EndpointName.item__item_metric_type_id_GET | endpointAccessGrantedPipe),
+        isAccessEdit: (self.isNewItem ? (self.EndpointName.item_POST | endpointAccessGrantedPipe) :
+            (self.EndpointName.item_id_PUT | endpointAccessGrantedPipe)) &&
+            (self.EndpointName.item__item_metric_type_GET | endpointAccessGrantedPipe)
+    }"
+    [isDisabled]="self.item.isDeleted"
+    [dataCacheName]="''ItemMetricTypeFirstDropdownCache''"
+    (currentItemValueChange)="self.metricTypeChanged(''metric1'')"
+    [(value)]="self.item.metric1.type"
+    [textField]="''displayName''"
+    [codeField]="''code''"
+    [valueField]="''id''"
+    [useCodeInList]="true"
+    [useCodeInValue]="true"
+    [getOneItemFunction]="self.loadItemMetricTypeForDropdownFunction"
+    [getListItemsFunction]="self.loadItemMetricTypeListForDropdownFunction"
+    [unselectedItemValue]="{id: null, translateKey: ''COMMON.MOCK_OBJ.NOT_SELECTED''}"
+    [dataTranslateKeyField]="''translateKey''"
+    [validator]="self.validator"
+    [validationField]="''metric1''"
+    [labelTranslateKey]="''ITEM.DETAILS.HEADER.METRIC_TYPE1''"
+    [label]="''''"
+    [class]=''""''
+></cr-dropdown-smart-control></div><div class=''col-md-2''><cr-dropdown-smart-control
+    [elementName]="''smart-dropdown:Item_details.Metric_value_1''"
+    [permissionSettings]="{
+        isAccessRead: (self.EndpointName.item__item_metric_type_metricTypeId_value_id_dropdown_GET | endpointAccessGrantedPipe),
+        isAccessEdit: (self.isNewItem ? (self.EndpointName.item_POST | endpointAccessGrantedPipe) :
+            (self.EndpointName.item_id_PUT | endpointAccessGrantedPipe)) &&
+            (self.EndpointName.item__item_metric_type_metricTypeId_value_dropdown_GET | endpointAccessGrantedPipe)
+    }"
+    [isDisabled]="!self.item.metric1.type || self.item.isDeleted"
+    [dataCacheName]="''ItemMetricValueFirstDropdownCache''"
+    [(value)]="self.item.metric1.value"
+    [textField]="''name''"
+    [codeField]="''code''"
+    [valueField]="''id''"
+    [useCodeInList]="true"
+    [useCodeInValue]="true"
+    [getOneItemFunction]="self.loadItemMetricValueForDropdownFunction"
+    [getListItemsFunction]="self.loadItemMetricValueListForDropdownFunction"
+    [listItemsFunctionAdditionalParameter]="self.item.metric1.type"
+    [unselectedItemValue]="{id: null, translateKey: ''COMMON.MOCK_OBJ.NOT_SELECTED''}"
+    [dataTranslateKeyField]="''translateKey''"
+    [validator]="self.validator"
+    [validationField]="''metric1''"
+    [labelTranslateKey]="''ITEM.DETAILS.HEADER.METRIC_VALUE1''"
+    [label]="''''"
+    [class]=''""''
+></cr-dropdown-smart-control></div><div class=''col-md-2''><cr-dropdown-smart-control
+    [elementName]="''smart-dropdown:Item_details.Metric_type_2''"
+    [permissionSettings]="{
+        isAccessRead: (self.EndpointName.item__item_metric_type_id_GET | endpointAccessGrantedPipe),
+        isAccessEdit: (self.isNewItem ? (self.EndpointName.item_POST | endpointAccessGrantedPipe) :
+            (self.EndpointName.item_id_PUT | endpointAccessGrantedPipe)) &&
+            (self.EndpointName.item__item_metric_type_GET | endpointAccessGrantedPipe)
+    }"
+    [isDisabled]="self.item.isDeleted"
+    [dataCacheName]="''ItemMetricTypeSecondDropdownCache''"
+    (currentItemValueChange)="self.metricTypeChanged(''metric2'')"
+    [(value)]="self.item.metric2.type"
+    [textField]="''displayName''"
+    [codeField]="''code''"
+    [valueField]="''id''"
+    [useCodeInList]="true"
+    [useCodeInValue]="true"
+    [getOneItemFunction]="self.loadItemMetricTypeForDropdownFunction"
+    [getListItemsFunction]="self.loadItemMetricTypeListForDropdownFunction"
+    [unselectedItemValue]="{id: null, translateKey: ''COMMON.MOCK_OBJ.NOT_SELECTED''}"
+    [dataTranslateKeyField]="''translateKey''"
+    [validator]="self.validator"
+    [validationField]="''metric2''"
+    [labelTranslateKey]="''ITEM.DETAILS.HEADER.METRIC_TYPE2''"
+    [label]="''''"
+    [class]=''""''
+></cr-dropdown-smart-control></div><div class=''col-md-2''><cr-dropdown-smart-control
+    [elementName]="''smart-dropdown:Item_details.Metric_value_2''"
+    [permissionSettings]="{
+        isAccessRead: (self.EndpointName.item__item_metric_type_metricTypeId_value_id_dropdown_GET | endpointAccessGrantedPipe),
+        isAccessEdit: (self.isNewItem ? (self.EndpointName.item_POST | endpointAccessGrantedPipe) :
+            (self.EndpointName.item_id_PUT | endpointAccessGrantedPipe)) &&
+            (self.EndpointName.item__item_metric_type_metricTypeId_value_dropdown_GET | endpointAccessGrantedPipe)
+    }"
+    [isDisabled]="!self.item.metric2.type || self.item.isDeleted"
+    [dataCacheName]="''ItemMetricValueSecondDropdownCache''"
+    [(value)]="self.item.metric2.value"
+    [textField]="''name''"
+    [codeField]="''code''"
+    [valueField]="''id''"
+    [useCodeInList]="true"
+    [useCodeInValue]="true"
+    [getOneItemFunction]="self.loadItemMetricValueForDropdownFunction"
+    [getListItemsFunction]="self.loadItemMetricValueListForDropdownFunction"
+    [listItemsFunctionAdditionalParameter]="self.item.metric2.type"
+    [unselectedItemValue]="{id: null, translateKey: ''COMMON.MOCK_OBJ.NOT_SELECTED''}"
+    [dataTranslateKeyField]="''translateKey''"
+    [validator]="self.validator"
+    [validationField]="''metric2''"
+    [labelTranslateKey]="''ITEM.DETAILS.HEADER.METRIC_VALUE2''"
+    [label]="''''"
+    [class]=''""''
+></cr-dropdown-smart-control></div><div class=''col-md-2''><cr-dropdown-smart-control
+    [elementName]="''smart-dropdown:Item_details.Metric_type_3''"
+    [permissionSettings]="{
+        isAccessRead: (self.EndpointName.item__item_metric_type_id_GET | endpointAccessGrantedPipe),
+        isAccessEdit: (self.isNewItem ? (self.EndpointName.item_POST | endpointAccessGrantedPipe) :
+            (self.EndpointName.item_id_PUT | endpointAccessGrantedPipe)) &&
+            (self.EndpointName.item__item_metric_type_GET | endpointAccessGrantedPipe)
+    }"
+    [isDisabled]="self.item.isDeleted"
+    [dataCacheName]="''ItemMetricTypeThirdDropdownCache''"
+    (currentItemValueChange)="self.metricTypeChanged(''metric3'')"
+    [(value)]="self.item.metric3.type"
+    [textField]="''displayName''"
+    [codeField]="''code''"
+    [valueField]="''id''"
+    [useCodeInList]="true"
+    [useCodeInValue]="true"
+    [getOneItemFunction]="self.loadItemMetricTypeForDropdownFunction"
+    [getListItemsFunction]="self.loadItemMetricTypeListForDropdownFunction"
+    [unselectedItemValue]="{id: null, translateKey: ''COMMON.MOCK_OBJ.NOT_SELECTED''}"
+    [dataTranslateKeyField]="''translateKey''"
+    [validator]="self.validator"
+    [validationField]="''metric3''"
+    [labelTranslateKey]="''ITEM.DETAILS.HEADER.METRIC_TYPE3''"
+    [label]="''''"
+    [class]=''""''
+></cr-dropdown-smart-control></div><div class=''col-md-2''><cr-dropdown-smart-control
+    [elementName]="''smart-dropdown:Item_details.Metric_value_3''"
+    [permissionSettings]="{
+        isAccessRead: (self.EndpointName.item__item_metric_type_metricTypeId_value_id_dropdown_GET | endpointAccessGrantedPipe),
+        isAccessEdit: (self.isNewItem ? (self.EndpointName.item_POST | endpointAccessGrantedPipe) :
+            (self.EndpointName.item_id_PUT | endpointAccessGrantedPipe)) &&
+            (self.EndpointName.item__item_metric_type_metricTypeId_value_dropdown_GET | endpointAccessGrantedPipe)
+    }"
+    [isDisabled]="!self.item.metric3.type || self.item.isDeleted"
+    [dataCacheName]="''ItemMetricValueThirdDropdownCache''"
+    [(value)]="self.item.metric3.value"
+    [textField]="''name''"
+    [codeField]="''code''"
+    [valueField]="''id''"
+    [useCodeInList]="true"
+    [useCodeInValue]="true"
+    [getOneItemFunction]="self.loadItemMetricValueForDropdownFunction"
+    [getListItemsFunction]="self.loadItemMetricValueListForDropdownFunction"
+    [listItemsFunctionAdditionalParameter]="self.item.metric3.type"
+    [unselectedItemValue]="{id: null, translateKey: ''COMMON.MOCK_OBJ.NOT_SELECTED''}"
+    [dataTranslateKeyField]="''translateKey''"
+    [validator]="self.validator"
+    [validationField]="''metric3''"
+    [labelTranslateKey]="''ITEM.DETAILS.HEADER.METRIC_VALUE3''"
+    [label]="''''"
+    [class]=''""''
+></cr-dropdown-smart-control></div></div>
+        </ng-template>
+      </cr-panel>
+      <cr-panel
+        [panelTemplateType]="''collapsible-panel''"
+        [expanded]="self.panelsViewState?.[''general''] ?? false"
+        (expandedChange)="self.panelStateChange(''general'', $event)"
+        [titleTranslateKey]="true ? ''ITEM.DETAILS.PANEL.GENERAL'' : null"
+        [title]="true ? null : ''General''"
+        [customClass]="''''"
+        [headerClass]="''''"
+        [validator]="self.validator"
+        [validatorGroupName]="''general''"
+        [containFields]=''["itemHierarchyValues.1","supplierCatNum","validFrom","validTo","frozenFrom","frozenTo"]''
+      >
+        <ng-template crPanelContent>
+          <div class="row cr-bottom-row-border"><div class=''col-md-2''><cr-dropdown-smart-control
+    [elementName]="''smart-dropdown:Item_details.Hierarchy_1''"
+    [permissionSettings]="{
+        isAccessRead: (self.EndpointName.item__item_hierarchy_level_id_dropdown_GET | endpointAccessGrantedPipe),
+        isAccessEdit: (self.isNewItem ? (self.EndpointName.item_POST | endpointAccessGrantedPipe) :
+                      (self.EndpointName.item_id_PUT | endpointAccessGrantedPipe)) &&
+                      (self.EndpointName.item__item_hierarchy_level_dropdown_GET | endpointAccessGrantedPipe)
+    }"
+    [isDisabled]="self.item.isDeleted"
+    [requestDataWhenOpen]="true"
+    [dataCacheName]="''ItemHierarchyLevel1DropdownCache''"
+    (valueChange)="self.onSelectValue($event, 1)"
+    [(value)]="self.item.itemHierarchyValues[''1'']"
+    [listItemsFunctionAdditionalParameter]="{hierarchyLevel: 1, hierarchyParentId: null}"
+    [textField]="''name''"
+    [codeField]="''code''"
+    [valueField]="''id''"
+    [useCodeInList]="true"
+    [useCodeInValue]="true"
+    [getListItemsFunction]="self.loadItemHierarchyListDropdownFunction"
+    [getOneItemFunction]="self.loadItemHierarchyDropdownFunction"
+    [unselectedItemValue]="{id: null, translateKey: ''COMMON.MOCK_OBJ.NOT_SELECTED''}"
+    [dataTranslateKeyField]="''translateKey''"
+    [validator]="self.validator"
+    [validationField]="''itemHierarchyValues.1''"
+    [labelTranslateKey]="''''"
+    [label]="true ? self.levelLabels?.levelLabels[''1''] : ''undefined''"
+    [class]=''""''
+></cr-dropdown-smart-control></div><div class=''col-md-2''><cr-dropdown-smart-control
+    [elementName]="''smart-dropdown:Item_details.Hierarchy_2''"
+    [permissionSettings]="{
+        isAccessRead: (self.EndpointName.item__item_hierarchy_level_id_dropdown_GET | endpointAccessGrantedPipe),
+        isAccessEdit: (self.isNewItem ? (self.EndpointName.item_POST | endpointAccessGrantedPipe) :
+                      (self.EndpointName.item_id_PUT | endpointAccessGrantedPipe)) &&
+                      (self.EndpointName.item__item_hierarchy_level_dropdown_GET | endpointAccessGrantedPipe)
+    }"
+    [isDisabled]="!self.item.itemHierarchyValues[''1''] || self.item.isDeleted"
+    [requestDataWhenOpen]="true"
+    [dataCacheName]="''ItemHierarchyLevel2DropdownCache''"
+    (valueChange)="self.onSelectValue($event, 2)"
+    [(value)]="self.item.itemHierarchyValues[''2'']"
+    [listItemsFunctionAdditionalParameter]="{hierarchyLevel: 2, hierarchyParentId: self.item.itemHierarchyValues[''1'']}"
+    [textField]="''name''"
+    [codeField]="''code''"
+    [valueField]="''id''"
+    [useCodeInList]="true"
+    [useCodeInValue]="true"
+    [getListItemsFunction]="self.loadItemHierarchyListDropdownFunction"
+    [getOneItemFunction]="self.loadItemHierarchyDropdownFunction"
+    [unselectedItemValue]="{id: null, translateKey: ''COMMON.MOCK_OBJ.NOT_SELECTED''}"
+    [dataTranslateKeyField]="''translateKey''"
+    [labelTranslateKey]="''''"
+    [label]="true ? self.levelLabels?.levelLabels[''2''] : ''undefined''"
+    [class]=''""''
+></cr-dropdown-smart-control></div><div class=''col-md-2''><cr-dropdown-smart-control
+    [elementName]="''smart-dropdown:Item_details.Hierarchy_3''"
+    [permissionSettings]="{
+        isAccessRead: (self.EndpointName.item__item_hierarchy_level_id_dropdown_GET | endpointAccessGrantedPipe),
+        isAccessEdit: (self.isNewItem ? (self.EndpointName.item_POST | endpointAccessGrantedPipe) :
+                      (self.EndpointName.item_id_PUT | endpointAccessGrantedPipe)) &&
+                      (self.EndpointName.item__item_hierarchy_level_dropdown_GET | endpointAccessGrantedPipe)
+    }"
+    [isDisabled]="!self.item.itemHierarchyValues[''2''] || self.item.isDeleted"
+    [requestDataWhenOpen]="true"
+    [dataCacheName]="''ItemHierarchyLevel3DropdownCache''"
+    (valueChange)="self.onSelectValue($event, 3)"
+    [(value)]="self.item.itemHierarchyValues[''3'']"
+    [listItemsFunctionAdditionalParameter]="{hierarchyLevel: 3, hierarchyParentId: self.item.itemHierarchyValues[''2'']}"
+    [textField]="''name''"
+    [codeField]="''code''"
+    [valueField]="''id''"
+    [useCodeInList]="true"
+    [useCodeInValue]="true"
+    [getListItemsFunction]="self.loadItemHierarchyListDropdownFunction"
+    [getOneItemFunction]="self.loadItemHierarchyDropdownFunction"
+    [unselectedItemValue]="{id: null, translateKey: ''COMMON.MOCK_OBJ.NOT_SELECTED''}"
+    [dataTranslateKeyField]="''translateKey''"
+    [labelTranslateKey]="''''"
+    [label]="true ? self.levelLabels?.levelLabels[''3''] : ''undefined''"
+    [class]=''""''
+></cr-dropdown-smart-control></div><div class=''col-md-2''><cr-dropdown-smart-control
+    [elementName]="''smart-dropdown:Item_details.Hierarchy_4''"
+    [permissionSettings]="{
+        isAccessRead: (self.EndpointName.item__item_hierarchy_level_id_dropdown_GET | endpointAccessGrantedPipe),
+        isAccessEdit: (self.isNewItem ? (self.EndpointName.item_POST | endpointAccessGrantedPipe) :
+                      (self.EndpointName.item_id_PUT | endpointAccessGrantedPipe)) &&
+                      (self.EndpointName.item__item_hierarchy_level_dropdown_GET | endpointAccessGrantedPipe)
+    }"
+    [isDisabled]="!self.item.itemHierarchyValues[''3''] || self.item.isDeleted"
+    [requestDataWhenOpen]="true"
+    [dataCacheName]="''ItemHierarchyLevel4DropdownCache''"
+    (valueChange)="self.onSelectValue($event, 4)"
+    [(value)]="self.item.itemHierarchyValues[''4'']"
+    [listItemsFunctionAdditionalParameter]="{hierarchyLevel: 4, hierarchyParentId: self.item.itemHierarchyValues[''3'']}"
+    [textField]="''name''"
+    [codeField]="''code''"
+    [valueField]="''id''"
+    [useCodeInList]="true"
+    [useCodeInValue]="true"
+    [getListItemsFunction]="self.loadItemHierarchyListDropdownFunction"
+    [getOneItemFunction]="self.loadItemHierarchyDropdownFunction"
+    [unselectedItemValue]="{id: null, translateKey: ''COMMON.MOCK_OBJ.NOT_SELECTED''}"
+    [dataTranslateKeyField]="''translateKey''"
+    [labelTranslateKey]="''''"
+    [label]="true ? self.levelLabels?.levelLabels[''4''] : ''undefined''"
+    [class]=''""''
+></cr-dropdown-smart-control></div><div class=''col-md-2''><cr-dropdown-smart-control
+    [elementName]="''smart-dropdown:Item_details.Hierarchy_5''"
+    [permissionSettings]="{
+        isAccessRead: (self.EndpointName.item__item_hierarchy_level_id_dropdown_GET | endpointAccessGrantedPipe),
+        isAccessEdit: (self.isNewItem ? (self.EndpointName.item_POST | endpointAccessGrantedPipe) :
+                      (self.EndpointName.item_id_PUT | endpointAccessGrantedPipe)) &&
+                      (self.EndpointName.item__item_hierarchy_level_dropdown_GET | endpointAccessGrantedPipe)
+    }"
+    [isDisabled]="!self.item.itemHierarchyValues[''4''] || self.item.isDeleted"
+    [requestDataWhenOpen]="true"
+    [dataCacheName]="''ItemHierarchyLevel5DropdownCache''"
+    (valueChange)="self.onSelectValue($event, 5)"
+    [(value)]="self.item.itemHierarchyValues[''5'']"
+    [listItemsFunctionAdditionalParameter]="{hierarchyLevel: 5, hierarchyParentId: self.item.itemHierarchyValues[''4'']}"
+    [textField]="''name''"
+    [codeField]="''code''"
+    [valueField]="''id''"
+    [useCodeInList]="true"
+    [useCodeInValue]="true"
+    [getListItemsFunction]="self.loadItemHierarchyListDropdownFunction"
+    [getOneItemFunction]="self.loadItemHierarchyDropdownFunction"
+    [unselectedItemValue]="{id: null, translateKey: ''COMMON.MOCK_OBJ.NOT_SELECTED''}"
+    [dataTranslateKeyField]="''translateKey''"
+    [labelTranslateKey]="''''"
+    [label]="true ? self.levelLabels?.levelLabels[''5''] : ''undefined''"
+    [class]=''""''
+></cr-dropdown-smart-control></div><div class=''col-md-2''></div></div><div class="row cr-bottom-row-border"><div class=''col-md-2''><cr-dropdown-smart-control
+    [elementName]="''smart-dropdown:Item_details.Manufacture''"
+    [permissionSettings]="{
+        isAccessRead: (self.EndpointName.item__item_manufacture_id_dropdown_GET | endpointAccessGrantedPipe),
+        isAccessEdit: (self.isNewItem ? (self.EndpointName.item_POST | endpointAccessGrantedPipe) :
+                      (self.EndpointName.item_id_PUT | endpointAccessGrantedPipe)) &&
+                      (self.EndpointName.item__item_manufacture_dropdown_GET | endpointAccessGrantedPipe)
+    }"
+    [isDisabled]="self.item.isDeleted"
+    [dataCacheName]="''ItemManufactureDropdownCache''"
+    [(value)]="self.item.manufactureID"
+    [textField]="''name''"
+    [codeField]="''code''"
+    [valueField]="''id''"
+    [useCodeInList]="true"
+    [useCodeInValue]="true"
+    [getListItemsFunction]="self.loadManufacturesListDropdownFunction"
+    [getOneItemFunction]="self.loadManufactureDropdownFunction"
+    [unselectedItemValue]="{id: null, translateKey: ''COMMON.MOCK_OBJ.NOT_SELECTED''}"
+    [dataTranslateKeyField]="''translateKey''"
+    [labelTranslateKey]="''ITEM.DETAILS.GENERAL.MANUFACTURE''"
+    [label]="''''"
+    [class]=''""''
+></cr-dropdown-smart-control></div><div class=''col-md-2''><cr-control-edit
+    [elementName]="''edit:Item_details.Supplier_cat_num''"
+    [permissionSettings]="{
+        isAccessEdit: self.isNewItem ? (self.EndpointName.item_POST | endpointAccessGrantedPipe) :
+            (self.EndpointName.item_id_PUT | endpointAccessGrantedPipe)
+    }"
+    [(dataValue)]="self.item.supplierCatNum"
+    [validator]="self.validator"
+    [validationField]="''supplierCatNum''"
+    [translateKeys]="''ITEM.DETAILS.GENERAL.SUPPLIER_CAT_NUM''" 
+    [dataLabel]="''''"
+    [customClass]=''""''
+    [isDisabled]="self.item.isDeleted || false"
+></cr-control-edit></div><div class=''col-md-2''><cr-dropdown-smart-control
+    [elementName]="''smart-dropdown:Item_details.General_brand''"
+    [permissionSettings]="{
+        isAccessRead: (self.EndpointName.item__item_brand_id_dropdown_GET | endpointAccessGrantedPipe),
+        isAccessEdit: (self.isNewItem ? (self.EndpointName.item_POST | endpointAccessGrantedPipe) :
+                      (self.EndpointName.item_id_PUT | endpointAccessGrantedPipe)) &&
+                      (self.EndpointName.item__item_brand_dropdown_GET | endpointAccessGrantedPipe)
+    }"
+    [isDisabled]="self.item.isDeleted"
+    [dataCacheName]="''ItemBrandDropdownCache''"
+    [(value)]="self.item.itemBrandID"
+    [textField]="''name''"
+    [codeField]="''code''"
+    [valueField]="''id''"
+    [useCodeInList]="true"
+    [useCodeInValue]="true"
+    [getListItemsFunction]="self.loadItemBrandListDropdownFunction"
+    [getOneItemFunction]="self.loadItemBrandDropdownFunction"
+    [unselectedItemValue]="{id: null, translateKey: ''COMMON.MOCK_OBJ.NOT_SELECTED''}"
+    [dataTranslateKeyField]="''translateKey''"
+    [labelTranslateKey]="''ITEM.DETAILS.GENERAL.BRAND''"
+    [label]="''''"
+    [class]=''""''
+></cr-dropdown-smart-control></div><div class=''col-md-2''><cr-dropdown-smart-control
+    [elementName]="''smart-dropdown:Item_details.Preferred_supplier''"
+    [permissionSettings]="{
+        isAccessRead: (self.EndpointName.item__partner_id_dropdown_GET | endpointAccessGrantedPipe),
+        isAccessEdit: (self.isNewItem ? (self.EndpointName.item_POST | endpointAccessGrantedPipe) :
+                      (self.EndpointName.item_id_PUT | endpointAccessGrantedPipe)) &&
+                      (self.EndpointName.item__partner_dropdown_GET | endpointAccessGrantedPipe)
+    }"
+    [isDisabled]="self.item.isDeleted"
+    [dataCacheName]="''PreferredSupplierDropdownCache''"
+    [(value)]="self.item.prefferedSupplierID"
+    [textField]="''name''"
+    [codeField]="''code''"
+    [valueField]="''id''"
+    [useCodeInList]="true"
+    [useCodeInValue]="true"
+    [getListItemsFunction]="self.loadPreferredSupplierListDropdownFunction"
+    [getOneItemFunction]="self.loadPreferredSupplierDropdownFunction"
+    [unselectedItemValue]="{id: null, translateKey: ''COMMON.MOCK_OBJ.NOT_SELECTED''}"
+    [dataTranslateKeyField]="''translateKey''"
+    [labelTranslateKey]="''ITEM.DETAILS.GENERAL.PREFERRED_SUPPLIER''"
+    [label]="''''"
+    [class]=''""''
+></cr-dropdown-smart-control></div><div class=''col-md-2''><cr-control-dropdown 
+    [(dataValue)]="self.item.unitTypeId" 
+    [isDisabled]="self.item.isDeleted" 
+    [dataSource]="self.unitTypesForDropdown"
+    [dataValueField]="''id''" 
+    [dataDisplayField]="''name''" 
+    [elementName]="''dropdown:Item_details.Unit_type''"
+    [permissionSettings]="{
+        isAccessEdit: self.isNewItem ? (self.EndpointName.item_POST | endpointAccessGrantedPipe) :
+            (self.EndpointName.item_id_PUT | endpointAccessGrantedPipe)
+    }"
+    [translateKeys]="''ITEM.DETAILS.GENERAL.UNIT_TYPE''"
+    [dataLabel]="''''"
+    [class]=''""''
+></cr-control-dropdown></div><div class=''col-md-2''></div></div><div class="row cr-bottom-row-border"><div class=''col-md-12''><cr-multi-select-smart-control
+    [(values)]="self.item.collections"
+    [dataCacheName]="''CollectionsDropdownCache111''"
+    [isDisabled]="self.item.isDeleted"
+    [elementName]="''smart-multi-select:Item_details.Collections''"
+    [getListItemsFunction]="self.loadCollectionListMultiselectFunction"
+    [getSelectedItemsFunction]="self.loadCollectionMultiselectFunction"
+    [permissionSettings]="{
+        isAccessRead: (self.EndpointName.item__item_collection_dropdown_ids_GET | endpointAccessGrantedPipe),
+        isAccessEdit: (self.isNewItem ? (self.EndpointName.item_POST | endpointAccessGrantedPipe) :
+            (self.EndpointName.item_id_PUT | endpointAccessGrantedPipe)) &&
+            (self.EndpointName.item__item_collection_dropdown_GET | endpointAccessGrantedPipe)
+    }"
+    [textField]="''name''"
+    [useCodeInList]="true"
+    [useCodeInValue]="true"
+    [valueField]="''id''"
+    [translateKeys]="''ITEM.DETAILS.GENERAL.COLLECTIONS''"
+    [dataLabel]="''''"
+    [class]=''""''
+></cr-multi-select-smart-control></div><div class=''col-md-6''></div></div><div class="row cr-bottom-row-border"><div class=''col-md-12''><cr-dropdown-smart-control
+    [elementName]="''smart-dropdown:Item_details.Tax_group''"
+    [permissionSettings]="{
+        isAccessRead: (self.EndpointName.item__tax_group_id_GET | endpointAccessGrantedPipe),
+        isAccessEdit: (self.isNewItem ? (self.EndpointName.item_POST | endpointAccessGrantedPipe) :
+                      (self.EndpointName.item_id_PUT | endpointAccessGrantedPipe)) &&
+                      (self.EndpointName.item__tax_group_GET | endpointAccessGrantedPipe)
+    }"
+    [isDisabled]="self.item.isDeleted"
+    [dataCacheName]="''TaxGroupDropdownCache''"
+    [(currentItemValue)]="self.item.taxGroup"
+    [textField]="''name''"
+    [codeField]="''code''"
+    [valueField]="''id''"
+    [useCodeInList]="true"
+    [useCodeInValue]="true"
+    [getListItemsFunction]="self.loadTaxGroupListDropdownFunction"
+    [getOneItemFunction]="self.loadTaxGroupDropdownFunction"
+    [unselectedItemValue]="{id: null, translateKey: ''COMMON.MOCK_OBJ.NOT_SELECTED''}"
+    [dataTranslateKeyField]="''translateKey''"
+    [labelTranslateKey]="''ITEM.DETAILS.GENERAL.TAX_GROUP''"
+    [label]="''''"
+    [class]=''""''
+></cr-dropdown-smart-control></div><div class=''col-md-6''></div></div><div class="row cr-bottom-row-border"><div class=''col-md-2''><cr-checkbox-control
+    [elementName]="''checkbox:Item_details.Active''"
+    [permissionSettings]="{
+        isAccessEdit: self.isNewItem ? (self.EndpointName.item_POST | endpointAccessGrantedPipe) :
+            (self.EndpointName.item_id_PUT | endpointAccessGrantedPipe)
+    }"
+
+    (dataValueChange)="self.changeActiveCheckbox($event)"
+    [(dataValue)]="self.item.isValid"
+    [dataLabel]="''''"
+    [translateKeys]="''ITEM.DETAILS.GENERAL.ACTIVE''"
+    [isDisabled]="self.item.isDeleted || false"
+    [class]=''""''
+></cr-checkbox-control></div><div class=''col-md-2''><cr-control-datepicker
+    [elementName]="''date:Item_details.Active_date_from''"
+    [permissionSettings]="{
+        isAccessEdit: self.isNewItem ? (self.EndpointName.item_POST | endpointAccessGrantedPipe) :
+            (self.EndpointName.item_id_PUT | endpointAccessGrantedPipe)
+    }"
+
+    [(dataValue)]="self.item.validFrom"
+    [validator]="self.validator"
+    [validationField]="''validFrom''"
+    [dataLabel]="''''"
+    [translateKeys]="''ITEM.DETAILS.GENERAL.ACTIVE_FROM''"
+    [class]=''""'' 
+    [isDisabled]="!self.item.isValid || self.item.isDeleted || false"
+></cr-control-datepicker></div><div class=''col-md-2''><cr-control-datepicker
+    [elementName]="''date:Item_details.Active_date_to''"
+    [permissionSettings]="{
+        isAccessEdit: self.isNewItem ? (self.EndpointName.item_POST | endpointAccessGrantedPipe) :
+            (self.EndpointName.item_id_PUT | endpointAccessGrantedPipe)
+    }"
+
+    [(dataValue)]="self.item.validTo"
+    [validator]="self.validator"
+    [validationField]="''validTo''"
+    [dataLabel]="''''"
+    [translateKeys]="''ITEM.DETAILS.GENERAL.ACTIVE_TO''"
+    [class]=''""'' 
+    [isDisabled]="!self.item.isValid || self.item.isDeleted || false"
+></cr-control-datepicker></div></div><div class="row cr-bottom-row-border"><div class=''col-md-2''><cr-checkbox-control
+    [elementName]="''checkbox:Item_details.Frozen''"
+    [permissionSettings]="{
+        isAccessEdit: self.isNewItem ? (self.EndpointName.item_POST | endpointAccessGrantedPipe) :
+            (self.EndpointName.item_id_PUT | endpointAccessGrantedPipe)
+    }"
+
+    (dataValueChange)="self.changeFrozenCheckbox($event)"
+    [(dataValue)]="self.item.isFrozen"
+    [dataLabel]="''''"
+    [translateKeys]="''ITEM.DETAILS.GENERAL.FROZEN''"
+    [isDisabled]="self.item.isDeleted || false"
+    [class]=''""''
+></cr-checkbox-control></div><div class=''col-md-2''><cr-control-datepicker
+    [elementName]="''date:Item_details.Frozen_date_from''"
+    [permissionSettings]="{
+        isAccessEdit: self.isNewItem ? (self.EndpointName.item_POST | endpointAccessGrantedPipe) :
+            (self.EndpointName.item_id_PUT | endpointAccessGrantedPipe)
+    }"
+
+    [(dataValue)]="self.item.frozenFrom"
+    [validator]="self.validator"
+    [validationField]="''frozenFrom''"
+    [dataLabel]="''''"
+    [translateKeys]="''ITEM.DETAILS.GENERAL.FROZEN_FROM''"
+    [class]=''""'' 
+    [isDisabled]="!self.item.isFrozen || self.item.isDeleted || false"
+></cr-control-datepicker></div><div class=''col-md-2''><cr-control-datepicker
+    [elementName]="''date:Item_details.Frozen_date_to''"
+    [permissionSettings]="{
+        isAccessEdit: self.isNewItem ? (self.EndpointName.item_POST | endpointAccessGrantedPipe) :
+            (self.EndpointName.item_id_PUT | endpointAccessGrantedPipe)
+    }"
+
+    [(dataValue)]="self.item.frozenTo"
+    [validator]="self.validator"
+    [validationField]="''frozenTo''"
+    [dataLabel]="''''"
+    [translateKeys]="''ITEM.DETAILS.GENERAL.FROZEN_TO''"
+    [class]=''""'' 
+    [isDisabled]="!self.item.isFrozen || self.item.isDeleted || false"
+></cr-control-datepicker></div></div><div class="row cr-bottom-row-border"><div class=''col-md-2''><cr-checkbox-control
+    [elementName]="''checkbox:Item_details.Sale_item''"
+    [permissionSettings]="{
+        isAccessEdit: self.isNewItem ? (self.EndpointName.item_POST | endpointAccessGrantedPipe) :
+            (self.EndpointName.item_id_PUT | endpointAccessGrantedPipe)
+    }"
+
+    [(dataValue)]="self.item.saleItem"
+    [dataLabel]="''''"
+    [translateKeys]="''ITEM.DETAILS.GENERAL.SALE_ITEM''"
+    [isDisabled]="self.item.isDeleted || false"
+    [class]=''""''
+></cr-checkbox-control></div><div class=''col-md-2''><cr-checkbox-control
+    [elementName]="''checkbox:Item_details.Inventory_item''"
+    [permissionSettings]="{
+        isAccessEdit: self.isNewItem ? (self.EndpointName.item_POST | endpointAccessGrantedPipe) :
+            (self.EndpointName.item_id_PUT | endpointAccessGrantedPipe)
+    }"
+
+    [(dataValue)]="self.item.inventoryItem"
+    [dataLabel]="''''"
+    [translateKeys]="''ITEM.DETAILS.GENERAL.INVENTORY_ITEM''"
+    [isDisabled]="self.item.isDeleted || false"
+    [class]=''""''
+></cr-checkbox-control></div><div class=''col-md-2''><cr-checkbox-control
+    [elementName]="''checkbox:Item_details.Purchase_item''"
+    [permissionSettings]="{
+        isAccessEdit: self.isNewItem ? (self.EndpointName.item_POST | endpointAccessGrantedPipe) :
+            (self.EndpointName.item_id_PUT | endpointAccessGrantedPipe)
+    }"
+
+    [(dataValue)]="self.item.purchaseItem"
+    [dataLabel]="''''"
+    [translateKeys]="''ITEM.DETAILS.GENERAL.PURCHASE_ITEM''"
+    [isDisabled]="self.item.isDeleted || false"
+    [class]=''""''
+></cr-checkbox-control></div><div class=''col-md-2''><cr-checkbox-control
+    [elementName]="''checkbox:Item_details.Refundable''"
+    [permissionSettings]="{
+        isAccessEdit: self.isNewItem ? (self.EndpointName.item_POST | endpointAccessGrantedPipe) :
+            (self.EndpointName.item_id_PUT | endpointAccessGrantedPipe)
+    }"
+
+    [(dataValue)]="self.item.refundable"
+    [dataLabel]="''''"
+    [translateKeys]="''ITEM.DETAILS.GENERAL.REFUNDABLE''"
+    [isDisabled]="self.item.isDeleted || false"
+    [class]=''""''
+></cr-checkbox-control></div><div class=''col-md-2''><cr-checkbox-control
+    [elementName]="''checkbox:Item_details.Download_to_pos''"
+    [permissionSettings]="{
+        isAccessEdit: self.isNewItem ? (self.EndpointName.item_POST | endpointAccessGrantedPipe) :
+            (self.EndpointName.item_id_PUT | endpointAccessGrantedPipe)
+    }"
+
+    [(dataValue)]="self.item.downloadToPOS"
+    [dataLabel]="''''"
+    [translateKeys]="''ITEM.DETAILS.GENERAL.DOWNLOAD_TO_POS''"
+    [isDisabled]="self.item.isDeleted || false"
+    [class]=''""''
+></cr-checkbox-control></div><div class=''col-md-2''><cr-checkbox-control
+    [elementName]="''checkbox:Item_details.Consignment_item''"
+    [permissionSettings]="{
+        isAccessEdit: self.isNewItem ? (self.EndpointName.item_POST | endpointAccessGrantedPipe) :
+            (self.EndpointName.item_id_PUT | endpointAccessGrantedPipe)
+    }"
+
+    [(dataValue)]="self.item.isConsignmentItem"
+    [dataLabel]="''''"
+    [translateKeys]="''ITEM.DETAILS.GENERAL.CONSIGNMENT_ITEM''"
+    [isDisabled]="self.item.isDeleted || false"
+    [class]=''""''
+></cr-checkbox-control></div></div><div class="row cr-bottom-row-border"><div class=''col-md-2''><cr-checkbox-control
+    [elementName]="''checkbox:Item_details.Gift_card_item''"
+    [permissionSettings]="{
+        isAccessEdit: self.isNewItem ? (self.EndpointName.item_POST | endpointAccessGrantedPipe) :
+            (self.EndpointName.item_id_PUT | endpointAccessGrantedPipe)
+    }"
+
+    [(dataValue)]="self.item.giftCard"
+    [dataLabel]="''''"
+    [translateKeys]="''ITEM.DETAILS.GENERAL.GIFT_CARD_ITEM''"
+    [isDisabled]="self.item.isDeleted || false"
+    [class]=''""''
+></cr-checkbox-control></div><div class=''col-md-2''><cr-checkbox-control
+    [elementName]="''checkbox:Item_details.Distribution_recommendation''"
+    [permissionSettings]="{
+        isAccessEdit: self.isNewItem ? (self.EndpointName.item_POST | endpointAccessGrantedPipe) :
+            (self.EndpointName.item_id_PUT | endpointAccessGrantedPipe)
+    }"
+
+    [(dataValue)]="self.item.distributionRecommendation"
+    [dataLabel]="''''"
+    [translateKeys]="''ITEM.DETAILS.GENERAL.DISTRIBUTION_RECOMMENDATION''"
+    [isDisabled]="self.item.isDeleted || false"
+    [class]=''""''
+></cr-checkbox-control></div><div class=''col-md-2''><cr-checkbox-control
+    [elementName]="''checkbox:Item_details.Purchase_recommendation''"
+    [permissionSettings]="{
+        isAccessEdit: self.isNewItem ? (self.EndpointName.item_POST | endpointAccessGrantedPipe) :
+            (self.EndpointName.item_id_PUT | endpointAccessGrantedPipe)
+    }"
+
+    [(dataValue)]="self.item.purchaseRecommendation"
+    [dataLabel]="''''"
+    [translateKeys]="''ITEM.DETAILS.GENERAL.PURCHASE_RECOMMENDATION''"
+    [isDisabled]="self.item.isDeleted || false"
+    [class]=''""''
+></cr-checkbox-control></div><div class=''col-md-2''><cr-checkbox-control
+    [elementName]="''checkbox:Item_details.Direct_supply''"
+    [permissionSettings]="{
+        isAccessEdit: self.isNewItem ? (self.EndpointName.item_POST | endpointAccessGrantedPipe) :
+            (self.EndpointName.item_id_PUT | endpointAccessGrantedPipe)
+    }"
+
+    [(dataValue)]="self.item.directSupply"
+    [dataLabel]="''''"
+    [translateKeys]="''ITEM.DETAILS.GENERAL.DIRECT_SUPPLY''"
+    [isDisabled]="self.item.isDeleted || false"
+    [class]=''""''
+></cr-checkbox-control></div><div class=''col-md-2''><cr-checkbox-control
+    [elementName]="''checkbox:Item_details.History''"
+    [permissionSettings]="{
+        isAccessEdit: self.isNewItem ? (self.EndpointName.item_POST | endpointAccessGrantedPipe) :
+            (self.EndpointName.item_id_PUT | endpointAccessGrantedPipe)
+    }"
+
+    [(dataValue)]="self.item.history"
+    [dataLabel]="''''"
+    [translateKeys]="''ITEM.DETAILS.GENERAL.HISTORY''"
+    [isDisabled]="self.item.isDeleted || false"
+    [class]=''""''
+></cr-checkbox-control></div><div class=''col-md-2''><cr-checkbox-control
+    [elementName]="''checkbox:Item_details.Allow_zero_price''"
+    [permissionSettings]="{
+        isAccessEdit: self.isNewItem ? (self.EndpointName.item_POST | endpointAccessGrantedPipe) :
+            (self.EndpointName.item_id_PUT | endpointAccessGrantedPipe)
+    }"
+
+    [(dataValue)]="self.item.isAllowZeroPrice"
+    [dataLabel]="''''"
+    [translateKeys]="''ITEM.DETAILS.GENERAL.ALLOW_ZERO_PRICE''"
+    [isDisabled]="self.item.isDeleted || false"
+    [class]=''""''
+></cr-checkbox-control></div></div><div class="row undefined"><div class=''col-md-2''><cr-checkbox-control
+    [elementName]="''checkbox:Item_details.Is_modifier''"
+    [permissionSettings]="{
+        isAccessEdit: (self.isNewItem ? (self.EndpointName.item_POST | endpointAccessGrantedPipe) :
+            (self.EndpointName.item_id_PUT | endpointAccessGrantedPipe)) 
+            && (self.EndpointName.item__item_modifier_group_GET | endpointAccessGrantedPipe)
+    }"
+
+    [(dataValue)]="self.item.isModifier"
+    [dataLabel]="''''"
+    [translateKeys]="''ITEM.DETAILS.GENERAL.IS_MODIFIER''"
+    [isDisabled]="self.item.isComboMeal || self.item.isDeleted || false"
+    [class]=''""''
+></cr-checkbox-control></div><div class=''col-md-2''><cr-checkbox-control
+    [elementName]="''checkbox:Item_details.Is_combo_meal''"
+    [permissionSettings]="{
+        isAccessEdit: (self.isNewItem ? (self.EndpointName.item_POST | endpointAccessGrantedPipe) :
+            (self.EndpointName.item_id_PUT | endpointAccessGrantedPipe)) 
+            && (self.EndpointName.item__combo_meal_category_GET | endpointAccessGrantedPipe)
+    }"
+
+    [(dataValue)]="self.item.isComboMeal"
+    [dataLabel]="''''"
+    [translateKeys]="''ITEM.DETAILS.GENERAL.IS_COMBO_MEAL''"
+    [isDisabled]="self.item.isModifier || self.item.isDeleted || false"
+    [class]=''""''
+></cr-checkbox-control></div></div>
+        </ng-template>
+      </cr-panel>
+      <cr-panel
+        [panelTemplateType]="''collapsible-panel''"
+        [expanded]="self.panelsViewState?.[''properties''] ?? false"
+        (expandedChange)="self.panelStateChange(''properties'', $event)"
+        [titleTranslateKey]="true ? ''ITEM.DETAILS.PANEL.PROPERTIES'' : null"
+        [title]="true ? null : ''Properties''"
+        [customClass]="''''"
+        [headerClass]="''''"
+        [validator]="self.validator"
+        [validatorGroupName]="''properties''"
+        [containFields]=''[]''
+      >
+        <ng-template crPanelContent>
+          <div class="cr-grid-wrapper-new cr-grid-no-inner-borders">
+    <cr-item-property-list 
+        [itemDetails]="self.item" 
+        [class]=''""''
+    ></cr-item-property-list>
+</div>
+
+        </ng-template>
+      </cr-panel>
+      <cr-panel
+        [panelTemplateType]="''collapsible-panel''"
+        [expanded]="self.panelsViewState?.[''price''] ?? false"
+        (expandedChange)="self.panelStateChange(''price'', $event)"
+        [titleTranslateKey]="true ? ''ITEM.DETAILS.PANEL.PRICES'' : null"
+        [title]="true ? null : ''Prices''"
+        [customClass]="''''"
+        [headerClass]="''''"
+        [validator]="self.validator"
+        [validatorGroupName]="''price''"
+        [containFields]=''["prices"]''
+      >
+        <ng-template crPanelContent>
+          <div class="cr-item-price-wrapper">
+    <cr-item-price-list
+        *ngIf="(self.EndpointName.item__item_price_GET | endpointAccessGrantedPipe) &&
+            (self.EndpointName.item__item_property_value_id_dropdown_GET | endpointAccessGrantedPipe); else noAccess"
+        [editable]="self.isNewItem ? (self.EndpointName.item_POST | endpointAccessGrantedPipe) :
+            (self.EndpointName.item_id_PUT | endpointAccessGrantedPipe)"
+        [item]="self.item"
+        [panelsViewState]="self.panelsViewState"
+        [class]=''""''
+    ></cr-item-price-list>
+
+    <ng-template #noAccess>
+        <div class="cr-no-read-access p-2">
+            {{''COMMON.GRID.NO_READ_ACCESS'' | translate}}
+        </div>
+    </ng-template>
+</div>
+
+        </ng-template>
+      </cr-panel>
+      <cr-panel
+        [panelTemplateType]="''collapsible-panel''"
+        [expanded]="self.panelsViewState?.[''barcodes''] ?? false"
+        (expandedChange)="self.panelStateChange(''barcodes'', $event)"
+        [titleTranslateKey]="true ? ''ITEM.DETAILS.PANEL.BARCODES'' : null"
+        [title]="true ? null : ''Barcodes''"
+        [customClass]="''''"
+        [headerClass]="''''"
+        [validator]="self.validator"
+        [validatorGroupName]="''barcodes''"
+        [containFields]=''["barcodes"]''
+      >
+        <ng-template crPanelContent>
+          <div class="cr-grid-wrapper-new">
+    <cr-item-barcodes-list
+        [isNew]="self.isNewItem"
+        [item]="self.item"
+        [editable]="self.isNewItem
+            ? (self.EndpointName.item_POST | endpointAccessGrantedPipe)
+            : (self.EndpointName.item_id_PUT | endpointAccessGrantedPipe)"
+        (barcodesChanged)="self.onBarcodesChanged()"
+        [class]=''""''
+    ></cr-item-barcodes-list>
+</div>
+        </ng-template>
+      </cr-panel>
+      <cr-panel
+        [panelTemplateType]="''collapsible-panel''"
+        [expanded]="self.panelsViewState?.[''userFields''] ?? false"
+        (expandedChange)="self.panelStateChange(''userFields'', $event)"
+        [titleTranslateKey]="true ? ''ITEM.DETAILS.PANEL.USER_FIELDS'' : null"
+        [title]="true ? null : ''UDF''"
+        [customClass]="''''"
+        [headerClass]="''''"
+        [validator]="self.validator"
+        [validatorGroupName]="''userFields''"
+        [containFields]=''[]''
+      >
+        <ng-template crPanelContent>
+          <div class="cr-grid-wrapper-new">
+    <cr-udf-list
+        *ngIf="(self.EndpointName.item__user_defined_field_GET | endpointAccessGrantedPipe) &&
+            (self.EndpointName.item__user_defined_field_default_value_GET | endpointAccessGrantedPipe); else noAccess"
+        [isNew]="self.isNewItem"
+        [udf]="self.item.udf"
+        [cacheName]="''itemUserFieldViewStateCache''"
+        [viewName]="''Item_details''"
+        [loadUserDefinedFieldListForDropdownFn$]="self.loadUserDefinedFieldListForDropdownFn$"
+        [getUserFields$]="self.getUserFields$"
+        [loadUserFields$]="self.loadUserFields$"
+        [getUserFieldsDefault$]="self.getUserFieldsDefault$"
+        [class]=''""''
+    ></cr-udf-list>
+    <ng-template #noAccess>
+        <div class="cr-no-read-access p-2">
+            {{''COMMON.GRID.NO_READ_ACCESS'' | translate}}
+        </div>
+    </ng-template>
+</div>
+        </ng-template>
+      </cr-panel>
+      <cr-panel
+        [panelTemplateType]="''collapsible-panel''"
+        [expanded]="self.panelsViewState?.[''basketImage''] ?? false"
+        (expandedChange)="self.panelStateChange(''basketImage'', $event)"
+        [titleTranslateKey]="true ? ''ITEM.DETAILS.PANEL.IMAGE_BASKET'' : null"
+        [title]="true ? null : ''Images''"
+        [customClass]="''''"
+        [headerClass]="''''"
+        [validator]="self.validator"
+        [validatorGroupName]="''basketImage''"
+        [containFields]=''[]''
+      >
+        <ng-template crPanelContent>
+          <div class="cr-grid-wrapper-new">
+    <cr-item-image-basket-list
+        [imageBasketId]="self.item.imageBasketSetId"
+        [isDeleted]="self.item.isDeleted"
+        [refreshList$]="self.itemImageBasketContentListRefresh$"
+        (onCreateItem)="self.onCreateImageBasketPopup()"
+        (onUpdateItem)="self.onUpdateImageBasketPopup($event)"
+        (onDeleteItem)="self.onDeleteImageBasketContent($event)"
+        [class]=''""''
+    ></cr-item-image-basket-list>
+</div>
+        </ng-template>
+      </cr-panel>
+        </ng-template>
+      </ng-template>
+    </ng-template>
+    
+        <ng-template [ngSwitchCase]="''image-content-create''">
+          <ng-template
+            [ngIf]="self.popupTab.tabs[self.popupTab.activeTabIndex].type == ''image-content-create'' && self.popupTab.activeTabIndex == i">
+            <div *ngIf=''self.popupTab.activeTabIndex != self.popupTab.tabs.length - 1'' class=''cr-popup-blocker''></div>
+            <cr-image-basket-details
+    [subTemplateId]="''D98D4CF1-1D6B-ED11-835F-02F176033DDB''"
+    [image]="self.cache.selectedImageBasketContent"
+    [isNew]="true"
+    [validator]="self.itemImageBasketContentValidator"
+    [permissionSettings]="{
+        isAccessRead: (self.EndpointName.item__file_storage_basket_content_GET | endpointAccessGrantedPipe),
+        isAccessCreate: !self.item.isDeleted && (self.EndpointName.item__file_storage_basket_content_POST | endpointAccessGrantedPipe)
+    }"
+    (closePopup)="self.removePopupTab(popupTab.activeTabIndex)"
+    (create)="self.onCreateImageBasketContent($event)"
+></cr-image-basket-details>
+          </ng-template>
+        </ng-template>
+      
+        <ng-template [ngSwitchCase]="''image-content-update''">
+          <ng-template
+            [ngIf]="self.popupTab.tabs[self.popupTab.activeTabIndex].type == ''image-content-update'' && self.popupTab.activeTabIndex == i">
+            <div *ngIf=''self.popupTab.activeTabIndex != self.popupTab.tabs.length - 1'' class=''cr-popup-blocker''></div>
+            <cr-image-basket-details
+    [subTemplateId]="''38B2C3FD-1D6B-ED11-835F-02F176033DDB''"
+    [image]="self.cache.selectedImageBasketContent"
+    [isNew]="false"
+    [validator]="self.itemImageBasketContentValidator"
+    [permissionSettings]="{
+        isAccessRead: (self.EndpointName.item__file_storage_basket_content_GET | endpointAccessGrantedPipe),
+        isAccessDelete: !self.item.isDeleted && (EndpointName.item__file_storage_basket_content_id_DELETE | endpointAccessGrantedPipe),
+        isAccessUpdate: !self.item.isDeleted && (EndpointName.item__file_storage_basket_content_id_PUT | endpointAccessGrantedPipe)
+    }"
+    (closePopup)="self.removePopupTab(popupTab.activeTabIndex)"
+    (update)="self.onUpdateImageBasketContent($event)"
+    (delete)="self.onDeleteImageBasketContentPopUp($event)"
+    (refresh)="self.onRefreshImageBasketContent()"
+></cr-image-basket-details>
+          </ng-template>
+        </ng-template>
+      
+              </ng-container>
+            </ng-container>
+          </div>
+        </div>', '2022-11-25 10:18:06.0966667 +00:00', 3, N'N', 'f61a201d-7f26-4225-80a5-abfc1607bf5b', 1, NULL)
+INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID], [BookmarkName], [BookmarkDescription], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('ee819b05-4351-ed11-8e5d-4ccc6a2bb6d6', 'd4ae82e8-4251-ed11-8e5d-4ccc6a2bb6d6', 1, NULL, NULL, N'
+        <div class=''cr-popup-content-wrapper'' [class.cr-popup-is-shown]=''self.popupTab.tabs.length > 1''>
+          <cr-popup-tabs
+            [popupTabs]=''self.popupTab.tabs''
+            [activePopup]=''self.popupTab.activeTabIndex''
+            (closePopup)=''self.removePopupTab($event)''
+            (changeActive)=''self.changeActiveTab($event)''
+          ></cr-popup-tabs>
+          <div class=''cr-details-inner-container''>
+            <ng-container *ngFor=''let tab of self.popupTab.tabs; index as i;''>
+              <ng-container [ngSwitch]=''tab.type''>
+                
+    <ng-template [ngSwitchCase]="''general''">
+      <ng-template [ngIf]="self.popupTab.tabs[self.popupTab.activeTabIndex].type == ''general'' && self.popupTab.activeTabIndex == i">
+        <div *ngIf=''self.popupTab.activeTabIndex != self.popupTab.tabs.length - 1'' class=''cr-popup-blocker''></div>
+        <cr-title-header
+    [titleTranslateKey]="''PARTNER.GRID.TITLE''"
+    [title]="''''"
+    (buttonClickEvent)="self.onTitleButtonClick($event)"
+    [buttonSettings]="self.titleHeaderButtonSettings"
+></cr-title-header>
+      <cr-panel
+        [panelTemplateType]="''collapsible-panel''"
+        [expanded]="self.panelsViewState?.[''general''] ?? true"
+        (expandedChange)="self.panelStateChange(''general'', $event)"
+        [titleTranslateKey]="true ? ''COMMON.PANEL.FILTERS'' : null"
+        [title]="true ? null : ''חתך הגדרות''"
+        [customClass]="''''"
+        [headerClass]="''''"
+        [validator]="self.validator"
+        [validatorGroupName]="''general''"
+        [containFields]=''[]''
+      >
+        <ng-template crPanelContent>
+          <div class="row undefined"><div class=''col-md-2''><cr-control-edit 
+    [translateKeys]="''PARTNER.FILTER.PARTNER_CODE''" 
+    [dataLabel]="''''"
+    [customClass]=''""''
+    [isDisabled]="false"
+    [(dataValue)]="self.partnerListFilter.partnerCode"
+></cr-control-edit></div><div class=''col-md-2''><cr-control-edit 
+    [translateKeys]="''PARTNER.FILTER.FIRST_NAME''" 
+    [dataLabel]="''''"
+    [customClass]=''""''
+    [isDisabled]="false"
+    [(dataValue)]="self.partnerListFilter.firstName"
+></cr-control-edit></div><div class=''col-md-2''><cr-control-edit 
+    [translateKeys]="''PARTNER.FILTER.LAST_NAME''" 
+    [dataLabel]="''''"
+    [customClass]=''""''
+    [isDisabled]="false"
+    [(dataValue)]="self.partnerListFilter.lastName"
+></cr-control-edit></div><div class=''col-md-2''><cr-dropdown-smart-control
+    [(value)]="self.partnerListFilter.partnerTypeId"
+    [contextMenuOperations]="[''copyToClipboard'']"
+    [dataCacheName]="''PartnerTypeDropdownSearchCache''"
+    [dataTranslateKeyField]="''translateKey''"
+    [elementName]="''smart-dropdown:Partner_list.Partner_type''"
+    [getListItemsFunction]="self.partnerTypeListFn"
+    [labelTranslateKey]="''''"
+    [label]="''סוג פרטנר''"
+    [class]=''""''
+    [permissionSettings]="{
+        isAccessEdit: self.authService.getEndpointAccessGranted(self.EndpointName.partner_type_GET)
+    }"
+    [textField]="''displayName''"
+    [unselectedItemValue]="{id: null, translateKey: ''COMMON.MOCK_OBJ.NOT_SELECTED''}"
+    [valueField]="''id''"
+    [isDropdownListOpenWhenKeyboardIsPrinted]="true"
+    [isDropdownListOverrideEnterKeyBehaviour]="true"
+    (onEnterKey)="self.changeFilter()"
+></cr-dropdown-smart-control></div><div class=''col-md-2''><cr-dropdown-smart-control
+    (navigateToEvent)="self.navigateTo($event)"
+    [(value)]="self.partnerListFilter.groupId"
+    [contextMenuOperations]="[''copyToClipboard'', ''navigateTo'']"
+    [dataCacheName]="''PartnerGroupDropdownSearchCache''"
+    [dataTranslateKeyField]="''translateKey''"
+    [elementName]="''smart-dropdown:Partner_list.Partner_group''"
+    [getListItemsFunction]="self.partnerGroupListFn"
+    [isCleanListWhenAdditionalParameterChanged]="true"
+    [labelTranslateKey]="''PARTNER.FILTER.PARTNER_GROUP''"
+    [label]="''''"
+    [class]=''""''
+    [listItemsFunctionAdditionalParameter]="self.partnerListFilter.partnerTypeId"
+    [permissionSettings]="{
+        isAccessEdit: self.authService.getEndpointAccessGranted(self.EndpointName.partner__partner_group_GET)
+    }"
+    [requestDataWhenOpen]="true"
+    [textField]="''name''"
+    [unselectedItemValue]="{id: null, translateKey: ''COMMON.MOCK_OBJ.NOT_SELECTED''}"
+    [useCodeInList]="true"
+    [useCodeInValue]="true"
+    [valueField]="''id''"
+    [isDropdownListOpenWhenKeyboardIsPrinted]="true"
+    [isDropdownListOverrideEnterKeyBehaviour]="true"
+    (onEnterKey)="self.changeFilter()"
+></cr-dropdown-smart-control>
+</div><div class=''col-md-2''><cr-control-edit 
+    [translateKeys]="''PARTNER.FILTER.PASSPORT''" 
+    [dataLabel]="''''"
+    [customClass]=''""''
+    [isDisabled]="false"
+    [(dataValue)]="self.partnerListFilter.passport"
+></cr-control-edit></div></div><div class="row undefined"><div class=''col-md-2''><cr-control-edit 
+    [translateKeys]="''PARTNER.FILTER.PHONE_NUMBER_1''" 
+    [dataLabel]="''''"
+    [customClass]=''""''
+    [isDisabled]="false"
+    [(dataValue)]="self.partnerListFilter.phone1"
+></cr-control-edit></div><div class=''col-md-2''><cr-control-edit 
+    [translateKeys]="''PARTNER.FILTER.PHONE_NUMBER_2''" 
+    [dataLabel]="''''"
+    [customClass]=''""''
+    [isDisabled]="false"
+    [(dataValue)]="self.partnerListFilter.phone2"
+></cr-control-edit></div><div class=''col-md-2''><cr-control-edit 
+    [translateKeys]="''PARTNER.FILTER.EMAIL''" 
+    [dataLabel]="''''"
+    [customClass]=''""''
+    [isDisabled]="false"
+    [(dataValue)]="self.partnerListFilter.EMail"
+></cr-control-edit></div><div class=''col-md-4''><cr-checkbox-control
+    [dataLabel]="''''"
+    [translateKeys]="''COMMON.SHOW_DELETED''"
+    [isDisabled]="false"
+    [class]=''""''
+    [(dataValue)]="self.partnerListFilter.showDeleted"
+></cr-checkbox-control></div><div class=''col-md-2''><cr-button-control 
+    [buttonTemplateType]="''underlined-action-button''"
+    [text]="''''"
+    [textTranslateKey]="''COMMON.SEARCH''"
+    [classArray]=''["d-block","ml-auto"]''
+    [width]="''''"
+    [height]="''''"
+    [icon]="''undefined''"
+    (buttonClickEvent)="self.changeFilter()"
+    *ngIf="self.authService.getEndpointAccessGranted(self.EndpointName.partner_GET)"
+></cr-button-control></div></div>
+        </ng-template>
+      </cr-panel>
+      <cr-panel
+        [panelTemplateType]="''panel''"
+        [expanded]="self.panelsViewState?.[''undefined''] ?? true"
+        (expandedChange)="self.panelStateChange(''undefined'', $event)"
+        [titleTranslateKey]="true ? ''PARTNER.GRID.TITLE'' : null"
+        [title]="true ? null : ''רשימת כרטיסים''"
+        [customClass]="''''"
+        [headerClass]="''''"
+        [validator]="self.validator"
+        [validatorGroupName]="''undefined''"
+        [containFields]=''[]''
+      >
+        <ng-template crPanelContent>
+          <div class="cr-grid-wrapper-new">
+    <cr-edit-grid-server-paging
+        (cellClickEvent)="self.cellClick($event)"
+        (pageChangeEvent)="self.changePage($event)"
+        [columnSettings]="self.columnSettings"
+        [dataCacheName]="''partnerGrid''"
+        [dataSource]="self.dataSource"
+        [elementName]="''edit-grid-server-paging:Partner_list.Grid''"
+        [pageable]="true"
+        [resizable]="true"
+        [uniqueField]="''id''"
+        [class]="undefined"
+      ></cr-edit-grid-server-paging>
+</div>
+        </ng-template>
+      </cr-panel>
+      </ng-template>
+    </ng-template>
+    
+              </ng-container>
+            </ng-container>
+          </div>
+        </div>', '2022-11-25 10:18:04.4000000 +00:00', 187, N'N', 'bf9ff7d8-7da2-45f8-a3bd-312b01b9b6fa', 1, NULL)
+INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID], [BookmarkName], [BookmarkDescription], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('ef819b05-4351-ed11-8e5d-4ccc6a2bb6d6', 'd4ae82e8-4251-ed11-8e5d-4ccc6a2bb6d6', 2, NULL, NULL, N'
+        <div class=''cr-popup-content-wrapper'' [class.cr-popup-is-shown]=''self.popupTab.tabs.length > 1''>
+          <cr-popup-tabs
+            [popupTabs]=''self.popupTab.tabs''
+            [activePopup]=''self.popupTab.activeTabIndex''
+            (closePopup)=''self.removePopupTab($event)''
+            (changeActive)=''self.changeActiveTab($event)''
+          ></cr-popup-tabs>
+          <div class=''cr-details-inner-container''>
+            <ng-container *ngFor=''let tab of self.popupTab.tabs; index as i;''>
+              <ng-container [ngSwitch]=''tab.type''>
+                
+    <ng-template [ngSwitchCase]="''general''">
+      <ng-template [ngIf]="self.popupTab.tabs[self.popupTab.activeTabIndex].type == ''general'' && self.popupTab.activeTabIndex == i">
+        <div *ngIf=''self.popupTab.activeTabIndex != self.popupTab.tabs.length - 1'' class=''cr-popup-blocker''></div>
+        <cr-title-header
+    [titleTranslateKey]="''PARTNER.GRID.TITLE''"
+    [title]="''''"
+    (buttonClickEvent)="self.onTitleButtonClick($event)"
+    [buttonSettings]="self.titleHeaderButtonSettings"
+></cr-title-header>
+      <cr-panel
+        [panelTemplateType]="''collapsible-panel''"
+        [expanded]="self.panelsViewState?.[''general''] ?? true"
+        (expandedChange)="self.panelStateChange(''general'', $event)"
+        [titleTranslateKey]="true ? ''COMMON.PANEL.FILTERS'' : null"
+        [title]="true ? null : ''Selection criteria''"
+        [customClass]="''''"
+        [headerClass]="''''"
+        [validator]="self.validator"
+        [validatorGroupName]="''general''"
+        [containFields]=''[]''
+      >
+        <ng-template crPanelContent>
+          <div class="row undefined"><div class=''col-md-2''><cr-control-edit 
+    [translateKeys]="''PARTNER.FILTER.PARTNER_CODE''" 
+    [dataLabel]="''''"
+    [customClass]=''""''
+    [isDisabled]="false"
+    [(dataValue)]="self.partnerListFilter.partnerCode"
+></cr-control-edit></div><div class=''col-md-2''><cr-control-edit 
+    [translateKeys]="''PARTNER.FILTER.FIRST_NAME''" 
+    [dataLabel]="''''"
+    [customClass]=''""''
+    [isDisabled]="false"
+    [(dataValue)]="self.partnerListFilter.firstName"
+></cr-control-edit></div><div class=''col-md-2''><cr-control-edit 
+    [translateKeys]="''PARTNER.FILTER.LAST_NAME''" 
+    [dataLabel]="''''"
+    [customClass]=''""''
+    [isDisabled]="false"
+    [(dataValue)]="self.partnerListFilter.lastName"
+></cr-control-edit></div><div class=''col-md-2''><cr-dropdown-smart-control
+    [(value)]="self.partnerListFilter.partnerTypeId"
+    [contextMenuOperations]="[''copyToClipboard'']"
+    [dataCacheName]="''PartnerTypeDropdownSearchCache''"
+    [dataTranslateKeyField]="''translateKey''"
+    [elementName]="''smart-dropdown:Partner_list.Partner_type''"
+    [getListItemsFunction]="self.partnerTypeListFn"
+    [labelTranslateKey]="''''"
+    [label]="''Partner type''"
+    [class]=''""''
+    [permissionSettings]="{
+        isAccessEdit: self.authService.getEndpointAccessGranted(self.EndpointName.partner_type_GET)
+    }"
+    [textField]="''displayName''"
+    [unselectedItemValue]="{id: null, translateKey: ''COMMON.MOCK_OBJ.NOT_SELECTED''}"
+    [valueField]="''id''"
+    [isDropdownListOpenWhenKeyboardIsPrinted]="true"
+    [isDropdownListOverrideEnterKeyBehaviour]="true"
+    (onEnterKey)="self.changeFilter()"
+></cr-dropdown-smart-control></div><div class=''col-md-2''><cr-dropdown-smart-control
+    (navigateToEvent)="self.navigateTo($event)"
+    [(value)]="self.partnerListFilter.groupId"
+    [contextMenuOperations]="[''copyToClipboard'', ''navigateTo'']"
+    [dataCacheName]="''PartnerGroupDropdownSearchCache''"
+    [dataTranslateKeyField]="''translateKey''"
+    [elementName]="''smart-dropdown:Partner_list.Partner_group''"
+    [getListItemsFunction]="self.partnerGroupListFn"
+    [isCleanListWhenAdditionalParameterChanged]="true"
+    [labelTranslateKey]="''PARTNER.FILTER.PARTNER_GROUP''"
+    [label]="''''"
+    [class]=''""''
+    [listItemsFunctionAdditionalParameter]="self.partnerListFilter.partnerTypeId"
+    [permissionSettings]="{
+        isAccessEdit: self.authService.getEndpointAccessGranted(self.EndpointName.partner__partner_group_GET)
+    }"
+    [requestDataWhenOpen]="true"
+    [textField]="''name''"
+    [unselectedItemValue]="{id: null, translateKey: ''COMMON.MOCK_OBJ.NOT_SELECTED''}"
+    [useCodeInList]="true"
+    [useCodeInValue]="true"
+    [valueField]="''id''"
+    [isDropdownListOpenWhenKeyboardIsPrinted]="true"
+    [isDropdownListOverrideEnterKeyBehaviour]="true"
+    (onEnterKey)="self.changeFilter()"
+></cr-dropdown-smart-control>
+</div><div class=''col-md-2''><cr-control-edit 
+    [translateKeys]="''PARTNER.FILTER.PASSPORT''" 
+    [dataLabel]="''''"
+    [customClass]=''""''
+    [isDisabled]="false"
+    [(dataValue)]="self.partnerListFilter.passport"
+></cr-control-edit></div></div><div class="row undefined"><div class=''col-md-2''><cr-control-edit 
+    [translateKeys]="''PARTNER.FILTER.PHONE_NUMBER_1''" 
+    [dataLabel]="''''"
+    [customClass]=''""''
+    [isDisabled]="false"
+    [(dataValue)]="self.partnerListFilter.phone1"
+></cr-control-edit></div><div class=''col-md-2''><cr-control-edit 
+    [translateKeys]="''PARTNER.FILTER.PHONE_NUMBER_2''" 
+    [dataLabel]="''''"
+    [customClass]=''""''
+    [isDisabled]="false"
+    [(dataValue)]="self.partnerListFilter.phone2"
+></cr-control-edit></div><div class=''col-md-2''><cr-control-edit 
+    [translateKeys]="''PARTNER.FILTER.EMAIL''" 
+    [dataLabel]="''''"
+    [customClass]=''""''
+    [isDisabled]="false"
+    [(dataValue)]="self.partnerListFilter.EMail"
+></cr-control-edit></div><div class=''col-md-4''><cr-checkbox-control
+    [dataLabel]="''''"
+    [translateKeys]="''COMMON.SHOW_DELETED''"
+    [isDisabled]="false"
+    [class]=''""''
+    [(dataValue)]="self.partnerListFilter.showDeleted"
+></cr-checkbox-control></div><div class=''col-md-2''><cr-button-control 
+    [buttonTemplateType]="''underlined-action-button''"
+    [text]="''''"
+    [textTranslateKey]="''COMMON.SEARCH''"
+    [classArray]=''["d-block","ml-auto"]''
+    [width]="''''"
+    [height]="''''"
+    [icon]="''undefined''"
+    (buttonClickEvent)="self.changeFilter()"
+    *ngIf="self.authService.getEndpointAccessGranted(self.EndpointName.partner_GET)"
+></cr-button-control></div></div>
+        </ng-template>
+      </cr-panel>
+      <cr-panel
+        [panelTemplateType]="''panel''"
+        [expanded]="self.panelsViewState?.[''undefined''] ?? true"
+        (expandedChange)="self.panelStateChange(''undefined'', $event)"
+        [titleTranslateKey]="true ? ''PARTNER.GRID.TITLE'' : null"
+        [title]="true ? null : ''Partner List''"
+        [customClass]="''''"
+        [headerClass]="''''"
+        [validator]="self.validator"
+        [validatorGroupName]="''undefined''"
+        [containFields]=''[]''
+      >
+        <ng-template crPanelContent>
+          <div class="cr-grid-wrapper-new">
+    <cr-edit-grid-server-paging
+        (cellClickEvent)="self.cellClick($event)"
+        (pageChangeEvent)="self.changePage($event)"
+        [columnSettings]="self.columnSettings"
+        [dataCacheName]="''partnerGrid''"
+        [dataSource]="self.dataSource"
+        [elementName]="''edit-grid-server-paging:Partner_list.Grid''"
+        [pageable]="true"
+        [resizable]="true"
+        [uniqueField]="''id''"
+        [class]="undefined"
+      ></cr-edit-grid-server-paging>
+</div>
+        </ng-template>
+      </cr-panel>
+      </ng-template>
+    </ng-template>
+    
+              </ng-container>
+            </ng-container>
+          </div>
+        </div>', '2022-11-25 10:18:04.7300000 +00:00', 187, N'N', 'bca799a3-6cb1-435d-9429-44f51ea83e4a', 1, NULL)
+INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID], [BookmarkName], [BookmarkDescription], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('f0819b05-4351-ed11-8e5d-4ccc6a2bb6d6', 'd5ae82e8-4251-ed11-8e5d-4ccc6a2bb6d6', 1, NULL, NULL, N'
         <div class=''cr-popup-content-wrapper'' [class.cr-popup-is-shown]=''self.popupTab.tabs.length > 1''>
           <cr-popup-tabs
             [popupTabs]=''self.popupTab.tabs''
@@ -28,7 +2374,7 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
         [customClass]="''''"
       >
         <ng-template crPanelContent>
-          <div class="row"><div class=''col-md-2''><cr-control-edit
+          <div class="row "><div class=''col-md-2''><cr-control-edit
     [elementName]="''edit:Partner_details.Partner_code''"
     [permissionSettings]="{
         isAccessEdit: self.isNew ? self.authService.getEndpointAccessGranted(self.EndpointName.partner_POST) :
@@ -123,7 +2469,7 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
       </cr-panel>
       <cr-panel
         [panelTemplateType]="''collapsible-panel''"
-        [expanded]="self.panelsViewState?.[''general''] ?? false"
+        [expanded]="self.panelsViewState?.[''general''] ?? true"
         (expandedChange)="self.panelStateChange(''general'', $event)"
         [titleTranslateKey]="true ? ''PARTNER.DETAILS.GENERAL.TITLE'' : null"
         [title]="true ? null : ''כללי''"
@@ -131,10 +2477,10 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
         [headerClass]="''''"
         [validator]="self.validator"
         [validatorGroupName]="''general''"
-        [containFields]=''["bDay","eMail","passport","govId","validFrom","validTo","frozenFrom","frozenTo"]''
+        [containFields]=''["bDay","eMail","passport","validFrom","validTo","frozenFrom","frozenTo"]''
       >
         <ng-template crPanelContent>
-          <div class="row"><div class=''col-md-2''><cr-dropdown-smart-control
+          <div class="row "><div class=''col-md-2''><cr-dropdown-smart-control
     [elementName]="''smart-dropdown:Partner_details.Gender''"
     [dataCacheName]="''PartnerGenderDropdownCache''"
     [permissionSettings]="{
@@ -218,7 +2564,7 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
     [labelTranslateKey]="''PARTNER.DETAILS.GENERAL.PARENT_PARTNER''"
     [label]="''''"
     [class]=''""''
-></cr-dropdown-smart-control></div></div><div class="row"><div class=''col-md-2''><cr-control-edit
+></cr-dropdown-smart-control></div></div><div class="row "><div class=''col-md-2''><cr-control-edit
     [elementName]="''edit:Partner_details.Phone_number_1''"
     [permissionSettings]="{
         isAccessEdit: self.isNew ? self.authService.getEndpointAccessGranted(self.EndpointName.partner_POST) :
@@ -280,7 +2626,7 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
     [dataLabel]="''''"
     [customClass]=''""''
     [isDisabled]="false"
-></cr-control-edit></div></div><div class="row"><div class=''col-md-6''><div class="row"><div class=''col-md-4''><cr-checkbox-control
+></cr-control-edit></div></div><div class="row "><div class=''col-md-6''><div class="row "><div class=''col-md-4''><cr-checkbox-control
     [elementName]="''checkbox:Partner_details.Tourist''"
     [permissionSettings]="{
         isAccessEdit: self.isNew ? self.authService.getEndpointAccessGranted(self.EndpointName.partner_POST) :
@@ -319,7 +2665,7 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
     [dataLabel]="''''"
     [customClass]=''""''
     [isDisabled]="false"
-></cr-control-edit></div></div><div class="row"><div class=''col-md-4''><cr-checkbox-control
+></cr-control-edit></div></div><div class="row "><div class=''col-md-4''><cr-checkbox-control
     [elementName]="''checkbox:Partner_details.Valid''"
     [permissionSettings]="{
         isAccessEdit: self.isNew ? self.authService.getEndpointAccessGranted(self.EndpointName.partner_POST) :
@@ -361,7 +2707,7 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
     [translateKeys]="''PARTNER.DETAILS.GENERAL.DATE_TO''"
     [class]=''""'' 
     [isDisabled]="!self.partnerDetails.isValid || false"
-></cr-control-datepicker></div></div><div class="row"><div class=''col-md-4''><cr-checkbox-control
+></cr-control-datepicker></div></div><div class="row "><div class=''col-md-4''><cr-checkbox-control
     [elementName]="''checkbox:Partner_details.Frozen''"
     [permissionSettings]="{
         isAccessEdit: self.isNew ? self.authService.getEndpointAccessGranted(self.EndpointName.partner_POST) :
@@ -402,7 +2748,7 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
     [translateKeys]="''PARTNER.DETAILS.GENERAL.DATE_TO''"
     [class]=''""'' 
     [isDisabled]="!self.partnerDetails.isFrozen || false"
-></cr-control-datepicker></div></div><div class="row"><div class=''col-md-4''><cr-checkbox-control
+></cr-control-datepicker></div></div><div class="row "><div class=''col-md-4''><cr-checkbox-control
     [elementName]="''checkbox:Partner_details.Is_data_approved''"
     [permissionSettings]="{
         isAccessEdit: self.isNew ? self.authService.getEndpointAccessGranted(self.EndpointName.partner_POST) :
@@ -414,7 +2760,14 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
     [translateKeys]="''PARTNER.DETAILS.GENERAL.IS_DATA_APPROVED''"
     [isDisabled]="false"
     [class]=''""''
-></cr-checkbox-control></div><div class=''col-md-8''></div></div></div><div class=''col-md-6''>
+></cr-checkbox-control></div><div class=''col-md-8''><cr-control-edit
+    [translateKeys]="''PARTNER.DETAILS.GENERAL.UPDATE_EMPLOYEE''"
+    [dataLabel]="''''"
+    [isDisabled]="true"
+    [customClass]=''""''
+    [dataValue]="self.partnerDetails.updateEmployee?.name"
+    [elementName]="''label:Partner_details.Update_employee''"
+></cr-control-edit></div></div></div><div class=''col-md-6''>
       <cr-panel
         [panelTemplateType]="''panel''"
         [expanded]="self.panelsViewState?.[''undefined''] ?? true"
@@ -456,7 +2809,7 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
         [containFields]=''[]''
       >
         <ng-template crPanelContent>
-          <div class="row"><div class=''col-md-2''><cr-dropdown-smart-control
+          <div class="row "><div class=''col-md-2''><cr-dropdown-smart-control
     [elementName]="''smart-dropdown:Partner_details.Price_list''"
     [permissionSettings]="{
         isAccessRead: self.authService.getEndpointAccessGranted(self.EndpointName.partner__item_price_id_dropdown_GET),
@@ -506,7 +2859,7 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
     [label]="''''"
     [class]=''""''
 ></cr-dropdown-smart-control>
-</div></div><div class="row"><div class=''col-md-2''><cr-numeric-control
+</div></div><div class="row "><div class=''col-md-2''><cr-numeric-control
     [elementName]="''numeric:Partner_details.Credit_limit''"
     [permissionSettings]="{
         isAccessEdit: self.isNew ? self.authService.getEndpointAccessGranted(self.EndpointName.partner_POST) :
@@ -540,7 +2893,7 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
     [min]="null" 
     [max]="null"
     [autoCorrectMinMax]="false"
-></cr-numeric-control></div></div><div class="row"><div class=''col-md-2''><cr-numeric-control
+></cr-numeric-control></div></div><div class="row "><div class=''col-md-2''><cr-numeric-control
     [elementName]="''numeric:Partner_details.Budget_limit''"
     [dataValue]="self.partnerDetails.budgetLimit"
     [isDisabled]="true"
@@ -608,7 +2961,7 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
         [containFields]=''[]''
       >
         <ng-template crPanelContent>
-          <div class="row"><div class=''col-md-2''><cr-numeric-control
+          <div class="row "><div class=''col-md-2''><cr-numeric-control
     [elementName]="''numeric:Partner_details.Total_amount''"
     [dataValue]="self.partnerDetails.totalAmount"
     [isDisabled]="true"
@@ -766,6 +3119,84 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
       </cr-panel>
       <cr-panel
         [panelTemplateType]="''collapsible-panel''"
+        [expanded]="self.panelsViewState?.[''cards''] ?? false"
+        (expandedChange)="self.panelStateChange(''cards'', $event)"
+        [titleTranslateKey]="true ? ''PARTNER.PANEL.CARDS'' : null"
+        [title]="true ? null : ''מספרי כרטיס נוספים''"
+        [customClass]="''''"
+        [headerClass]="''''"
+        [validator]="self.validator"
+        [validatorGroupName]="''cards''"
+        [containFields]=''[]''
+      >
+        <ng-template crPanelContent>
+          <cr-partner-cards-list
+    [editable]="true"
+    [class]=''""''
+    [partnerId]="self.partnerDetails.id"
+    [isDeletedPartner]="self.partnerDetails.isDeleted"
+></cr-partner-cards-list>
+        </ng-template>
+      </cr-panel>
+      <cr-panel
+        [panelTemplateType]="''collapsible-panel''"
+        [expanded]="self.panelsViewState?.[''points''] ?? false"
+        (expandedChange)="self.panelStateChange(''points'', $event)"
+        [titleTranslateKey]="true ? ''PARTNER.PANEL.POINT'' : null"
+        [title]="true ? null : ''נקודות נאמנות''"
+        [customClass]="''''"
+        [headerClass]="''''"
+        [validator]="self.validator"
+        [validatorGroupName]="''points''"
+        [containFields]=''[]''
+      >
+        <ng-template crPanelContent>
+          <cr-partner-point 
+    [class]=''""''
+    [partnerID]="self.partnerDetails.id"
+></cr-partner-point>
+        </ng-template>
+      </cr-panel>
+      <cr-panel
+        [panelTemplateType]="''collapsible-panel''"
+        [expanded]="self.panelsViewState?.[''pointHistory''] ?? false"
+        (expandedChange)="self.panelStateChange(''pointHistory'', $event)"
+        [titleTranslateKey]="true ? ''PARTNER.PANEL.POINT_HISTORY'' : null"
+        [title]="true ? null : ''היסטוריית נקודות''"
+        [customClass]="''''"
+        [headerClass]="''''"
+        [validator]="self.validator"
+        [validatorGroupName]="''pointHistory''"
+        [containFields]=''[]''
+      >
+        <ng-template crPanelContent>
+          <cr-partner-point-history
+    [class]=''""''
+    [partnerId]="self.partnerDetails.id"
+></cr-partner-point-history>
+        </ng-template>
+      </cr-panel>
+      <cr-panel
+        [panelTemplateType]="''collapsible-panel''"
+        [expanded]="self.panelsViewState?.[''transactionHistory''] ?? false"
+        (expandedChange)="self.panelStateChange(''transactionHistory'', $event)"
+        [titleTranslateKey]="true ? ''PARTNER.PANEL.HISTORY'' : null"
+        [title]="true ? null : ''היסטוריה''"
+        [customClass]="''''"
+        [headerClass]="''''"
+        [validator]="self.validator"
+        [validatorGroupName]="''transactionHistory''"
+        [containFields]=''[]''
+      >
+        <ng-template crPanelContent>
+          <cr-partner-transaction-history
+    [class]=''""''
+    [partnerId]="self.partnerDetails.id"
+></cr-partner-transaction-history>
+        </ng-template>
+      </cr-panel>
+      <cr-panel
+        [panelTemplateType]="''collapsible-panel''"
         [expanded]="self.panelsViewState?.[''discountBudget''] ?? false"
         (expandedChange)="self.panelStateChange(''discountBudget'', $event)"
         [titleTranslateKey]="true ? ''PARTNER.PANEL.DISCOUNT_BUDGET'' : null"
@@ -806,8 +3237,9 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
     [loadUserDefinedFieldListForDropdownFn$]="self.loadUserDefinedFieldListForDropdownFn$"
     [getUserFields$]="self.getUserFields$"
     [loadUserFields$]="self.loadUserFields$"
-    [getUserFieldsDefault$]="self.getUserFieldsDefault$">
-</cr-udf-list>
+    [getUserFieldsDefault$]="self.getUserFieldsDefault$"
+    [class]=''""''
+></cr-udf-list>
 <ng-template #noAccess>
     <div class="cr-no-read-access p-2">
         {{''COMMON.GRID.NO_READ_ACCESS'' | translate}}
@@ -828,7 +3260,7 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
         [containFields]=''[]''
       >
         <ng-template crPanelContent>
-          <div class="row"><div class=''col-md-12''><cr-text-area-control
+          <div class="row "><div class=''col-md-12''><cr-text-area-control
     [elementName]="''textarea:Partner_details.Remark''"
     [(dataValue)]="self.partnerDetails.remark"
     [dataLabel]="''''"
@@ -956,8 +3388,8 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
               </ng-container>
             </ng-container>
           </div>
-        </div>', '2022-11-04 19:29:28.2666667 +00:00', 5, N'N', '589217ac-c2a5-4b5e-b330-901088fc3a68', 1, NULL)
-INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID], [BookmarkName], [BookmarkDescription], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('9f2dcb25-645c-ed11-8e5e-4ccc6a2bb6d6', '9d2dcb25-645c-ed11-8e5e-4ccc6a2bb6d6', 2, N'', N'', N'
+        </div>', '2022-11-25 10:18:00.2633333 +00:00', 214, N'N', 'df9f7127-b446-4f03-898d-158d39ccfc49', 1, NULL)
+INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID], [BookmarkName], [BookmarkDescription], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('f1819b05-4351-ed11-8e5d-4ccc6a2bb6d6', 'd5ae82e8-4251-ed11-8e5d-4ccc6a2bb6d6', 2, NULL, NULL, N'
         <div class=''cr-popup-content-wrapper'' [class.cr-popup-is-shown]=''self.popupTab.tabs.length > 1''>
           <cr-popup-tabs
             [popupTabs]=''self.popupTab.tabs''
@@ -987,7 +3419,7 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
         [customClass]="''''"
       >
         <ng-template crPanelContent>
-          <div class="row"><div class=''col-md-2''><cr-control-edit
+          <div class="row "><div class=''col-md-2''><cr-control-edit
     [elementName]="''edit:Partner_details.Partner_code''"
     [permissionSettings]="{
         isAccessEdit: self.isNew ? self.authService.getEndpointAccessGranted(self.EndpointName.partner_POST) :
@@ -1082,7 +3514,7 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
       </cr-panel>
       <cr-panel
         [panelTemplateType]="''collapsible-panel''"
-        [expanded]="self.panelsViewState?.[''general''] ?? false"
+        [expanded]="self.panelsViewState?.[''general''] ?? true"
         (expandedChange)="self.panelStateChange(''general'', $event)"
         [titleTranslateKey]="true ? ''PARTNER.DETAILS.GENERAL.TITLE'' : null"
         [title]="true ? null : ''General''"
@@ -1090,10 +3522,10 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
         [headerClass]="''''"
         [validator]="self.validator"
         [validatorGroupName]="''general''"
-        [containFields]=''["bDay","eMail","passport","govId","validFrom","validTo","frozenFrom","frozenTo"]''
+        [containFields]=''["bDay","eMail","passport","validFrom","validTo","frozenFrom","frozenTo"]''
       >
         <ng-template crPanelContent>
-          <div class="row"><div class=''col-md-2''><cr-dropdown-smart-control
+          <div class="row "><div class=''col-md-2''><cr-dropdown-smart-control
     [elementName]="''smart-dropdown:Partner_details.Gender''"
     [dataCacheName]="''PartnerGenderDropdownCache''"
     [permissionSettings]="{
@@ -1177,7 +3609,7 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
     [labelTranslateKey]="''PARTNER.DETAILS.GENERAL.PARENT_PARTNER''"
     [label]="''''"
     [class]=''""''
-></cr-dropdown-smart-control></div></div><div class="row"><div class=''col-md-2''><cr-control-edit
+></cr-dropdown-smart-control></div></div><div class="row "><div class=''col-md-2''><cr-control-edit
     [elementName]="''edit:Partner_details.Phone_number_1''"
     [permissionSettings]="{
         isAccessEdit: self.isNew ? self.authService.getEndpointAccessGranted(self.EndpointName.partner_POST) :
@@ -1239,7 +3671,7 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
     [dataLabel]="''''"
     [customClass]=''""''
     [isDisabled]="false"
-></cr-control-edit></div></div><div class="row"><div class=''col-md-6''><div class="row"><div class=''col-md-4''><cr-checkbox-control
+></cr-control-edit></div></div><div class="row "><div class=''col-md-6''><div class="row "><div class=''col-md-4''><cr-checkbox-control
     [elementName]="''checkbox:Partner_details.Tourist''"
     [permissionSettings]="{
         isAccessEdit: self.isNew ? self.authService.getEndpointAccessGranted(self.EndpointName.partner_POST) :
@@ -1278,7 +3710,7 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
     [dataLabel]="''''"
     [customClass]=''""''
     [isDisabled]="false"
-></cr-control-edit></div></div><div class="row"><div class=''col-md-4''><cr-checkbox-control
+></cr-control-edit></div></div><div class="row "><div class=''col-md-4''><cr-checkbox-control
     [elementName]="''checkbox:Partner_details.Valid''"
     [permissionSettings]="{
         isAccessEdit: self.isNew ? self.authService.getEndpointAccessGranted(self.EndpointName.partner_POST) :
@@ -1320,7 +3752,7 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
     [translateKeys]="''PARTNER.DETAILS.GENERAL.DATE_TO''"
     [class]=''""'' 
     [isDisabled]="!self.partnerDetails.isValid || false"
-></cr-control-datepicker></div></div><div class="row"><div class=''col-md-4''><cr-checkbox-control
+></cr-control-datepicker></div></div><div class="row "><div class=''col-md-4''><cr-checkbox-control
     [elementName]="''checkbox:Partner_details.Frozen''"
     [permissionSettings]="{
         isAccessEdit: self.isNew ? self.authService.getEndpointAccessGranted(self.EndpointName.partner_POST) :
@@ -1361,7 +3793,7 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
     [translateKeys]="''PARTNER.DETAILS.GENERAL.DATE_TO''"
     [class]=''""'' 
     [isDisabled]="!self.partnerDetails.isFrozen || false"
-></cr-control-datepicker></div></div><div class="row"><div class=''col-md-4''><cr-checkbox-control
+></cr-control-datepicker></div></div><div class="row "><div class=''col-md-4''><cr-checkbox-control
     [elementName]="''checkbox:Partner_details.Is_data_approved''"
     [permissionSettings]="{
         isAccessEdit: self.isNew ? self.authService.getEndpointAccessGranted(self.EndpointName.partner_POST) :
@@ -1373,7 +3805,14 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
     [translateKeys]="''PARTNER.DETAILS.GENERAL.IS_DATA_APPROVED''"
     [isDisabled]="false"
     [class]=''""''
-></cr-checkbox-control></div><div class=''col-md-8''></div></div></div><div class=''col-md-6''>
+></cr-checkbox-control></div><div class=''col-md-8''><cr-control-edit
+    [translateKeys]="''PARTNER.DETAILS.GENERAL.UPDATE_EMPLOYEE''"
+    [dataLabel]="''''"
+    [isDisabled]="true"
+    [customClass]=''""''
+    [dataValue]="self.partnerDetails.updateEmployee?.name"
+    [elementName]="''label:Partner_details.Update_employee''"
+></cr-control-edit></div></div></div><div class=''col-md-6''>
       <cr-panel
         [panelTemplateType]="''panel''"
         [expanded]="self.panelsViewState?.[''undefined''] ?? true"
@@ -1415,7 +3854,7 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
         [containFields]=''[]''
       >
         <ng-template crPanelContent>
-          <div class="row"><div class=''col-md-2''><cr-dropdown-smart-control
+          <div class="row "><div class=''col-md-2''><cr-dropdown-smart-control
     [elementName]="''smart-dropdown:Partner_details.Price_list''"
     [permissionSettings]="{
         isAccessRead: self.authService.getEndpointAccessGranted(self.EndpointName.partner__item_price_id_dropdown_GET),
@@ -1465,7 +3904,7 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
     [label]="''''"
     [class]=''""''
 ></cr-dropdown-smart-control>
-</div></div><div class="row"><div class=''col-md-2''><cr-numeric-control
+</div></div><div class="row "><div class=''col-md-2''><cr-numeric-control
     [elementName]="''numeric:Partner_details.Credit_limit''"
     [permissionSettings]="{
         isAccessEdit: self.isNew ? self.authService.getEndpointAccessGranted(self.EndpointName.partner_POST) :
@@ -1499,7 +3938,7 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
     [min]="null" 
     [max]="null"
     [autoCorrectMinMax]="false"
-></cr-numeric-control></div></div><div class="row"><div class=''col-md-2''><cr-numeric-control
+></cr-numeric-control></div></div><div class="row "><div class=''col-md-2''><cr-numeric-control
     [elementName]="''numeric:Partner_details.Budget_limit''"
     [dataValue]="self.partnerDetails.budgetLimit"
     [isDisabled]="true"
@@ -1567,7 +4006,7 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
         [containFields]=''[]''
       >
         <ng-template crPanelContent>
-          <div class="row"><div class=''col-md-2''><cr-numeric-control
+          <div class="row "><div class=''col-md-2''><cr-numeric-control
     [elementName]="''numeric:Partner_details.Total_amount''"
     [dataValue]="self.partnerDetails.totalAmount"
     [isDisabled]="true"
@@ -1725,6 +4164,84 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
       </cr-panel>
       <cr-panel
         [panelTemplateType]="''collapsible-panel''"
+        [expanded]="self.panelsViewState?.[''cards''] ?? false"
+        (expandedChange)="self.panelStateChange(''cards'', $event)"
+        [titleTranslateKey]="true ? ''PARTNER.PANEL.CARDS'' : null"
+        [title]="true ? null : ''Additional card numbers''"
+        [customClass]="''''"
+        [headerClass]="''''"
+        [validator]="self.validator"
+        [validatorGroupName]="''cards''"
+        [containFields]=''[]''
+      >
+        <ng-template crPanelContent>
+          <cr-partner-cards-list
+    [editable]="true"
+    [class]=''""''
+    [partnerId]="self.partnerDetails.id"
+    [isDeletedPartner]="self.partnerDetails.isDeleted"
+></cr-partner-cards-list>
+        </ng-template>
+      </cr-panel>
+      <cr-panel
+        [panelTemplateType]="''collapsible-panel''"
+        [expanded]="self.panelsViewState?.[''points''] ?? false"
+        (expandedChange)="self.panelStateChange(''points'', $event)"
+        [titleTranslateKey]="true ? ''PARTNER.PANEL.POINT'' : null"
+        [title]="true ? null : ''Loyalty points''"
+        [customClass]="''''"
+        [headerClass]="''''"
+        [validator]="self.validator"
+        [validatorGroupName]="''points''"
+        [containFields]=''[]''
+      >
+        <ng-template crPanelContent>
+          <cr-partner-point 
+    [class]=''""''
+    [partnerID]="self.partnerDetails.id"
+></cr-partner-point>
+        </ng-template>
+      </cr-panel>
+      <cr-panel
+        [panelTemplateType]="''collapsible-panel''"
+        [expanded]="self.panelsViewState?.[''pointHistory''] ?? false"
+        (expandedChange)="self.panelStateChange(''pointHistory'', $event)"
+        [titleTranslateKey]="true ? ''PARTNER.PANEL.POINT_HISTORY'' : null"
+        [title]="true ? null : ''Point history''"
+        [customClass]="''''"
+        [headerClass]="''''"
+        [validator]="self.validator"
+        [validatorGroupName]="''pointHistory''"
+        [containFields]=''[]''
+      >
+        <ng-template crPanelContent>
+          <cr-partner-point-history
+    [class]=''""''
+    [partnerId]="self.partnerDetails.id"
+></cr-partner-point-history>
+        </ng-template>
+      </cr-panel>
+      <cr-panel
+        [panelTemplateType]="''collapsible-panel''"
+        [expanded]="self.panelsViewState?.[''transactionHistory''] ?? false"
+        (expandedChange)="self.panelStateChange(''transactionHistory'', $event)"
+        [titleTranslateKey]="true ? ''PARTNER.PANEL.HISTORY'' : null"
+        [title]="true ? null : ''History''"
+        [customClass]="''''"
+        [headerClass]="''''"
+        [validator]="self.validator"
+        [validatorGroupName]="''transactionHistory''"
+        [containFields]=''[]''
+      >
+        <ng-template crPanelContent>
+          <cr-partner-transaction-history
+    [class]=''""''
+    [partnerId]="self.partnerDetails.id"
+></cr-partner-transaction-history>
+        </ng-template>
+      </cr-panel>
+      <cr-panel
+        [panelTemplateType]="''collapsible-panel''"
         [expanded]="self.panelsViewState?.[''discountBudget''] ?? false"
         (expandedChange)="self.panelStateChange(''discountBudget'', $event)"
         [titleTranslateKey]="true ? ''PARTNER.PANEL.DISCOUNT_BUDGET'' : null"
@@ -1765,8 +4282,9 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
     [loadUserDefinedFieldListForDropdownFn$]="self.loadUserDefinedFieldListForDropdownFn$"
     [getUserFields$]="self.getUserFields$"
     [loadUserFields$]="self.loadUserFields$"
-    [getUserFieldsDefault$]="self.getUserFieldsDefault$">
-</cr-udf-list>
+    [getUserFieldsDefault$]="self.getUserFieldsDefault$"
+    [class]=''""''
+></cr-udf-list>
 <ng-template #noAccess>
     <div class="cr-no-read-access p-2">
         {{''COMMON.GRID.NO_READ_ACCESS'' | translate}}
@@ -1787,7 +4305,7 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
         [containFields]=''[]''
       >
         <ng-template crPanelContent>
-          <div class="row"><div class=''col-md-12''><cr-text-area-control
+          <div class="row "><div class=''col-md-12''><cr-text-area-control
     [elementName]="''textarea:Partner_details.Remark''"
     [(dataValue)]="self.partnerDetails.remark"
     [dataLabel]="''''"
@@ -1915,7 +4433,7 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
               </ng-container>
             </ng-container>
           </div>
-        </div>', '2022-11-04 19:29:28.2666667 +00:00', 5, N'N', '8ef9a7bc-89bd-4c60-b037-b87b6199d304', 1, NULL)
+        </div>', '2022-11-25 10:18:00.5866667 +00:00', 214, N'N', 'ab442279-1dcf-4aaa-b261-8bb3d86434ca', 1, NULL)
 INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID], [BookmarkName], [BookmarkDescription], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('f2819b05-4351-ed11-8e5d-4ccc6a2bb6d6', 'd6ae82e8-4251-ed11-8e5d-4ccc6a2bb6d6', 1, NULL, NULL, N'
         <div class=''cr-popup-content-wrapper'' [class.cr-popup-is-shown]=''self.popupTab.tabs.length > 1''>
           <cr-popup-tabs
@@ -3380,6 +5898,7 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
     [unselectedItemValue]="{id: null, translateKey: ''COMMON.MOCK_OBJ.NOT_SELECTED''}"
     [dataTranslateKeyField]="''translateKey''"
 
+
     [labelTranslateKey]="''PARTNER.DETAILS.PAYMENT_TERMS.PRICE_NUMBER''"
     [label]="''''"
     [class]=''""''
@@ -4435,6 +6954,7 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
         [headerClass]="''''"
         [validator]="self.validator"
         [validatorGroupName]="''statistic''"
+
 
         [containFields]=''[]''
       >
@@ -8025,6 +10545,498 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
             </ng-container>
           </div>
         </div>', '2022-11-04 18:24:22.0966667 +00:00', 13, N'N', '64e9fa0d-5282-42a0-82b1-38a3d44a4e70', 1, NULL)
+INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID], [BookmarkName], [BookmarkDescription], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('fc819b05-4351-ed11-8e5d-4ccc6a2bb6d6', 'dbae82e8-4251-ed11-8e5d-4ccc6a2bb6d6', 1, NULL, NULL, N'
+        <div class=''cr-popup-content-wrapper'' [class.cr-popup-is-shown]=''self.popupTab.tabs.length > 1''>
+          <cr-popup-tabs
+            [popupTabs]=''self.popupTab.tabs''
+            [activePopup]=''self.popupTab.activeTabIndex''
+            (closePopup)=''self.removePopupTab($event)''
+            (changeActive)=''self.changeActiveTab($event)''
+          ></cr-popup-tabs>
+          <div class=''cr-details-inner-container''>
+            <ng-container *ngFor=''let tab of self.popupTab.tabs; index as i;''>
+              <ng-container [ngSwitch]=''tab.type''>
+                
+    <ng-template [ngSwitchCase]="''general''">
+      <ng-template [ngIf]="self.popupTab.tabs[self.popupTab.activeTabIndex].type == ''general'' && self.popupTab.activeTabIndex == i">
+        <div *ngIf=''self.popupTab.activeTabIndex != self.popupTab.tabs.length - 1'' class=''cr-popup-blocker''></div>
+        <cr-title-header
+    [titleTranslateKey]="''TAX_GROUP.LIST.TITLE''"
+    [title]="''''"
+    (buttonClickEvent)="self.onTitleButtonClick($event)"
+    [buttonSettings]="self.titleHeaderButtonSettings"
+></cr-title-header>
+      <cr-panel
+        [panelTemplateType]="''panel''"
+        [expanded]="self.panelsViewState?.[''undefined''] ?? true"
+        (expandedChange)="self.panelStateChange(''undefined'', $event)"
+        [titleTranslateKey]="true ? ''TAX_GROUP.LIST.FILTER.TITLE'' : null"
+        [title]="true ? null : ''Selection criteria he''"
+        [customClass]="''''"
+        [headerClass]="''''"
+        [validator]="self.validator"
+        [validatorGroupName]="''undefined''"
+        [containFields]=''[]''
+      >
+        <ng-template crPanelContent>
+          <div class="row undefined"><div class=''col-md-2''><cr-control-edit 
+    [translateKeys]="''TAX_GROUP.LIST.FILTER.CODE''" 
+    [dataLabel]="''''"
+    [customClass]=''""''
+    [isDisabled]="false"
+    [elementName]="''edit:Tax_group_list.Code''"
+    [(dataValue)]="self.taxGroupFilterRequest.code"
+></cr-control-edit></div><div class=''col-md-2''><cr-control-edit 
+    [translateKeys]="''TAX_GROUP.LIST.FILTER.NAME''" 
+    [dataLabel]="''''"
+    [customClass]=''""''
+    [isDisabled]="false"
+    [elementName]="''edit:Tax_group_list.Name''"
+    [(dataValue)]="self.taxGroupFilterRequest.name"
+></cr-control-edit></div><div class=''col-md-8''><cr-button-control 
+    [buttonTemplateType]="''underlined-action-button''"
+    [text]="''''"
+    [textTranslateKey]="''COMMON.SEARCH''"
+    [classArray]=''""''
+    [width]="''''"
+    [height]="''''"
+    [icon]="''undefined''"
+    (buttonClickEvent)="self.changeFilter()"
+    *ngIf="(self.EndpointName.tax_group_GET | endpointAccessGrantedPipe)"
+></cr-button-control></div></div>
+        </ng-template>
+      </cr-panel>
+      <cr-panel
+        [panelTemplateType]="''panel''"
+        [expanded]="self.panelsViewState?.[''undefined''] ?? true"
+        (expandedChange)="self.panelStateChange(''undefined'', $event)"
+        [titleTranslateKey]="true ? ''TAX_GROUP.LIST.GRID.TITLE'' : null"
+        [title]="true ? null : ''VAT Groups he''"
+        [customClass]="''''"
+        [headerClass]="''''"
+        [validator]="self.validator"
+        [validatorGroupName]="''undefined''"
+        [containFields]=''[]''
+      >
+        <ng-template crPanelContent>
+          <div class="cr-grid-wrapper-new">
+    <cr-edit-grid-server-paging
+        (cellClickEvent)="self.cellClick($event)"
+        (pageChangeEvent)="self.changePage($event)"
+        [columnSettings]="self.columnSettings"
+        [dataCacheName]="''TaxGroupGrid''"
+        [dataSource]="self.gridData"
+        [elementName]="''edit-grid-server-paging:TaxGroup_list.Grid''"
+        [pageable]="true"
+        [resizable]="true"
+        [uniqueField]="''id''"
+        [class]="undefined"
+      ></cr-edit-grid-server-paging>
+</div>
+        </ng-template>
+      </cr-panel>
+      </ng-template>
+    </ng-template>
+    
+              </ng-container>
+            </ng-container>
+          </div>
+        </div>', '2022-11-25 10:18:00.2600000 +00:00', 24, N'N', '44c1b6e1-ab01-4a2c-afde-87a0086bb424', 1, NULL)
+INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID], [BookmarkName], [BookmarkDescription], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('fd819b05-4351-ed11-8e5d-4ccc6a2bb6d6', 'dbae82e8-4251-ed11-8e5d-4ccc6a2bb6d6', 2, NULL, NULL, N'
+        <div class=''cr-popup-content-wrapper'' [class.cr-popup-is-shown]=''self.popupTab.tabs.length > 1''>
+          <cr-popup-tabs
+            [popupTabs]=''self.popupTab.tabs''
+            [activePopup]=''self.popupTab.activeTabIndex''
+            (closePopup)=''self.removePopupTab($event)''
+            (changeActive)=''self.changeActiveTab($event)''
+          ></cr-popup-tabs>
+          <div class=''cr-details-inner-container''>
+            <ng-container *ngFor=''let tab of self.popupTab.tabs; index as i;''>
+              <ng-container [ngSwitch]=''tab.type''>
+                
+    <ng-template [ngSwitchCase]="''general''">
+      <ng-template [ngIf]="self.popupTab.tabs[self.popupTab.activeTabIndex].type == ''general'' && self.popupTab.activeTabIndex == i">
+        <div *ngIf=''self.popupTab.activeTabIndex != self.popupTab.tabs.length - 1'' class=''cr-popup-blocker''></div>
+        <cr-title-header
+    [titleTranslateKey]="''TAX_GROUP.LIST.TITLE''"
+    [title]="''''"
+    (buttonClickEvent)="self.onTitleButtonClick($event)"
+    [buttonSettings]="self.titleHeaderButtonSettings"
+></cr-title-header>
+      <cr-panel
+        [panelTemplateType]="''panel''"
+        [expanded]="self.panelsViewState?.[''undefined''] ?? true"
+        (expandedChange)="self.panelStateChange(''undefined'', $event)"
+        [titleTranslateKey]="true ? ''TAX_GROUP.LIST.FILTER.TITLE'' : null"
+        [title]="true ? null : ''Selection criteria''"
+        [customClass]="''''"
+        [headerClass]="''''"
+        [validator]="self.validator"
+        [validatorGroupName]="''undefined''"
+        [containFields]=''[]''
+      >
+        <ng-template crPanelContent>
+          <div class="row undefined"><div class=''col-md-2''><cr-control-edit 
+    [translateKeys]="''TAX_GROUP.LIST.FILTER.CODE''" 
+    [dataLabel]="''''"
+    [customClass]=''""''
+    [isDisabled]="false"
+    [elementName]="''edit:Tax_group_list.Code''"
+    [(dataValue)]="self.taxGroupFilterRequest.code"
+></cr-control-edit></div><div class=''col-md-2''><cr-control-edit 
+    [translateKeys]="''TAX_GROUP.LIST.FILTER.NAME''" 
+    [dataLabel]="''''"
+    [customClass]=''""''
+    [isDisabled]="false"
+    [elementName]="''edit:Tax_group_list.Name''"
+    [(dataValue)]="self.taxGroupFilterRequest.name"
+></cr-control-edit></div><div class=''col-md-8''><cr-button-control 
+    [buttonTemplateType]="''underlined-action-button''"
+    [text]="''''"
+    [textTranslateKey]="''COMMON.SEARCH''"
+    [classArray]=''""''
+    [width]="''''"
+    [height]="''''"
+    [icon]="''undefined''"
+    (buttonClickEvent)="self.changeFilter()"
+    *ngIf="(self.EndpointName.tax_group_GET | endpointAccessGrantedPipe)"
+></cr-button-control></div></div>
+        </ng-template>
+      </cr-panel>
+      <cr-panel
+        [panelTemplateType]="''panel''"
+        [expanded]="self.panelsViewState?.[''undefined''] ?? true"
+        (expandedChange)="self.panelStateChange(''undefined'', $event)"
+        [titleTranslateKey]="true ? ''TAX_GROUP.LIST.GRID.TITLE'' : null"
+        [title]="true ? null : ''VAT Groups''"
+        [customClass]="''''"
+        [headerClass]="''''"
+        [validator]="self.validator"
+        [validatorGroupName]="''undefined''"
+        [containFields]=''[]''
+      >
+        <ng-template crPanelContent>
+          <div class="cr-grid-wrapper-new">
+    <cr-edit-grid-server-paging
+        (cellClickEvent)="self.cellClick($event)"
+        (pageChangeEvent)="self.changePage($event)"
+        [columnSettings]="self.columnSettings"
+        [dataCacheName]="''TaxGroupGrid''"
+        [dataSource]="self.gridData"
+        [elementName]="''edit-grid-server-paging:TaxGroup_list.Grid''"
+        [pageable]="true"
+        [resizable]="true"
+        [uniqueField]="''id''"
+        [class]="undefined"
+      ></cr-edit-grid-server-paging>
+</div>
+        </ng-template>
+      </cr-panel>
+      </ng-template>
+    </ng-template>
+    
+              </ng-container>
+            </ng-container>
+          </div>
+        </div>', '2022-11-25 10:18:00.2633333 +00:00', 24, N'N', '84a260b5-0c73-4310-9c47-315d429307fa', 1, NULL)
+INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID], [BookmarkName], [BookmarkDescription], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('fe819b05-4351-ed11-8e5d-4ccc6a2bb6d6', 'dcae82e8-4251-ed11-8e5d-4ccc6a2bb6d6', 1, NULL, NULL, N'
+        <div class=''cr-popup-content-wrapper'' [class.cr-popup-is-shown]=''self.popupTab.tabs.length > 1''>
+          <cr-popup-tabs
+            [popupTabs]=''self.popupTab.tabs''
+            [activePopup]=''self.popupTab.activeTabIndex''
+            (closePopup)=''self.removePopupTab($event)''
+            (changeActive)=''self.changeActiveTab($event)''
+          ></cr-popup-tabs>
+          <div class=''cr-details-inner-container''>
+            <ng-container *ngFor=''let tab of self.popupTab.tabs; index as i;''>
+              <ng-container [ngSwitch]=''tab.type''>
+                
+    <ng-template [ngSwitchCase]="''general''">
+      <ng-template [ngIf]="self.popupTab.tabs[self.popupTab.activeTabIndex].type == ''general'' && self.popupTab.activeTabIndex == i">
+        <div *ngIf=''self.popupTab.activeTabIndex != self.popupTab.tabs.length - 1'' class=''cr-popup-blocker''></div>
+        <cr-title-header
+    [titleTranslateKey]="''TAX_GROUP.DETAILS.TITLE''"
+    [title]="''''"
+    (buttonClickEvent)="self.onTitleButtonClick($event)"
+    [buttonSettings]="self.titleHeaderButtonSettings"
+    [titleValue]="self.titleValueText"
+></cr-title-header>
+      <cr-panel
+        [panelTemplateType]="''well''"
+        [customClass]="''''"
+      >
+        <ng-template crPanelContent>
+          <div class="row undefined"><div class=''col-md-2''><cr-control-edit
+    [(dataValue)]="self.taxGroup.code"
+    [elementName]="''edit:TaxGroup_details.Code''"
+    [validator]="self.validator"
+    [validationField]="''code''"
+    (dataValueChange)="self.onChangeTitleValue()"
+    [translateKeys]="''TAX_GROUP.DETAILS.CODE''" 
+    [dataLabel]="''''"
+    [customClass]=''""''
+    [isDisabled]="self.taxGroup.isPredefined || false"
+></cr-control-edit></div><div class=''col-md-2''><cr-control-edit
+    [(dataValue)]="self.taxGroup.name"
+    [elementName]="''edit:TaxGroup_details.Name''"
+    [validator]="self.validator"
+    [validationField]="''name''"
+    [translateKeys]="''TAX_GROUP.DETAILS.NAME''" 
+    [dataLabel]="''''"
+    [customClass]=''""''
+    [isDisabled]="false"
+></cr-control-edit></div></div>
+        </ng-template>
+      </cr-panel>
+      <cr-panel
+        [panelTemplateType]="''collapsible-panel''"
+        [expanded]="self.panelsViewState?.[''taxDefinition''] ?? true"
+        (expandedChange)="self.panelStateChange(''taxDefinition'', $event)"
+        [titleTranslateKey]="true ? ''TAX_GROUP.DETAILS.PANEL.TITLE_DEFINITIONS'' : null"
+        [title]="true ? null : ''Tax definitions he''"
+        [customClass]="''''"
+        [headerClass]="''''"
+        [validator]="self.validator"
+        [validatorGroupName]="''taxDefinition''"
+        [containFields]=''[]''
+      >
+        <ng-template crPanelContent>
+          <div class="cr-grid-wrapper-new cr-grid-with-collapse cr-tax-group-grid">
+    <kendo-grid
+        #grid
+        (pageChange)="self.pageChange($event)"
+        [(selectedKeys)]="self.mySelection"
+        [attr.data-element-name]="''grid:TaxGroup_details_definition.Definitions_grid''"
+        [data]="self.gridView"
+        [kendoGridSelectBy]="self.mySelectionKey"
+        [pageSize]="self.taxGroup.taxGroupLocationList.paginator?.size"
+        [skip]="self.taxGroup.taxGroupLocationList.paginator?.skip"
+        [pageable]="true"
+        [resizable]="true"
+        (add)="self.addHandler()"
+        (edit)="self.editHandler($event)"
+        (remove)="self.removeHandler($event)"
+                    >
+                      <ng-template kendoGridToolbarTemplate>
+                        <div
+                          class="row cr-row-padding-revert">
+                          <div class="col-lg-12 cr-col-content-align-right cr-col-no-padding">
+                            <cr-button-control
+                              [buttonTemplateType]="''grid-add-command''"
+                              [elementName]="''button:PriceList.Add''"
+                              *ngIf="(self.EndpointName.tax_group_id_PUT | endpointAccessGrantedPipe)"
+                            ></cr-button-control>
+                          </div>
+                        </div>
+                      </ng-template>
+
+                      <kendo-grid-column field="name">
+                        <ng-template kendoGridHeaderTemplate>
+                            <span [attr.data-translate]="''TAX_GROUP.DETAILS.GRID.NAME''">
+                              {{''TAX_GROUP.DETAILS.GRID.NAME'' | translate}}
+                            </span>
+                        </ng-template>
+                        <ng-template kendoGridCellTemplate
+                                     let-dataItem>
+                            <span>
+                              {{dataItem.name}}
+                            </span>
+                        </ng-template>
+                        <ng-template kendoGridEditTemplate let-dataItem>
+                          <cr-control-edit
+                            [(dataValue)]="self.taxGroup.cache.changeItem.name"
+                            [elementName]="''edit:TaxGroup.Name''"
+                            [translateKeys]="''TAX_GROUP.DETAILS.GRID.NAME''"
+                          ></cr-control-edit>
+                        </ng-template>
+                      </kendo-grid-column>
+
+                      <kendo-grid-column class="action-group" width="250">
+                        <ng-template kendoGridCellTemplate
+                                     let-dataItem="dataItem"
+                                     let-isNew="isNew"
+                                     let-rowIndex="rowIndex">
+                          <cr-button-control
+                            [buttonTemplateType]="''grid-edit-command''"
+                            [elementName]="''edit:TaxGroup.Details_Edit_Command''"
+                          ></cr-button-control>
+                          <!-- Delete row (trash button)-->
+                          <cr-button-control
+                            *ngIf="(self.EndpointName.tax_group_id_PUT | endpointAccessGrantedPipe)"
+                            [buttonTemplateType]="''grid-remove-command''"
+                            [elementName]="''edit:TaxGroup.Details_Remove_Command''"
+                          ></cr-button-control>
+                        </ng-template>
+                      </kendo-grid-column>
+                      <ng-template kendoGridNoRecordsTemplate>
+                          <span [attr.data-translate]="''COMMON.GRID.NO_RECORDS''">
+                            {{ ''COMMON.GRID.NO_RECORDS'' | translate }}
+                          </span>
+                      </ng-template>
+                      <ng-template kendoPagerTemplate>
+                        <cr-grid-paginator
+                          [totalElements]="self.gridView?.total"></cr-grid-paginator>
+                      </ng-template>
+                    </kendo-grid>
+                  </div>
+        </ng-template>
+      </cr-panel>
+      </ng-template>
+    </ng-template>
+    
+              </ng-container>
+            </ng-container>
+          </div>
+        </div>', '2022-11-25 10:18:04.0666667 +00:00', 20, N'N', '38bba65d-9d09-47b6-bb12-e6ade186d476', 1, NULL)
+INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID], [BookmarkName], [BookmarkDescription], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('ff819b05-4351-ed11-8e5d-4ccc6a2bb6d6', 'dcae82e8-4251-ed11-8e5d-4ccc6a2bb6d6', 2, NULL, NULL, N'
+        <div class=''cr-popup-content-wrapper'' [class.cr-popup-is-shown]=''self.popupTab.tabs.length > 1''>
+          <cr-popup-tabs
+            [popupTabs]=''self.popupTab.tabs''
+            [activePopup]=''self.popupTab.activeTabIndex''
+            (closePopup)=''self.removePopupTab($event)''
+            (changeActive)=''self.changeActiveTab($event)''
+          ></cr-popup-tabs>
+          <div class=''cr-details-inner-container''>
+            <ng-container *ngFor=''let tab of self.popupTab.tabs; index as i;''>
+              <ng-container [ngSwitch]=''tab.type''>
+                
+    <ng-template [ngSwitchCase]="''general''">
+      <ng-template [ngIf]="self.popupTab.tabs[self.popupTab.activeTabIndex].type == ''general'' && self.popupTab.activeTabIndex == i">
+        <div *ngIf=''self.popupTab.activeTabIndex != self.popupTab.tabs.length - 1'' class=''cr-popup-blocker''></div>
+        <cr-title-header
+    [titleTranslateKey]="''TAX_GROUP.DETAILS.TITLE''"
+    [title]="''''"
+    (buttonClickEvent)="self.onTitleButtonClick($event)"
+    [buttonSettings]="self.titleHeaderButtonSettings"
+    [titleValue]="self.titleValueText"
+></cr-title-header>
+      <cr-panel
+        [panelTemplateType]="''well''"
+        [customClass]="''''"
+      >
+        <ng-template crPanelContent>
+          <div class="row undefined"><div class=''col-md-2''><cr-control-edit
+    [(dataValue)]="self.taxGroup.code"
+    [elementName]="''edit:TaxGroup_details.Code''"
+    [validator]="self.validator"
+    [validationField]="''code''"
+    (dataValueChange)="self.onChangeTitleValue()"
+    [translateKeys]="''TAX_GROUP.DETAILS.CODE''" 
+    [dataLabel]="''''"
+    [customClass]=''""''
+    [isDisabled]="self.taxGroup.isPredefined || false"
+></cr-control-edit></div><div class=''col-md-2''><cr-control-edit
+    [(dataValue)]="self.taxGroup.name"
+    [elementName]="''edit:TaxGroup_details.Name''"
+    [validator]="self.validator"
+    [validationField]="''name''"
+    [translateKeys]="''TAX_GROUP.DETAILS.NAME''" 
+    [dataLabel]="''''"
+    [customClass]=''""''
+    [isDisabled]="false"
+></cr-control-edit></div></div>
+        </ng-template>
+      </cr-panel>
+      <cr-panel
+        [panelTemplateType]="''collapsible-panel''"
+        [expanded]="self.panelsViewState?.[''taxDefinition''] ?? true"
+        (expandedChange)="self.panelStateChange(''taxDefinition'', $event)"
+        [titleTranslateKey]="true ? ''TAX_GROUP.DETAILS.PANEL.TITLE_DEFINITIONS'' : null"
+        [title]="true ? null : ''Tax definitions''"
+        [customClass]="''''"
+        [headerClass]="''''"
+        [validator]="self.validator"
+        [validatorGroupName]="''taxDefinition''"
+        [containFields]=''[]''
+      >
+        <ng-template crPanelContent>
+          <div class="cr-grid-wrapper-new cr-grid-with-collapse cr-tax-group-grid">
+    <kendo-grid
+        #grid
+        (pageChange)="self.pageChange($event)"
+        [(selectedKeys)]="self.mySelection"
+        [attr.data-element-name]="''grid:TaxGroup_details_definition.Definitions_grid''"
+        [data]="self.gridView"
+        [kendoGridSelectBy]="self.mySelectionKey"
+        [pageSize]="self.taxGroup.taxGroupLocationList.paginator?.size"
+        [skip]="self.taxGroup.taxGroupLocationList.paginator?.skip"
+        [pageable]="true"
+        [resizable]="true"
+        (add)="self.addHandler()"
+        (edit)="self.editHandler($event)"
+        (remove)="self.removeHandler($event)"
+                    >
+                      <ng-template kendoGridToolbarTemplate>
+                        <div
+                          class="row cr-row-padding-revert">
+                          <div class="col-lg-12 cr-col-content-align-right cr-col-no-padding">
+                            <cr-button-control
+                              [buttonTemplateType]="''grid-add-command''"
+                              [elementName]="''button:PriceList.Add''"
+                              *ngIf="(self.EndpointName.tax_group_id_PUT | endpointAccessGrantedPipe)"
+                            ></cr-button-control>
+                          </div>
+                        </div>
+                      </ng-template>
+
+                      <kendo-grid-column field="name">
+                        <ng-template kendoGridHeaderTemplate>
+                            <span [attr.data-translate]="''TAX_GROUP.DETAILS.GRID.NAME''">
+                              {{''TAX_GROUP.DETAILS.GRID.NAME'' | translate}}
+                            </span>
+                        </ng-template>
+                        <ng-template kendoGridCellTemplate
+                                     let-dataItem>
+                            <span>
+                              {{dataItem.name}}
+                            </span>
+                        </ng-template>
+                        <ng-template kendoGridEditTemplate let-dataItem>
+                          <cr-control-edit
+                            [(dataValue)]="self.taxGroup.cache.changeItem.name"
+                            [elementName]="''edit:TaxGroup.Name''"
+                            [translateKeys]="''TAX_GROUP.DETAILS.GRID.NAME''"
+                          ></cr-control-edit>
+                        </ng-template>
+                      </kendo-grid-column>
+
+                      <kendo-grid-column class="action-group" width="250">
+                        <ng-template kendoGridCellTemplate
+                                     let-dataItem="dataItem"
+                                     let-isNew="isNew"
+                                     let-rowIndex="rowIndex">
+                          <cr-button-control
+                            [buttonTemplateType]="''grid-edit-command''"
+                            [elementName]="''edit:TaxGroup.Details_Edit_Command''"
+                          ></cr-button-control>
+                          <!-- Delete row (trash button)-->
+                          <cr-button-control
+                            *ngIf="(self.EndpointName.tax_group_id_PUT | endpointAccessGrantedPipe)"
+                            [buttonTemplateType]="''grid-remove-command''"
+                            [elementName]="''edit:TaxGroup.Details_Remove_Command''"
+                          ></cr-button-control>
+                        </ng-template>
+                      </kendo-grid-column>
+                      <ng-template kendoGridNoRecordsTemplate>
+                          <span [attr.data-translate]="''COMMON.GRID.NO_RECORDS''">
+                            {{ ''COMMON.GRID.NO_RECORDS'' | translate }}
+                          </span>
+                      </ng-template>
+                      <ng-template kendoPagerTemplate>
+                        <cr-grid-paginator
+                          [totalElements]="self.gridView?.total"></cr-grid-paginator>
+                      </ng-template>
+                    </kendo-grid>
+                  </div>
+        </ng-template>
+      </cr-panel>
+      </ng-template>
+    </ng-template>
+    
+              </ng-container>
+            </ng-container>
+          </div>
+        </div>', '2022-11-25 10:18:04.0700000 +00:00', 20, N'N', '93c7a93c-b18b-4817-b5cd-c9289f9ff8cd', 1, NULL)
 INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID], [BookmarkName], [BookmarkDescription], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('8ca5acaf-8553-ed11-8e5d-4ccc6a2bb6d6', '8ba5acaf-8553-ed11-8e5d-4ccc6a2bb6d6', 1, NULL, NULL, N'
         <div class=''cr-popup-content-wrapper'' [class.cr-popup-is-shown]=''self.popupTab.tabs.length > 1''>
           <cr-popup-tabs
@@ -8215,359 +11227,7 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
             </ng-container>
           </div>
         </div>', '2022-11-04 14:28:27.4233333 +00:00', 2, N'N', 'd27ff221-850f-44d4-9532-d70346e99f13', 1, NULL)
-INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID], [BookmarkName], [BookmarkDescription], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('ee819b05-4351-ed11-8e5d-4ccc6a2bb6d6', 'd4ae82e8-4251-ed11-8e5d-4ccc6a2bb6d6', 1, NULL, NULL, N'
-        <div class=''cr-popup-content-wrapper'' [class.cr-popup-is-shown]=''self.popupTab.tabs.length > 1''>
-          <cr-popup-tabs
-            [popupTabs]=''self.popupTab.tabs''
-            [activePopup]=''self.popupTab.activeTabIndex''
-            (closePopup)=''self.removePopupTab($event)''
-            (changeActive)=''self.changeActiveTab($event)''
-          ></cr-popup-tabs>
-          <div class=''cr-details-inner-container''>
-            <ng-container *ngFor=''let tab of self.popupTab.tabs; index as i;''>
-              <ng-container [ngSwitch]=''tab.type''>
-                
-    <ng-template [ngSwitchCase]="''general''">
-      <ng-template [ngIf]="self.popupTab.tabs[self.popupTab.activeTabIndex].type == ''general'' && self.popupTab.activeTabIndex == i">
-        <div *ngIf=''self.popupTab.activeTabIndex != self.popupTab.tabs.length - 1'' class=''cr-popup-blocker''></div>
-        <cr-title-header
-    [titleTranslateKey]="''PARTNER.GRID.TITLE''"
-    [title]="''''"
-    (buttonClickEvent)="self.onTitleButtonClick($event)"
-    [buttonSettings]="self.titleHeaderButtonSettings"
-></cr-title-header>
-      <cr-panel
-        [panelTemplateType]="''collapsible-panel''"
-        [expanded]="self.panelsViewState?.[''general''] ?? true"
-        (expandedChange)="self.panelStateChange(''general'', $event)"
-        [titleTranslateKey]="true ? ''COMMON.PANEL.FILTERS'' : null"
-        [title]="true ? null : ''חתך הגדרות''"
-        [customClass]="''''"
-        [headerClass]="''''"
-        [validator]="self.validator"
-        [validatorGroupName]="''general''"
-        [containFields]=''[]''
-      >
-        <ng-template crPanelContent>
-          <div class="row"><div class=''col-md-2''><cr-control-edit 
-    [translateKeys]="''PARTNER.FILTER.PARTNER_CODE''" 
-    [dataLabel]="''''"
-    [customClass]=''""''
-    [isDisabled]="false"
-    [(dataValue)]="self.partnerListFilter.partnerCode"
-></cr-control-edit></div><div class=''col-md-2''><cr-control-edit 
-    [translateKeys]="''PARTNER.FILTER.FIRST_NAME''" 
-    [dataLabel]="''''"
-    [customClass]=''""''
-    [isDisabled]="false"
-    [(dataValue)]="self.partnerListFilter.firstName"
-></cr-control-edit></div><div class=''col-md-2''><cr-control-edit 
-    [translateKeys]="''PARTNER.FILTER.LAST_NAME''" 
-    [dataLabel]="''''"
-    [customClass]=''""''
-    [isDisabled]="false"
-    [(dataValue)]="self.partnerListFilter.lastName"
-></cr-control-edit></div><div class=''col-md-2''><cr-dropdown-smart-control
-    [(value)]="self.partnerListFilter.partnerTypeId"
-    [contextMenuOperations]="[''copyToClipboard'']"
-    [dataCacheName]="''PartnerTypeDropdownSearchCache''"
-    [dataTranslateKeyField]="''translateKey''"
-    [elementName]="''smart-dropdown:Partner_list.Partner_type''"
-    [getListItemsFunction]="self.partnerTypeListFn"
-    [labelTranslateKey]="''''"
-    [label]="''סוג פרטנר''"
-    [class]=''""''
-    [permissionSettings]="{
-        isAccessEdit: self.authService.getEndpointAccessGranted(self.EndpointName.partner_type_GET)
-    }"
-    [textField]="''displayName''"
-    [unselectedItemValue]="{id: null, translateKey: ''COMMON.MOCK_OBJ.NOT_SELECTED''}"
-    [valueField]="''id''"
-    [isDropdownListOpenWhenKeyboardIsPrinted]="true"
-    [isDropdownListOverrideEnterKeyBehaviour]="true"
-    (onEnterKey)="self.changeFilter()"
-></cr-dropdown-smart-control></div><div class=''col-md-2''><cr-dropdown-smart-control
-    (navigateToEvent)="self.navigateTo($event)"
-    [(value)]="self.partnerListFilter.groupId"
-    [contextMenuOperations]="[''copyToClipboard'', ''navigateTo'']"
-    [dataCacheName]="''PartnerGroupDropdownSearchCache''"
-    [dataTranslateKeyField]="''translateKey''"
-    [elementName]="''smart-dropdown:Partner_list.Partner_group''"
-    [getListItemsFunction]="self.partnerGroupListFn"
-    [isCleanListWhenAdditionalParameterChanged]="true"
-    [labelTranslateKey]="''PARTNER.FILTER.PARTNER_GROUP''"
-    [label]="''''"
-    [class]=''""''
-    [listItemsFunctionAdditionalParameter]="self.partnerListFilter.partnerTypeId"
-    [permissionSettings]="{
-        isAccessEdit: self.authService.getEndpointAccessGranted(self.EndpointName.partner__partner_group_GET)
-    }"
-    [requestDataWhenOpen]="true"
-    [textField]="''name''"
-    [unselectedItemValue]="{id: null, translateKey: ''COMMON.MOCK_OBJ.NOT_SELECTED''}"
-    [useCodeInList]="true"
-    [useCodeInValue]="true"
-    [valueField]="''id''"
-    [isDropdownListOpenWhenKeyboardIsPrinted]="true"
-    [isDropdownListOverrideEnterKeyBehaviour]="true"
-    (onEnterKey)="self.changeFilter()"
-></cr-dropdown-smart-control>
-</div><div class=''col-md-2''><cr-control-edit 
-    [translateKeys]="''PARTNER.FILTER.PASSPORT''" 
-    [dataLabel]="''''"
-    [customClass]=''""''
-    [isDisabled]="false"
-    [(dataValue)]="self.partnerListFilter.passport"
-></cr-control-edit></div></div><div class="row"><div class=''col-md-2''><cr-control-edit 
-    [translateKeys]="''PARTNER.FILTER.PHONE_NUMBER_1''" 
-    [dataLabel]="''''"
-    [customClass]=''""''
-    [isDisabled]="false"
-    [(dataValue)]="self.partnerListFilter.phone1"
-></cr-control-edit></div><div class=''col-md-2''><cr-control-edit 
-    [translateKeys]="''PARTNER.FILTER.PHONE_NUMBER_2''" 
-    [dataLabel]="''''"
-    [customClass]=''""''
-    [isDisabled]="false"
-    [(dataValue)]="self.partnerListFilter.phone2"
-></cr-control-edit></div><div class=''col-md-2''><cr-control-edit 
-    [translateKeys]="''PARTNER.FILTER.EMAIL''" 
-    [dataLabel]="''''"
-    [customClass]=''""''
-    [isDisabled]="false"
-    [(dataValue)]="self.partnerListFilter.EMail"
-></cr-control-edit></div><div class=''col-md-4''><cr-checkbox-control
-    [dataLabel]="''''"
-    [translateKeys]="''COMMON.SHOW_DELETED''"
-    [isDisabled]="false"
-    [class]=''""''
-    [(dataValue)]="self.partnerListFilter.showDeleted"
-></cr-checkbox-control></div><div class=''col-md-2''><cr-button-control 
-    [buttonTemplateType]="''underlined-action-button''"
-    [text]="''''"
-    [textTranslateKey]="''COMMON.SEARCH''"
-    [classArray]=''["d-block","ml-auto"]''
-    [width]="''''"
-    [height]="''''"
-    [icon]="''undefined''"
-    (buttonClickEvent)="self.changeFilter()"
-    *ngIf="self.authService.getEndpointAccessGranted(self.EndpointName.partner_GET)"
-></cr-button-control></div></div>
-        </ng-template>
-      </cr-panel>
-      <cr-panel
-        [panelTemplateType]="''panel''"
-        [expanded]="self.panelsViewState?.[''undefined''] ?? true"
-        (expandedChange)="self.panelStateChange(''undefined'', $event)"
-        [titleTranslateKey]="true ? ''PARTNER.GRID.TITLE'' : null"
-        [title]="true ? null : ''רשימת כרטיסים''"
-        [customClass]="''''"
-        [headerClass]="''''"
-        [validator]="self.validator"
-        [validatorGroupName]="''undefined''"
-        [containFields]=''[]''
-      >
-        <ng-template crPanelContent>
-          <div class="cr-grid-wrapper-new">
-    <cr-edit-grid-server-paging
-        (cellClickEvent)="self.cellClick($event)"
-        (pageChangeEvent)="self.changePage($event)"
-        [columnSettings]="self.columnSettings"
-        [dataCacheName]="''partnerGrid''"
-        [dataSource]="self.dataSource"
-        [elementName]="''edit-grid-server-paging:Partner_list.Grid''"
-        [pageable]="true"
-        [resizable]="true"
-        [uniqueField]="''id''"
-        [class]="undefined"
-      ></cr-edit-grid-server-paging>
-</div>
-        </ng-template>
-      </cr-panel>
-      </ng-template>
-    </ng-template>
-    
-              </ng-container>
-            </ng-container>
-          </div>
-        </div>', '2022-11-04 19:30:31.8066667 +00:00', 174, N'N', '376214ee-d9cc-4799-898f-a57fb11d4c8b', 1, NULL)
-INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID], [BookmarkName], [BookmarkDescription], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('ef819b05-4351-ed11-8e5d-4ccc6a2bb6d6', 'd4ae82e8-4251-ed11-8e5d-4ccc6a2bb6d6', 2, NULL, NULL, N'
-        <div class=''cr-popup-content-wrapper'' [class.cr-popup-is-shown]=''self.popupTab.tabs.length > 1''>
-          <cr-popup-tabs
-            [popupTabs]=''self.popupTab.tabs''
-            [activePopup]=''self.popupTab.activeTabIndex''
-            (closePopup)=''self.removePopupTab($event)''
-            (changeActive)=''self.changeActiveTab($event)''
-          ></cr-popup-tabs>
-          <div class=''cr-details-inner-container''>
-            <ng-container *ngFor=''let tab of self.popupTab.tabs; index as i;''>
-              <ng-container [ngSwitch]=''tab.type''>
-                
-    <ng-template [ngSwitchCase]="''general''">
-      <ng-template [ngIf]="self.popupTab.tabs[self.popupTab.activeTabIndex].type == ''general'' && self.popupTab.activeTabIndex == i">
-        <div *ngIf=''self.popupTab.activeTabIndex != self.popupTab.tabs.length - 1'' class=''cr-popup-blocker''></div>
-        <cr-title-header
-    [titleTranslateKey]="''PARTNER.GRID.TITLE''"
-    [title]="''''"
-    (buttonClickEvent)="self.onTitleButtonClick($event)"
-    [buttonSettings]="self.titleHeaderButtonSettings"
-></cr-title-header>
-      <cr-panel
-        [panelTemplateType]="''collapsible-panel''"
-        [expanded]="self.panelsViewState?.[''general''] ?? true"
-        (expandedChange)="self.panelStateChange(''general'', $event)"
-        [titleTranslateKey]="true ? ''COMMON.PANEL.FILTERS'' : null"
-        [title]="true ? null : ''Selection criteria''"
-        [customClass]="''''"
-        [headerClass]="''''"
-        [validator]="self.validator"
-        [validatorGroupName]="''general''"
-        [containFields]=''[]''
-      >
-        <ng-template crPanelContent>
-          <div class="row"><div class=''col-md-2''><cr-control-edit 
-    [translateKeys]="''PARTNER.FILTER.PARTNER_CODE''" 
-    [dataLabel]="''''"
-    [customClass]=''""''
-    [isDisabled]="false"
-    [(dataValue)]="self.partnerListFilter.partnerCode"
-></cr-control-edit></div><div class=''col-md-2''><cr-control-edit 
-    [translateKeys]="''PARTNER.FILTER.FIRST_NAME''" 
-    [dataLabel]="''''"
-    [customClass]=''""''
-    [isDisabled]="false"
-    [(dataValue)]="self.partnerListFilter.firstName"
-></cr-control-edit></div><div class=''col-md-2''><cr-control-edit 
-    [translateKeys]="''PARTNER.FILTER.LAST_NAME''" 
-    [dataLabel]="''''"
-    [customClass]=''""''
-    [isDisabled]="false"
-    [(dataValue)]="self.partnerListFilter.lastName"
-></cr-control-edit></div><div class=''col-md-2''><cr-dropdown-smart-control
-    [(value)]="self.partnerListFilter.partnerTypeId"
-    [contextMenuOperations]="[''copyToClipboard'']"
-    [dataCacheName]="''PartnerTypeDropdownSearchCache''"
-    [dataTranslateKeyField]="''translateKey''"
-    [elementName]="''smart-dropdown:Partner_list.Partner_type''"
-    [getListItemsFunction]="self.partnerTypeListFn"
-    [labelTranslateKey]="''''"
-    [label]="''Partner type''"
-    [class]=''""''
-    [permissionSettings]="{
-        isAccessEdit: self.authService.getEndpointAccessGranted(self.EndpointName.partner_type_GET)
-    }"
-    [textField]="''displayName''"
-    [unselectedItemValue]="{id: null, translateKey: ''COMMON.MOCK_OBJ.NOT_SELECTED''}"
-    [valueField]="''id''"
-    [isDropdownListOpenWhenKeyboardIsPrinted]="true"
-    [isDropdownListOverrideEnterKeyBehaviour]="true"
-    (onEnterKey)="self.changeFilter()"
-></cr-dropdown-smart-control></div><div class=''col-md-2''><cr-dropdown-smart-control
-    (navigateToEvent)="self.navigateTo($event)"
-    [(value)]="self.partnerListFilter.groupId"
-    [contextMenuOperations]="[''copyToClipboard'', ''navigateTo'']"
-    [dataCacheName]="''PartnerGroupDropdownSearchCache''"
-    [dataTranslateKeyField]="''translateKey''"
-    [elementName]="''smart-dropdown:Partner_list.Partner_group''"
-    [getListItemsFunction]="self.partnerGroupListFn"
-    [isCleanListWhenAdditionalParameterChanged]="true"
-    [labelTranslateKey]="''PARTNER.FILTER.PARTNER_GROUP''"
-    [label]="''''"
-    [class]=''""''
-    [listItemsFunctionAdditionalParameter]="self.partnerListFilter.partnerTypeId"
-    [permissionSettings]="{
-        isAccessEdit: self.authService.getEndpointAccessGranted(self.EndpointName.partner__partner_group_GET)
-    }"
-    [requestDataWhenOpen]="true"
-    [textField]="''name''"
-    [unselectedItemValue]="{id: null, translateKey: ''COMMON.MOCK_OBJ.NOT_SELECTED''}"
-    [useCodeInList]="true"
-    [useCodeInValue]="true"
-    [valueField]="''id''"
-    [isDropdownListOpenWhenKeyboardIsPrinted]="true"
-    [isDropdownListOverrideEnterKeyBehaviour]="true"
-    (onEnterKey)="self.changeFilter()"
-></cr-dropdown-smart-control>
-</div><div class=''col-md-2''><cr-control-edit 
-    [translateKeys]="''PARTNER.FILTER.PASSPORT''" 
-    [dataLabel]="''''"
-    [customClass]=''""''
-    [isDisabled]="false"
-    [(dataValue)]="self.partnerListFilter.passport"
-></cr-control-edit></div></div><div class="row"><div class=''col-md-2''><cr-control-edit 
-    [translateKeys]="''PARTNER.FILTER.PHONE_NUMBER_1''" 
-    [dataLabel]="''''"
-    [customClass]=''""''
-    [isDisabled]="false"
-    [(dataValue)]="self.partnerListFilter.phone1"
-></cr-control-edit></div><div class=''col-md-2''><cr-control-edit 
-    [translateKeys]="''PARTNER.FILTER.PHONE_NUMBER_2''" 
-    [dataLabel]="''''"
-    [customClass]=''""''
-    [isDisabled]="false"
-    [(dataValue)]="self.partnerListFilter.phone2"
-></cr-control-edit></div><div class=''col-md-2''><cr-control-edit 
-    [translateKeys]="''PARTNER.FILTER.EMAIL''" 
-    [dataLabel]="''''"
-    [customClass]=''""''
-    [isDisabled]="false"
-    [(dataValue)]="self.partnerListFilter.EMail"
-></cr-control-edit></div><div class=''col-md-4''><cr-checkbox-control
-    [dataLabel]="''''"
-    [translateKeys]="''COMMON.SHOW_DELETED''"
-    [isDisabled]="false"
-    [class]=''""''
-    [(dataValue)]="self.partnerListFilter.showDeleted"
-></cr-checkbox-control></div><div class=''col-md-2''><cr-button-control 
-    [buttonTemplateType]="''underlined-action-button''"
-    [text]="''''"
-    [textTranslateKey]="''COMMON.SEARCH''"
-    [classArray]=''["d-block","ml-auto"]''
-    [width]="''''"
-    [height]="''''"
-    [icon]="''undefined''"
-    (buttonClickEvent)="self.changeFilter()"
-    *ngIf="self.authService.getEndpointAccessGranted(self.EndpointName.partner_GET)"
-></cr-button-control></div></div>
-        </ng-template>
-      </cr-panel>
-      <cr-panel
-        [panelTemplateType]="''panel''"
-        [expanded]="self.panelsViewState?.[''undefined''] ?? true"
-        (expandedChange)="self.panelStateChange(''undefined'', $event)"
-        [titleTranslateKey]="true ? ''PARTNER.GRID.TITLE'' : null"
-        [title]="true ? null : ''Partner List''"
-        [customClass]="''''"
-        [headerClass]="''''"
-        [validator]="self.validator"
-        [validatorGroupName]="''undefined''"
-        [containFields]=''[]''
-      >
-        <ng-template crPanelContent>
-          <div class="cr-grid-wrapper-new">
-    <cr-edit-grid-server-paging
-        (cellClickEvent)="self.cellClick($event)"
-        (pageChangeEvent)="self.changePage($event)"
-        [columnSettings]="self.columnSettings"
-        [dataCacheName]="''partnerGrid''"
-        [dataSource]="self.dataSource"
-        [elementName]="''edit-grid-server-paging:Partner_list.Grid''"
-        [pageable]="true"
-        [resizable]="true"
-        [uniqueField]="''id''"
-        [class]="undefined"
-      ></cr-edit-grid-server-paging>
-</div>
-        </ng-template>
-      </cr-panel>
-      </ng-template>
-    </ng-template>
-    
-              </ng-container>
-            </ng-container>
-          </div>
-        </div>', '2022-11-04 19:30:31.8066667 +00:00', 174, N'N', '7db17eb2-f1da-40a5-9be9-35c735c1f218', 1, NULL)
-INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID], [BookmarkName], [BookmarkDescription], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('f0819b05-4351-ed11-8e5d-4ccc6a2bb6d6', 'd5ae82e8-4251-ed11-8e5d-4ccc6a2bb6d6', 1, NULL, NULL, N'
+INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID], [BookmarkName], [BookmarkDescription], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('9e2dcb25-645c-ed11-8e5e-4ccc6a2bb6d6', '9d2dcb25-645c-ed11-8e5e-4ccc6a2bb6d6', 1, NULL, NULL, N'
         <div class=''cr-popup-content-wrapper'' [class.cr-popup-is-shown]=''self.popupTab.tabs.length > 1''>
           <cr-popup-tabs
             [popupTabs]=''self.popupTab.tabs''
@@ -8597,7 +11257,7 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
         [customClass]="''''"
       >
         <ng-template crPanelContent>
-          <div class="row"><div class=''col-md-2''><cr-control-edit
+          <div class="row "><div class=''col-md-2''><cr-control-edit
     [elementName]="''edit:Partner_details.Partner_code''"
     [permissionSettings]="{
         isAccessEdit: self.isNew ? self.authService.getEndpointAccessGranted(self.EndpointName.partner_POST) :
@@ -8700,10 +11360,10 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
         [headerClass]="''''"
         [validator]="self.validator"
         [validatorGroupName]="''general''"
-        [containFields]=''["bDay","eMail","passport","govId","validFrom","validTo","frozenFrom","frozenTo"]''
+        [containFields]=''["bDay","eMail","passport","validFrom","validTo","frozenFrom","frozenTo"]''
       >
         <ng-template crPanelContent>
-          <div class="row"><div class=''col-md-2''><cr-dropdown-smart-control
+          <div class="row "><div class=''col-md-2''><cr-dropdown-smart-control
     [elementName]="''smart-dropdown:Partner_details.Gender''"
     [dataCacheName]="''PartnerGenderDropdownCache''"
     [permissionSettings]="{
@@ -8787,7 +11447,7 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
     [labelTranslateKey]="''PARTNER.DETAILS.GENERAL.PARENT_PARTNER''"
     [label]="''''"
     [class]=''""''
-></cr-dropdown-smart-control></div></div><div class="row"><div class=''col-md-2''><cr-control-edit
+></cr-dropdown-smart-control></div></div><div class="row "><div class=''col-md-2''><cr-control-edit
     [elementName]="''edit:Partner_details.Phone_number_1''"
     [permissionSettings]="{
         isAccessEdit: self.isNew ? self.authService.getEndpointAccessGranted(self.EndpointName.partner_POST) :
@@ -8849,7 +11509,7 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
     [dataLabel]="''''"
     [customClass]=''""''
     [isDisabled]="false"
-></cr-control-edit></div></div><div class="row"><div class=''col-md-6''><div class="row"><div class=''col-md-4''><cr-checkbox-control
+></cr-control-edit></div></div><div class="row "><div class=''col-md-6''><div class="row "><div class=''col-md-4''><cr-checkbox-control
     [elementName]="''checkbox:Partner_details.Tourist''"
     [permissionSettings]="{
         isAccessEdit: self.isNew ? self.authService.getEndpointAccessGranted(self.EndpointName.partner_POST) :
@@ -8888,7 +11548,7 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
     [dataLabel]="''''"
     [customClass]=''""''
     [isDisabled]="false"
-></cr-control-edit></div></div><div class="row"><div class=''col-md-4''><cr-checkbox-control
+></cr-control-edit></div></div><div class="row "><div class=''col-md-4''><cr-checkbox-control
     [elementName]="''checkbox:Partner_details.Valid''"
     [permissionSettings]="{
         isAccessEdit: self.isNew ? self.authService.getEndpointAccessGranted(self.EndpointName.partner_POST) :
@@ -8930,7 +11590,7 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
     [translateKeys]="''PARTNER.DETAILS.GENERAL.DATE_TO''"
     [class]=''""'' 
     [isDisabled]="!self.partnerDetails.isValid || false"
-></cr-control-datepicker></div></div><div class="row"><div class=''col-md-4''><cr-checkbox-control
+></cr-control-datepicker></div></div><div class="row "><div class=''col-md-4''><cr-checkbox-control
     [elementName]="''checkbox:Partner_details.Frozen''"
     [permissionSettings]="{
         isAccessEdit: self.isNew ? self.authService.getEndpointAccessGranted(self.EndpointName.partner_POST) :
@@ -8971,7 +11631,7 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
     [translateKeys]="''PARTNER.DETAILS.GENERAL.DATE_TO''"
     [class]=''""'' 
     [isDisabled]="!self.partnerDetails.isFrozen || false"
-></cr-control-datepicker></div></div><div class="row"><div class=''col-md-4''><cr-checkbox-control
+></cr-control-datepicker></div></div><div class="row "><div class=''col-md-4''><cr-checkbox-control
     [elementName]="''checkbox:Partner_details.Is_data_approved''"
     [permissionSettings]="{
         isAccessEdit: self.isNew ? self.authService.getEndpointAccessGranted(self.EndpointName.partner_POST) :
@@ -9025,7 +11685,7 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
         [containFields]=''[]''
       >
         <ng-template crPanelContent>
-          <div class="row"><div class=''col-md-2''><cr-dropdown-smart-control
+          <div class="row "><div class=''col-md-2''><cr-dropdown-smart-control
     [elementName]="''smart-dropdown:Partner_details.Price_list''"
     [permissionSettings]="{
         isAccessRead: self.authService.getEndpointAccessGranted(self.EndpointName.partner__item_price_id_dropdown_GET),
@@ -9075,7 +11735,7 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
     [label]="''''"
     [class]=''""''
 ></cr-dropdown-smart-control>
-</div></div><div class="row"><div class=''col-md-2''><cr-numeric-control
+</div></div><div class="row "><div class=''col-md-2''><cr-numeric-control
     [elementName]="''numeric:Partner_details.Credit_limit''"
     [permissionSettings]="{
         isAccessEdit: self.isNew ? self.authService.getEndpointAccessGranted(self.EndpointName.partner_POST) :
@@ -9109,7 +11769,7 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
     [min]="null" 
     [max]="null"
     [autoCorrectMinMax]="false"
-></cr-numeric-control></div></div><div class="row"><div class=''col-md-2''><cr-numeric-control
+></cr-numeric-control></div></div><div class="row "><div class=''col-md-2''><cr-numeric-control
     [elementName]="''numeric:Partner_details.Budget_limit''"
     [dataValue]="self.partnerDetails.budgetLimit"
     [isDisabled]="true"
@@ -9177,7 +11837,7 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
         [containFields]=''[]''
       >
         <ng-template crPanelContent>
-          <div class="row"><div class=''col-md-2''><cr-numeric-control
+          <div class="row "><div class=''col-md-2''><cr-numeric-control
     [elementName]="''numeric:Partner_details.Total_amount''"
     [dataValue]="self.partnerDetails.totalAmount"
     [isDisabled]="true"
@@ -9335,84 +11995,6 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
       </cr-panel>
       <cr-panel
         [panelTemplateType]="''collapsible-panel''"
-        [expanded]="self.panelsViewState?.[''cards''] ?? false"
-        (expandedChange)="self.panelStateChange(''cards'', $event)"
-        [titleTranslateKey]="true ? ''PARTNER.PANEL.CARDS'' : null"
-        [title]="true ? null : ''מספרי כרטיס נוספים''"
-        [customClass]="''''"
-        [headerClass]="''''"
-        [validator]="self.validator"
-        [validatorGroupName]="''cards''"
-        [containFields]=''[]''
-      >
-        <ng-template crPanelContent>
-          <cr-partner-cards-list
-    [editable]="true"
-    [class]=''""''
-    [partnerId]="self.partnerDetails.id"
-    [isDeletedPartner]="self.partnerDetails.isDeleted"
-></cr-partner-cards-list>
-        </ng-template>
-      </cr-panel>
-      <cr-panel
-        [panelTemplateType]="''collapsible-panel''"
-        [expanded]="self.panelsViewState?.[''points''] ?? false"
-        (expandedChange)="self.panelStateChange(''points'', $event)"
-        [titleTranslateKey]="true ? ''PARTNER.PANEL.POINT'' : null"
-        [title]="true ? null : ''נקודות נאמנות''"
-        [customClass]="''''"
-        [headerClass]="''''"
-        [validator]="self.validator"
-        [validatorGroupName]="''points''"
-        [containFields]=''[]''
-      >
-        <ng-template crPanelContent>
-          <cr-partner-point 
-    [class]=''""''
-    [partnerID]="self.partnerDetails.id"
-></cr-partner-point>
-        </ng-template>
-      </cr-panel>
-      <cr-panel
-        [panelTemplateType]="''collapsible-panel''"
-        [expanded]="self.panelsViewState?.[''pointHistory''] ?? false"
-        (expandedChange)="self.panelStateChange(''pointHistory'', $event)"
-        [titleTranslateKey]="true ? ''PARTNER.PANEL.POINT_HISTORY'' : null"
-        [title]="true ? null : ''היסטוריית נקודות''"
-        [customClass]="''''"
-        [headerClass]="''''"
-        [validator]="self.validator"
-        [validatorGroupName]="''pointHistory''"
-        [containFields]=''[]''
-      >
-        <ng-template crPanelContent>
-          <cr-partner-point-history
-    [class]=''""''
-    [partnerId]="self.partnerDetails.id"
-></cr-partner-point-history>
-        </ng-template>
-      </cr-panel>
-      <cr-panel
-        [panelTemplateType]="''collapsible-panel''"
-        [expanded]="self.panelsViewState?.[''transactionHistory''] ?? false"
-        (expandedChange)="self.panelStateChange(''transactionHistory'', $event)"
-        [titleTranslateKey]="true ? ''PARTNER.PANEL.HISTORY'' : null"
-        [title]="true ? null : ''היסטוריה''"
-        [customClass]="''''"
-        [headerClass]="''''"
-        [validator]="self.validator"
-        [validatorGroupName]="''transactionHistory''"
-        [containFields]=''[]''
-      >
-        <ng-template crPanelContent>
-          <cr-partner-transaction-history
-    [class]=''""''
-    [partnerId]="self.partnerDetails.id"
-></cr-partner-transaction-history>
-        </ng-template>
-      </cr-panel>
-      <cr-panel
-        [panelTemplateType]="''collapsible-panel''"
         [expanded]="self.panelsViewState?.[''discountBudget''] ?? false"
         (expandedChange)="self.panelStateChange(''discountBudget'', $event)"
         [titleTranslateKey]="true ? ''PARTNER.PANEL.DISCOUNT_BUDGET'' : null"
@@ -9453,8 +12035,9 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
     [loadUserDefinedFieldListForDropdownFn$]="self.loadUserDefinedFieldListForDropdownFn$"
     [getUserFields$]="self.getUserFields$"
     [loadUserFields$]="self.loadUserFields$"
-    [getUserFieldsDefault$]="self.getUserFieldsDefault$">
-</cr-udf-list>
+    [getUserFieldsDefault$]="self.getUserFieldsDefault$"
+    [class]=''""''
+></cr-udf-list>
 <ng-template #noAccess>
     <div class="cr-no-read-access p-2">
         {{''COMMON.GRID.NO_READ_ACCESS'' | translate}}
@@ -9475,7 +12058,7 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
         [containFields]=''[]''
       >
         <ng-template crPanelContent>
-          <div class="row"><div class=''col-md-12''><cr-text-area-control
+          <div class="row "><div class=''col-md-12''><cr-text-area-control
     [elementName]="''textarea:Partner_details.Remark''"
     [(dataValue)]="self.partnerDetails.remark"
     [dataLabel]="''''"
@@ -9603,8 +12186,8 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
               </ng-container>
             </ng-container>
           </div>
-        </div>', '2022-11-04 19:30:31.9766667 +00:00', 201, N'N', 'dd57f0bd-ca6c-4d83-8a51-2d562862c602', 1, NULL)
-INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID], [BookmarkName], [BookmarkDescription], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('f1819b05-4351-ed11-8e5d-4ccc6a2bb6d6', 'd5ae82e8-4251-ed11-8e5d-4ccc6a2bb6d6', 2, NULL, NULL, N'
+        </div>', '2022-11-25 10:18:07.5700000 +00:00', 17, N'N', 'ec1e081e-a8b4-470c-b7df-2ec25bb552c4', 1, NULL)
+INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID], [BookmarkName], [BookmarkDescription], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('9f2dcb25-645c-ed11-8e5e-4ccc6a2bb6d6', '9d2dcb25-645c-ed11-8e5e-4ccc6a2bb6d6', 2, NULL, NULL, N'
         <div class=''cr-popup-content-wrapper'' [class.cr-popup-is-shown]=''self.popupTab.tabs.length > 1''>
           <cr-popup-tabs
             [popupTabs]=''self.popupTab.tabs''
@@ -9634,7 +12217,7 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
         [customClass]="''''"
       >
         <ng-template crPanelContent>
-          <div class="row"><div class=''col-md-2''><cr-control-edit
+          <div class="row "><div class=''col-md-2''><cr-control-edit
     [elementName]="''edit:Partner_details.Partner_code''"
     [permissionSettings]="{
         isAccessEdit: self.isNew ? self.authService.getEndpointAccessGranted(self.EndpointName.partner_POST) :
@@ -9737,10 +12320,10 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
         [headerClass]="''''"
         [validator]="self.validator"
         [validatorGroupName]="''general''"
-        [containFields]=''["bDay","eMail","passport","govId","validFrom","validTo","frozenFrom","frozenTo"]''
+        [containFields]=''["bDay","eMail","passport","validFrom","validTo","frozenFrom","frozenTo"]''
       >
         <ng-template crPanelContent>
-          <div class="row"><div class=''col-md-2''><cr-dropdown-smart-control
+          <div class="row "><div class=''col-md-2''><cr-dropdown-smart-control
     [elementName]="''smart-dropdown:Partner_details.Gender''"
     [dataCacheName]="''PartnerGenderDropdownCache''"
     [permissionSettings]="{
@@ -9824,7 +12407,7 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
     [labelTranslateKey]="''PARTNER.DETAILS.GENERAL.PARENT_PARTNER''"
     [label]="''''"
     [class]=''""''
-></cr-dropdown-smart-control></div></div><div class="row"><div class=''col-md-2''><cr-control-edit
+></cr-dropdown-smart-control></div></div><div class="row "><div class=''col-md-2''><cr-control-edit
     [elementName]="''edit:Partner_details.Phone_number_1''"
     [permissionSettings]="{
         isAccessEdit: self.isNew ? self.authService.getEndpointAccessGranted(self.EndpointName.partner_POST) :
@@ -9886,7 +12469,7 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
     [dataLabel]="''''"
     [customClass]=''""''
     [isDisabled]="false"
-></cr-control-edit></div></div><div class="row"><div class=''col-md-6''><div class="row"><div class=''col-md-4''><cr-checkbox-control
+></cr-control-edit></div></div><div class="row "><div class=''col-md-6''><div class="row "><div class=''col-md-4''><cr-checkbox-control
     [elementName]="''checkbox:Partner_details.Tourist''"
     [permissionSettings]="{
         isAccessEdit: self.isNew ? self.authService.getEndpointAccessGranted(self.EndpointName.partner_POST) :
@@ -9925,7 +12508,7 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
     [dataLabel]="''''"
     [customClass]=''""''
     [isDisabled]="false"
-></cr-control-edit></div></div><div class="row"><div class=''col-md-4''><cr-checkbox-control
+></cr-control-edit></div></div><div class="row "><div class=''col-md-4''><cr-checkbox-control
     [elementName]="''checkbox:Partner_details.Valid''"
     [permissionSettings]="{
         isAccessEdit: self.isNew ? self.authService.getEndpointAccessGranted(self.EndpointName.partner_POST) :
@@ -9967,7 +12550,7 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
     [translateKeys]="''PARTNER.DETAILS.GENERAL.DATE_TO''"
     [class]=''""'' 
     [isDisabled]="!self.partnerDetails.isValid || false"
-></cr-control-datepicker></div></div><div class="row"><div class=''col-md-4''><cr-checkbox-control
+></cr-control-datepicker></div></div><div class="row "><div class=''col-md-4''><cr-checkbox-control
     [elementName]="''checkbox:Partner_details.Frozen''"
     [permissionSettings]="{
         isAccessEdit: self.isNew ? self.authService.getEndpointAccessGranted(self.EndpointName.partner_POST) :
@@ -10008,7 +12591,7 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
     [translateKeys]="''PARTNER.DETAILS.GENERAL.DATE_TO''"
     [class]=''""'' 
     [isDisabled]="!self.partnerDetails.isFrozen || false"
-></cr-control-datepicker></div></div><div class="row"><div class=''col-md-4''><cr-checkbox-control
+></cr-control-datepicker></div></div><div class="row "><div class=''col-md-4''><cr-checkbox-control
     [elementName]="''checkbox:Partner_details.Is_data_approved''"
     [permissionSettings]="{
         isAccessEdit: self.isNew ? self.authService.getEndpointAccessGranted(self.EndpointName.partner_POST) :
@@ -10062,7 +12645,7 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
         [containFields]=''[]''
       >
         <ng-template crPanelContent>
-          <div class="row"><div class=''col-md-2''><cr-dropdown-smart-control
+          <div class="row "><div class=''col-md-2''><cr-dropdown-smart-control
     [elementName]="''smart-dropdown:Partner_details.Price_list''"
     [permissionSettings]="{
         isAccessRead: self.authService.getEndpointAccessGranted(self.EndpointName.partner__item_price_id_dropdown_GET),
@@ -10112,7 +12695,7 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
     [label]="''''"
     [class]=''""''
 ></cr-dropdown-smart-control>
-</div></div><div class="row"><div class=''col-md-2''><cr-numeric-control
+</div></div><div class="row "><div class=''col-md-2''><cr-numeric-control
     [elementName]="''numeric:Partner_details.Credit_limit''"
     [permissionSettings]="{
         isAccessEdit: self.isNew ? self.authService.getEndpointAccessGranted(self.EndpointName.partner_POST) :
@@ -10146,7 +12729,7 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
     [min]="null" 
     [max]="null"
     [autoCorrectMinMax]="false"
-></cr-numeric-control></div></div><div class="row"><div class=''col-md-2''><cr-numeric-control
+></cr-numeric-control></div></div><div class="row "><div class=''col-md-2''><cr-numeric-control
     [elementName]="''numeric:Partner_details.Budget_limit''"
     [dataValue]="self.partnerDetails.budgetLimit"
     [isDisabled]="true"
@@ -10214,7 +12797,7 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
         [containFields]=''[]''
       >
         <ng-template crPanelContent>
-          <div class="row"><div class=''col-md-2''><cr-numeric-control
+          <div class="row "><div class=''col-md-2''><cr-numeric-control
     [elementName]="''numeric:Partner_details.Total_amount''"
     [dataValue]="self.partnerDetails.totalAmount"
     [isDisabled]="true"
@@ -10372,84 +12955,6 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
       </cr-panel>
       <cr-panel
         [panelTemplateType]="''collapsible-panel''"
-        [expanded]="self.panelsViewState?.[''cards''] ?? false"
-        (expandedChange)="self.panelStateChange(''cards'', $event)"
-        [titleTranslateKey]="true ? ''PARTNER.PANEL.CARDS'' : null"
-        [title]="true ? null : ''Additional card numbers''"
-        [customClass]="''''"
-        [headerClass]="''''"
-        [validator]="self.validator"
-        [validatorGroupName]="''cards''"
-        [containFields]=''[]''
-      >
-        <ng-template crPanelContent>
-          <cr-partner-cards-list
-    [editable]="true"
-    [class]=''""''
-    [partnerId]="self.partnerDetails.id"
-    [isDeletedPartner]="self.partnerDetails.isDeleted"
-></cr-partner-cards-list>
-        </ng-template>
-      </cr-panel>
-      <cr-panel
-        [panelTemplateType]="''collapsible-panel''"
-        [expanded]="self.panelsViewState?.[''points''] ?? false"
-        (expandedChange)="self.panelStateChange(''points'', $event)"
-        [titleTranslateKey]="true ? ''PARTNER.PANEL.POINT'' : null"
-        [title]="true ? null : ''Loyalty points''"
-        [customClass]="''''"
-        [headerClass]="''''"
-        [validator]="self.validator"
-        [validatorGroupName]="''points''"
-        [containFields]=''[]''
-      >
-        <ng-template crPanelContent>
-          <cr-partner-point 
-    [class]=''""''
-    [partnerID]="self.partnerDetails.id"
-></cr-partner-point>
-        </ng-template>
-      </cr-panel>
-      <cr-panel
-        [panelTemplateType]="''collapsible-panel''"
-        [expanded]="self.panelsViewState?.[''pointHistory''] ?? false"
-        (expandedChange)="self.panelStateChange(''pointHistory'', $event)"
-        [titleTranslateKey]="true ? ''PARTNER.PANEL.POINT_HISTORY'' : null"
-        [title]="true ? null : ''Point history''"
-        [customClass]="''''"
-        [headerClass]="''''"
-        [validator]="self.validator"
-        [validatorGroupName]="''pointHistory''"
-        [containFields]=''[]''
-      >
-        <ng-template crPanelContent>
-          <cr-partner-point-history
-    [class]=''""''
-    [partnerId]="self.partnerDetails.id"
-></cr-partner-point-history>
-        </ng-template>
-      </cr-panel>
-      <cr-panel
-        [panelTemplateType]="''collapsible-panel''"
-        [expanded]="self.panelsViewState?.[''transactionHistory''] ?? false"
-        (expandedChange)="self.panelStateChange(''transactionHistory'', $event)"
-        [titleTranslateKey]="true ? ''PARTNER.PANEL.HISTORY'' : null"
-        [title]="true ? null : ''History''"
-        [customClass]="''''"
-        [headerClass]="''''"
-        [validator]="self.validator"
-        [validatorGroupName]="''transactionHistory''"
-        [containFields]=''[]''
-      >
-        <ng-template crPanelContent>
-          <cr-partner-transaction-history
-    [class]=''""''
-    [partnerId]="self.partnerDetails.id"
-></cr-partner-transaction-history>
-        </ng-template>
-      </cr-panel>
-      <cr-panel
-        [panelTemplateType]="''collapsible-panel''"
         [expanded]="self.panelsViewState?.[''discountBudget''] ?? false"
         (expandedChange)="self.panelStateChange(''discountBudget'', $event)"
         [titleTranslateKey]="true ? ''PARTNER.PANEL.DISCOUNT_BUDGET'' : null"
@@ -10490,8 +12995,9 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
     [loadUserDefinedFieldListForDropdownFn$]="self.loadUserDefinedFieldListForDropdownFn$"
     [getUserFields$]="self.getUserFields$"
     [loadUserFields$]="self.loadUserFields$"
-    [getUserFieldsDefault$]="self.getUserFieldsDefault$">
-</cr-udf-list>
+    [getUserFieldsDefault$]="self.getUserFieldsDefault$"
+    [class]=''""''
+></cr-udf-list>
 <ng-template #noAccess>
     <div class="cr-no-read-access p-2">
         {{''COMMON.GRID.NO_READ_ACCESS'' | translate}}
@@ -10512,7 +13018,7 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
         [containFields]=''[]''
       >
         <ng-template crPanelContent>
-          <div class="row"><div class=''col-md-12''><cr-text-area-control
+          <div class="row "><div class=''col-md-12''><cr-text-area-control
     [elementName]="''textarea:Partner_details.Remark''"
     [(dataValue)]="self.partnerDetails.remark"
     [dataLabel]="''''"
@@ -10640,8 +13146,8 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
               </ng-container>
             </ng-container>
           </div>
-        </div>', '2022-11-04 19:30:32.3700000 +00:00', 201, N'N', '68116434-e172-4089-aa60-180c6a640ccf', 1, NULL)
-INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID], [BookmarkName], [BookmarkDescription], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('fc819b05-4351-ed11-8e5d-4ccc6a2bb6d6', 'dbae82e8-4251-ed11-8e5d-4ccc6a2bb6d6', 1, N'', N'', N'
+        </div>', '2022-11-25 10:18:07.5700000 +00:00', 17, N'N', 'd8770d2b-5680-4f0c-80fe-e2ae637ccf0e', 1, NULL)
+INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID], [BookmarkName], [BookmarkDescription], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('c60ebe22-f164-ed11-8e60-4ccc6a2bb6d6', 'c50ebe22-f164-ed11-8e60-4ccc6a2bb6d6', 1, NULL, NULL, N'
         <div class=''cr-popup-content-wrapper'' [class.cr-popup-is-shown]=''self.popupTab.tabs.length > 1''>
           <cr-popup-tabs
             [popupTabs]=''self.popupTab.tabs''
@@ -10657,57 +13163,85 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
       <ng-template [ngIf]="self.popupTab.tabs[self.popupTab.activeTabIndex].type == ''general'' && self.popupTab.activeTabIndex == i">
         <div *ngIf=''self.popupTab.activeTabIndex != self.popupTab.tabs.length - 1'' class=''cr-popup-blocker''></div>
         <cr-title-header
-    [titleTranslateKey]="''TAX_GROUP.LIST.TITLE''"
+    [titleTranslateKey]="''ITEM.LIST.TITLE''"
     [title]="''''"
     (buttonClickEvent)="self.onTitleButtonClick($event)"
     [buttonSettings]="self.titleHeaderButtonSettings"
 ></cr-title-header>
       <cr-panel
-        [panelTemplateType]="''panel''"
-        [expanded]="self.panelsViewState?.[''undefined''] ?? true"
-        (expandedChange)="self.panelStateChange(''undefined'', $event)"
-        [titleTranslateKey]="true ? ''TAX_GROUP.LIST.FILTER.TITLE'' : null"
-        [title]="true ? null : ''Selection criteria he''"
+        [panelTemplateType]="''collapsible-panel''"
+        [expanded]="self.panelsViewState?.[''filter''] ?? true"
+        (expandedChange)="self.panelStateChange(''filter'', $event)"
+        [titleTranslateKey]="true ? ''ITEM.FILTER.FILTER'' : null"
+        [title]="true ? null : ''חתך הגדרות''"
         [customClass]="''''"
         [headerClass]="''''"
         [validator]="self.validator"
-        [validatorGroupName]="''undefined''"
+        [validatorGroupName]="''filter''"
         [containFields]=''[]''
       >
         <ng-template crPanelContent>
-          <div class="row"><div class=''col-md-2''><cr-control-edit 
-    [translateKeys]="''TAX_GROUP.LIST.FILTER.CODE''" 
+          <div class="row undefined"><div class=''col-md-2''><cr-control-edit 
+    [elementName]="''edit:Item_list.Code''"
+    [translateKeys]="''ITEM.FILTER.CODE''" 
     [dataLabel]="''''"
     [customClass]=''""''
     [isDisabled]="false"
-    [elementName]="''edit:Tax_group_list.Code''"
-    [(dataValue)]="self.taxGroupFilterRequest.code"
+    [(dataValue)]="self.itemFilterRequest.code"
 ></cr-control-edit></div><div class=''col-md-2''><cr-control-edit 
-    [translateKeys]="''TAX_GROUP.LIST.FILTER.NAME''" 
+    [elementName]="''edit:Item_list.Display_name''"
+    [translateKeys]="''ITEM.FILTER.SHORT_DISPLAY_NAME''" 
     [dataLabel]="''''"
     [customClass]=''""''
     [isDisabled]="false"
-    [elementName]="''edit:Tax_group_list.Name''"
-    [(dataValue)]="self.taxGroupFilterRequest.name"
-></cr-control-edit></div><div class=''col-md-8''><cr-button-control 
+    [(dataValue)]="self.itemFilterRequest.shortDisplayName"
+></cr-control-edit></div><div class=''col-md-2''><cr-control-edit 
+    [elementName]="''edit:Item_list.Barcode''"
+    [translateKeys]="''ITEM.FILTER.BARCODE''" 
+    [dataLabel]="''''"
+    [customClass]=''""''
+    [isDisabled]="false"
+    [(dataValue)]="self.itemFilterRequest.barcode"
+></cr-control-edit></div><div class=''col-md-2''><cr-control-edit 
+    [elementName]="''edit:Item_list.Model_code''"
+    [translateKeys]="''ITEM.FILTER.MODEL_CODE''" 
+    [dataLabel]="''''"
+    [customClass]=''""''
+    [isDisabled]="false"
+    [(dataValue)]="self.itemFilterRequest.itemModelCode"
+></cr-control-edit></div><div class=''col-md-2''><cr-checkbox-control
+    [elementName]="''checkbox:Item_list.Deleted''"
+    [dataLabel]="''''"
+    [translateKeys]="''ITEM.FILTER.SHOW_DELETED''"
+    [isDisabled]="false"
+    [class]=''""''
+    [(dataValue)]="self.itemFilterRequest.showDeleted"
+></cr-checkbox-control></div><div class=''col-md-2''><cr-checkbox-control
+    [elementName]="''checkbox:Item_list.Frozen''"
+    [dataLabel]="''''"
+    [translateKeys]="''ITEM.FILTER.SHOW_FROZEN''"
+    [isDisabled]="false"
+    [class]=''""''
+    [(dataValue)]="self.itemFilterRequest.showFrozen"
+></cr-checkbox-control></div></div><div class="row undefined"><div class=''col-md-12''><cr-button-control 
     [buttonTemplateType]="''underlined-action-button''"
     [text]="''''"
     [textTranslateKey]="''COMMON.SEARCH''"
-    [classArray]=''""''
+    [classArray]=''["d-block","ml-auto"]''
     [width]="''''"
     [height]="''''"
     [icon]="''undefined''"
     (buttonClickEvent)="self.changeFilter()"
-    *ngIf="(self.EndpointName.tax_group_GET | endpointAccessGrantedPipe)"
-></cr-button-control></div></div>
+    *ngIf="(self.EndpointName.item_GET | endpointAccessGrantedPipe)"
+></cr-button-control></div><div class=''col-md-1''></div></div>
         </ng-template>
       </cr-panel>
       <cr-panel
         [panelTemplateType]="''panel''"
         [expanded]="self.panelsViewState?.[''undefined''] ?? true"
         (expandedChange)="self.panelStateChange(''undefined'', $event)"
-        [titleTranslateKey]="true ? ''TAX_GROUP.LIST.GRID.TITLE'' : null"
-        [title]="true ? null : ''VAT Groups he''"
+        [titleTranslateKey]="true ? ''ITEM.LIST.TITLE'' : null"
+        [title]="true ? null : ''רשימת פריטים''"
         [customClass]="''''"
         [headerClass]="''''"
         [validator]="self.validator"
@@ -10717,12 +13251,12 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
         <ng-template crPanelContent>
           <div class="cr-grid-wrapper-new">
     <cr-edit-grid-server-paging
+        [elementName]="''edit-grid-server-paging:Item_list.Grid''"
+        [dataCacheName]="''ItemListGrid''"
         (cellClickEvent)="self.cellClick($event)"
         (pageChangeEvent)="self.changePage($event)"
         [columnSettings]="self.columnSettings"
-        [dataCacheName]="''TaxGroupGrid''"
         [dataSource]="self.gridData"
-        [elementName]="''edit-grid-server-paging:TaxGroup_list.Grid''"
         [pageable]="true"
         [resizable]="true"
         [uniqueField]="''id''"
@@ -10737,8 +13271,8 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
               </ng-container>
             </ng-container>
           </div>
-        </div>', '2022-11-04 19:30:31.8500000 +00:00', 14, N'N', '1a47d119-7475-4935-8bdc-874f942570bb', 1, NULL)
-INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID], [BookmarkName], [BookmarkDescription], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('fd819b05-4351-ed11-8e5d-4ccc6a2bb6d6', 'dbae82e8-4251-ed11-8e5d-4ccc6a2bb6d6', 2, N'', N'', N'
+        </div>', '2022-11-25 10:18:02.0533333 +00:00', 18, N'N', '60d6ebe7-b2b8-4656-8740-3805f54ace26', 1, NULL)
+INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID], [BookmarkName], [BookmarkDescription], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('c70ebe22-f164-ed11-8e60-4ccc6a2bb6d6', 'c50ebe22-f164-ed11-8e60-4ccc6a2bb6d6', 2, NULL, NULL, N'
         <div class=''cr-popup-content-wrapper'' [class.cr-popup-is-shown]=''self.popupTab.tabs.length > 1''>
           <cr-popup-tabs
             [popupTabs]=''self.popupTab.tabs''
@@ -10754,57 +13288,85 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
       <ng-template [ngIf]="self.popupTab.tabs[self.popupTab.activeTabIndex].type == ''general'' && self.popupTab.activeTabIndex == i">
         <div *ngIf=''self.popupTab.activeTabIndex != self.popupTab.tabs.length - 1'' class=''cr-popup-blocker''></div>
         <cr-title-header
-    [titleTranslateKey]="''TAX_GROUP.LIST.TITLE''"
+    [titleTranslateKey]="''ITEM.LIST.TITLE''"
     [title]="''''"
     (buttonClickEvent)="self.onTitleButtonClick($event)"
     [buttonSettings]="self.titleHeaderButtonSettings"
 ></cr-title-header>
       <cr-panel
-        [panelTemplateType]="''panel''"
-        [expanded]="self.panelsViewState?.[''undefined''] ?? true"
-        (expandedChange)="self.panelStateChange(''undefined'', $event)"
-        [titleTranslateKey]="true ? ''TAX_GROUP.LIST.FILTER.TITLE'' : null"
+        [panelTemplateType]="''collapsible-panel''"
+        [expanded]="self.panelsViewState?.[''filter''] ?? true"
+        (expandedChange)="self.panelStateChange(''filter'', $event)"
+        [titleTranslateKey]="true ? ''ITEM.FILTER.FILTER'' : null"
         [title]="true ? null : ''Selection criteria''"
         [customClass]="''''"
         [headerClass]="''''"
         [validator]="self.validator"
-        [validatorGroupName]="''undefined''"
+        [validatorGroupName]="''filter''"
         [containFields]=''[]''
       >
         <ng-template crPanelContent>
-          <div class="row"><div class=''col-md-2''><cr-control-edit 
-    [translateKeys]="''TAX_GROUP.LIST.FILTER.CODE''" 
+          <div class="row undefined"><div class=''col-md-2''><cr-control-edit 
+    [elementName]="''edit:Item_list.Code''"
+    [translateKeys]="''ITEM.FILTER.CODE''" 
     [dataLabel]="''''"
     [customClass]=''""''
     [isDisabled]="false"
-    [elementName]="''edit:Tax_group_list.Code''"
-    [(dataValue)]="self.taxGroupFilterRequest.code"
+    [(dataValue)]="self.itemFilterRequest.code"
 ></cr-control-edit></div><div class=''col-md-2''><cr-control-edit 
-    [translateKeys]="''TAX_GROUP.LIST.FILTER.NAME''" 
+    [elementName]="''edit:Item_list.Display_name''"
+    [translateKeys]="''ITEM.FILTER.SHORT_DISPLAY_NAME''" 
     [dataLabel]="''''"
     [customClass]=''""''
     [isDisabled]="false"
-    [elementName]="''edit:Tax_group_list.Name''"
-    [(dataValue)]="self.taxGroupFilterRequest.name"
-></cr-control-edit></div><div class=''col-md-8''><cr-button-control 
+    [(dataValue)]="self.itemFilterRequest.shortDisplayName"
+></cr-control-edit></div><div class=''col-md-2''><cr-control-edit 
+    [elementName]="''edit:Item_list.Barcode''"
+    [translateKeys]="''ITEM.FILTER.BARCODE''" 
+    [dataLabel]="''''"
+    [customClass]=''""''
+    [isDisabled]="false"
+    [(dataValue)]="self.itemFilterRequest.barcode"
+></cr-control-edit></div><div class=''col-md-2''><cr-control-edit 
+    [elementName]="''edit:Item_list.Model_code''"
+    [translateKeys]="''ITEM.FILTER.MODEL_CODE''" 
+    [dataLabel]="''''"
+    [customClass]=''""''
+    [isDisabled]="false"
+    [(dataValue)]="self.itemFilterRequest.itemModelCode"
+></cr-control-edit></div><div class=''col-md-2''><cr-checkbox-control
+    [elementName]="''checkbox:Item_list.Deleted''"
+    [dataLabel]="''''"
+    [translateKeys]="''ITEM.FILTER.SHOW_DELETED''"
+    [isDisabled]="false"
+    [class]=''""''
+    [(dataValue)]="self.itemFilterRequest.showDeleted"
+></cr-checkbox-control></div><div class=''col-md-2''><cr-checkbox-control
+    [elementName]="''checkbox:Item_list.Frozen''"
+    [dataLabel]="''''"
+    [translateKeys]="''ITEM.FILTER.SHOW_FROZEN''"
+    [isDisabled]="false"
+    [class]=''""''
+    [(dataValue)]="self.itemFilterRequest.showFrozen"
+></cr-checkbox-control></div></div><div class="row undefined"><div class=''col-md-12''><cr-button-control 
     [buttonTemplateType]="''underlined-action-button''"
     [text]="''''"
     [textTranslateKey]="''COMMON.SEARCH''"
-    [classArray]=''""''
+    [classArray]=''["d-block","ml-auto"]''
     [width]="''''"
     [height]="''''"
     [icon]="''undefined''"
     (buttonClickEvent)="self.changeFilter()"
-    *ngIf="(self.EndpointName.tax_group_GET | endpointAccessGrantedPipe)"
-></cr-button-control></div></div>
+    *ngIf="(self.EndpointName.item_GET | endpointAccessGrantedPipe)"
+></cr-button-control></div><div class=''col-md-1''></div></div>
         </ng-template>
       </cr-panel>
       <cr-panel
         [panelTemplateType]="''panel''"
         [expanded]="self.panelsViewState?.[''undefined''] ?? true"
         (expandedChange)="self.panelStateChange(''undefined'', $event)"
-        [titleTranslateKey]="true ? ''TAX_GROUP.LIST.GRID.TITLE'' : null"
-        [title]="true ? null : ''VAT Groups''"
+        [titleTranslateKey]="true ? ''ITEM.LIST.TITLE'' : null"
+        [title]="true ? null : ''Items''"
         [customClass]="''''"
         [headerClass]="''''"
         [validator]="self.validator"
@@ -10814,12 +13376,12 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
         <ng-template crPanelContent>
           <div class="cr-grid-wrapper-new">
     <cr-edit-grid-server-paging
+        [elementName]="''edit-grid-server-paging:Item_list.Grid''"
+        [dataCacheName]="''ItemListGrid''"
         (cellClickEvent)="self.cellClick($event)"
         (pageChangeEvent)="self.changePage($event)"
         [columnSettings]="self.columnSettings"
-        [dataCacheName]="''TaxGroupGrid''"
         [dataSource]="self.gridData"
-        [elementName]="''edit-grid-server-paging:TaxGroup_list.Grid''"
         [pageable]="true"
         [resizable]="true"
         [uniqueField]="''id''"
@@ -10834,8 +13396,8 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
               </ng-container>
             </ng-container>
           </div>
-        </div>', '2022-11-04 19:30:31.9066667 +00:00', 14, N'N', '5e7ebea3-6db4-48e5-a3d8-4c6f22f15e72', 1, NULL)
-INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID], [BookmarkName], [BookmarkDescription], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('fe819b05-4351-ed11-8e5d-4ccc6a2bb6d6', 'dcae82e8-4251-ed11-8e5d-4ccc6a2bb6d6', 1, NULL, NULL, N'
+        </div>', '2022-11-25 10:18:02.0566667 +00:00', 18, N'N', '77941456-9bd9-4122-a99c-b63cd7da2ef0', 1, NULL)
+INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID], [BookmarkName], [BookmarkDescription], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('2e660511-fc64-ed11-8e60-4ccc6a2bb6d6', '2d660511-fc64-ed11-8e60-4ccc6a2bb6d6', 1, NULL, NULL, N'
         <div class=''cr-popup-content-wrapper'' [class.cr-popup-is-shown]=''self.popupTab.tabs.length > 1''>
           <cr-popup-tabs
             [popupTabs]=''self.popupTab.tabs''
@@ -10850,141 +13412,1248 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
     <ng-template [ngSwitchCase]="''general''">
       <ng-template [ngIf]="self.popupTab.tabs[self.popupTab.activeTabIndex].type == ''general'' && self.popupTab.activeTabIndex == i">
         <div *ngIf=''self.popupTab.activeTabIndex != self.popupTab.tabs.length - 1'' class=''cr-popup-blocker''></div>
-        <cr-title-header
-    [titleTranslateKey]="''TAX_GROUP.DETAILS.TITLE''"
+        
+        <ng-template [ngIf]="self.item">
+            <cr-title-header
+    [titleTranslateKey]="''ITEM.DETAILS.TITLE''"
     [title]="''''"
     (buttonClickEvent)="self.onTitleButtonClick($event)"
+    [additionalTranslateKeys]="''COMMON.NEW''"
+    [titleValueTranslateKey]="self.isNewItem ? ''COMMON.NEW'' : null"
     [buttonSettings]="self.titleHeaderButtonSettings"
     [titleValue]="self.titleValueText"
 ></cr-title-header>
+
       <cr-panel
         [panelTemplateType]="''well''"
         [customClass]="''''"
       >
         <ng-template crPanelContent>
-          <div class="row"><div class=''col-md-2''><cr-control-edit
-    [(dataValue)]="self.taxGroup.code"
-    [elementName]="''edit:TaxGroup_details.Code''"
-    [validator]="self.validator"
-    [validationField]="''code''"
-    (dataValueChange)="self.onChangeTitleValue()"
-    [translateKeys]="''TAX_GROUP.DETAILS.CODE''" 
+          <div class="row cr-bottom-row-border"><div class=''col-md-2''><cr-control-edit 
+    [translateKeys]="''ITEM.DETAILS.HEADER.ITEM_CODE''" 
     [dataLabel]="''''"
     [customClass]=''""''
-    [isDisabled]="self.taxGroup.isPredefined || false"
-></cr-control-edit></div><div class=''col-md-2''><cr-control-edit
-    [(dataValue)]="self.taxGroup.name"
-    [elementName]="''edit:TaxGroup_details.Name''"
+    [isDisabled]="false || !self.isNewItem || self.item.isDeleted"
+    [elementName]="''edit:Item_details.Item_code''"
+    [(dataValue)]="self.item.code"
+    [permissionSettings]="{
+        isAccessEdit: self.isNewItem ? (self.EndpointName.item_POST | endpointAccessGrantedPipe) :
+            (self.EndpointName.item_id_PUT | endpointAccessGrantedPipe)
+    }"
+    [validationField]="''code''"
     [validator]="self.validator"
-    [validationField]="''name''"
-    [translateKeys]="''TAX_GROUP.DETAILS.NAME''" 
+></cr-control-edit></div><div class=''col-md-2''><cr-control-edit 
+    [translateKeys]="''ITEM.DETAILS.HEADER.SHORT_DISPLAY_NAME''" 
+    [dataLabel]="''''"
+    [customClass]=''""''
+    [isDisabled]="false || self.item.isDeleted"
+    [elementName]="''edit:Item_details.Display_name''"
+    [(dataValue)]="self.item.shortDisplayName"
+    (dataValueChange)="self.changeTitle()"
+    [permissionSettings]="{
+        isAccessEdit: self.isNewItem ? (self.EndpointName.item_POST | endpointAccessGrantedPipe) :
+            (self.EndpointName.item_id_PUT | endpointAccessGrantedPipe)
+    }"
+    [validationField]="''shortDisplayName''"
+    [validator]="self.validator"
+></cr-control-edit></div><div class=''col-md-2''><cr-dropdown-smart-control
+    [elementName]="''smart-dropdown:Item_details.Model''"
+    [permissionSettings]="{
+        isAccessRead: (self.EndpointName.item__item_model_id_dropdown_GET | endpointAccessGrantedPipe),
+        isAccessEdit: (self.isNewItem ? (self.EndpointName.item_POST | endpointAccessGrantedPipe) :
+            (self.EndpointName.item_id_PUT | endpointAccessGrantedPipe)) &&
+            (self.EndpointName.item__item_model_dropdown_GET | endpointAccessGrantedPipe)
+    }"
+    [isDisabled]="self.item.isDeleted"
+    [dataCacheName]="''ItemModelValueDropdownCache''"
+    [(value)]="self.item.itemModelID"
+    [textField]="''name''"
+    [codeField]="''code''"
+    [valueField]="''id''"
+    [useCodeInList]="true"
+    [useCodeInValue]="true"
+    [getOneItemFunction]="self.loadModelDropdownFunction"
+    [getListItemsFunction]="self.loadModelsListDropdownFunction"
+    [listItemsFunctionAdditionalParameter]="self.item.itemModelID"
+    [unselectedItemValue]="{id: null, translateKey: ''COMMON.MOCK_OBJ.NOT_SELECTED''}"
+    [dataTranslateKeyField]="''translateKey''"
+    [labelTranslateKey]="''ITEM.DETAILS.HEADER.MODEL''"
+    [label]="''''"
+    [class]=''""''
+></cr-dropdown-smart-control></div><div class=''col-md-2''><cr-control-edit
+    [elementName]="''edit:Item_details.Short_print_name''"
+    [permissionSettings]="{
+        isAccessEdit: self.isNewItem ? (self.EndpointName.item_POST | endpointAccessGrantedPipe) :
+            (self.EndpointName.item_id_PUT | endpointAccessGrantedPipe)
+    }"
+    [(dataValue)]="self.item.shortPrintName"
+    [validator]="self.validator"
+    [validationField]="''shortPrintName''"
+    [translateKeys]="''ITEM.DETAILS.HEADER.SHORT_PRINT_NAME''" 
     [dataLabel]="''''"
     [customClass]=''""''
     [isDisabled]="false"
-></cr-control-edit></div></div>
+></cr-control-edit></div><div class=''col-md-2''><cr-control-datepicker
+    [elementName]="''date:Item_details.Registration_date''"
+    [permissionSettings]="{
+        isAccessEdit: self.isNew ? self.authService.getEndpointAccessGranted(self.EndpointName.item_POST) :
+            self.authService.getEndpointAccessGranted(self.EndpointName.item_id_PUT)
+    }"
+
+    [(dataValue)]="self.item.registrationDate"
+    [dataLabel]="''''"
+    [translateKeys]="''ITEM.DETAILS.HEADER.REGISTRATION_DATE''"
+    [class]=''""'' 
+    [isDisabled]="self.item.isDeleted || false"
+></cr-control-datepicker></div></div><div class="row cr-bottom-row-border"><div class=''col-md-2''><cr-dropdown-smart-control
+    [elementName]="''smart-dropdown:Item_details.Metric_type_1''"
+    [permissionSettings]="{
+        isAccessRead: (self.EndpointName.item__item_metric_type_id_GET | endpointAccessGrantedPipe),
+        isAccessEdit: (self.isNewItem ? (self.EndpointName.item_POST | endpointAccessGrantedPipe) :
+            (self.EndpointName.item_id_PUT | endpointAccessGrantedPipe)) &&
+            (self.EndpointName.item__item_metric_type_GET | endpointAccessGrantedPipe)
+    }"
+    [isDisabled]="self.item.isDeleted"
+    [dataCacheName]="''ItemMetricTypeFirstDropdownCache''"
+    (currentItemValueChange)="self.metricTypeChanged(''metric1'')"
+    [(value)]="self.item.metric1.type"
+    [textField]="''displayName''"
+    [codeField]="''code''"
+    [valueField]="''id''"
+    [useCodeInList]="true"
+    [useCodeInValue]="true"
+    [getOneItemFunction]="self.loadItemMetricTypeForDropdownFunction"
+    [getListItemsFunction]="self.loadItemMetricTypeListForDropdownFunction"
+    [unselectedItemValue]="{id: null, translateKey: ''COMMON.MOCK_OBJ.NOT_SELECTED''}"
+    [dataTranslateKeyField]="''translateKey''"
+    [validator]="self.validator"
+    [validationField]="''metric1''"
+    [labelTranslateKey]="''ITEM.DETAILS.HEADER.METRIC_TYPE1''"
+    [label]="''''"
+    [class]=''""''
+></cr-dropdown-smart-control></div><div class=''col-md-2''><cr-dropdown-smart-control
+    [elementName]="''smart-dropdown:Item_details.Metric_value_1''"
+    [permissionSettings]="{
+        isAccessRead: (self.EndpointName.item__item_metric_type_metricTypeId_value_id_dropdown_GET | endpointAccessGrantedPipe),
+        isAccessEdit: (self.isNewItem ? (self.EndpointName.item_POST | endpointAccessGrantedPipe) :
+            (self.EndpointName.item_id_PUT | endpointAccessGrantedPipe)) &&
+            (self.EndpointName.item__item_metric_type_metricTypeId_value_dropdown_GET | endpointAccessGrantedPipe)
+    }"
+    [isDisabled]="!self.item.metric1.type || self.item.isDeleted"
+    [dataCacheName]="''ItemMetricValueFirstDropdownCache''"
+    [(value)]="self.item.metric1.value"
+    [textField]="''name''"
+    [codeField]="''code''"
+    [valueField]="''id''"
+    [useCodeInList]="true"
+    [useCodeInValue]="true"
+    [getOneItemFunction]="self.loadItemMetricValueForDropdownFunction"
+    [getListItemsFunction]="self.loadItemMetricValueListForDropdownFunction"
+    [listItemsFunctionAdditionalParameter]="self.item.metric1.type"
+    [unselectedItemValue]="{id: null, translateKey: ''COMMON.MOCK_OBJ.NOT_SELECTED''}"
+    [dataTranslateKeyField]="''translateKey''"
+    [validator]="self.validator"
+    [validationField]="''metric1''"
+    [labelTranslateKey]="''ITEM.DETAILS.HEADER.METRIC_VALUE1''"
+    [label]="''''"
+    [class]=''""''
+></cr-dropdown-smart-control></div><div class=''col-md-2''><cr-dropdown-smart-control
+    [elementName]="''smart-dropdown:Item_details.Metric_type_2''"
+    [permissionSettings]="{
+        isAccessRead: (self.EndpointName.item__item_metric_type_id_GET | endpointAccessGrantedPipe),
+        isAccessEdit: (self.isNewItem ? (self.EndpointName.item_POST | endpointAccessGrantedPipe) :
+            (self.EndpointName.item_id_PUT | endpointAccessGrantedPipe)) &&
+            (self.EndpointName.item__item_metric_type_GET | endpointAccessGrantedPipe)
+    }"
+    [isDisabled]="self.item.isDeleted"
+    [dataCacheName]="''ItemMetricTypeSecondDropdownCache''"
+    (currentItemValueChange)="self.metricTypeChanged(''metric2'')"
+    [(value)]="self.item.metric2.type"
+    [textField]="''displayName''"
+    [codeField]="''code''"
+    [valueField]="''id''"
+    [useCodeInList]="true"
+    [useCodeInValue]="true"
+    [getOneItemFunction]="self.loadItemMetricTypeForDropdownFunction"
+    [getListItemsFunction]="self.loadItemMetricTypeListForDropdownFunction"
+    [unselectedItemValue]="{id: null, translateKey: ''COMMON.MOCK_OBJ.NOT_SELECTED''}"
+    [dataTranslateKeyField]="''translateKey''"
+    [validator]="self.validator"
+    [validationField]="''metric2''"
+    [labelTranslateKey]="''ITEM.DETAILS.HEADER.METRIC_TYPE2''"
+    [label]="''''"
+    [class]=''""''
+></cr-dropdown-smart-control></div><div class=''col-md-2''><cr-dropdown-smart-control
+    [elementName]="''smart-dropdown:Item_details.Metric_value_2''"
+    [permissionSettings]="{
+        isAccessRead: (self.EndpointName.item__item_metric_type_metricTypeId_value_id_dropdown_GET | endpointAccessGrantedPipe),
+        isAccessEdit: (self.isNewItem ? (self.EndpointName.item_POST | endpointAccessGrantedPipe) :
+            (self.EndpointName.item_id_PUT | endpointAccessGrantedPipe)) &&
+            (self.EndpointName.item__item_metric_type_metricTypeId_value_dropdown_GET | endpointAccessGrantedPipe)
+    }"
+    [isDisabled]="!self.item.metric2.type || self.item.isDeleted"
+    [dataCacheName]="''ItemMetricValueSecondDropdownCache''"
+    [(value)]="self.item.metric2.value"
+    [textField]="''name''"
+    [codeField]="''code''"
+    [valueField]="''id''"
+    [useCodeInList]="true"
+    [useCodeInValue]="true"
+    [getOneItemFunction]="self.loadItemMetricValueForDropdownFunction"
+    [getListItemsFunction]="self.loadItemMetricValueListForDropdownFunction"
+    [listItemsFunctionAdditionalParameter]="self.item.metric2.type"
+    [unselectedItemValue]="{id: null, translateKey: ''COMMON.MOCK_OBJ.NOT_SELECTED''}"
+    [dataTranslateKeyField]="''translateKey''"
+    [validator]="self.validator"
+    [validationField]="''metric2''"
+    [labelTranslateKey]="''ITEM.DETAILS.HEADER.METRIC_VALUE2''"
+    [label]="''''"
+    [class]=''""''
+></cr-dropdown-smart-control></div><div class=''col-md-2''><cr-dropdown-smart-control
+    [elementName]="''smart-dropdown:Item_details.Metric_type_3''"
+    [permissionSettings]="{
+        isAccessRead: (self.EndpointName.item__item_metric_type_id_GET | endpointAccessGrantedPipe),
+        isAccessEdit: (self.isNewItem ? (self.EndpointName.item_POST | endpointAccessGrantedPipe) :
+            (self.EndpointName.item_id_PUT | endpointAccessGrantedPipe)) &&
+            (self.EndpointName.item__item_metric_type_GET | endpointAccessGrantedPipe)
+    }"
+    [isDisabled]="self.item.isDeleted"
+    [dataCacheName]="''ItemMetricTypeThirdDropdownCache''"
+    (currentItemValueChange)="self.metricTypeChanged(''metric3'')"
+    [(value)]="self.item.metric3.type"
+    [textField]="''displayName''"
+    [codeField]="''code''"
+    [valueField]="''id''"
+    [useCodeInList]="true"
+    [useCodeInValue]="true"
+    [getOneItemFunction]="self.loadItemMetricTypeForDropdownFunction"
+    [getListItemsFunction]="self.loadItemMetricTypeListForDropdownFunction"
+    [unselectedItemValue]="{id: null, translateKey: ''COMMON.MOCK_OBJ.NOT_SELECTED''}"
+    [dataTranslateKeyField]="''translateKey''"
+    [validator]="self.validator"
+    [validationField]="''metric3''"
+    [labelTranslateKey]="''ITEM.DETAILS.HEADER.METRIC_TYPE3''"
+    [label]="''''"
+    [class]=''""''
+></cr-dropdown-smart-control></div><div class=''col-md-2''><cr-dropdown-smart-control
+    [elementName]="''smart-dropdown:Item_details.Metric_value_3''"
+    [permissionSettings]="{
+        isAccessRead: (self.EndpointName.item__item_metric_type_metricTypeId_value_id_dropdown_GET | endpointAccessGrantedPipe),
+        isAccessEdit: (self.isNewItem ? (self.EndpointName.item_POST | endpointAccessGrantedPipe) :
+            (self.EndpointName.item_id_PUT | endpointAccessGrantedPipe)) &&
+            (self.EndpointName.item__item_metric_type_metricTypeId_value_dropdown_GET | endpointAccessGrantedPipe)
+    }"
+    [isDisabled]="!self.item.metric3.type || self.item.isDeleted"
+    [dataCacheName]="''ItemMetricValueThirdDropdownCache''"
+    [(value)]="self.item.metric3.value"
+    [textField]="''name''"
+    [codeField]="''code''"
+    [valueField]="''id''"
+    [useCodeInList]="true"
+    [useCodeInValue]="true"
+    [getOneItemFunction]="self.loadItemMetricValueForDropdownFunction"
+    [getListItemsFunction]="self.loadItemMetricValueListForDropdownFunction"
+    [listItemsFunctionAdditionalParameter]="self.item.metric3.type"
+    [unselectedItemValue]="{id: null, translateKey: ''COMMON.MOCK_OBJ.NOT_SELECTED''}"
+    [dataTranslateKeyField]="''translateKey''"
+    [validator]="self.validator"
+    [validationField]="''metric3''"
+    [labelTranslateKey]="''ITEM.DETAILS.HEADER.METRIC_VALUE3''"
+    [label]="''''"
+    [class]=''""''
+></cr-dropdown-smart-control></div></div>
         </ng-template>
       </cr-panel>
       <cr-panel
         [panelTemplateType]="''collapsible-panel''"
-        [expanded]="self.panelsViewState?.[''taxDefinition''] ?? true"
-        (expandedChange)="self.panelStateChange(''taxDefinition'', $event)"
-        [titleTranslateKey]="true ? ''TAX_GROUP.DETAILS.PANEL.TITLE_DEFINITIONS'' : null"
-        [title]="true ? null : ''Tax definitions he''"
+        [expanded]="self.panelsViewState?.[''general''] ?? false"
+        (expandedChange)="self.panelStateChange(''general'', $event)"
+        [titleTranslateKey]="true ? ''ITEM.DETAILS.PANEL.GENERAL'' : null"
+        [title]="true ? null : ''כללי''"
         [customClass]="''''"
         [headerClass]="''''"
         [validator]="self.validator"
-        [validatorGroupName]="''taxDefinition''"
+        [validatorGroupName]="''general''"
+        [containFields]=''["itemHierarchyValues.1","supplierCatNum","validFrom","validTo","frozenFrom","frozenTo"]''
+      >
+        <ng-template crPanelContent>
+          <div class="row cr-bottom-row-border"><div class=''col-md-2''><cr-dropdown-smart-control
+    [elementName]="''smart-dropdown:Item_details.Hierarchy_1''"
+    [permissionSettings]="{
+        isAccessRead: (self.EndpointName.item__item_hierarchy_level_id_dropdown_GET | endpointAccessGrantedPipe),
+        isAccessEdit: (self.isNewItem ? (self.EndpointName.item_POST | endpointAccessGrantedPipe) :
+                      (self.EndpointName.item_id_PUT | endpointAccessGrantedPipe)) &&
+                      (self.EndpointName.item__item_hierarchy_level_dropdown_GET | endpointAccessGrantedPipe)
+    }"
+    [isDisabled]="self.item.isDeleted"
+    [requestDataWhenOpen]="true"
+    [dataCacheName]="''ItemHierarchyLevel1DropdownCache''"
+    (valueChange)="self.onSelectValue($event, 1)"
+    [(value)]="self.item.itemHierarchyValues[''1'']"
+    [listItemsFunctionAdditionalParameter]="{hierarchyLevel: 1, hierarchyParentId: null}"
+    [textField]="''name''"
+    [codeField]="''code''"
+    [valueField]="''id''"
+    [useCodeInList]="true"
+    [useCodeInValue]="true"
+    [getListItemsFunction]="self.loadItemHierarchyListDropdownFunction"
+    [getOneItemFunction]="self.loadItemHierarchyDropdownFunction"
+    [unselectedItemValue]="{id: null, translateKey: ''COMMON.MOCK_OBJ.NOT_SELECTED''}"
+    [dataTranslateKeyField]="''translateKey''"
+    [validator]="self.validator"
+    [validationField]="''itemHierarchyValues.1''"
+    [labelTranslateKey]="''''"
+    [label]="true ? self.levelLabels?.levelLabels[''1''] : ''undefined''"
+    [class]=''""''
+></cr-dropdown-smart-control></div><div class=''col-md-2''><cr-dropdown-smart-control
+    [elementName]="''smart-dropdown:Item_details.Hierarchy_2''"
+    [permissionSettings]="{
+        isAccessRead: (self.EndpointName.item__item_hierarchy_level_id_dropdown_GET | endpointAccessGrantedPipe),
+        isAccessEdit: (self.isNewItem ? (self.EndpointName.item_POST | endpointAccessGrantedPipe) :
+                      (self.EndpointName.item_id_PUT | endpointAccessGrantedPipe)) &&
+                      (self.EndpointName.item__item_hierarchy_level_dropdown_GET | endpointAccessGrantedPipe)
+    }"
+    [isDisabled]="!self.item.itemHierarchyValues[''1''] || self.item.isDeleted"
+    [requestDataWhenOpen]="true"
+    [dataCacheName]="''ItemHierarchyLevel2DropdownCache''"
+    (valueChange)="self.onSelectValue($event, 2)"
+    [(value)]="self.item.itemHierarchyValues[''2'']"
+    [listItemsFunctionAdditionalParameter]="{hierarchyLevel: 2, hierarchyParentId: self.item.itemHierarchyValues[''1'']}"
+    [textField]="''name''"
+    [codeField]="''code''"
+    [valueField]="''id''"
+    [useCodeInList]="true"
+    [useCodeInValue]="true"
+    [getListItemsFunction]="self.loadItemHierarchyListDropdownFunction"
+    [getOneItemFunction]="self.loadItemHierarchyDropdownFunction"
+    [unselectedItemValue]="{id: null, translateKey: ''COMMON.MOCK_OBJ.NOT_SELECTED''}"
+    [dataTranslateKeyField]="''translateKey''"
+    [labelTranslateKey]="''''"
+    [label]="true ? self.levelLabels?.levelLabels[''2''] : ''undefined''"
+    [class]=''""''
+></cr-dropdown-smart-control></div><div class=''col-md-2''><cr-dropdown-smart-control
+    [elementName]="''smart-dropdown:Item_details.Hierarchy_3''"
+    [permissionSettings]="{
+        isAccessRead: (self.EndpointName.item__item_hierarchy_level_id_dropdown_GET | endpointAccessGrantedPipe),
+        isAccessEdit: (self.isNewItem ? (self.EndpointName.item_POST | endpointAccessGrantedPipe) :
+                      (self.EndpointName.item_id_PUT | endpointAccessGrantedPipe)) &&
+                      (self.EndpointName.item__item_hierarchy_level_dropdown_GET | endpointAccessGrantedPipe)
+    }"
+    [isDisabled]="!self.item.itemHierarchyValues[''2''] || self.item.isDeleted"
+    [requestDataWhenOpen]="true"
+    [dataCacheName]="''ItemHierarchyLevel3DropdownCache''"
+    (valueChange)="self.onSelectValue($event, 3)"
+    [(value)]="self.item.itemHierarchyValues[''3'']"
+    [listItemsFunctionAdditionalParameter]="{hierarchyLevel: 3, hierarchyParentId: self.item.itemHierarchyValues[''2'']}"
+    [textField]="''name''"
+    [codeField]="''code''"
+    [valueField]="''id''"
+    [useCodeInList]="true"
+    [useCodeInValue]="true"
+    [getListItemsFunction]="self.loadItemHierarchyListDropdownFunction"
+    [getOneItemFunction]="self.loadItemHierarchyDropdownFunction"
+    [unselectedItemValue]="{id: null, translateKey: ''COMMON.MOCK_OBJ.NOT_SELECTED''}"
+    [dataTranslateKeyField]="''translateKey''"
+    [labelTranslateKey]="''''"
+    [label]="true ? self.levelLabels?.levelLabels[''3''] : ''undefined''"
+    [class]=''""''
+></cr-dropdown-smart-control></div><div class=''col-md-2''><cr-dropdown-smart-control
+    [elementName]="''smart-dropdown:Item_details.Hierarchy_4''"
+    [permissionSettings]="{
+        isAccessRead: (self.EndpointName.item__item_hierarchy_level_id_dropdown_GET | endpointAccessGrantedPipe),
+        isAccessEdit: (self.isNewItem ? (self.EndpointName.item_POST | endpointAccessGrantedPipe) :
+                      (self.EndpointName.item_id_PUT | endpointAccessGrantedPipe)) &&
+                      (self.EndpointName.item__item_hierarchy_level_dropdown_GET | endpointAccessGrantedPipe)
+    }"
+    [isDisabled]="!self.item.itemHierarchyValues[''3''] || self.item.isDeleted"
+    [requestDataWhenOpen]="true"
+    [dataCacheName]="''ItemHierarchyLevel4DropdownCache''"
+    (valueChange)="self.onSelectValue($event, 4)"
+    [(value)]="self.item.itemHierarchyValues[''4'']"
+    [listItemsFunctionAdditionalParameter]="{hierarchyLevel: 4, hierarchyParentId: self.item.itemHierarchyValues[''3'']}"
+    [textField]="''name''"
+    [codeField]="''code''"
+    [valueField]="''id''"
+    [useCodeInList]="true"
+    [useCodeInValue]="true"
+    [getListItemsFunction]="self.loadItemHierarchyListDropdownFunction"
+    [getOneItemFunction]="self.loadItemHierarchyDropdownFunction"
+    [unselectedItemValue]="{id: null, translateKey: ''COMMON.MOCK_OBJ.NOT_SELECTED''}"
+    [dataTranslateKeyField]="''translateKey''"
+    [labelTranslateKey]="''''"
+    [label]="true ? self.levelLabels?.levelLabels[''4''] : ''undefined''"
+    [class]=''""''
+></cr-dropdown-smart-control></div><div class=''col-md-2''><cr-dropdown-smart-control
+    [elementName]="''smart-dropdown:Item_details.Hierarchy_5''"
+    [permissionSettings]="{
+        isAccessRead: (self.EndpointName.item__item_hierarchy_level_id_dropdown_GET | endpointAccessGrantedPipe),
+        isAccessEdit: (self.isNewItem ? (self.EndpointName.item_POST | endpointAccessGrantedPipe) :
+                      (self.EndpointName.item_id_PUT | endpointAccessGrantedPipe)) &&
+                      (self.EndpointName.item__item_hierarchy_level_dropdown_GET | endpointAccessGrantedPipe)
+    }"
+    [isDisabled]="!self.item.itemHierarchyValues[''4''] || self.item.isDeleted"
+    [requestDataWhenOpen]="true"
+    [dataCacheName]="''ItemHierarchyLevel5DropdownCache''"
+    (valueChange)="self.onSelectValue($event, 5)"
+    [(value)]="self.item.itemHierarchyValues[''5'']"
+    [listItemsFunctionAdditionalParameter]="{hierarchyLevel: 5, hierarchyParentId: self.item.itemHierarchyValues[''4'']}"
+    [textField]="''name''"
+    [codeField]="''code''"
+    [valueField]="''id''"
+    [useCodeInList]="true"
+    [useCodeInValue]="true"
+    [getListItemsFunction]="self.loadItemHierarchyListDropdownFunction"
+    [getOneItemFunction]="self.loadItemHierarchyDropdownFunction"
+    [unselectedItemValue]="{id: null, translateKey: ''COMMON.MOCK_OBJ.NOT_SELECTED''}"
+    [dataTranslateKeyField]="''translateKey''"
+    [labelTranslateKey]="''''"
+    [label]="true ? self.levelLabels?.levelLabels[''5''] : ''undefined''"
+    [class]=''""''
+></cr-dropdown-smart-control></div><div class=''col-md-2''></div></div><div class="row cr-bottom-row-border"><div class=''col-md-2''><cr-dropdown-smart-control
+    [elementName]="''smart-dropdown:Item_details.Manufacture''"
+    [permissionSettings]="{
+        isAccessRead: (self.EndpointName.item__item_manufacture_id_dropdown_GET | endpointAccessGrantedPipe),
+        isAccessEdit: (self.isNewItem ? (self.EndpointName.item_POST | endpointAccessGrantedPipe) :
+                      (self.EndpointName.item_id_PUT | endpointAccessGrantedPipe)) &&
+                      (self.EndpointName.item__item_manufacture_dropdown_GET | endpointAccessGrantedPipe)
+    }"
+    [isDisabled]="self.item.isDeleted"
+    [dataCacheName]="''ItemManufactureDropdownCache''"
+    [(value)]="self.item.manufactureID"
+    [textField]="''name''"
+    [codeField]="''code''"
+    [valueField]="''id''"
+    [useCodeInList]="true"
+    [useCodeInValue]="true"
+    [getListItemsFunction]="self.loadManufacturesListDropdownFunction"
+    [getOneItemFunction]="self.loadManufactureDropdownFunction"
+    [unselectedItemValue]="{id: null, translateKey: ''COMMON.MOCK_OBJ.NOT_SELECTED''}"
+    [dataTranslateKeyField]="''translateKey''"
+    [labelTranslateKey]="''ITEM.DETAILS.GENERAL.MANUFACTURE''"
+    [label]="''''"
+    [class]=''""''
+></cr-dropdown-smart-control></div><div class=''col-md-2''><cr-control-edit
+    [elementName]="''edit:Item_details.Supplier_cat_num''"
+    [permissionSettings]="{
+        isAccessEdit: self.isNewItem ? (self.EndpointName.item_POST | endpointAccessGrantedPipe) :
+            (self.EndpointName.item_id_PUT | endpointAccessGrantedPipe)
+    }"
+    [(dataValue)]="self.item.supplierCatNum"
+    [validator]="self.validator"
+    [validationField]="''supplierCatNum''"
+    [translateKeys]="''ITEM.DETAILS.GENERAL.SUPPLIER_CAT_NUM''" 
+    [dataLabel]="''''"
+    [customClass]=''""''
+    [isDisabled]="self.item.isDeleted || false"
+></cr-control-edit></div><div class=''col-md-2''><cr-dropdown-smart-control
+    [elementName]="''smart-dropdown:Item_details.General_brand''"
+    [permissionSettings]="{
+        isAccessRead: (self.EndpointName.item__item_brand_id_dropdown_GET | endpointAccessGrantedPipe),
+        isAccessEdit: (self.isNewItem ? (self.EndpointName.item_POST | endpointAccessGrantedPipe) :
+                      (self.EndpointName.item_id_PUT | endpointAccessGrantedPipe)) &&
+                      (self.EndpointName.item__item_brand_dropdown_GET | endpointAccessGrantedPipe)
+    }"
+    [isDisabled]="self.item.isDeleted"
+    [dataCacheName]="''ItemBrandDropdownCache''"
+    [(value)]="self.item.itemBrandID"
+    [textField]="''name''"
+    [codeField]="''code''"
+    [valueField]="''id''"
+    [useCodeInList]="true"
+    [useCodeInValue]="true"
+    [getListItemsFunction]="self.loadItemBrandListDropdownFunction"
+    [getOneItemFunction]="self.loadItemBrandDropdownFunction"
+    [unselectedItemValue]="{id: null, translateKey: ''COMMON.MOCK_OBJ.NOT_SELECTED''}"
+    [dataTranslateKeyField]="''translateKey''"
+    [labelTranslateKey]="''ITEM.DETAILS.GENERAL.BRAND''"
+    [label]="''''"
+    [class]=''""''
+></cr-dropdown-smart-control></div><div class=''col-md-2''><cr-dropdown-smart-control
+    [elementName]="''smart-dropdown:Item_details.Preferred_supplier''"
+    [permissionSettings]="{
+        isAccessRead: (self.EndpointName.item__partner_id_dropdown_GET | endpointAccessGrantedPipe),
+        isAccessEdit: (self.isNewItem ? (self.EndpointName.item_POST | endpointAccessGrantedPipe) :
+                      (self.EndpointName.item_id_PUT | endpointAccessGrantedPipe)) &&
+                      (self.EndpointName.item__partner_dropdown_GET | endpointAccessGrantedPipe)
+    }"
+    [isDisabled]="self.item.isDeleted"
+    [dataCacheName]="''PreferredSupplierDropdownCache''"
+    [(value)]="self.item.prefferedSupplierID"
+    [textField]="''name''"
+    [codeField]="''code''"
+    [valueField]="''id''"
+    [useCodeInList]="true"
+    [useCodeInValue]="true"
+    [getListItemsFunction]="self.loadPreferredSupplierListDropdownFunction"
+    [getOneItemFunction]="self.loadPreferredSupplierDropdownFunction"
+    [unselectedItemValue]="{id: null, translateKey: ''COMMON.MOCK_OBJ.NOT_SELECTED''}"
+    [dataTranslateKeyField]="''translateKey''"
+    [labelTranslateKey]="''ITEM.DETAILS.GENERAL.PREFERRED_SUPPLIER''"
+    [label]="''''"
+    [class]=''""''
+></cr-dropdown-smart-control></div><div class=''col-md-2''><cr-control-dropdown 
+    [(dataValue)]="self.item.unitTypeId" 
+    [isDisabled]="self.item.isDeleted" 
+    [dataSource]="self.unitTypesForDropdown"
+    [dataValueField]="''id''" 
+    [dataDisplayField]="''name''" 
+    [elementName]="''dropdown:Item_details.Unit_type''"
+    [permissionSettings]="{
+        isAccessEdit: self.isNewItem ? (self.EndpointName.item_POST | endpointAccessGrantedPipe) :
+            (self.EndpointName.item_id_PUT | endpointAccessGrantedPipe)
+    }"
+    [translateKeys]="''ITEM.DETAILS.GENERAL.UNIT_TYPE''"
+    [dataLabel]="''''"
+    [class]=''""''
+></cr-control-dropdown></div><div class=''col-md-2''></div></div><div class="row cr-bottom-row-border"><div class=''col-md-12''><cr-multi-select-smart-control
+    [(values)]="self.item.collections"
+    [dataCacheName]="''CollectionsDropdownCache111''"
+    [isDisabled]="self.item.isDeleted"
+    [elementName]="''smart-multi-select:Item_details.Collections''"
+    [getListItemsFunction]="self.loadCollectionListMultiselectFunction"
+    [getSelectedItemsFunction]="self.loadCollectionMultiselectFunction"
+    [permissionSettings]="{
+        isAccessRead: (self.EndpointName.item__item_collection_dropdown_ids_GET | endpointAccessGrantedPipe),
+        isAccessEdit: (self.isNewItem ? (self.EndpointName.item_POST | endpointAccessGrantedPipe) :
+            (self.EndpointName.item_id_PUT | endpointAccessGrantedPipe)) &&
+            (self.EndpointName.item__item_collection_dropdown_GET | endpointAccessGrantedPipe)
+    }"
+    [textField]="''name''"
+    [useCodeInList]="true"
+    [useCodeInValue]="true"
+    [valueField]="''id''"
+    [translateKeys]="''ITEM.DETAILS.GENERAL.COLLECTIONS''"
+    [dataLabel]="''''"
+    [class]=''""''
+></cr-multi-select-smart-control></div><div class=''col-md-6''></div></div><div class="row cr-bottom-row-border"><div class=''col-md-12''><cr-dropdown-smart-control
+    [elementName]="''smart-dropdown:Item_details.Tax_group''"
+    [permissionSettings]="{
+        isAccessRead: (self.EndpointName.item__tax_group_id_GET | endpointAccessGrantedPipe),
+        isAccessEdit: (self.isNewItem ? (self.EndpointName.item_POST | endpointAccessGrantedPipe) :
+                      (self.EndpointName.item_id_PUT | endpointAccessGrantedPipe)) &&
+                      (self.EndpointName.item__tax_group_GET | endpointAccessGrantedPipe)
+    }"
+    [isDisabled]="self.item.isDeleted"
+    [dataCacheName]="''TaxGroupDropdownCache''"
+    [(currentItemValue)]="self.item.taxGroup"
+    [textField]="''name''"
+    [codeField]="''code''"
+    [valueField]="''id''"
+    [useCodeInList]="true"
+    [useCodeInValue]="true"
+    [getListItemsFunction]="self.loadTaxGroupListDropdownFunction"
+    [getOneItemFunction]="self.loadTaxGroupDropdownFunction"
+    [unselectedItemValue]="{id: null, translateKey: ''COMMON.MOCK_OBJ.NOT_SELECTED''}"
+    [dataTranslateKeyField]="''translateKey''"
+    [labelTranslateKey]="''ITEM.DETAILS.GENERAL.TAX_GROUP''"
+    [label]="''''"
+    [class]=''""''
+></cr-dropdown-smart-control></div><div class=''col-md-6''></div></div><div class="row cr-bottom-row-border"><div class=''col-md-2''><cr-checkbox-control
+    [elementName]="''checkbox:Item_details.Active''"
+    [permissionSettings]="{
+        isAccessEdit: self.isNewItem ? (self.EndpointName.item_POST | endpointAccessGrantedPipe) :
+            (self.EndpointName.item_id_PUT | endpointAccessGrantedPipe)
+    }"
+
+    (dataValueChange)="self.changeActiveCheckbox($event)"
+    [(dataValue)]="self.item.isValid"
+    [dataLabel]="''''"
+    [translateKeys]="''ITEM.DETAILS.GENERAL.ACTIVE''"
+    [isDisabled]="self.item.isDeleted || false"
+    [class]=''""''
+></cr-checkbox-control></div><div class=''col-md-2''><cr-control-datepicker
+    [elementName]="''date:Item_details.Active_date_from''"
+    [permissionSettings]="{
+        isAccessEdit: self.isNewItem ? (self.EndpointName.item_POST | endpointAccessGrantedPipe) :
+            (self.EndpointName.item_id_PUT | endpointAccessGrantedPipe)
+    }"
+
+    [(dataValue)]="self.item.validFrom"
+    [validator]="self.validator"
+    [validationField]="''validFrom''"
+    [dataLabel]="''''"
+    [translateKeys]="''ITEM.DETAILS.GENERAL.ACTIVE_FROM''"
+    [class]=''""'' 
+    [isDisabled]="!self.item.isValid || self.item.isDeleted || false"
+></cr-control-datepicker></div><div class=''col-md-2''><cr-control-datepicker
+    [elementName]="''date:Item_details.Active_date_to''"
+    [permissionSettings]="{
+        isAccessEdit: self.isNewItem ? (self.EndpointName.item_POST | endpointAccessGrantedPipe) :
+            (self.EndpointName.item_id_PUT | endpointAccessGrantedPipe)
+    }"
+
+    [(dataValue)]="self.item.validTo"
+    [validator]="self.validator"
+    [validationField]="''validTo''"
+    [dataLabel]="''''"
+    [translateKeys]="''ITEM.DETAILS.GENERAL.ACTIVE_TO''"
+    [class]=''""'' 
+    [isDisabled]="!self.item.isValid || self.item.isDeleted || false"
+></cr-control-datepicker></div></div><div class="row cr-bottom-row-border"><div class=''col-md-2''><cr-checkbox-control
+    [elementName]="''checkbox:Item_details.Frozen''"
+    [permissionSettings]="{
+        isAccessEdit: self.isNewItem ? (self.EndpointName.item_POST | endpointAccessGrantedPipe) :
+            (self.EndpointName.item_id_PUT | endpointAccessGrantedPipe)
+    }"
+
+    (dataValueChange)="self.changeFrozenCheckbox($event)"
+    [(dataValue)]="self.item.isFrozen"
+    [dataLabel]="''''"
+    [translateKeys]="''ITEM.DETAILS.GENERAL.FROZEN''"
+    [isDisabled]="self.item.isDeleted || false"
+    [class]=''""''
+></cr-checkbox-control></div><div class=''col-md-2''><cr-control-datepicker
+    [elementName]="''date:Item_details.Frozen_date_from''"
+    [permissionSettings]="{
+        isAccessEdit: self.isNewItem ? (self.EndpointName.item_POST | endpointAccessGrantedPipe) :
+            (self.EndpointName.item_id_PUT | endpointAccessGrantedPipe)
+    }"
+
+    [(dataValue)]="self.item.frozenFrom"
+    [validator]="self.validator"
+    [validationField]="''frozenFrom''"
+    [dataLabel]="''''"
+    [translateKeys]="''ITEM.DETAILS.GENERAL.FROZEN_FROM''"
+    [class]=''""'' 
+    [isDisabled]="!self.item.isFrozen || self.item.isDeleted || false"
+></cr-control-datepicker></div><div class=''col-md-2''><cr-control-datepicker
+    [elementName]="''date:Item_details.Frozen_date_to''"
+    [permissionSettings]="{
+        isAccessEdit: self.isNewItem ? (self.EndpointName.item_POST | endpointAccessGrantedPipe) :
+            (self.EndpointName.item_id_PUT | endpointAccessGrantedPipe)
+    }"
+
+    [(dataValue)]="self.item.frozenTo"
+    [validator]="self.validator"
+    [validationField]="''frozenTo''"
+    [dataLabel]="''''"
+    [translateKeys]="''ITEM.DETAILS.GENERAL.FROZEN_TO''"
+    [class]=''""'' 
+    [isDisabled]="!self.item.isFrozen || self.item.isDeleted || false"
+></cr-control-datepicker></div></div><div class="row cr-bottom-row-border"><div class=''col-md-2''><cr-checkbox-control
+    [elementName]="''checkbox:Item_details.Sale_item''"
+    [permissionSettings]="{
+        isAccessEdit: self.isNewItem ? (self.EndpointName.item_POST | endpointAccessGrantedPipe) :
+            (self.EndpointName.item_id_PUT | endpointAccessGrantedPipe)
+    }"
+
+    [(dataValue)]="self.item.saleItem"
+    [dataLabel]="''''"
+    [translateKeys]="''ITEM.DETAILS.GENERAL.SALE_ITEM''"
+    [isDisabled]="self.item.isDeleted || false"
+    [class]=''""''
+></cr-checkbox-control></div><div class=''col-md-2''><cr-checkbox-control
+    [elementName]="''checkbox:Item_details.Inventory_item''"
+    [permissionSettings]="{
+        isAccessEdit: self.isNewItem ? (self.EndpointName.item_POST | endpointAccessGrantedPipe) :
+            (self.EndpointName.item_id_PUT | endpointAccessGrantedPipe)
+    }"
+
+    [(dataValue)]="self.item.inventoryItem"
+    [dataLabel]="''''"
+    [translateKeys]="''ITEM.DETAILS.GENERAL.INVENTORY_ITEM''"
+    [isDisabled]="self.item.isDeleted || false"
+    [class]=''""''
+></cr-checkbox-control></div><div class=''col-md-2''><cr-checkbox-control
+    [elementName]="''checkbox:Item_details.Purchase_item''"
+    [permissionSettings]="{
+        isAccessEdit: self.isNewItem ? (self.EndpointName.item_POST | endpointAccessGrantedPipe) :
+            (self.EndpointName.item_id_PUT | endpointAccessGrantedPipe)
+    }"
+
+    [(dataValue)]="self.item.purchaseItem"
+    [dataLabel]="''''"
+    [translateKeys]="''ITEM.DETAILS.GENERAL.PURCHASE_ITEM''"
+    [isDisabled]="self.item.isDeleted || false"
+    [class]=''""''
+></cr-checkbox-control></div><div class=''col-md-2''><cr-checkbox-control
+    [elementName]="''checkbox:Item_details.Refundable''"
+    [permissionSettings]="{
+        isAccessEdit: self.isNewItem ? (self.EndpointName.item_POST | endpointAccessGrantedPipe) :
+            (self.EndpointName.item_id_PUT | endpointAccessGrantedPipe)
+    }"
+
+    [(dataValue)]="self.item.refundable"
+    [dataLabel]="''''"
+    [translateKeys]="''ITEM.DETAILS.GENERAL.REFUNDABLE''"
+    [isDisabled]="self.item.isDeleted || false"
+    [class]=''""''
+></cr-checkbox-control></div><div class=''col-md-2''><cr-checkbox-control
+    [elementName]="''checkbox:Item_details.Download_to_pos''"
+    [permissionSettings]="{
+        isAccessEdit: self.isNewItem ? (self.EndpointName.item_POST | endpointAccessGrantedPipe) :
+            (self.EndpointName.item_id_PUT | endpointAccessGrantedPipe)
+    }"
+
+    [(dataValue)]="self.item.downloadToPOS"
+    [dataLabel]="''''"
+    [translateKeys]="''ITEM.DETAILS.GENERAL.DOWNLOAD_TO_POS''"
+    [isDisabled]="self.item.isDeleted || false"
+    [class]=''""''
+></cr-checkbox-control></div><div class=''col-md-2''><cr-checkbox-control
+    [elementName]="''checkbox:Item_details.Consignment_item''"
+    [permissionSettings]="{
+        isAccessEdit: self.isNewItem ? (self.EndpointName.item_POST | endpointAccessGrantedPipe) :
+            (self.EndpointName.item_id_PUT | endpointAccessGrantedPipe)
+    }"
+
+    [(dataValue)]="self.item.isConsignmentItem"
+    [dataLabel]="''''"
+    [translateKeys]="''ITEM.DETAILS.GENERAL.CONSIGNMENT_ITEM''"
+    [isDisabled]="self.item.isDeleted || false"
+    [class]=''""''
+></cr-checkbox-control></div></div><div class="row cr-bottom-row-border"><div class=''col-md-2''><cr-checkbox-control
+    [elementName]="''checkbox:Item_details.Gift_card_item''"
+    [permissionSettings]="{
+        isAccessEdit: self.isNewItem ? (self.EndpointName.item_POST | endpointAccessGrantedPipe) :
+            (self.EndpointName.item_id_PUT | endpointAccessGrantedPipe)
+    }"
+
+    [(dataValue)]="self.item.giftCard"
+    [dataLabel]="''''"
+    [translateKeys]="''ITEM.DETAILS.GENERAL.GIFT_CARD_ITEM''"
+    [isDisabled]="self.item.isDeleted || false"
+    [class]=''""''
+></cr-checkbox-control></div><div class=''col-md-2''><cr-checkbox-control
+    [elementName]="''checkbox:Item_details.Distribution_recommendation''"
+    [permissionSettings]="{
+        isAccessEdit: self.isNewItem ? (self.EndpointName.item_POST | endpointAccessGrantedPipe) :
+            (self.EndpointName.item_id_PUT | endpointAccessGrantedPipe)
+    }"
+
+    [(dataValue)]="self.item.distributionRecommendation"
+    [dataLabel]="''''"
+    [translateKeys]="''ITEM.DETAILS.GENERAL.DISTRIBUTION_RECOMMENDATION''"
+    [isDisabled]="self.item.isDeleted || false"
+    [class]=''""''
+></cr-checkbox-control></div><div class=''col-md-2''><cr-checkbox-control
+    [elementName]="''checkbox:Item_details.Purchase_recommendation''"
+    [permissionSettings]="{
+        isAccessEdit: self.isNewItem ? (self.EndpointName.item_POST | endpointAccessGrantedPipe) :
+            (self.EndpointName.item_id_PUT | endpointAccessGrantedPipe)
+    }"
+
+    [(dataValue)]="self.item.purchaseRecommendation"
+    [dataLabel]="''''"
+    [translateKeys]="''ITEM.DETAILS.GENERAL.PURCHASE_RECOMMENDATION''"
+    [isDisabled]="self.item.isDeleted || false"
+    [class]=''""''
+></cr-checkbox-control></div><div class=''col-md-2''><cr-checkbox-control
+    [elementName]="''checkbox:Item_details.Direct_supply''"
+    [permissionSettings]="{
+        isAccessEdit: self.isNewItem ? (self.EndpointName.item_POST | endpointAccessGrantedPipe) :
+            (self.EndpointName.item_id_PUT | endpointAccessGrantedPipe)
+    }"
+
+    [(dataValue)]="self.item.directSupply"
+    [dataLabel]="''''"
+    [translateKeys]="''ITEM.DETAILS.GENERAL.DIRECT_SUPPLY''"
+    [isDisabled]="self.item.isDeleted || false"
+    [class]=''""''
+></cr-checkbox-control></div><div class=''col-md-2''><cr-checkbox-control
+    [elementName]="''checkbox:Item_details.History''"
+    [permissionSettings]="{
+        isAccessEdit: self.isNewItem ? (self.EndpointName.item_POST | endpointAccessGrantedPipe) :
+            (self.EndpointName.item_id_PUT | endpointAccessGrantedPipe)
+    }"
+
+    [(dataValue)]="self.item.history"
+    [dataLabel]="''''"
+    [translateKeys]="''ITEM.DETAILS.GENERAL.HISTORY''"
+    [isDisabled]="self.item.isDeleted || false"
+    [class]=''""''
+></cr-checkbox-control></div><div class=''col-md-2''><cr-checkbox-control
+    [elementName]="''checkbox:Item_details.Allow_zero_price''"
+    [permissionSettings]="{
+        isAccessEdit: self.isNewItem ? (self.EndpointName.item_POST | endpointAccessGrantedPipe) :
+            (self.EndpointName.item_id_PUT | endpointAccessGrantedPipe)
+    }"
+
+    [(dataValue)]="self.item.isAllowZeroPrice"
+    [dataLabel]="''''"
+    [translateKeys]="''ITEM.DETAILS.GENERAL.ALLOW_ZERO_PRICE''"
+    [isDisabled]="self.item.isDeleted || false"
+    [class]=''""''
+></cr-checkbox-control></div></div><div class="row "><div class=''col-md-2''><cr-checkbox-control
+    [elementName]="''checkbox:Item_details.Is_modifier''"
+    [permissionSettings]="{
+        isAccessEdit: (self.isNewItem ? (self.EndpointName.item_POST | endpointAccessGrantedPipe) :
+            (self.EndpointName.item_id_PUT | endpointAccessGrantedPipe)) 
+            && (self.EndpointName.item__item_modifier_group_GET | endpointAccessGrantedPipe)
+    }"
+
+    [(dataValue)]="self.item.isModifier"
+    [dataLabel]="''''"
+    [translateKeys]="''ITEM.DETAILS.GENERAL.IS_MODIFIER''"
+    [isDisabled]="self.item.isComboMeal || self.item.isDeleted || false"
+    [class]=''""''
+></cr-checkbox-control></div><div class=''col-md-2''><cr-checkbox-control
+    [elementName]="''checkbox:Item_details.Is_combo_meal''"
+    [permissionSettings]="{
+        isAccessEdit: (self.isNewItem ? (self.EndpointName.item_POST | endpointAccessGrantedPipe) :
+            (self.EndpointName.item_id_PUT | endpointAccessGrantedPipe)) 
+            && (self.EndpointName.item__combo_meal_category_GET | endpointAccessGrantedPipe)
+    }"
+
+    [(dataValue)]="self.item.isComboMeal"
+    [dataLabel]="''''"
+    [translateKeys]="''ITEM.DETAILS.GENERAL.IS_COMBO_MEAL''"
+    [isDisabled]="self.item.isModifier || self.item.isDeleted || false"
+    [class]=''""''
+></cr-checkbox-control></div></div>
+        </ng-template>
+      </cr-panel>
+      <cr-panel
+        [panelTemplateType]="''collapsible-panel''"
+        [expanded]="self.panelsViewState?.[''properties''] ?? false"
+        (expandedChange)="self.panelStateChange(''properties'', $event)"
+        [titleTranslateKey]="true ? ''ITEM.DETAILS.PANEL.PROPERTIES'' : null"
+        [title]="true ? null : ''מאפיינים''"
+        [customClass]="''''"
+        [headerClass]="''''"
+        [validator]="self.validator"
+        [validatorGroupName]="''properties''"
         [containFields]=''[]''
       >
         <ng-template crPanelContent>
-          <div class="cr-grid-wrapper-new cr-grid-with-collapse cr-tax-group-grid">
-    <kendo-grid
-        #grid
-        (pageChange)="self.pageChange($event)"
-        [(selectedKeys)]="self.mySelection"
-        [attr.data-element-name]="''grid:TaxGroup_details_definition.Definitions_grid''"
-        [data]="self.gridView"
-        [kendoGridSelectBy]="self.mySelectionKey"
-        [pageSize]="self.taxGroup.taxGroupLocationList.paginator?.size"
-        [skip]="self.taxGroup.taxGroupLocationList.paginator?.skip"
-        [pageable]="true"
-        [resizable]="true"
-        (add)="self.addHandler()"
-        (edit)="self.editHandler($event)"
-        (remove)="self.removeHandler($event)"
-                    >
-                      <ng-template kendoGridToolbarTemplate>
-                        <div
-                          class="row cr-row-padding-revert">
-                          <div class="col-lg-12 cr-col-content-align-right cr-col-no-padding">
-                            <cr-button-control
-                              [buttonTemplateType]="''grid-add-command''"
-                              [elementName]="''button:PriceList.Add''"
-                              *ngIf="(self.EndpointName.tax_group_id_PUT | endpointAccessGrantedPipe)"
-                            ></cr-button-control>
-                          </div>
-                        </div>
-                      </ng-template>
+          <div class="cr-grid-wrapper-new cr-grid-no-inner-borders">
+    <cr-item-property-list 
+        [itemDetails]="self.item" 
+        [class]=''""''
+    ></cr-item-property-list>
+</div>
 
-                      <kendo-grid-column field="name">
-                        <ng-template kendoGridHeaderTemplate>
-                            <span [attr.data-translate]="''TAX_GROUP.DETAILS.GRID.NAME''">
-                              {{''TAX_GROUP.DETAILS.GRID.NAME'' | translate}}
-                            </span>
-                        </ng-template>
-                        <ng-template kendoGridCellTemplate
-                                     let-dataItem>
-                            <span>
-                              {{dataItem.name}}
-                            </span>
-                        </ng-template>
-                        <ng-template kendoGridEditTemplate let-dataItem>
-                          <cr-control-edit
-                            [(dataValue)]="self.taxGroup.cache.changeItem.name"
-                            [elementName]="''edit:TaxGroup.Name''"
-                            [translateKeys]="''TAX_GROUP.DETAILS.GRID.NAME''"
-                          ></cr-control-edit>
-                        </ng-template>
-                      </kendo-grid-column>
-
-                      <kendo-grid-column class="action-group" width="250">
-                        <ng-template kendoGridCellTemplate
-                                     let-dataItem="dataItem"
-                                     let-isNew="isNew"
-                                     let-rowIndex="rowIndex">
-                          <cr-button-control
-                            [buttonTemplateType]="''grid-edit-command''"
-                            [elementName]="''edit:TaxGroup.Details_Edit_Command''"
-                          ></cr-button-control>
-                          <!-- Delete row (trash button)-->
-                          <cr-button-control
-                            *ngIf="(self.EndpointName.tax_group_id_PUT | endpointAccessGrantedPipe)"
-                            [buttonTemplateType]="''grid-remove-command''"
-                            [elementName]="''edit:TaxGroup.Details_Remove_Command''"
-                          ></cr-button-control>
-                        </ng-template>
-                      </kendo-grid-column>
-                      <ng-template kendoGridNoRecordsTemplate>
-                          <span [attr.data-translate]="''COMMON.GRID.NO_RECORDS''">
-                            {{ ''COMMON.GRID.NO_RECORDS'' | translate }}
-                          </span>
-                      </ng-template>
-                      <ng-template kendoPagerTemplate>
-                        <cr-grid-paginator
-                          [totalElements]="self.gridView?.total"></cr-grid-paginator>
-                      </ng-template>
-                    </kendo-grid>
-                  </div>
         </ng-template>
       </cr-panel>
+      <cr-panel
+        [panelTemplateType]="''collapsible-panel''"
+        [expanded]="self.panelsViewState?.[''price''] ?? false"
+        (expandedChange)="self.panelStateChange(''price'', $event)"
+        [titleTranslateKey]="true ? ''ITEM.DETAILS.PANEL.PRICES'' : null"
+        [title]="true ? null : ''מחירים''"
+        [customClass]="''''"
+        [headerClass]="''''"
+        [validator]="self.validator"
+        [validatorGroupName]="''price''"
+        [containFields]=''["prices"]''
+      >
+        <ng-template crPanelContent>
+          <div class="cr-item-price-wrapper">
+    <cr-item-price-list
+        *ngIf="(self.EndpointName.item__item_price_GET | endpointAccessGrantedPipe) &&
+            (self.EndpointName.item__item_property_value_id_dropdown_GET | endpointAccessGrantedPipe); else noAccess"
+        [editable]="self.isNewItem ? (self.EndpointName.item_POST | endpointAccessGrantedPipe) :
+            (self.EndpointName.item_id_PUT | endpointAccessGrantedPipe)"
+        [item]="self.item"
+        [panelsViewState]="self.panelsViewState"
+        [class]=''""''
+    ></cr-item-price-list>
+
+    <ng-template #noAccess>
+        <div class="cr-no-read-access p-2">
+            {{''COMMON.GRID.NO_READ_ACCESS'' | translate}}
+        </div>
+    </ng-template>
+</div>
+
+        </ng-template>
+      </cr-panel>
+      <cr-panel
+        [panelTemplateType]="''collapsible-panel''"
+        [expanded]="self.panelsViewState?.[''barcodes''] ?? false"
+        (expandedChange)="self.panelStateChange(''barcodes'', $event)"
+        [titleTranslateKey]="true ? ''ITEM.DETAILS.PANEL.BARCODES'' : null"
+        [title]="true ? null : ''ברקודים''"
+        [customClass]="''''"
+        [headerClass]="''''"
+        [validator]="self.validator"
+        [validatorGroupName]="''barcodes''"
+        [containFields]=''["barcodes"]''
+      >
+        <ng-template crPanelContent>
+          <div class="cr-grid-wrapper-new">
+    <cr-item-barcodes-list
+        [isNew]="self.isNewItem"
+        [item]="self.item"
+        [editable]="self.isNewItem
+            ? (self.EndpointName.item_POST | endpointAccessGrantedPipe)
+            : (self.EndpointName.item_id_PUT | endpointAccessGrantedPipe)"
+        (barcodesChanged)="self.onBarcodesChanged()"
+        [class]=''""''
+    ></cr-item-barcodes-list>
+</div>
+        </ng-template>
+      </cr-panel>
+      <cr-panel
+        [panelTemplateType]="''collapsible-panel''"
+        [expanded]="self.panelsViewState?.[''specialPrices''] ?? false"
+        (expandedChange)="self.panelStateChange(''specialPrices'', $event)"
+        [titleTranslateKey]="true ? ''ITEM.DETAILS.PANEL.SPECIAL_PRICES_LIST'' : null"
+        [title]="true ? null : ''רשימת מחירים מיוחדים''"
+        [customClass]="''''"
+        [headerClass]="''''"
+        [validator]="self.validator"
+        [validatorGroupName]="''specialPrices''"
+        [containFields]=''[]''
+      >
+        <ng-template crPanelContent>
+          <div class="cr-grid-wrapper-new">
+    <cr-item-special-prices-list
+        (onCellClickEvent)="self.openSpecialPrice($event)"
+        (onChangePageEvent)="self.changePageEvent($event)"
+        [specialPrices]="self.specialPricesList"
+        [class]=''""''
+    ></cr-item-special-prices-list>
+</div>
+        </ng-template>
+      </cr-panel>
+      <cr-panel
+        [panelTemplateType]="''collapsible-panel''"
+        [expanded]="self.panelsViewState?.[''promotions''] ?? false"
+        (expandedChange)="self.panelStateChange(''promotions'', $event)"
+        [titleTranslateKey]="true ? ''ITEM.DETAILS.PANEL.PROMOTIONS'' : null"
+        [title]="true ? null : ''Promotions''"
+        [customClass]="''''"
+        [headerClass]="''''"
+        [validator]="self.validator"
+        [validatorGroupName]="''promotions''"
+        [containFields]=''[]''
+      >
+        <ng-template crPanelContent>
+          <div class="cr-grid-wrapper-new">
+    <cr-item-promotion-list
+        [itemId]="self.item?.id"
+        [class]=''""''
+    ></cr-item-promotion-list>
+</div>
+
+        </ng-template>
+      </cr-panel>
+      <cr-panel
+        [panelTemplateType]="''collapsible-panel''"
+        [expanded]="self.panelsViewState?.[''userFields''] ?? false"
+        (expandedChange)="self.panelStateChange(''userFields'', $event)"
+        [titleTranslateKey]="true ? ''ITEM.DETAILS.PANEL.USER_FIELDS'' : null"
+        [title]="true ? null : ''UDF he''"
+        [customClass]="''''"
+        [headerClass]="''''"
+        [validator]="self.validator"
+        [validatorGroupName]="''userFields''"
+        [containFields]=''[]''
+      >
+        <ng-template crPanelContent>
+          <div class="cr-grid-wrapper-new">
+    <cr-udf-list
+        *ngIf="(self.EndpointName.item__user_defined_field_GET | endpointAccessGrantedPipe) &&
+            (self.EndpointName.item__user_defined_field_default_value_GET | endpointAccessGrantedPipe); else noAccess"
+        [isNew]="self.isNewItem"
+        [udf]="self.item.udf"
+        [cacheName]="''itemUserFieldViewStateCache''"
+        [viewName]="''Item_details''"
+        [loadUserDefinedFieldListForDropdownFn$]="self.loadUserDefinedFieldListForDropdownFn$"
+        [getUserFields$]="self.getUserFields$"
+        [loadUserFields$]="self.loadUserFields$"
+        [getUserFieldsDefault$]="self.getUserFieldsDefault$"
+        [class]=''""''
+    ></cr-udf-list>
+    <ng-template #noAccess>
+        <div class="cr-no-read-access p-2">
+            {{''COMMON.GRID.NO_READ_ACCESS'' | translate}}
+        </div>
+    </ng-template>
+</div>
+        </ng-template>
+      </cr-panel>
+      <cr-panel
+        [panelTemplateType]="''collapsible-panel''"
+        [expanded]="self.panelsViewState?.[''basketImage''] ?? false"
+        (expandedChange)="self.panelStateChange(''basketImage'', $event)"
+        [titleTranslateKey]="true ? ''ITEM.DETAILS.PANEL.IMAGE_BASKET'' : null"
+        [title]="true ? null : ''Images he''"
+        [customClass]="''''"
+        [headerClass]="''''"
+        [validator]="self.validator"
+        [validatorGroupName]="''basketImage''"
+        [containFields]=''[]''
+      >
+        <ng-template crPanelContent>
+          <div class="cr-grid-wrapper-new">
+    <cr-item-image-basket-list
+        [imageBasketId]="self.item.imageBasketSetId"
+        [isDeleted]="self.item.isDeleted"
+        [refreshList$]="self.itemImageBasketContentListRefresh$"
+        (onCreateItem)="self.onCreateImageBasketPopup()"
+        (onUpdateItem)="self.onUpdateImageBasketPopup($event)"
+        (onDeleteItem)="self.onDeleteImageBasketContent($event)"
+        [class]=''""''
+    ></cr-item-image-basket-list>
+</div>
+        </ng-template>
+      </cr-panel>
+        <ng-template [ngIf]="!self.item.isModifier">
+            
+      <cr-panel
+        [panelTemplateType]="''collapsible-panel''"
+        [expanded]="self.panelsViewState?.[''modifiers''] ?? false"
+        (expandedChange)="self.panelStateChange(''modifiers'', $event)"
+        [titleTranslateKey]="true ? ''ITEM.DETAILS.PANEL.MODIFIERS_LIST'' : null"
+        [title]="true ? null : ''Modifiers groups he''"
+        [customClass]="''''"
+        [headerClass]="''''"
+        [validator]="self.validator"
+        [validatorGroupName]="''modifiers''"
+        [containFields]=''[]''
+      >
+        <ng-template crPanelContent>
+          <div class="cr-grid-wrapper-new">
+    <cr-item-item-modifier
+        [itemId]="self.item.id"
+        [isDeleted]="self.item.isDeleted"
+        (onOpenModifiersGroupList)="self.onOpenModifiersGroupListPopup()"
+        (onOpenModifiersTemplateList)="self.onOpenModifiersTemplateListPopup()"
+        (onSelectModifierGroups)="self.onSelectModifierGroups($event)"
+        [class]=''""''
+    ></cr-item-item-modifier>
+</div>
+        </ng-template>
+      </cr-panel>
+        </ng-template>
+        <ng-template [ngIf]="self.item.isComboMeal">
+            
+      <cr-panel
+        [panelTemplateType]="''collapsible-panel''"
+        [expanded]="self.panelsViewState?.[''comboMeal''] ?? false"
+        (expandedChange)="self.panelStateChange(''comboMeal'', $event)"
+        [titleTranslateKey]="true ? ''ITEM.DETAILS.PANEL.COMBO_MEAL_LIST'' : null"
+        [title]="true ? null : ''Combo meal categories he''"
+        [customClass]="''''"
+        [headerClass]="''''"
+        [validator]="self.validator"
+        [validatorGroupName]="''comboMeal''"
+        [containFields]=''[]''
+      >
+        <ng-template crPanelContent>
+          <div class="cr-grid-wrapper-new">
+    <cr-item-combo-meal-category-list
+        [itemId]="self.item.id"
+        [isDeleted]="self.item.isDeleted"
+        (openComboMealCategoryDetails)="self.onOpenComboMealDetailsPopup($event)"
+        (openComboMealCategoryNew)="self.onOpenComboMealNewPopup()"
+        [class]=''""''
+    ></cr-item-combo-meal-category-list>
+</div>
+        </ng-template>
+      </cr-panel>
+        </ng-template>
+        <div [class]="''cr-footer-view''">
+            <div class="cr-footer-flex-wrapper" [class]=''""''>
+    <div class="cr-footer-flex-column">
+        <cr-text-field-control
+            [dataLabel]="''''"
+            [dataLabelTranslateKeys]="''COMMON.CREATION_DATE''"
+        ></cr-text-field-control>
+    </div>
+    <div class="cr-footer-flex-column">
+        <cr-text-field-control
+            [isUnderline]="true"
+            [dataLabel]="self.item?.createDate | stringToDate | date:currentDateFormatPattern">
+        </cr-text-field-control>
+    </div>
+</div>
+<div class="cr-footer-flex-wrapper" [class]=''""''>
+    <div class="cr-footer-flex-column">
+        <cr-text-field-control
+            [dataLabel]="''''"
+            [dataLabelTranslateKeys]="''COMMON.UPDATE_DATE''"
+        ></cr-text-field-control>
+    </div>
+    <div class="cr-footer-flex-column">
+        <cr-text-field-control
+            [isUnderline]="true"
+            [dataLabel]="self.item?.updateDate | stringToDate | date:currentDateFormatPattern">
+        </cr-text-field-control>
+    </div>
+</div>
+
+        </div>
+        </ng-template>
       </ng-template>
     </ng-template>
     
+        <ng-template [ngSwitchCase]="''image-content-create''">
+          <ng-template
+            [ngIf]="self.popupTab.tabs[self.popupTab.activeTabIndex].type == ''image-content-create'' && self.popupTab.activeTabIndex == i">
+            <div *ngIf=''self.popupTab.activeTabIndex != self.popupTab.tabs.length - 1'' class=''cr-popup-blocker''></div>
+            <cr-image-basket-details
+    [subTemplateId]="''D98D4CF1-1D6B-ED11-835F-02F176033DDB''"
+    [image]="self.cache.selectedImageBasketContent"
+    [isNew]="true"
+    [validator]="self.itemImageBasketContentValidator"
+    [permissionSettings]="{
+        isAccessRead: (self.EndpointName.item__file_storage_basket_content_GET | endpointAccessGrantedPipe),
+        isAccessCreate: !self.item.isDeleted && (self.EndpointName.item__file_storage_basket_content_POST | endpointAccessGrantedPipe)
+    }"
+    (closePopup)="self.removePopupTab(popupTab.activeTabIndex)"
+    (create)="self.onCreateImageBasketContent($event)"
+></cr-image-basket-details>
+          </ng-template>
+        </ng-template>
+      
+        <ng-template [ngSwitchCase]="''image-content-update''">
+          <ng-template
+            [ngIf]="self.popupTab.tabs[self.popupTab.activeTabIndex].type == ''image-content-update'' && self.popupTab.activeTabIndex == i">
+            <div *ngIf=''self.popupTab.activeTabIndex != self.popupTab.tabs.length - 1'' class=''cr-popup-blocker''></div>
+            <cr-image-basket-details
+    [subTemplateId]="''38B2C3FD-1D6B-ED11-835F-02F176033DDB''"
+    [image]="self.cache.selectedImageBasketContent"
+    [isNew]="false"
+    [validator]="self.itemImageBasketContentValidator"
+    [permissionSettings]="{
+        isAccessRead: (self.EndpointName.item__file_storage_basket_content_GET | endpointAccessGrantedPipe),
+        isAccessDelete: !self.item.isDeleted && (EndpointName.item__file_storage_basket_content_id_DELETE | endpointAccessGrantedPipe),
+        isAccessUpdate: !self.item.isDeleted && (EndpointName.item__file_storage_basket_content_id_PUT | endpointAccessGrantedPipe)
+    }"
+    (closePopup)="self.removePopupTab(popupTab.activeTabIndex)"
+    (update)="self.onUpdateImageBasketContent($event)"
+    (delete)="self.onDeleteImageBasketContentPopUp($event)"
+    (refresh)="self.onRefreshImageBasketContent()"
+></cr-image-basket-details>
+          </ng-template>
+        </ng-template>
+      
+        <ng-template [ngSwitchCase]="''modifiers-template-list''">
+          <ng-template
+            [ngIf]="self.popupTab.tabs[self.popupTab.activeTabIndex].type == ''modifiers-template-list'' && self.popupTab.activeTabIndex == i">
+            <div *ngIf=''self.popupTab.activeTabIndex != self.popupTab.tabs.length - 1'' class=''cr-popup-blocker''></div>
+            <cr-item-item-modifier-template-list
+    [subTemplateId]="''2F906084-986C-ED11-835F-02F176033DDB''"
+    [selected]="self.cache.selectedModifierGroups"
+    (onSelection)="self.onSelectModifierGroups($event)"
+    (onUpdate)="self.onUpdateModifierGroups($event)"
+></cr-item-item-modifier-template-list>
+          </ng-template>
+        </ng-template>
+      
+        <ng-template [ngSwitchCase]="''modifiers-group-list''">
+          <ng-template
+            [ngIf]="self.popupTab.tabs[self.popupTab.activeTabIndex].type == ''modifiers-group-list'' && self.popupTab.activeTabIndex == i">
+            <div *ngIf=''self.popupTab.activeTabIndex != self.popupTab.tabs.length - 1'' class=''cr-popup-blocker''></div>
+            <cr-item-item-modifier-group-list
+    [subTemplateId]="''A7F3165F-996C-ED11-835F-02F176033DDB''"
+    [selected]="self.cache.selectedModifierGroups"
+    (onSelection)="self.onSelectModifierGroups($event)"
+    (onUpdate)="self.onUpdateModifierGroups($event)"
+></cr-item-item-modifier-group-list>
+          </ng-template>
+        </ng-template>
+      
+        <ng-template [ngSwitchCase]="''combo-meal-category-new''">
+          <ng-template
+            [ngIf]="self.popupTab.tabs[self.popupTab.activeTabIndex].type == ''combo-meal-category-new'' && self.popupTab.activeTabIndex == i">
+            <div *ngIf=''self.popupTab.activeTabIndex != self.popupTab.tabs.length - 1'' class=''cr-popup-blocker''></div>
+            <cr-item-combo-meal-category-details
+    [subTemplateId]="''945629E2-A86C-ED11-835F-02F176033DDB''"
+    [isNew]="self.cache.isNewComboMealCategory"
+    [comboMealCategoryId]="self.cache.selectedComboMealCategory"
+    [itemId]="self.item.id"
+    [isDeleted]="self.item.isDeleted"
+    (closePopup)="self.onComboMealPopupClose($event)"
+    (selectFromCatalog)="self.onComboMealItemSelectFromCatalog()"
+    (selectFromBasket)="self.onComboMealItemSelectFromBasket()"
+></cr-item-combo-meal-category-details>
+          </ng-template>
+        </ng-template>
+      
+        <ng-template [ngSwitchCase]="''combo-meal-category-details''">
+          <ng-template
+            [ngIf]="self.popupTab.tabs[self.popupTab.activeTabIndex].type == ''combo-meal-category-details'' && self.popupTab.activeTabIndex == i">
+            <div *ngIf=''self.popupTab.activeTabIndex != self.popupTab.tabs.length - 1'' class=''cr-popup-blocker''></div>
+            <cr-item-combo-meal-category-details
+    [subTemplateId]="''D0B506ED-A86C-ED11-835F-02F176033DDB''"
+    [isNew]="self.cache.isNewComboMealCategory"
+    [comboMealCategoryId]="self.cache.selectedComboMealCategory"
+    [itemId]="self.item.id"
+    [isDeleted]="self.item.isDeleted"
+    (closePopup)="self.onComboMealPopupClose($event)"
+    (selectFromCatalog)="self.onComboMealItemSelectFromCatalog()"
+    (selectFromBasket)="self.onComboMealItemSelectFromBasket()"
+></cr-item-combo-meal-category-details>
+          </ng-template>
+        </ng-template>
+      
+        <ng-template [ngSwitchCase]="''combo-meal-category-item-select-from-catalog''">
+          <ng-template
+            [ngIf]="self.popupTab.tabs[self.popupTab.activeTabIndex].type == ''combo-meal-category-item-select-from-catalog'' && self.popupTab.activeTabIndex == i">
+            <div *ngIf=''self.popupTab.activeTabIndex != self.popupTab.tabs.length - 1'' class=''cr-popup-blocker''></div>
+            <cr-item-combo-meal-category-select-from-catalog
+    [subTemplateId]="''720E3302-E96C-ED11-835F-02F176033DDB''"
+    (closePopup)="self.onComboMealItemSelectFromCatalogPopupClose()"
+    (confirm)="self.onComboMealItemSelectFromCatalogPopupClose()"
+></cr-item-combo-meal-category-select-from-catalog>
+          </ng-template>
+        </ng-template>
+      
+        <ng-template [ngSwitchCase]="''combo-meal-category-item-select-from-basket''">
+          <ng-template
+            [ngIf]="self.popupTab.tabs[self.popupTab.activeTabIndex].type == ''combo-meal-category-item-select-from-basket'' && self.popupTab.activeTabIndex == i">
+            <div *ngIf=''self.popupTab.activeTabIndex != self.popupTab.tabs.length - 1'' class=''cr-popup-blocker''></div>
+            <cr-item-combo-meal-category-select-from-basket
+    [subTemplateId]="''9804E012-E96C-ED11-835F-02F176033DDB''"
+    (closePopup)="self.onComboMealItemSelectFromBasketPopupClose()"
+    (confirm)="self.onComboMealItemSelectFromBasketPopupClose()"
+    (openItemBasket)="self.onOpenComboMealItemBasketDetails($event)"
+></cr-item-combo-meal-category-select-from-basket>
+          </ng-template>
+        </ng-template>
+      
+        <ng-template [ngSwitchCase]="''manage-combo-meal-baskets-item''">
+          <ng-template
+            [ngIf]="self.popupTab.tabs[self.popupTab.activeTabIndex].type == ''manage-combo-meal-baskets-item'' && self.popupTab.activeTabIndex == i">
+            <div *ngIf=''self.popupTab.activeTabIndex != self.popupTab.tabs.length - 1'' class=''cr-popup-blocker''></div>
+            <cr-basket-population-edit
+    [subTemplateId]="''B315D290-F36C-ED11-835F-02F176033DDB''"
+    (cancel)="self.onCancelPopulation()"
+    (confirm)="self.savePopulation($event)"
+    [basket]="self.comboMealItemBasket.baskets[self.comboMealItemBasket.selectedBasketIndex]?.populationDetails"
+    [cacheName]="''itemPopulationDropdown''"
+    [lastExcludeNumber]="self.comboMealItemBasket.lastExcludeNumber"
+    [lastIncludeNumber]="self.comboMealItemBasket.lastIncludeNumber"
+    [propertyDropdownFn]="self.itemCriteriaPropertiesDropdownFn"
+    [titleContentTranslateKey]="''COMMON.BASKET.BASKET_EDIT.TITLE_CREATE_ITEM_CONTENT_POPULATION''"
+    [titleTranslateKey]="''COMMON.BASKET.BASKET_EDIT.TITLE_MANAGE_ITEM_POPULATION''"
+    [typeDropdownFn]="self.itemCriteriaDropdownFn"
+    [valueDropdownFn]="self.itemCriteriaValuesDropdownFn"
+    [basketTypeFn$]="self.basketTypeFn"
+></cr-basket-population-edit>
+          </ng-template>
+        </ng-template>
+      
+        <ng-template [ngSwitchCase]="''create-combo-meal-baskets-item''">
+          <ng-template
+            [ngIf]="self.popupTab.tabs[self.popupTab.activeTabIndex].type == ''create-combo-meal-baskets-item'' && self.popupTab.activeTabIndex == i">
+            <div *ngIf=''self.popupTab.activeTabIndex != self.popupTab.tabs.length - 1'' class=''cr-popup-blocker''></div>
+            <cr-basket-population-edit
+    [subTemplateId]="''5C4DEB84-F36C-ED11-835F-02F176033DDB''"
+    (cancel)="self.onCancelPopulation()"
+    (confirm)="self.createPopulation($event)"
+    [cacheName]="''promotionPopulationDropdown''"
+    [lastExcludeNumber]="self.comboMealItemBasket.lastExcludeNumber"
+    [lastIncludeNumber]="self.comboMealItemBasket.lastIncludeNumber"
+    [propertyDropdownFn]="self.itemCriteriaPropertiesDropdownFn"
+    [titleContentTranslateKey]="''COMMON.BASKET.BASKET_EDIT.TITLE_CREATE_ITEM_CONTENT_POPULATION''"
+    [titleTranslateKey]="''COMMON.BASKET.BASKET_EDIT.TITLE_CREATE_ITEM_POPULATION''"
+    [typeDropdownFn]="self.itemCriteriaDropdownFn"
+    [valueDropdownFn]="self.itemCriteriaValuesDropdownFn"
+    [basketTypeFn$]="self.basketTypeFn"
+></cr-basket-population-edit>
+          </ng-template>
+        </ng-template>
+      
               </ng-container>
             </ng-container>
           </div>
-        </div>', '2022-11-04 19:30:31.8600000 +00:00', 11, N'N', 'dfdb82cc-b4d3-4e95-8177-5de7c0b0c803', 1, NULL)
-INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID], [BookmarkName], [BookmarkDescription], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('ff819b05-4351-ed11-8e5d-4ccc6a2bb6d6', 'dcae82e8-4251-ed11-8e5d-4ccc6a2bb6d6', 2, NULL, NULL, N'
+        </div>', '2022-11-26 17:15:15.7566667 +00:00', 77, N'N', '5b02b1c9-f2af-4748-8ac8-ec6ee6e12a90', 1, NULL)
+INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID], [BookmarkName], [BookmarkDescription], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('2f660511-fc64-ed11-8e60-4ccc6a2bb6d6', '2d660511-fc64-ed11-8e60-4ccc6a2bb6d6', 2, NULL, NULL, N'
         <div class=''cr-popup-content-wrapper'' [class.cr-popup-is-shown]=''self.popupTab.tabs.length > 1''>
           <cr-popup-tabs
             [popupTabs]=''self.popupTab.tabs''
@@ -10999,137 +14668,1244 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
     <ng-template [ngSwitchCase]="''general''">
       <ng-template [ngIf]="self.popupTab.tabs[self.popupTab.activeTabIndex].type == ''general'' && self.popupTab.activeTabIndex == i">
         <div *ngIf=''self.popupTab.activeTabIndex != self.popupTab.tabs.length - 1'' class=''cr-popup-blocker''></div>
-        <cr-title-header
-    [titleTranslateKey]="''TAX_GROUP.DETAILS.TITLE''"
+        
+        <ng-template [ngIf]="self.item">
+            <cr-title-header
+    [titleTranslateKey]="''ITEM.DETAILS.TITLE''"
     [title]="''''"
     (buttonClickEvent)="self.onTitleButtonClick($event)"
+    [additionalTranslateKeys]="''COMMON.NEW''"
+    [titleValueTranslateKey]="self.isNewItem ? ''COMMON.NEW'' : null"
     [buttonSettings]="self.titleHeaderButtonSettings"
     [titleValue]="self.titleValueText"
 ></cr-title-header>
+
       <cr-panel
         [panelTemplateType]="''well''"
         [customClass]="''''"
       >
         <ng-template crPanelContent>
-          <div class="row"><div class=''col-md-2''><cr-control-edit
-    [(dataValue)]="self.taxGroup.code"
-    [elementName]="''edit:TaxGroup_details.Code''"
-    [validator]="self.validator"
-    [validationField]="''code''"
-    (dataValueChange)="self.onChangeTitleValue()"
-    [translateKeys]="''TAX_GROUP.DETAILS.CODE''" 
+          <div class="row cr-bottom-row-border"><div class=''col-md-2''><cr-control-edit 
+    [translateKeys]="''ITEM.DETAILS.HEADER.ITEM_CODE''" 
     [dataLabel]="''''"
     [customClass]=''""''
-    [isDisabled]="self.taxGroup.isPredefined || false"
-></cr-control-edit></div><div class=''col-md-2''><cr-control-edit
-    [(dataValue)]="self.taxGroup.name"
-    [elementName]="''edit:TaxGroup_details.Name''"
+    [isDisabled]="false || !self.isNewItem || self.item.isDeleted"
+    [elementName]="''edit:Item_details.Item_code''"
+    [(dataValue)]="self.item.code"
+    [permissionSettings]="{
+        isAccessEdit: self.isNewItem ? (self.EndpointName.item_POST | endpointAccessGrantedPipe) :
+            (self.EndpointName.item_id_PUT | endpointAccessGrantedPipe)
+    }"
+    [validationField]="''code''"
     [validator]="self.validator"
-    [validationField]="''name''"
-    [translateKeys]="''TAX_GROUP.DETAILS.NAME''" 
+></cr-control-edit></div><div class=''col-md-2''><cr-control-edit 
+    [translateKeys]="''ITEM.DETAILS.HEADER.SHORT_DISPLAY_NAME''" 
+    [dataLabel]="''''"
+    [customClass]=''""''
+    [isDisabled]="false || self.item.isDeleted"
+    [elementName]="''edit:Item_details.Display_name''"
+    [(dataValue)]="self.item.shortDisplayName"
+    (dataValueChange)="self.changeTitle()"
+    [permissionSettings]="{
+        isAccessEdit: self.isNewItem ? (self.EndpointName.item_POST | endpointAccessGrantedPipe) :
+            (self.EndpointName.item_id_PUT | endpointAccessGrantedPipe)
+    }"
+    [validationField]="''shortDisplayName''"
+    [validator]="self.validator"
+></cr-control-edit></div><div class=''col-md-2''><cr-dropdown-smart-control
+    [elementName]="''smart-dropdown:Item_details.Model''"
+    [permissionSettings]="{
+        isAccessRead: (self.EndpointName.item__item_model_id_dropdown_GET | endpointAccessGrantedPipe),
+        isAccessEdit: (self.isNewItem ? (self.EndpointName.item_POST | endpointAccessGrantedPipe) :
+            (self.EndpointName.item_id_PUT | endpointAccessGrantedPipe)) &&
+            (self.EndpointName.item__item_model_dropdown_GET | endpointAccessGrantedPipe)
+    }"
+    [isDisabled]="self.item.isDeleted"
+    [dataCacheName]="''ItemModelValueDropdownCache''"
+    [(value)]="self.item.itemModelID"
+    [textField]="''name''"
+    [codeField]="''code''"
+    [valueField]="''id''"
+    [useCodeInList]="true"
+    [useCodeInValue]="true"
+    [getOneItemFunction]="self.loadModelDropdownFunction"
+    [getListItemsFunction]="self.loadModelsListDropdownFunction"
+    [listItemsFunctionAdditionalParameter]="self.item.itemModelID"
+    [unselectedItemValue]="{id: null, translateKey: ''COMMON.MOCK_OBJ.NOT_SELECTED''}"
+    [dataTranslateKeyField]="''translateKey''"
+    [labelTranslateKey]="''ITEM.DETAILS.HEADER.MODEL''"
+    [label]="''''"
+    [class]=''""''
+></cr-dropdown-smart-control></div><div class=''col-md-2''><cr-control-edit
+    [elementName]="''edit:Item_details.Short_print_name''"
+    [permissionSettings]="{
+        isAccessEdit: self.isNewItem ? (self.EndpointName.item_POST | endpointAccessGrantedPipe) :
+            (self.EndpointName.item_id_PUT | endpointAccessGrantedPipe)
+    }"
+    [(dataValue)]="self.item.shortPrintName"
+    [validator]="self.validator"
+    [validationField]="''shortPrintName''"
+    [translateKeys]="''ITEM.DETAILS.HEADER.SHORT_PRINT_NAME''" 
     [dataLabel]="''''"
     [customClass]=''""''
     [isDisabled]="false"
-></cr-control-edit></div></div>
+></cr-control-edit></div><div class=''col-md-2''><cr-control-datepicker
+    [elementName]="''date:Item_details.Registration_date''"
+    [permissionSettings]="{
+        isAccessEdit: self.isNew ? self.authService.getEndpointAccessGranted(self.EndpointName.item_POST) :
+            self.authService.getEndpointAccessGranted(self.EndpointName.item_id_PUT)
+    }"
+
+    [(dataValue)]="self.item.registrationDate"
+    [dataLabel]="''''"
+    [translateKeys]="''ITEM.DETAILS.HEADER.REGISTRATION_DATE''"
+    [class]=''""'' 
+    [isDisabled]="self.item.isDeleted || false"
+></cr-control-datepicker></div></div><div class="row cr-bottom-row-border"><div class=''col-md-2''><cr-dropdown-smart-control
+    [elementName]="''smart-dropdown:Item_details.Metric_type_1''"
+    [permissionSettings]="{
+        isAccessRead: (self.EndpointName.item__item_metric_type_id_GET | endpointAccessGrantedPipe),
+        isAccessEdit: (self.isNewItem ? (self.EndpointName.item_POST | endpointAccessGrantedPipe) :
+            (self.EndpointName.item_id_PUT | endpointAccessGrantedPipe)) &&
+            (self.EndpointName.item__item_metric_type_GET | endpointAccessGrantedPipe)
+    }"
+    [isDisabled]="self.item.isDeleted"
+    [dataCacheName]="''ItemMetricTypeFirstDropdownCache''"
+    (currentItemValueChange)="self.metricTypeChanged(''metric1'')"
+    [(value)]="self.item.metric1.type"
+    [textField]="''displayName''"
+    [codeField]="''code''"
+    [valueField]="''id''"
+    [useCodeInList]="true"
+    [useCodeInValue]="true"
+    [getOneItemFunction]="self.loadItemMetricTypeForDropdownFunction"
+    [getListItemsFunction]="self.loadItemMetricTypeListForDropdownFunction"
+    [unselectedItemValue]="{id: null, translateKey: ''COMMON.MOCK_OBJ.NOT_SELECTED''}"
+    [dataTranslateKeyField]="''translateKey''"
+    [validator]="self.validator"
+    [validationField]="''metric1''"
+    [labelTranslateKey]="''ITEM.DETAILS.HEADER.METRIC_TYPE1''"
+    [label]="''''"
+    [class]=''""''
+></cr-dropdown-smart-control></div><div class=''col-md-2''><cr-dropdown-smart-control
+    [elementName]="''smart-dropdown:Item_details.Metric_value_1''"
+    [permissionSettings]="{
+        isAccessRead: (self.EndpointName.item__item_metric_type_metricTypeId_value_id_dropdown_GET | endpointAccessGrantedPipe),
+        isAccessEdit: (self.isNewItem ? (self.EndpointName.item_POST | endpointAccessGrantedPipe) :
+            (self.EndpointName.item_id_PUT | endpointAccessGrantedPipe)) &&
+            (self.EndpointName.item__item_metric_type_metricTypeId_value_dropdown_GET | endpointAccessGrantedPipe)
+    }"
+    [isDisabled]="!self.item.metric1.type || self.item.isDeleted"
+    [dataCacheName]="''ItemMetricValueFirstDropdownCache''"
+    [(value)]="self.item.metric1.value"
+    [textField]="''name''"
+    [codeField]="''code''"
+    [valueField]="''id''"
+    [useCodeInList]="true"
+    [useCodeInValue]="true"
+    [getOneItemFunction]="self.loadItemMetricValueForDropdownFunction"
+    [getListItemsFunction]="self.loadItemMetricValueListForDropdownFunction"
+    [listItemsFunctionAdditionalParameter]="self.item.metric1.type"
+    [unselectedItemValue]="{id: null, translateKey: ''COMMON.MOCK_OBJ.NOT_SELECTED''}"
+    [dataTranslateKeyField]="''translateKey''"
+    [validator]="self.validator"
+    [validationField]="''metric1''"
+    [labelTranslateKey]="''ITEM.DETAILS.HEADER.METRIC_VALUE1''"
+    [label]="''''"
+    [class]=''""''
+></cr-dropdown-smart-control></div><div class=''col-md-2''><cr-dropdown-smart-control
+    [elementName]="''smart-dropdown:Item_details.Metric_type_2''"
+    [permissionSettings]="{
+        isAccessRead: (self.EndpointName.item__item_metric_type_id_GET | endpointAccessGrantedPipe),
+        isAccessEdit: (self.isNewItem ? (self.EndpointName.item_POST | endpointAccessGrantedPipe) :
+            (self.EndpointName.item_id_PUT | endpointAccessGrantedPipe)) &&
+            (self.EndpointName.item__item_metric_type_GET | endpointAccessGrantedPipe)
+    }"
+    [isDisabled]="self.item.isDeleted"
+    [dataCacheName]="''ItemMetricTypeSecondDropdownCache''"
+    (currentItemValueChange)="self.metricTypeChanged(''metric2'')"
+    [(value)]="self.item.metric2.type"
+    [textField]="''displayName''"
+    [codeField]="''code''"
+    [valueField]="''id''"
+    [useCodeInList]="true"
+    [useCodeInValue]="true"
+    [getOneItemFunction]="self.loadItemMetricTypeForDropdownFunction"
+    [getListItemsFunction]="self.loadItemMetricTypeListForDropdownFunction"
+    [unselectedItemValue]="{id: null, translateKey: ''COMMON.MOCK_OBJ.NOT_SELECTED''}"
+    [dataTranslateKeyField]="''translateKey''"
+    [validator]="self.validator"
+    [validationField]="''metric2''"
+    [labelTranslateKey]="''ITEM.DETAILS.HEADER.METRIC_TYPE2''"
+    [label]="''''"
+    [class]=''""''
+></cr-dropdown-smart-control></div><div class=''col-md-2''><cr-dropdown-smart-control
+    [elementName]="''smart-dropdown:Item_details.Metric_value_2''"
+    [permissionSettings]="{
+        isAccessRead: (self.EndpointName.item__item_metric_type_metricTypeId_value_id_dropdown_GET | endpointAccessGrantedPipe),
+        isAccessEdit: (self.isNewItem ? (self.EndpointName.item_POST | endpointAccessGrantedPipe) :
+            (self.EndpointName.item_id_PUT | endpointAccessGrantedPipe)) &&
+            (self.EndpointName.item__item_metric_type_metricTypeId_value_dropdown_GET | endpointAccessGrantedPipe)
+    }"
+    [isDisabled]="!self.item.metric2.type || self.item.isDeleted"
+    [dataCacheName]="''ItemMetricValueSecondDropdownCache''"
+    [(value)]="self.item.metric2.value"
+    [textField]="''name''"
+    [codeField]="''code''"
+    [valueField]="''id''"
+    [useCodeInList]="true"
+    [useCodeInValue]="true"
+    [getOneItemFunction]="self.loadItemMetricValueForDropdownFunction"
+    [getListItemsFunction]="self.loadItemMetricValueListForDropdownFunction"
+    [listItemsFunctionAdditionalParameter]="self.item.metric2.type"
+    [unselectedItemValue]="{id: null, translateKey: ''COMMON.MOCK_OBJ.NOT_SELECTED''}"
+    [dataTranslateKeyField]="''translateKey''"
+    [validator]="self.validator"
+    [validationField]="''metric2''"
+    [labelTranslateKey]="''ITEM.DETAILS.HEADER.METRIC_VALUE2''"
+    [label]="''''"
+    [class]=''""''
+></cr-dropdown-smart-control></div><div class=''col-md-2''><cr-dropdown-smart-control
+    [elementName]="''smart-dropdown:Item_details.Metric_type_3''"
+    [permissionSettings]="{
+        isAccessRead: (self.EndpointName.item__item_metric_type_id_GET | endpointAccessGrantedPipe),
+        isAccessEdit: (self.isNewItem ? (self.EndpointName.item_POST | endpointAccessGrantedPipe) :
+            (self.EndpointName.item_id_PUT | endpointAccessGrantedPipe)) &&
+            (self.EndpointName.item__item_metric_type_GET | endpointAccessGrantedPipe)
+    }"
+    [isDisabled]="self.item.isDeleted"
+    [dataCacheName]="''ItemMetricTypeThirdDropdownCache''"
+    (currentItemValueChange)="self.metricTypeChanged(''metric3'')"
+    [(value)]="self.item.metric3.type"
+    [textField]="''displayName''"
+    [codeField]="''code''"
+    [valueField]="''id''"
+    [useCodeInList]="true"
+    [useCodeInValue]="true"
+    [getOneItemFunction]="self.loadItemMetricTypeForDropdownFunction"
+    [getListItemsFunction]="self.loadItemMetricTypeListForDropdownFunction"
+    [unselectedItemValue]="{id: null, translateKey: ''COMMON.MOCK_OBJ.NOT_SELECTED''}"
+    [dataTranslateKeyField]="''translateKey''"
+    [validator]="self.validator"
+    [validationField]="''metric3''"
+    [labelTranslateKey]="''ITEM.DETAILS.HEADER.METRIC_TYPE3''"
+    [label]="''''"
+    [class]=''""''
+></cr-dropdown-smart-control></div><div class=''col-md-2''><cr-dropdown-smart-control
+    [elementName]="''smart-dropdown:Item_details.Metric_value_3''"
+    [permissionSettings]="{
+        isAccessRead: (self.EndpointName.item__item_metric_type_metricTypeId_value_id_dropdown_GET | endpointAccessGrantedPipe),
+        isAccessEdit: (self.isNewItem ? (self.EndpointName.item_POST | endpointAccessGrantedPipe) :
+            (self.EndpointName.item_id_PUT | endpointAccessGrantedPipe)) &&
+            (self.EndpointName.item__item_metric_type_metricTypeId_value_dropdown_GET | endpointAccessGrantedPipe)
+    }"
+    [isDisabled]="!self.item.metric3.type || self.item.isDeleted"
+    [dataCacheName]="''ItemMetricValueThirdDropdownCache''"
+    [(value)]="self.item.metric3.value"
+    [textField]="''name''"
+    [codeField]="''code''"
+    [valueField]="''id''"
+    [useCodeInList]="true"
+    [useCodeInValue]="true"
+    [getOneItemFunction]="self.loadItemMetricValueForDropdownFunction"
+    [getListItemsFunction]="self.loadItemMetricValueListForDropdownFunction"
+    [listItemsFunctionAdditionalParameter]="self.item.metric3.type"
+    [unselectedItemValue]="{id: null, translateKey: ''COMMON.MOCK_OBJ.NOT_SELECTED''}"
+    [dataTranslateKeyField]="''translateKey''"
+    [validator]="self.validator"
+    [validationField]="''metric3''"
+    [labelTranslateKey]="''ITEM.DETAILS.HEADER.METRIC_VALUE3''"
+    [label]="''''"
+    [class]=''""''
+></cr-dropdown-smart-control></div></div>
         </ng-template>
       </cr-panel>
       <cr-panel
         [panelTemplateType]="''collapsible-panel''"
-        [expanded]="self.panelsViewState?.[''taxDefinition''] ?? true"
-        (expandedChange)="self.panelStateChange(''taxDefinition'', $event)"
-        [titleTranslateKey]="true ? ''TAX_GROUP.DETAILS.PANEL.TITLE_DEFINITIONS'' : null"
-        [title]="true ? null : ''Tax definitions''"
+        [expanded]="self.panelsViewState?.[''general''] ?? false"
+        (expandedChange)="self.panelStateChange(''general'', $event)"
+        [titleTranslateKey]="true ? ''ITEM.DETAILS.PANEL.GENERAL'' : null"
+        [title]="true ? null : ''General''"
         [customClass]="''''"
         [headerClass]="''''"
         [validator]="self.validator"
-        [validatorGroupName]="''taxDefinition''"
+        [validatorGroupName]="''general''"
+        [containFields]=''["itemHierarchyValues.1","supplierCatNum","validFrom","validTo","frozenFrom","frozenTo"]''
+      >
+        <ng-template crPanelContent>
+          <div class="row cr-bottom-row-border"><div class=''col-md-2''><cr-dropdown-smart-control
+    [elementName]="''smart-dropdown:Item_details.Hierarchy_1''"
+    [permissionSettings]="{
+        isAccessRead: (self.EndpointName.item__item_hierarchy_level_id_dropdown_GET | endpointAccessGrantedPipe),
+        isAccessEdit: (self.isNewItem ? (self.EndpointName.item_POST | endpointAccessGrantedPipe) :
+                      (self.EndpointName.item_id_PUT | endpointAccessGrantedPipe)) &&
+                      (self.EndpointName.item__item_hierarchy_level_dropdown_GET | endpointAccessGrantedPipe)
+    }"
+    [isDisabled]="self.item.isDeleted"
+    [requestDataWhenOpen]="true"
+    [dataCacheName]="''ItemHierarchyLevel1DropdownCache''"
+    (valueChange)="self.onSelectValue($event, 1)"
+    [(value)]="self.item.itemHierarchyValues[''1'']"
+    [listItemsFunctionAdditionalParameter]="{hierarchyLevel: 1, hierarchyParentId: null}"
+    [textField]="''name''"
+    [codeField]="''code''"
+    [valueField]="''id''"
+    [useCodeInList]="true"
+    [useCodeInValue]="true"
+    [getListItemsFunction]="self.loadItemHierarchyListDropdownFunction"
+    [getOneItemFunction]="self.loadItemHierarchyDropdownFunction"
+    [unselectedItemValue]="{id: null, translateKey: ''COMMON.MOCK_OBJ.NOT_SELECTED''}"
+    [dataTranslateKeyField]="''translateKey''"
+    [validator]="self.validator"
+    [validationField]="''itemHierarchyValues.1''"
+    [labelTranslateKey]="''''"
+    [label]="true ? self.levelLabels?.levelLabels[''1''] : ''undefined''"
+    [class]=''""''
+></cr-dropdown-smart-control></div><div class=''col-md-2''><cr-dropdown-smart-control
+    [elementName]="''smart-dropdown:Item_details.Hierarchy_2''"
+    [permissionSettings]="{
+        isAccessRead: (self.EndpointName.item__item_hierarchy_level_id_dropdown_GET | endpointAccessGrantedPipe),
+        isAccessEdit: (self.isNewItem ? (self.EndpointName.item_POST | endpointAccessGrantedPipe) :
+                      (self.EndpointName.item_id_PUT | endpointAccessGrantedPipe)) &&
+                      (self.EndpointName.item__item_hierarchy_level_dropdown_GET | endpointAccessGrantedPipe)
+    }"
+    [isDisabled]="!self.item.itemHierarchyValues[''1''] || self.item.isDeleted"
+    [requestDataWhenOpen]="true"
+    [dataCacheName]="''ItemHierarchyLevel2DropdownCache''"
+    (valueChange)="self.onSelectValue($event, 2)"
+    [(value)]="self.item.itemHierarchyValues[''2'']"
+    [listItemsFunctionAdditionalParameter]="{hierarchyLevel: 2, hierarchyParentId: self.item.itemHierarchyValues[''1'']}"
+    [textField]="''name''"
+    [codeField]="''code''"
+    [valueField]="''id''"
+    [useCodeInList]="true"
+    [useCodeInValue]="true"
+    [getListItemsFunction]="self.loadItemHierarchyListDropdownFunction"
+    [getOneItemFunction]="self.loadItemHierarchyDropdownFunction"
+    [unselectedItemValue]="{id: null, translateKey: ''COMMON.MOCK_OBJ.NOT_SELECTED''}"
+    [dataTranslateKeyField]="''translateKey''"
+    [labelTranslateKey]="''''"
+    [label]="true ? self.levelLabels?.levelLabels[''2''] : ''undefined''"
+    [class]=''""''
+></cr-dropdown-smart-control></div><div class=''col-md-2''><cr-dropdown-smart-control
+    [elementName]="''smart-dropdown:Item_details.Hierarchy_3''"
+    [permissionSettings]="{
+        isAccessRead: (self.EndpointName.item__item_hierarchy_level_id_dropdown_GET | endpointAccessGrantedPipe),
+        isAccessEdit: (self.isNewItem ? (self.EndpointName.item_POST | endpointAccessGrantedPipe) :
+                      (self.EndpointName.item_id_PUT | endpointAccessGrantedPipe)) &&
+                      (self.EndpointName.item__item_hierarchy_level_dropdown_GET | endpointAccessGrantedPipe)
+    }"
+    [isDisabled]="!self.item.itemHierarchyValues[''2''] || self.item.isDeleted"
+    [requestDataWhenOpen]="true"
+    [dataCacheName]="''ItemHierarchyLevel3DropdownCache''"
+    (valueChange)="self.onSelectValue($event, 3)"
+    [(value)]="self.item.itemHierarchyValues[''3'']"
+    [listItemsFunctionAdditionalParameter]="{hierarchyLevel: 3, hierarchyParentId: self.item.itemHierarchyValues[''2'']}"
+    [textField]="''name''"
+    [codeField]="''code''"
+    [valueField]="''id''"
+    [useCodeInList]="true"
+    [useCodeInValue]="true"
+    [getListItemsFunction]="self.loadItemHierarchyListDropdownFunction"
+    [getOneItemFunction]="self.loadItemHierarchyDropdownFunction"
+    [unselectedItemValue]="{id: null, translateKey: ''COMMON.MOCK_OBJ.NOT_SELECTED''}"
+    [dataTranslateKeyField]="''translateKey''"
+    [labelTranslateKey]="''''"
+    [label]="true ? self.levelLabels?.levelLabels[''3''] : ''undefined''"
+    [class]=''""''
+></cr-dropdown-smart-control></div><div class=''col-md-2''><cr-dropdown-smart-control
+    [elementName]="''smart-dropdown:Item_details.Hierarchy_4''"
+    [permissionSettings]="{
+        isAccessRead: (self.EndpointName.item__item_hierarchy_level_id_dropdown_GET | endpointAccessGrantedPipe),
+        isAccessEdit: (self.isNewItem ? (self.EndpointName.item_POST | endpointAccessGrantedPipe) :
+                      (self.EndpointName.item_id_PUT | endpointAccessGrantedPipe)) &&
+                      (self.EndpointName.item__item_hierarchy_level_dropdown_GET | endpointAccessGrantedPipe)
+    }"
+    [isDisabled]="!self.item.itemHierarchyValues[''3''] || self.item.isDeleted"
+    [requestDataWhenOpen]="true"
+    [dataCacheName]="''ItemHierarchyLevel4DropdownCache''"
+    (valueChange)="self.onSelectValue($event, 4)"
+    [(value)]="self.item.itemHierarchyValues[''4'']"
+    [listItemsFunctionAdditionalParameter]="{hierarchyLevel: 4, hierarchyParentId: self.item.itemHierarchyValues[''3'']}"
+    [textField]="''name''"
+    [codeField]="''code''"
+    [valueField]="''id''"
+    [useCodeInList]="true"
+    [useCodeInValue]="true"
+    [getListItemsFunction]="self.loadItemHierarchyListDropdownFunction"
+    [getOneItemFunction]="self.loadItemHierarchyDropdownFunction"
+    [unselectedItemValue]="{id: null, translateKey: ''COMMON.MOCK_OBJ.NOT_SELECTED''}"
+    [dataTranslateKeyField]="''translateKey''"
+    [labelTranslateKey]="''''"
+    [label]="true ? self.levelLabels?.levelLabels[''4''] : ''undefined''"
+    [class]=''""''
+></cr-dropdown-smart-control></div><div class=''col-md-2''><cr-dropdown-smart-control
+    [elementName]="''smart-dropdown:Item_details.Hierarchy_5''"
+    [permissionSettings]="{
+        isAccessRead: (self.EndpointName.item__item_hierarchy_level_id_dropdown_GET | endpointAccessGrantedPipe),
+        isAccessEdit: (self.isNewItem ? (self.EndpointName.item_POST | endpointAccessGrantedPipe) :
+                      (self.EndpointName.item_id_PUT | endpointAccessGrantedPipe)) &&
+                      (self.EndpointName.item__item_hierarchy_level_dropdown_GET | endpointAccessGrantedPipe)
+    }"
+    [isDisabled]="!self.item.itemHierarchyValues[''4''] || self.item.isDeleted"
+    [requestDataWhenOpen]="true"
+    [dataCacheName]="''ItemHierarchyLevel5DropdownCache''"
+    (valueChange)="self.onSelectValue($event, 5)"
+    [(value)]="self.item.itemHierarchyValues[''5'']"
+    [listItemsFunctionAdditionalParameter]="{hierarchyLevel: 5, hierarchyParentId: self.item.itemHierarchyValues[''4'']}"
+    [textField]="''name''"
+    [codeField]="''code''"
+    [valueField]="''id''"
+    [useCodeInList]="true"
+    [useCodeInValue]="true"
+    [getListItemsFunction]="self.loadItemHierarchyListDropdownFunction"
+    [getOneItemFunction]="self.loadItemHierarchyDropdownFunction"
+    [unselectedItemValue]="{id: null, translateKey: ''COMMON.MOCK_OBJ.NOT_SELECTED''}"
+    [dataTranslateKeyField]="''translateKey''"
+    [labelTranslateKey]="''''"
+    [label]="true ? self.levelLabels?.levelLabels[''5''] : ''undefined''"
+    [class]=''""''
+></cr-dropdown-smart-control></div><div class=''col-md-2''></div></div><div class="row cr-bottom-row-border"><div class=''col-md-2''><cr-dropdown-smart-control
+    [elementName]="''smart-dropdown:Item_details.Manufacture''"
+    [permissionSettings]="{
+        isAccessRead: (self.EndpointName.item__item_manufacture_id_dropdown_GET | endpointAccessGrantedPipe),
+        isAccessEdit: (self.isNewItem ? (self.EndpointName.item_POST | endpointAccessGrantedPipe) :
+                      (self.EndpointName.item_id_PUT | endpointAccessGrantedPipe)) &&
+                      (self.EndpointName.item__item_manufacture_dropdown_GET | endpointAccessGrantedPipe)
+    }"
+    [isDisabled]="self.item.isDeleted"
+    [dataCacheName]="''ItemManufactureDropdownCache''"
+    [(value)]="self.item.manufactureID"
+    [textField]="''name''"
+    [codeField]="''code''"
+    [valueField]="''id''"
+    [useCodeInList]="true"
+    [useCodeInValue]="true"
+    [getListItemsFunction]="self.loadManufacturesListDropdownFunction"
+    [getOneItemFunction]="self.loadManufactureDropdownFunction"
+    [unselectedItemValue]="{id: null, translateKey: ''COMMON.MOCK_OBJ.NOT_SELECTED''}"
+    [dataTranslateKeyField]="''translateKey''"
+    [labelTranslateKey]="''ITEM.DETAILS.GENERAL.MANUFACTURE''"
+    [label]="''''"
+    [class]=''""''
+></cr-dropdown-smart-control></div><div class=''col-md-2''><cr-control-edit
+    [elementName]="''edit:Item_details.Supplier_cat_num''"
+    [permissionSettings]="{
+        isAccessEdit: self.isNewItem ? (self.EndpointName.item_POST | endpointAccessGrantedPipe) :
+            (self.EndpointName.item_id_PUT | endpointAccessGrantedPipe)
+    }"
+    [(dataValue)]="self.item.supplierCatNum"
+    [validator]="self.validator"
+    [validationField]="''supplierCatNum''"
+    [translateKeys]="''ITEM.DETAILS.GENERAL.SUPPLIER_CAT_NUM''" 
+    [dataLabel]="''''"
+    [customClass]=''""''
+    [isDisabled]="self.item.isDeleted || false"
+></cr-control-edit></div><div class=''col-md-2''><cr-dropdown-smart-control
+    [elementName]="''smart-dropdown:Item_details.General_brand''"
+    [permissionSettings]="{
+        isAccessRead: (self.EndpointName.item__item_brand_id_dropdown_GET | endpointAccessGrantedPipe),
+        isAccessEdit: (self.isNewItem ? (self.EndpointName.item_POST | endpointAccessGrantedPipe) :
+                      (self.EndpointName.item_id_PUT | endpointAccessGrantedPipe)) &&
+                      (self.EndpointName.item__item_brand_dropdown_GET | endpointAccessGrantedPipe)
+    }"
+    [isDisabled]="self.item.isDeleted"
+    [dataCacheName]="''ItemBrandDropdownCache''"
+    [(value)]="self.item.itemBrandID"
+    [textField]="''name''"
+    [codeField]="''code''"
+    [valueField]="''id''"
+    [useCodeInList]="true"
+    [useCodeInValue]="true"
+    [getListItemsFunction]="self.loadItemBrandListDropdownFunction"
+    [getOneItemFunction]="self.loadItemBrandDropdownFunction"
+    [unselectedItemValue]="{id: null, translateKey: ''COMMON.MOCK_OBJ.NOT_SELECTED''}"
+    [dataTranslateKeyField]="''translateKey''"
+    [labelTranslateKey]="''ITEM.DETAILS.GENERAL.BRAND''"
+    [label]="''''"
+    [class]=''""''
+></cr-dropdown-smart-control></div><div class=''col-md-2''><cr-dropdown-smart-control
+    [elementName]="''smart-dropdown:Item_details.Preferred_supplier''"
+    [permissionSettings]="{
+        isAccessRead: (self.EndpointName.item__partner_id_dropdown_GET | endpointAccessGrantedPipe),
+        isAccessEdit: (self.isNewItem ? (self.EndpointName.item_POST | endpointAccessGrantedPipe) :
+                      (self.EndpointName.item_id_PUT | endpointAccessGrantedPipe)) &&
+                      (self.EndpointName.item__partner_dropdown_GET | endpointAccessGrantedPipe)
+    }"
+    [isDisabled]="self.item.isDeleted"
+    [dataCacheName]="''PreferredSupplierDropdownCache''"
+    [(value)]="self.item.prefferedSupplierID"
+    [textField]="''name''"
+    [codeField]="''code''"
+    [valueField]="''id''"
+    [useCodeInList]="true"
+    [useCodeInValue]="true"
+    [getListItemsFunction]="self.loadPreferredSupplierListDropdownFunction"
+    [getOneItemFunction]="self.loadPreferredSupplierDropdownFunction"
+    [unselectedItemValue]="{id: null, translateKey: ''COMMON.MOCK_OBJ.NOT_SELECTED''}"
+    [dataTranslateKeyField]="''translateKey''"
+    [labelTranslateKey]="''ITEM.DETAILS.GENERAL.PREFERRED_SUPPLIER''"
+    [label]="''''"
+    [class]=''""''
+></cr-dropdown-smart-control></div><div class=''col-md-2''><cr-control-dropdown 
+    [(dataValue)]="self.item.unitTypeId" 
+    [isDisabled]="self.item.isDeleted" 
+    [dataSource]="self.unitTypesForDropdown"
+    [dataValueField]="''id''" 
+    [dataDisplayField]="''name''" 
+    [elementName]="''dropdown:Item_details.Unit_type''"
+    [permissionSettings]="{
+        isAccessEdit: self.isNewItem ? (self.EndpointName.item_POST | endpointAccessGrantedPipe) :
+            (self.EndpointName.item_id_PUT | endpointAccessGrantedPipe)
+    }"
+    [translateKeys]="''ITEM.DETAILS.GENERAL.UNIT_TYPE''"
+    [dataLabel]="''''"
+    [class]=''""''
+></cr-control-dropdown></div><div class=''col-md-2''></div></div><div class="row cr-bottom-row-border"><div class=''col-md-12''><cr-multi-select-smart-control
+    [(values)]="self.item.collections"
+    [dataCacheName]="''CollectionsDropdownCache111''"
+    [isDisabled]="self.item.isDeleted"
+    [elementName]="''smart-multi-select:Item_details.Collections''"
+    [getListItemsFunction]="self.loadCollectionListMultiselectFunction"
+    [getSelectedItemsFunction]="self.loadCollectionMultiselectFunction"
+    [permissionSettings]="{
+        isAccessRead: (self.EndpointName.item__item_collection_dropdown_ids_GET | endpointAccessGrantedPipe),
+        isAccessEdit: (self.isNewItem ? (self.EndpointName.item_POST | endpointAccessGrantedPipe) :
+            (self.EndpointName.item_id_PUT | endpointAccessGrantedPipe)) &&
+            (self.EndpointName.item__item_collection_dropdown_GET | endpointAccessGrantedPipe)
+    }"
+    [textField]="''name''"
+    [useCodeInList]="true"
+    [useCodeInValue]="true"
+    [valueField]="''id''"
+    [translateKeys]="''ITEM.DETAILS.GENERAL.COLLECTIONS''"
+    [dataLabel]="''''"
+    [class]=''""''
+></cr-multi-select-smart-control></div><div class=''col-md-6''></div></div><div class="row cr-bottom-row-border"><div class=''col-md-12''><cr-dropdown-smart-control
+    [elementName]="''smart-dropdown:Item_details.Tax_group''"
+    [permissionSettings]="{
+        isAccessRead: (self.EndpointName.item__tax_group_id_GET | endpointAccessGrantedPipe),
+        isAccessEdit: (self.isNewItem ? (self.EndpointName.item_POST | endpointAccessGrantedPipe) :
+                      (self.EndpointName.item_id_PUT | endpointAccessGrantedPipe)) &&
+                      (self.EndpointName.item__tax_group_GET | endpointAccessGrantedPipe)
+    }"
+    [isDisabled]="self.item.isDeleted"
+    [dataCacheName]="''TaxGroupDropdownCache''"
+    [(currentItemValue)]="self.item.taxGroup"
+    [textField]="''name''"
+    [codeField]="''code''"
+    [valueField]="''id''"
+    [useCodeInList]="true"
+    [useCodeInValue]="true"
+    [getListItemsFunction]="self.loadTaxGroupListDropdownFunction"
+    [getOneItemFunction]="self.loadTaxGroupDropdownFunction"
+    [unselectedItemValue]="{id: null, translateKey: ''COMMON.MOCK_OBJ.NOT_SELECTED''}"
+    [dataTranslateKeyField]="''translateKey''"
+    [labelTranslateKey]="''ITEM.DETAILS.GENERAL.TAX_GROUP''"
+    [label]="''''"
+    [class]=''""''
+></cr-dropdown-smart-control></div><div class=''col-md-6''></div></div><div class="row cr-bottom-row-border"><div class=''col-md-2''><cr-checkbox-control
+    [elementName]="''checkbox:Item_details.Active''"
+    [permissionSettings]="{
+        isAccessEdit: self.isNewItem ? (self.EndpointName.item_POST | endpointAccessGrantedPipe) :
+            (self.EndpointName.item_id_PUT | endpointAccessGrantedPipe)
+    }"
+
+    (dataValueChange)="self.changeActiveCheckbox($event)"
+    [(dataValue)]="self.item.isValid"
+    [dataLabel]="''''"
+    [translateKeys]="''ITEM.DETAILS.GENERAL.ACTIVE''"
+    [isDisabled]="self.item.isDeleted || false"
+    [class]=''""''
+></cr-checkbox-control></div><div class=''col-md-2''><cr-control-datepicker
+    [elementName]="''date:Item_details.Active_date_from''"
+    [permissionSettings]="{
+        isAccessEdit: self.isNewItem ? (self.EndpointName.item_POST | endpointAccessGrantedPipe) :
+            (self.EndpointName.item_id_PUT | endpointAccessGrantedPipe)
+    }"
+
+    [(dataValue)]="self.item.validFrom"
+    [validator]="self.validator"
+    [validationField]="''validFrom''"
+    [dataLabel]="''''"
+    [translateKeys]="''ITEM.DETAILS.GENERAL.ACTIVE_FROM''"
+    [class]=''""'' 
+    [isDisabled]="!self.item.isValid || self.item.isDeleted || false"
+></cr-control-datepicker></div><div class=''col-md-2''><cr-control-datepicker
+    [elementName]="''date:Item_details.Active_date_to''"
+    [permissionSettings]="{
+        isAccessEdit: self.isNewItem ? (self.EndpointName.item_POST | endpointAccessGrantedPipe) :
+            (self.EndpointName.item_id_PUT | endpointAccessGrantedPipe)
+    }"
+
+    [(dataValue)]="self.item.validTo"
+    [validator]="self.validator"
+    [validationField]="''validTo''"
+    [dataLabel]="''''"
+    [translateKeys]="''ITEM.DETAILS.GENERAL.ACTIVE_TO''"
+    [class]=''""'' 
+    [isDisabled]="!self.item.isValid || self.item.isDeleted || false"
+></cr-control-datepicker></div></div><div class="row cr-bottom-row-border"><div class=''col-md-2''><cr-checkbox-control
+    [elementName]="''checkbox:Item_details.Frozen''"
+    [permissionSettings]="{
+        isAccessEdit: self.isNewItem ? (self.EndpointName.item_POST | endpointAccessGrantedPipe) :
+            (self.EndpointName.item_id_PUT | endpointAccessGrantedPipe)
+    }"
+
+    (dataValueChange)="self.changeFrozenCheckbox($event)"
+    [(dataValue)]="self.item.isFrozen"
+    [dataLabel]="''''"
+    [translateKeys]="''ITEM.DETAILS.GENERAL.FROZEN''"
+    [isDisabled]="self.item.isDeleted || false"
+    [class]=''""''
+></cr-checkbox-control></div><div class=''col-md-2''><cr-control-datepicker
+    [elementName]="''date:Item_details.Frozen_date_from''"
+    [permissionSettings]="{
+        isAccessEdit: self.isNewItem ? (self.EndpointName.item_POST | endpointAccessGrantedPipe) :
+            (self.EndpointName.item_id_PUT | endpointAccessGrantedPipe)
+    }"
+
+    [(dataValue)]="self.item.frozenFrom"
+    [validator]="self.validator"
+    [validationField]="''frozenFrom''"
+    [dataLabel]="''''"
+    [translateKeys]="''ITEM.DETAILS.GENERAL.FROZEN_FROM''"
+    [class]=''""'' 
+    [isDisabled]="!self.item.isFrozen || self.item.isDeleted || false"
+></cr-control-datepicker></div><div class=''col-md-2''><cr-control-datepicker
+    [elementName]="''date:Item_details.Frozen_date_to''"
+    [permissionSettings]="{
+        isAccessEdit: self.isNewItem ? (self.EndpointName.item_POST | endpointAccessGrantedPipe) :
+            (self.EndpointName.item_id_PUT | endpointAccessGrantedPipe)
+    }"
+
+    [(dataValue)]="self.item.frozenTo"
+    [validator]="self.validator"
+    [validationField]="''frozenTo''"
+    [dataLabel]="''''"
+    [translateKeys]="''ITEM.DETAILS.GENERAL.FROZEN_TO''"
+    [class]=''""'' 
+    [isDisabled]="!self.item.isFrozen || self.item.isDeleted || false"
+></cr-control-datepicker></div></div><div class="row cr-bottom-row-border"><div class=''col-md-2''><cr-checkbox-control
+    [elementName]="''checkbox:Item_details.Sale_item''"
+    [permissionSettings]="{
+        isAccessEdit: self.isNewItem ? (self.EndpointName.item_POST | endpointAccessGrantedPipe) :
+            (self.EndpointName.item_id_PUT | endpointAccessGrantedPipe)
+    }"
+
+    [(dataValue)]="self.item.saleItem"
+    [dataLabel]="''''"
+    [translateKeys]="''ITEM.DETAILS.GENERAL.SALE_ITEM''"
+    [isDisabled]="self.item.isDeleted || false"
+    [class]=''""''
+></cr-checkbox-control></div><div class=''col-md-2''><cr-checkbox-control
+    [elementName]="''checkbox:Item_details.Inventory_item''"
+    [permissionSettings]="{
+        isAccessEdit: self.isNewItem ? (self.EndpointName.item_POST | endpointAccessGrantedPipe) :
+            (self.EndpointName.item_id_PUT | endpointAccessGrantedPipe)
+    }"
+
+    [(dataValue)]="self.item.inventoryItem"
+    [dataLabel]="''''"
+    [translateKeys]="''ITEM.DETAILS.GENERAL.INVENTORY_ITEM''"
+    [isDisabled]="self.item.isDeleted || false"
+    [class]=''""''
+></cr-checkbox-control></div><div class=''col-md-2''><cr-checkbox-control
+    [elementName]="''checkbox:Item_details.Purchase_item''"
+    [permissionSettings]="{
+        isAccessEdit: self.isNewItem ? (self.EndpointName.item_POST | endpointAccessGrantedPipe) :
+            (self.EndpointName.item_id_PUT | endpointAccessGrantedPipe)
+    }"
+
+    [(dataValue)]="self.item.purchaseItem"
+    [dataLabel]="''''"
+    [translateKeys]="''ITEM.DETAILS.GENERAL.PURCHASE_ITEM''"
+    [isDisabled]="self.item.isDeleted || false"
+    [class]=''""''
+></cr-checkbox-control></div><div class=''col-md-2''><cr-checkbox-control
+    [elementName]="''checkbox:Item_details.Refundable''"
+    [permissionSettings]="{
+        isAccessEdit: self.isNewItem ? (self.EndpointName.item_POST | endpointAccessGrantedPipe) :
+            (self.EndpointName.item_id_PUT | endpointAccessGrantedPipe)
+    }"
+
+    [(dataValue)]="self.item.refundable"
+    [dataLabel]="''''"
+    [translateKeys]="''ITEM.DETAILS.GENERAL.REFUNDABLE''"
+    [isDisabled]="self.item.isDeleted || false"
+    [class]=''""''
+></cr-checkbox-control></div><div class=''col-md-2''><cr-checkbox-control
+    [elementName]="''checkbox:Item_details.Download_to_pos''"
+    [permissionSettings]="{
+        isAccessEdit: self.isNewItem ? (self.EndpointName.item_POST | endpointAccessGrantedPipe) :
+            (self.EndpointName.item_id_PUT | endpointAccessGrantedPipe)
+    }"
+
+    [(dataValue)]="self.item.downloadToPOS"
+    [dataLabel]="''''"
+    [translateKeys]="''ITEM.DETAILS.GENERAL.DOWNLOAD_TO_POS''"
+    [isDisabled]="self.item.isDeleted || false"
+    [class]=''""''
+></cr-checkbox-control></div><div class=''col-md-2''><cr-checkbox-control
+    [elementName]="''checkbox:Item_details.Consignment_item''"
+    [permissionSettings]="{
+        isAccessEdit: self.isNewItem ? (self.EndpointName.item_POST | endpointAccessGrantedPipe) :
+            (self.EndpointName.item_id_PUT | endpointAccessGrantedPipe)
+    }"
+
+    [(dataValue)]="self.item.isConsignmentItem"
+    [dataLabel]="''''"
+    [translateKeys]="''ITEM.DETAILS.GENERAL.CONSIGNMENT_ITEM''"
+    [isDisabled]="self.item.isDeleted || false"
+    [class]=''""''
+></cr-checkbox-control></div></div><div class="row cr-bottom-row-border"><div class=''col-md-2''><cr-checkbox-control
+    [elementName]="''checkbox:Item_details.Gift_card_item''"
+    [permissionSettings]="{
+        isAccessEdit: self.isNewItem ? (self.EndpointName.item_POST | endpointAccessGrantedPipe) :
+            (self.EndpointName.item_id_PUT | endpointAccessGrantedPipe)
+    }"
+
+    [(dataValue)]="self.item.giftCard"
+    [dataLabel]="''''"
+    [translateKeys]="''ITEM.DETAILS.GENERAL.GIFT_CARD_ITEM''"
+    [isDisabled]="self.item.isDeleted || false"
+    [class]=''""''
+></cr-checkbox-control></div><div class=''col-md-2''><cr-checkbox-control
+    [elementName]="''checkbox:Item_details.Distribution_recommendation''"
+    [permissionSettings]="{
+        isAccessEdit: self.isNewItem ? (self.EndpointName.item_POST | endpointAccessGrantedPipe) :
+            (self.EndpointName.item_id_PUT | endpointAccessGrantedPipe)
+    }"
+
+    [(dataValue)]="self.item.distributionRecommendation"
+    [dataLabel]="''''"
+    [translateKeys]="''ITEM.DETAILS.GENERAL.DISTRIBUTION_RECOMMENDATION''"
+    [isDisabled]="self.item.isDeleted || false"
+    [class]=''""''
+></cr-checkbox-control></div><div class=''col-md-2''><cr-checkbox-control
+    [elementName]="''checkbox:Item_details.Purchase_recommendation''"
+    [permissionSettings]="{
+        isAccessEdit: self.isNewItem ? (self.EndpointName.item_POST | endpointAccessGrantedPipe) :
+            (self.EndpointName.item_id_PUT | endpointAccessGrantedPipe)
+    }"
+
+    [(dataValue)]="self.item.purchaseRecommendation"
+    [dataLabel]="''''"
+    [translateKeys]="''ITEM.DETAILS.GENERAL.PURCHASE_RECOMMENDATION''"
+    [isDisabled]="self.item.isDeleted || false"
+    [class]=''""''
+></cr-checkbox-control></div><div class=''col-md-2''><cr-checkbox-control
+    [elementName]="''checkbox:Item_details.Direct_supply''"
+    [permissionSettings]="{
+        isAccessEdit: self.isNewItem ? (self.EndpointName.item_POST | endpointAccessGrantedPipe) :
+            (self.EndpointName.item_id_PUT | endpointAccessGrantedPipe)
+    }"
+
+    [(dataValue)]="self.item.directSupply"
+    [dataLabel]="''''"
+    [translateKeys]="''ITEM.DETAILS.GENERAL.DIRECT_SUPPLY''"
+    [isDisabled]="self.item.isDeleted || false"
+    [class]=''""''
+></cr-checkbox-control></div><div class=''col-md-2''><cr-checkbox-control
+    [elementName]="''checkbox:Item_details.History''"
+    [permissionSettings]="{
+        isAccessEdit: self.isNewItem ? (self.EndpointName.item_POST | endpointAccessGrantedPipe) :
+            (self.EndpointName.item_id_PUT | endpointAccessGrantedPipe)
+    }"
+
+    [(dataValue)]="self.item.history"
+    [dataLabel]="''''"
+    [translateKeys]="''ITEM.DETAILS.GENERAL.HISTORY''"
+    [isDisabled]="self.item.isDeleted || false"
+    [class]=''""''
+></cr-checkbox-control></div><div class=''col-md-2''><cr-checkbox-control
+    [elementName]="''checkbox:Item_details.Allow_zero_price''"
+    [permissionSettings]="{
+        isAccessEdit: self.isNewItem ? (self.EndpointName.item_POST | endpointAccessGrantedPipe) :
+            (self.EndpointName.item_id_PUT | endpointAccessGrantedPipe)
+    }"
+
+    [(dataValue)]="self.item.isAllowZeroPrice"
+    [dataLabel]="''''"
+    [translateKeys]="''ITEM.DETAILS.GENERAL.ALLOW_ZERO_PRICE''"
+    [isDisabled]="self.item.isDeleted || false"
+    [class]=''""''
+></cr-checkbox-control></div></div><div class="row "><div class=''col-md-2''><cr-checkbox-control
+    [elementName]="''checkbox:Item_details.Is_modifier''"
+    [permissionSettings]="{
+        isAccessEdit: (self.isNewItem ? (self.EndpointName.item_POST | endpointAccessGrantedPipe) :
+            (self.EndpointName.item_id_PUT | endpointAccessGrantedPipe)) 
+            && (self.EndpointName.item__item_modifier_group_GET | endpointAccessGrantedPipe)
+    }"
+
+    [(dataValue)]="self.item.isModifier"
+    [dataLabel]="''''"
+    [translateKeys]="''ITEM.DETAILS.GENERAL.IS_MODIFIER''"
+    [isDisabled]="self.item.isComboMeal || self.item.isDeleted || false"
+    [class]=''""''
+></cr-checkbox-control></div><div class=''col-md-2''><cr-checkbox-control
+    [elementName]="''checkbox:Item_details.Is_combo_meal''"
+    [permissionSettings]="{
+        isAccessEdit: (self.isNewItem ? (self.EndpointName.item_POST | endpointAccessGrantedPipe) :
+            (self.EndpointName.item_id_PUT | endpointAccessGrantedPipe)) 
+            && (self.EndpointName.item__combo_meal_category_GET | endpointAccessGrantedPipe)
+    }"
+
+    [(dataValue)]="self.item.isComboMeal"
+    [dataLabel]="''''"
+    [translateKeys]="''ITEM.DETAILS.GENERAL.IS_COMBO_MEAL''"
+    [isDisabled]="self.item.isModifier || self.item.isDeleted || false"
+    [class]=''""''
+></cr-checkbox-control></div></div>
+        </ng-template>
+      </cr-panel>
+      <cr-panel
+        [panelTemplateType]="''collapsible-panel''"
+        [expanded]="self.panelsViewState?.[''properties''] ?? false"
+        (expandedChange)="self.panelStateChange(''properties'', $event)"
+        [titleTranslateKey]="true ? ''ITEM.DETAILS.PANEL.PROPERTIES'' : null"
+        [title]="true ? null : ''Properties''"
+        [customClass]="''''"
+        [headerClass]="''''"
+        [validator]="self.validator"
+        [validatorGroupName]="''properties''"
         [containFields]=''[]''
       >
         <ng-template crPanelContent>
-          <div class="cr-grid-wrapper-new cr-grid-with-collapse cr-tax-group-grid">
-    <kendo-grid
-        #grid
-        (pageChange)="self.pageChange($event)"
-        [(selectedKeys)]="self.mySelection"
-        [attr.data-element-name]="''grid:TaxGroup_details_definition.Definitions_grid''"
-        [data]="self.gridView"
-        [kendoGridSelectBy]="self.mySelectionKey"
-        [pageSize]="self.taxGroup.taxGroupLocationList.paginator?.size"
-        [skip]="self.taxGroup.taxGroupLocationList.paginator?.skip"
-        [pageable]="true"
-        [resizable]="true"
-        (add)="self.addHandler()"
-        (edit)="self.editHandler($event)"
-        (remove)="self.removeHandler($event)"
-                    >
-                      <ng-template kendoGridToolbarTemplate>
-                        <div
-                          class="row cr-row-padding-revert">
-                          <div class="col-lg-12 cr-col-content-align-right cr-col-no-padding">
-                            <cr-button-control
-                              [buttonTemplateType]="''grid-add-command''"
-                              [elementName]="''button:PriceList.Add''"
-                              *ngIf="(self.EndpointName.tax_group_id_PUT | endpointAccessGrantedPipe)"
-                            ></cr-button-control>
-                          </div>
-                        </div>
-                      </ng-template>
+          <div class="cr-grid-wrapper-new cr-grid-no-inner-borders">
+    <cr-item-property-list 
+        [itemDetails]="self.item" 
+        [class]=''""''
+    ></cr-item-property-list>
+</div>
 
-                      <kendo-grid-column field="name">
-                        <ng-template kendoGridHeaderTemplate>
-                            <span [attr.data-translate]="''TAX_GROUP.DETAILS.GRID.NAME''">
-                              {{''TAX_GROUP.DETAILS.GRID.NAME'' | translate}}
-                            </span>
-                        </ng-template>
-                        <ng-template kendoGridCellTemplate
-                                     let-dataItem>
-                            <span>
-                              {{dataItem.name}}
-                            </span>
-                        </ng-template>
-                        <ng-template kendoGridEditTemplate let-dataItem>
-                          <cr-control-edit
-                            [(dataValue)]="self.taxGroup.cache.changeItem.name"
-                            [elementName]="''edit:TaxGroup.Name''"
-                            [translateKeys]="''TAX_GROUP.DETAILS.GRID.NAME''"
-                          ></cr-control-edit>
-                        </ng-template>
-                      </kendo-grid-column>
-
-                      <kendo-grid-column class="action-group" width="250">
-                        <ng-template kendoGridCellTemplate
-                                     let-dataItem="dataItem"
-                                     let-isNew="isNew"
-                                     let-rowIndex="rowIndex">
-                          <cr-button-control
-                            [buttonTemplateType]="''grid-edit-command''"
-                            [elementName]="''edit:TaxGroup.Details_Edit_Command''"
-                          ></cr-button-control>
-                          <!-- Delete row (trash button)-->
-                          <cr-button-control
-                            *ngIf="(self.EndpointName.tax_group_id_PUT | endpointAccessGrantedPipe)"
-                            [buttonTemplateType]="''grid-remove-command''"
-                            [elementName]="''edit:TaxGroup.Details_Remove_Command''"
-                          ></cr-button-control>
-                        </ng-template>
-                      </kendo-grid-column>
-                      <ng-template kendoGridNoRecordsTemplate>
-                          <span [attr.data-translate]="''COMMON.GRID.NO_RECORDS''">
-                            {{ ''COMMON.GRID.NO_RECORDS'' | translate }}
-                          </span>
-                      </ng-template>
-                      <ng-template kendoPagerTemplate>
-                        <cr-grid-paginator
-                          [totalElements]="self.gridView?.total"></cr-grid-paginator>
-                      </ng-template>
-                    </kendo-grid>
-                  </div>
         </ng-template>
       </cr-panel>
+      <cr-panel
+        [panelTemplateType]="''collapsible-panel''"
+        [expanded]="self.panelsViewState?.[''price''] ?? false"
+        (expandedChange)="self.panelStateChange(''price'', $event)"
+        [titleTranslateKey]="true ? ''ITEM.DETAILS.PANEL.PRICES'' : null"
+        [title]="true ? null : ''Prices''"
+        [customClass]="''''"
+        [headerClass]="''''"
+        [validator]="self.validator"
+        [validatorGroupName]="''price''"
+        [containFields]=''["prices"]''
+      >
+        <ng-template crPanelContent>
+          <div class="cr-item-price-wrapper">
+    <cr-item-price-list
+        *ngIf="(self.EndpointName.item__item_price_GET | endpointAccessGrantedPipe) &&
+            (self.EndpointName.item__item_property_value_id_dropdown_GET | endpointAccessGrantedPipe); else noAccess"
+        [editable]="self.isNewItem ? (self.EndpointName.item_POST | endpointAccessGrantedPipe) :
+            (self.EndpointName.item_id_PUT | endpointAccessGrantedPipe)"
+        [item]="self.item"
+        [panelsViewState]="self.panelsViewState"
+        [class]=''""''
+    ></cr-item-price-list>
+
+    <ng-template #noAccess>
+        <div class="cr-no-read-access p-2">
+            {{''COMMON.GRID.NO_READ_ACCESS'' | translate}}
+        </div>
+    </ng-template>
+</div>
+
+        </ng-template>
+      </cr-panel>
+      <cr-panel
+        [panelTemplateType]="''collapsible-panel''"
+        [expanded]="self.panelsViewState?.[''barcodes''] ?? false"
+        (expandedChange)="self.panelStateChange(''barcodes'', $event)"
+        [titleTranslateKey]="true ? ''ITEM.DETAILS.PANEL.BARCODES'' : null"
+        [title]="true ? null : ''Barcodes''"
+        [customClass]="''''"
+        [headerClass]="''''"
+        [validator]="self.validator"
+        [validatorGroupName]="''barcodes''"
+        [containFields]=''["barcodes"]''
+      >
+        <ng-template crPanelContent>
+          <div class="cr-grid-wrapper-new">
+    <cr-item-barcodes-list
+        [isNew]="self.isNewItem"
+        [item]="self.item"
+        [editable]="self.isNewItem
+            ? (self.EndpointName.item_POST | endpointAccessGrantedPipe)
+            : (self.EndpointName.item_id_PUT | endpointAccessGrantedPipe)"
+        (barcodesChanged)="self.onBarcodesChanged()"
+        [class]=''""''
+    ></cr-item-barcodes-list>
+</div>
+        </ng-template>
+      </cr-panel>
+      <cr-panel
+        [panelTemplateType]="''collapsible-panel''"
+        [expanded]="self.panelsViewState?.[''specialPrices''] ?? false"
+        (expandedChange)="self.panelStateChange(''specialPrices'', $event)"
+        [titleTranslateKey]="true ? ''ITEM.DETAILS.PANEL.SPECIAL_PRICES_LIST'' : null"
+        [title]="true ? null : ''Special prices list''"
+        [customClass]="''''"
+        [headerClass]="''''"
+        [validator]="self.validator"
+        [validatorGroupName]="''specialPrices''"
+        [containFields]=''[]''
+      >
+        <ng-template crPanelContent>
+          <div class="cr-grid-wrapper-new">
+    <cr-item-special-prices-list
+        (onCellClickEvent)="self.openSpecialPrice($event)"
+        (onChangePageEvent)="self.changePageEvent($event)"
+        [specialPrices]="self.specialPricesList"
+        [class]=''""''
+    ></cr-item-special-prices-list>
+</div>
+        </ng-template>
+      </cr-panel>
+      <cr-panel
+        [panelTemplateType]="''collapsible-panel''"
+        [expanded]="self.panelsViewState?.[''promotions''] ?? false"
+        (expandedChange)="self.panelStateChange(''promotions'', $event)"
+        [titleTranslateKey]="true ? ''ITEM.DETAILS.PANEL.PROMOTIONS'' : null"
+        [title]="true ? null : ''Promotions''"
+        [customClass]="''''"
+        [headerClass]="''''"
+        [validator]="self.validator"
+        [validatorGroupName]="''promotions''"
+        [containFields]=''[]''
+      >
+        <ng-template crPanelContent>
+          <div class="cr-grid-wrapper-new">
+    <cr-item-promotion-list
+        [itemId]="self.item?.id"
+        [class]=''""''
+    ></cr-item-promotion-list>
+</div>
+
+        </ng-template>
+      </cr-panel>
+      <cr-panel
+        [panelTemplateType]="''collapsible-panel''"
+        [expanded]="self.panelsViewState?.[''userFields''] ?? false"
+        (expandedChange)="self.panelStateChange(''userFields'', $event)"
+        [titleTranslateKey]="true ? ''ITEM.DETAILS.PANEL.USER_FIELDS'' : null"
+        [title]="true ? null : ''UDF''"
+        [customClass]="''''"
+        [headerClass]="''''"
+        [validator]="self.validator"
+        [validatorGroupName]="''userFields''"
+        [containFields]=''[]''
+      >
+        <ng-template crPanelContent>
+          <div class="cr-grid-wrapper-new">
+    <cr-udf-list
+        *ngIf="(self.EndpointName.item__user_defined_field_GET | endpointAccessGrantedPipe) &&
+            (self.EndpointName.item__user_defined_field_default_value_GET | endpointAccessGrantedPipe); else noAccess"
+        [isNew]="self.isNewItem"
+        [udf]="self.item.udf"
+        [cacheName]="''itemUserFieldViewStateCache''"
+        [viewName]="''Item_details''"
+        [loadUserDefinedFieldListForDropdownFn$]="self.loadUserDefinedFieldListForDropdownFn$"
+        [getUserFields$]="self.getUserFields$"
+        [loadUserFields$]="self.loadUserFields$"
+        [getUserFieldsDefault$]="self.getUserFieldsDefault$"
+        [class]=''""''
+    ></cr-udf-list>
+    <ng-template #noAccess>
+        <div class="cr-no-read-access p-2">
+            {{''COMMON.GRID.NO_READ_ACCESS'' | translate}}
+        </div>
+    </ng-template>
+</div>
+        </ng-template>
+      </cr-panel>
+      <cr-panel
+        [panelTemplateType]="''collapsible-panel''"
+        [expanded]="self.panelsViewState?.[''basketImage''] ?? false"
+        (expandedChange)="self.panelStateChange(''basketImage'', $event)"
+        [titleTranslateKey]="true ? ''ITEM.DETAILS.PANEL.IMAGE_BASKET'' : null"
+        [title]="true ? null : ''Images''"
+        [customClass]="''''"
+        [headerClass]="''''"
+        [validator]="self.validator"
+        [validatorGroupName]="''basketImage''"
+        [containFields]=''[]''
+      >
+        <ng-template crPanelContent>
+          <div class="cr-grid-wrapper-new">
+    <cr-item-image-basket-list
+        [imageBasketId]="self.item.imageBasketSetId"
+        [isDeleted]="self.item.isDeleted"
+        [refreshList$]="self.itemImageBasketContentListRefresh$"
+        (onCreateItem)="self.onCreateImageBasketPopup()"
+        (onUpdateItem)="self.onUpdateImageBasketPopup($event)"
+        (onDeleteItem)="self.onDeleteImageBasketContent($event)"
+        [class]=''""''
+    ></cr-item-image-basket-list>
+</div>
+        </ng-template>
+      </cr-panel>
+        <ng-template [ngIf]="!self.item.isModifier">
+            
+      <cr-panel
+        [panelTemplateType]="''collapsible-panel''"
+        [expanded]="self.panelsViewState?.[''modifiers''] ?? false"
+        (expandedChange)="self.panelStateChange(''modifiers'', $event)"
+        [titleTranslateKey]="true ? ''ITEM.DETAILS.PANEL.MODIFIERS_LIST'' : null"
+        [title]="true ? null : ''Modifiers groups''"
+        [customClass]="''''"
+        [headerClass]="''''"
+        [validator]="self.validator"
+        [validatorGroupName]="''modifiers''"
+        [containFields]=''[]''
+      >
+        <ng-template crPanelContent>
+          <div class="cr-grid-wrapper-new">
+    <cr-item-item-modifier
+        [itemId]="self.item.id"
+        [isDeleted]="self.item.isDeleted"
+        (onOpenModifiersGroupList)="self.onOpenModifiersGroupListPopup()"
+        (onOpenModifiersTemplateList)="self.onOpenModifiersTemplateListPopup()"
+        (onSelectModifierGroups)="self.onSelectModifierGroups($event)"
+        [class]=''""''
+    ></cr-item-item-modifier>
+</div>
+        </ng-template>
+      </cr-panel>
+        </ng-template>
+        <ng-template [ngIf]="self.item.isComboMeal">
+            
+      <cr-panel
+        [panelTemplateType]="''collapsible-panel''"
+        [expanded]="self.panelsViewState?.[''comboMeal''] ?? false"
+        (expandedChange)="self.panelStateChange(''comboMeal'', $event)"
+        [titleTranslateKey]="true ? ''ITEM.DETAILS.PANEL.COMBO_MEAL_LIST'' : null"
+        [title]="true ? null : ''Combo meal categories''"
+        [customClass]="''''"
+        [headerClass]="''''"
+        [validator]="self.validator"
+        [validatorGroupName]="''comboMeal''"
+        [containFields]=''[]''
+      >
+        <ng-template crPanelContent>
+          <div class="cr-grid-wrapper-new">
+    <cr-item-combo-meal-category-list
+        [itemId]="self.item.id"
+        [isDeleted]="self.item.isDeleted"
+        (openComboMealCategoryDetails)="self.onOpenComboMealDetailsPopup($event)"
+        (openComboMealCategoryNew)="self.onOpenComboMealNewPopup()"
+        [class]=''""''
+    ></cr-item-combo-meal-category-list>
+</div>
+        </ng-template>
+      </cr-panel>
+        </ng-template>
+        <div [class]="''cr-footer-view''">
+            <div class="cr-footer-flex-wrapper" [class]=''""''>
+    <div class="cr-footer-flex-column">
+        <cr-text-field-control
+            [dataLabel]="''''"
+            [dataLabelTranslateKeys]="''COMMON.CREATION_DATE''"
+        ></cr-text-field-control>
+    </div>
+    <div class="cr-footer-flex-column">
+        <cr-text-field-control
+            [isUnderline]="true"
+            [dataLabel]="self.item?.createDate | stringToDate | date:currentDateFormatPattern">
+        </cr-text-field-control>
+    </div>
+</div>
+<div class="cr-footer-flex-wrapper" [class]=''""''>
+    <div class="cr-footer-flex-column">
+        <cr-text-field-control
+            [dataLabel]="''''"
+            [dataLabelTranslateKeys]="''COMMON.UPDATE_DATE''"
+        ></cr-text-field-control>
+    </div>
+    <div class="cr-footer-flex-column">
+        <cr-text-field-control
+            [isUnderline]="true"
+            [dataLabel]="self.item?.updateDate | stringToDate | date:currentDateFormatPattern">
+        </cr-text-field-control>
+    </div>
+</div>
+
+        </div>
+        </ng-template>
       </ng-template>
     </ng-template>
     
+        <ng-template [ngSwitchCase]="''image-content-create''">
+          <ng-template
+            [ngIf]="self.popupTab.tabs[self.popupTab.activeTabIndex].type == ''image-content-create'' && self.popupTab.activeTabIndex == i">
+            <div *ngIf=''self.popupTab.activeTabIndex != self.popupTab.tabs.length - 1'' class=''cr-popup-blocker''></div>
+            <cr-image-basket-details
+    [subTemplateId]="''D98D4CF1-1D6B-ED11-835F-02F176033DDB''"
+    [image]="self.cache.selectedImageBasketContent"
+    [isNew]="true"
+    [validator]="self.itemImageBasketContentValidator"
+    [permissionSettings]="{
+        isAccessRead: (self.EndpointName.item__file_storage_basket_content_GET | endpointAccessGrantedPipe),
+        isAccessCreate: !self.item.isDeleted && (self.EndpointName.item__file_storage_basket_content_POST | endpointAccessGrantedPipe)
+    }"
+    (closePopup)="self.removePopupTab(popupTab.activeTabIndex)"
+    (create)="self.onCreateImageBasketContent($event)"
+></cr-image-basket-details>
+          </ng-template>
+        </ng-template>
+      
+        <ng-template [ngSwitchCase]="''image-content-update''">
+          <ng-template
+            [ngIf]="self.popupTab.tabs[self.popupTab.activeTabIndex].type == ''image-content-update'' && self.popupTab.activeTabIndex == i">
+            <div *ngIf=''self.popupTab.activeTabIndex != self.popupTab.tabs.length - 1'' class=''cr-popup-blocker''></div>
+            <cr-image-basket-details
+    [subTemplateId]="''38B2C3FD-1D6B-ED11-835F-02F176033DDB''"
+    [image]="self.cache.selectedImageBasketContent"
+    [isNew]="false"
+    [validator]="self.itemImageBasketContentValidator"
+    [permissionSettings]="{
+        isAccessRead: (self.EndpointName.item__file_storage_basket_content_GET | endpointAccessGrantedPipe),
+        isAccessDelete: !self.item.isDeleted && (EndpointName.item__file_storage_basket_content_id_DELETE | endpointAccessGrantedPipe),
+        isAccessUpdate: !self.item.isDeleted && (EndpointName.item__file_storage_basket_content_id_PUT | endpointAccessGrantedPipe)
+    }"
+    (closePopup)="self.removePopupTab(popupTab.activeTabIndex)"
+    (update)="self.onUpdateImageBasketContent($event)"
+    (delete)="self.onDeleteImageBasketContentPopUp($event)"
+    (refresh)="self.onRefreshImageBasketContent()"
+></cr-image-basket-details>
+          </ng-template>
+        </ng-template>
+      
+        <ng-template [ngSwitchCase]="''modifiers-template-list''">
+          <ng-template
+            [ngIf]="self.popupTab.tabs[self.popupTab.activeTabIndex].type == ''modifiers-template-list'' && self.popupTab.activeTabIndex == i">
+            <div *ngIf=''self.popupTab.activeTabIndex != self.popupTab.tabs.length - 1'' class=''cr-popup-blocker''></div>
+            <cr-item-item-modifier-template-list
+    [subTemplateId]="''2F906084-986C-ED11-835F-02F176033DDB''"
+    [selected]="self.cache.selectedModifierGroups"
+    (onSelection)="self.onSelectModifierGroups($event)"
+    (onUpdate)="self.onUpdateModifierGroups($event)"
+></cr-item-item-modifier-template-list>
+          </ng-template>
+        </ng-template>
+      
+        <ng-template [ngSwitchCase]="''modifiers-group-list''">
+          <ng-template
+            [ngIf]="self.popupTab.tabs[self.popupTab.activeTabIndex].type == ''modifiers-group-list'' && self.popupTab.activeTabIndex == i">
+            <div *ngIf=''self.popupTab.activeTabIndex != self.popupTab.tabs.length - 1'' class=''cr-popup-blocker''></div>
+            <cr-item-item-modifier-group-list
+    [subTemplateId]="''A7F3165F-996C-ED11-835F-02F176033DDB''"
+    [selected]="self.cache.selectedModifierGroups"
+    (onSelection)="self.onSelectModifierGroups($event)"
+    (onUpdate)="self.onUpdateModifierGroups($event)"
+></cr-item-item-modifier-group-list>
+          </ng-template>
+        </ng-template>
+      
+        <ng-template [ngSwitchCase]="''combo-meal-category-new''">
+          <ng-template
+            [ngIf]="self.popupTab.tabs[self.popupTab.activeTabIndex].type == ''combo-meal-category-new'' && self.popupTab.activeTabIndex == i">
+            <div *ngIf=''self.popupTab.activeTabIndex != self.popupTab.tabs.length - 1'' class=''cr-popup-blocker''></div>
+            <cr-item-combo-meal-category-details
+    [subTemplateId]="''945629E2-A86C-ED11-835F-02F176033DDB''"
+    [isNew]="self.cache.isNewComboMealCategory"
+    [comboMealCategoryId]="self.cache.selectedComboMealCategory"
+    [itemId]="self.item.id"
+    [isDeleted]="self.item.isDeleted"
+    (closePopup)="self.onComboMealPopupClose($event)"
+    (selectFromCatalog)="self.onComboMealItemSelectFromCatalog()"
+    (selectFromBasket)="self.onComboMealItemSelectFromBasket()"
+></cr-item-combo-meal-category-details>
+          </ng-template>
+        </ng-template>
+      
+        <ng-template [ngSwitchCase]="''combo-meal-category-details''">
+          <ng-template
+            [ngIf]="self.popupTab.tabs[self.popupTab.activeTabIndex].type == ''combo-meal-category-details'' && self.popupTab.activeTabIndex == i">
+            <div *ngIf=''self.popupTab.activeTabIndex != self.popupTab.tabs.length - 1'' class=''cr-popup-blocker''></div>
+            <cr-item-combo-meal-category-details
+    [subTemplateId]="''D0B506ED-A86C-ED11-835F-02F176033DDB''"
+    [isNew]="self.cache.isNewComboMealCategory"
+    [comboMealCategoryId]="self.cache.selectedComboMealCategory"
+    [itemId]="self.item.id"
+    [isDeleted]="self.item.isDeleted"
+    (closePopup)="self.onComboMealPopupClose($event)"
+    (selectFromCatalog)="self.onComboMealItemSelectFromCatalog()"
+    (selectFromBasket)="self.onComboMealItemSelectFromBasket()"
+></cr-item-combo-meal-category-details>
+          </ng-template>
+        </ng-template>
+      
+        <ng-template [ngSwitchCase]="''combo-meal-category-item-select-from-catalog''">
+          <ng-template
+            [ngIf]="self.popupTab.tabs[self.popupTab.activeTabIndex].type == ''combo-meal-category-item-select-from-catalog'' && self.popupTab.activeTabIndex == i">
+            <div *ngIf=''self.popupTab.activeTabIndex != self.popupTab.tabs.length - 1'' class=''cr-popup-blocker''></div>
+            <cr-item-combo-meal-category-select-from-catalog
+    [subTemplateId]="''720E3302-E96C-ED11-835F-02F176033DDB''"
+    (closePopup)="self.onComboMealItemSelectFromCatalogPopupClose()"
+    (confirm)="self.onComboMealItemSelectFromCatalogPopupClose()"
+></cr-item-combo-meal-category-select-from-catalog>
+          </ng-template>
+        </ng-template>
+      
+        <ng-template [ngSwitchCase]="''combo-meal-category-item-select-from-basket''">
+          <ng-template
+            [ngIf]="self.popupTab.tabs[self.popupTab.activeTabIndex].type == ''combo-meal-category-item-select-from-basket'' && self.popupTab.activeTabIndex == i">
+            <div *ngIf=''self.popupTab.activeTabIndex != self.popupTab.tabs.length - 1'' class=''cr-popup-blocker''></div>
+            <cr-item-combo-meal-category-select-from-basket
+    [subTemplateId]="''9804E012-E96C-ED11-835F-02F176033DDB''"
+    (closePopup)="self.onComboMealItemSelectFromBasketPopupClose()"
+    (confirm)="self.onComboMealItemSelectFromBasketPopupClose()"
+    (openItemBasket)="self.onOpenComboMealItemBasketDetails($event)"
+></cr-item-combo-meal-category-select-from-basket>
+          </ng-template>
+        </ng-template>
+      
+        <ng-template [ngSwitchCase]="''manage-combo-meal-baskets-item''">
+          <ng-template
+            [ngIf]="self.popupTab.tabs[self.popupTab.activeTabIndex].type == ''manage-combo-meal-baskets-item'' && self.popupTab.activeTabIndex == i">
+            <div *ngIf=''self.popupTab.activeTabIndex != self.popupTab.tabs.length - 1'' class=''cr-popup-blocker''></div>
+            <cr-basket-population-edit
+    [subTemplateId]="''B315D290-F36C-ED11-835F-02F176033DDB''"
+    (cancel)="self.onCancelPopulation()"
+    (confirm)="self.savePopulation($event)"
+    [basket]="self.comboMealItemBasket.baskets[self.comboMealItemBasket.selectedBasketIndex]?.populationDetails"
+    [cacheName]="''itemPopulationDropdown''"
+    [lastExcludeNumber]="self.comboMealItemBasket.lastExcludeNumber"
+    [lastIncludeNumber]="self.comboMealItemBasket.lastIncludeNumber"
+    [propertyDropdownFn]="self.itemCriteriaPropertiesDropdownFn"
+    [titleContentTranslateKey]="''COMMON.BASKET.BASKET_EDIT.TITLE_CREATE_ITEM_CONTENT_POPULATION''"
+    [titleTranslateKey]="''COMMON.BASKET.BASKET_EDIT.TITLE_MANAGE_ITEM_POPULATION''"
+    [typeDropdownFn]="self.itemCriteriaDropdownFn"
+    [valueDropdownFn]="self.itemCriteriaValuesDropdownFn"
+    [basketTypeFn$]="self.basketTypeFn"
+></cr-basket-population-edit>
+          </ng-template>
+        </ng-template>
+      
+        <ng-template [ngSwitchCase]="''create-combo-meal-baskets-item''">
+          <ng-template
+            [ngIf]="self.popupTab.tabs[self.popupTab.activeTabIndex].type == ''create-combo-meal-baskets-item'' && self.popupTab.activeTabIndex == i">
+            <div *ngIf=''self.popupTab.activeTabIndex != self.popupTab.tabs.length - 1'' class=''cr-popup-blocker''></div>
+            <cr-basket-population-edit
+    [subTemplateId]="''5C4DEB84-F36C-ED11-835F-02F176033DDB''"
+    (cancel)="self.onCancelPopulation()"
+    (confirm)="self.createPopulation($event)"
+    [cacheName]="''promotionPopulationDropdown''"
+    [lastExcludeNumber]="self.comboMealItemBasket.lastExcludeNumber"
+    [lastIncludeNumber]="self.comboMealItemBasket.lastIncludeNumber"
+    [propertyDropdownFn]="self.itemCriteriaPropertiesDropdownFn"
+    [titleContentTranslateKey]="''COMMON.BASKET.BASKET_EDIT.TITLE_CREATE_ITEM_CONTENT_POPULATION''"
+    [titleTranslateKey]="''COMMON.BASKET.BASKET_EDIT.TITLE_CREATE_ITEM_POPULATION''"
+    [typeDropdownFn]="self.itemCriteriaDropdownFn"
+    [valueDropdownFn]="self.itemCriteriaValuesDropdownFn"
+    [basketTypeFn$]="self.basketTypeFn"
+></cr-basket-population-edit>
+          </ng-template>
+        </ng-template>
+      
               </ng-container>
             </ng-container>
           </div>
-        </div>', '2022-11-04 19:30:31.9466667 +00:00', 11, N'N', '017e41ec-800b-4390-bf2e-ec8aaf48da2e', 1, NULL)
+        </div>', '2022-11-26 17:15:15.7566667 +00:00', 77, N'N', '954d885b-c8a5-411d-80e0-472a879dc8bd', 1, NULL)
