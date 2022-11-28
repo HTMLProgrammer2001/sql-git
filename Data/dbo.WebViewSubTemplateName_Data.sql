@@ -1,3 +1,81 @@
+INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [LanguageID], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('b133300c-116f-ed11-835f-02f176033ddb', '1bb629a9-d26d-ed11-835f-02f176033ddb', 1, N'<ng-container><cr-title-header
+    [titleTranslateKey]="''USER.DETAILS.ROLE_MANAGER.TITLE''"
+    [title]="''''"
+    (buttonClickEvent)="self.onTitleButtonClick($event)"
+    [buttonSettings]="self.titleHeaderButtonSettings"
+></cr-title-header>
+      <cr-panel
+        [panelTemplateType]="''panel''"
+        [expanded]="self.panelsViewState?.[''undefined''] ?? true"
+        (expandedChange)="self.panelStateChange(''undefined'', $event)"
+        [titleTranslateKey]="true ? ''USER.DETAILS.ROLE_MANAGER.GRID.TITLE'' : null"
+        [title]="true ? null : ''Roles he''"
+        [customClass]="''''"
+        [headerClass]="''''"
+        [validator]="self.validator"
+        [validatorGroupName]="''undefined''"
+        [containFields]=''[]''
+      >
+        <ng-template crPanelContent>
+          <div class="cr-grid-wrapper-new">
+    <cr-edit-grid-server-paging
+        [elementName]="''edit-grid-server-paging:DETAILS.Details_roles_manager_grid''"
+        [dataSource]="self.dataSource"
+        [columnSettings]="self.columnSettings"
+        [pageable]="true"
+        [resizable]="true"
+        (pageChangeEvent)="self.changePage($event)"
+        [initialSelectedRows]="self.cache.initialSelectedRows"
+        [uniqueField]="''id''"
+        [allowMultiSelect]="true"
+        [selectionDataMode]="''object''"
+        [dataCacheName]="''UserDetailsRoleManagerGrid''"
+        (selectionChanged)="self.onSelectionChange($event)"
+        [class]=''undefined''
+    ></cr-edit-grid-server-paging>
+</div>
+
+        </ng-template>
+      </cr-panel></ng-container>', '2022-11-28 18:17:43.8500000 +00:00', 2, N'N', '7fa70bd3-5ab6-44a5-89b7-fc24451884c9', 1, NULL)
+INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [LanguageID], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('b233300c-116f-ed11-835f-02f176033ddb', '1bb629a9-d26d-ed11-835f-02f176033ddb', 2, N'<ng-container><cr-title-header
+    [titleTranslateKey]="''USER.DETAILS.ROLE_MANAGER.TITLE''"
+    [title]="''''"
+    (buttonClickEvent)="self.onTitleButtonClick($event)"
+    [buttonSettings]="self.titleHeaderButtonSettings"
+></cr-title-header>
+      <cr-panel
+        [panelTemplateType]="''panel''"
+        [expanded]="self.panelsViewState?.[''undefined''] ?? true"
+        (expandedChange)="self.panelStateChange(''undefined'', $event)"
+        [titleTranslateKey]="true ? ''USER.DETAILS.ROLE_MANAGER.GRID.TITLE'' : null"
+        [title]="true ? null : ''Roles''"
+        [customClass]="''''"
+        [headerClass]="''''"
+        [validator]="self.validator"
+        [validatorGroupName]="''undefined''"
+        [containFields]=''[]''
+      >
+        <ng-template crPanelContent>
+          <div class="cr-grid-wrapper-new">
+    <cr-edit-grid-server-paging
+        [elementName]="''edit-grid-server-paging:DETAILS.Details_roles_manager_grid''"
+        [dataSource]="self.dataSource"
+        [columnSettings]="self.columnSettings"
+        [pageable]="true"
+        [resizable]="true"
+        (pageChangeEvent)="self.changePage($event)"
+        [initialSelectedRows]="self.cache.initialSelectedRows"
+        [uniqueField]="''id''"
+        [allowMultiSelect]="true"
+        [selectionDataMode]="''object''"
+        [dataCacheName]="''UserDetailsRoleManagerGrid''"
+        (selectionChanged)="self.onSelectionChange($event)"
+        [class]=''undefined''
+    ></cr-edit-grid-server-paging>
+</div>
+
+        </ng-template>
+      </cr-panel></ng-container>', '2022-11-28 18:17:43.8600000 +00:00', 2, N'N', 'd0072ab4-0308-4f3e-9d2b-16ea32c11a37', 1, NULL)
 INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [LanguageID], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('dbb6a30d-296b-ed11-835f-02f176033ddb', 'd98d4cf1-1d6b-ed11-835f-02f176033ddb', 1, N'<ng-container><cr-title-header
     (buttonClickEvent)="self.onTitleButtonClick($event)"
     [additionalTranslateKeys]="''COMMON.NEW''"
@@ -1856,392 +1934,6 @@ INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [Langu
         </ng-template>
       </cr-panel>
         </ng-template></ng-container>', '2022-11-25 17:41:07.6600000 +00:00', 2, N'N', 'bd214986-c76b-4a74-8e44-9c8a05b95b5d', 1, NULL)
-INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [LanguageID], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('030cdae1-eb6c-ed11-835f-02f176033ddb', '720e3302-e96c-ed11-835f-02f176033ddb', 1, N'<ng-container><cr-title-header
-    (buttonClickEvent)="self.onTitleButtonClick($event)"
-    [buttonSettings]="self.titleHeaderButtonSettings"
-    [titleTranslateKey]="''ITEM.DETAILS.COMBO_MEAL.SELECT_FROM_CATALOG.TITLE''"
-    [title]="''''"
-></cr-title-header>
-      <cr-panel
-        [panelTemplateType]="''panel''"
-        [expanded]="self.panelsViewState?.[''undefined''] ?? true"
-        (expandedChange)="self.panelStateChange(''undefined'', $event)"
-        [titleTranslateKey]="true ? ''ITEM.DETAILS.COMBO_MEAL.SELECT_FROM_CATALOG.FILTER.TITLE'' : null"
-        [title]="true ? null : ''Selection criteria he''"
-        [customClass]="''''"
-        [headerClass]="''''"
-        [validator]="self.validator"
-        [validatorGroupName]="''undefined''"
-        [containFields]=''[]''
-      >
-        <ng-template crPanelContent>
-          <div class="row undefined"><div class=''col-md-2''><cr-control-edit
-    [elementName]="''edit:Item_details.Combo_meal_select_from_catalog_filter_code''"
-    [(dataValue)]="self.cache.filter.code"
-    [translateKeys]="''ITEM.DETAILS.COMBO_MEAL.SELECT_FROM_CATALOG.FILTER.CODE''" 
-    [dataLabel]="''''"
-    [customClass]=''""''
-    [isDisabled]="false"
-></cr-control-edit></div><div class=''col-md-2''><cr-control-edit
-    [elementName]="''edit:Item_details.Combo_meal_select_from_catalog_filter_short_display_name''"
-    [(dataValue)]="self.cache.filter.shortDisplayName"
-    [translateKeys]="''ITEM.DETAILS.COMBO_MEAL.SELECT_FROM_CATALOG.FILTER.SHORT_DISPLAY_NAME''" 
-    [dataLabel]="''''"
-    [customClass]=''""''
-    [isDisabled]="false"
-></cr-control-edit></div><div class=''col-md-2''><cr-control-edit
-    [elementName]="''edit:Item_details.Combo_meal_select_from_catalog_filter_barcode''"
-    [(dataValue)]="self.cache.filter.barcode"
-    [translateKeys]="''ITEM.DETAILS.COMBO_MEAL.SELECT_FROM_CATALOG.FILTER.BARCODE''" 
-    [dataLabel]="''''"
-    [customClass]=''""''
-    [isDisabled]="false"
-></cr-control-edit></div><div class=''col-md-2''><cr-control-edit
-    [elementName]="''edit:Item_details.Combo_meal_select_from_catalog_filter_model_code''"
-    [(dataValue)]="self.cache.filter.modelCode"
-    [translateKeys]="''ITEM.DETAILS.COMBO_MEAL.SELECT_FROM_CATALOG.FILTER.MODEL_CODE''" 
-    [dataLabel]="''''"
-    [customClass]=''""''
-    [isDisabled]="false"
-></cr-control-edit></div><div class=''col-md-4''><cr-button-control 
-    [buttonTemplateType]="''underlined-action-button''"
-    [text]="''''"
-    [textTranslateKey]="''COMMON.SEARCH''"
-    [classArray]=''["d-block","ml-auto"]''
-    [width]="''''"
-    [height]="''''"
-    [icon]="''undefined''"
-    (buttonClickEvent)="self.changeFilter()"
-></cr-button-control></div></div>
-        </ng-template>
-      </cr-panel>
-      <cr-panel
-        [panelTemplateType]="''panel''"
-        [expanded]="self.panelsViewState?.[''undefined''] ?? true"
-        (expandedChange)="self.panelStateChange(''undefined'', $event)"
-        [titleTranslateKey]="true ? ''ITEM.DETAILS.COMBO_MEAL.SELECT_FROM_CATALOG.GRID.TITLE'' : null"
-        [title]="true ? null : ''Items he''"
-        [customClass]="''''"
-        [headerClass]="''''"
-        [validator]="self.validator"
-        [validatorGroupName]="''undefined''"
-        [containFields]=''[]''
-      >
-        <ng-template crPanelContent>
-          <div class="row undefined"><div class=''col-md-2''><cr-numeric-control
-    [elementName]="''numeric:Item_details.Combo_meal_select_from_catalog_items_total''"
-    [dataValue]="cache.selectedItems?.length"
-    [isDisabled]="true"
-    [dataLabel]="''''" 
-    [translateKeys]="''ITEM.DETAILS.COMBO_MEAL.SELECT_FROM_CATALOG.GRID.TOTAL''" 
-    [customClass]=''""''
-    [format]="''#''" 
-    [decimals]="null" 
-    [min]="null" 
-    [max]="null"
-    [autoCorrectMinMax]="false"
-></cr-numeric-control></div><div class=''col-md-10''></div></div><div class="cr-grid-wrapper-new">
-    <cr-edit-grid-server-paging
-        [elementName]="''edit-grid-server-paging:Item_details.Combo_meal_select_from_catalog_grid''"
-        [dataSource]="self.dataSource"
-        [columnSettings]="self.columnSettings"
-        [pageable]="true"
-        [resizable]="true"
-        (cellClickEvent)="self.onCellClick($event)"
-        (pageChangeEvent)="self.changePage($event)"
-        (selectionChanged)="self.onSelectionChange($event)"
-        [initialSelectedRows]="self.cache.selectedItems"
-        [uniqueField]="''id''"
-        [allowMultiSelect]="true"
-        [selectionDataMode]="''object''"
-        [dataCacheName]="''ComboMealCategorySelectFromCatalogGrid''"
-        [class]=''undefined''
-    ></cr-edit-grid-server-paging>
-</div>
-
-        </ng-template>
-      </cr-panel></ng-container>', '2022-11-25 18:06:29.0631299 +00:00', 1, N'N', 'a724d7c1-8f90-46bd-9752-108a8e3772b5', 1, NULL)
-INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [LanguageID], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('040cdae1-eb6c-ed11-835f-02f176033ddb', '720e3302-e96c-ed11-835f-02f176033ddb', 2, N'<ng-container><cr-title-header
-    (buttonClickEvent)="self.onTitleButtonClick($event)"
-    [buttonSettings]="self.titleHeaderButtonSettings"
-    [titleTranslateKey]="''ITEM.DETAILS.COMBO_MEAL.SELECT_FROM_CATALOG.TITLE''"
-    [title]="''''"
-></cr-title-header>
-      <cr-panel
-        [panelTemplateType]="''panel''"
-        [expanded]="self.panelsViewState?.[''undefined''] ?? true"
-        (expandedChange)="self.panelStateChange(''undefined'', $event)"
-        [titleTranslateKey]="true ? ''ITEM.DETAILS.COMBO_MEAL.SELECT_FROM_CATALOG.FILTER.TITLE'' : null"
-        [title]="true ? null : ''Selection criteria''"
-        [customClass]="''''"
-        [headerClass]="''''"
-        [validator]="self.validator"
-        [validatorGroupName]="''undefined''"
-        [containFields]=''[]''
-      >
-        <ng-template crPanelContent>
-          <div class="row undefined"><div class=''col-md-2''><cr-control-edit
-    [elementName]="''edit:Item_details.Combo_meal_select_from_catalog_filter_code''"
-    [(dataValue)]="self.cache.filter.code"
-    [translateKeys]="''ITEM.DETAILS.COMBO_MEAL.SELECT_FROM_CATALOG.FILTER.CODE''" 
-    [dataLabel]="''''"
-    [customClass]=''""''
-    [isDisabled]="false"
-></cr-control-edit></div><div class=''col-md-2''><cr-control-edit
-    [elementName]="''edit:Item_details.Combo_meal_select_from_catalog_filter_short_display_name''"
-    [(dataValue)]="self.cache.filter.shortDisplayName"
-    [translateKeys]="''ITEM.DETAILS.COMBO_MEAL.SELECT_FROM_CATALOG.FILTER.SHORT_DISPLAY_NAME''" 
-    [dataLabel]="''''"
-    [customClass]=''""''
-    [isDisabled]="false"
-></cr-control-edit></div><div class=''col-md-2''><cr-control-edit
-    [elementName]="''edit:Item_details.Combo_meal_select_from_catalog_filter_barcode''"
-    [(dataValue)]="self.cache.filter.barcode"
-    [translateKeys]="''ITEM.DETAILS.COMBO_MEAL.SELECT_FROM_CATALOG.FILTER.BARCODE''" 
-    [dataLabel]="''''"
-    [customClass]=''""''
-    [isDisabled]="false"
-></cr-control-edit></div><div class=''col-md-2''><cr-control-edit
-    [elementName]="''edit:Item_details.Combo_meal_select_from_catalog_filter_model_code''"
-    [(dataValue)]="self.cache.filter.modelCode"
-    [translateKeys]="''ITEM.DETAILS.COMBO_MEAL.SELECT_FROM_CATALOG.FILTER.MODEL_CODE''" 
-    [dataLabel]="''''"
-    [customClass]=''""''
-    [isDisabled]="false"
-></cr-control-edit></div><div class=''col-md-4''><cr-button-control 
-    [buttonTemplateType]="''underlined-action-button''"
-    [text]="''''"
-    [textTranslateKey]="''COMMON.SEARCH''"
-    [classArray]=''["d-block","ml-auto"]''
-    [width]="''''"
-    [height]="''''"
-    [icon]="''undefined''"
-    (buttonClickEvent)="self.changeFilter()"
-></cr-button-control></div></div>
-        </ng-template>
-      </cr-panel>
-      <cr-panel
-        [panelTemplateType]="''panel''"
-        [expanded]="self.panelsViewState?.[''undefined''] ?? true"
-        (expandedChange)="self.panelStateChange(''undefined'', $event)"
-        [titleTranslateKey]="true ? ''ITEM.DETAILS.COMBO_MEAL.SELECT_FROM_CATALOG.GRID.TITLE'' : null"
-        [title]="true ? null : ''Items''"
-        [customClass]="''''"
-        [headerClass]="''''"
-        [validator]="self.validator"
-        [validatorGroupName]="''undefined''"
-        [containFields]=''[]''
-      >
-        <ng-template crPanelContent>
-          <div class="row undefined"><div class=''col-md-2''><cr-numeric-control
-    [elementName]="''numeric:Item_details.Combo_meal_select_from_catalog_items_total''"
-    [dataValue]="cache.selectedItems?.length"
-    [isDisabled]="true"
-    [dataLabel]="''''" 
-    [translateKeys]="''ITEM.DETAILS.COMBO_MEAL.SELECT_FROM_CATALOG.GRID.TOTAL''" 
-    [customClass]=''""''
-    [format]="''#''" 
-    [decimals]="null" 
-    [min]="null" 
-    [max]="null"
-    [autoCorrectMinMax]="false"
-></cr-numeric-control></div><div class=''col-md-10''></div></div><div class="cr-grid-wrapper-new">
-    <cr-edit-grid-server-paging
-        [elementName]="''edit-grid-server-paging:Item_details.Combo_meal_select_from_catalog_grid''"
-        [dataSource]="self.dataSource"
-        [columnSettings]="self.columnSettings"
-        [pageable]="true"
-        [resizable]="true"
-        (cellClickEvent)="self.onCellClick($event)"
-        (pageChangeEvent)="self.changePage($event)"
-        (selectionChanged)="self.onSelectionChange($event)"
-        [initialSelectedRows]="self.cache.selectedItems"
-        [uniqueField]="''id''"
-        [allowMultiSelect]="true"
-        [selectionDataMode]="''object''"
-        [dataCacheName]="''ComboMealCategorySelectFromCatalogGrid''"
-        [class]=''undefined''
-    ></cr-edit-grid-server-paging>
-</div>
-
-        </ng-template>
-      </cr-panel></ng-container>', '2022-11-25 18:06:29.0631299 +00:00', 1, N'N', '7449c24e-a139-4319-b566-c700c3bfd3b2', 1, NULL)
-INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [LanguageID], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('39243568-ed6c-ed11-835f-02f176033ddb', '9804e012-e96c-ed11-835f-02f176033ddb', 1, N'<ng-container><cr-title-header
-    (buttonClickEvent)="self.onTitleButtonClick($event)"
-    [buttonSettings]="self.titleHeaderButtonSettings"
-    [titleTranslateKey]="''ITEM.DETAILS.COMBO_MEAL.SELECT_FROM_BASKET.TITLE''"
-    [title]="''''"
-></cr-title-header>
-      <cr-panel
-        [panelTemplateType]="''panel''"
-        [expanded]="self.panelsViewState?.[''undefined''] ?? true"
-        (expandedChange)="self.panelStateChange(''undefined'', $event)"
-        [titleTranslateKey]="true ? ''ITEM.DETAILS.COMBO_MEAL.SELECT_FROM_BASKET.FILTER.TITLE'' : null"
-        [title]="true ? null : ''Basket he''"
-        [customClass]="''''"
-        [headerClass]="''''"
-        [validator]="self.validator"
-        [validatorGroupName]="''undefined''"
-        [containFields]=''[]''
-      >
-        <ng-template crPanelContent>
-          <cr-basket-population-view
-    (addBasket)="self.addPopulationBasket()"
-    (deleteBasket)="self.deleteBasketPopulation()"
-    (edit)="self.onEditPopulation()"
-    [cacheName]="''self.comboMealItemPopulationViewState''"
-    [elementName]="''basket-population:Item_details.Combo_meal_select_from_basket_population''"
-    [isShowAdd]="true"
-    [isShowDelete]="true"
-    [isShowEdit]="true"
-    [populations]="self.cache.filter"
-    [class]=''""''
-></cr-basket-population-view><div class="row "><div class=''col-md-12''><cr-button-control 
-    [buttonTemplateType]="''underlined-action-button''"
-    [text]="''''"
-    [textTranslateKey]="''COMMON.SEARCH''"
-    [classArray]=''["d-block","ml-auto"]''
-    [width]="''''"
-    [height]="''''"
-    [icon]="''undefined''"
-    (buttonClickEvent)="self.changeFilter()"
-></cr-button-control></div><div class=''col-md-6''></div></div>
-        </ng-template>
-      </cr-panel>
-      <cr-panel
-        [panelTemplateType]="''panel''"
-        [expanded]="self.panelsViewState?.[''undefined''] ?? true"
-        (expandedChange)="self.panelStateChange(''undefined'', $event)"
-        [titleTranslateKey]="true ? ''ITEM.DETAILS.COMBO_MEAL.SELECT_FROM_BASKET.GRID.TITLE'' : null"
-        [title]="true ? null : ''Items he''"
-        [customClass]="''''"
-        [headerClass]="''''"
-        [validator]="self.validator"
-        [validatorGroupName]="''undefined''"
-        [containFields]=''[]''
-      >
-        <ng-template crPanelContent>
-          <div class="row "><div class=''col-md-2''><cr-numeric-control
-    [elementName]="''numeric:Item_details.Combo_meal_select_from_basket_items_total''"
-    [dataValue]="cache.selectedItems?.length"
-    [isDisabled]="true"
-    [dataLabel]="''''" 
-    [translateKeys]="''ITEM.DETAILS.COMBO_MEAL.SELECT_FROM_BASKET.GRID.TOTAL''" 
-    [customClass]=''""''
-    [format]="''#''" 
-    [decimals]="null" 
-    [min]="null" 
-    [max]="null"
-    [autoCorrectMinMax]="false"
-></cr-numeric-control></div><div class=''col-md-10''></div></div><div class="cr-grid-wrapper-new">
-    <cr-edit-grid-server-paging
-        [elementName]="''edit-grid-server-paging:Item_details.Combo_meal_select_from_basket_grid''"
-        [dataSource]="self.dataSource"
-        [columnSettings]="self.columnSettings"
-        [pageable]="true"
-        [resizable]="true"
-        (cellClickEvent)="self.onCellClick($event)"
-        (pageChangeEvent)="self.changePage($event)"
-        (selectionChanged)="self.onSelectionChange($event)"
-        [initialSelectedRows]="self.cache.selectedItems"
-        [uniqueField]="''id''"
-        [allowMultiSelect]="true"
-        [selectionDataMode]="''object''"
-        [dataCacheName]="''ComboMealCategorySelectFromBasketGrid''"
-        [class]=''undefined''
-    ></cr-edit-grid-server-paging>
-</div>
-
-        </ng-template>
-      </cr-panel></ng-container>', '2022-11-25 18:42:46.6666667 +00:00', 2, N'N', 'c7ce721c-6d92-486b-934f-af03154d273c', 1, NULL)
-INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [LanguageID], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('3a243568-ed6c-ed11-835f-02f176033ddb', '9804e012-e96c-ed11-835f-02f176033ddb', 2, N'<ng-container><cr-title-header
-    (buttonClickEvent)="self.onTitleButtonClick($event)"
-    [buttonSettings]="self.titleHeaderButtonSettings"
-    [titleTranslateKey]="''ITEM.DETAILS.COMBO_MEAL.SELECT_FROM_BASKET.TITLE''"
-    [title]="''''"
-></cr-title-header>
-      <cr-panel
-        [panelTemplateType]="''panel''"
-        [expanded]="self.panelsViewState?.[''undefined''] ?? true"
-        (expandedChange)="self.panelStateChange(''undefined'', $event)"
-        [titleTranslateKey]="true ? ''ITEM.DETAILS.COMBO_MEAL.SELECT_FROM_BASKET.FILTER.TITLE'' : null"
-        [title]="true ? null : ''Basket''"
-        [customClass]="''''"
-        [headerClass]="''''"
-        [validator]="self.validator"
-        [validatorGroupName]="''undefined''"
-        [containFields]=''[]''
-      >
-        <ng-template crPanelContent>
-          <cr-basket-population-view
-    (addBasket)="self.addPopulationBasket()"
-    (deleteBasket)="self.deleteBasketPopulation()"
-    (edit)="self.onEditPopulation()"
-    [cacheName]="''self.comboMealItemPopulationViewState''"
-    [elementName]="''basket-population:Item_details.Combo_meal_select_from_basket_population''"
-    [isShowAdd]="true"
-    [isShowDelete]="true"
-    [isShowEdit]="true"
-    [populations]="self.cache.filter"
-    [class]=''""''
-></cr-basket-population-view><div class="row "><div class=''col-md-12''><cr-button-control 
-    [buttonTemplateType]="''underlined-action-button''"
-    [text]="''''"
-    [textTranslateKey]="''COMMON.SEARCH''"
-    [classArray]=''["d-block","ml-auto"]''
-    [width]="''''"
-    [height]="''''"
-    [icon]="''undefined''"
-    (buttonClickEvent)="self.changeFilter()"
-></cr-button-control></div><div class=''col-md-6''></div></div>
-        </ng-template>
-      </cr-panel>
-      <cr-panel
-        [panelTemplateType]="''panel''"
-        [expanded]="self.panelsViewState?.[''undefined''] ?? true"
-        (expandedChange)="self.panelStateChange(''undefined'', $event)"
-        [titleTranslateKey]="true ? ''ITEM.DETAILS.COMBO_MEAL.SELECT_FROM_BASKET.GRID.TITLE'' : null"
-        [title]="true ? null : ''Items''"
-        [customClass]="''''"
-        [headerClass]="''''"
-        [validator]="self.validator"
-        [validatorGroupName]="''undefined''"
-        [containFields]=''[]''
-      >
-        <ng-template crPanelContent>
-          <div class="row "><div class=''col-md-2''><cr-numeric-control
-    [elementName]="''numeric:Item_details.Combo_meal_select_from_basket_items_total''"
-    [dataValue]="cache.selectedItems?.length"
-    [isDisabled]="true"
-    [dataLabel]="''''" 
-    [translateKeys]="''ITEM.DETAILS.COMBO_MEAL.SELECT_FROM_BASKET.GRID.TOTAL''" 
-    [customClass]=''""''
-    [format]="''#''" 
-    [decimals]="null" 
-    [min]="null" 
-    [max]="null"
-    [autoCorrectMinMax]="false"
-></cr-numeric-control></div><div class=''col-md-10''></div></div><div class="cr-grid-wrapper-new">
-    <cr-edit-grid-server-paging
-        [elementName]="''edit-grid-server-paging:Item_details.Combo_meal_select_from_basket_grid''"
-        [dataSource]="self.dataSource"
-        [columnSettings]="self.columnSettings"
-        [pageable]="true"
-        [resizable]="true"
-        (cellClickEvent)="self.onCellClick($event)"
-        (pageChangeEvent)="self.changePage($event)"
-        (selectionChanged)="self.onSelectionChange($event)"
-        [initialSelectedRows]="self.cache.selectedItems"
-        [uniqueField]="''id''"
-        [allowMultiSelect]="true"
-        [selectionDataMode]="''object''"
-        [dataCacheName]="''ComboMealCategorySelectFromBasketGrid''"
-        [class]=''undefined''
-    ></cr-edit-grid-server-paging>
-</div>
-
-        </ng-template>
-      </cr-panel></ng-container>', '2022-11-25 18:42:46.6666667 +00:00', 2, N'N', '575a09a6-7e31-41b8-ac59-4743f5c211d1', 1, NULL)
 INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [LanguageID], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('981dc0da-966d-ed11-835f-02f176033ddb', '5c4deb84-f36c-ed11-835f-02f176033ddb', 1, N'<ng-container><cr-title-header
     [titleTranslateKey]="''COMMON.BASKET.BASKET_EDIT.TITLE_CREATE_ITEM_POPULATION''"
     [title]="''''"
@@ -4868,3 +4560,389 @@ INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [Langu
       </cr-panel></div></div>
         </ng-template>
       </cr-panel></ng-container>', '2022-11-21 11:45:01.4400000 +00:00', 9, N'N', '35b59307-c618-4005-a7d2-fc540bd2c6a7', 1, NULL)
+INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [LanguageID], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('030cdae1-eb6c-ed11-835f-02f176033ddb', '720e3302-e96c-ed11-835f-02f176033ddb', 1, N'<ng-container><cr-title-header
+    (buttonClickEvent)="self.onTitleButtonClick($event)"
+    [buttonSettings]="self.titleHeaderButtonSettings"
+    [titleTranslateKey]="''ITEM.DETAILS.COMBO_MEAL.SELECT_FROM_CATALOG.TITLE''"
+    [title]="''''"
+></cr-title-header>
+      <cr-panel
+        [panelTemplateType]="''panel''"
+        [expanded]="self.panelsViewState?.[''undefined''] ?? true"
+        (expandedChange)="self.panelStateChange(''undefined'', $event)"
+        [titleTranslateKey]="true ? ''ITEM.DETAILS.COMBO_MEAL.SELECT_FROM_CATALOG.FILTER.TITLE'' : null"
+        [title]="true ? null : ''Selection criteria he''"
+        [customClass]="''''"
+        [headerClass]="''''"
+        [validator]="self.validator"
+        [validatorGroupName]="''undefined''"
+        [containFields]=''[]''
+      >
+        <ng-template crPanelContent>
+          <div class="row "><div class=''col-md-2''><cr-control-edit
+    [elementName]="''edit:Item_details.Combo_meal_select_from_catalog_filter_code''"
+    [(dataValue)]="self.cache.filter.code"
+    [translateKeys]="''ITEM.DETAILS.COMBO_MEAL.SELECT_FROM_CATALOG.FILTER.CODE''" 
+    [dataLabel]="''''"
+    [customClass]=''""''
+    [isDisabled]="false"
+></cr-control-edit></div><div class=''col-md-2''><cr-control-edit
+    [elementName]="''edit:Item_details.Combo_meal_select_from_catalog_filter_short_display_name''"
+    [(dataValue)]="self.cache.filter.shortDisplayName"
+    [translateKeys]="''ITEM.DETAILS.COMBO_MEAL.SELECT_FROM_CATALOG.FILTER.SHORT_DISPLAY_NAME''" 
+    [dataLabel]="''''"
+    [customClass]=''""''
+    [isDisabled]="false"
+></cr-control-edit></div><div class=''col-md-2''><cr-control-edit
+    [elementName]="''edit:Item_details.Combo_meal_select_from_catalog_filter_barcode''"
+    [(dataValue)]="self.cache.filter.barcode"
+    [translateKeys]="''ITEM.DETAILS.COMBO_MEAL.SELECT_FROM_CATALOG.FILTER.BARCODE''" 
+    [dataLabel]="''''"
+    [customClass]=''""''
+    [isDisabled]="false"
+></cr-control-edit></div><div class=''col-md-2''><cr-control-edit
+    [elementName]="''edit:Item_details.Combo_meal_select_from_catalog_filter_model_code''"
+    [(dataValue)]="self.cache.filter.modelCode"
+    [translateKeys]="''ITEM.DETAILS.COMBO_MEAL.SELECT_FROM_CATALOG.FILTER.MODEL_CODE''" 
+    [dataLabel]="''''"
+    [customClass]=''""''
+    [isDisabled]="false"
+></cr-control-edit></div><div class=''col-md-4''><cr-button-control 
+    [buttonTemplateType]="''underlined-action-button''"
+    [text]="''''"
+    [textTranslateKey]="''COMMON.SEARCH''"
+    [classArray]=''["d-block","ml-auto"]''
+    [width]="''''"
+    [height]="''''"
+    [icon]="''undefined''"
+    (buttonClickEvent)="self.changeFilter()"
+></cr-button-control></div></div>
+        </ng-template>
+      </cr-panel>
+      <cr-panel
+        [panelTemplateType]="''panel''"
+        [expanded]="self.panelsViewState?.[''undefined''] ?? true"
+        (expandedChange)="self.panelStateChange(''undefined'', $event)"
+        [titleTranslateKey]="true ? ''ITEM.DETAILS.COMBO_MEAL.SELECT_FROM_CATALOG.GRID.TITLE'' : null"
+        [title]="true ? null : ''Items he''"
+        [customClass]="''''"
+        [headerClass]="''''"
+        [validator]="self.validator"
+        [validatorGroupName]="''undefined''"
+        [containFields]=''[]''
+      >
+        <ng-template crPanelContent>
+          <div class="row "><div class=''col-md-2''><cr-numeric-control
+    [elementName]="''numeric:Item_details.Combo_meal_select_from_catalog_items_total''"
+    [dataValue]="self.cache.selectedItems?.length"
+    [isDisabled]="true"
+    [dataLabel]="''''" 
+    [translateKeys]="''ITEM.DETAILS.COMBO_MEAL.SELECT_FROM_CATALOG.GRID.TOTAL''" 
+    [customClass]=''""''
+    [format]="''#''" 
+    [decimals]="null" 
+    [min]="null" 
+    [max]="null"
+    [autoCorrectMinMax]="false"
+></cr-numeric-control></div><div class=''col-md-10''></div></div><div class="cr-grid-wrapper-new">
+    <cr-edit-grid-server-paging
+        [elementName]="''edit-grid-server-paging:Item_details.Combo_meal_select_from_catalog_grid''"
+        [dataSource]="self.dataSource"
+        [columnSettings]="self.columnSettings"
+        [pageable]="true"
+        [resizable]="true"
+        (cellClickEvent)="self.onCellClick($event)"
+        (pageChangeEvent)="self.changePage($event)"
+        (selectionChanged)="self.onSelectionChange($event)"
+        [initialSelectedRows]="self.cache.selectedItems"
+        [uniqueField]="''id''"
+        [allowMultiSelect]="true"
+        [selectionDataMode]="''object''"
+        [dataCacheName]="''ComboMealCategorySelectFromCatalogGrid''"
+        [class]=''undefined''
+    ></cr-edit-grid-server-paging>
+</div>
+
+        </ng-template>
+      </cr-panel></ng-container>', '2022-11-26 18:09:33.9033333 +00:00', 2, N'N', '9bb20bb3-901c-469d-b1a2-4a08efc6f66a', 1, NULL)
+INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [LanguageID], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('040cdae1-eb6c-ed11-835f-02f176033ddb', '720e3302-e96c-ed11-835f-02f176033ddb', 2, N'<ng-container><cr-title-header
+    (buttonClickEvent)="self.onTitleButtonClick($event)"
+    [buttonSettings]="self.titleHeaderButtonSettings"
+    [titleTranslateKey]="''ITEM.DETAILS.COMBO_MEAL.SELECT_FROM_CATALOG.TITLE''"
+    [title]="''''"
+></cr-title-header>
+      <cr-panel
+        [panelTemplateType]="''panel''"
+        [expanded]="self.panelsViewState?.[''undefined''] ?? true"
+        (expandedChange)="self.panelStateChange(''undefined'', $event)"
+        [titleTranslateKey]="true ? ''ITEM.DETAILS.COMBO_MEAL.SELECT_FROM_CATALOG.FILTER.TITLE'' : null"
+        [title]="true ? null : ''Selection criteria''"
+        [customClass]="''''"
+        [headerClass]="''''"
+        [validator]="self.validator"
+        [validatorGroupName]="''undefined''"
+        [containFields]=''[]''
+      >
+        <ng-template crPanelContent>
+          <div class="row "><div class=''col-md-2''><cr-control-edit
+    [elementName]="''edit:Item_details.Combo_meal_select_from_catalog_filter_code''"
+    [(dataValue)]="self.cache.filter.code"
+    [translateKeys]="''ITEM.DETAILS.COMBO_MEAL.SELECT_FROM_CATALOG.FILTER.CODE''" 
+    [dataLabel]="''''"
+    [customClass]=''""''
+    [isDisabled]="false"
+></cr-control-edit></div><div class=''col-md-2''><cr-control-edit
+    [elementName]="''edit:Item_details.Combo_meal_select_from_catalog_filter_short_display_name''"
+    [(dataValue)]="self.cache.filter.shortDisplayName"
+    [translateKeys]="''ITEM.DETAILS.COMBO_MEAL.SELECT_FROM_CATALOG.FILTER.SHORT_DISPLAY_NAME''" 
+    [dataLabel]="''''"
+    [customClass]=''""''
+    [isDisabled]="false"
+></cr-control-edit></div><div class=''col-md-2''><cr-control-edit
+    [elementName]="''edit:Item_details.Combo_meal_select_from_catalog_filter_barcode''"
+    [(dataValue)]="self.cache.filter.barcode"
+    [translateKeys]="''ITEM.DETAILS.COMBO_MEAL.SELECT_FROM_CATALOG.FILTER.BARCODE''" 
+    [dataLabel]="''''"
+    [customClass]=''""''
+    [isDisabled]="false"
+></cr-control-edit></div><div class=''col-md-2''><cr-control-edit
+    [elementName]="''edit:Item_details.Combo_meal_select_from_catalog_filter_model_code''"
+    [(dataValue)]="self.cache.filter.modelCode"
+    [translateKeys]="''ITEM.DETAILS.COMBO_MEAL.SELECT_FROM_CATALOG.FILTER.MODEL_CODE''" 
+    [dataLabel]="''''"
+    [customClass]=''""''
+    [isDisabled]="false"
+></cr-control-edit></div><div class=''col-md-4''><cr-button-control 
+    [buttonTemplateType]="''underlined-action-button''"
+    [text]="''''"
+    [textTranslateKey]="''COMMON.SEARCH''"
+    [classArray]=''["d-block","ml-auto"]''
+    [width]="''''"
+    [height]="''''"
+    [icon]="''undefined''"
+    (buttonClickEvent)="self.changeFilter()"
+></cr-button-control></div></div>
+        </ng-template>
+      </cr-panel>
+      <cr-panel
+        [panelTemplateType]="''panel''"
+        [expanded]="self.panelsViewState?.[''undefined''] ?? true"
+        (expandedChange)="self.panelStateChange(''undefined'', $event)"
+        [titleTranslateKey]="true ? ''ITEM.DETAILS.COMBO_MEAL.SELECT_FROM_CATALOG.GRID.TITLE'' : null"
+        [title]="true ? null : ''Items''"
+        [customClass]="''''"
+        [headerClass]="''''"
+        [validator]="self.validator"
+        [validatorGroupName]="''undefined''"
+        [containFields]=''[]''
+      >
+        <ng-template crPanelContent>
+          <div class="row "><div class=''col-md-2''><cr-numeric-control
+    [elementName]="''numeric:Item_details.Combo_meal_select_from_catalog_items_total''"
+    [dataValue]="self.cache.selectedItems?.length"
+    [isDisabled]="true"
+    [dataLabel]="''''" 
+    [translateKeys]="''ITEM.DETAILS.COMBO_MEAL.SELECT_FROM_CATALOG.GRID.TOTAL''" 
+    [customClass]=''""''
+    [format]="''#''" 
+    [decimals]="null" 
+    [min]="null" 
+    [max]="null"
+    [autoCorrectMinMax]="false"
+></cr-numeric-control></div><div class=''col-md-10''></div></div><div class="cr-grid-wrapper-new">
+    <cr-edit-grid-server-paging
+        [elementName]="''edit-grid-server-paging:Item_details.Combo_meal_select_from_catalog_grid''"
+        [dataSource]="self.dataSource"
+        [columnSettings]="self.columnSettings"
+        [pageable]="true"
+        [resizable]="true"
+        (cellClickEvent)="self.onCellClick($event)"
+        (pageChangeEvent)="self.changePage($event)"
+        (selectionChanged)="self.onSelectionChange($event)"
+        [initialSelectedRows]="self.cache.selectedItems"
+        [uniqueField]="''id''"
+        [allowMultiSelect]="true"
+        [selectionDataMode]="''object''"
+        [dataCacheName]="''ComboMealCategorySelectFromCatalogGrid''"
+        [class]=''undefined''
+    ></cr-edit-grid-server-paging>
+</div>
+
+        </ng-template>
+      </cr-panel></ng-container>', '2022-11-26 18:09:33.9033333 +00:00', 2, N'N', '6e195871-ae1d-4832-88a7-e71859e158cc', 1, NULL)
+INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [LanguageID], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('39243568-ed6c-ed11-835f-02f176033ddb', '9804e012-e96c-ed11-835f-02f176033ddb', 1, N'<ng-container><cr-title-header
+    (buttonClickEvent)="self.onTitleButtonClick($event)"
+    [buttonSettings]="self.titleHeaderButtonSettings"
+    [titleTranslateKey]="''ITEM.DETAILS.COMBO_MEAL.SELECT_FROM_BASKET.TITLE''"
+    [title]="''''"
+></cr-title-header>
+      <cr-panel
+        [panelTemplateType]="''panel''"
+        [expanded]="self.panelsViewState?.[''undefined''] ?? true"
+        (expandedChange)="self.panelStateChange(''undefined'', $event)"
+        [titleTranslateKey]="true ? ''ITEM.DETAILS.COMBO_MEAL.SELECT_FROM_BASKET.FILTER.TITLE'' : null"
+        [title]="true ? null : ''Basket he''"
+        [customClass]="''''"
+        [headerClass]="''''"
+        [validator]="self.validator"
+        [validatorGroupName]="''undefined''"
+        [containFields]=''[]''
+      >
+        <ng-template crPanelContent>
+          <cr-basket-population-view
+    (addBasket)="self.addPopulationBasket()"
+    (deleteBasket)="self.deleteBasketPopulation()"
+    (edit)="self.onEditPopulation()"
+    [cacheName]="''self.comboMealItemPopulationViewState''"
+    [elementName]="''basket-population:Item_details.Combo_meal_select_from_basket_population''"
+    [isShowAdd]="true"
+    [isShowDelete]="true"
+    [isShowEdit]="true"
+    [populations]="self.cache.filter"
+    [class]=''""''
+></cr-basket-population-view><div class="row "><div class=''col-md-12''><cr-button-control 
+    [buttonTemplateType]="''underlined-action-button''"
+    [text]="''''"
+    [textTranslateKey]="''COMMON.SEARCH''"
+    [classArray]=''["d-block","ml-auto"]''
+    [width]="''''"
+    [height]="''''"
+    [icon]="''undefined''"
+    (buttonClickEvent)="self.changeFilter()"
+></cr-button-control></div><div class=''col-md-6''></div></div>
+        </ng-template>
+      </cr-panel>
+      <cr-panel
+        [panelTemplateType]="''panel''"
+        [expanded]="self.panelsViewState?.[''undefined''] ?? true"
+        (expandedChange)="self.panelStateChange(''undefined'', $event)"
+        [titleTranslateKey]="true ? ''ITEM.DETAILS.COMBO_MEAL.SELECT_FROM_BASKET.GRID.TITLE'' : null"
+        [title]="true ? null : ''Items he''"
+        [customClass]="''''"
+        [headerClass]="''''"
+        [validator]="self.validator"
+        [validatorGroupName]="''undefined''"
+        [containFields]=''[]''
+      >
+        <ng-template crPanelContent>
+          <div class="row "><div class=''col-md-2''><cr-numeric-control
+    [elementName]="''numeric:Item_details.Combo_meal_select_from_basket_items_total''"
+    [dataValue]="self.cache.selectedItems?.length"
+    [isDisabled]="true"
+    [dataLabel]="''''" 
+    [translateKeys]="''ITEM.DETAILS.COMBO_MEAL.SELECT_FROM_BASKET.GRID.TOTAL''" 
+    [customClass]=''""''
+    [format]="''#''" 
+    [decimals]="null" 
+    [min]="null" 
+    [max]="null"
+    [autoCorrectMinMax]="false"
+></cr-numeric-control></div><div class=''col-md-10''></div></div><div class="cr-grid-wrapper-new">
+    <cr-edit-grid-server-paging
+        [elementName]="''edit-grid-server-paging:Item_details.Combo_meal_select_from_basket_grid''"
+        [dataSource]="self.dataSource"
+        [columnSettings]="self.columnSettings"
+        [pageable]="true"
+        [resizable]="true"
+        (cellClickEvent)="self.onCellClick($event)"
+        (pageChangeEvent)="self.changePage($event)"
+        (selectionChanged)="self.onSelectionChange($event)"
+        [initialSelectedRows]="self.cache.selectedItems"
+        [uniqueField]="''id''"
+        [allowMultiSelect]="true"
+        [selectionDataMode]="''object''"
+        [dataCacheName]="''ComboMealCategorySelectFromBasketGrid''"
+        [class]=''undefined''
+    ></cr-edit-grid-server-paging>
+</div>
+
+        </ng-template>
+      </cr-panel></ng-container>', '2022-11-26 18:09:47.9100000 +00:00', 3, N'N', '7ac9681f-760f-48d2-bfb4-cf792df8f12a', 1, NULL)
+INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [LanguageID], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('3a243568-ed6c-ed11-835f-02f176033ddb', '9804e012-e96c-ed11-835f-02f176033ddb', 2, N'<ng-container><cr-title-header
+    (buttonClickEvent)="self.onTitleButtonClick($event)"
+    [buttonSettings]="self.titleHeaderButtonSettings"
+    [titleTranslateKey]="''ITEM.DETAILS.COMBO_MEAL.SELECT_FROM_BASKET.TITLE''"
+    [title]="''''"
+></cr-title-header>
+      <cr-panel
+        [panelTemplateType]="''panel''"
+        [expanded]="self.panelsViewState?.[''undefined''] ?? true"
+        (expandedChange)="self.panelStateChange(''undefined'', $event)"
+        [titleTranslateKey]="true ? ''ITEM.DETAILS.COMBO_MEAL.SELECT_FROM_BASKET.FILTER.TITLE'' : null"
+        [title]="true ? null : ''Basket''"
+        [customClass]="''''"
+        [headerClass]="''''"
+        [validator]="self.validator"
+        [validatorGroupName]="''undefined''"
+        [containFields]=''[]''
+      >
+        <ng-template crPanelContent>
+          <cr-basket-population-view
+    (addBasket)="self.addPopulationBasket()"
+    (deleteBasket)="self.deleteBasketPopulation()"
+    (edit)="self.onEditPopulation()"
+    [cacheName]="''self.comboMealItemPopulationViewState''"
+    [elementName]="''basket-population:Item_details.Combo_meal_select_from_basket_population''"
+    [isShowAdd]="true"
+    [isShowDelete]="true"
+    [isShowEdit]="true"
+    [populations]="self.cache.filter"
+    [class]=''""''
+></cr-basket-population-view><div class="row "><div class=''col-md-12''><cr-button-control 
+    [buttonTemplateType]="''underlined-action-button''"
+    [text]="''''"
+    [textTranslateKey]="''COMMON.SEARCH''"
+    [classArray]=''["d-block","ml-auto"]''
+    [width]="''''"
+    [height]="''''"
+    [icon]="''undefined''"
+    (buttonClickEvent)="self.changeFilter()"
+></cr-button-control></div><div class=''col-md-6''></div></div>
+        </ng-template>
+      </cr-panel>
+      <cr-panel
+        [panelTemplateType]="''panel''"
+        [expanded]="self.panelsViewState?.[''undefined''] ?? true"
+        (expandedChange)="self.panelStateChange(''undefined'', $event)"
+        [titleTranslateKey]="true ? ''ITEM.DETAILS.COMBO_MEAL.SELECT_FROM_BASKET.GRID.TITLE'' : null"
+        [title]="true ? null : ''Items''"
+        [customClass]="''''"
+        [headerClass]="''''"
+        [validator]="self.validator"
+        [validatorGroupName]="''undefined''"
+        [containFields]=''[]''
+      >
+        <ng-template crPanelContent>
+          <div class="row "><div class=''col-md-2''><cr-numeric-control
+    [elementName]="''numeric:Item_details.Combo_meal_select_from_basket_items_total''"
+    [dataValue]="self.cache.selectedItems?.length"
+    [isDisabled]="true"
+    [dataLabel]="''''" 
+    [translateKeys]="''ITEM.DETAILS.COMBO_MEAL.SELECT_FROM_BASKET.GRID.TOTAL''" 
+    [customClass]=''""''
+    [format]="''#''" 
+    [decimals]="null" 
+    [min]="null" 
+    [max]="null"
+    [autoCorrectMinMax]="false"
+></cr-numeric-control></div><div class=''col-md-10''></div></div><div class="cr-grid-wrapper-new">
+    <cr-edit-grid-server-paging
+        [elementName]="''edit-grid-server-paging:Item_details.Combo_meal_select_from_basket_grid''"
+        [dataSource]="self.dataSource"
+        [columnSettings]="self.columnSettings"
+        [pageable]="true"
+        [resizable]="true"
+        (cellClickEvent)="self.onCellClick($event)"
+        (pageChangeEvent)="self.changePage($event)"
+        (selectionChanged)="self.onSelectionChange($event)"
+        [initialSelectedRows]="self.cache.selectedItems"
+        [uniqueField]="''id''"
+        [allowMultiSelect]="true"
+        [selectionDataMode]="''object''"
+        [dataCacheName]="''ComboMealCategorySelectFromBasketGrid''"
+        [class]=''undefined''
+    ></cr-edit-grid-server-paging>
+</div>
+
+        </ng-template>
+      </cr-panel></ng-container>', '2022-11-26 18:09:47.9100000 +00:00', 3, N'N', '67fb74b6-fffe-4461-b769-fb9554e243e1', 1, NULL)

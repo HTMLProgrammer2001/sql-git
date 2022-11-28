@@ -1,3 +1,14 @@
+INSERT INTO [dbo].[WebViewToViewSubAssociation] ([ID], [WebViewID], [WebViewSubID], [HtmlCode], [Html], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('ec7dfa3b-d26d-ed11-835f-02f176033ddb', '4a2007e0-d16d-ed11-835f-02f176033ddb', '5c42c912-d26d-ed11-835f-02f176033ddb', N'user-roles', N'<cr-user-details-role-manager
+    [subTemplateId]="''{{subTemplateId}}''"
+    [roles]="self.userDetail.roles"
+    (changeSelectedRoles)="self.onChangeSelectedRoles($event)"
+></cr-user-details-role-manager>
+', '2022-11-26 21:35:24.5185130 +00:00', 1, N'N', '9ffbbe0c-0969-4458-8320-60e033c73bcc', 1, NULL)
+INSERT INTO [dbo].[WebViewToViewSubAssociation] ([ID], [WebViewID], [WebViewSubID], [HtmlCode], [Html], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('be633488-d26d-ed11-835f-02f176033ddb', 'bb633488-d26d-ed11-835f-02f176033ddb', '5c42c912-d26d-ed11-835f-02f176033ddb', N'user-roles', N'<cr-user-details-role-manager
+    [subTemplateId]="''{{subTemplateId}}''"
+    [roles]="self.userDetail.roles"
+    (changeSelectedRoles)="self.onChangeSelectedRoles($event)"
+></cr-user-details-role-manager>', '2022-11-26 21:37:32.4829180 +00:00', 1, N'N', 'e96e6498-a499-4966-beab-2139068ca599', 1, NULL)
 INSERT INTO [dbo].[WebViewToViewSubAssociation] ([ID], [WebViewID], [WebViewSubID], [HtmlCode], [Html], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('a89593ef-1c6b-ed11-835f-02f176033ddb', 'b211b499-f964-ed11-8e60-4ccc6a2bb6d6', 'a55e29d8-1b6b-ed11-835f-02f176033ddb', N'image-content-create', N'<cr-image-basket-details
     [subTemplateId]="''{{subTemplateId}}''"
     [image]="self.cache.selectedImageBasketContent"

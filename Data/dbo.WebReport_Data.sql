@@ -33148,4 +33148,4 @@ where TenderID in (@Tender)</CommandText>
   <rd:ReportUnitType>Inch</rd:ReportUnitType>
   <rd:PageUnit>Px</rd:PageUnit>
   <df:DefaultFontFamily>Segoe UI</df:DefaultFontFamily>
-</Report>', '2022-11-21 15:02:46.0300000 +00:00', 19, N'N', 'ced703c1-3162-422c-a6e6-1cddb8a03aba', 1, NULL, 2, '2022-11-11 16:23:59.4206452 +02:00')
+</Report>', '2022-11-28 19:24:40.0433333 +00:00', 20, N'N', '3e321410-e75a-4d7a-bc24-cf920d19a71c', 1, NULL, 2, '2022-11-11 16:23:59.4206452 +02:00')

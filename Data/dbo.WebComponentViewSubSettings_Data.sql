@@ -1,3 +1,74 @@
+INSERT INTO [dbo].[WebComponentViewSubSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('b5f96ec4-106f-ed11-835f-02f176033ddb', '3c3c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'manage-user-roles-header', N'Header', N'{
+    "defaultValue": {
+        "isUseTranslateKey": true,
+        "translateKey": "USER.DETAILS.ROLE_MANAGER.TITLE"
+    },
+    "fieldSettings": {
+        "titleHeader": {
+            "elements": [
+                {
+                    "appearance": "primary-button",
+                    "nameTranslateKey": "COMMON.BUTTON.CONFIRM",
+                    "template": "custom"
+                },
+                {
+                    "appearance": "icon-button",
+                    "iconSvg": "icon-close",
+                    "template": "custom"
+                }
+            ]
+        }
+    }
+}', N'<cr-title-header
+    [titleTranslateKey]="{{translateKey}}"
+    [title]="{{label}}"
+    (buttonClickEvent)="self.onTitleButtonClick($event)"
+    [buttonSettings]="self.titleHeaderButtonSettings"
+></cr-title-header>', '2022-11-28 11:37:12.7600000 +00:00', 2, N'N', '1d5d0300-93ce-454b-8d84-ecaa132690af', 1, NULL, '2022-11-28 11:35:33.4120501 +00:00')
+INSERT INTO [dbo].[WebComponentViewSubSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('140122cc-486f-ed11-835f-02f176033ddb', '393c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'manage-user-roles-grid', N'Roles', N'{
+    "defaultValue": {},
+    "fieldSettings": {
+        "grid": {
+            "allowMultiselect": true,
+            "uniqueField": "id",
+            "previewDataSource": {
+                "responseList": [
+                    {
+                        "id": 1,
+                        "name": "Admin"
+                    }
+                ],
+                "page": 1,
+                "size": 5,
+                "totalElements": 1
+            },
+            "columns": [
+                {
+                    "titleTranslateKey": "USER.DETAILS.ROLE_MANAGER.GRID.NAME",
+                    "field": "name",
+                    "type": "text"
+                }
+            ]
+        }
+    }
+}', N'<div class="cr-grid-wrapper-new">
+    <cr-edit-grid-server-paging
+        [elementName]="''edit-grid-server-paging:DETAILS.Details_roles_manager_grid''"
+        [dataSource]="self.dataSource"
+        [columnSettings]="self.columnSettings"
+        [pageable]="true"
+        [resizable]="true"
+        (pageChangeEvent)="self.changePage($event)"
+        [initialSelectedRows]="self.cache.initialSelectedRows"
+        [uniqueField]="''id''"
+        [allowMultiSelect]="true"
+        [selectionDataMode]="''object''"
+        [dataCacheName]="''UserDetailsRoleManagerGrid''"
+        (selectionChanged)="self.onSelectionChange($event)"
+        [class]=''{{classes}}''
+    ></cr-edit-grid-server-paging>
+</div>
+', '2022-11-28 18:16:38.1462420 +00:00', 1, N'N', '3cd72512-1094-436f-be4b-c86453d48ce3', 1, NULL, '2022-11-28 18:16:38.1462420 +00:00')
 INSERT INTO [dbo].[WebComponentViewSubSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('9cd17489-276b-ed11-835f-02f176033ddb', '3c3c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'image-content-title-header', N'Title header', N'{
     "defaultValue": {
         "isUseTranslateKey": true,
@@ -1005,26 +1076,6 @@ INSERT INTO [dbo].[WebComponentViewSubSettings] ([ID], [WebComponentID], [Code],
     [icon]="{{icon}}"
     (buttonClickEvent)="self.changeFilter()"
 ></cr-button-control>', '2022-11-25 17:56:42.5872673 +00:00', 1, N'N', '1064a64f-ba8a-4cfe-bb2b-4dc174b7c52d', 1, NULL, '2022-11-25 17:56:42.5872673 +00:00')
-INSERT INTO [dbo].[WebComponentViewSubSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('dcad68bd-ea6c-ed11-835f-02f176033ddb', '3e3c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'item-combo-meal-select-from-catalog-total', N'Total', N'{
-    "defaultValue": {
-        "isUseTranslateKey": true,
-        "translateKey": "ITEM.DETAILS.COMBO_MEAL.SELECT_FROM_CATALOG.GRID.TOTAL",
-        "isDisabled": true,
-        "format": "#"
-    }
-}', N'<cr-numeric-control
-    [elementName]="''numeric:Item_details.Combo_meal_select_from_catalog_items_total''"
-    [dataValue]="cache.selectedItems?.length"
-    [isDisabled]="true"
-    [dataLabel]="{{label}}" 
-    [translateKeys]="{{translateKey}}" 
-    [customClass]=''{{classes}}''
-    [format]="{{format}}" 
-    [decimals]="{{decimals}}" 
-    [min]="{{min}}" 
-    [max]="{{max}}"
-    [autoCorrectMinMax]="{{autoCorrectMinMax}}"
-></cr-numeric-control>', '2022-11-25 17:58:18.4254556 +00:00', 1, N'N', 'ca49b4d4-e6ce-4165-a0b4-ee67e1f7cc25', 1, NULL, '2022-11-25 17:58:18.4254556 +00:00')
 INSERT INTO [dbo].[WebComponentViewSubSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('e002ee64-eb6c-ed11-835f-02f176033ddb', '393c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'item-combo-meal-select-from-catalog-grid', N'Items grid', N'{
     "defaultValue": {},
     "fieldSettings": {
@@ -1136,26 +1187,6 @@ INSERT INTO [dbo].[WebComponentViewSubSettings] ([ID], [WebComponentID], [Code],
     [icon]="{{icon}}"
     (buttonClickEvent)="self.changeFilter()"
 ></cr-button-control>', '2022-11-25 18:11:57.5550809 +00:00', 1, N'N', 'c20b3add-37f5-40e9-abd6-e4a5aac0e531', 1, NULL, '2022-11-25 18:11:57.5550809 +00:00')
-INSERT INTO [dbo].[WebComponentViewSubSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('d78591cb-ec6c-ed11-835f-02f176033ddb', '3e3c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'item-combo-meal-select-from-basket-total', N'Total', N'{
-    "defaultValue": {
-        "isUseTranslateKey": true,
-        "translateKey": "ITEM.DETAILS.COMBO_MEAL.SELECT_FROM_BASKET.GRID.TOTAL",
-        "isDisabled": true,
-        "format": "#"
-    }
-}', N'<cr-numeric-control
-    [elementName]="''numeric:Item_details.Combo_meal_select_from_basket_items_total''"
-    [dataValue]="cache.selectedItems?.length"
-    [isDisabled]="true"
-    [dataLabel]="{{label}}" 
-    [translateKeys]="{{translateKey}}" 
-    [customClass]=''{{classes}}''
-    [format]="{{format}}" 
-    [decimals]="{{decimals}}" 
-    [min]="{{min}}" 
-    [max]="{{max}}"
-    [autoCorrectMinMax]="{{autoCorrectMinMax}}"
-></cr-numeric-control>', '2022-11-25 18:13:01.1746903 +00:00', 1, N'N', '9de1e519-83fd-409f-acb7-c0b66f2df142', 1, NULL, '2022-11-25 18:13:01.1746903 +00:00')
 INSERT INTO [dbo].[WebComponentViewSubSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('20949f12-ed6c-ed11-835f-02f176033ddb', '393c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'item-combo-meal-select-from-basket-grid', N'Items grid', N'{
     "defaultValue": {},
     "fieldSettings": {
@@ -2520,3 +2551,43 @@ INSERT INTO [dbo].[WebComponentViewSubSettings] ([ID], [WebComponentID], [Code],
     [titleValue]="self.titleValueText"
 ></cr-title-header>
 ', '2022-11-21 08:52:16.8766667 +00:00', 3, N'N', '6cc13f49-94f9-4106-9f0c-498c385761c9', 1, NULL, '2022-10-06 12:05:15.6069016 +03:00')
+INSERT INTO [dbo].[WebComponentViewSubSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('dcad68bd-ea6c-ed11-835f-02f176033ddb', '3e3c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'item-combo-meal-select-from-catalog-total', N'Total', N'{
+    "defaultValue": {
+        "isUseTranslateKey": true,
+        "translateKey": "ITEM.DETAILS.COMBO_MEAL.SELECT_FROM_CATALOG.GRID.TOTAL",
+        "isDisabled": true,
+        "format": "#"
+    }
+}', N'<cr-numeric-control
+    [elementName]="''numeric:Item_details.Combo_meal_select_from_catalog_items_total''"
+    [dataValue]="self.cache.selectedItems?.length"
+    [isDisabled]="true"
+    [dataLabel]="{{label}}" 
+    [translateKeys]="{{translateKey}}" 
+    [customClass]=''{{classes}}''
+    [format]="{{format}}" 
+    [decimals]="{{decimals}}" 
+    [min]="{{min}}" 
+    [max]="{{max}}"
+    [autoCorrectMinMax]="{{autoCorrectMinMax}}"
+></cr-numeric-control>', '2022-11-26 18:09:01.8233333 +00:00', 2, N'N', '495f56d4-1d25-4275-a2c0-f25da64c2101', 1, NULL, '2022-11-25 17:58:18.4254556 +00:00')
+INSERT INTO [dbo].[WebComponentViewSubSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('d78591cb-ec6c-ed11-835f-02f176033ddb', '3e3c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'item-combo-meal-select-from-basket-total', N'Total', N'{
+    "defaultValue": {
+        "isUseTranslateKey": true,
+        "translateKey": "ITEM.DETAILS.COMBO_MEAL.SELECT_FROM_BASKET.GRID.TOTAL",
+        "isDisabled": true,
+        "format": "#"
+    }
+}', N'<cr-numeric-control
+    [elementName]="''numeric:Item_details.Combo_meal_select_from_basket_items_total''"
+    [dataValue]="self.cache.selectedItems?.length"
+    [isDisabled]="true"
+    [dataLabel]="{{label}}" 
+    [translateKeys]="{{translateKey}}" 
+    [customClass]=''{{classes}}''
+    [format]="{{format}}" 
+    [decimals]="{{decimals}}" 
+    [min]="{{min}}" 
+    [max]="{{max}}"
+    [autoCorrectMinMax]="{{autoCorrectMinMax}}"
+></cr-numeric-control>', '2022-11-26 18:09:17.3800000 +00:00', 2, N'N', 'a21f07bf-71c8-41e5-80d7-216cdcf0eade', 1, NULL, '2022-11-25 18:13:01.1746903 +00:00')

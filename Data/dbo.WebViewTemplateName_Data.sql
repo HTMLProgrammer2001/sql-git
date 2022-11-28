@@ -1,3 +1,1201 @@
+INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID], [BookmarkName], [BookmarkDescription], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('7ce7709d-ca6d-ed11-835f-02f176033ddb', '7be7709d-ca6d-ed11-835f-02f176033ddb', 1, N'', N'', N'
+        <div class=''cr-popup-content-wrapper'' [class.cr-popup-is-shown]=''self.popupTab.tabs.length > 1''>
+          <cr-popup-tabs
+            [popupTabs]=''self.popupTab.tabs''
+            [activePopup]=''self.popupTab.activeTabIndex''
+            (closePopup)=''self.removePopupTab($event)''
+            (changeActive)=''self.changeActiveTab($event)''
+          ></cr-popup-tabs>
+          <div class=''cr-details-inner-container''>
+            <ng-container *ngFor=''let tab of self.popupTab.tabs; index as i;''>
+              <ng-container [ngSwitch]=''tab.type''>
+                
+    <ng-template [ngSwitchCase]="''general''">
+      <ng-template [ngIf]="self.popupTab.tabs[self.popupTab.activeTabIndex].type == ''general'' && self.popupTab.activeTabIndex == i">
+        <div *ngIf=''self.popupTab.activeTabIndex != self.popupTab.tabs.length - 1'' class=''cr-popup-blocker''></div>
+        <cr-title-header
+    [titleTranslateKey]="''USER.LIST.TITLE''"
+    [title]="''''"
+    (buttonClickEvent)="self.onTitleButtonClick($event)"
+    [buttonSettings]="self.titleHeaderButtonSettings"
+></cr-title-header>
+      <cr-panel
+        [panelTemplateType]="''collapsible-panel''"
+        [expanded]="self.panelsViewState?.[''filterExpanded''] ?? true"
+        (expandedChange)="self.panelStateChange(''filterExpanded'', $event)"
+        [titleTranslateKey]="true ? ''USER.LIST.FILTER.TITLE'' : null"
+        [title]="true ? null : ''מסננים''"
+        [customClass]="''''"
+        [headerClass]="''''"
+        [validator]="self.validator"
+        [validatorGroupName]="''filterExpanded''"
+        [containFields]=''[]''
+      >
+        <ng-template crPanelContent>
+          <div class="row undefined"><div class=''col-md-2''><cr-control-edit
+    [(dataValue)]="self.filter.login"
+    [elementName]="''edit:User_list.Login''"
+    [translateKeys]="''USER.LIST.FILTER.LOGIN''" 
+    [dataLabel]="''''"
+    [customClass]=''""''
+    [isDisabled]="false"    
+></cr-control-edit></div><div class=''col-md-2''><cr-control-edit
+    [(dataValue)]="self.filter.firstName"
+    [elementName]="''edit:User_list.First_name''"
+    [translateKeys]="''USER.LIST.FILTER.FIRST_NAME''" 
+    [dataLabel]="''''"
+    [customClass]=''""''
+    [isDisabled]="false"    
+></cr-control-edit></div><div class=''col-md-2''><cr-control-edit
+    [(dataValue)]="self.filter.lastName"
+    [elementName]="''edit:User_list.Last_name''"
+    [translateKeys]="''USER.LIST.FILTER.LAST_NAME''" 
+    [dataLabel]="''''"
+    [customClass]=''""''
+    [isDisabled]="false"    
+></cr-control-edit></div><div class=''col-md-2''><cr-dropdown-smart-control
+    [(value)]="self.filter.roleId"
+    [dataCacheName]="''UserRoleDropdownSearchCache''"
+    [dataTranslateKeyField]="''translateKey''"
+    [elementName]="''smart-dropdown:User_list.User_role''"
+    [getListItemsFunction]="self.roleListDropdownFn$"
+    [permissionSettings]="{
+        isAccessEdit: (self.EndpointName.user__role_dropdown_GET | endpointAccessGrantedPipe)
+    }"
+    [textField]="''code''"
+    [unselectedItemValue]="{id: null, translateKey: ''COMMON.MOCK_OBJ.NOT_SELECTED''}"
+    [valueField]="''id''"
+    [isDropdownListOverrideEnterKeyBehaviour]="true"
+    (onEnterKey)="self.changeFilter()"
+    [labelTranslateKey]="''USER.LIST.FILTER.USER_ROLE''"
+    [label]="''''"
+    [class]=''""''
+></cr-dropdown-smart-control>
+</div><div class=''col-md-2''><cr-control-edit
+    [(dataValue)]="self.filter.mobile"
+    [elementName]="''edit:User_list.Mobile''"
+    [translateKeys]="''USER.LIST.FILTER.MOBILE''" 
+    [dataLabel]="''''"
+    [customClass]=''""''
+    [isDisabled]="false"    
+></cr-control-edit></div><div class=''col-md-2''><cr-control-edit
+    [(dataValue)]="self.filter.email"
+    [elementName]="''edit:User_list.Email''"
+    [translateKeys]="''USER.LIST.FILTER.EMAIL''" 
+    [dataLabel]="''''"
+    [customClass]=''""''
+    [isDisabled]="false"    
+></cr-control-edit></div></div><div class="row undefined"><div class=''col-md-6''></div><div class=''col-md-2''><cr-checkbox-control
+    [dataLabel]="''''"
+    [translateKeys]="''COMMON.SHOW_DELETED''"
+    [isDisabled]="false"
+    [class]=''""''
+    [(dataValue)]="self.filter.showDeleted"
+    [elementName]="''checkbox:User_list.Deleted''"
+></cr-checkbox-control></div><div class=''col-md-2''><cr-button-control 
+    [buttonTemplateType]="''underlined-action-button''"
+    [text]="''''"
+    [textTranslateKey]="''COMMON.RESET''"
+    [classArray]=''["k-mr-5","cr-custom-button-reset","d-block","ml-auto"]''
+    [width]="''''"
+    [height]="''''"
+    [icon]="''undefined''"
+    [type]="''button''"
+    (buttonClickEvent)="self.resetFilter()"
+></cr-button-control></div><div class=''col-md-2''><cr-button-control 
+    [buttonTemplateType]="''underlined-action-button''"
+    [text]="''''"
+    [textTranslateKey]="''COMMON.SEARCH''"
+    [classArray]=''["d-block","ml-auto"]''
+    [width]="''''"
+    [height]="''''"
+    [icon]="''undefined''"
+    (buttonClickEvent)="self.changeFilter()"
+    *ngIf="(self.EndpointName.user_GET | endpointAccessGrantedPipe)"
+></cr-button-control></div></div>
+        </ng-template>
+      </cr-panel>
+      <cr-panel
+        [panelTemplateType]="''panel''"
+        [expanded]="self.panelsViewState?.[''undefined''] ?? true"
+        (expandedChange)="self.panelStateChange(''undefined'', $event)"
+        [titleTranslateKey]="true ? ''USER.LIST.GRID.TITLE'' : null"
+        [title]="true ? null : ''משתמשים''"
+        [customClass]="''''"
+        [headerClass]="''''"
+        [validator]="self.validator"
+        [validatorGroupName]="''undefined''"
+        [containFields]=''[]''
+      >
+        <ng-template crPanelContent>
+          <div class="cr-grid-wrapper-new">
+    <cr-edit-grid-server-paging
+        (cellClickEvent)="self.cellClick($event)"
+        (pageChangeEvent)="self.changePage($event)"
+        [columnSettings]="self.columnSettings"
+        [dataSource]="self.dataSource"
+        [elementName]="''edit-grid-server-paging:User_list.Grid''"
+        [pageable]="true"
+        [resizable]="true"
+        [uniqueField]="''id''"
+        [dataCacheName]="''user-grid-cache''"
+        [class]=''undefined''
+    ></cr-edit-grid-server-paging>
+</div>
+        </ng-template>
+      </cr-panel>
+      </ng-template>
+    </ng-template>
+    
+              </ng-container>
+            </ng-container>
+          </div>
+        </div>', '2022-11-26 21:11:46.7800000 +00:00', 3, N'N', 'fb3fa1fc-4d15-4091-a69a-4d0a2f2c6ffc', 1, NULL)
+INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID], [BookmarkName], [BookmarkDescription], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('7de7709d-ca6d-ed11-835f-02f176033ddb', '7be7709d-ca6d-ed11-835f-02f176033ddb', 2, N'', N'', N'
+        <div class=''cr-popup-content-wrapper'' [class.cr-popup-is-shown]=''self.popupTab.tabs.length > 1''>
+          <cr-popup-tabs
+            [popupTabs]=''self.popupTab.tabs''
+            [activePopup]=''self.popupTab.activeTabIndex''
+            (closePopup)=''self.removePopupTab($event)''
+            (changeActive)=''self.changeActiveTab($event)''
+          ></cr-popup-tabs>
+          <div class=''cr-details-inner-container''>
+            <ng-container *ngFor=''let tab of self.popupTab.tabs; index as i;''>
+              <ng-container [ngSwitch]=''tab.type''>
+                
+    <ng-template [ngSwitchCase]="''general''">
+      <ng-template [ngIf]="self.popupTab.tabs[self.popupTab.activeTabIndex].type == ''general'' && self.popupTab.activeTabIndex == i">
+        <div *ngIf=''self.popupTab.activeTabIndex != self.popupTab.tabs.length - 1'' class=''cr-popup-blocker''></div>
+        <cr-title-header
+    [titleTranslateKey]="''USER.LIST.TITLE''"
+    [title]="''''"
+    (buttonClickEvent)="self.onTitleButtonClick($event)"
+    [buttonSettings]="self.titleHeaderButtonSettings"
+></cr-title-header>
+      <cr-panel
+        [panelTemplateType]="''collapsible-panel''"
+        [expanded]="self.panelsViewState?.[''filterExpanded''] ?? true"
+        (expandedChange)="self.panelStateChange(''filterExpanded'', $event)"
+        [titleTranslateKey]="true ? ''USER.LIST.FILTER.TITLE'' : null"
+        [title]="true ? null : ''Selection criteria''"
+        [customClass]="''''"
+        [headerClass]="''''"
+        [validator]="self.validator"
+        [validatorGroupName]="''filterExpanded''"
+        [containFields]=''[]''
+      >
+        <ng-template crPanelContent>
+          <div class="row undefined"><div class=''col-md-2''><cr-control-edit
+    [(dataValue)]="self.filter.login"
+    [elementName]="''edit:User_list.Login''"
+    [translateKeys]="''USER.LIST.FILTER.LOGIN''" 
+    [dataLabel]="''''"
+    [customClass]=''""''
+    [isDisabled]="false"    
+></cr-control-edit></div><div class=''col-md-2''><cr-control-edit
+    [(dataValue)]="self.filter.firstName"
+    [elementName]="''edit:User_list.First_name''"
+    [translateKeys]="''USER.LIST.FILTER.FIRST_NAME''" 
+    [dataLabel]="''''"
+    [customClass]=''""''
+    [isDisabled]="false"    
+></cr-control-edit></div><div class=''col-md-2''><cr-control-edit
+    [(dataValue)]="self.filter.lastName"
+    [elementName]="''edit:User_list.Last_name''"
+    [translateKeys]="''USER.LIST.FILTER.LAST_NAME''" 
+    [dataLabel]="''''"
+    [customClass]=''""''
+    [isDisabled]="false"    
+></cr-control-edit></div><div class=''col-md-2''><cr-dropdown-smart-control
+    [(value)]="self.filter.roleId"
+    [dataCacheName]="''UserRoleDropdownSearchCache''"
+    [dataTranslateKeyField]="''translateKey''"
+    [elementName]="''smart-dropdown:User_list.User_role''"
+    [getListItemsFunction]="self.roleListDropdownFn$"
+    [permissionSettings]="{
+        isAccessEdit: (self.EndpointName.user__role_dropdown_GET | endpointAccessGrantedPipe)
+    }"
+    [textField]="''code''"
+    [unselectedItemValue]="{id: null, translateKey: ''COMMON.MOCK_OBJ.NOT_SELECTED''}"
+    [valueField]="''id''"
+    [isDropdownListOverrideEnterKeyBehaviour]="true"
+    (onEnterKey)="self.changeFilter()"
+    [labelTranslateKey]="''USER.LIST.FILTER.USER_ROLE''"
+    [label]="''''"
+    [class]=''""''
+></cr-dropdown-smart-control>
+</div><div class=''col-md-2''><cr-control-edit
+    [(dataValue)]="self.filter.mobile"
+    [elementName]="''edit:User_list.Mobile''"
+    [translateKeys]="''USER.LIST.FILTER.MOBILE''" 
+    [dataLabel]="''''"
+    [customClass]=''""''
+    [isDisabled]="false"    
+></cr-control-edit></div><div class=''col-md-2''><cr-control-edit
+    [(dataValue)]="self.filter.email"
+    [elementName]="''edit:User_list.Email''"
+    [translateKeys]="''USER.LIST.FILTER.EMAIL''" 
+    [dataLabel]="''''"
+    [customClass]=''""''
+    [isDisabled]="false"    
+></cr-control-edit></div></div><div class="row undefined"><div class=''col-md-6''></div><div class=''col-md-2''><cr-checkbox-control
+    [dataLabel]="''''"
+    [translateKeys]="''COMMON.SHOW_DELETED''"
+    [isDisabled]="false"
+    [class]=''""''
+    [(dataValue)]="self.filter.showDeleted"
+    [elementName]="''checkbox:User_list.Deleted''"
+></cr-checkbox-control></div><div class=''col-md-2''><cr-button-control 
+    [buttonTemplateType]="''underlined-action-button''"
+    [text]="''''"
+    [textTranslateKey]="''COMMON.RESET''"
+    [classArray]=''["k-mr-5","cr-custom-button-reset","d-block","ml-auto"]''
+    [width]="''''"
+    [height]="''''"
+    [icon]="''undefined''"
+    [type]="''button''"
+    (buttonClickEvent)="self.resetFilter()"
+></cr-button-control></div><div class=''col-md-2''><cr-button-control 
+    [buttonTemplateType]="''underlined-action-button''"
+    [text]="''''"
+    [textTranslateKey]="''COMMON.SEARCH''"
+    [classArray]=''["d-block","ml-auto"]''
+    [width]="''''"
+    [height]="''''"
+    [icon]="''undefined''"
+    (buttonClickEvent)="self.changeFilter()"
+    *ngIf="(self.EndpointName.user_GET | endpointAccessGrantedPipe)"
+></cr-button-control></div></div>
+        </ng-template>
+      </cr-panel>
+      <cr-panel
+        [panelTemplateType]="''panel''"
+        [expanded]="self.panelsViewState?.[''undefined''] ?? true"
+        (expandedChange)="self.panelStateChange(''undefined'', $event)"
+        [titleTranslateKey]="true ? ''USER.LIST.GRID.TITLE'' : null"
+        [title]="true ? null : ''Users''"
+        [customClass]="''''"
+        [headerClass]="''''"
+        [validator]="self.validator"
+        [validatorGroupName]="''undefined''"
+        [containFields]=''[]''
+      >
+        <ng-template crPanelContent>
+          <div class="cr-grid-wrapper-new">
+    <cr-edit-grid-server-paging
+        (cellClickEvent)="self.cellClick($event)"
+        (pageChangeEvent)="self.changePage($event)"
+        [columnSettings]="self.columnSettings"
+        [dataSource]="self.dataSource"
+        [elementName]="''edit-grid-server-paging:User_list.Grid''"
+        [pageable]="true"
+        [resizable]="true"
+        [uniqueField]="''id''"
+        [dataCacheName]="''user-grid-cache''"
+        [class]=''undefined''
+    ></cr-edit-grid-server-paging>
+</div>
+        </ng-template>
+      </cr-panel>
+      </ng-template>
+    </ng-template>
+    
+              </ng-container>
+            </ng-container>
+          </div>
+        </div>', '2022-11-26 21:11:46.7833333 +00:00', 3, N'N', '9ccb25c3-1321-40db-93ca-9b417ef3436e', 1, NULL)
+INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID], [BookmarkName], [BookmarkDescription], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('b285c5b2-d26d-ed11-835f-02f176033ddb', 'b185c5b2-d26d-ed11-835f-02f176033ddb', 1, N'', N'', N'
+        <div class=''cr-popup-content-wrapper'' [class.cr-popup-is-shown]=''self.popupTab.tabs.length > 1''>
+          <cr-popup-tabs
+            [popupTabs]=''self.popupTab.tabs''
+            [activePopup]=''self.popupTab.activeTabIndex''
+            (closePopup)=''self.removePopupTab($event)''
+            (changeActive)=''self.changeActiveTab($event)''
+          ></cr-popup-tabs>
+          <div class=''cr-details-inner-container''>
+            <ng-container *ngFor=''let tab of self.popupTab.tabs; index as i;''>
+              <ng-container [ngSwitch]=''tab.type''>
+                
+    <ng-template [ngSwitchCase]="''general''">
+      <ng-template [ngIf]="self.popupTab.tabs[self.popupTab.activeTabIndex].type == ''general'' && self.popupTab.activeTabIndex == i">
+        <div *ngIf=''self.popupTab.activeTabIndex != self.popupTab.tabs.length - 1'' class=''cr-popup-blocker''></div>
+        
+        <ng-template [ngIf]="self.userDetail">
+            <cr-title-header
+    [titleTranslateKey]="''USER.DETAILS.TITLE''"
+    [title]="''''"
+    [titleValue]="self.titleValue"
+    [buttonSettings]="self.titleHeaderButtonSettings"
+    (buttonClickEvent)="self.onTitleButtonClick($event)"
+    [titleValueTranslateKey]="self.isNew ? ''COMMON.NEW'' : null"
+></cr-title-header>
+      <cr-panel
+        [panelTemplateType]="''well''"
+        [customClass]="''cr-alternate-shadow''"
+      >
+        <ng-template crPanelContent>
+          <div class="row undefined"><div class=''col-md-2''><cr-control-edit
+    [elementName]="''edit:User_details.Login''"
+    [permissionSettings]="{
+        isAccessEdit: self.isNew
+            ? (self.EndpointName.user_POST | endpointAccessGrantedPipe)
+            : (self.EndpointName.user_id_PUT | endpointAccessGrantedPipe)
+    }"
+    [(dataValue)]="self.userDetail.login"
+    (dataValueChange)="self.changeTitle()"
+    [validator]="self.validator"
+    [validationField]="''login''"
+    [translateKeys]="''USER.DETAILS.HEADER.LOGIN''" 
+    [dataLabel]="''''"
+    [customClass]=''""''
+    [isDisabled]="self.userDetail.isDeleted || false"
+></cr-control-edit>
+</div><div class=''col-md-2''><cr-edit-password-control
+    [elementName]="''edit-password:User_details.Password''"
+    [permissionSettings]="{
+        isAccessEdit: self.isNew
+            ? (self.EndpointName.user_POST | endpointAccessGrantedPipe)
+            : (self.EndpointName.user_id_PUT | endpointAccessGrantedPipe)
+    }"
+    [(dataValue)]="self.userDetail.password"
+    [showPassword]="self.cache.showPassword"
+    (showPasswordToggle)="self.showPasswordToggle($event)"
+    [autocomplete]="''new-password''"
+    [validator]="self.validator"
+    [validationField]="''password''"
+    [translateKeys]="''USER.DETAILS.HEADER.PASSWORD''" 
+    [dataLabel]="''''"
+    [customClass]=''""''
+    [isDisabled]="self.userDetail.isDeleted || false"
+    [showPasswordButton]="false"
+    [showPasswordPlaceholder]="true"
+></cr-edit-password-control>
+</div><div class=''col-md-2''><cr-control-edit
+    [elementName]="''edit:User_details.First_name''"
+    [permissionSettings]="{
+        isAccessEdit: self.isNew
+            ? (self.EndpointName.user_POST | endpointAccessGrantedPipe)
+            : (self.EndpointName.user_id_PUT | endpointAccessGrantedPipe)
+    }"
+    [(dataValue)]="self.userDetail.firstName"
+    (dataValueChange)="self.changeValidator()"
+    [validator]="self.validator"
+    [validationField]="''isFirstOrLastName''"
+    [translateKeys]="''USER.DETAILS.HEADER.FIRST_NAME''" 
+    [dataLabel]="''''"
+    [customClass]=''""''
+    [isDisabled]="self.userDetail.isDeleted || false"
+></cr-control-edit>
+</div><div class=''col-md-2''><cr-control-edit
+    [elementName]="''edit:User_details.Last_name''"
+    [permissionSettings]="{
+        isAccessEdit: self.isNew
+            ? (self.EndpointName.user_POST | endpointAccessGrantedPipe)
+            : (self.EndpointName.user_id_PUT | endpointAccessGrantedPipe)
+    }"
+    [(dataValue)]="self.userDetail.lastName"
+    (dataValueChange)="self.changeValidator()"
+    [validator]="self.validator"
+    [validationField]="''isFirstOrLastName''"
+    [translateKeys]="''USER.DETAILS.HEADER.LAST_NAME''" 
+    [dataLabel]="''''"
+    [customClass]=''""''
+    [isDisabled]="self.userDetail.isDeleted || false"
+></cr-control-edit>
+</div><div class=''col-md-2''></div><div class=''col-md-2''></div></div><div class="row undefined"><div class=''col-md-2''><cr-control-edit
+    [elementName]="''edit:User_details.Phone''"
+    [permissionSettings]="{
+        isAccessEdit: self.isNew
+            ? (self.EndpointName.user_POST | endpointAccessGrantedPipe)
+            : (self.EndpointName.user_id_PUT | endpointAccessGrantedPipe)
+    }"
+    [(dataValue)]="self.userDetail.phone"
+    [translateKeys]="''USER.DETAILS.HEADER.PHONE''" 
+    [dataLabel]="''''"
+    [customClass]=''""''
+    [isDisabled]="self.userDetail.isDeleted || false"
+></cr-control-edit>
+</div><div class=''col-md-2''><cr-control-edit
+    [elementName]="''edit:User_details.Mobile''"
+    [permissionSettings]="{
+        isAccessEdit: self.isNew
+            ? (self.EndpointName.user_POST | endpointAccessGrantedPipe)
+            : (self.EndpointName.user_id_PUT | endpointAccessGrantedPipe)
+    }"
+    [(dataValue)]="self.userDetail.mobile"
+    [translateKeys]="''USER.DETAILS.HEADER.MOBILE''" 
+    [dataLabel]="''''"
+    [customClass]=''""''
+    [isDisabled]="self.userDetail.isDeleted || false"
+></cr-control-edit>
+</div><div class=''col-md-2''><cr-control-edit
+    [elementName]="''edit:User_details.Email''"
+    [permissionSettings]="{
+        isAccessEdit: self.isNew
+            ? (self.EndpointName.user_POST | endpointAccessGrantedPipe)
+            : (self.EndpointName.user_id_PUT | endpointAccessGrantedPipe)
+    }"
+    [(dataValue)]="self.userDetail.email"
+    [validator]="self.validator"
+    [validationField]="''email''"
+    [translateKeys]="''USER.DETAILS.HEADER.EMAIL''" 
+    [dataLabel]="''''"
+    [customClass]=''""''
+    [isDisabled]="self.userDetail.isDeleted || false"
+></cr-control-edit>
+</div><div class=''col-md-2''></div><div class=''col-md-2''></div><div class=''col-md-2''></div></div>
+        </ng-template>
+      </cr-panel>
+      <cr-panel
+        [panelTemplateType]="''collapsible-panel''"
+        [expanded]="self.panelsViewState?.[''roles''] ?? false"
+        (expandedChange)="self.panelStateChange(''roles'', $event)"
+        [titleTranslateKey]="true ? ''USER.DETAILS.ROLES.PANEL_TITLE'' : null"
+        [title]="true ? null : ''Roles he''"
+        [customClass]="''''"
+        [headerClass]="''''"
+        [validator]="self.validator"
+        [validatorGroupName]="''roles''"
+        [containFields]=''[]''
+      >
+        <ng-template crPanelContent>
+          <div class="row cr-row-padding-revert"><div class=''col-md-12''>
+        <div [class]="''cr-col-content-align-right cr-col-no-padding''">
+            <cr-button-control
+    *ngIf="(self.isNew
+        ? (self.EndpointName.user_POST | endpointAccessGrantedPipe)
+        : (self.EndpointName.user_id_PUT | endpointAccessGrantedPipe))
+        && (self.EndpointName.user__role_GET | endpointAccessGrantedPipe) && !self.userDetail.isDeleted"
+    (buttonClickEvent)="self.editRoleClick()"
+    [buttonTemplateType]="''icon-button''"
+    [text]="''''"
+    [textTranslateKey]="''''"
+    [classArray]=''""''
+    [width]="''30''"
+    [height]="''30''"
+    [icon]="''icon-edit''"
+></cr-button-control>
+        </div></div><div class=''col-md-6''></div></div><div class="cr-grid-wrapper-new">
+    <cr-user-details-role-list [roles]="self.userDetail.roles" [class]=''undefined''></cr-user-details-role-list>
+</div>
+        </ng-template>
+      </cr-panel>
+      <cr-panel
+        [panelTemplateType]="''collapsible-panel''"
+        [expanded]="self.panelsViewState?.[''permissions''] ?? false"
+        (expandedChange)="self.panelStateChange(''permissions'', $event)"
+        [titleTranslateKey]="true ? ''USER.DETAILS.PERMISSIONS.PANEL_TITLE'' : null"
+        [title]="true ? null : ''Permissions he''"
+        [customClass]="''''"
+        [headerClass]="''''"
+        [validator]="self.validator"
+        [validatorGroupName]="''permissions''"
+        [containFields]=''[]''
+      >
+        <ng-template crPanelContent>
+          <cr-user-permission-tree
+    *ngIf="(self.EndpointName.user__function_tree_list_GET | endpointAccessGrantedPipe)"
+    [userId]="self.userId"
+    [isNew]="self.isNew"
+    [(selected)]="self.userDetail.functions"
+    [editable]="!self.userDetail.isDeleted && (self.isNew
+        ? (self.EndpointName.user_POST | endpointAccessGrantedPipe)
+        : (self.EndpointName.user_id_PUT | endpointAccessGrantedPipe))"
+    [class]=''""''
+></cr-user-permission-tree>
+
+        </ng-template>
+      </cr-panel>
+        </ng-template>
+      </ng-template>
+    </ng-template>
+    
+        <ng-template [ngSwitchCase]="''user-roles''">
+          <ng-template
+            [ngIf]="self.popupTab.tabs[self.popupTab.activeTabIndex].type == ''user-roles'' && self.popupTab.activeTabIndex == i">
+            <div *ngIf=''self.popupTab.activeTabIndex != self.popupTab.tabs.length - 1'' class=''cr-popup-blocker''></div>
+            <cr-user-details-role-manager
+    [subTemplateId]="''1BB629A9-D26D-ED11-835F-02F176033DDB''"
+    [roles]="self.userDetail.roles"
+    (changeSelectedRoles)="self.onChangeSelectedRoles($event)"
+></cr-user-details-role-manager>
+
+          </ng-template>
+        </ng-template>
+      
+              </ng-container>
+            </ng-container>
+          </div>
+        </div>', '2022-11-28 18:51:17.3300000 +00:00', 12, N'N', '01d656c5-746d-4360-8537-25e79f91dfd2', 1, NULL)
+INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID], [BookmarkName], [BookmarkDescription], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('b385c5b2-d26d-ed11-835f-02f176033ddb', 'b185c5b2-d26d-ed11-835f-02f176033ddb', 2, N'', N'', N'
+        <div class=''cr-popup-content-wrapper'' [class.cr-popup-is-shown]=''self.popupTab.tabs.length > 1''>
+          <cr-popup-tabs
+            [popupTabs]=''self.popupTab.tabs''
+            [activePopup]=''self.popupTab.activeTabIndex''
+            (closePopup)=''self.removePopupTab($event)''
+            (changeActive)=''self.changeActiveTab($event)''
+          ></cr-popup-tabs>
+          <div class=''cr-details-inner-container''>
+            <ng-container *ngFor=''let tab of self.popupTab.tabs; index as i;''>
+              <ng-container [ngSwitch]=''tab.type''>
+                
+    <ng-template [ngSwitchCase]="''general''">
+      <ng-template [ngIf]="self.popupTab.tabs[self.popupTab.activeTabIndex].type == ''general'' && self.popupTab.activeTabIndex == i">
+        <div *ngIf=''self.popupTab.activeTabIndex != self.popupTab.tabs.length - 1'' class=''cr-popup-blocker''></div>
+        
+        <ng-template [ngIf]="self.userDetail">
+            <cr-title-header
+    [titleTranslateKey]="''USER.DETAILS.TITLE''"
+    [title]="''''"
+    [titleValue]="self.titleValue"
+    [buttonSettings]="self.titleHeaderButtonSettings"
+    (buttonClickEvent)="self.onTitleButtonClick($event)"
+    [titleValueTranslateKey]="self.isNew ? ''COMMON.NEW'' : null"
+></cr-title-header>
+      <cr-panel
+        [panelTemplateType]="''well''"
+        [customClass]="''cr-alternate-shadow''"
+      >
+        <ng-template crPanelContent>
+          <div class="row undefined"><div class=''col-md-2''><cr-control-edit
+    [elementName]="''edit:User_details.Login''"
+    [permissionSettings]="{
+        isAccessEdit: self.isNew
+            ? (self.EndpointName.user_POST | endpointAccessGrantedPipe)
+            : (self.EndpointName.user_id_PUT | endpointAccessGrantedPipe)
+    }"
+    [(dataValue)]="self.userDetail.login"
+    (dataValueChange)="self.changeTitle()"
+    [validator]="self.validator"
+    [validationField]="''login''"
+    [translateKeys]="''USER.DETAILS.HEADER.LOGIN''" 
+    [dataLabel]="''''"
+    [customClass]=''""''
+    [isDisabled]="self.userDetail.isDeleted || false"
+></cr-control-edit>
+</div><div class=''col-md-2''><cr-edit-password-control
+    [elementName]="''edit-password:User_details.Password''"
+    [permissionSettings]="{
+        isAccessEdit: self.isNew
+            ? (self.EndpointName.user_POST | endpointAccessGrantedPipe)
+            : (self.EndpointName.user_id_PUT | endpointAccessGrantedPipe)
+    }"
+    [(dataValue)]="self.userDetail.password"
+    [showPassword]="self.cache.showPassword"
+    (showPasswordToggle)="self.showPasswordToggle($event)"
+    [autocomplete]="''new-password''"
+    [validator]="self.validator"
+    [validationField]="''password''"
+    [translateKeys]="''USER.DETAILS.HEADER.PASSWORD''" 
+    [dataLabel]="''''"
+    [customClass]=''""''
+    [isDisabled]="self.userDetail.isDeleted || false"
+    [showPasswordButton]="false"
+    [showPasswordPlaceholder]="true"
+></cr-edit-password-control>
+</div><div class=''col-md-2''><cr-control-edit
+    [elementName]="''edit:User_details.First_name''"
+    [permissionSettings]="{
+        isAccessEdit: self.isNew
+            ? (self.EndpointName.user_POST | endpointAccessGrantedPipe)
+            : (self.EndpointName.user_id_PUT | endpointAccessGrantedPipe)
+    }"
+    [(dataValue)]="self.userDetail.firstName"
+    (dataValueChange)="self.changeValidator()"
+    [validator]="self.validator"
+    [validationField]="''isFirstOrLastName''"
+    [translateKeys]="''USER.DETAILS.HEADER.FIRST_NAME''" 
+    [dataLabel]="''''"
+    [customClass]=''""''
+    [isDisabled]="self.userDetail.isDeleted || false"
+></cr-control-edit>
+</div><div class=''col-md-2''><cr-control-edit
+    [elementName]="''edit:User_details.Last_name''"
+    [permissionSettings]="{
+        isAccessEdit: self.isNew
+            ? (self.EndpointName.user_POST | endpointAccessGrantedPipe)
+            : (self.EndpointName.user_id_PUT | endpointAccessGrantedPipe)
+    }"
+    [(dataValue)]="self.userDetail.lastName"
+    (dataValueChange)="self.changeValidator()"
+    [validator]="self.validator"
+    [validationField]="''isFirstOrLastName''"
+    [translateKeys]="''USER.DETAILS.HEADER.LAST_NAME''" 
+    [dataLabel]="''''"
+    [customClass]=''""''
+    [isDisabled]="self.userDetail.isDeleted || false"
+></cr-control-edit>
+</div><div class=''col-md-2''></div><div class=''col-md-2''></div></div><div class="row undefined"><div class=''col-md-2''><cr-control-edit
+    [elementName]="''edit:User_details.Phone''"
+    [permissionSettings]="{
+        isAccessEdit: self.isNew
+            ? (self.EndpointName.user_POST | endpointAccessGrantedPipe)
+            : (self.EndpointName.user_id_PUT | endpointAccessGrantedPipe)
+    }"
+    [(dataValue)]="self.userDetail.phone"
+    [translateKeys]="''USER.DETAILS.HEADER.PHONE''" 
+    [dataLabel]="''''"
+    [customClass]=''""''
+    [isDisabled]="self.userDetail.isDeleted || false"
+></cr-control-edit>
+</div><div class=''col-md-2''><cr-control-edit
+    [elementName]="''edit:User_details.Mobile''"
+    [permissionSettings]="{
+        isAccessEdit: self.isNew
+            ? (self.EndpointName.user_POST | endpointAccessGrantedPipe)
+            : (self.EndpointName.user_id_PUT | endpointAccessGrantedPipe)
+    }"
+    [(dataValue)]="self.userDetail.mobile"
+    [translateKeys]="''USER.DETAILS.HEADER.MOBILE''" 
+    [dataLabel]="''''"
+    [customClass]=''""''
+    [isDisabled]="self.userDetail.isDeleted || false"
+></cr-control-edit>
+</div><div class=''col-md-2''><cr-control-edit
+    [elementName]="''edit:User_details.Email''"
+    [permissionSettings]="{
+        isAccessEdit: self.isNew
+            ? (self.EndpointName.user_POST | endpointAccessGrantedPipe)
+            : (self.EndpointName.user_id_PUT | endpointAccessGrantedPipe)
+    }"
+    [(dataValue)]="self.userDetail.email"
+    [validator]="self.validator"
+    [validationField]="''email''"
+    [translateKeys]="''USER.DETAILS.HEADER.EMAIL''" 
+    [dataLabel]="''''"
+    [customClass]=''""''
+    [isDisabled]="self.userDetail.isDeleted || false"
+></cr-control-edit>
+</div><div class=''col-md-2''></div><div class=''col-md-2''></div><div class=''col-md-2''></div></div>
+        </ng-template>
+      </cr-panel>
+      <cr-panel
+        [panelTemplateType]="''collapsible-panel''"
+        [expanded]="self.panelsViewState?.[''roles''] ?? false"
+        (expandedChange)="self.panelStateChange(''roles'', $event)"
+        [titleTranslateKey]="true ? ''USER.DETAILS.ROLES.PANEL_TITLE'' : null"
+        [title]="true ? null : ''Roles''"
+        [customClass]="''''"
+        [headerClass]="''''"
+        [validator]="self.validator"
+        [validatorGroupName]="''roles''"
+        [containFields]=''[]''
+      >
+        <ng-template crPanelContent>
+          <div class="row cr-row-padding-revert"><div class=''col-md-12''>
+        <div [class]="''cr-col-content-align-right cr-col-no-padding''">
+            <cr-button-control
+    *ngIf="(self.isNew
+        ? (self.EndpointName.user_POST | endpointAccessGrantedPipe)
+        : (self.EndpointName.user_id_PUT | endpointAccessGrantedPipe))
+        && (self.EndpointName.user__role_GET | endpointAccessGrantedPipe) && !self.userDetail.isDeleted"
+    (buttonClickEvent)="self.editRoleClick()"
+    [buttonTemplateType]="''icon-button''"
+    [text]="''''"
+    [textTranslateKey]="''''"
+    [classArray]=''""''
+    [width]="''30''"
+    [height]="''30''"
+    [icon]="''icon-edit''"
+></cr-button-control>
+        </div></div><div class=''col-md-6''></div></div><div class="cr-grid-wrapper-new">
+    <cr-user-details-role-list [roles]="self.userDetail.roles" [class]=''undefined''></cr-user-details-role-list>
+</div>
+        </ng-template>
+      </cr-panel>
+      <cr-panel
+        [panelTemplateType]="''collapsible-panel''"
+        [expanded]="self.panelsViewState?.[''permissions''] ?? false"
+        (expandedChange)="self.panelStateChange(''permissions'', $event)"
+        [titleTranslateKey]="true ? ''USER.DETAILS.PERMISSIONS.PANEL_TITLE'' : null"
+        [title]="true ? null : ''Permissions''"
+        [customClass]="''''"
+        [headerClass]="''''"
+        [validator]="self.validator"
+        [validatorGroupName]="''permissions''"
+        [containFields]=''[]''
+      >
+        <ng-template crPanelContent>
+          <cr-user-permission-tree
+    *ngIf="(self.EndpointName.user__function_tree_list_GET | endpointAccessGrantedPipe)"
+    [userId]="self.userId"
+    [isNew]="self.isNew"
+    [(selected)]="self.userDetail.functions"
+    [editable]="!self.userDetail.isDeleted && (self.isNew
+        ? (self.EndpointName.user_POST | endpointAccessGrantedPipe)
+        : (self.EndpointName.user_id_PUT | endpointAccessGrantedPipe))"
+    [class]=''""''
+></cr-user-permission-tree>
+
+        </ng-template>
+      </cr-panel>
+        </ng-template>
+      </ng-template>
+    </ng-template>
+    
+        <ng-template [ngSwitchCase]="''user-roles''">
+          <ng-template
+            [ngIf]="self.popupTab.tabs[self.popupTab.activeTabIndex].type == ''user-roles'' && self.popupTab.activeTabIndex == i">
+            <div *ngIf=''self.popupTab.activeTabIndex != self.popupTab.tabs.length - 1'' class=''cr-popup-blocker''></div>
+            <cr-user-details-role-manager
+    [subTemplateId]="''1BB629A9-D26D-ED11-835F-02F176033DDB''"
+    [roles]="self.userDetail.roles"
+    (changeSelectedRoles)="self.onChangeSelectedRoles($event)"
+></cr-user-details-role-manager>
+
+          </ng-template>
+        </ng-template>
+      
+              </ng-container>
+            </ng-container>
+          </div>
+        </div>', '2022-11-28 18:51:17.3300000 +00:00', 12, N'N', '5901896d-05d3-460c-8697-e8a93e94ae84', 1, NULL)
+INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID], [BookmarkName], [BookmarkDescription], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('b96145e6-d26d-ed11-835f-02f176033ddb', 'b86145e6-d26d-ed11-835f-02f176033ddb', 1, N'', N'', N'
+        <div class=''cr-popup-content-wrapper'' [class.cr-popup-is-shown]=''self.popupTab.tabs.length > 1''>
+          <cr-popup-tabs
+            [popupTabs]=''self.popupTab.tabs''
+            [activePopup]=''self.popupTab.activeTabIndex''
+            (closePopup)=''self.removePopupTab($event)''
+            (changeActive)=''self.changeActiveTab($event)''
+          ></cr-popup-tabs>
+          <div class=''cr-details-inner-container''>
+            <ng-container *ngFor=''let tab of self.popupTab.tabs; index as i;''>
+              <ng-container [ngSwitch]=''tab.type''>
+                
+    <ng-template [ngSwitchCase]="''general''">
+      <ng-template [ngIf]="self.popupTab.tabs[self.popupTab.activeTabIndex].type == ''general'' && self.popupTab.activeTabIndex == i">
+        <div *ngIf=''self.popupTab.activeTabIndex != self.popupTab.tabs.length - 1'' class=''cr-popup-blocker''></div>
+        
+        <ng-template [ngIf]="self.userDetail">
+            <cr-title-header
+    [titleTranslateKey]="''USER.DETAILS.TITLE''"
+    [title]="''''"
+    [titleValue]="self.titleValue"
+    [buttonSettings]="self.titleHeaderButtonSettings"
+    (buttonClickEvent)="self.onTitleButtonClick($event)"
+    [titleValueTranslateKey]="self.isNew ? ''COMMON.NEW'' : null"
+></cr-title-header>
+      <cr-panel
+        [panelTemplateType]="''well''"
+        [customClass]="''cr-alternate-shadow''"
+      >
+        <ng-template crPanelContent>
+          <div class="row undefined"><div class=''col-md-2''><cr-control-edit
+    [elementName]="''edit:User_details.Login''"
+    [permissionSettings]="{
+        isAccessEdit: self.isNew
+            ? (self.EndpointName.user_POST | endpointAccessGrantedPipe)
+            : (self.EndpointName.user_id_PUT | endpointAccessGrantedPipe)
+    }"
+    [(dataValue)]="self.userDetail.login"
+    (dataValueChange)="self.changeTitle()"
+    [validator]="self.validator"
+    [validationField]="''login''"
+    [translateKeys]="''USER.DETAILS.HEADER.LOGIN''" 
+    [dataLabel]="''''"
+    [customClass]=''""''
+    [isDisabled]="self.userDetail.isDeleted || false"
+></cr-control-edit>
+</div><div class=''col-md-2''><cr-edit-password-control
+    [elementName]="''edit-password:User_details.Password''"
+    [permissionSettings]="{
+        isAccessEdit: self.isNew
+            ? (self.EndpointName.user_POST | endpointAccessGrantedPipe)
+            : (self.EndpointName.user_id_PUT | endpointAccessGrantedPipe)
+    }"
+    [(dataValue)]="self.userDetail.password"
+    [showPassword]="self.cache.showPassword"
+    (showPasswordToggle)="self.showPasswordToggle($event)"
+    [autocomplete]="''new-password''"
+    [validator]="self.validator"
+    [validationField]="''password''"
+    [translateKeys]="''USER.DETAILS.HEADER.PASSWORD''" 
+    [dataLabel]="''''"
+    [customClass]=''""''
+    [isDisabled]="self.userDetail.isDeleted || false"
+    [showPasswordButton]="false"
+    [showPasswordPlaceholder]="false"
+></cr-edit-password-control>
+</div><div class=''col-md-2''><cr-control-edit
+    [elementName]="''edit:User_details.First_name''"
+    [permissionSettings]="{
+        isAccessEdit: self.isNew
+            ? (self.EndpointName.user_POST | endpointAccessGrantedPipe)
+            : (self.EndpointName.user_id_PUT | endpointAccessGrantedPipe)
+    }"
+    [(dataValue)]="self.userDetail.firstName"
+    (dataValueChange)="self.changeValidator()"
+    [validator]="self.validator"
+    [validationField]="''isFirstOrLastName''"
+    [translateKeys]="''USER.DETAILS.HEADER.FIRST_NAME''" 
+    [dataLabel]="''''"
+    [customClass]=''""''
+    [isDisabled]="self.userDetail.isDeleted || false"
+></cr-control-edit>
+</div><div class=''col-md-2''><cr-control-edit
+    [elementName]="''edit:User_details.Last_name''"
+    [permissionSettings]="{
+        isAccessEdit: self.isNew
+            ? (self.EndpointName.user_POST | endpointAccessGrantedPipe)
+            : (self.EndpointName.user_id_PUT | endpointAccessGrantedPipe)
+    }"
+    [(dataValue)]="self.userDetail.lastName"
+    (dataValueChange)="self.changeValidator()"
+    [validator]="self.validator"
+    [validationField]="''isFirstOrLastName''"
+    [translateKeys]="''USER.DETAILS.HEADER.LAST_NAME''" 
+    [dataLabel]="''''"
+    [customClass]=''""''
+    [isDisabled]="self.userDetail.isDeleted || false"
+></cr-control-edit>
+</div><div class=''col-md-2''></div><div class=''col-md-2''></div></div><div class="row undefined"><div class=''col-md-2''><cr-control-edit
+    [elementName]="''edit:User_details.Phone''"
+    [permissionSettings]="{
+        isAccessEdit: self.isNew
+            ? (self.EndpointName.user_POST | endpointAccessGrantedPipe)
+            : (self.EndpointName.user_id_PUT | endpointAccessGrantedPipe)
+    }"
+    [(dataValue)]="self.userDetail.phone"
+    [translateKeys]="''USER.DETAILS.HEADER.PHONE''" 
+    [dataLabel]="''''"
+    [customClass]=''""''
+    [isDisabled]="self.userDetail.isDeleted || false"
+></cr-control-edit>
+</div><div class=''col-md-2''><cr-control-edit
+    [elementName]="''edit:User_details.Mobile''"
+    [permissionSettings]="{
+        isAccessEdit: self.isNew
+            ? (self.EndpointName.user_POST | endpointAccessGrantedPipe)
+            : (self.EndpointName.user_id_PUT | endpointAccessGrantedPipe)
+    }"
+    [(dataValue)]="self.userDetail.mobile"
+    [translateKeys]="''USER.DETAILS.HEADER.MOBILE''" 
+    [dataLabel]="''''"
+    [customClass]=''""''
+    [isDisabled]="self.userDetail.isDeleted || false"
+></cr-control-edit>
+</div><div class=''col-md-2''><cr-control-edit
+    [elementName]="''edit:User_details.Email''"
+    [permissionSettings]="{
+        isAccessEdit: self.isNew
+            ? (self.EndpointName.user_POST | endpointAccessGrantedPipe)
+            : (self.EndpointName.user_id_PUT | endpointAccessGrantedPipe)
+    }"
+    [(dataValue)]="self.userDetail.email"
+    [validator]="self.validator"
+    [validationField]="''email''"
+    [translateKeys]="''USER.DETAILS.HEADER.EMAIL''" 
+    [dataLabel]="''''"
+    [customClass]=''""''
+    [isDisabled]="self.userDetail.isDeleted || false"
+></cr-control-edit>
+</div><div class=''col-md-2''></div><div class=''col-md-2''></div><div class=''col-md-2''></div></div>
+        </ng-template>
+      </cr-panel>
+      <cr-panel
+        [panelTemplateType]="''collapsible-panel''"
+        [expanded]="self.panelsViewState?.[''roles''] ?? false"
+        (expandedChange)="self.panelStateChange(''roles'', $event)"
+        [titleTranslateKey]="true ? ''USER.DETAILS.ROLES.PANEL_TITLE'' : null"
+        [title]="true ? null : ''Roles he''"
+        [customClass]="''''"
+        [headerClass]="''''"
+        [validator]="self.validator"
+        [validatorGroupName]="''roles''"
+        [containFields]=''[]''
+      >
+        <ng-template crPanelContent>
+          <div class="row cr-row-padding-revert"><div class=''col-md-12''>
+        <div [class]="''cr-col-content-align-right cr-col-no-padding''">
+            <cr-button-control
+    *ngIf="(self.isNew
+        ? (self.EndpointName.user_POST | endpointAccessGrantedPipe)
+        : (self.EndpointName.user_id_PUT | endpointAccessGrantedPipe))
+        && (self.EndpointName.user__role_GET | endpointAccessGrantedPipe) && !self.userDetail.isDeleted"
+    (buttonClickEvent)="self.editRoleClick()"
+    [buttonTemplateType]="''icon-button''"
+    [text]="''''"
+    [textTranslateKey]="''''"
+    [classArray]=''""''
+    [width]="''30''"
+    [height]="''30''"
+    [icon]="''icon-edit''"
+></cr-button-control>
+        </div></div><div class=''col-md-6''></div></div><div class="cr-grid-wrapper-new">
+    <cr-user-details-role-list [roles]="self.userDetail.roles" [class]=''undefined''></cr-user-details-role-list>
+</div>
+        </ng-template>
+      </cr-panel>
+      <cr-panel
+        [panelTemplateType]="''collapsible-panel''"
+        [expanded]="self.panelsViewState?.[''permissions''] ?? false"
+        (expandedChange)="self.panelStateChange(''permissions'', $event)"
+        [titleTranslateKey]="true ? ''USER.DETAILS.PERMISSIONS.PANEL_TITLE'' : null"
+        [title]="true ? null : ''Permissions he''"
+        [customClass]="''''"
+        [headerClass]="''''"
+        [validator]="self.validator"
+        [validatorGroupName]="''permissions''"
+        [containFields]=''[]''
+      >
+        <ng-template crPanelContent>
+          <cr-user-permission-tree
+    *ngIf="(self.EndpointName.user__function_tree_list_GET | endpointAccessGrantedPipe)"
+    [userId]="self.userId"
+    [isNew]="self.isNew"
+    [(selected)]="self.userDetail.functions"
+    [editable]="!self.userDetail.isDeleted && (self.isNew
+        ? (self.EndpointName.user_POST | endpointAccessGrantedPipe)
+        : (self.EndpointName.user_id_PUT | endpointAccessGrantedPipe))"
+    [class]=''""''
+></cr-user-permission-tree>
+
+        </ng-template>
+      </cr-panel>
+        </ng-template>
+      </ng-template>
+    </ng-template>
+    
+        <ng-template [ngSwitchCase]="''user-roles''">
+          <ng-template
+            [ngIf]="self.popupTab.tabs[self.popupTab.activeTabIndex].type == ''user-roles'' && self.popupTab.activeTabIndex == i">
+            <div *ngIf=''self.popupTab.activeTabIndex != self.popupTab.tabs.length - 1'' class=''cr-popup-blocker''></div>
+            <cr-user-details-role-manager
+    [subTemplateId]="''1BB629A9-D26D-ED11-835F-02F176033DDB''"
+    [roles]="self.userDetail.roles"
+    (changeSelectedRoles)="self.onChangeSelectedRoles($event)"
+></cr-user-details-role-manager>
+          </ng-template>
+        </ng-template>
+      
+              </ng-container>
+            </ng-container>
+          </div>
+        </div>', '2022-11-28 18:51:52.6100000 +00:00', 5, N'N', 'cca05bdc-f4de-4ea8-8f7f-0db13d097bce', 1, NULL)
+INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID], [BookmarkName], [BookmarkDescription], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('ba6145e6-d26d-ed11-835f-02f176033ddb', 'b86145e6-d26d-ed11-835f-02f176033ddb', 2, N'', N'', N'
+        <div class=''cr-popup-content-wrapper'' [class.cr-popup-is-shown]=''self.popupTab.tabs.length > 1''>
+          <cr-popup-tabs
+            [popupTabs]=''self.popupTab.tabs''
+            [activePopup]=''self.popupTab.activeTabIndex''
+            (closePopup)=''self.removePopupTab($event)''
+            (changeActive)=''self.changeActiveTab($event)''
+          ></cr-popup-tabs>
+          <div class=''cr-details-inner-container''>
+            <ng-container *ngFor=''let tab of self.popupTab.tabs; index as i;''>
+              <ng-container [ngSwitch]=''tab.type''>
+                
+    <ng-template [ngSwitchCase]="''general''">
+      <ng-template [ngIf]="self.popupTab.tabs[self.popupTab.activeTabIndex].type == ''general'' && self.popupTab.activeTabIndex == i">
+        <div *ngIf=''self.popupTab.activeTabIndex != self.popupTab.tabs.length - 1'' class=''cr-popup-blocker''></div>
+        
+        <ng-template [ngIf]="self.userDetail">
+            <cr-title-header
+    [titleTranslateKey]="''USER.DETAILS.TITLE''"
+    [title]="''''"
+    [titleValue]="self.titleValue"
+    [buttonSettings]="self.titleHeaderButtonSettings"
+    (buttonClickEvent)="self.onTitleButtonClick($event)"
+    [titleValueTranslateKey]="self.isNew ? ''COMMON.NEW'' : null"
+></cr-title-header>
+      <cr-panel
+        [panelTemplateType]="''well''"
+        [customClass]="''cr-alternate-shadow''"
+      >
+        <ng-template crPanelContent>
+          <div class="row undefined"><div class=''col-md-2''><cr-control-edit
+    [elementName]="''edit:User_details.Login''"
+    [permissionSettings]="{
+        isAccessEdit: self.isNew
+            ? (self.EndpointName.user_POST | endpointAccessGrantedPipe)
+            : (self.EndpointName.user_id_PUT | endpointAccessGrantedPipe)
+    }"
+    [(dataValue)]="self.userDetail.login"
+    (dataValueChange)="self.changeTitle()"
+    [validator]="self.validator"
+    [validationField]="''login''"
+    [translateKeys]="''USER.DETAILS.HEADER.LOGIN''" 
+    [dataLabel]="''''"
+    [customClass]=''""''
+    [isDisabled]="self.userDetail.isDeleted || false"
+></cr-control-edit>
+</div><div class=''col-md-2''><cr-edit-password-control
+    [elementName]="''edit-password:User_details.Password''"
+    [permissionSettings]="{
+        isAccessEdit: self.isNew
+            ? (self.EndpointName.user_POST | endpointAccessGrantedPipe)
+            : (self.EndpointName.user_id_PUT | endpointAccessGrantedPipe)
+    }"
+    [(dataValue)]="self.userDetail.password"
+    [showPassword]="self.cache.showPassword"
+    (showPasswordToggle)="self.showPasswordToggle($event)"
+    [autocomplete]="''new-password''"
+    [validator]="self.validator"
+    [validationField]="''password''"
+    [translateKeys]="''USER.DETAILS.HEADER.PASSWORD''" 
+    [dataLabel]="''''"
+    [customClass]=''""''
+    [isDisabled]="self.userDetail.isDeleted || false"
+    [showPasswordButton]="false"
+    [showPasswordPlaceholder]="false"
+></cr-edit-password-control>
+</div><div class=''col-md-2''><cr-control-edit
+    [elementName]="''edit:User_details.First_name''"
+    [permissionSettings]="{
+        isAccessEdit: self.isNew
+            ? (self.EndpointName.user_POST | endpointAccessGrantedPipe)
+            : (self.EndpointName.user_id_PUT | endpointAccessGrantedPipe)
+    }"
+    [(dataValue)]="self.userDetail.firstName"
+    (dataValueChange)="self.changeValidator()"
+    [validator]="self.validator"
+    [validationField]="''isFirstOrLastName''"
+    [translateKeys]="''USER.DETAILS.HEADER.FIRST_NAME''" 
+    [dataLabel]="''''"
+    [customClass]=''""''
+    [isDisabled]="self.userDetail.isDeleted || false"
+></cr-control-edit>
+</div><div class=''col-md-2''><cr-control-edit
+    [elementName]="''edit:User_details.Last_name''"
+    [permissionSettings]="{
+        isAccessEdit: self.isNew
+            ? (self.EndpointName.user_POST | endpointAccessGrantedPipe)
+            : (self.EndpointName.user_id_PUT | endpointAccessGrantedPipe)
+    }"
+    [(dataValue)]="self.userDetail.lastName"
+    (dataValueChange)="self.changeValidator()"
+    [validator]="self.validator"
+    [validationField]="''isFirstOrLastName''"
+    [translateKeys]="''USER.DETAILS.HEADER.LAST_NAME''" 
+    [dataLabel]="''''"
+    [customClass]=''""''
+    [isDisabled]="self.userDetail.isDeleted || false"
+></cr-control-edit>
+</div><div class=''col-md-2''></div><div class=''col-md-2''></div></div><div class="row undefined"><div class=''col-md-2''><cr-control-edit
+    [elementName]="''edit:User_details.Phone''"
+    [permissionSettings]="{
+        isAccessEdit: self.isNew
+            ? (self.EndpointName.user_POST | endpointAccessGrantedPipe)
+            : (self.EndpointName.user_id_PUT | endpointAccessGrantedPipe)
+    }"
+    [(dataValue)]="self.userDetail.phone"
+    [translateKeys]="''USER.DETAILS.HEADER.PHONE''" 
+    [dataLabel]="''''"
+    [customClass]=''""''
+    [isDisabled]="self.userDetail.isDeleted || false"
+></cr-control-edit>
+</div><div class=''col-md-2''><cr-control-edit
+    [elementName]="''edit:User_details.Mobile''"
+    [permissionSettings]="{
+        isAccessEdit: self.isNew
+            ? (self.EndpointName.user_POST | endpointAccessGrantedPipe)
+            : (self.EndpointName.user_id_PUT | endpointAccessGrantedPipe)
+    }"
+    [(dataValue)]="self.userDetail.mobile"
+    [translateKeys]="''USER.DETAILS.HEADER.MOBILE''" 
+    [dataLabel]="''''"
+    [customClass]=''""''
+    [isDisabled]="self.userDetail.isDeleted || false"
+></cr-control-edit>
+</div><div class=''col-md-2''><cr-control-edit
+    [elementName]="''edit:User_details.Email''"
+    [permissionSettings]="{
+        isAccessEdit: self.isNew
+            ? (self.EndpointName.user_POST | endpointAccessGrantedPipe)
+            : (self.EndpointName.user_id_PUT | endpointAccessGrantedPipe)
+    }"
+    [(dataValue)]="self.userDetail.email"
+    [validator]="self.validator"
+    [validationField]="''email''"
+    [translateKeys]="''USER.DETAILS.HEADER.EMAIL''" 
+    [dataLabel]="''''"
+    [customClass]=''""''
+    [isDisabled]="self.userDetail.isDeleted || false"
+></cr-control-edit>
+</div><div class=''col-md-2''></div><div class=''col-md-2''></div><div class=''col-md-2''></div></div>
+        </ng-template>
+      </cr-panel>
+      <cr-panel
+        [panelTemplateType]="''collapsible-panel''"
+        [expanded]="self.panelsViewState?.[''roles''] ?? false"
+        (expandedChange)="self.panelStateChange(''roles'', $event)"
+        [titleTranslateKey]="true ? ''USER.DETAILS.ROLES.PANEL_TITLE'' : null"
+        [title]="true ? null : ''Roles''"
+        [customClass]="''''"
+        [headerClass]="''''"
+        [validator]="self.validator"
+        [validatorGroupName]="''roles''"
+        [containFields]=''[]''
+      >
+        <ng-template crPanelContent>
+          <div class="row cr-row-padding-revert"><div class=''col-md-12''>
+        <div [class]="''cr-col-content-align-right cr-col-no-padding''">
+            <cr-button-control
+    *ngIf="(self.isNew
+        ? (self.EndpointName.user_POST | endpointAccessGrantedPipe)
+        : (self.EndpointName.user_id_PUT | endpointAccessGrantedPipe))
+        && (self.EndpointName.user__role_GET | endpointAccessGrantedPipe) && !self.userDetail.isDeleted"
+    (buttonClickEvent)="self.editRoleClick()"
+    [buttonTemplateType]="''icon-button''"
+    [text]="''''"
+    [textTranslateKey]="''''"
+    [classArray]=''""''
+    [width]="''30''"
+    [height]="''30''"
+    [icon]="''icon-edit''"
+></cr-button-control>
+        </div></div><div class=''col-md-6''></div></div><div class="cr-grid-wrapper-new">
+    <cr-user-details-role-list [roles]="self.userDetail.roles" [class]=''undefined''></cr-user-details-role-list>
+</div>
+        </ng-template>
+      </cr-panel>
+      <cr-panel
+        [panelTemplateType]="''collapsible-panel''"
+        [expanded]="self.panelsViewState?.[''permissions''] ?? false"
+        (expandedChange)="self.panelStateChange(''permissions'', $event)"
+        [titleTranslateKey]="true ? ''USER.DETAILS.PERMISSIONS.PANEL_TITLE'' : null"
+        [title]="true ? null : ''Permissions''"
+        [customClass]="''''"
+        [headerClass]="''''"
+        [validator]="self.validator"
+        [validatorGroupName]="''permissions''"
+        [containFields]=''[]''
+      >
+        <ng-template crPanelContent>
+          <cr-user-permission-tree
+    *ngIf="(self.EndpointName.user__function_tree_list_GET | endpointAccessGrantedPipe)"
+    [userId]="self.userId"
+    [isNew]="self.isNew"
+    [(selected)]="self.userDetail.functions"
+    [editable]="!self.userDetail.isDeleted && (self.isNew
+        ? (self.EndpointName.user_POST | endpointAccessGrantedPipe)
+        : (self.EndpointName.user_id_PUT | endpointAccessGrantedPipe))"
+    [class]=''""''
+></cr-user-permission-tree>
+
+        </ng-template>
+      </cr-panel>
+        </ng-template>
+      </ng-template>
+    </ng-template>
+    
+        <ng-template [ngSwitchCase]="''user-roles''">
+          <ng-template
+            [ngIf]="self.popupTab.tabs[self.popupTab.activeTabIndex].type == ''user-roles'' && self.popupTab.activeTabIndex == i">
+            <div *ngIf=''self.popupTab.activeTabIndex != self.popupTab.tabs.length - 1'' class=''cr-popup-blocker''></div>
+            <cr-user-details-role-manager
+    [subTemplateId]="''1BB629A9-D26D-ED11-835F-02F176033DDB''"
+    [roles]="self.userDetail.roles"
+    (changeSelectedRoles)="self.onChangeSelectedRoles($event)"
+></cr-user-details-role-manager>
+          </ng-template>
+        </ng-template>
+      
+              </ng-container>
+            </ng-container>
+          </div>
+        </div>', '2022-11-28 18:51:52.6100000 +00:00', 5, N'N', '44c4c7ce-4355-43ba-bdcd-f2ece80693c9', 1, NULL)
+INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID], [BookmarkName], [BookmarkDescription], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('786ee9fb-586f-ed11-835f-02f176033ddb', '776ee9fb-586f-ed11-835f-02f176033ddb', 1, N'', N'', NULL, '2022-11-28 20:12:30.3319072 +00:00', 1, N'N', '72f4fbd5-2843-4653-b100-e873f1689b73', 1, NULL)
+INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID], [BookmarkName], [BookmarkDescription], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('796ee9fb-586f-ed11-835f-02f176033ddb', '776ee9fb-586f-ed11-835f-02f176033ddb', 2, N'', N'', NULL, '2022-11-28 20:12:30.3319072 +00:00', 1, N'N', '4e276ffd-3ad0-4c41-bec2-b6b5c1db1c51', 1, NULL)
 INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID], [BookmarkName], [BookmarkDescription], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('9b16e302-a86c-ed11-835f-02f176033ddb', '9a16e302-a86c-ed11-835f-02f176033ddb', 1, N'', N'', N'
         <div class=''cr-popup-content-wrapper'' [class.cr-popup-is-shown]=''self.popupTab.tabs.length > 1''>
           <cr-popup-tabs
