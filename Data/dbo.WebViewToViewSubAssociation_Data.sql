@@ -1,3 +1,164 @@
+INSERT INTO [dbo].[WebViewToViewSubAssociation] ([ID], [WebViewID], [WebViewSubID], [HtmlCode], [Html], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('a488a74e-5072-ed11-835f-02f176033ddb', '40208065-4f72-ed11-835f-02f176033ddb', 'a55e29d8-1b6b-ed11-835f-02f176033ddb', N'image-content-create', N'<cr-image-basket-details
+    [validator]="self.itemImageBasketContentValidator"
+    [isNew]="true"
+    [image]="self.cache.selectedImageBasketContent"
+    [permissionSettings]="{
+        isAccessCreate: !self.treeCache.selectedTreeItemHierarchy?.isDeleted && (self.EndpointName.item_hierarchy__file_storage_basket_content_POST | endpointAccessGrantedPipe)
+    }"
+    (closePopup)="self.removePopupTab(self.popupTab.activeTabIndex)"
+    (create)="self.onCreateImageBasketContent($event)"
+></cr-image-basket-details>', '2022-12-02 15:59:12.3866667 +00:00', 3, N'N', '2c45bba9-479a-49bd-b17a-3e4c030119bb', 1, NULL)
+INSERT INTO [dbo].[WebViewToViewSubAssociation] ([ID], [WebViewID], [WebViewSubID], [HtmlCode], [Html], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('a588a74e-5072-ed11-835f-02f176033ddb', '40208065-4f72-ed11-835f-02f176033ddb', '461282e5-1b6b-ed11-835f-02f176033ddb', N'image-content-update', N'<cr-image-basket-details
+    [validator]="self.itemImageBasketContentValidator"
+    [isNew]="false"
+    [image]="self.cache.selectedImageBasketContent"
+    [permissionSettings]="{
+        isAccessRead: (self.EndpointName.item_hierarchy__file_storage_basket_content_GET | endpointAccessGrantedPipe),
+        isAccessDelete: !self.treeCache.selectedTreeItemHierarchy?.isDeleted && (self.EndpointName.item_hierarchy__file_storage_basket_content_id_DELETE | endpointAccessGrantedPipe),
+        isAccessUpdate: !self.treeCache.selectedTreeItemHierarchy?.isDeleted && (self.EndpointName.item_hierarchy__file_storage_basket_content_id_PUT | endpointAccessGrantedPipe)
+    }"
+    (closePopup)="self.removePopupTab(self.popupTab.activeTabIndex)"
+    (update)="self.onUpdateImageBasketContent($event)"
+    (delete)="self.onDeleteImageBasketContentPopUp($event)"
+    (refresh)="self.onRefreshImageBasketContent()"
+></cr-image-basket-details>', '2022-12-02 15:59:12.3866667 +00:00', 3, N'N', 'f4ac81cc-5e5e-48cd-9a83-1deddc3fcab8', 1, NULL)
+INSERT INTO [dbo].[WebViewToViewSubAssociation] ([ID], [WebViewID], [WebViewSubID], [HtmlCode], [Html], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('a89593ef-1c6b-ed11-835f-02f176033ddb', 'b211b499-f964-ed11-8e60-4ccc6a2bb6d6', 'a55e29d8-1b6b-ed11-835f-02f176033ddb', N'image-content-create', N'<cr-image-basket-details
+    [subTemplateId]="''{{subTemplateId}}''"
+    [image]="self.cache.selectedImageBasketContent"
+    [isNew]="true"
+    [validator]="self.itemImageBasketContentValidator"
+    [permissionSettings]="{
+        isAccessRead: (self.EndpointName.item__file_storage_basket_content_GET | endpointAccessGrantedPipe),
+        isAccessCreate: !self.item.isDeleted && (self.EndpointName.item__file_storage_basket_content_POST | endpointAccessGrantedPipe)
+    }"
+    (closePopup)="self.removePopupTab(popupTab.activeTabIndex)"
+    (create)="self.onCreateImageBasketContent($event)"
+></cr-image-basket-details>', '2022-11-29 09:50:17.4600000 +00:00', 17, N'N', 'e44640cd-6ca0-41d9-bd1d-f5967c92bfb4', 1, NULL)
+INSERT INTO [dbo].[WebViewToViewSubAssociation] ([ID], [WebViewID], [WebViewSubID], [HtmlCode], [Html], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('a99593ef-1c6b-ed11-835f-02f176033ddb', 'b211b499-f964-ed11-8e60-4ccc6a2bb6d6', '461282e5-1b6b-ed11-835f-02f176033ddb', N'image-content-update', N'<cr-image-basket-details
+    [subTemplateId]="''{{subTemplateId}}''"
+    [image]="self.cache.selectedImageBasketContent"
+    [isNew]="false"
+    [validator]="self.itemImageBasketContentValidator"
+    [permissionSettings]="{
+        isAccessRead: (self.EndpointName.item__file_storage_basket_content_GET | endpointAccessGrantedPipe),
+        isAccessDelete: !self.item.isDeleted && (self.EndpointName.item__file_storage_basket_content_id_DELETE | endpointAccessGrantedPipe),
+        isAccessUpdate: !self.item.isDeleted && (self.EndpointName.item__file_storage_basket_content_id_PUT | endpointAccessGrantedPipe)
+    }"
+    (closePopup)="self.removePopupTab(popupTab.activeTabIndex)"
+    (update)="self.onUpdateImageBasketContent($event)"
+    (delete)="self.onDeleteImageBasketContentPopUp($event)"
+    (refresh)="self.onRefreshImageBasketContent()"
+></cr-image-basket-details>', '2022-11-29 09:50:17.4600000 +00:00', 17, N'N', '07681082-0039-4bba-a78a-661eebca3030', 1, NULL)
+INSERT INTO [dbo].[WebViewToViewSubAssociation] ([ID], [WebViewID], [WebViewSubID], [HtmlCode], [Html], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('7dcd8d26-9a6c-ed11-835f-02f176033ddb', 'b211b499-f964-ed11-8e60-4ccc6a2bb6d6', '9a0f4c20-986c-ed11-835f-02f176033ddb', N'modifiers-template-list', N'<cr-item-item-modifier-template-list
+    [subTemplateId]="''{{subTemplateId}}''"
+    [selected]="self.cache.selectedModifierGroups"
+    (onSelection)="self.onSelectModifierGroups($event)"
+    (onUpdate)="self.onUpdateModifierGroups($event)"
+></cr-item-item-modifier-template-list>', '2022-11-29 09:50:17.4600000 +00:00', 15, N'N', '33114b54-d5f9-4c38-9e66-5f0262aa6e49', 1, NULL)
+INSERT INTO [dbo].[WebViewToViewSubAssociation] ([ID], [WebViewID], [WebViewSubID], [HtmlCode], [Html], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('7ecd8d26-9a6c-ed11-835f-02f176033ddb', 'b211b499-f964-ed11-8e60-4ccc6a2bb6d6', '2585e92c-986c-ed11-835f-02f176033ddb', N'modifiers-group-list', N'<cr-item-item-modifier-group-list
+    [subTemplateId]="''{{subTemplateId}}''"
+    [selected]="self.cache.selectedModifierGroups"
+    (onSelection)="self.onSelectModifierGroups($event)"
+    (onUpdate)="self.onUpdateModifierGroups($event)"
+></cr-item-item-modifier-group-list>', '2022-11-29 09:50:17.4600000 +00:00', 15, N'N', '6628de30-0388-4846-bd3a-d77f7f6698b2', 1, NULL)
+INSERT INTO [dbo].[WebViewToViewSubAssociation] ([ID], [WebViewID], [WebViewSubID], [HtmlCode], [Html], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('5718e2a6-a56c-ed11-835f-02f176033ddb', '5418e2a6-a56c-ed11-835f-02f176033ddb', 'a55e29d8-1b6b-ed11-835f-02f176033ddb', N'image-content-create', N'<cr-image-basket-details
+    [subTemplateId]="''{{subTemplateId}}''"
+    [image]="self.cache.selectedImageBasketContent"
+    [isNew]="true"
+    [validator]="self.itemImageBasketContentValidator"
+    [permissionSettings]="{
+        isAccessRead: (self.EndpointName.item__file_storage_basket_content_GET | endpointAccessGrantedPipe),
+        isAccessCreate: !self.item.isDeleted && (self.EndpointName.item__file_storage_basket_content_POST | endpointAccessGrantedPipe)
+    }"
+    (closePopup)="self.removePopupTab(popupTab.activeTabIndex)"
+    (create)="self.onCreateImageBasketContent($event)"
+></cr-image-basket-details>', '2022-11-29 09:50:51.9133333 +00:00', 2, N'N', '37cd3c89-98ae-4acf-93c9-aa40431489d3', 1, NULL)
+INSERT INTO [dbo].[WebViewToViewSubAssociation] ([ID], [WebViewID], [WebViewSubID], [HtmlCode], [Html], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('5818e2a6-a56c-ed11-835f-02f176033ddb', '5418e2a6-a56c-ed11-835f-02f176033ddb', '461282e5-1b6b-ed11-835f-02f176033ddb', N'image-content-update', N'<cr-image-basket-details
+    [subTemplateId]="''{{subTemplateId}}''"
+    [image]="self.cache.selectedImageBasketContent"
+    [isNew]="false"
+    [validator]="self.itemImageBasketContentValidator"
+    [permissionSettings]="{
+        isAccessRead: (self.EndpointName.item__file_storage_basket_content_GET | endpointAccessGrantedPipe),
+        isAccessDelete: !self.item.isDeleted && (self.EndpointName.item__file_storage_basket_content_id_DELETE | endpointAccessGrantedPipe),
+        isAccessUpdate: !self.item.isDeleted && (self.EndpointName.item__file_storage_basket_content_id_PUT | endpointAccessGrantedPipe)
+    }"
+    (closePopup)="self.removePopupTab(popupTab.activeTabIndex)"
+    (update)="self.onUpdateImageBasketContent($event)"
+    (delete)="self.onDeleteImageBasketContentPopUp($event)"
+    (refresh)="self.onRefreshImageBasketContent()"
+></cr-image-basket-details>', '2022-11-29 09:50:51.9133333 +00:00', 2, N'N', '0a341845-6890-49f5-b173-a437fe42b481', 1, NULL)
+INSERT INTO [dbo].[WebViewToViewSubAssociation] ([ID], [WebViewID], [WebViewSubID], [HtmlCode], [Html], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('96f805bb-a96c-ed11-835f-02f176033ddb', 'b211b499-f964-ed11-8e60-4ccc6a2bb6d6', '80ac53c4-a86c-ed11-835f-02f176033ddb', N'combo-meal-category-new', N'<cr-item-combo-meal-category-details
+    [subTemplateId]="''{{subTemplateId}}''"
+    [isNew]="self.cache.isNewComboMealCategory"
+    [comboMealCategoryId]="self.cache.selectedComboMealCategory"
+    [itemId]="self.item.id"
+    [isDeleted]="self.item.isDeleted"
+    (closePopup)="self.onComboMealPopupClose($event)"
+    (selectFromCatalog)="self.onComboMealItemSelectFromCatalog()"
+    (selectFromBasket)="self.onComboMealItemSelectFromBasket()"
+></cr-item-combo-meal-category-details>', '2022-11-29 09:50:17.4600000 +00:00', 13, N'N', 'd36043b7-7f05-433e-a1c3-548dcad5f699', 1, NULL)
+INSERT INTO [dbo].[WebViewToViewSubAssociation] ([ID], [WebViewID], [WebViewSubID], [HtmlCode], [Html], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('97f805bb-a96c-ed11-835f-02f176033ddb', 'b211b499-f964-ed11-8e60-4ccc6a2bb6d6', '1cc95bd1-a86c-ed11-835f-02f176033ddb', N'combo-meal-category-details', N'<cr-item-combo-meal-category-details
+    [subTemplateId]="''{{subTemplateId}}''"
+    [isNew]="self.cache.isNewComboMealCategory"
+    [comboMealCategoryId]="self.cache.selectedComboMealCategory"
+    [itemId]="self.item.id"
+    [isDeleted]="self.item.isDeleted"
+    (closePopup)="self.onComboMealPopupClose($event)"
+    (selectFromCatalog)="self.onComboMealItemSelectFromCatalog()"
+    (selectFromBasket)="self.onComboMealItemSelectFromBasket()"
+></cr-item-combo-meal-category-details>', '2022-11-29 09:50:17.4600000 +00:00', 13, N'N', '4430c07e-2c0a-4473-b079-ca14d8a9523f', 1, NULL)
+INSERT INTO [dbo].[WebViewToViewSubAssociation] ([ID], [WebViewID], [WebViewSubID], [HtmlCode], [Html], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('05ee30e0-e86c-ed11-835f-02f176033ddb', 'b211b499-f964-ed11-8e60-4ccc6a2bb6d6', 'ffea1076-e86c-ed11-835f-02f176033ddb', N'combo-meal-category-item-select-from-catalog', N'<cr-item-combo-meal-category-select-from-catalog
+    [subTemplateId]="''{{subTemplateId}}''"
+    (closePopup)="self.onComboMealItemSelectFromCatalogPopupClose()"
+    (confirm)="self.onComboMealItemSelectFromCatalogPopupClose()"
+></cr-item-combo-meal-category-select-from-catalog>', '2022-11-29 09:50:17.4600000 +00:00', 11, N'N', '24dc3968-2e7f-4662-bc1f-e240199b6d74', 1, NULL)
+INSERT INTO [dbo].[WebViewToViewSubAssociation] ([ID], [WebViewID], [WebViewSubID], [HtmlCode], [Html], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('06ee30e0-e86c-ed11-835f-02f176033ddb', 'b211b499-f964-ed11-8e60-4ccc6a2bb6d6', 'ffe32c83-e86c-ed11-835f-02f176033ddb', N'combo-meal-category-item-select-from-basket', N'<cr-item-combo-meal-category-select-from-basket
+    [subTemplateId]="''{{subTemplateId}}''"
+    (closePopup)="self.onComboMealItemSelectFromBasketPopupClose()"
+    (confirm)="self.onComboMealItemSelectFromBasketPopupClose()"
+    (openItemBasket)="self.onOpenComboMealItemBasketDetails($event)"
+></cr-item-combo-meal-category-select-from-basket>', '2022-11-29 09:50:17.4600000 +00:00', 11, N'N', '964b902d-5638-438a-a5fb-b8d1f1e7013f', 1, NULL)
+INSERT INTO [dbo].[WebViewToViewSubAssociation] ([ID], [WebViewID], [WebViewSubID], [HtmlCode], [Html], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('64cd091e-f36c-ed11-835f-02f176033ddb', 'b211b499-f964-ed11-8e60-4ccc6a2bb6d6', 'c46edb31-f16c-ed11-835f-02f176033ddb', N'manage-combo-meal-baskets-item', N'<cr-basket-population-edit
+    [subTemplateId]="''{{subTemplateId}}''"
+    (cancel)="self.onCancelPopulation()"
+    (confirm)="self.savePopulation($event)"
+    [basket]="self.comboMealItemBasket.baskets[self.comboMealItemBasket.selectedBasketIndex]?.populationDetails"
+    [cacheName]="''itemPopulationDropdown''"
+    [lastExcludeNumber]="self.comboMealItemBasket.lastExcludeNumber"
+    [lastIncludeNumber]="self.comboMealItemBasket.lastIncludeNumber"
+    [propertyDropdownFn]="self.itemCriteriaPropertiesDropdownFn"
+    [titleContentTranslateKey]="''COMMON.BASKET.BASKET_EDIT.TITLE_CREATE_ITEM_CONTENT_POPULATION''"
+    [titleTranslateKey]="''COMMON.BASKET.BASKET_EDIT.TITLE_MANAGE_ITEM_POPULATION''"
+    [typeDropdownFn]="self.itemCriteriaDropdownFn"
+    [valueDropdownFn]="self.itemCriteriaValuesDropdownFn"
+    [basketTypeFn$]="self.basketTypeFn"
+></cr-basket-population-edit>', '2022-11-29 09:50:17.4600000 +00:00', 10, N'N', '74e6b25e-7d75-4f21-88ca-47b615c12d81', 1, NULL)
+INSERT INTO [dbo].[WebViewToViewSubAssociation] ([ID], [WebViewID], [WebViewSubID], [HtmlCode], [Html], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('db339d56-f36c-ed11-835f-02f176033ddb', 'b211b499-f964-ed11-8e60-4ccc6a2bb6d6', '07bdc640-f16c-ed11-835f-02f176033ddb', N'create-combo-meal-baskets-item', N'<cr-basket-population-edit
+    [subTemplateId]="''{{subTemplateId}}''"
+    (cancel)="self.onCancelPopulation()"
+    (confirm)="self.createPopulation($event)"
+    [cacheName]="''promotionPopulationDropdown''"
+    [lastExcludeNumber]="self.comboMealItemBasket.lastExcludeNumber"
+    [lastIncludeNumber]="self.comboMealItemBasket.lastIncludeNumber"
+    [propertyDropdownFn]="self.itemCriteriaPropertiesDropdownFn"
+    [titleContentTranslateKey]="''COMMON.BASKET.BASKET_EDIT.TITLE_CREATE_ITEM_CONTENT_POPULATION''"
+    [titleTranslateKey]="''COMMON.BASKET.BASKET_EDIT.TITLE_CREATE_ITEM_POPULATION''"
+    [typeDropdownFn]="self.itemCriteriaDropdownFn"
+    [valueDropdownFn]="self.itemCriteriaValuesDropdownFn"
+    [basketTypeFn$]="self.basketTypeFn"
+></cr-basket-population-edit>', '2022-11-29 09:50:17.4600000 +00:00', 9, N'N', 'ee306510-339a-42ec-80c2-1a0a8503ca14', 1, NULL)
+INSERT INTO [dbo].[WebViewToViewSubAssociation] ([ID], [WebViewID], [WebViewSubID], [HtmlCode], [Html], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('ec7dfa3b-d26d-ed11-835f-02f176033ddb', '4a2007e0-d16d-ed11-835f-02f176033ddb', '5c42c912-d26d-ed11-835f-02f176033ddb', N'user-roles', N'<cr-user-details-role-manager
+    [subTemplateId]="''{{subTemplateId}}''"
+    [roles]="self.userDetail.roles"
+    (changeSelectedRoles)="self.onChangeSelectedRoles($event)"
+></cr-user-details-role-manager>
+', '2022-11-26 21:35:24.5185130 +00:00', 1, N'N', '9ffbbe0c-0969-4458-8320-60e033c73bcc', 1, NULL)
+INSERT INTO [dbo].[WebViewToViewSubAssociation] ([ID], [WebViewID], [WebViewSubID], [HtmlCode], [Html], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('be633488-d26d-ed11-835f-02f176033ddb', 'bb633488-d26d-ed11-835f-02f176033ddb', '5c42c912-d26d-ed11-835f-02f176033ddb', N'user-roles', N'<cr-user-details-role-manager
+    [subTemplateId]="''{{subTemplateId}}''"
+    [roles]="self.userDetail.roles"
+    (changeSelectedRoles)="self.onChangeSelectedRoles($event)"
+></cr-user-details-role-manager>', '2022-11-26 21:37:32.4829180 +00:00', 1, N'N', 'e96e6498-a499-4966-beab-2139068ca599', 1, NULL)
 INSERT INTO [dbo].[WebViewToViewSubAssociation] ([ID], [WebViewID], [WebViewSubID], [HtmlCode], [Html], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('eebf4010-ef6f-ed11-835f-02f176033ddb', 'fbf85a49-cc6f-ed11-835f-02f176033ddb', '9b2b68f1-ed6f-ed11-835f-02f176033ddb', N'manage-baskets-seller-in-stores-population', N'<cr-seller-basket-population-edit
     [subTemplateId]="''{{subTemplateId}}''"
     (cancel)="self.onCancelSellerInStoresPopulation()"
@@ -140,17 +301,6 @@ INSERT INTO [dbo].[WebViewToViewSubAssociation] ([ID], [WebViewID], [WebViewSubI
     [basketTypeFn$]="self.basketTypeFn"
 ></cr-access-level-basket-population-edit>
 ', '2022-11-29 14:22:25.1300000 +00:00', 2, N'N', '982e2e3e-6384-4f1a-a1d2-22b9aebdad33', 1, NULL)
-INSERT INTO [dbo].[WebViewToViewSubAssociation] ([ID], [WebViewID], [WebViewSubID], [HtmlCode], [Html], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('ec7dfa3b-d26d-ed11-835f-02f176033ddb', '4a2007e0-d16d-ed11-835f-02f176033ddb', '5c42c912-d26d-ed11-835f-02f176033ddb', N'user-roles', N'<cr-user-details-role-manager
-    [subTemplateId]="''{{subTemplateId}}''"
-    [roles]="self.userDetail.roles"
-    (changeSelectedRoles)="self.onChangeSelectedRoles($event)"
-></cr-user-details-role-manager>
-', '2022-11-26 21:35:24.5185130 +00:00', 1, N'N', '9ffbbe0c-0969-4458-8320-60e033c73bcc', 1, NULL)
-INSERT INTO [dbo].[WebViewToViewSubAssociation] ([ID], [WebViewID], [WebViewSubID], [HtmlCode], [Html], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('be633488-d26d-ed11-835f-02f176033ddb', 'bb633488-d26d-ed11-835f-02f176033ddb', '5c42c912-d26d-ed11-835f-02f176033ddb', N'user-roles', N'<cr-user-details-role-manager
-    [subTemplateId]="''{{subTemplateId}}''"
-    [roles]="self.userDetail.roles"
-    (changeSelectedRoles)="self.onChangeSelectedRoles($event)"
-></cr-user-details-role-manager>', '2022-11-26 21:37:32.4829180 +00:00', 1, N'N', 'e96e6498-a499-4966-beab-2139068ca599', 1, NULL)
 INSERT INTO [dbo].[WebViewToViewSubAssociation] ([ID], [WebViewID], [WebViewSubID], [HtmlCode], [Html], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('95f78b5e-a258-ed11-8e5e-4ccc6a2bb6d6', 'd9fe3a70-4251-ed11-8e5d-4ccc6a2bb6d6', '9453528c-4a51-ed11-8e5d-4ccc6a2bb6d6', N'manage-mailing-category-partner', N'<cr-partner-mailing-category-manage-dynamic
     [subTemplateId]="''{{subTemplateId}}''"
     [(selectedMailingCategory)]="self.partnerDetails.mailingCategories"
@@ -319,129 +469,3 @@ INSERT INTO [dbo].[WebViewToViewSubAssociation] ([ID], [WebViewID], [WebViewSubI
     (newContactPerson)="self.onConfirmPartnerContactPersons($event, true)"
 ></cr-partner-contact-persons-details>
 ', '2022-11-04 19:17:17.5554197 +02:00', 1, N'N', '8dc73bc7-9af9-403a-814b-82e7922c219d', 1, NULL)
-INSERT INTO [dbo].[WebViewToViewSubAssociation] ([ID], [WebViewID], [WebViewSubID], [HtmlCode], [Html], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('a89593ef-1c6b-ed11-835f-02f176033ddb', 'b211b499-f964-ed11-8e60-4ccc6a2bb6d6', 'a55e29d8-1b6b-ed11-835f-02f176033ddb', N'image-content-create', N'<cr-image-basket-details
-    [subTemplateId]="''{{subTemplateId}}''"
-    [image]="self.cache.selectedImageBasketContent"
-    [isNew]="true"
-    [validator]="self.itemImageBasketContentValidator"
-    [permissionSettings]="{
-        isAccessRead: (self.EndpointName.item__file_storage_basket_content_GET | endpointAccessGrantedPipe),
-        isAccessCreate: !self.item.isDeleted && (self.EndpointName.item__file_storage_basket_content_POST | endpointAccessGrantedPipe)
-    }"
-    (closePopup)="self.removePopupTab(popupTab.activeTabIndex)"
-    (create)="self.onCreateImageBasketContent($event)"
-></cr-image-basket-details>', '2022-11-29 09:50:17.4600000 +00:00', 17, N'N', 'e44640cd-6ca0-41d9-bd1d-f5967c92bfb4', 1, NULL)
-INSERT INTO [dbo].[WebViewToViewSubAssociation] ([ID], [WebViewID], [WebViewSubID], [HtmlCode], [Html], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('a99593ef-1c6b-ed11-835f-02f176033ddb', 'b211b499-f964-ed11-8e60-4ccc6a2bb6d6', '461282e5-1b6b-ed11-835f-02f176033ddb', N'image-content-update', N'<cr-image-basket-details
-    [subTemplateId]="''{{subTemplateId}}''"
-    [image]="self.cache.selectedImageBasketContent"
-    [isNew]="false"
-    [validator]="self.itemImageBasketContentValidator"
-    [permissionSettings]="{
-        isAccessRead: (self.EndpointName.item__file_storage_basket_content_GET | endpointAccessGrantedPipe),
-        isAccessDelete: !self.item.isDeleted && (self.EndpointName.item__file_storage_basket_content_id_DELETE | endpointAccessGrantedPipe),
-        isAccessUpdate: !self.item.isDeleted && (self.EndpointName.item__file_storage_basket_content_id_PUT | endpointAccessGrantedPipe)
-    }"
-    (closePopup)="self.removePopupTab(popupTab.activeTabIndex)"
-    (update)="self.onUpdateImageBasketContent($event)"
-    (delete)="self.onDeleteImageBasketContentPopUp($event)"
-    (refresh)="self.onRefreshImageBasketContent()"
-></cr-image-basket-details>', '2022-11-29 09:50:17.4600000 +00:00', 17, N'N', '07681082-0039-4bba-a78a-661eebca3030', 1, NULL)
-INSERT INTO [dbo].[WebViewToViewSubAssociation] ([ID], [WebViewID], [WebViewSubID], [HtmlCode], [Html], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('7dcd8d26-9a6c-ed11-835f-02f176033ddb', 'b211b499-f964-ed11-8e60-4ccc6a2bb6d6', '9a0f4c20-986c-ed11-835f-02f176033ddb', N'modifiers-template-list', N'<cr-item-item-modifier-template-list
-    [subTemplateId]="''{{subTemplateId}}''"
-    [selected]="self.cache.selectedModifierGroups"
-    (onSelection)="self.onSelectModifierGroups($event)"
-    (onUpdate)="self.onUpdateModifierGroups($event)"
-></cr-item-item-modifier-template-list>', '2022-11-29 09:50:17.4600000 +00:00', 15, N'N', '33114b54-d5f9-4c38-9e66-5f0262aa6e49', 1, NULL)
-INSERT INTO [dbo].[WebViewToViewSubAssociation] ([ID], [WebViewID], [WebViewSubID], [HtmlCode], [Html], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('7ecd8d26-9a6c-ed11-835f-02f176033ddb', 'b211b499-f964-ed11-8e60-4ccc6a2bb6d6', '2585e92c-986c-ed11-835f-02f176033ddb', N'modifiers-group-list', N'<cr-item-item-modifier-group-list
-    [subTemplateId]="''{{subTemplateId}}''"
-    [selected]="self.cache.selectedModifierGroups"
-    (onSelection)="self.onSelectModifierGroups($event)"
-    (onUpdate)="self.onUpdateModifierGroups($event)"
-></cr-item-item-modifier-group-list>', '2022-11-29 09:50:17.4600000 +00:00', 15, N'N', '6628de30-0388-4846-bd3a-d77f7f6698b2', 1, NULL)
-INSERT INTO [dbo].[WebViewToViewSubAssociation] ([ID], [WebViewID], [WebViewSubID], [HtmlCode], [Html], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('5718e2a6-a56c-ed11-835f-02f176033ddb', '5418e2a6-a56c-ed11-835f-02f176033ddb', 'a55e29d8-1b6b-ed11-835f-02f176033ddb', N'image-content-create', N'<cr-image-basket-details
-    [subTemplateId]="''{{subTemplateId}}''"
-    [image]="self.cache.selectedImageBasketContent"
-    [isNew]="true"
-    [validator]="self.itemImageBasketContentValidator"
-    [permissionSettings]="{
-        isAccessRead: (self.EndpointName.item__file_storage_basket_content_GET | endpointAccessGrantedPipe),
-        isAccessCreate: !self.item.isDeleted && (self.EndpointName.item__file_storage_basket_content_POST | endpointAccessGrantedPipe)
-    }"
-    (closePopup)="self.removePopupTab(popupTab.activeTabIndex)"
-    (create)="self.onCreateImageBasketContent($event)"
-></cr-image-basket-details>', '2022-11-29 09:50:51.9133333 +00:00', 2, N'N', '37cd3c89-98ae-4acf-93c9-aa40431489d3', 1, NULL)
-INSERT INTO [dbo].[WebViewToViewSubAssociation] ([ID], [WebViewID], [WebViewSubID], [HtmlCode], [Html], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('5818e2a6-a56c-ed11-835f-02f176033ddb', '5418e2a6-a56c-ed11-835f-02f176033ddb', '461282e5-1b6b-ed11-835f-02f176033ddb', N'image-content-update', N'<cr-image-basket-details
-    [subTemplateId]="''{{subTemplateId}}''"
-    [image]="self.cache.selectedImageBasketContent"
-    [isNew]="false"
-    [validator]="self.itemImageBasketContentValidator"
-    [permissionSettings]="{
-        isAccessRead: (self.EndpointName.item__file_storage_basket_content_GET | endpointAccessGrantedPipe),
-        isAccessDelete: !self.item.isDeleted && (self.EndpointName.item__file_storage_basket_content_id_DELETE | endpointAccessGrantedPipe),
-        isAccessUpdate: !self.item.isDeleted && (self.EndpointName.item__file_storage_basket_content_id_PUT | endpointAccessGrantedPipe)
-    }"
-    (closePopup)="self.removePopupTab(popupTab.activeTabIndex)"
-    (update)="self.onUpdateImageBasketContent($event)"
-    (delete)="self.onDeleteImageBasketContentPopUp($event)"
-    (refresh)="self.onRefreshImageBasketContent()"
-></cr-image-basket-details>', '2022-11-29 09:50:51.9133333 +00:00', 2, N'N', '0a341845-6890-49f5-b173-a437fe42b481', 1, NULL)
-INSERT INTO [dbo].[WebViewToViewSubAssociation] ([ID], [WebViewID], [WebViewSubID], [HtmlCode], [Html], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('96f805bb-a96c-ed11-835f-02f176033ddb', 'b211b499-f964-ed11-8e60-4ccc6a2bb6d6', '80ac53c4-a86c-ed11-835f-02f176033ddb', N'combo-meal-category-new', N'<cr-item-combo-meal-category-details
-    [subTemplateId]="''{{subTemplateId}}''"
-    [isNew]="self.cache.isNewComboMealCategory"
-    [comboMealCategoryId]="self.cache.selectedComboMealCategory"
-    [itemId]="self.item.id"
-    [isDeleted]="self.item.isDeleted"
-    (closePopup)="self.onComboMealPopupClose($event)"
-    (selectFromCatalog)="self.onComboMealItemSelectFromCatalog()"
-    (selectFromBasket)="self.onComboMealItemSelectFromBasket()"
-></cr-item-combo-meal-category-details>', '2022-11-29 09:50:17.4600000 +00:00', 13, N'N', 'd36043b7-7f05-433e-a1c3-548dcad5f699', 1, NULL)
-INSERT INTO [dbo].[WebViewToViewSubAssociation] ([ID], [WebViewID], [WebViewSubID], [HtmlCode], [Html], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('97f805bb-a96c-ed11-835f-02f176033ddb', 'b211b499-f964-ed11-8e60-4ccc6a2bb6d6', '1cc95bd1-a86c-ed11-835f-02f176033ddb', N'combo-meal-category-details', N'<cr-item-combo-meal-category-details
-    [subTemplateId]="''{{subTemplateId}}''"
-    [isNew]="self.cache.isNewComboMealCategory"
-    [comboMealCategoryId]="self.cache.selectedComboMealCategory"
-    [itemId]="self.item.id"
-    [isDeleted]="self.item.isDeleted"
-    (closePopup)="self.onComboMealPopupClose($event)"
-    (selectFromCatalog)="self.onComboMealItemSelectFromCatalog()"
-    (selectFromBasket)="self.onComboMealItemSelectFromBasket()"
-></cr-item-combo-meal-category-details>', '2022-11-29 09:50:17.4600000 +00:00', 13, N'N', '4430c07e-2c0a-4473-b079-ca14d8a9523f', 1, NULL)
-INSERT INTO [dbo].[WebViewToViewSubAssociation] ([ID], [WebViewID], [WebViewSubID], [HtmlCode], [Html], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('05ee30e0-e86c-ed11-835f-02f176033ddb', 'b211b499-f964-ed11-8e60-4ccc6a2bb6d6', 'ffea1076-e86c-ed11-835f-02f176033ddb', N'combo-meal-category-item-select-from-catalog', N'<cr-item-combo-meal-category-select-from-catalog
-    [subTemplateId]="''{{subTemplateId}}''"
-    (closePopup)="self.onComboMealItemSelectFromCatalogPopupClose()"
-    (confirm)="self.onComboMealItemSelectFromCatalogPopupClose()"
-></cr-item-combo-meal-category-select-from-catalog>', '2022-11-29 09:50:17.4600000 +00:00', 11, N'N', '24dc3968-2e7f-4662-bc1f-e240199b6d74', 1, NULL)
-INSERT INTO [dbo].[WebViewToViewSubAssociation] ([ID], [WebViewID], [WebViewSubID], [HtmlCode], [Html], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('06ee30e0-e86c-ed11-835f-02f176033ddb', 'b211b499-f964-ed11-8e60-4ccc6a2bb6d6', 'ffe32c83-e86c-ed11-835f-02f176033ddb', N'combo-meal-category-item-select-from-basket', N'<cr-item-combo-meal-category-select-from-basket
-    [subTemplateId]="''{{subTemplateId}}''"
-    (closePopup)="self.onComboMealItemSelectFromBasketPopupClose()"
-    (confirm)="self.onComboMealItemSelectFromBasketPopupClose()"
-    (openItemBasket)="self.onOpenComboMealItemBasketDetails($event)"
-></cr-item-combo-meal-category-select-from-basket>', '2022-11-29 09:50:17.4600000 +00:00', 11, N'N', '964b902d-5638-438a-a5fb-b8d1f1e7013f', 1, NULL)
-INSERT INTO [dbo].[WebViewToViewSubAssociation] ([ID], [WebViewID], [WebViewSubID], [HtmlCode], [Html], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('64cd091e-f36c-ed11-835f-02f176033ddb', 'b211b499-f964-ed11-8e60-4ccc6a2bb6d6', 'c46edb31-f16c-ed11-835f-02f176033ddb', N'manage-combo-meal-baskets-item', N'<cr-basket-population-edit
-    [subTemplateId]="''{{subTemplateId}}''"
-    (cancel)="self.onCancelPopulation()"
-    (confirm)="self.savePopulation($event)"
-    [basket]="self.comboMealItemBasket.baskets[self.comboMealItemBasket.selectedBasketIndex]?.populationDetails"
-    [cacheName]="''itemPopulationDropdown''"
-    [lastExcludeNumber]="self.comboMealItemBasket.lastExcludeNumber"
-    [lastIncludeNumber]="self.comboMealItemBasket.lastIncludeNumber"
-    [propertyDropdownFn]="self.itemCriteriaPropertiesDropdownFn"
-    [titleContentTranslateKey]="''COMMON.BASKET.BASKET_EDIT.TITLE_CREATE_ITEM_CONTENT_POPULATION''"
-    [titleTranslateKey]="''COMMON.BASKET.BASKET_EDIT.TITLE_MANAGE_ITEM_POPULATION''"
-    [typeDropdownFn]="self.itemCriteriaDropdownFn"
-    [valueDropdownFn]="self.itemCriteriaValuesDropdownFn"
-    [basketTypeFn$]="self.basketTypeFn"
-></cr-basket-population-edit>', '2022-11-29 09:50:17.4600000 +00:00', 10, N'N', '74e6b25e-7d75-4f21-88ca-47b615c12d81', 1, NULL)
-INSERT INTO [dbo].[WebViewToViewSubAssociation] ([ID], [WebViewID], [WebViewSubID], [HtmlCode], [Html], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('db339d56-f36c-ed11-835f-02f176033ddb', 'b211b499-f964-ed11-8e60-4ccc6a2bb6d6', '07bdc640-f16c-ed11-835f-02f176033ddb', N'create-combo-meal-baskets-item', N'<cr-basket-population-edit
-    [subTemplateId]="''{{subTemplateId}}''"
-    (cancel)="self.onCancelPopulation()"
-    (confirm)="self.createPopulation($event)"
-    [cacheName]="''promotionPopulationDropdown''"
-    [lastExcludeNumber]="self.comboMealItemBasket.lastExcludeNumber"
-    [lastIncludeNumber]="self.comboMealItemBasket.lastIncludeNumber"
-    [propertyDropdownFn]="self.itemCriteriaPropertiesDropdownFn"
-    [titleContentTranslateKey]="''COMMON.BASKET.BASKET_EDIT.TITLE_CREATE_ITEM_CONTENT_POPULATION''"
-    [titleTranslateKey]="''COMMON.BASKET.BASKET_EDIT.TITLE_CREATE_ITEM_POPULATION''"
-    [typeDropdownFn]="self.itemCriteriaDropdownFn"
-    [valueDropdownFn]="self.itemCriteriaValuesDropdownFn"
-    [basketTypeFn$]="self.basketTypeFn"
-></cr-basket-population-edit>', '2022-11-29 09:50:17.4600000 +00:00', 9, N'N', 'ee306510-339a-42ec-80c2-1a0a8503ca14', 1, NULL)
