@@ -1,1076 +1,3 @@
-INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('8f768797-7b71-ed11-835f-02f176033ddb', '3c3c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'partner-group-list-title-header', N'Header', N'{
-    "defaultValue": {
-        "isUseTranslateKey": true,
-        "translateKey": "PARTNER_GROUP.TITLE"
-    },
-    "fieldSettings": {
-        "titleHeader": {
-            "elements": [
-                {
-                    "appearance": "icon-button",
-                    "iconSvg": "icon-pin",
-                    "template": "custom"
-                },
-                {
-                    "appearance": "icon-button",
-                    "iconSvg": "icon-add",
-                    "template": "custom"
-                },
-                {
-                    "appearance": "icon-button",
-                    "iconSvg": "icon-close",
-                    "template": "custom"
-                }
-            ]
-        }
-    }
-}', N'<cr-title-header
-    [titleTranslateKey]="{{translateKey}}"
-    [title]="{{label}}"
-    (buttonClickEvent)="self.onTitleButtonClick($event)"
-    [buttonSettings]="self.titleHeaderButtonSettings"
-></cr-title-header>', '2022-12-01 13:25:16.5506831 +00:00', 1, N'N', '9ccda2b8-62c6-4a53-a647-ff3674ee9d17', 1, NULL, '2022-12-01 13:25:16.5506831 +00:00')
-INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('a74242ca-7b71-ed11-835f-02f176033ddb', '373c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'partner-group-list-code', N'Code', N'{
-    "defaultValue": {
-        "isUseTranslateKey": true,
-        "translateKey": "PARTNER_GROUP.FILTER.CODE"
-    }
-}', N'<cr-control-edit 
-    [translateKeys]="{{translateKey}}" 
-    [dataLabel]="{{label}}"
-    [customClass]=''{{classes}}''
-    [isDisabled]="{{disabled}}"
-    [elementName]="''edit:Partner_group.Code''"
-    [(dataValue)]="self.partnerFilterRequest.code"
-></cr-control-edit>
-', '2022-12-01 13:26:41.6609575 +00:00', 1, N'N', '605b9bf6-7353-4dbe-9dd1-8141c9ba1f3e', 1, NULL, '2022-12-01 13:26:41.6609575 +00:00')
-INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('3a9b2901-7c71-ed11-835f-02f176033ddb', '373c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'partner-group-list-name', N'Name', N'{
-    "defaultValue": {
-        "isUseTranslateKey": true,
-        "translateKey": "PARTNER_GROUP.FILTER.NAME"
-    }
-}', N'<cr-control-edit 
-    [translateKeys]="{{translateKey}}" 
-    [dataLabel]="{{label}}"
-    [customClass]=''{{classes}}''
-    [isDisabled]="{{disabled}}"
-    [elementName]="''edit:Partner_group.Name''"
-    [(dataValue)]="self.partnerFilterRequest.displayName"
-></cr-control-edit>
-', '2022-12-01 13:28:13.7740730 +00:00', 1, N'N', 'ea951186-16db-480b-b7b0-c07d91631cff', 1, NULL, '2022-12-01 13:28:13.7740730 +00:00')
-INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('c23d602e-7c71-ed11-835f-02f176033ddb', '383c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'partner-group-list-show-deleted', N'Show deleted', N'{
-    "defaultValue": {
-        "isUseTranslateKey": true,
-        "translateKey": "COMMON.SHOW_DELETED"
-    }
-}', N'<cr-checkbox-control
-    [dataLabel]="{{label}}"
-    [translateKeys]="{{translateKey}}"
-    [isDisabled]="{{disabled}}"
-    [class]=''{{classes}}''
-    [(dataValue)]="self.partnerFilterRequest.showDeleted"
-></cr-checkbox-control>', '2022-12-01 13:29:29.6296002 +00:00', 1, N'N', '812c13f7-0cdf-4206-acac-f121d0737d1e', 1, NULL, '2022-12-01 13:29:29.6296002 +00:00')
-INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('b946d553-7c71-ed11-835f-02f176033ddb', '3a3c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'partner-group-list-search', N'Search', N'{
-    "defaultValue": {
-        "isUseTranslateKey": true,
-        "translateKey": "COMMON.SEARCH",
-        "buttonType": "underlined-action-button"
-    }
-}', N'<cr-button-control 
-    [buttonTemplateType]="{{buttonTemplateType}}"
-    [text]="{{label}}"
-    [textTranslateKey]="{{translateKey}}"
-    [classArray]=''{{classes}}''
-    [width]="{{width}}"
-    [height]="{{height}}"
-    [icon]="{{icon}}"
-    (buttonClickEvent)="self.changeFilter()"
-    *ngIf="(self.EndpointName.partner_group_GET | endpointAccessGrantedPipe)"
-></cr-button-control>', '2022-12-01 13:30:32.4723001 +00:00', 1, N'N', '765c2f70-8a88-4325-9acc-5f5268ef60f9', 1, NULL, '2022-12-01 13:30:32.4723001 +00:00')
-INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('ef7c9441-7d71-ed11-835f-02f176033ddb', '393c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'partner-group-list-grid', N'Partner groups', N'{
-    "defaultValue": {},
-    "fieldSettings": {
-        "grid": {
-            "uniqueField": "id",
-            "columns": [
-                {
-                    "field": "code",
-                    "titleTranslateKey": "PARTNER_GROUP.GRID.CODE",
-                    "type": "link",
-                    "autoFit": true
-                },
-                {
-                    "field": "displayName",
-                    "titleTranslateKey": "PARTNER_GROUP.GRID.NAME",
-                    "type": "text",
-                    "width": "160px"
-                },
-                {
-                    "field": "useRFM",
-                    "titleTranslateKey": "PARTNER_GROUP.GRID.RFM",
-                    "type": "boolean",
-                    "autoFit": true
-                },
-                {
-                    "field": "frequency",
-                    "titleTranslateKey": "PARTNER_GROUP.GRID.FREQUENCY",
-                    "type": "text",
-                    "width": "100px"
-                },
-                {
-                    "field": "recency",
-                    "titleTranslateKey": "PARTNER_GROUP.GRID.RECENCY",
-                    "type": "text",
-                    "width": "100px"
-                },
-                {
-                    "field": "monetary",
-                    "titleTranslateKey": "PARTNER_GROUP.GRID.MONETARY",
-                    "type": "text",
-                    "width": "100px"
-                },
-                {
-                    "field": "creationDate",
-                    "titleTranslateKey": "PARTNER_GROUP.GRID.CREATION_DATE",
-                    "type": "date",
-                    "autoFit": true
-                },
-                {
-                    "field": "updateDate",
-                    "titleTranslateKey": "PARTNER_GROUP.GRID.UPDATE_DATE",
-                    "type": "date",
-                    "autoFit": true
-                },
-                {
-                    "field": "isDeleted",
-                    "titleTranslateKey": "PARTNER_GROUP.GRID.IS_DELETED",
-                    "type": "boolean",
-                    "autoFit": true,
-                    "hidden": true
-                }
-            ],
-            "previewDataSource": {
-                "responseList": [
-                    {
-                        "id": 1,
-                        "code": "code",
-                        "displayName": "Group 1",
-                        "useRFM": true,
-                        "frequency": "test",
-                        "recency": "test",
-                        "monetary": "test",
-                        "creationDate": "2022-01-01T00:00:00Z",
-                        "updateDate": "2022-01-01T00:00:00Z",
-                        "isDeleted": false
-                    }
-                ],
-                "page": 1,
-                "size": 5,
-                "totalElements": 1
-            }
-        }
-    }
-}', N'<div class="cr-grid-wrapper-new">
-    <cr-edit-grid-server-paging
-        (cellClickEvent)="self.cellClick($event)"
-        (pageChangeEvent)="self.changePage($event)"
-        [columnSettings]="self.columnSettings"
-        [dataCacheName]="''partnerGroupListGrid''"
-        [dataSource]="self.gridData"
-        [elementName]="''edit-grid-server-paging:Partner_group.Grid''"
-        [pageable]="true"
-        [resizable]="true"
-        [uniqueField]="''id''"
-    ></cr-edit-grid-server-paging>
-</div>', '2022-12-01 13:37:11.3454447 +00:00', 1, N'N', '9c749edd-1886-464b-9915-d67182584da9', 1, NULL, '2022-12-01 13:37:11.3454447 +00:00')
-INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('1dae9189-7f71-ed11-835f-02f176033ddb', '3c3c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'partner-group-details-header', N'Header', N'{
-    "defaultValue": {
-        "isUseTranslateKey": true,
-        "translateKey": "PARTNER_GROUP.DETAILS.TITLE"
-    },
-    "fieldSettings": {
-        "titleHeader": {
-            "elements": [
-                {
-                    "appearance": "icon-button",
-                    "iconSvg": "icon-delete",
-                    "template": "custom"
-                },
-                {
-                    "appearance": "icon-button",
-                    "iconSvg": "icon-refresh",
-                    "template": "custom"
-                },
-                {
-                    "appearance": "icon-button",
-                    "iconSvg": "icon-add",
-                    "template": "custom"
-                },
-                {
-                    "appearance": "primary-button",
-                    "nameTranslateKey": "COMMON.BUTTON.SAVE",
-                    "template": "custom"
-                },
-                {
-                    "appearance": "icon-button",
-                    "iconSvg": "icon-close",
-                    "template": "custom"
-                }
-            ]
-        }
-    }
-}', N'<cr-title-header
-    [titleTranslateKey]="{{translateKey}}"
-    [title]="{{label}}"
-    (buttonClickEvent)="self.onTitleButtonClick($event)"
-    [additionalTranslateKeys]="''COMMON.NEW''"
-    [buttonSettings]="self.titleHeaderButtonSettings"
-    [titleValue]="self.titleValueText"
-    [titleValueTranslateKey]="self.isNew ? ''COMMON.NEW'' : null"
-></cr-title-header>', '2022-12-01 13:53:31.1164573 +00:00', 1, N'N', 'e42254ca-53e8-4c7f-8d4b-06da62e1f637', 1, NULL, '2022-12-01 13:53:31.1164573 +00:00')
-INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('249474cf-7f71-ed11-835f-02f176033ddb', '373c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'partner-group-details-code', N'Code', N'{
-    "defaultValue": {
-        "isUseTranslateKey": true,
-        "translateKey": "PARTNER_GROUP.DETAILS.GROUP_CODE"
-    },
-    "fieldSettings": {
-        "validationField": "code"
-    }
-}', N'<cr-control-edit
-    [(dataValue)]="self.group.code"
-    [elementName]="''edit:Partner_group_details.Group_code''"
-    [permissionSettings]="{
-          isAccessEdit: self.isNew ? (self.EndpointName.partner_group_POST | endpointAccessGrantedPipe) :
-            (self.EndpointName.partner_group_id_PUT | endpointAccessGrantedPipe)
-    }"
-    [validationField]="''code''"
-    [validator]="self.partnerGroupValidator"
-    [translateKeys]="{{translateKey}}" 
-    [dataLabel]="{{label}}"
-    [customClass]=''{{classes}}''
-    [isDisabled]="self.isGroupDisabled || self.group.isDeleted || {{disabled}}"
-></cr-control-edit>', '2022-12-01 13:56:00.1500000 +00:00', 2, N'N', 'ecd6d8d0-0255-46cf-bfd8-9db91ffaac35', 1, NULL, '2022-12-01 13:55:28.3662500 +00:00')
-INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('e24ef931-8071-ed11-835f-02f176033ddb', '373c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'partner-group-details-name', N'Name', N'{
-    "defaultValue": {
-        "isUseTranslateKey": true,
-        "translateKey": "PARTNER_GROUP.DETAILS.GROUP_NAME"
-    },
-    "fieldSettings": {
-        "validationField": "displayName"
-    }
-}', N'<cr-control-edit
-    [(dataValue)]="self.group.displayName"
-    (dataValueChange)="self.onChangeTitleValue()"
-    [elementName]="''edit:Partner_group_details.Group_name''"
-    [permissionSettings]="{
-        isAccessEdit: self.isNew ? (self.EndpointName.partner_group_POST | endpointAccessGrantedPipe) :
-            (self.EndpointName.partner_group_id_PUT | endpointAccessGrantedPipe)
-    }"
-    [validationField]="''displayName''"
-    [validator]="self.partnerGroupValidator"
-    [translateKeys]="{{translateKey}}" 
-    [dataLabel]="{{label}}"
-    [customClass]=''{{classes}}''
-    [isDisabled]="self.group.isDeleted || {{disabled}}"
-></cr-control-edit>', '2022-12-01 13:58:13.6528226 +00:00', 1, N'N', '9a89da6c-50eb-45bb-b977-3b2cfd1277e8', 1, NULL, '2022-12-01 13:58:13.6528226 +00:00')
-INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('c615a9c2-8071-ed11-835f-02f176033ddb', '3d3c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'partner-group-details-partner-type', N'Partner type', N'{
-    "defaultValue": {
-        "isUseTranslateKey": true,
-        "translateKey": "PARTNER_GROUP.DETAILS.PARTNER_TYPE"
-    }
-}', N'<cr-dropdown-smart-control
-    [(value)]="self.group.partnerTypeId"
-    [dataCacheName]="''PartnerTypeDropdownSearchCache''"
-    [dataTranslateKeyField]="''translateKey''"
-    [elementName]="''smart-dropdown:Partner_group_details.Partner_type''"
-    [getListItemsFunction]="self.partnerTypeListFn"
-    [getOneItemFunction]="self.partnerTypeFn"
-    [isDisabled]="!self.isNew || self.group.isDeleted"
-    [permissionSettings]="{
-        isAccessEdit: self.isNew ? (self.EndpointName.partner_group_POST | endpointAccessGrantedPipe) :
-            (self.EndpointName.partner_group_id_PUT | endpointAccessGrantedPipe)
-    }"
-    [textField]="''displayName''"
-    [unselectedItemValue]="{id: null, translateKey: ''COMMON.MOCK_OBJ.NOT_SELECTED''}"
-    [validationField]="''partnerTypeId''"
-    [validator]="self.partnerGroupValidator"
-    [valueField]="''id''"
-    [labelTranslateKey]="{{translateKey}}"
-    [label]="{{label}}"
-    [class]=''{{classes}}''
-></cr-dropdown-smart-control>', '2022-12-01 14:02:16.3967046 +00:00', 1, N'N', '3a7bfa30-6fe2-40e3-9024-e6a55b334e65', 1, NULL, '2022-12-01 14:02:16.3967046 +00:00')
-INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('79e19f05-8171-ed11-835f-02f176033ddb', '383c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'partner-group-use-rfm', N'Use RFM', N'{
-    "defaultValue": {
-        "isUseTranslateKey": true,
-        "translateKey": "PARTNER_GROUP.DETAILS.USE_RFM"
-    }
-}', N'<cr-checkbox-control
-    [(dataValue)]="self.group.useRFM"
-    [elementName]="''checkbox:Partner_group_details.Use_rfm''"
-    [permissionSettings]="{
-        isAccessEdit: self.isNew ? (self.EndpointName.partner_group_POST | endpointAccessGrantedPipe) :
-            (self.EndpointName.partner_group_id_PUT | endpointAccessGrantedPipe)
-    }"
-    [dataLabel]="{{label}}"
-    [translateKeys]="{{translateKey}}"
-    [isDisabled]="self.group.isDeleted || {{disabled}}"
-    [class]=''{{classes}}''
-></cr-checkbox-control>', '2022-12-01 14:04:08.7437305 +00:00', 1, N'N', '2c23ebb7-d7b1-43ed-a988-be0f46deda95', 1, NULL, '2022-12-01 14:04:08.7437305 +00:00')
-INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('ba153449-8171-ed11-835f-02f176033ddb', '383c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'partner-group-is-registered-by-card-only', N'Is registered by card only', N'{
-    "defaultValue": {
-        "isUseTranslateKey": true,
-        "translateKey": "PARTNER_GROUP.DETAILS.IS_REGISTERED_BY_CARD_ONLY"
-    }
-}', N'<cr-checkbox-control
-    [(dataValue)]="self.group.isRegisterByCardOnly"
-    [elementName]="''checkbox:Partner_group_details.Registered_by_card''"
-    [permissionSettings]="{
-        isAccessEdit: self.isNew ? (self.EndpointName.partner_group_POST | endpointAccessGrantedPipe) :
-            (self.EndpointName.partner_group_id_PUT | endpointAccessGrantedPipe)
-    }"
-    [dataLabel]="{{label}}"
-    [translateKeys]="{{translateKey}}"
-    [isDisabled]="self.group.isDeleted || {{disabled}}"
-    [class]=''{{classes}}''
-></cr-checkbox-control>', '2022-12-01 14:06:02.1223482 +00:00', 1, N'N', 'c4e05094-1f56-46fa-8886-49a4959cb3fc', 1, NULL, '2022-12-01 14:06:02.1223482 +00:00')
-INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('cd2d528f-8171-ed11-835f-02f176033ddb', '383c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'partner-group-details-is-clear-points-due-inactive', N'Is clear points due inactive', N'{
-    "defaultValue": {
-        "isUseTranslateKey": true,
-        "translateKey": "PARTNER_GROUP.DETAILS.RESET_BONUS_BALANCES"
-    }
-}', N'<cr-checkbox-control
-    (dataValueChange)="self.isClearPointsChecked($event)"
-    [(dataValue)]="self.group.isClearPointsDueInactivity"
-    [elementName]="''checkbox:Partner_group_details.Reset_bonus_balances''"
-    [permissionSettings]="{
-        isAccessEdit: self.isNew ? (self.EndpointName.partner_group_POST | endpointAccessGrantedPipe) :
-            (self.EndpointName.partner_group_id_PUT | endpointAccessGrantedPipe)
-    }"
-    [dataLabel]="{{label}}"
-    [translateKeys]="{{translateKey}}"
-    [isDisabled]="self.group.isDeleted || {{disabled}}"
-    [class]=''{{classes}}''
-></cr-checkbox-control>', '2022-12-01 14:07:59.7600845 +00:00', 1, N'N', '1cb5fdcb-b350-409c-9580-25395e3bc99c', 1, NULL, '2022-12-01 14:07:59.7600845 +00:00')
-INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('6c4545d3-8171-ed11-835f-02f176033ddb', '383c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'partner-group-details-is-external-club-type', N'Is external club type', N'{
-    "defaultValue": {
-        "isUseTranslateKey": true,
-        "translateKey": "PARTNER_GROUP.DETAILS.IS_EXTERNAL_CLUB_TYPE"
-    }
-}', N'<cr-checkbox-control
-    [(dataValue)]="self.group.isExternalClubType"
-    [elementName]="''checkbox:Partner_group_details.Is_external_club_type''"
-    [permissionSettings]="{
-        isAccessEdit: self.isNew ? (self.EndpointName.partner_group_POST | endpointAccessGrantedPipe) :
-            (self.EndpointName.partner_group_id_PUT | endpointAccessGrantedPipe)
-    }"
-    [dataLabel]="{{label}}"
-    [translateKeys]="{{translateKey}}"
-    [isDisabled]="self.group.isDeleted || {{disabled}}"
-    [class]=''{{classes}}''
-></cr-checkbox-control>', '2022-12-01 14:09:53.7605612 +00:00', 1, N'N', '57c62a4d-f3a2-4812-85f3-1f659d08c34e', 1, NULL, '2022-12-01 14:09:53.7605612 +00:00')
-INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('cfa83133-8271-ed11-835f-02f176033ddb', '383c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'partner-group-details-is-db-check-type', N'Is DB check type', N'{
-    "defaultValue": {
-        "isUseTranslateKey": true,
-        "translateKey": "PARTNER_GROUP.DETAILS.IS_DB_CHECK_TYPE"
-    }
-}', N'<cr-checkbox-control
-    [(dataValue)]="self.group.isDbCheckType"
-    [elementName]="''checkbox:Partner_group_details.Is_DB_check_type''"
-    [permissionSettings]="{
-        isAccessEdit: self.isNew ? (self.EndpointName.partner_group_POST | endpointAccessGrantedPipe) :
-            (self.EndpointName.partner_group_id_PUT | endpointAccessGrantedPipe)
-    }"
-    [dataLabel]="{{label}}"
-    [translateKeys]="{{translateKey}}"
-    [isDisabled]="self.group.isDeleted || !self.group.isExternalClubType || {{disabled}}"
-    [class]=''{{classes}}''
-></cr-checkbox-control>', '2022-12-01 14:12:34.6933071 +00:00', 1, N'N', '4351f2c4-94c5-4ed7-bd02-aa0869d524a0', 1, NULL, '2022-12-01 14:12:34.6933071 +00:00')
-INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('8ec46366-8271-ed11-835f-02f176033ddb', '383c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'partner-group-details-is-visible-on-pos', N'Is visible on POS', N'{
-    "defaultValue": {
-        "isUseTranslateKey": true,
-        "translateKey": "PARTNER_GROUP.DETAILS.IS_VISIBLE_ON_POS"
-    }
-}', N'<cr-checkbox-control
-    [(dataValue)]="self.group.isVisibleOnPOS"
-    [elementName]="''checkbox:Partner_group_details.Is_Visible_on_POS''"
-    [permissionSettings]="{
-        isAccessEdit: self.isNew ? (self.EndpointName.partner_group_POST | endpointAccessGrantedPipe) :
-            (self.EndpointName.partner_group_id_PUT | endpointAccessGrantedPipe)
-    }"
-    [dataLabel]="{{label}}"
-    [translateKeys]="{{translateKey}}"
-    [isDisabled]="self.group.isDeleted || {{disabled}}"
-    [class]=''{{classes}}''
-></cr-checkbox-control>', '2022-12-01 14:14:00.5854990 +00:00', 1, N'N', '0b6191a5-c59b-48d9-828b-db7557c567fb', 1, NULL, '2022-12-01 14:14:00.5854990 +00:00')
-INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('fd926f94-8271-ed11-835f-02f176033ddb', '383c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'partner-group-details-is-activation-control', N'Is activation control', N'{
-    "defaultValue": {
-        "isUseTranslateKey": true,
-        "translateKey": "PARTNER_GROUP.DETAILS.IS_ACTIVATION_CONTROL"
-    }
-}', N'<cr-checkbox-control
-    [(dataValue)]="self.group.isActivationControl"
-    (dataValueChange)="self.onAllowActivationToggle($event)"
-    [elementName]="''checkbox:Partner_group_details.Is_activation_control''"
-    [permissionSettings]="{
-        isAccessEdit: self.isNew ? (self.EndpointName.partner_group_POST | endpointAccessGrantedPipe) :
-            (self.EndpointName.partner_group_id_PUT | endpointAccessGrantedPipe)
-    }"
-    [dataLabel]="{{label}}"
-    [translateKeys]="{{translateKey}}"
-    [isDisabled]="self.group.isDeleted || {{disabled}}"
-    [class]=''{{classes}}''
-></cr-checkbox-control>', '2022-12-01 14:15:17.8380669 +00:00', 1, N'N', '11ab7b3e-e6e1-4883-a097-8312c72adcef', 1, NULL, '2022-12-01 14:15:17.8380669 +00:00')
-INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('bb157860-8371-ed11-835f-02f176033ddb', '3e3c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'partner-group-details-total-inactive-days', N'Total inactive days', N'{
-    "defaultValue": {
-        "isUseTranslateKey": true,
-        "translateKey": "PARTNER_GROUP.DETAILS.TOTAL_INACTIVE_DAYS",
-        "min": 0,
-        "format": "n0",
-        "autoCorrectMinMax": true
-    },
-    "fieldSettings": {
-        "validationField": "totalInactiveDays"
-    }
-}', N'<cr-numeric-control
-    [(dataValue)]="self.group.totalInactiveDays"
-    [elementName]="''numeric:Partner_group_details.Total_inactive_days''"
-    [permissionSettings]="{
-        isAccessEdit: self.isNew ? (self.EndpointName.partner_group_POST | endpointAccessGrantedPipe) :
-            (self.EndpointName.partner_group_id_PUT | endpointAccessGrantedPipe)
-    }"
-    [validationField]="''totalInactiveDays''"
-    [validator]="self.partnerGroupValidator"
-    [dataLabel]="{{label}}" 
-    [translateKeys]="{{translateKey}}" 
-    [customClass]=''{{classes}}''
-    [format]="{{format}}" 
-    [decimals]="{{decimals}}" 
-    [min]="{{min}}" 
-    [max]="{{max}}"
-    [autoCorrectMinMax]="{{autoCorrectMinMax}}"
-    [isDisabled]="self.group.isDeleted || {{disabled}}"
-></cr-numeric-control>', '2022-12-01 14:21:00.1490491 +00:00', 1, N'N', 'f033d6e8-94ec-4ece-a23d-a0a4e360d98b', 1, NULL, '2022-12-01 14:21:00.1490491 +00:00')
-INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('a5064eca-8371-ed11-835f-02f176033ddb', '3d3c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'partner-group-details-active-start-item', N'Active start item', N'{
-    "defaultValue": {
-        "isUseTranslateKey": true,
-        "translateKey": "PARTNER_GROUP.DETAILS.START_ACTIVATION_ITEM"
-    }
-}', N'<cr-dropdown-smart-control
-    [(value)]="self.group.activeStartItemId"
-    [dataCacheName]="''PartnerGroupActiveItemDropdown''"
-    [dataTranslateKeyField]="''translateKey''"
-    [elementName]="''smart-dropdown:Partner_group_details.Active_start_item''"
-    [getListItemsFunction]="self.getItemListFn"
-    [getOneItemFunction]="self.getItemOneFn"
-    [permissionSettings]="{
-        isAccessEdit: (self.EndpointName.partner_group__item_dropdown_GET | endpointAccessGrantedPipe),
-        isAccessRead: (self.EndpointName.partner_group__item_id_dropdown_GET | endpointAccessGrantedPipe)
-    }"
-    [textField]="''name''"
-    [unselectedItemValue]="{id: null, translateKey: ''COMMON.MOCK_OBJ.NOT_SELECTED''}"
-    [useCodeInList]="true"
-    [useCodeInValue]="true"
-    [valueField]="''id''"
-    [isDisabled]="self.group.isDeleted || !self.group.isActivationControl"
-    [validator]="self.partnerGroupValidator"
-    [validationField]="''activeStartItemId''"
-    [labelTranslateKey]="{{translateKey}}"
-    [label]="{{label}}"
-    [class]=''{{classes}}''
-></cr-dropdown-smart-control>
-', '2022-12-01 14:23:57.7119013 +00:00', 1, N'N', '44dd0d8c-09c5-41ec-a8db-7eb24211e60e', 1, NULL, '2022-12-01 14:23:57.7119013 +00:00')
-INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('09497e38-8471-ed11-835f-02f176033ddb', '3e3c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'partner-group-details-active-start-period', N'Active start period', N'{
-    "defaultValue": {
-        "isUseTranslateKey": true,
-        "translateKey": "PARTNER_GROUP.DETAILS.START_ACTIVATION_PERIOD",
-        "min": 0,
-        "max": 2147483647,
-        "format": "#",
-        "decimals": 0,
-        "autoCorrectMinMax": true
-    },
-    "fieldSettings": {
-        "validationField": "activeStartPeriod"
-    }
-}', N'<cr-numeric-control
-    [(dataValue)]="self.group.activeStartPeriod"
-    [elementName]="''edit:Partner_group_details.Active_start_period''"
-    [permissionSettings]="{
-        isAccessEdit: self.isNew
-            ? (self.EndpointName.partner_group_POST | endpointAccessGrantedPipe)
-            : (self.EndpointName.partner_group_id_PUT | endpointAccessGrantedPipe)
-    }"
-    [validator]="self.partnerGroupValidator"
-    [validationField]="''activeStartPeriod''"
-    [dataLabel]="{{label}}" 
-    [translateKeys]="{{translateKey}}" 
-    [customClass]=''{{classes}}''
-    [format]="{{format}}" 
-    [decimals]="{{decimals}}" 
-    [min]="{{min}}" 
-    [max]="{{max}}"
-    [autoCorrectMinMax]="{{autoCorrectMinMax}}"
-    [isDisabled]="self.group.isDeleted || !self.group.isActivationControl || {{disabled}}"
-></cr-numeric-control>', '2022-12-01 14:27:02.5775497 +00:00', 1, N'N', '6fe48832-3fcb-4d2b-847a-1ff9a01f10e3', 1, NULL, '2022-12-01 14:27:02.5775497 +00:00')
-INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('5e404e18-8671-ed11-835f-02f176033ddb', '3d3c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'partner-group-details-active-prolong-type', N'Active prolong type', N'{
-    "defaultValue": {
-        "isUseTranslateKey": true,
-        "translateKey": "PARTNER_GROUP.DETAILS.PROLONG_TYPE"
-    }
-}', N'<cr-dropdown-smart-control
-    [(value)]="self.group.activeProlongType"
-    (valueChange)="self.onProlongTypeToggle($event)"
-    [getListItemsFunction]="self.getProlongTypeListFn$"
-    [getOneItemFunction]="self.getProlongTypeItemFn$"
-    [valueField]="''uid''"
-    [textField]="''name''"
-    [isDisabled]="self.group.isDeleted || !self.group.isActivationControl"
-    [dataCacheName]="''PartnerGroupActiveProlongTypeDropdown''"
-    [elementName]="''smart-dropdown:Partner_group_details.Active_prolong_type''"
-    [dataTranslateKeyField]="''translateKey''"
-    [labelTranslateKey]="{{translateKey}}"
-    [label]="{{label}}"
-    [class]=''{{classes}}''
-></cr-dropdown-smart-control>', '2022-12-01 14:40:27.5691230 +00:00', 1, N'N', 'a99bc07f-729f-4d72-8563-338e358e6d4e', 1, NULL, '2022-12-01 14:40:27.5691230 +00:00')
-INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('ad376888-8671-ed11-835f-02f176033ddb', '3d3c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'partner-group-details-active-prolong-item', N'Active prolong item', N'{
-    "defaultValue": {
-        "isUseTranslateKey": true,
-        "translateKey": "PARTNER_GROUP.DETAILS.PROLONG_ITEM"
-    }
-}', N'<cr-dropdown-smart-control
-    [(value)]="self.group.activeProlongItemId"
-    [dataCacheName]="''PartnerGroupProlongItemDropdown''"
-    [dataTranslateKeyField]="''translateKey''"
-    [elementName]="''smart-dropdown:Partner_group_details.Prolong_item''"
-    [getListItemsFunction]="self.getItemListFn"
-    [getOneItemFunction]="self.getItemOneFn"
-    [permissionSettings]="{
-        isAccessEdit: (self.EndpointName.partner_group__item_dropdown_GET | endpointAccessGrantedPipe),
-        isAccessRead: (self.EndpointName.partner_group__item_id_dropdown_GET | endpointAccessGrantedPipe)
-    }"
-    [textField]="''name''"
-    [unselectedItemValue]="{id: null, translateKey: ''COMMON.MOCK_OBJ.NOT_SELECTED''}"
-    [useCodeInList]="true"
-    [useCodeInValue]="true"
-    [valueField]="''id''"
-    [isDisabled]="self.group.isDeleted || !self.group.isActivationControl"
-    [validator]="self.partnerGroupValidator"
-    [validationField]="''activeProlongItemId''"
-    [labelTranslateKey]="{{translateKey}}"
-    [label]="{{label}}"
-    [class]=''{{classes}}''
-></cr-dropdown-smart-control>
-', '2022-12-01 14:43:35.6441133 +00:00', 1, N'N', '09d57333-34fd-450e-9cca-57cbfcb5ab2e', 1, NULL, '2022-12-01 14:43:35.6441133 +00:00')
-INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('1025f5f7-8671-ed11-835f-02f176033ddb', '3e3c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'partner-group-details-active-prolong-amount', N'Active prolong amount', N'{
-    "defaultValue": {
-        "isUseTranslateKey": true,
-        "translateKey": "PARTNER_GROUP.DETAILS.PROLONG_AMOUNT",
-        "min": 0,
-        "max": 2147483647,
-        "format": "#,.##",
-        "decimals": 2,
-        "autoCorrectMinMax": true
-    },
-    "fieldSettings": {
-        "validationField": "activeProlongAmount"
-    }
-}', N'<cr-numeric-control
-    [(dataValue)]="self.group.activeProlongAmount"
-    [elementName]="''edit:Partner_group_details.Active_prolong_amount''"
-    [permissionSettings]="{
-        isAccessEdit: self.isNew
-            ? (self.EndpointName.partner_group_POST | endpointAccessGrantedPipe)
-            : (self.EndpointName.partner_group_id_PUT | endpointAccessGrantedPipe)
-    }"
-    [validator]="self.partnerGroupValidator"
-    [validationField]="''activeProlongAmount''"
-    [dataLabel]="{{label}}" 
-    [translateKeys]="{{translateKey}}" 
-    [customClass]=''{{classes}}''
-    [format]="{{format}}" 
-    [decimals]="{{decimals}}" 
-    [min]="{{min}}" 
-    [max]="{{max}}"
-    [autoCorrectMinMax]="{{autoCorrectMinMax}}"
-    [isDisabled]="self.group.isDeleted || !self.group.isActivationControl || {{disabled}}"
-></cr-numeric-control>
-', '2022-12-01 15:44:10.0900000 +00:00', 2, N'N', 'f0c85084-6a78-4245-946a-15715be65f3a', 1, NULL, '2022-12-01 14:46:42.7947920 +00:00')
-INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('01a06362-8771-ed11-835f-02f176033ddb', '3e3c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'partner-group-details-active-prolong-period', N'Active prolong period', N'{
-    "defaultValue": {
-        "isUseTranslateKey": true,
-        "translateKey": "PARTNER_GROUP.DETAILS.PROLONG_PERIOD",
-        "min": 0,
-        "max": 2147483647,
-        "format": "#",
-        "decimals": 0,
-        "autoCorrectMinMax": true
-    },
-    "fieldSettings": {
-        "validationField": "activeProlongPeriod"
-    }
-}', N'<cr-numeric-control
-    [(dataValue)]="self.group.activeProlongPeriod"
-    [elementName]="''edit:Partner_group_details.Active_prolong_period''"
-    [permissionSettings]="{
-        isAccessEdit: self.isNew
-            ? (self.EndpointName.partner_group_POST | endpointAccessGrantedPipe)
-            : (self.EndpointName.partner_group_id_PUT | endpointAccessGrantedPipe)
-    }"
-    [validator]="self.partnerGroupValidator"
-    [validationField]="''activeProlongPeriod''"
-    [dataLabel]="{{label}}" 
-    [translateKeys]="{{translateKey}}" 
-    [customClass]=''{{classes}}''
-    [format]="{{format}}" 
-    [decimals]="{{decimals}}" 
-    [min]="{{min}}" 
-    [max]="{{max}}"
-    [autoCorrectMinMax]="{{autoCorrectMinMax}}"
-    [isDisabled]="self.group.isDeleted || !self.group.isActivationControl || {{disabled}}"
-></cr-numeric-control>
-', '2022-12-01 14:49:41.3573249 +00:00', 1, N'N', 'aca29f4d-3327-494d-831f-735d09d81afe', 1, NULL, '2022-12-01 14:49:41.3573249 +00:00')
-INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('e672ea5c-8871-ed11-835f-02f176033ddb', '3e3c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'partner-group-details-frequency-from', N'Frequency from', N'{
-    "defaultValue": {
-        "isUseTranslateKey": true,
-        "translateKey": "PARTNER_GROUP.DETAILS.FREQUENCY_FROM",
-        "min": -2147483647,
-        "max": 2147483647,
-        "format": "n0",
-        "decimals": 0,
-        "autoCorrectMinMax": true
-    },
-    "fieldSettings": {
-        "validationField": "frequencyFrom"
-    }
-}', N'<cr-numeric-control
-    [(dataValue)]="self.group.frequencyFrom"
-    [elementName]="''numeric:Partner_group_details.Frequency_from''"
-    [permissionSettings]="{
-        isAccessEdit: self.isNew ? (self.EndpointName.partner_group_POST | endpointAccessGrantedPipe) :
-            (self.EndpointName.partner_group_id_PUT | endpointAccessGrantedPipe)
-    }"
-    [validationField]="''frequencyFrom''"
-    [validator]="self.partnerGroupValidator"
-    [dataLabel]="{{label}}" 
-    [translateKeys]="{{translateKey}}" 
-    [customClass]=''{{classes}}''
-    [format]="{{format}}" 
-    [decimals]="{{decimals}}" 
-    [min]="{{min}}" 
-    [max]="{{max}}"
-    [autoCorrectMinMax]="{{autoCorrectMinMax}}"
-    [isDisabled]="self.group.isDeleted || {{disabled}}"
-></cr-numeric-control>', '2022-12-01 14:56:41.6713062 +00:00', 1, N'N', 'b476c7a4-e810-4969-a848-b38097b071b0', 1, NULL, '2022-12-01 14:56:41.6713062 +00:00')
-INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('edbf3c97-8871-ed11-835f-02f176033ddb', '3e3c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'partner-group-details-frequency-to', N'Frequency to', N'{
-    "defaultValue": {
-        "isUseTranslateKey": true,
-        "translateKey": "PARTNER_GROUP.DETAILS.FREQUENCY_TO",
-        "min": -2147483647,
-        "max": 2147483647,
-        "format": "n0",
-        "decimals": 0,
-        "autoCorrectMinMax": true
-    },
-    "fieldSettings": {
-        "validationField": "frequencyTo"
-    }
-}', N'<cr-numeric-control
-    [(dataValue)]="self.group.frequencyTo"
-    [elementName]="''numeric:Partner_group_details.Frequency_to''"
-    [permissionSettings]="{
-        isAccessEdit: self.isNew ? (self.EndpointName.partner_group_POST | endpointAccessGrantedPipe) :
-            (self.EndpointName.partner_group_id_PUT | endpointAccessGrantedPipe)
-    }"
-    [validationField]="''frequencyTo''"
-    [validator]="self.partnerGroupValidator"
-    [dataLabel]="{{label}}" 
-    [translateKeys]="{{translateKey}}" 
-    [customClass]=''{{classes}}''
-    [format]="{{format}}" 
-    [decimals]="{{decimals}}" 
-    [min]="{{min}}" 
-    [max]="{{max}}"
-    [autoCorrectMinMax]="{{autoCorrectMinMax}}"
-    [isDisabled]="self.group.isDeleted || {{disabled}}"
-></cr-numeric-control>', '2022-12-01 14:58:19.5185261 +00:00', 1, N'N', '6356c3bc-4e23-4035-8eeb-a4c8a907edae', 1, NULL, '2022-12-01 14:58:19.5185261 +00:00')
-INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('c24a9834-8971-ed11-835f-02f176033ddb', '3e3c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'partner-group-details-recency-from', N'Recency from', N'{
-    "defaultValue": {
-        "isUseTranslateKey": true,
-        "translateKey": "PARTNER_GROUP.DETAILS.RECENCY_FROM",
-        "min": -2147483647,
-        "max": 2147483647,
-        "format": "n0",
-        "decimals": 0,
-        "autoCorrectMinMax": true
-    },
-    "fieldSettings": {
-        "validationField": "recencyFrom"
-    }
-}', N'<cr-numeric-control
-    [(dataValue)]="self.group.recencyFrom"
-    [elementName]="''numeric:Partner_group_details.Recency_from''"
-    [permissionSettings]="{
-        isAccessEdit: self.isNew ? (self.EndpointName.partner_group_POST | endpointAccessGrantedPipe) :
-            (self.EndpointName.partner_group_id_PUT | endpointAccessGrantedPipe)
-    }"
-    [validationField]="''recencyFrom''"
-    [validator]="self.partnerGroupValidator"
-    [dataLabel]="{{label}}" 
-    [translateKeys]="{{translateKey}}" 
-    [customClass]=''{{classes}}''
-    [format]="{{format}}" 
-    [decimals]="{{decimals}}" 
-    [min]="{{min}}" 
-    [max]="{{max}}"
-    [autoCorrectMinMax]="{{autoCorrectMinMax}}"
-    [isDisabled]="self.group.isDeleted || {{disabled}}"
-></cr-numeric-control>', '2022-12-01 15:02:43.5207490 +00:00', 1, N'N', '8220e61d-380e-4be2-a86e-e7162bf09b01', 1, NULL, '2022-12-01 15:02:43.5207490 +00:00')
-INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('8fa6ec5d-8971-ed11-835f-02f176033ddb', '3e3c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'partner-group-details-recency-to', N'Recency to', N'{
-    "defaultValue": {
-        "isUseTranslateKey": true,
-        "translateKey": "PARTNER_GROUP.DETAILS.RECENCY_TO",
-        "min": -2147483647,
-        "max": 2147483647,
-        "format": "n0",
-        "decimals": 0,
-        "autoCorrectMinMax": true
-    },
-    "fieldSettings": {
-        "validationField": "recencyTo"
-    }
-}', N'<cr-numeric-control
-    [(dataValue)]="self.group.recencyTo"
-    [elementName]="''numeric:Partner_group_details.Recency_to''"
-    [permissionSettings]="{
-        isAccessEdit: self.isNew ? (self.EndpointName.partner_group_POST | endpointAccessGrantedPipe) :
-            (self.EndpointName.partner_group_id_PUT | endpointAccessGrantedPipe)
-    }"
-    [validationField]="''recencyTo''"
-    [validator]="self.partnerGroupValidator"
-    [dataLabel]="{{label}}" 
-    [translateKeys]="{{translateKey}}" 
-    [customClass]=''{{classes}}''
-    [format]="{{format}}" 
-    [decimals]="{{decimals}}" 
-    [min]="{{min}}" 
-    [max]="{{max}}"
-    [autoCorrectMinMax]="{{autoCorrectMinMax}}"
-    [isDisabled]="self.group.isDeleted || {{disabled}}"
-></cr-numeric-control>', '2022-12-01 15:03:52.8601871 +00:00', 1, N'N', 'ba8338c6-d4f9-42de-9a5b-204ddc057b07', 1, NULL, '2022-12-01 15:03:52.8601871 +00:00')
-INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('b66bc0a7-8971-ed11-835f-02f176033ddb', '3e3c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'partner-group-details-monetary-from', N'Monetary from', N'{
-    "defaultValue": {
-        "isUseTranslateKey": true,
-        "translateKey": "PARTNER_GROUP.DETAILS.MONETARY_FROM",
-        "min": -1000000000000,
-        "max": 1000000000000,
-        "format": "n2",
-        "decimals": 2,
-        "autoCorrectMinMax": true
-    },
-    "fieldSettings": {
-        "validationField": "monetaryFrom"
-    }
-}', N'<cr-numeric-control
-    [(dataValue)]="self.group.monetaryFrom"
-    [elementName]="''numeric:Partner_group_details.Monetary_from''"
-    [permissionSettings]="{
-        isAccessEdit: self.isNew ? (self.EndpointName.partner_group_POST | endpointAccessGrantedPipe) :
-            (self.EndpointName.partner_group_id_PUT | endpointAccessGrantedPipe)
-    }"
-    [validationField]="''monetaryFrom''"
-    [validator]="self.partnerGroupValidator"
-    [dataLabel]="{{label}}" 
-    [translateKeys]="{{translateKey}}" 
-    [customClass]=''{{classes}}''
-    [format]="{{format}}" 
-    [decimals]="{{decimals}}" 
-    [min]="{{min}}" 
-    [max]="{{max}}"
-    [autoCorrectMinMax]="{{autoCorrectMinMax}}"
-    [isDisabled]="self.group.isDeleted || {{disabled}}"
-></cr-numeric-control>', '2022-12-01 15:05:56.7217206 +00:00', 1, N'N', '84be25d3-926b-4dc3-a429-c90dc347551f', 1, NULL, '2022-12-01 15:05:56.7217206 +00:00')
-INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('c8049ad5-8971-ed11-835f-02f176033ddb', '3e3c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'partner-group-details-monetary-to', N'Monetary to', N'{
-    "defaultValue": {
-        "isUseTranslateKey": true,
-        "translateKey": "PARTNER_GROUP.DETAILS.MONETARY_TO",
-        "min": -1000000000000,
-        "max": 1000000000000,
-        "format": "n2",
-        "decimals": 2,
-        "autoCorrectMinMax": true
-    },
-    "fieldSettings": {
-        "validationField": "monetaryTo"
-    }
-}', N'<cr-numeric-control
-    [(dataValue)]="self.group.monetaryTo"
-    [elementName]="''numeric:Partner_group_details.Monetary_to''"
-    [permissionSettings]="{
-        isAccessEdit: self.isNew ? (self.EndpointName.partner_group_POST | endpointAccessGrantedPipe) :
-            (self.EndpointName.partner_group_id_PUT | endpointAccessGrantedPipe)
-    }"
-    [validationField]="''monetaryTo''"
-    [validator]="self.partnerGroupValidator"
-    [dataLabel]="{{label}}" 
-    [translateKeys]="{{translateKey}}" 
-    [customClass]=''{{classes}}''
-    [format]="{{format}}" 
-    [decimals]="{{decimals}}" 
-    [min]="{{min}}" 
-    [max]="{{max}}"
-    [autoCorrectMinMax]="{{autoCorrectMinMax}}"
-    [isDisabled]="self.group.isDeleted || {{disabled}}"
-></cr-numeric-control>', '2022-12-01 15:07:13.6452424 +00:00', 1, N'N', 'fd777e1b-ca6e-407b-80a2-af90785f5724', 1, NULL, '2022-12-01 15:07:13.6452424 +00:00')
-INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('33f12dab-8a71-ed11-835f-02f176033ddb', '4c3c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'partner-group-details-udfs-list', N'Partner group UDF', N'{
-    "defaultValue": {}
-}', N'<div class="cr-grid-wrapper-new">
-    <cr-udf-list
-        [cacheName]="''PartnerGroupUserFieldViewStateCache''"
-        *ngIf="(self.EndpointName.partner_group__user_defined_field_GET | endpointAccessGrantedPipe) &&
-                      (self.EndpointName.partner__group__user_defined_field_default_value_GET | endpointAccessGrantedPipe); else noAccess"
-        [isNew]="self.isNew"
-        [udf]="self.group.udf"
-        [viewName]="''Partner_group_details''"
-        [loadUserDefinedFieldListForDropdownFn$]="self.loadUserDefinedFieldListForDropdownFn$"
-        [getUserFields$]="self.getUserFields$"
-        [loadUserFields$]="self.loadUserFields$"
-        [getUserFieldsDefault$]="self.getUserFieldsDefault$"
-        [class]=''{{classes}}''
-    ></cr-udf-list>
-    <ng-template #noAccess>
-        <div class="cr-no-read-access p-2">
-            {{''COMMON.GRID.NO_READ_ACCESS'' | translate}}
-        </div>
-    </ng-template>
-</div>', '2022-12-01 15:13:11.9693747 +00:00', 1, N'N', '29e89a44-1cd4-41aa-a883-e4eae7bfc746', 1, NULL, '2022-12-01 15:13:11.9693747 +00:00')
-INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('8b260c3d-8b71-ed11-835f-02f176033ddb', '167690c8-0d6b-ed11-835f-02f176033ddb', N'partner-group-creation-date', N'Creation date', N'{
-    "defaultValue": {
-        "isUseTranslateKey": true,
-        "translateKey": "COMMON.CREATION_DATE"
-    }
-}', N'<div class="cr-footer-flex-wrapper" [class]=''{{classes}}''>
-    <div class="cr-footer-flex-column">
-        <cr-text-field-control
-          [dataLabel]="{{label}}"
-          [dataLabelTranslateKeys]="{{translateKey}}"
-        ></cr-text-field-control>
-    </div>
-    <div class="cr-footer-flex-column">
-        <cr-text-field-control
-          [isUnderline]="true"
-          [dataLabel]="self.group?.creationDate | stringToDate | date:self.currentDateFormatPattern"
-        ></cr-text-field-control>
-    </div>
-</div>', '2022-12-01 15:17:16.6952715 +00:00', 1, N'N', '9d22f417-5755-4ba0-848d-afd8fb2fe751', 1, NULL, '2022-12-01 15:17:16.6952715 +00:00')
-INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('46d93a7a-8b71-ed11-835f-02f176033ddb', '167690c8-0d6b-ed11-835f-02f176033ddb', N'partner-group-update-date', N'Update date', N'{
-    "defaultValue": {
-        "isUseTranslateKey": true,
-        "translateKey": "COMMON.UPDATE_DATE"
-    }
-}', N'<div class="cr-footer-flex-wrapper" [class]=''{{classes}}''>
-    <div class="cr-footer-flex-column">
-        <cr-text-field-control 
-            [dataLabel]="{{label}}"
-            [dataLabelTranslateKeys]="{{translateKey}}"
-        ></cr-text-field-control>
-    </div>
-    <div class="cr-footer-flex-column">
-        <cr-text-field-control 
-            [isUnderline]="true"
-            [dataLabel]="self.group?.updateDate | stringToDate | date:self.currentDateFormatPattern"
-        ></cr-text-field-control>
-    </div>
-</div>', '2022-12-01 15:18:59.3423302 +00:00', 1, N'N', '30de13de-4f6d-437d-b3d9-98d7cbc7dee9', 1, NULL, '2022-12-01 15:18:59.3423302 +00:00')
-INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('3d959573-5172-ed11-835f-02f176033ddb', '3c3c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'item-hierarchy-title-header', N'Header', N'{
-    "defaultValue": {
-        "isUseTranslateKey": true,
-        "translateKey": "MANAGE_DATA_ITEM_HIERARCHY.TITLE"
-    },
-    "fieldSettings": {
-        "titleHeader": {
-            "elements": [
-                {
-                    "appearance": "icon-button",
-                    "iconSvg": "icon-delete",
-                    "template": "custom"
-                },
-                {
-                    "appearance": "secondary-button",
-                    "name": "Add current",
-                    "template": "custom"
-                },
-                {
-                    "appearance": "secondary-button",
-                    "name": "Add sub",
-                    "template": "custom"
-                },
-                {
-                    "appearance": "icon-button",
-                    "iconSvg": "icon-pin",
-                    "template": "custom"
-                },
-                {
-                    "appearance": "icon-button",
-                    "iconSvg": "icon-refresh",
-                    "template": "custom"
-                },
-                {
-                    "appearance": "primary-button",
-                    "nameTranslateKey": "COMMON.BUTTON.SAVE",
-                    "template": "custom"
-                },
-                {
-                    "appearance": "primary-button",
-                    "nameTranslateKey": "COMMON.BUTTON.CREATE",
-                    "template": "custom"
-                },
-                {
-                    "appearance": "primary-button",
-                    "nameTranslateKey": "COMMON.BUTTON.CANCEL",
-                    "template": "custom"
-                },
-                {
-                    "appearance": "icon-button",
-                    "iconSvg": "icon-close",
-                    "template": "custom"
-                }
-            ]
-        }
-    }
-}', N'<cr-title-header
-    [titleTranslateKey]="{{translateKey}}"
-    [title]="{{label}}"
-    (buttonClickEvent)="self.onTitleButtonClick($event)"
-    [buttonSettings]="self.titleHeaderButtonSettings"
-></cr-title-header>', '2022-12-02 16:01:50.9900000 +00:00', 4, N'N', 'a243fccf-d8eb-470a-a3a5-0b8963e8cda9', 1, NULL, '2022-12-02 14:56:08.5453757 +00:00')
-INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('15e2c42d-5272-ed11-835f-02f176033ddb', '373c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'item-hierarchy-first-hierarchy-name', N'Hierarchy 1 description', N'{
-    "defaultValue": {
-        "isUseTranslateKey": true,
-        "translateKey": "MANAGE_DATA_ITEM_HIERARCHY.FIRST_LEVEL_HIERARCHY_NAME"
-    },
-    "fieldSettings": {
-        "validationField": "levelOne"
-    }
-}', N'<cr-control-edit
-    [(dataValue)]="self.itemHierarchyNames[''1'']"
-    (dataValueChange)="self.changeHierarchyLabel()"
-    [elementName]="''edit:Item_hierarchy.First_level_hierarchy_name''"
-    [permissionSettings]="{
-        isAccessEdit: (self.EndpointName.item_hierarchy_level_level_PUT | endpointAccessGrantedPipe)
-    }"
-    [validationField]="''levelOne''"
-    [validator]="self.itemHierarchyLevelLabelValidator"
-    [translateKeys]="{{translateKey}}" 
-    [dataLabel]="{{label}}"
-    [customClass]=''{{classes}}''
-    [isDisabled]="{{disabled}}"
-></cr-control-edit>', '2022-12-02 16:01:59.0400000 +00:00', 3, N'N', '3982b5ce-0f3d-44c3-be8d-696d8196232c', 1, NULL, '2022-12-02 15:01:20.9115797 +00:00')
-INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('596c2b85-5272-ed11-835f-02f176033ddb', '373c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'item-hierarchy-second-hierarchy-name', N'Hierarchy 2 description', N'{
-    "defaultValue": {
-        "isUseTranslateKey": true,
-        "translateKey": "MANAGE_DATA_ITEM_HIERARCHY.SECOND_LEVEL_HIERARCHY_NAME"
-    },
-    "fieldSettings": {
-        "validationField": "levelTwo"
-    }
-}', N'<cr-control-edit
-    [(dataValue)]="self.itemHierarchyNames[''2'']"
-    (dataValueChange)="self.changeHierarchyLabel()"
-    [elementName]="''edit:Item_hierarchy.Second_level_hierarchy_name''"
-    [permissionSettings]="{
-        isAccessEdit: (self.EndpointName.item_hierarchy_level_level_PUT | endpointAccessGrantedPipe)
-    }"
-    [validationField]="''levelTwo''"
-    [validator]="self.itemHierarchyLevelLabelValidator"
-    [translateKeys]="{{translateKey}}" 
-    [dataLabel]="{{label}}"
-    [customClass]=''{{classes}}''
-    [isDisabled]="{{disabled}}"
-></cr-control-edit>', '2022-12-02 16:02:07.4166667 +00:00', 3, N'N', 'b032795b-b2ed-4339-b515-67166e5ef6f2', 1, NULL, '2022-12-02 15:03:47.5453657 +00:00')
-INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('152997b4-5272-ed11-835f-02f176033ddb', '373c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'item-hierarchy-third-hierarchy-name', N'Hierarchy 3 description', N'{
-    "defaultValue": {
-        "isUseTranslateKey": true,
-        "translateKey": "MANAGE_DATA_ITEM_HIERARCHY.THIRD_LEVEL_HIERARCHY_NAME"
-    },
-    "fieldSettings": {
-        "validationField": "levelThree"
-    }
-}', N'<cr-control-edit
-    [(dataValue)]="self.itemHierarchyNames[''3'']"
-    (dataValueChange)="self.changeHierarchyLabel()"
-    [elementName]="''edit:Item_hierarchy.Third_level_hierarchy_name''"
-    [permissionSettings]="{
-        isAccessEdit: (self.EndpointName.item_hierarchy_level_level_PUT | endpointAccessGrantedPipe)
-    }"
-    [validationField]="''levelThree''"
-    [validator]="self.itemHierarchyLevelLabelValidator"
-    [translateKeys]="{{translateKey}}" 
-    [dataLabel]="{{label}}"
-    [customClass]=''{{classes}}''
-    [isDisabled]="{{disabled}}"
-></cr-control-edit>', '2022-12-02 16:02:16.3700000 +00:00', 3, N'N', 'd63c8941-541e-4da1-ac9c-fb6a24e80f81', 1, NULL, '2022-12-02 15:05:07.1043477 +00:00')
-INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('7b8dfbdd-5272-ed11-835f-02f176033ddb', '373c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'item-hierarchy-fourth-hierarchy-name', N'Hierarchy 4 description', N'{
-    "defaultValue": {
-        "isUseTranslateKey": true,
-        "translateKey": "MANAGE_DATA_ITEM_HIERARCHY.FOURTH_LEVEL_HIERARCHY_NAME"
-    },
-    "fieldSettings": {
-        "validationField": "levelFour"
-    }
-}', N'<cr-control-edit
-    [(dataValue)]="self.itemHierarchyNames[''4'']"
-    (dataValueChange)="self.changeHierarchyLabel()"
-    [elementName]="''edit:Item_hierarchy.Fourth_level_hierarchy_name''"
-    [permissionSettings]="{
-        isAccessEdit: (self.EndpointName.item_hierarchy_level_level_PUT | endpointAccessGrantedPipe)
-    }"
-    [validationField]="''levelFour''"
-    [validator]="self.itemHierarchyLevelLabelValidator"
-    [translateKeys]="{{translateKey}}" 
-    [dataLabel]="{{label}}"
-    [customClass]=''{{classes}}''
-    [isDisabled]="{{disabled}}"
-></cr-control-edit>', '2022-12-02 16:02:24.0666667 +00:00', 3, N'N', '92a0e771-940e-4ba9-af6b-2cf718c9b183', 1, NULL, '2022-12-02 15:06:16.5488635 +00:00')
-INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('ca1e800d-5372-ed11-835f-02f176033ddb', '373c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'item-hierarchy-fifth-hiaerarchy-name', N'Hierarchy 5 description', N'{
-    "defaultValue": {
-        "isUseTranslateKey": true,
-        "translateKey": "MANAGE_DATA_ITEM_HIERARCHY.FIFTH_LEVEL_HIERARCHY_NAME"
-    },
-    "fieldSettings": {
-        "validationField": "levelFive"
-    }
-}', N'<cr-control-edit
-    [(dataValue)]="self.itemHierarchyNames[''5'']"
-    (dataValueChange)="self.changeHierarchyLabel()"
-    [elementName]="''edit:Item_hierarchy.Fifth_level_hierarchy_name''"
-    [permissionSettings]="{
-        isAccessEdit: (self.EndpointName.item_hierarchy_level_level_PUT | endpointAccessGrantedPipe)
-    }"
-    [validationField]="''levelFive''"
-    [validator]="self.itemHierarchyLevelLabelValidator"
-    [translateKeys]="{{translateKey}}" 
-    [dataLabel]="{{label}}"
-    [customClass]=''{{classes}}''
-    [isDisabled]="{{disabled}}"
-></cr-control-edit>', '2022-12-02 16:02:31.7300000 +00:00', 3, N'N', '88aa91a4-5241-4f86-956e-8bbc9231a5c0', 1, NULL, '2022-12-02 15:07:36.2705738 +00:00')
-INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('2d68d67c-5a72-ed11-835f-02f176033ddb', 'f53a7f10-5a72-ed11-835f-02f176033ddb', N'item-hierarchy-tree', N'Item hierarchy tree', N'{
-    "defaultValue": {
-        "showLevelsTo": 5
-    }
-}', N'<cr-item-hierarchy-tree
-    [showOn]="''hover''"
-    [itemHierarchyNames]="self.itemHierarchyNames"
-    [showLevelsTo]="{{showLevelsTo}}"
-></cr-item-hierarchy-tree>', '2022-12-02 16:00:49.5402669 +00:00', 1, N'N', '4dc3ccc4-c1cf-4d56-afd3-8ba55c793828', 1, NULL, '2022-12-02 16:00:49.5402669 +00:00')
-INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('fa0680a6-8072-ed11-835f-02f176033ddb', '60f34af4-7d72-ed11-835f-02f176033ddb', N'item-hierarchy-details', N'Item hierarchy details', N'{
-    "defaultValue": {}
-}', N'<cr-item-hierarchy-details
-    [class]=''{{classes}}''
-    (onCreateImage)="self.onCreateImagePopup()"
-    (onUpdateImage)="self.onUpdateImagePopup($event)"
-    (onDeleteImage)="self.onDeleteImagePopup($event)"
-></cr-item-hierarchy-details>
-', '2022-12-02 20:50:25.3700000 +00:00', 2, N'N', '567cd120-e9d3-4ab3-b1ea-f8a10b0d6bf9', 1, NULL, '2022-12-02 20:34:00.3142010 +00:00')
 INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('3ea1684d-7c69-ed11-835f-02f176033ddb', '3d3c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'item-details-hierarchy1', N'Hierarchy 1', N'{
     "defaultValue": {
         "isUseItemHierarchyLabel": true,
@@ -2282,82 +1209,6 @@ INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebComponentID], [Code], [N
     [type]="''button''"
     (buttonClickEvent)="self.resetFilter()"
 ></cr-button-control>', '2022-11-26 20:57:17.0420023 +00:00', 1, N'N', '8aaf5d48-469f-44fa-8c3b-20d6dc85ea87', 1, NULL, '2022-11-26 20:57:17.0420023 +00:00')
-INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('7952759e-cd6d-ed11-835f-02f176033ddb', '393c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'user-list-grid', N'User list grid', N'{
-    "defaultValue": {},
-    "fieldSettings": {
-        "grid": {
-            "uniqueField": "id",
-            "columns": [
-                {
-                    "field": "login",
-                    "titleTranslateKey": "USER.LIST.GRID.LOGIN",
-                    "type": "link"
-                },
-                {
-                    "field": "firstName",
-                    "titleTranslateKey": "USER.LIST.GRID.FIRST_NAME",
-                    "type": "text"
-                },
-                {
-                    "field": "lastName",
-                    "titleTranslateKey": "USER.LIST.GRID.LAST_NAME",
-                    "type": "text"
-                },
-                {
-                    "field": "roles",
-                    "titleTranslateKey": "USER.LIST.GRID.USER_ROLE",
-                    "type": "text"
-                },
-                {
-                    "field": "mobile",
-                    "titleTranslateKey": "USER.LIST.GRID.MOBILE",
-                    "type": "text"
-                },
-                {
-                    "field": "email",
-                    "titleTranslateKey": "USER.LIST.GRID.EMAIL",
-                    "type": "text"
-                },
-                {
-                    "field": "isDeleted",
-                    "titleTranslateKey": "USER.LIST.GRID.IS_DELETED",
-                    "type": "boolean",
-                    "autoFit": true
-                }
-            ],
-            "previewDataSource": {
-                "responseList": [
-                    {
-                        "id": 1,
-                        "login": "login",
-                        "firstName": "Yura",
-                        "lastName": "Prisyazhnyy",
-                        "roles": "Admin",
-                        "mobile": "+380666876892",
-                        "email": "cssuperpy@gmail.com",
-                        "isDeleted": false
-                    }
-                ],
-                "page": 1,
-                "size": 5,
-                "totalElements": 1
-            }
-        }
-    }
-}', N'<div class="cr-grid-wrapper-new">
-    <cr-edit-grid-server-paging
-        (cellClickEvent)="self.cellClick($event)"
-        (pageChangeEvent)="self.changePage($event)"
-        [columnSettings]="self.columnSettings"
-        [dataSource]="self.dataSource"
-        [elementName]="''edit-grid-server-paging:User_list.Grid''"
-        [pageable]="true"
-        [resizable]="true"
-        [uniqueField]="''id''"
-        [dataCacheName]="''user-grid-cache''"
-        [class]=''{{classes}}''
-    ></cr-edit-grid-server-paging>
-</div>', '2022-11-28 10:55:09.8233333 +00:00', 2, N'N', '59fb6813-74bf-4a5f-b12b-b3bd2101c442', 1, NULL, '2022-11-26 21:02:22.2565625 +00:00')
 INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('18fdb05e-d36d-ed11-835f-02f176033ddb', '3c3c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'user-details-header', N'Header', N'{
     "defaultValue": {
         "isUseTranslateKey": true,
@@ -2560,34 +1411,6 @@ INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebComponentID], [Code], [N
     [height]="{{height}}"
     [icon]="{{icon}}"
 ></cr-button-control>', '2022-11-28 08:09:08.9487674 +00:00', 1, N'N', '01c969fb-25dd-4f17-9bd1-f040ad7c6b35', 1, NULL, '2022-11-28 08:09:08.9487674 +00:00')
-INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('62a25693-0b6f-ed11-835f-02f176033ddb', '393c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'user-details-roles-grid', N'User roles', N'{
-    "defaultValue": {},
-    "fieldSettings": {
-        "grid": {
-            "uniqueField": "id",
-            "columns": [
-                {
-                    "field": "name",
-                    "titleTranslateKey": "USER.DETAILS.ROLES.GRID.NAME",
-                    "type": "text"
-                }
-            ],
-            "previewDataSource": {
-                "responseList": [
-                    {
-                        "id": 1,
-                        "name": "Admin"
-                    }
-                ],
-                "page": 1,
-                "size": 5,
-                "totalElements": 1
-            }
-        }
-    }
-}', N'<div class="cr-grid-wrapper-new">
-    <cr-user-details-role-list [roles]="self.userDetail.roles" [class]=''{{classes}}''></cr-user-details-role-list>
-</div>', '2022-11-28 11:29:31.9400000 +00:00', 2, N'N', '84ea7d0f-3d23-4954-adc8-c058a29384c7', 1, NULL, '2022-11-28 10:58:23.5605218 +00:00')
 INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('8dd2ee6a-0e6f-ed11-835f-02f176033ddb', '2e914ade-0b6f-ed11-835f-02f176033ddb', N'user-details-password', N'Password', N'{
     "defaultValue": {
         "isUseTranslateKey": true,
@@ -2755,72 +1578,6 @@ INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebComponentID], [Code], [N
     [icon]="{{icon}}"
     (buttonClickEvent)="self.changeFilter()"
 ></cr-button-control>', '2022-11-29 08:33:16.6608481 +00:00', 1, N'N', '295a01c7-2fa5-4298-9283-8a36e662fc49', 1, NULL, '2022-11-29 08:33:16.6608481 +00:00')
-INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('e76f4d36-c16f-ed11-835f-02f176033ddb', '393c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'employee-list-grid', N'Employees grid', N'{
-    "defaultValue": {},
-    "fieldSettings": {
-        "grid": {
-            "uniqueField": "id",
-            "columns": [
-                {
-                    "field": "number",
-                    "titleTranslateKey": "EMPLOYEE.LIST.GRID.NUMBER",
-                    "type": "link",
-                    "width": "160px"
-                },
-                {
-                    "field": "firstName",
-                    "titleTranslateKey": "EMPLOYEE.LIST.GRID.FIRST_NAME",
-                    "type": "text"
-                },
-                {
-                    "field": "lastName",
-                    "titleTranslateKey": "EMPLOYEE.LIST.GRID.LAST_NAME",
-                    "type": "text"
-                },
-                {
-                    "field": "isFrozen",
-                    "titleTranslateKey": "EMPLOYEE.LIST.GRID.FROZEN",
-                    "type": "boolean",
-                    "autoFit": true
-                },
-                {
-                    "field": "isDeleted",
-                    "titleTranslateKey": "EMPLOYEE.LIST.GRID.SHOW_DELETED",
-                    "type": "boolean",
-                    "autoFit": true
-                }
-            ],
-            "previewDataSource": {
-                "responseList": [
-                    {
-                        "id": 1,
-                        "number": "24422",
-                        "firstName": "Yura",
-                        "lastName": "Prisyazhnyy",
-                        "isFrozen": false,
-                        "isDeleted": false
-                    }
-                ],
-                "page": 1,
-                "size": 5,
-                "totalElements": 1
-            }
-        }
-    }
-}', N'<div class="cr-grid-wrapper-new">
-    <cr-edit-grid-server-paging
-        (cellClickEvent)="self.cellClick($event)"
-        (pageChangeEvent)="self.changePage($event)"
-        [columnSettings]="self.columnSettings"
-        [dataCacheName]="''EmployeeListGrid''"
-        [dataSource]="self.gridData"
-        [elementName]="''edit-grid-server-paging:Employee_list.Grid''"
-        [pageable]="true"
-        [resizable]="true"
-        [uniqueField]="''id''"
-        [class]=''{{classes}}''
-    ></cr-edit-grid-server-paging>
-</div>', '2022-11-29 08:38:35.8769255 +00:00', 1, N'N', '609e6152-c728-40eb-b749-8eda2e26247d', 1, NULL, '2022-11-29 08:38:35.8769255 +00:00')
 INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('c37d8627-ce6f-ed11-835f-02f176033ddb', '3c3c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'employee-details-header', N'Header', N'{
     "defaultValue": {
         "isUseTranslateKey": true,
@@ -3206,39 +1963,6 @@ INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebComponentID], [Code], [N
         </div>
     </ng-template>
 </div>', '2022-11-29 13:09:43.1128660 +00:00', 1, N'N', 'b5d2cce1-9f47-409e-98f5-c60b578f031e', 1, NULL, '2022-11-29 13:09:43.1128660 +00:00')
-INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('366ae86d-e76f-ed11-835f-02f176033ddb', '393c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'employee-details-cards', N'Cards', N'{
-    "defaultValue": {},
-    "fieldSettings": {
-        "grid": {
-            "uniqueField": "id",
-            "columns": [
-                {
-                    "field": "cardNumber",
-                    "titleTranslateKey": "EMPLOYEE.DETAILS.CARDS.NUMBER_OF_CARDS",
-                    "type": "numeric",
-                    "format": "#",
-                    "decimals": 0
-                }
-            ],
-            "previewDataSource": {
-                "responseList": [
-                    {
-                        "id": 1,
-                        "cardNumber": "24422"
-                    }
-                ],
-                "page": 1,
-                "size": 5,
-                "totalElements": 1
-            }
-        }
-    }
-}', N'<cr-employee-details-card-number
-    [employeeId]="self.employee.id"
-    [isDeletedEmployee]="self.employee.isDeleted"
-    [isNewEmployee]="self.isNewEmployee"
-    [class]=''{{classes}}''
-></cr-employee-details-card-number>', '2022-11-29 13:12:10.0430006 +00:00', 1, N'N', 'da09c3ad-24eb-47eb-abe0-2f9c85d74d89', 1, NULL, '2022-11-29 13:12:10.0430006 +00:00')
 INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('9ab7fba9-e76f-ed11-835f-02f176033ddb', '453c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'employee-details-remark', N'Remark', N'{
     "defaultValue": {}
 }', N'<cr-text-area-control
@@ -3401,6 +2125,983 @@ INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebComponentID], [Code], [N
     [columnSettings]="self.columnSettingsSellerInStoresLocation"
     [class]=''{{classes}}''
 ></cr-basket-population-view>', '2022-11-29 13:43:49.0767688 +00:00', 1, N'N', 'c00cf272-16ab-4568-9de8-c113900b3f8c', 1, NULL, '2022-11-29 13:43:49.0767688 +00:00')
+INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('8f768797-7b71-ed11-835f-02f176033ddb', '3c3c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'partner-group-list-title-header', N'Header', N'{
+    "defaultValue": {
+        "isUseTranslateKey": true,
+        "translateKey": "PARTNER_GROUP.TITLE"
+    },
+    "fieldSettings": {
+        "titleHeader": {
+            "elements": [
+                {
+                    "appearance": "icon-button",
+                    "iconSvg": "icon-pin",
+                    "template": "custom"
+                },
+                {
+                    "appearance": "icon-button",
+                    "iconSvg": "icon-add",
+                    "template": "custom"
+                },
+                {
+                    "appearance": "icon-button",
+                    "iconSvg": "icon-close",
+                    "template": "custom"
+                }
+            ]
+        }
+    }
+}', N'<cr-title-header
+    [titleTranslateKey]="{{translateKey}}"
+    [title]="{{label}}"
+    (buttonClickEvent)="self.onTitleButtonClick($event)"
+    [buttonSettings]="self.titleHeaderButtonSettings"
+></cr-title-header>', '2022-12-01 13:25:16.5506831 +00:00', 1, N'N', '9ccda2b8-62c6-4a53-a647-ff3674ee9d17', 1, NULL, '2022-12-01 13:25:16.5506831 +00:00')
+INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('a74242ca-7b71-ed11-835f-02f176033ddb', '373c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'partner-group-list-code', N'Code', N'{
+    "defaultValue": {
+        "isUseTranslateKey": true,
+        "translateKey": "PARTNER_GROUP.FILTER.CODE"
+    }
+}', N'<cr-control-edit 
+    [translateKeys]="{{translateKey}}" 
+    [dataLabel]="{{label}}"
+    [customClass]=''{{classes}}''
+    [isDisabled]="{{disabled}}"
+    [elementName]="''edit:Partner_group.Code''"
+    [(dataValue)]="self.partnerFilterRequest.code"
+></cr-control-edit>
+', '2022-12-01 13:26:41.6609575 +00:00', 1, N'N', '605b9bf6-7353-4dbe-9dd1-8141c9ba1f3e', 1, NULL, '2022-12-01 13:26:41.6609575 +00:00')
+INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('3a9b2901-7c71-ed11-835f-02f176033ddb', '373c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'partner-group-list-name', N'Name', N'{
+    "defaultValue": {
+        "isUseTranslateKey": true,
+        "translateKey": "PARTNER_GROUP.FILTER.NAME"
+    }
+}', N'<cr-control-edit 
+    [translateKeys]="{{translateKey}}" 
+    [dataLabel]="{{label}}"
+    [customClass]=''{{classes}}''
+    [isDisabled]="{{disabled}}"
+    [elementName]="''edit:Partner_group.Name''"
+    [(dataValue)]="self.partnerFilterRequest.displayName"
+></cr-control-edit>
+', '2022-12-01 13:28:13.7740730 +00:00', 1, N'N', 'ea951186-16db-480b-b7b0-c07d91631cff', 1, NULL, '2022-12-01 13:28:13.7740730 +00:00')
+INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('c23d602e-7c71-ed11-835f-02f176033ddb', '383c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'partner-group-list-show-deleted', N'Show deleted', N'{
+    "defaultValue": {
+        "isUseTranslateKey": true,
+        "translateKey": "COMMON.SHOW_DELETED"
+    }
+}', N'<cr-checkbox-control
+    [dataLabel]="{{label}}"
+    [translateKeys]="{{translateKey}}"
+    [isDisabled]="{{disabled}}"
+    [class]=''{{classes}}''
+    [(dataValue)]="self.partnerFilterRequest.showDeleted"
+></cr-checkbox-control>', '2022-12-01 13:29:29.6296002 +00:00', 1, N'N', '812c13f7-0cdf-4206-acac-f121d0737d1e', 1, NULL, '2022-12-01 13:29:29.6296002 +00:00')
+INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('b946d553-7c71-ed11-835f-02f176033ddb', '3a3c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'partner-group-list-search', N'Search', N'{
+    "defaultValue": {
+        "isUseTranslateKey": true,
+        "translateKey": "COMMON.SEARCH",
+        "buttonType": "underlined-action-button"
+    }
+}', N'<cr-button-control 
+    [buttonTemplateType]="{{buttonTemplateType}}"
+    [text]="{{label}}"
+    [textTranslateKey]="{{translateKey}}"
+    [classArray]=''{{classes}}''
+    [width]="{{width}}"
+    [height]="{{height}}"
+    [icon]="{{icon}}"
+    (buttonClickEvent)="self.changeFilter()"
+    *ngIf="(self.EndpointName.partner_group_GET | endpointAccessGrantedPipe)"
+></cr-button-control>', '2022-12-01 13:30:32.4723001 +00:00', 1, N'N', '765c2f70-8a88-4325-9acc-5f5268ef60f9', 1, NULL, '2022-12-01 13:30:32.4723001 +00:00')
+INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('1dae9189-7f71-ed11-835f-02f176033ddb', '3c3c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'partner-group-details-header', N'Header', N'{
+    "defaultValue": {
+        "isUseTranslateKey": true,
+        "translateKey": "PARTNER_GROUP.DETAILS.TITLE"
+    },
+    "fieldSettings": {
+        "titleHeader": {
+            "elements": [
+                {
+                    "appearance": "icon-button",
+                    "iconSvg": "icon-delete",
+                    "template": "custom"
+                },
+                {
+                    "appearance": "icon-button",
+                    "iconSvg": "icon-refresh",
+                    "template": "custom"
+                },
+                {
+                    "appearance": "icon-button",
+                    "iconSvg": "icon-add",
+                    "template": "custom"
+                },
+                {
+                    "appearance": "primary-button",
+                    "nameTranslateKey": "COMMON.BUTTON.SAVE",
+                    "template": "custom"
+                },
+                {
+                    "appearance": "icon-button",
+                    "iconSvg": "icon-close",
+                    "template": "custom"
+                }
+            ]
+        }
+    }
+}', N'<cr-title-header
+    [titleTranslateKey]="{{translateKey}}"
+    [title]="{{label}}"
+    (buttonClickEvent)="self.onTitleButtonClick($event)"
+    [additionalTranslateKeys]="''COMMON.NEW''"
+    [buttonSettings]="self.titleHeaderButtonSettings"
+    [titleValue]="self.titleValueText"
+    [titleValueTranslateKey]="self.isNew ? ''COMMON.NEW'' : null"
+></cr-title-header>', '2022-12-01 13:53:31.1164573 +00:00', 1, N'N', 'e42254ca-53e8-4c7f-8d4b-06da62e1f637', 1, NULL, '2022-12-01 13:53:31.1164573 +00:00')
+INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('249474cf-7f71-ed11-835f-02f176033ddb', '373c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'partner-group-details-code', N'Code', N'{
+    "defaultValue": {
+        "isUseTranslateKey": true,
+        "translateKey": "PARTNER_GROUP.DETAILS.GROUP_CODE"
+    },
+    "fieldSettings": {
+        "validationField": "code"
+    }
+}', N'<cr-control-edit
+    [(dataValue)]="self.group.code"
+    [elementName]="''edit:Partner_group_details.Group_code''"
+    [permissionSettings]="{
+          isAccessEdit: self.isNew ? (self.EndpointName.partner_group_POST | endpointAccessGrantedPipe) :
+            (self.EndpointName.partner_group_id_PUT | endpointAccessGrantedPipe)
+    }"
+    [validationField]="''code''"
+    [validator]="self.partnerGroupValidator"
+    [translateKeys]="{{translateKey}}" 
+    [dataLabel]="{{label}}"
+    [customClass]=''{{classes}}''
+    [isDisabled]="self.isGroupDisabled || self.group.isDeleted || {{disabled}}"
+></cr-control-edit>', '2022-12-01 13:56:00.1500000 +00:00', 2, N'N', 'ecd6d8d0-0255-46cf-bfd8-9db91ffaac35', 1, NULL, '2022-12-01 13:55:28.3662500 +00:00')
+INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('e24ef931-8071-ed11-835f-02f176033ddb', '373c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'partner-group-details-name', N'Name', N'{
+    "defaultValue": {
+        "isUseTranslateKey": true,
+        "translateKey": "PARTNER_GROUP.DETAILS.GROUP_NAME"
+    },
+    "fieldSettings": {
+        "validationField": "displayName"
+    }
+}', N'<cr-control-edit
+    [(dataValue)]="self.group.displayName"
+    (dataValueChange)="self.onChangeTitleValue()"
+    [elementName]="''edit:Partner_group_details.Group_name''"
+    [permissionSettings]="{
+        isAccessEdit: self.isNew ? (self.EndpointName.partner_group_POST | endpointAccessGrantedPipe) :
+            (self.EndpointName.partner_group_id_PUT | endpointAccessGrantedPipe)
+    }"
+    [validationField]="''displayName''"
+    [validator]="self.partnerGroupValidator"
+    [translateKeys]="{{translateKey}}" 
+    [dataLabel]="{{label}}"
+    [customClass]=''{{classes}}''
+    [isDisabled]="self.group.isDeleted || {{disabled}}"
+></cr-control-edit>', '2022-12-01 13:58:13.6528226 +00:00', 1, N'N', '9a89da6c-50eb-45bb-b977-3b2cfd1277e8', 1, NULL, '2022-12-01 13:58:13.6528226 +00:00')
+INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('c615a9c2-8071-ed11-835f-02f176033ddb', '3d3c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'partner-group-details-partner-type', N'Partner type', N'{
+    "defaultValue": {
+        "isUseTranslateKey": true,
+        "translateKey": "PARTNER_GROUP.DETAILS.PARTNER_TYPE"
+    }
+}', N'<cr-dropdown-smart-control
+    [(value)]="self.group.partnerTypeId"
+    [dataCacheName]="''PartnerTypeDropdownSearchCache''"
+    [dataTranslateKeyField]="''translateKey''"
+    [elementName]="''smart-dropdown:Partner_group_details.Partner_type''"
+    [getListItemsFunction]="self.partnerTypeListFn"
+    [getOneItemFunction]="self.partnerTypeFn"
+    [isDisabled]="!self.isNew || self.group.isDeleted"
+    [permissionSettings]="{
+        isAccessEdit: self.isNew ? (self.EndpointName.partner_group_POST | endpointAccessGrantedPipe) :
+            (self.EndpointName.partner_group_id_PUT | endpointAccessGrantedPipe)
+    }"
+    [textField]="''displayName''"
+    [unselectedItemValue]="{id: null, translateKey: ''COMMON.MOCK_OBJ.NOT_SELECTED''}"
+    [validationField]="''partnerTypeId''"
+    [validator]="self.partnerGroupValidator"
+    [valueField]="''id''"
+    [labelTranslateKey]="{{translateKey}}"
+    [label]="{{label}}"
+    [class]=''{{classes}}''
+></cr-dropdown-smart-control>', '2022-12-01 14:02:16.3967046 +00:00', 1, N'N', '3a7bfa30-6fe2-40e3-9024-e6a55b334e65', 1, NULL, '2022-12-01 14:02:16.3967046 +00:00')
+INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('79e19f05-8171-ed11-835f-02f176033ddb', '383c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'partner-group-use-rfm', N'Use RFM', N'{
+    "defaultValue": {
+        "isUseTranslateKey": true,
+        "translateKey": "PARTNER_GROUP.DETAILS.USE_RFM"
+    }
+}', N'<cr-checkbox-control
+    [(dataValue)]="self.group.useRFM"
+    [elementName]="''checkbox:Partner_group_details.Use_rfm''"
+    [permissionSettings]="{
+        isAccessEdit: self.isNew ? (self.EndpointName.partner_group_POST | endpointAccessGrantedPipe) :
+            (self.EndpointName.partner_group_id_PUT | endpointAccessGrantedPipe)
+    }"
+    [dataLabel]="{{label}}"
+    [translateKeys]="{{translateKey}}"
+    [isDisabled]="self.group.isDeleted || {{disabled}}"
+    [class]=''{{classes}}''
+></cr-checkbox-control>', '2022-12-01 14:04:08.7437305 +00:00', 1, N'N', '2c23ebb7-d7b1-43ed-a988-be0f46deda95', 1, NULL, '2022-12-01 14:04:08.7437305 +00:00')
+INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('ba153449-8171-ed11-835f-02f176033ddb', '383c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'partner-group-is-registered-by-card-only', N'Is registered by card only', N'{
+    "defaultValue": {
+        "isUseTranslateKey": true,
+        "translateKey": "PARTNER_GROUP.DETAILS.IS_REGISTERED_BY_CARD_ONLY"
+    }
+}', N'<cr-checkbox-control
+    [(dataValue)]="self.group.isRegisterByCardOnly"
+    [elementName]="''checkbox:Partner_group_details.Registered_by_card''"
+    [permissionSettings]="{
+        isAccessEdit: self.isNew ? (self.EndpointName.partner_group_POST | endpointAccessGrantedPipe) :
+            (self.EndpointName.partner_group_id_PUT | endpointAccessGrantedPipe)
+    }"
+    [dataLabel]="{{label}}"
+    [translateKeys]="{{translateKey}}"
+    [isDisabled]="self.group.isDeleted || {{disabled}}"
+    [class]=''{{classes}}''
+></cr-checkbox-control>', '2022-12-01 14:06:02.1223482 +00:00', 1, N'N', 'c4e05094-1f56-46fa-8886-49a4959cb3fc', 1, NULL, '2022-12-01 14:06:02.1223482 +00:00')
+INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('cd2d528f-8171-ed11-835f-02f176033ddb', '383c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'partner-group-details-is-clear-points-due-inactive', N'Is clear points due inactive', N'{
+    "defaultValue": {
+        "isUseTranslateKey": true,
+        "translateKey": "PARTNER_GROUP.DETAILS.RESET_BONUS_BALANCES"
+    }
+}', N'<cr-checkbox-control
+    (dataValueChange)="self.isClearPointsChecked($event)"
+    [(dataValue)]="self.group.isClearPointsDueInactivity"
+    [elementName]="''checkbox:Partner_group_details.Reset_bonus_balances''"
+    [permissionSettings]="{
+        isAccessEdit: self.isNew ? (self.EndpointName.partner_group_POST | endpointAccessGrantedPipe) :
+            (self.EndpointName.partner_group_id_PUT | endpointAccessGrantedPipe)
+    }"
+    [dataLabel]="{{label}}"
+    [translateKeys]="{{translateKey}}"
+    [isDisabled]="self.group.isDeleted || {{disabled}}"
+    [class]=''{{classes}}''
+></cr-checkbox-control>', '2022-12-01 14:07:59.7600845 +00:00', 1, N'N', '1cb5fdcb-b350-409c-9580-25395e3bc99c', 1, NULL, '2022-12-01 14:07:59.7600845 +00:00')
+INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('6c4545d3-8171-ed11-835f-02f176033ddb', '383c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'partner-group-details-is-external-club-type', N'Is external club type', N'{
+    "defaultValue": {
+        "isUseTranslateKey": true,
+        "translateKey": "PARTNER_GROUP.DETAILS.IS_EXTERNAL_CLUB_TYPE"
+    }
+}', N'<cr-checkbox-control
+    [(dataValue)]="self.group.isExternalClubType"
+    [elementName]="''checkbox:Partner_group_details.Is_external_club_type''"
+    [permissionSettings]="{
+        isAccessEdit: self.isNew ? (self.EndpointName.partner_group_POST | endpointAccessGrantedPipe) :
+            (self.EndpointName.partner_group_id_PUT | endpointAccessGrantedPipe)
+    }"
+    [dataLabel]="{{label}}"
+    [translateKeys]="{{translateKey}}"
+    [isDisabled]="self.group.isDeleted || {{disabled}}"
+    [class]=''{{classes}}''
+></cr-checkbox-control>', '2022-12-01 14:09:53.7605612 +00:00', 1, N'N', '57c62a4d-f3a2-4812-85f3-1f659d08c34e', 1, NULL, '2022-12-01 14:09:53.7605612 +00:00')
+INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('cfa83133-8271-ed11-835f-02f176033ddb', '383c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'partner-group-details-is-db-check-type', N'Is DB check type', N'{
+    "defaultValue": {
+        "isUseTranslateKey": true,
+        "translateKey": "PARTNER_GROUP.DETAILS.IS_DB_CHECK_TYPE"
+    }
+}', N'<cr-checkbox-control
+    [(dataValue)]="self.group.isDbCheckType"
+    [elementName]="''checkbox:Partner_group_details.Is_DB_check_type''"
+    [permissionSettings]="{
+        isAccessEdit: self.isNew ? (self.EndpointName.partner_group_POST | endpointAccessGrantedPipe) :
+            (self.EndpointName.partner_group_id_PUT | endpointAccessGrantedPipe)
+    }"
+    [dataLabel]="{{label}}"
+    [translateKeys]="{{translateKey}}"
+    [isDisabled]="self.group.isDeleted || !self.group.isExternalClubType || {{disabled}}"
+    [class]=''{{classes}}''
+></cr-checkbox-control>', '2022-12-01 14:12:34.6933071 +00:00', 1, N'N', '4351f2c4-94c5-4ed7-bd02-aa0869d524a0', 1, NULL, '2022-12-01 14:12:34.6933071 +00:00')
+INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('8ec46366-8271-ed11-835f-02f176033ddb', '383c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'partner-group-details-is-visible-on-pos', N'Is visible on POS', N'{
+    "defaultValue": {
+        "isUseTranslateKey": true,
+        "translateKey": "PARTNER_GROUP.DETAILS.IS_VISIBLE_ON_POS"
+    }
+}', N'<cr-checkbox-control
+    [(dataValue)]="self.group.isVisibleOnPOS"
+    [elementName]="''checkbox:Partner_group_details.Is_Visible_on_POS''"
+    [permissionSettings]="{
+        isAccessEdit: self.isNew ? (self.EndpointName.partner_group_POST | endpointAccessGrantedPipe) :
+            (self.EndpointName.partner_group_id_PUT | endpointAccessGrantedPipe)
+    }"
+    [dataLabel]="{{label}}"
+    [translateKeys]="{{translateKey}}"
+    [isDisabled]="self.group.isDeleted || {{disabled}}"
+    [class]=''{{classes}}''
+></cr-checkbox-control>', '2022-12-01 14:14:00.5854990 +00:00', 1, N'N', '0b6191a5-c59b-48d9-828b-db7557c567fb', 1, NULL, '2022-12-01 14:14:00.5854990 +00:00')
+INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('fd926f94-8271-ed11-835f-02f176033ddb', '383c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'partner-group-details-is-activation-control', N'Is activation control', N'{
+    "defaultValue": {
+        "isUseTranslateKey": true,
+        "translateKey": "PARTNER_GROUP.DETAILS.IS_ACTIVATION_CONTROL"
+    }
+}', N'<cr-checkbox-control
+    [(dataValue)]="self.group.isActivationControl"
+    (dataValueChange)="self.onAllowActivationToggle($event)"
+    [elementName]="''checkbox:Partner_group_details.Is_activation_control''"
+    [permissionSettings]="{
+        isAccessEdit: self.isNew ? (self.EndpointName.partner_group_POST | endpointAccessGrantedPipe) :
+            (self.EndpointName.partner_group_id_PUT | endpointAccessGrantedPipe)
+    }"
+    [dataLabel]="{{label}}"
+    [translateKeys]="{{translateKey}}"
+    [isDisabled]="self.group.isDeleted || {{disabled}}"
+    [class]=''{{classes}}''
+></cr-checkbox-control>', '2022-12-01 14:15:17.8380669 +00:00', 1, N'N', '11ab7b3e-e6e1-4883-a097-8312c72adcef', 1, NULL, '2022-12-01 14:15:17.8380669 +00:00')
+INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('bb157860-8371-ed11-835f-02f176033ddb', '3e3c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'partner-group-details-total-inactive-days', N'Total inactive days', N'{
+    "defaultValue": {
+        "isUseTranslateKey": true,
+        "translateKey": "PARTNER_GROUP.DETAILS.TOTAL_INACTIVE_DAYS",
+        "min": 0,
+        "format": "n0",
+        "autoCorrectMinMax": true
+    },
+    "fieldSettings": {
+        "validationField": "totalInactiveDays"
+    }
+}', N'<cr-numeric-control
+    [(dataValue)]="self.group.totalInactiveDays"
+    [elementName]="''numeric:Partner_group_details.Total_inactive_days''"
+    [permissionSettings]="{
+        isAccessEdit: self.isNew ? (self.EndpointName.partner_group_POST | endpointAccessGrantedPipe) :
+            (self.EndpointName.partner_group_id_PUT | endpointAccessGrantedPipe)
+    }"
+    [validationField]="''totalInactiveDays''"
+    [validator]="self.partnerGroupValidator"
+    [dataLabel]="{{label}}" 
+    [translateKeys]="{{translateKey}}" 
+    [customClass]=''{{classes}}''
+    [format]="{{format}}" 
+    [decimals]="{{decimals}}" 
+    [min]="{{min}}" 
+    [max]="{{max}}"
+    [autoCorrectMinMax]="{{autoCorrectMinMax}}"
+    [isDisabled]="self.group.isDeleted || {{disabled}}"
+></cr-numeric-control>', '2022-12-01 14:21:00.1490491 +00:00', 1, N'N', 'f033d6e8-94ec-4ece-a23d-a0a4e360d98b', 1, NULL, '2022-12-01 14:21:00.1490491 +00:00')
+INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('a5064eca-8371-ed11-835f-02f176033ddb', '3d3c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'partner-group-details-active-start-item', N'Active start item', N'{
+    "defaultValue": {
+        "isUseTranslateKey": true,
+        "translateKey": "PARTNER_GROUP.DETAILS.START_ACTIVATION_ITEM"
+    }
+}', N'<cr-dropdown-smart-control
+    [(value)]="self.group.activeStartItemId"
+    [dataCacheName]="''PartnerGroupActiveItemDropdown''"
+    [dataTranslateKeyField]="''translateKey''"
+    [elementName]="''smart-dropdown:Partner_group_details.Active_start_item''"
+    [getListItemsFunction]="self.getItemListFn"
+    [getOneItemFunction]="self.getItemOneFn"
+    [permissionSettings]="{
+        isAccessEdit: (self.EndpointName.partner_group__item_dropdown_GET | endpointAccessGrantedPipe),
+        isAccessRead: (self.EndpointName.partner_group__item_id_dropdown_GET | endpointAccessGrantedPipe)
+    }"
+    [textField]="''name''"
+    [unselectedItemValue]="{id: null, translateKey: ''COMMON.MOCK_OBJ.NOT_SELECTED''}"
+    [useCodeInList]="true"
+    [useCodeInValue]="true"
+    [valueField]="''id''"
+    [isDisabled]="self.group.isDeleted || !self.group.isActivationControl"
+    [validator]="self.partnerGroupValidator"
+    [validationField]="''activeStartItemId''"
+    [labelTranslateKey]="{{translateKey}}"
+    [label]="{{label}}"
+    [class]=''{{classes}}''
+></cr-dropdown-smart-control>
+', '2022-12-01 14:23:57.7119013 +00:00', 1, N'N', '44dd0d8c-09c5-41ec-a8db-7eb24211e60e', 1, NULL, '2022-12-01 14:23:57.7119013 +00:00')
+INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('09497e38-8471-ed11-835f-02f176033ddb', '3e3c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'partner-group-details-active-start-period', N'Active start period', N'{
+    "defaultValue": {
+        "isUseTranslateKey": true,
+        "translateKey": "PARTNER_GROUP.DETAILS.START_ACTIVATION_PERIOD",
+        "min": 0,
+        "max": 2147483647,
+        "format": "#",
+        "decimals": 0,
+        "autoCorrectMinMax": true
+    },
+    "fieldSettings": {
+        "validationField": "activeStartPeriod"
+    }
+}', N'<cr-numeric-control
+    [(dataValue)]="self.group.activeStartPeriod"
+    [elementName]="''edit:Partner_group_details.Active_start_period''"
+    [permissionSettings]="{
+        isAccessEdit: self.isNew
+            ? (self.EndpointName.partner_group_POST | endpointAccessGrantedPipe)
+            : (self.EndpointName.partner_group_id_PUT | endpointAccessGrantedPipe)
+    }"
+    [validator]="self.partnerGroupValidator"
+    [validationField]="''activeStartPeriod''"
+    [dataLabel]="{{label}}" 
+    [translateKeys]="{{translateKey}}" 
+    [customClass]=''{{classes}}''
+    [format]="{{format}}" 
+    [decimals]="{{decimals}}" 
+    [min]="{{min}}" 
+    [max]="{{max}}"
+    [autoCorrectMinMax]="{{autoCorrectMinMax}}"
+    [isDisabled]="self.group.isDeleted || !self.group.isActivationControl || {{disabled}}"
+></cr-numeric-control>', '2022-12-01 14:27:02.5775497 +00:00', 1, N'N', '6fe48832-3fcb-4d2b-847a-1ff9a01f10e3', 1, NULL, '2022-12-01 14:27:02.5775497 +00:00')
+INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('5e404e18-8671-ed11-835f-02f176033ddb', '3d3c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'partner-group-details-active-prolong-type', N'Active prolong type', N'{
+    "defaultValue": {
+        "isUseTranslateKey": true,
+        "translateKey": "PARTNER_GROUP.DETAILS.PROLONG_TYPE"
+    }
+}', N'<cr-dropdown-smart-control
+    [(value)]="self.group.activeProlongType"
+    (valueChange)="self.onProlongTypeToggle($event)"
+    [getListItemsFunction]="self.getProlongTypeListFn$"
+    [getOneItemFunction]="self.getProlongTypeItemFn$"
+    [valueField]="''uid''"
+    [textField]="''name''"
+    [isDisabled]="self.group.isDeleted || !self.group.isActivationControl"
+    [dataCacheName]="''PartnerGroupActiveProlongTypeDropdown''"
+    [elementName]="''smart-dropdown:Partner_group_details.Active_prolong_type''"
+    [dataTranslateKeyField]="''translateKey''"
+    [labelTranslateKey]="{{translateKey}}"
+    [label]="{{label}}"
+    [class]=''{{classes}}''
+></cr-dropdown-smart-control>', '2022-12-01 14:40:27.5691230 +00:00', 1, N'N', 'a99bc07f-729f-4d72-8563-338e358e6d4e', 1, NULL, '2022-12-01 14:40:27.5691230 +00:00')
+INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('ad376888-8671-ed11-835f-02f176033ddb', '3d3c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'partner-group-details-active-prolong-item', N'Active prolong item', N'{
+    "defaultValue": {
+        "isUseTranslateKey": true,
+        "translateKey": "PARTNER_GROUP.DETAILS.PROLONG_ITEM"
+    }
+}', N'<cr-dropdown-smart-control
+    [(value)]="self.group.activeProlongItemId"
+    [dataCacheName]="''PartnerGroupProlongItemDropdown''"
+    [dataTranslateKeyField]="''translateKey''"
+    [elementName]="''smart-dropdown:Partner_group_details.Prolong_item''"
+    [getListItemsFunction]="self.getItemListFn"
+    [getOneItemFunction]="self.getItemOneFn"
+    [permissionSettings]="{
+        isAccessEdit: (self.EndpointName.partner_group__item_dropdown_GET | endpointAccessGrantedPipe),
+        isAccessRead: (self.EndpointName.partner_group__item_id_dropdown_GET | endpointAccessGrantedPipe)
+    }"
+    [textField]="''name''"
+    [unselectedItemValue]="{id: null, translateKey: ''COMMON.MOCK_OBJ.NOT_SELECTED''}"
+    [useCodeInList]="true"
+    [useCodeInValue]="true"
+    [valueField]="''id''"
+    [isDisabled]="self.group.isDeleted || !self.group.isActivationControl"
+    [validator]="self.partnerGroupValidator"
+    [validationField]="''activeProlongItemId''"
+    [labelTranslateKey]="{{translateKey}}"
+    [label]="{{label}}"
+    [class]=''{{classes}}''
+></cr-dropdown-smart-control>
+', '2022-12-01 14:43:35.6441133 +00:00', 1, N'N', '09d57333-34fd-450e-9cca-57cbfcb5ab2e', 1, NULL, '2022-12-01 14:43:35.6441133 +00:00')
+INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('1025f5f7-8671-ed11-835f-02f176033ddb', '3e3c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'partner-group-details-active-prolong-amount', N'Active prolong amount', N'{
+    "defaultValue": {
+        "isUseTranslateKey": true,
+        "translateKey": "PARTNER_GROUP.DETAILS.PROLONG_AMOUNT",
+        "min": 0,
+        "max": 2147483647,
+        "format": "#,.##",
+        "decimals": 2,
+        "autoCorrectMinMax": true
+    },
+    "fieldSettings": {
+        "validationField": "activeProlongAmount"
+    }
+}', N'<cr-numeric-control
+    [(dataValue)]="self.group.activeProlongAmount"
+    [elementName]="''edit:Partner_group_details.Active_prolong_amount''"
+    [permissionSettings]="{
+        isAccessEdit: self.isNew
+            ? (self.EndpointName.partner_group_POST | endpointAccessGrantedPipe)
+            : (self.EndpointName.partner_group_id_PUT | endpointAccessGrantedPipe)
+    }"
+    [validator]="self.partnerGroupValidator"
+    [validationField]="''activeProlongAmount''"
+    [dataLabel]="{{label}}" 
+    [translateKeys]="{{translateKey}}" 
+    [customClass]=''{{classes}}''
+    [format]="{{format}}" 
+    [decimals]="{{decimals}}" 
+    [min]="{{min}}" 
+    [max]="{{max}}"
+    [autoCorrectMinMax]="{{autoCorrectMinMax}}"
+    [isDisabled]="self.group.isDeleted || !self.group.isActivationControl || {{disabled}}"
+></cr-numeric-control>
+', '2022-12-01 15:44:10.0900000 +00:00', 2, N'N', 'f0c85084-6a78-4245-946a-15715be65f3a', 1, NULL, '2022-12-01 14:46:42.7947920 +00:00')
+INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('01a06362-8771-ed11-835f-02f176033ddb', '3e3c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'partner-group-details-active-prolong-period', N'Active prolong period', N'{
+    "defaultValue": {
+        "isUseTranslateKey": true,
+        "translateKey": "PARTNER_GROUP.DETAILS.PROLONG_PERIOD",
+        "min": 0,
+        "max": 2147483647,
+        "format": "#",
+        "decimals": 0,
+        "autoCorrectMinMax": true
+    },
+    "fieldSettings": {
+        "validationField": "activeProlongPeriod"
+    }
+}', N'<cr-numeric-control
+    [(dataValue)]="self.group.activeProlongPeriod"
+    [elementName]="''edit:Partner_group_details.Active_prolong_period''"
+    [permissionSettings]="{
+        isAccessEdit: self.isNew
+            ? (self.EndpointName.partner_group_POST | endpointAccessGrantedPipe)
+            : (self.EndpointName.partner_group_id_PUT | endpointAccessGrantedPipe)
+    }"
+    [validator]="self.partnerGroupValidator"
+    [validationField]="''activeProlongPeriod''"
+    [dataLabel]="{{label}}" 
+    [translateKeys]="{{translateKey}}" 
+    [customClass]=''{{classes}}''
+    [format]="{{format}}" 
+    [decimals]="{{decimals}}" 
+    [min]="{{min}}" 
+    [max]="{{max}}"
+    [autoCorrectMinMax]="{{autoCorrectMinMax}}"
+    [isDisabled]="self.group.isDeleted || !self.group.isActivationControl || {{disabled}}"
+></cr-numeric-control>
+', '2022-12-01 14:49:41.3573249 +00:00', 1, N'N', 'aca29f4d-3327-494d-831f-735d09d81afe', 1, NULL, '2022-12-01 14:49:41.3573249 +00:00')
+INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('e672ea5c-8871-ed11-835f-02f176033ddb', '3e3c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'partner-group-details-frequency-from', N'Frequency from', N'{
+    "defaultValue": {
+        "isUseTranslateKey": true,
+        "translateKey": "PARTNER_GROUP.DETAILS.FREQUENCY_FROM",
+        "min": -2147483647,
+        "max": 2147483647,
+        "format": "n0",
+        "decimals": 0,
+        "autoCorrectMinMax": true
+    },
+    "fieldSettings": {
+        "validationField": "frequencyFrom"
+    }
+}', N'<cr-numeric-control
+    [(dataValue)]="self.group.frequencyFrom"
+    [elementName]="''numeric:Partner_group_details.Frequency_from''"
+    [permissionSettings]="{
+        isAccessEdit: self.isNew ? (self.EndpointName.partner_group_POST | endpointAccessGrantedPipe) :
+            (self.EndpointName.partner_group_id_PUT | endpointAccessGrantedPipe)
+    }"
+    [validationField]="''frequencyFrom''"
+    [validator]="self.partnerGroupValidator"
+    [dataLabel]="{{label}}" 
+    [translateKeys]="{{translateKey}}" 
+    [customClass]=''{{classes}}''
+    [format]="{{format}}" 
+    [decimals]="{{decimals}}" 
+    [min]="{{min}}" 
+    [max]="{{max}}"
+    [autoCorrectMinMax]="{{autoCorrectMinMax}}"
+    [isDisabled]="self.group.isDeleted || {{disabled}}"
+></cr-numeric-control>', '2022-12-01 14:56:41.6713062 +00:00', 1, N'N', 'b476c7a4-e810-4969-a848-b38097b071b0', 1, NULL, '2022-12-01 14:56:41.6713062 +00:00')
+INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('edbf3c97-8871-ed11-835f-02f176033ddb', '3e3c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'partner-group-details-frequency-to', N'Frequency to', N'{
+    "defaultValue": {
+        "isUseTranslateKey": true,
+        "translateKey": "PARTNER_GROUP.DETAILS.FREQUENCY_TO",
+        "min": -2147483647,
+        "max": 2147483647,
+        "format": "n0",
+        "decimals": 0,
+        "autoCorrectMinMax": true
+    },
+    "fieldSettings": {
+        "validationField": "frequencyTo"
+    }
+}', N'<cr-numeric-control
+    [(dataValue)]="self.group.frequencyTo"
+    [elementName]="''numeric:Partner_group_details.Frequency_to''"
+    [permissionSettings]="{
+        isAccessEdit: self.isNew ? (self.EndpointName.partner_group_POST | endpointAccessGrantedPipe) :
+            (self.EndpointName.partner_group_id_PUT | endpointAccessGrantedPipe)
+    }"
+    [validationField]="''frequencyTo''"
+    [validator]="self.partnerGroupValidator"
+    [dataLabel]="{{label}}" 
+    [translateKeys]="{{translateKey}}" 
+    [customClass]=''{{classes}}''
+    [format]="{{format}}" 
+    [decimals]="{{decimals}}" 
+    [min]="{{min}}" 
+    [max]="{{max}}"
+    [autoCorrectMinMax]="{{autoCorrectMinMax}}"
+    [isDisabled]="self.group.isDeleted || {{disabled}}"
+></cr-numeric-control>', '2022-12-01 14:58:19.5185261 +00:00', 1, N'N', '6356c3bc-4e23-4035-8eeb-a4c8a907edae', 1, NULL, '2022-12-01 14:58:19.5185261 +00:00')
+INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('c24a9834-8971-ed11-835f-02f176033ddb', '3e3c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'partner-group-details-recency-from', N'Recency from', N'{
+    "defaultValue": {
+        "isUseTranslateKey": true,
+        "translateKey": "PARTNER_GROUP.DETAILS.RECENCY_FROM",
+        "min": -2147483647,
+        "max": 2147483647,
+        "format": "n0",
+        "decimals": 0,
+        "autoCorrectMinMax": true
+    },
+    "fieldSettings": {
+        "validationField": "recencyFrom"
+    }
+}', N'<cr-numeric-control
+    [(dataValue)]="self.group.recencyFrom"
+    [elementName]="''numeric:Partner_group_details.Recency_from''"
+    [permissionSettings]="{
+        isAccessEdit: self.isNew ? (self.EndpointName.partner_group_POST | endpointAccessGrantedPipe) :
+            (self.EndpointName.partner_group_id_PUT | endpointAccessGrantedPipe)
+    }"
+    [validationField]="''recencyFrom''"
+    [validator]="self.partnerGroupValidator"
+    [dataLabel]="{{label}}" 
+    [translateKeys]="{{translateKey}}" 
+    [customClass]=''{{classes}}''
+    [format]="{{format}}" 
+    [decimals]="{{decimals}}" 
+    [min]="{{min}}" 
+    [max]="{{max}}"
+    [autoCorrectMinMax]="{{autoCorrectMinMax}}"
+    [isDisabled]="self.group.isDeleted || {{disabled}}"
+></cr-numeric-control>', '2022-12-01 15:02:43.5207490 +00:00', 1, N'N', '8220e61d-380e-4be2-a86e-e7162bf09b01', 1, NULL, '2022-12-01 15:02:43.5207490 +00:00')
+INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('8fa6ec5d-8971-ed11-835f-02f176033ddb', '3e3c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'partner-group-details-recency-to', N'Recency to', N'{
+    "defaultValue": {
+        "isUseTranslateKey": true,
+        "translateKey": "PARTNER_GROUP.DETAILS.RECENCY_TO",
+        "min": -2147483647,
+        "max": 2147483647,
+        "format": "n0",
+        "decimals": 0,
+        "autoCorrectMinMax": true
+    },
+    "fieldSettings": {
+        "validationField": "recencyTo"
+    }
+}', N'<cr-numeric-control
+    [(dataValue)]="self.group.recencyTo"
+    [elementName]="''numeric:Partner_group_details.Recency_to''"
+    [permissionSettings]="{
+        isAccessEdit: self.isNew ? (self.EndpointName.partner_group_POST | endpointAccessGrantedPipe) :
+            (self.EndpointName.partner_group_id_PUT | endpointAccessGrantedPipe)
+    }"
+    [validationField]="''recencyTo''"
+    [validator]="self.partnerGroupValidator"
+    [dataLabel]="{{label}}" 
+    [translateKeys]="{{translateKey}}" 
+    [customClass]=''{{classes}}''
+    [format]="{{format}}" 
+    [decimals]="{{decimals}}" 
+    [min]="{{min}}" 
+    [max]="{{max}}"
+    [autoCorrectMinMax]="{{autoCorrectMinMax}}"
+    [isDisabled]="self.group.isDeleted || {{disabled}}"
+></cr-numeric-control>', '2022-12-01 15:03:52.8601871 +00:00', 1, N'N', 'ba8338c6-d4f9-42de-9a5b-204ddc057b07', 1, NULL, '2022-12-01 15:03:52.8601871 +00:00')
+INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('b66bc0a7-8971-ed11-835f-02f176033ddb', '3e3c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'partner-group-details-monetary-from', N'Monetary from', N'{
+    "defaultValue": {
+        "isUseTranslateKey": true,
+        "translateKey": "PARTNER_GROUP.DETAILS.MONETARY_FROM",
+        "min": -1000000000000,
+        "max": 1000000000000,
+        "format": "n2",
+        "decimals": 2,
+        "autoCorrectMinMax": true
+    },
+    "fieldSettings": {
+        "validationField": "monetaryFrom"
+    }
+}', N'<cr-numeric-control
+    [(dataValue)]="self.group.monetaryFrom"
+    [elementName]="''numeric:Partner_group_details.Monetary_from''"
+    [permissionSettings]="{
+        isAccessEdit: self.isNew ? (self.EndpointName.partner_group_POST | endpointAccessGrantedPipe) :
+            (self.EndpointName.partner_group_id_PUT | endpointAccessGrantedPipe)
+    }"
+    [validationField]="''monetaryFrom''"
+    [validator]="self.partnerGroupValidator"
+    [dataLabel]="{{label}}" 
+    [translateKeys]="{{translateKey}}" 
+    [customClass]=''{{classes}}''
+    [format]="{{format}}" 
+    [decimals]="{{decimals}}" 
+    [min]="{{min}}" 
+    [max]="{{max}}"
+    [autoCorrectMinMax]="{{autoCorrectMinMax}}"
+    [isDisabled]="self.group.isDeleted || {{disabled}}"
+></cr-numeric-control>', '2022-12-01 15:05:56.7217206 +00:00', 1, N'N', '84be25d3-926b-4dc3-a429-c90dc347551f', 1, NULL, '2022-12-01 15:05:56.7217206 +00:00')
+INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('c8049ad5-8971-ed11-835f-02f176033ddb', '3e3c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'partner-group-details-monetary-to', N'Monetary to', N'{
+    "defaultValue": {
+        "isUseTranslateKey": true,
+        "translateKey": "PARTNER_GROUP.DETAILS.MONETARY_TO",
+        "min": -1000000000000,
+        "max": 1000000000000,
+        "format": "n2",
+        "decimals": 2,
+        "autoCorrectMinMax": true
+    },
+    "fieldSettings": {
+        "validationField": "monetaryTo"
+    }
+}', N'<cr-numeric-control
+    [(dataValue)]="self.group.monetaryTo"
+    [elementName]="''numeric:Partner_group_details.Monetary_to''"
+    [permissionSettings]="{
+        isAccessEdit: self.isNew ? (self.EndpointName.partner_group_POST | endpointAccessGrantedPipe) :
+            (self.EndpointName.partner_group_id_PUT | endpointAccessGrantedPipe)
+    }"
+    [validationField]="''monetaryTo''"
+    [validator]="self.partnerGroupValidator"
+    [dataLabel]="{{label}}" 
+    [translateKeys]="{{translateKey}}" 
+    [customClass]=''{{classes}}''
+    [format]="{{format}}" 
+    [decimals]="{{decimals}}" 
+    [min]="{{min}}" 
+    [max]="{{max}}"
+    [autoCorrectMinMax]="{{autoCorrectMinMax}}"
+    [isDisabled]="self.group.isDeleted || {{disabled}}"
+></cr-numeric-control>', '2022-12-01 15:07:13.6452424 +00:00', 1, N'N', 'fd777e1b-ca6e-407b-80a2-af90785f5724', 1, NULL, '2022-12-01 15:07:13.6452424 +00:00')
+INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('33f12dab-8a71-ed11-835f-02f176033ddb', '4c3c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'partner-group-details-udfs-list', N'Partner group UDF', N'{
+    "defaultValue": {}
+}', N'<div class="cr-grid-wrapper-new">
+    <cr-udf-list
+        [cacheName]="''PartnerGroupUserFieldViewStateCache''"
+        *ngIf="(self.EndpointName.partner_group__user_defined_field_GET | endpointAccessGrantedPipe) &&
+                      (self.EndpointName.partner__group__user_defined_field_default_value_GET | endpointAccessGrantedPipe); else noAccess"
+        [isNew]="self.isNew"
+        [udf]="self.group.udf"
+        [viewName]="''Partner_group_details''"
+        [loadUserDefinedFieldListForDropdownFn$]="self.loadUserDefinedFieldListForDropdownFn$"
+        [getUserFields$]="self.getUserFields$"
+        [loadUserFields$]="self.loadUserFields$"
+        [getUserFieldsDefault$]="self.getUserFieldsDefault$"
+        [class]=''{{classes}}''
+    ></cr-udf-list>
+    <ng-template #noAccess>
+        <div class="cr-no-read-access p-2">
+            {{''COMMON.GRID.NO_READ_ACCESS'' | translate}}
+        </div>
+    </ng-template>
+</div>', '2022-12-01 15:13:11.9693747 +00:00', 1, N'N', '29e89a44-1cd4-41aa-a883-e4eae7bfc746', 1, NULL, '2022-12-01 15:13:11.9693747 +00:00')
+INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('8b260c3d-8b71-ed11-835f-02f176033ddb', '167690c8-0d6b-ed11-835f-02f176033ddb', N'partner-group-creation-date', N'Creation date', N'{
+    "defaultValue": {
+        "isUseTranslateKey": true,
+        "translateKey": "COMMON.CREATION_DATE"
+    }
+}', N'<div class="cr-footer-flex-wrapper" [class]=''{{classes}}''>
+    <div class="cr-footer-flex-column">
+        <cr-text-field-control
+          [dataLabel]="{{label}}"
+          [dataLabelTranslateKeys]="{{translateKey}}"
+        ></cr-text-field-control>
+    </div>
+    <div class="cr-footer-flex-column">
+        <cr-text-field-control
+          [isUnderline]="true"
+          [dataLabel]="self.group?.creationDate | stringToDate | date:self.currentDateFormatPattern"
+        ></cr-text-field-control>
+    </div>
+</div>', '2022-12-01 15:17:16.6952715 +00:00', 1, N'N', '9d22f417-5755-4ba0-848d-afd8fb2fe751', 1, NULL, '2022-12-01 15:17:16.6952715 +00:00')
+INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('46d93a7a-8b71-ed11-835f-02f176033ddb', '167690c8-0d6b-ed11-835f-02f176033ddb', N'partner-group-update-date', N'Update date', N'{
+    "defaultValue": {
+        "isUseTranslateKey": true,
+        "translateKey": "COMMON.UPDATE_DATE"
+    }
+}', N'<div class="cr-footer-flex-wrapper" [class]=''{{classes}}''>
+    <div class="cr-footer-flex-column">
+        <cr-text-field-control 
+            [dataLabel]="{{label}}"
+            [dataLabelTranslateKeys]="{{translateKey}}"
+        ></cr-text-field-control>
+    </div>
+    <div class="cr-footer-flex-column">
+        <cr-text-field-control 
+            [isUnderline]="true"
+            [dataLabel]="self.group?.updateDate | stringToDate | date:self.currentDateFormatPattern"
+        ></cr-text-field-control>
+    </div>
+</div>', '2022-12-01 15:18:59.3423302 +00:00', 1, N'N', '30de13de-4f6d-437d-b3d9-98d7cbc7dee9', 1, NULL, '2022-12-01 15:18:59.3423302 +00:00')
+INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('3d959573-5172-ed11-835f-02f176033ddb', '3c3c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'item-hierarchy-title-header', N'Header', N'{
+    "defaultValue": {
+        "isUseTranslateKey": true,
+        "translateKey": "MANAGE_DATA_ITEM_HIERARCHY.TITLE"
+    },
+    "fieldSettings": {
+        "titleHeader": {
+            "elements": [
+                {
+                    "appearance": "icon-button",
+                    "iconSvg": "icon-delete",
+                    "template": "custom"
+                },
+                {
+                    "appearance": "secondary-button",
+                    "name": "Add current",
+                    "template": "custom"
+                },
+                {
+                    "appearance": "secondary-button",
+                    "name": "Add sub",
+                    "template": "custom"
+                },
+                {
+                    "appearance": "icon-button",
+                    "iconSvg": "icon-pin",
+                    "template": "custom"
+                },
+                {
+                    "appearance": "icon-button",
+                    "iconSvg": "icon-refresh",
+                    "template": "custom"
+                },
+                {
+                    "appearance": "primary-button",
+                    "nameTranslateKey": "COMMON.BUTTON.SAVE",
+                    "template": "custom"
+                },
+                {
+                    "appearance": "primary-button",
+                    "nameTranslateKey": "COMMON.BUTTON.CREATE",
+                    "template": "custom"
+                },
+                {
+                    "appearance": "primary-button",
+                    "nameTranslateKey": "COMMON.BUTTON.CANCEL",
+                    "template": "custom"
+                },
+                {
+                    "appearance": "icon-button",
+                    "iconSvg": "icon-close",
+                    "template": "custom"
+                }
+            ]
+        }
+    }
+}', N'<cr-title-header
+    [titleTranslateKey]="{{translateKey}}"
+    [title]="{{label}}"
+    (buttonClickEvent)="self.onTitleButtonClick($event)"
+    [buttonSettings]="self.titleHeaderButtonSettings"
+></cr-title-header>', '2022-12-02 16:01:50.9900000 +00:00', 4, N'N', 'a243fccf-d8eb-470a-a3a5-0b8963e8cda9', 1, NULL, '2022-12-02 14:56:08.5453757 +00:00')
+INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('15e2c42d-5272-ed11-835f-02f176033ddb', '373c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'item-hierarchy-first-hierarchy-name', N'Hierarchy 1 description', N'{
+    "defaultValue": {
+        "isUseTranslateKey": true,
+        "translateKey": "MANAGE_DATA_ITEM_HIERARCHY.FIRST_LEVEL_HIERARCHY_NAME"
+    },
+    "fieldSettings": {
+        "validationField": "levelOne"
+    }
+}', N'<cr-control-edit
+    [(dataValue)]="self.itemHierarchyNames[''1'']"
+    (dataValueChange)="self.changeHierarchyLabel()"
+    [elementName]="''edit:Item_hierarchy.First_level_hierarchy_name''"
+    [permissionSettings]="{
+        isAccessEdit: (self.EndpointName.item_hierarchy_level_level_PUT | endpointAccessGrantedPipe)
+    }"
+    [validationField]="''levelOne''"
+    [validator]="self.itemHierarchyLevelLabelValidator"
+    [translateKeys]="{{translateKey}}" 
+    [dataLabel]="{{label}}"
+    [customClass]=''{{classes}}''
+    [isDisabled]="{{disabled}}"
+></cr-control-edit>', '2022-12-02 16:01:59.0400000 +00:00', 3, N'N', '3982b5ce-0f3d-44c3-be8d-696d8196232c', 1, NULL, '2022-12-02 15:01:20.9115797 +00:00')
+INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('596c2b85-5272-ed11-835f-02f176033ddb', '373c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'item-hierarchy-second-hierarchy-name', N'Hierarchy 2 description', N'{
+    "defaultValue": {
+        "isUseTranslateKey": true,
+        "translateKey": "MANAGE_DATA_ITEM_HIERARCHY.SECOND_LEVEL_HIERARCHY_NAME"
+    },
+    "fieldSettings": {
+        "validationField": "levelTwo"
+    }
+}', N'<cr-control-edit
+    [(dataValue)]="self.itemHierarchyNames[''2'']"
+    (dataValueChange)="self.changeHierarchyLabel()"
+    [elementName]="''edit:Item_hierarchy.Second_level_hierarchy_name''"
+    [permissionSettings]="{
+        isAccessEdit: (self.EndpointName.item_hierarchy_level_level_PUT | endpointAccessGrantedPipe)
+    }"
+    [validationField]="''levelTwo''"
+    [validator]="self.itemHierarchyLevelLabelValidator"
+    [translateKeys]="{{translateKey}}" 
+    [dataLabel]="{{label}}"
+    [customClass]=''{{classes}}''
+    [isDisabled]="{{disabled}}"
+></cr-control-edit>', '2022-12-02 16:02:07.4166667 +00:00', 3, N'N', 'b032795b-b2ed-4339-b515-67166e5ef6f2', 1, NULL, '2022-12-02 15:03:47.5453657 +00:00')
+INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('152997b4-5272-ed11-835f-02f176033ddb', '373c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'item-hierarchy-third-hierarchy-name', N'Hierarchy 3 description', N'{
+    "defaultValue": {
+        "isUseTranslateKey": true,
+        "translateKey": "MANAGE_DATA_ITEM_HIERARCHY.THIRD_LEVEL_HIERARCHY_NAME"
+    },
+    "fieldSettings": {
+        "validationField": "levelThree"
+    }
+}', N'<cr-control-edit
+    [(dataValue)]="self.itemHierarchyNames[''3'']"
+    (dataValueChange)="self.changeHierarchyLabel()"
+    [elementName]="''edit:Item_hierarchy.Third_level_hierarchy_name''"
+    [permissionSettings]="{
+        isAccessEdit: (self.EndpointName.item_hierarchy_level_level_PUT | endpointAccessGrantedPipe)
+    }"
+    [validationField]="''levelThree''"
+    [validator]="self.itemHierarchyLevelLabelValidator"
+    [translateKeys]="{{translateKey}}" 
+    [dataLabel]="{{label}}"
+    [customClass]=''{{classes}}''
+    [isDisabled]="{{disabled}}"
+></cr-control-edit>', '2022-12-02 16:02:16.3700000 +00:00', 3, N'N', 'd63c8941-541e-4da1-ac9c-fb6a24e80f81', 1, NULL, '2022-12-02 15:05:07.1043477 +00:00')
+INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('7b8dfbdd-5272-ed11-835f-02f176033ddb', '373c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'item-hierarchy-fourth-hierarchy-name', N'Hierarchy 4 description', N'{
+    "defaultValue": {
+        "isUseTranslateKey": true,
+        "translateKey": "MANAGE_DATA_ITEM_HIERARCHY.FOURTH_LEVEL_HIERARCHY_NAME"
+    },
+    "fieldSettings": {
+        "validationField": "levelFour"
+    }
+}', N'<cr-control-edit
+    [(dataValue)]="self.itemHierarchyNames[''4'']"
+    (dataValueChange)="self.changeHierarchyLabel()"
+    [elementName]="''edit:Item_hierarchy.Fourth_level_hierarchy_name''"
+    [permissionSettings]="{
+        isAccessEdit: (self.EndpointName.item_hierarchy_level_level_PUT | endpointAccessGrantedPipe)
+    }"
+    [validationField]="''levelFour''"
+    [validator]="self.itemHierarchyLevelLabelValidator"
+    [translateKeys]="{{translateKey}}" 
+    [dataLabel]="{{label}}"
+    [customClass]=''{{classes}}''
+    [isDisabled]="{{disabled}}"
+></cr-control-edit>', '2022-12-02 16:02:24.0666667 +00:00', 3, N'N', '92a0e771-940e-4ba9-af6b-2cf718c9b183', 1, NULL, '2022-12-02 15:06:16.5488635 +00:00')
+INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('ca1e800d-5372-ed11-835f-02f176033ddb', '373c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'item-hierarchy-fifth-hiaerarchy-name', N'Hierarchy 5 description', N'{
+    "defaultValue": {
+        "isUseTranslateKey": true,
+        "translateKey": "MANAGE_DATA_ITEM_HIERARCHY.FIFTH_LEVEL_HIERARCHY_NAME"
+    },
+    "fieldSettings": {
+        "validationField": "levelFive"
+    }
+}', N'<cr-control-edit
+    [(dataValue)]="self.itemHierarchyNames[''5'']"
+    (dataValueChange)="self.changeHierarchyLabel()"
+    [elementName]="''edit:Item_hierarchy.Fifth_level_hierarchy_name''"
+    [permissionSettings]="{
+        isAccessEdit: (self.EndpointName.item_hierarchy_level_level_PUT | endpointAccessGrantedPipe)
+    }"
+    [validationField]="''levelFive''"
+    [validator]="self.itemHierarchyLevelLabelValidator"
+    [translateKeys]="{{translateKey}}" 
+    [dataLabel]="{{label}}"
+    [customClass]=''{{classes}}''
+    [isDisabled]="{{disabled}}"
+></cr-control-edit>', '2022-12-02 16:02:31.7300000 +00:00', 3, N'N', '88aa91a4-5241-4f86-956e-8bbc9231a5c0', 1, NULL, '2022-12-02 15:07:36.2705738 +00:00')
+INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('2d68d67c-5a72-ed11-835f-02f176033ddb', 'f53a7f10-5a72-ed11-835f-02f176033ddb', N'item-hierarchy-tree', N'Item hierarchy tree', N'{
+    "defaultValue": {
+        "showLevelsTo": 5
+    }
+}', N'<cr-item-hierarchy-tree
+    [showOn]="''hover''"
+    [itemHierarchyNames]="self.itemHierarchyNames"
+    [showLevelsTo]="{{showLevelsTo}}"
+></cr-item-hierarchy-tree>', '2022-12-02 16:00:49.5402669 +00:00', 1, N'N', '4dc3ccc4-c1cf-4d56-afd3-8ba55c793828', 1, NULL, '2022-12-02 16:00:49.5402669 +00:00')
+INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('fa0680a6-8072-ed11-835f-02f176033ddb', '60f34af4-7d72-ed11-835f-02f176033ddb', N'item-hierarchy-details', N'Item hierarchy details', N'{
+    "defaultValue": {}
+}', N'<cr-item-hierarchy-details
+    [class]=''{{classes}}''
+    (onCreateImage)="self.onCreateImagePopup()"
+    (onUpdateImage)="self.onUpdateImagePopup($event)"
+    (onDeleteImage)="self.onDeleteImagePopup($event)"
+></cr-item-hierarchy-details>
+', '2022-12-02 20:50:25.3700000 +00:00', 2, N'N', '567cd120-e9d3-4ab3-b1ea-f8a10b0d6bf9', 1, NULL, '2022-12-02 20:34:00.3142010 +00:00')
 INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('983fe7fc-e84e-ed11-8e5d-4ccc6a2bb6d6', '373c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'partner-list-first-name', N'First name', N'{
     "defaultValue": {
         "isUseTranslateKey": true,
@@ -3438,113 +3139,6 @@ INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebComponentID], [Code], [N
     [class]=''{{classes}}''
     [(dataValue)]="self.partnerListFilter.showDeleted"
 ></cr-checkbox-control>', '2022-03-02 15:28:22.7366667 +00:00', 6, N'N', 'edb0be6c-f7a4-48ab-88bd-c810caef6b9e', 1, NULL, '2022-09-28 17:31:50.0946998 +03:00')
-INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('9b3fe7fc-e84e-ed11-8e5d-4ccc6a2bb6d6', '393c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'partner-list-grid', N'Partner list grid', N'{
-    "defaultValue": {},
-    "fieldSettings": {
-        "grid": {
-            "uniqueField": "id",
-            "columns": [
-                {
-                    "field": "partnerCode",
-                    "titleTranslateKey": "PARTNER.GRID.CODE",
-                    "type": "link",
-                    "autoFit": true
-                },
-                {
-                    "field": "partnerType",
-                    "titleTranslateKey": "PARTNER.GRID.TYPE",
-                    "type": "text",
-                    "width": "120px"
-                },
-                {
-                    "field": "firstName",
-                    "titleTranslateKey": "PARTNER.GRID.FIRST_NAME",
-                    "type": "text"
-                },
-                {
-                    "field": "lastName",
-                    "titleTranslateKey": "PARTNER.GRID.LAST_NAME",
-                    "type": "text"
-                },
-                {
-                    "field": "passport",
-                    "titleTranslateKey": "PARTNER.GRID.PASSPORT",
-                    "type": "text",
-                    "width": "150px"
-                },
-                {
-                    "field": "phone1",
-                    "titleTranslateKey": "PARTNER.GRID.PHONE",
-                    "type": "text",
-                    "width": "170px"
-                },
-                {
-                    "field": "partnerGroups",
-                    "titleTranslateKey": "PARTNER.GRID.GROUPS",
-                    "type": "text"
-                },
-                {
-                    "field": "isValid",
-                    "titleTranslateKey": "PARTNER.GRID.VALID",
-                    "type": "boolean",
-                    "autoFit": true
-                },
-                {
-                    "field": "balance",
-                    "titleTranslateKey": "PARTNER.GRID.BALANCE",
-                    "type": "decimal",
-                    "width": "120px"
-                },
-                {
-                    "field": "registrationDate",
-                    "titleTranslateKey": "PARTNER.GRID.REGISTRATION_DATE",
-                    "type": "date",
-                    "autoFit": true
-                },
-                {
-                    "field": "isDeleted",
-                    "titleTranslateKey": "PARTNER.GRID.IS_DELETED",
-                    "type": "boolean",
-                    "autoFit": true
-                }
-            ],
-            "previewDataSource": {
-                "responseList": [
-                    {
-                        "id": 1,
-                        "partnerCode": "code",
-                        "partnerType": "Customer",
-                        "firstName": "Yura",
-                        "lastName": "Prisyazhnyy",
-                        "passport": "1124444",
-                        "phone1": "+380666876892",
-                        "partnerGroups": "test1, test2",
-                        "isValid": true,
-                        "balance": 20,
-                        "registrationDate": "2022-01-01T00:00:00Z",
-                        "isDeleted": false
-                    }
-                ],
-                "page": 1,
-                "size": 5,
-                "totalElements": 1
-            }
-        }
-    }
-}', N'<div class="cr-grid-wrapper-new">
-    <cr-edit-grid-server-paging
-        (cellClickEvent)="self.cellClick($event)"
-        (pageChangeEvent)="self.changePage($event)"
-        [columnSettings]="self.columnSettings"
-        [dataCacheName]="''partnerGrid''"
-        [dataSource]="self.dataSource"
-        [elementName]="''edit-grid-server-paging:Partner_list.Grid''"
-        [pageable]="true"
-        [resizable]="true"
-        [uniqueField]="''id''"
-        [class]="{{classes}}"
-      ></cr-edit-grid-server-paging>
-</div>', '2022-11-18 16:03:34.8433333 +00:00', 13, N'N', '97acb57d-19d4-4e8d-8cb6-020bf97b389c', 1, NULL, '2022-09-28 17:31:50.0946998 +03:00')
 INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('9c3fe7fc-e84e-ed11-8e5d-4ccc6a2bb6d6', '3a3c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'partner-list-search', N'Search', N'{
     "defaultValue": {
         "isUseTranslateKey": true,
@@ -4339,22 +3933,6 @@ INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebComponentID], [Code], [N
     [class]=''{{classes}}'' 
     [isDisabled]="!self.partnerDetails.isFrozen || {{disabled}}"
 ></cr-control-datepicker>', '2022-11-18 15:00:37.9266667 +00:00', 6, N'N', '214c8033-14eb-42b4-9cb2-6e280551f113', 1, NULL, '2022-09-28 17:31:50.0946998 +03:00')
-INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('c13fe7fc-e84e-ed11-8e5d-4ccc6a2bb6d6', '403c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'partner-details-mailing-categories', N'Mailing categories', N'{
-    "defaultValue": {
-        "editIcon": "icon-edit",
-        "editable": true
-    }
-}', N'<cr-partner-mailing-category-control
-    [editable]="{{editable}} && (self.isNew ? 
-            self.authService.getEndpointAccessGranted(self.EndpointName.partner_POST) :
-            self.authService.getEndpointAccessGranted(self.EndpointName.partner_id_PUT))"
-
-    [partnerId]="self.partnerDetails.id"
-    [selectedMailingCategory]="self.partnerDetails.mailingCategories"
-    (editClickEvent)="self.onEditMailingCategory()"
-    [class]=''{{classes}}''
-    [editIcon]="{{editIcon}}"
-></cr-partner-mailing-category-control>', '2022-04-21 14:34:20.1033333 +00:00', 5, N'N', '356ce131-b9d4-4bed-8c5e-381069f3c576', 1, NULL, '2022-09-28 17:31:50.0946998 +03:00')
 INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('c23fe7fc-e84e-ed11-8e5d-4ccc6a2bb6d6', '413c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'partner-details-panel', N'test', N'', N'Test', '2022-03-04 15:34:17.2966667 +00:00', 2, N'Y', 'fae2198c-1348-4345-994c-5026bcb99def', 1, NULL, '2022-09-28 17:31:50.0946998 +03:00')
 INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('c33fe7fc-e84e-ed11-8e5d-4ccc6a2bb6d6', '3d3c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'partner-details-price-list', N'Price list', N'{
     "defaultValue": {
@@ -4626,25 +4204,6 @@ INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebComponentID], [Code], [N
     [class]=''{{classes}}'' 
     [isDisabled]="{{disabled}}"
 ></cr-control-datepicker>', '2022-04-21 13:13:50.8966667 +00:00', 3, N'N', '46d4b12a-e30d-4812-82ff-3824ef3a13bd', 1, NULL, '2022-09-28 17:31:50.0946998 +03:00')
-INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('cf3fe7fc-e84e-ed11-8e5d-4ccc6a2bb6d6', '423c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'partner-details-groups', N'Partner groups', N'{
-    "defaultValue": {
-        "editIcon": "icon-edit",
-        "editable": true
-    },
-    "fieldSettings": {
-        "validationField": "partnerGroups"
-    }
-}', N'<cr-partner-group-control
-    [editable]="{{editable}} && (self.isNew ? 
-            self.authService.getEndpointAccessGranted(self.EndpointName.partner_POST) :
-            self.authService.getEndpointAccessGranted(self.EndpointName.partner_id_PUT))"
-
-    [partnerId]="self.partnerDetails.id"
-    [selectedGroups]="self.partnerDetails.partnerGroups"
-    [class]=''{{classes}}''
-    [editIcon]="{{editIcon}}"
-    (editClickEvent)="self.onEditPartnerGroup()"
-></cr-partner-group-control>', '2022-11-21 12:52:29.4433333 +00:00', 5, N'N', '27ae85eb-0c0c-4211-a669-7a1a469b144f', 1, NULL, '2022-09-28 17:31:50.0946998 +03:00')
 INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('d03fe7fc-e84e-ed11-8e5d-4ccc6a2bb6d6', '433c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'partner-details-addresses', N'Partner addresses', N'{
     "defaultValue": {
         "editable": true
@@ -4827,56 +4386,6 @@ INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebComponentID], [Code], [N
     (buttonClickEvent)="self.changeFilter()"
     *ngIf="(self.EndpointName.tax_group_GET | endpointAccessGrantedPipe)"
 ></cr-button-control>', '2022-10-05 15:49:57.1014460 +03:00', 1, N'N', '42bfd7c1-c17f-4a7e-9825-42c7289f5e73', 1, NULL, '2022-10-05 15:49:57.1014460 +03:00')
-INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('df3fe7fc-e84e-ed11-8e5d-4ccc6a2bb6d6', '393c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'vat-groups-list-grid', N'VAT groups list', N'{
-    "defaultValue": {},
-    "fieldSettings": {
-        "grid": {
-            "uniqueField": "id",
-            "previewDataSource": {
-                "responseList": [
-                    {
-                        "id": 1,
-                        "code": "Foo 1",
-                        "name": "Bar 1"
-                    },
-                    {
-                        "id": 2,
-                        "code": "Foo 2",
-                        "name": "Bar 2"
-                    }
-                ],
-                "page": 1,
-                "size": 5,
-                "totalElements": 5
-            },
-            "columns": [
-                {
-                    "title": "Code",
-                    "field": "code",
-                    "type": "text"
-                },
-                {
-                    "title": "Name",
-                    "field": "name",
-                    "type": "text"
-                }
-            ]
-        }
-    }
-}', N'<div class="cr-grid-wrapper-new">
-    <cr-edit-grid-server-paging
-        (cellClickEvent)="self.cellClick($event)"
-        (pageChangeEvent)="self.changePage($event)"
-        [columnSettings]="self.columnSettings"
-        [dataCacheName]="''TaxGroupGrid''"
-        [dataSource]="self.gridData"
-        [elementName]="''edit-grid-server-paging:TaxGroup_list.Grid''"
-        [pageable]="true"
-        [resizable]="true"
-        [uniqueField]="''id''"
-        [class]="{{classes}}"
-      ></cr-edit-grid-server-paging>
-</div>', '2022-11-28 10:55:25.8233333 +00:00', 5, N'N', 'c632d8fa-c1bc-4453-b65e-15e0bbf946d0', 1, NULL, '2022-10-05 15:54:13.4471104 +03:00')
 INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('e03fe7fc-e84e-ed11-8e5d-4ccc6a2bb6d6', '3c3c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'vat-group-details-title-header', N'Header', N'{
     "defaultValue": {
         "isUseTranslateKey": true,
@@ -5204,89 +4713,6 @@ INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebComponentID], [Code], [N
     (buttonClickEvent)="self.changeFilter()"
     *ngIf="(self.EndpointName.item_GET | endpointAccessGrantedPipe)"
 ></cr-button-control>', '2022-11-15 17:05:13.4500000 +00:00', 2, N'N', 'a95614b3-6ca5-47f9-b691-aa2bd54c1679', 1, NULL, '2022-11-15 16:13:27.4317309 +02:00')
-INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('c43a9aff-f064-ed11-8e60-4ccc6a2bb6d6', '393c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'item-list-grid', N'Item list grid', N'{
-    "defaultValue": {},
-    "fieldSettings": {
-        "grid": {
-            "uniqueField": "id",
-            "previewDataSource": {
-                "responseList": [
-                    {
-                        "id": 1,
-                        "code": "Item code",
-                        "shortDisplayName": "Item name",
-                        "defaultBarcode": "0014342422",
-                        "itemModel": {
-                            "id": 1,
-                            "code": "Item model",
-                            "name": "Item model"
-                        },
-                        "createDate": "2022-03-20T20:00:00Z",
-                        "isDeleted": false,
-                        "isFrozen": false
-                    }
-                ],
-                "page": 1,
-                "size": 5,
-                "totalElements": 1
-            },
-            "columns": [
-                {
-                    "titleTranslateKey": "ITEM.LIST.GRID.CODE",
-                    "field": "code",
-                    "type": "link",
-                    "autoFit": true
-                },
-                {
-                    "titleTranslateKey": "ITEM.LIST.GRID.SHORT_DISPLAY_NAME",
-                    "field": "shortDisplayName",
-                    "type": "text"
-                },
-                {
-                    "titleTranslateKey": "ITEM.LIST.GRID.BARCODE",
-                    "field": "defaultBarcode",
-                    "type": "text"
-                },
-                {
-                    "titleTranslateKey": "ITEM.LIST.GRID.MODEL_CODE",
-                    "field": "itemModel.code",
-                    "type": "text"
-                },
-                {
-                    "titleTranslateKey": "ITEM.LIST.GRID.CREATION_DATE",
-                    "field": "createDate",
-                    "type": "date",
-                    "autoFit": true
-                },
-                {
-                    "titleTranslateKey": "ITEM.LIST.GRID.DELETED",
-                    "field": "isDeleted",
-                    "type": "boolean",
-                    "autoFit": true
-                },
-                {
-                    "titleTranslateKey": "ITEM.LIST.GRID.FROZEN",
-                    "field": "isFrozen",
-                    "type": "boolean",
-                    "autoFit": true
-                }
-            ]
-        }
-    }
-}', N'<div class="cr-grid-wrapper-new">
-    <cr-edit-grid-server-paging
-        [elementName]="''edit-grid-server-paging:Item_list.Grid''"
-        [dataCacheName]="''ItemListGrid''"
-        (cellClickEvent)="self.cellClick($event)"
-        (pageChangeEvent)="self.changePage($event)"
-        [columnSettings]="self.columnSettings"
-        [dataSource]="self.gridData"
-        [pageable]="true"
-        [resizable]="true"
-        [uniqueField]="''id''"
-        [class]="{{classes}}"
-      ></cr-edit-grid-server-paging>
-</div>', '2022-11-28 10:54:54.8166667 +00:00', 6, N'N', '493deeb7-b64c-4edb-9cb5-4988b021e1ab', 1, NULL, '2022-11-15 16:22:57.1579716 +02:00')
 INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('1af3e0a2-fc64-ed11-8e60-4ccc6a2bb6d6', '3c3c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'item-details-title-header', N'Header', N'{
     "defaultValue": {
         "isUseTranslateKey": true,
@@ -5658,3 +5084,808 @@ INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebComponentID], [Code], [N
     [label]="{{label}}"
     [class]=''{{classes}}''
 ></cr-dropdown-smart-control>', '2022-11-25 09:48:59.3733333 +00:00', 3, N'N', 'd45337c9-1f66-49f6-9edb-e092945a2cd1', 1, NULL, '2022-11-15 18:57:39.2067900 +02:00')
+INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('7952759e-cd6d-ed11-835f-02f176033ddb', '393c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'user-list-grid', N'User list grid', N'{
+    "defaultValue": {
+        "dynamicColumnSettings": [
+                {
+                    "field": "login",
+                    "titleTranslateKey": "USER.LIST.GRID.LOGIN",
+                    "hidden": false
+                },
+                {
+                    "field": "firstName",
+                    "titleTranslateKey": "USER.LIST.GRID.FIRST_NAME",
+                    "hidden": false
+                },
+                {
+                    "field": "lastName",
+                    "titleTranslateKey": "USER.LIST.GRID.LAST_NAME",
+                    "hidden": false
+                },
+                {
+                    "field": "roles",
+                    "titleTranslateKey": "USER.LIST.GRID.USER_ROLE",
+                    "hidden": false
+                },
+                {
+                    "field": "mobile",
+                    "titleTranslateKey": "USER.LIST.GRID.MOBILE",
+                    "hidden": false
+                },
+                {
+                    "field": "email",
+                    "titleTranslateKey": "USER.LIST.GRID.EMAIL",
+                    "hidden": false
+                },
+                {
+                    "field": "isDeleted",
+                    "titleTranslateKey": "USER.LIST.GRID.IS_DELETED",
+                    "hidden": false
+                }
+            ]
+    },
+    "fieldSettings": {
+        "grid": {
+            "uniqueField": "id",
+            "columns": [
+                {
+                    "field": "login",
+                    "titleTranslateKey": "USER.LIST.GRID.LOGIN",
+                    "type": "link"
+                },
+                {
+                    "field": "firstName",
+                    "titleTranslateKey": "USER.LIST.GRID.FIRST_NAME",
+                    "type": "text"
+                },
+                {
+                    "field": "lastName",
+                    "titleTranslateKey": "USER.LIST.GRID.LAST_NAME",
+                    "type": "text"
+                },
+                {
+                    "field": "roles",
+                    "titleTranslateKey": "USER.LIST.GRID.USER_ROLE",
+                    "type": "text"
+                },
+                {
+                    "field": "mobile",
+                    "titleTranslateKey": "USER.LIST.GRID.MOBILE",
+                    "type": "text"
+                },
+                {
+                    "field": "email",
+                    "titleTranslateKey": "USER.LIST.GRID.EMAIL",
+                    "type": "text"
+                },
+                {
+                    "field": "isDeleted",
+                    "titleTranslateKey": "USER.LIST.GRID.IS_DELETED",
+                    "type": "boolean",
+                    "autoFit": true
+                }
+            ],
+            "previewDataSource": {
+                "responseList": [
+                    {
+                        "id": 1,
+                        "login": "login",
+                        "firstName": "Yura",
+                        "lastName": "Prisyazhnyy",
+                        "roles": "Admin",
+                        "mobile": "+380666876892",
+                        "email": "cssuperpy@gmail.com",
+                        "isDeleted": false
+                    }
+                ],
+                "page": 1,
+                "size": 5,
+                "totalElements": 1
+            }
+        }
+    }
+}', N'<div class="cr-grid-wrapper-new">
+    <cr-edit-grid-server-paging
+        (cellClickEvent)="self.cellClick($event)"
+        (pageChangeEvent)="self.changePage($event)"
+        [columnSettings]=''self.columnSettings | dynamicColumnSettings:{{dynamicColumnSettings}}''
+        [dataSource]="self.dataSource"
+        [elementName]="''edit-grid-server-paging:User_list.Grid''"
+        [pageable]="true"
+        [resizable]="true"
+        [uniqueField]="''id''"
+        [dataCacheName]="''user-grid-cache''"
+        [class]=''{{classes}}''
+    ></cr-edit-grid-server-paging>
+</div>', '2022-12-07 10:16:11.3566667 +00:00', 4, N'N', '5feaa1f2-0046-4f50-b8c7-3fa4d8c2bcca', 1, NULL, '2022-11-26 21:02:22.2565625 +00:00')
+INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('62a25693-0b6f-ed11-835f-02f176033ddb', '393c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'user-details-roles-grid', N'User roles', N'{
+    "defaultValue": {
+        "dynamicColumnSettings": [
+                {
+                    "field": "name",
+                    "titleTranslateKey": "USER.DETAILS.ROLES.GRID.NAME",
+                    "hidden": false
+                }
+            ]
+    },
+    "fieldSettings": {
+        "grid": {
+            "uniqueField": "id",
+            "columns": [
+                {
+                    "field": "name",
+                    "titleTranslateKey": "USER.DETAILS.ROLES.GRID.NAME",
+                    "type": "text"
+                }
+            ],
+            "previewDataSource": {
+                "responseList": [
+                    {
+                        "id": 1,
+                        "name": "Admin"
+                    }
+                ],
+                "page": 1,
+                "size": 5,
+                "totalElements": 1
+            }
+        }
+    }
+}', N'<div class="cr-grid-wrapper-new">
+    <cr-user-details-role-list 
+        [roles]="self.userDetail.roles" 
+        [class]=''{{classes}}''
+        [dynamicGridColumnSettings]=''{{dynamicColumnSettings}}''
+    ></cr-user-details-role-list>
+</div>', '2022-12-07 10:16:58.9800000 +00:00', 4, N'N', '6b41b994-910e-4f51-8f9c-749115acdc5e', 1, NULL, '2022-11-28 10:58:23.5605218 +00:00')
+INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('e76f4d36-c16f-ed11-835f-02f176033ddb', '393c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'employee-list-grid', N'Employees grid', N'{
+    "defaultValue": {
+        "dynamicColumnSettings": [
+                {
+                    "field": "number",
+                    "titleTranslateKey": "EMPLOYEE.LIST.GRID.NUMBER",
+                    "hidden": false
+                },
+                {
+                    "field": "firstName",
+                    "titleTranslateKey": "EMPLOYEE.LIST.GRID.FIRST_NAME",
+                    "hidden": false
+                },
+                {
+                    "field": "lastName",
+                    "titleTranslateKey": "EMPLOYEE.LIST.GRID.LAST_NAME",
+                    "hidden": false
+                },
+                {
+                    "field": "isFrozen",
+                    "titleTranslateKey": "EMPLOYEE.LIST.GRID.FROZEN",
+                    "hidden": false
+                },
+                {
+                    "field": "isDeleted",
+                    "titleTranslateKey": "EMPLOYEE.LIST.GRID.SHOW_DELETED",
+                    "hidden": false
+                }
+            ]
+    },
+    "fieldSettings": {
+        "grid": {
+            "uniqueField": "id",
+            "columns": [
+                {
+                    "field": "number",
+                    "titleTranslateKey": "EMPLOYEE.LIST.GRID.NUMBER",
+                    "type": "link",
+                    "width": "160px"
+                },
+                {
+                    "field": "firstName",
+                    "titleTranslateKey": "EMPLOYEE.LIST.GRID.FIRST_NAME",
+                    "type": "text"
+                },
+                {
+                    "field": "lastName",
+                    "titleTranslateKey": "EMPLOYEE.LIST.GRID.LAST_NAME",
+                    "type": "text"
+                },
+                {
+                    "field": "isFrozen",
+                    "titleTranslateKey": "EMPLOYEE.LIST.GRID.FROZEN",
+                    "type": "boolean",
+                    "autoFit": true
+                },
+                {
+                    "field": "isDeleted",
+                    "titleTranslateKey": "EMPLOYEE.LIST.GRID.SHOW_DELETED",
+                    "type": "boolean",
+                    "autoFit": true
+                }
+            ],
+            "previewDataSource": {
+                "responseList": [
+                    {
+                        "id": 1,
+                        "number": "24422",
+                        "firstName": "Yura",
+                        "lastName": "Prisyazhnyy",
+                        "isFrozen": false,
+                        "isDeleted": false
+                    }
+                ],
+                "page": 1,
+                "size": 5,
+                "totalElements": 1
+            }
+        }
+    }
+}', N'<div class="cr-grid-wrapper-new">
+    <cr-edit-grid-server-paging
+        (cellClickEvent)="self.cellClick($event)"
+        (pageChangeEvent)="self.changePage($event)"
+        [columnSettings]=''self.columnSettings | dynamicColumnSettings:{{dynamicColumnSettings}}''
+        [dataCacheName]="''EmployeeListGrid''"
+        [dataSource]="self.gridData"
+        [elementName]="''edit-grid-server-paging:Employee_list.Grid''"
+        [pageable]="true"
+        [resizable]="true"
+        [uniqueField]="''id''"
+        [class]=''{{classes}}''
+    ></cr-edit-grid-server-paging>
+</div>', '2022-12-07 10:18:27.8500000 +00:00', 2, N'N', '6d31e1c2-fcc4-4148-a293-cc44a331b2a2', 1, NULL, '2022-11-29 08:38:35.8769255 +00:00')
+INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('366ae86d-e76f-ed11-835f-02f176033ddb', '393c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'employee-details-cards', N'Cards', N'{
+    "defaultValue": {
+        "dynamicColumnSettings": [
+            {
+                "field": "cardNumber",
+                "titleTranslateKey": "EMPLOYEE.DETAILS.CARDS.NUMBER_OF_CARDS",
+                "hidden": false
+            }
+        ]
+    },
+    "fieldSettings": {
+        "grid": {
+            "uniqueField": "id",
+            "columns": [
+                {
+                    "field": "cardNumber",
+                    "titleTranslateKey": "EMPLOYEE.DETAILS.CARDS.NUMBER_OF_CARDS",
+                    "type": "numeric",
+                    "format": "#",
+                    "decimals": 0
+                }
+            ],
+            "previewDataSource": {
+                "responseList": [
+                    {
+                        "id": 1,
+                        "cardNumber": "24422"
+                    }
+                ],
+                "page": 1,
+                "size": 5,
+                "totalElements": 1
+            }
+        }
+    }
+}', N'<cr-employee-details-card-number
+    [employeeId]="self.employee.id"
+    [isDeletedEmployee]="self.employee.isDeleted"
+    [isNewEmployee]="self.isNewEmployee"
+    [class]=''{{classes}}''
+    [dynamicGridColumnSettings]=''{{dynamicColumnSettings}}''
+></cr-employee-details-card-number>', '2022-12-07 10:19:58.4600000 +00:00', 2, N'N', '5af879de-8250-4039-81e5-53b417ba9c01', 1, NULL, '2022-11-29 13:12:10.0430006 +00:00')
+INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('ef7c9441-7d71-ed11-835f-02f176033ddb', '393c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'partner-group-list-grid', N'Partner groups', N'{
+    "defaultValue": {
+        "dynamicColumnSettings": [
+                {
+                    "field": "code",
+                    "titleTranslateKey": "PARTNER_GROUP.GRID.CODE",
+                    "hidden": false
+                },
+                {
+                    "field": "displayName",
+                    "titleTranslateKey": "PARTNER_GROUP.GRID.NAME",
+                    "hidden": false
+                },
+                {
+                    "field": "useRFM",
+                    "titleTranslateKey": "PARTNER_GROUP.GRID.RFM",
+                    "hidden": false
+                },
+                {
+                    "field": "frequency",
+                    "titleTranslateKey": "PARTNER_GROUP.GRID.FREQUENCY",
+                    "hidden": false
+                },
+                {
+                    "field": "recency",
+                    "titleTranslateKey": "PARTNER_GROUP.GRID.RECENCY",
+                    "hidden": false
+                },
+                {
+                    "field": "monetary",
+                    "titleTranslateKey": "PARTNER_GROUP.GRID.MONETARY",
+                    "hidden": false
+                },
+                {
+                    "field": "creationDate",
+                    "titleTranslateKey": "PARTNER_GROUP.GRID.CREATION_DATE",
+                    "hidden": false
+                },
+                {
+                    "field": "updateDate",
+                    "titleTranslateKey": "PARTNER_GROUP.GRID.UPDATE_DATE",
+                    "hidden": false
+                },
+                {
+                    "field": "isDeleted",
+                    "titleTranslateKey": "PARTNER_GROUP.GRID.IS_DELETED",
+                    "hidden": false
+                }
+            ]
+    },
+    "fieldSettings": {
+        "grid": {
+            "uniqueField": "id",
+            "columns": [
+                {
+                    "field": "code",
+                    "titleTranslateKey": "PARTNER_GROUP.GRID.CODE",
+                    "type": "link",
+                    "autoFit": true
+                },
+                {
+                    "field": "displayName",
+                    "titleTranslateKey": "PARTNER_GROUP.GRID.NAME",
+                    "type": "text",
+                    "width": "160px"
+                },
+                {
+                    "field": "useRFM",
+                    "titleTranslateKey": "PARTNER_GROUP.GRID.RFM",
+                    "type": "boolean",
+                    "autoFit": true
+                },
+                {
+                    "field": "frequency",
+                    "titleTranslateKey": "PARTNER_GROUP.GRID.FREQUENCY",
+                    "type": "text",
+                    "width": "100px"
+                },
+                {
+                    "field": "recency",
+                    "titleTranslateKey": "PARTNER_GROUP.GRID.RECENCY",
+                    "type": "text",
+                    "width": "100px"
+                },
+                {
+                    "field": "monetary",
+                    "titleTranslateKey": "PARTNER_GROUP.GRID.MONETARY",
+                    "type": "text",
+                    "width": "100px"
+                },
+                {
+                    "field": "creationDate",
+                    "titleTranslateKey": "PARTNER_GROUP.GRID.CREATION_DATE",
+                    "type": "date",
+                    "autoFit": true
+                },
+                {
+                    "field": "updateDate",
+                    "titleTranslateKey": "PARTNER_GROUP.GRID.UPDATE_DATE",
+                    "type": "date",
+                    "autoFit": true
+                },
+                {
+                    "field": "isDeleted",
+                    "titleTranslateKey": "PARTNER_GROUP.GRID.IS_DELETED",
+                    "type": "boolean",
+                    "autoFit": true
+                }
+            ],
+            "previewDataSource": {
+                "responseList": [
+                    {
+                        "id": 1,
+                        "code": "code",
+                        "displayName": "Group 1",
+                        "useRFM": true,
+                        "frequency": "test",
+                        "recency": "test",
+                        "monetary": "test",
+                        "creationDate": "2022-01-01T00:00:00Z",
+                        "updateDate": "2022-01-01T00:00:00Z",
+                        "isDeleted": false
+                    }
+                ],
+                "page": 1,
+                "size": 5,
+                "totalElements": 1
+            }
+        }
+    }
+}', N'<div class="cr-grid-wrapper-new">
+    <cr-edit-grid-server-paging
+        (cellClickEvent)="self.cellClick($event)"
+        (pageChangeEvent)="self.changePage($event)"
+        [columnSettings]="self.columnSettings"
+        [dataCacheName]="''partnerGroupListGrid''"
+        [dataSource]="self.gridData"
+        [elementName]="''edit-grid-server-paging:Partner_group.Grid''"
+        [pageable]="true"
+        [resizable]="true"
+        [uniqueField]="''id''"
+    ></cr-edit-grid-server-paging>
+</div>', '2022-12-07 10:27:31.4933333 +00:00', 2, N'N', '2a8fdb74-a2f6-434d-8b63-21f6d4654e93', 1, NULL, '2022-12-01 13:37:11.3454447 +00:00')
+INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('9b3fe7fc-e84e-ed11-8e5d-4ccc6a2bb6d6', '393c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'partner-list-grid', N'Partner list grid', N'{
+    "defaultValue": {
+        "dynamicColumnSettings": [
+            {
+                "field": "partnerCode",
+                "titleTranslateKey": "PARTNER.GRID.CODE",
+                "hidden": false
+            },
+            {
+                "field": "partnerType",
+                "titleTranslateKey": "PARTNER.GRID.TYPE",
+                "hidden": false
+            },
+            {
+                "field": "firstName",
+                "titleTranslateKey": "PARTNER.GRID.FIRST_NAME",
+                "hidden": false
+            },
+            {
+                "field": "lastName",
+                "titleTranslateKey": "PARTNER.GRID.LAST_NAME",
+                "hidden": false
+            },
+            {
+                "field": "passport",
+                "titleTranslateKey": "PARTNER.GRID.PASSPORT",
+                "type": "text",
+                "hidden": false
+            },
+            {
+                "field": "phone1",
+                "titleTranslateKey": "PARTNER.GRID.PHONE",
+                "hidden": false
+            },
+            {
+                "field": "partnerGroups",
+                "titleTranslateKey": "PARTNER.GRID.GROUPS",
+                "hidden": false
+            },
+            {
+                "field": "isValid",
+                "titleTranslateKey": "PARTNER.GRID.VALID",
+                "hidden": false
+            },
+            {
+                "field": "balance",
+                "titleTranslateKey": "PARTNER.GRID.BALANCE",
+                "hidden": false
+            },
+            {
+                "field": "registrationDate",
+                "titleTranslateKey": "PARTNER.GRID.REGISTRATION_DATE",
+                "hidden": false
+            },
+            {
+                "field": "isDeleted",
+                "titleTranslateKey": "PARTNER.GRID.IS_DELETED",
+                "hidden": false
+            }
+        ]
+    },
+    "fieldSettings": {
+        "grid": {
+            "uniqueField": "id",
+            "columns": [
+                {
+                    "field": "partnerCode",
+                    "titleTranslateKey": "PARTNER.GRID.CODE",
+                    "type": "link",
+                    "autoFit": true
+                },
+                {
+                    "field": "partnerType",
+                    "titleTranslateKey": "PARTNER.GRID.TYPE",
+                    "type": "text",
+                    "width": "120px"
+                },
+                {
+                    "field": "firstName",
+                    "titleTranslateKey": "PARTNER.GRID.FIRST_NAME",
+                    "type": "text"
+                },
+                {
+                    "field": "lastName",
+                    "titleTranslateKey": "PARTNER.GRID.LAST_NAME",
+                    "type": "text"
+                },
+                {
+                    "field": "passport",
+                    "titleTranslateKey": "PARTNER.GRID.PASSPORT",
+                    "type": "text",
+                    "width": "150px"
+                },
+                {
+                    "field": "phone1",
+                    "titleTranslateKey": "PARTNER.GRID.PHONE",
+                    "type": "text",
+                    "width": "170px"
+                },
+                {
+                    "field": "partnerGroups",
+                    "titleTranslateKey": "PARTNER.GRID.GROUPS",
+                    "type": "text"
+                },
+                {
+                    "field": "isValid",
+                    "titleTranslateKey": "PARTNER.GRID.VALID",
+                    "type": "boolean",
+                    "autoFit": true
+                },
+                {
+                    "field": "balance",
+                    "titleTranslateKey": "PARTNER.GRID.BALANCE",
+                    "type": "decimal",
+                    "width": "120px"
+                },
+                {
+                    "field": "registrationDate",
+                    "titleTranslateKey": "PARTNER.GRID.REGISTRATION_DATE",
+                    "type": "date",
+                    "autoFit": true
+                },
+                {
+                    "field": "isDeleted",
+                    "titleTranslateKey": "PARTNER.GRID.IS_DELETED",
+                    "type": "boolean",
+                    "autoFit": true
+                }
+            ],
+            "previewDataSource": {
+                "responseList": [
+                    {
+                        "id": 1,
+                        "partnerCode": "code",
+                        "partnerType": "Customer",
+                        "firstName": "Yura",
+                        "lastName": "Prisyazhnyy",
+                        "passport": "1124444",
+                        "phone1": "+380666876892",
+                        "partnerGroups": "test1, test2",
+                        "isValid": true,
+                        "balance": 20,
+                        "registrationDate": "2022-01-01T00:00:00Z",
+                        "isDeleted": false
+                    }
+                ],
+                "page": 1,
+                "size": 5,
+                "totalElements": 1
+            }
+        }
+    }
+}', N'<div class="cr-grid-wrapper-new">
+    <cr-edit-grid-server-paging
+        (cellClickEvent)="self.cellClick($event)"
+        (pageChangeEvent)="self.changePage($event)"
+        [columnSettings]=''self.columnSettings | dynamicColumnSettings:{{dynamicColumnSettings}}''
+        [dataCacheName]="''partnerGrid''"
+        [dataSource]="self.dataSource"
+        [elementName]="''edit-grid-server-paging:Partner_list.Grid''"
+        [pageable]="true"
+        [resizable]="true"
+        [uniqueField]="''id''"
+        [class]="{{classes}}"
+      ></cr-edit-grid-server-paging>
+</div>', '2022-12-07 10:11:08.8266667 +00:00', 16, N'N', '27c992ae-53b7-46dc-b28e-c4ce901ad3ea', 1, NULL, '2022-09-28 17:31:50.0946998 +03:00')
+INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('c13fe7fc-e84e-ed11-8e5d-4ccc6a2bb6d6', '403c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'partner-details-mailing-categories', N'Mailing categories', N'{
+    "defaultValue": {
+        "editIcon": "icon-edit",
+        "editable": true
+    }
+}', N'<cr-partner-mailing-category-control
+    [editable]="{{editable}} && (self.isNew ? 
+            self.authService.getEndpointAccessGranted(self.EndpointName.partner_POST) :
+            self.authService.getEndpointAccessGranted(self.EndpointName.partner_id_PUT))"
+
+    [partnerId]="self.partnerDetails.id"
+    [(selectedMailingCategory)]="self.partnerDetails.mailingCategories"
+    (editClickEvent)="self.onEditMailingCategory()"
+    [class]=''{{classes}}''
+    [editIcon]="{{editIcon}}"
+></cr-partner-mailing-category-control>', '2022-12-07 15:21:02.4166667 +00:00', 6, N'N', '32b85b02-2796-40a7-a8e5-c8630d20293b', 1, NULL, '2022-09-28 17:31:50.0946998 +03:00')
+INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('cf3fe7fc-e84e-ed11-8e5d-4ccc6a2bb6d6', '423c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'partner-details-groups', N'Partner groups', N'{
+    "defaultValue": {
+        "editIcon": "icon-edit",
+        "editable": true
+    },
+    "fieldSettings": {
+        "validationField": "partnerGroups"
+    }
+}', N'<cr-partner-group-control
+    [editable]="{{editable}} && (self.isNew ? 
+            self.authService.getEndpointAccessGranted(self.EndpointName.partner_POST) :
+            self.authService.getEndpointAccessGranted(self.EndpointName.partner_id_PUT))"
+
+    [partnerId]="self.partnerDetails.id"
+    [(selectedGroups)]="self.partnerDetails.partnerGroups"
+    [class]=''{{classes}}''
+    [editIcon]="{{editIcon}}"
+    (editClickEvent)="self.onEditPartnerGroup()"
+></cr-partner-group-control>', '2022-12-08 08:56:02.6933333 +00:00', 6, N'N', 'ab0985df-6850-4b65-8b29-76260a98d55f', 1, NULL, '2022-09-28 17:31:50.0946998 +03:00')
+INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('df3fe7fc-e84e-ed11-8e5d-4ccc6a2bb6d6', '393c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'vat-groups-list-grid', N'VAT groups list', N'{
+    "defaultValue": {},
+    "fieldSettings": {
+        "grid": {
+            "uniqueField": "id",
+            "previewDataSource": {
+                "responseList": [
+                    {
+                        "id": 1,
+                        "code": "Foo 1",
+                        "name": "Bar 1"
+                    },
+                    {
+                        "id": 2,
+                        "code": "Foo 2",
+                        "name": "Bar 2"
+                    }
+                ],
+                "page": 1,
+                "size": 5,
+                "totalElements": 5
+            },
+            "columns": [
+                {
+                    "title": "Code",
+                    "field": "code",
+                    "type": "text"
+                },
+                {
+                    "title": "Name",
+                    "field": "name",
+                    "type": "text"
+                }
+            ]
+        }
+    }
+}', N'<div class="cr-grid-wrapper-new">
+    <cr-edit-grid-server-paging
+        (cellClickEvent)="self.cellClick($event)"
+        (pageChangeEvent)="self.changePage($event)"
+        [columnSettings]=''self.columnSettings''
+        [dataCacheName]="''TaxGroupGrid''"
+        [dataSource]="self.gridData"
+        [elementName]="''edit-grid-server-paging:TaxGroup_list.Grid''"
+        [pageable]="true"
+        [resizable]="true"
+        [uniqueField]="''id''"
+        [class]="{{classes}}"
+      ></cr-edit-grid-server-paging>
+</div>', '2022-12-07 09:45:26.0233333 +00:00', 7, N'N', 'd79f76bf-3c7c-47b6-844d-6b5a97c34d56', 1, NULL, '2022-10-05 15:54:13.4471104 +03:00')
+INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('c43a9aff-f064-ed11-8e60-4ccc6a2bb6d6', '393c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'item-list-grid', N'Item list grid', N'{
+    "defaultValue": {
+        "dynamicColumnSettings": [
+                {
+                    "field": "code",
+                    "titleTranslateKey": "ITEM.LIST.GRID.CODE",
+                    "hidden": false
+                },
+                {
+                    "field": "shortDisplayName",
+                    "titleTranslateKey": "ITEM.LIST.GRID.SHORT_DISPLAY_NAME",
+                    "hidden": false
+                },
+                {
+                    "field": "defaultBarcode",
+                    "titleTranslateKey": "ITEM.LIST.GRID.BARCODE",
+                    "hidden": false
+                },
+                {
+                    "field": "itemModel.code",
+                    "titleTranslateKey": "ITEM.LIST.GRID.MODEL_CODE",
+                    "hidden": false
+                },
+                {
+                    "field": "createDate",
+                    "titleTranslateKey": "ITEM.LIST.GRID.CREATION_DATE",
+                    "hidden": false
+                },
+                {
+                    "field": "isDeleted",
+                    "titleTranslateKey": "ITEM.LIST.GRID.DELETED",
+                    "hidden": false
+                },
+                {
+                    "field": "isFrozen",
+                    "titleTranslateKey": "ITEM.LIST.GRID.FROZEN",
+                    "hidden": false
+                }
+            ]
+    },
+    "fieldSettings": {
+        "grid": {
+            "uniqueField": "id",
+            "previewDataSource": {
+                "responseList": [
+                    {
+                        "id": 1,
+                        "code": "Item code",
+                        "shortDisplayName": "Item name",
+                        "defaultBarcode": "0014342422",
+                        "itemModel": {
+                            "id": 1,
+                            "code": "Item model",
+                            "name": "Item model"
+                        },
+                        "createDate": "2022-03-20T20:00:00Z",
+                        "isDeleted": false,
+                        "isFrozen": false
+                    }
+                ],
+                "page": 1,
+                "size": 5,
+                "totalElements": 1
+            },
+            "columns": [
+                {
+                    "titleTranslateKey": "ITEM.LIST.GRID.CODE",
+                    "field": "code",
+                    "type": "link",
+                    "autoFit": true
+                },
+                {
+                    "titleTranslateKey": "ITEM.LIST.GRID.SHORT_DISPLAY_NAME",
+                    "field": "shortDisplayName",
+                    "type": "text"
+                },
+                {
+                    "titleTranslateKey": "ITEM.LIST.GRID.BARCODE",
+                    "field": "defaultBarcode",
+                    "type": "text"
+                },
+                {
+                    "titleTranslateKey": "ITEM.LIST.GRID.MODEL_CODE",
+                    "field": "itemModel.code",
+                    "type": "text"
+                },
+                {
+                    "titleTranslateKey": "ITEM.LIST.GRID.CREATION_DATE",
+                    "field": "createDate",
+                    "type": "date",
+                    "autoFit": true
+                },
+                {
+                    "titleTranslateKey": "ITEM.LIST.GRID.DELETED",
+                    "field": "isDeleted",
+                    "type": "boolean",
+                    "autoFit": true
+                },
+                {
+                    "titleTranslateKey": "ITEM.LIST.GRID.FROZEN",
+                    "field": "isFrozen",
+                    "type": "boolean",
+                    "autoFit": true
+                }
+            ]
+        }
+    }
+}', N'<div class="cr-grid-wrapper-new">
+    <cr-edit-grid-server-paging
+        [elementName]="''edit-grid-server-paging:Item_list.Grid''"
+        [dataCacheName]="''ItemListGrid''"
+        (cellClickEvent)="self.cellClick($event)"
+        (pageChangeEvent)="self.changePage($event)"
+        [columnSettings]=''self.columnSettings | dynamicColumnSettings:{{dynamicColumnSettings}}''
+        [dataSource]="self.gridData"
+        [pageable]="true"
+        [resizable]="true"
+        [uniqueField]="''id''"
+        [class]="{{classes}}"
+      ></cr-edit-grid-server-paging>
+</div>', '2022-12-07 10:14:40.3966667 +00:00', 10, N'N', '8a0acf2a-3a14-490e-b170-e56cd2a80e22', 1, NULL, '2022-11-15 16:22:57.1579716 +02:00')

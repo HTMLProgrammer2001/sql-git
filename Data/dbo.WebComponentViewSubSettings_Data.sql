@@ -1,377 +1,3 @@
-INSERT INTO [dbo].[WebComponentViewSubSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('abf3574a-f36f-ed11-835f-02f176033ddb', '3c3c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'seller-basket-population-create-header', N'Header', N'{
-    "defaultValue": {
-        "isUseTranslateKey": true,
-        "translateKey": "EMPLOYEE.DETAILS.SELLER_IN_STORES.MANAGE_BASKET.TITLE_CREATE"
-    },
-    "fieldSettings": {
-        "titleHeader": {
-            "elements": [
-                {
-                    "appearance": "primary-button",
-                    "nameTranslateKey": "COMMON.BUTTON.CONFIRM",
-                    "template": "custom"
-                },
-                {
-                    "appearance": "icon-button",
-                    "iconSvg": "icon-close",
-                    "template": "custom"
-                }
-            ]
-        }
-    }
-}', N'<cr-title-header
-    [titleTranslateKey]="{{translateKey}}"
-    [title]="{{label}}"
-    [buttonSettings]="self.titleHeaderButtonSettings"
-    (buttonClickEvent)="self.onTitleHeaderButtonClick($event)"
-></cr-title-header>', '2022-11-29 14:37:04.3367467 +00:00', 1, N'N', '8dbe941b-7c71-4c2f-8049-508b8749d15e', 1, NULL, '2022-11-29 14:37:04.3367467 +00:00')
-INSERT INTO [dbo].[WebComponentViewSubSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('cb479269-f36f-ed11-835f-02f176033ddb', '3c3c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'seller-basket-population-edit-header', N'Header', N'{
-    "defaultValue": {
-        "isUseTranslateKey": true,
-        "translateKey": "EMPLOYEE.DETAILS.SELLER_IN_STORES.MANAGE_BASKET.TITLE_EDIT"
-    },
-    "fieldSettings": {
-        "titleHeader": {
-            "elements": [
-                {
-                    "appearance": "primary-button",
-                    "nameTranslateKey": "COMMON.BUTTON.CONFIRM",
-                    "template": "custom"
-                },
-                {
-                    "appearance": "icon-button",
-                    "iconSvg": "icon-close",
-                    "template": "custom"
-                }
-            ]
-        }
-    }
-}', N'<cr-title-header
-    [titleTranslateKey]="{{translateKey}}"
-    [title]="{{label}}"
-    [buttonSettings]="self.titleHeaderButtonSettings"
-    (buttonClickEvent)="self.onTitleHeaderButtonClick($event)"
-></cr-title-header>', '2022-11-29 14:37:56.7283787 +00:00', 1, N'N', 'b483e4a0-8fea-411a-952b-77a995b8e927', 1, NULL, '2022-11-29 14:37:56.7283787 +00:00')
-INSERT INTO [dbo].[WebComponentViewSubSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('eba13ba6-f36f-ed11-835f-02f176033ddb', '373c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'seller-basket-population-name', N'Name', N'{
-    "defaultValue": {
-        "isUseTranslateKey": true,
-        "translateKey": "COMMON.BASKET.BASKET_EDIT.BASKET_NAME"
-    },
-    "fieldSettings": {
-        "validationField": "name"
-    }
-}', N'<cr-control-edit
-    [(dataValue)]="self.cache.basket.name"
-    (dataValueChange)="self.isDisableAutoChangeName = true"
-    [validator]="self.validator"
-    [validationField]="''name''"
-    [elementName]="''edit:Basket_population_name''"
-    [translateKeys]="{{translateKey}}" 
-    [dataLabel]="{{label}}"
-    [customClass]=''{{classes}}''
-    [isDisabled]="{{disabled}} || !self.isBasketNameEnabled"
-></cr-control-edit>', '2022-11-29 14:41:15.1800000 +00:00', 2, N'N', 'f12ee59b-4614-4d7d-99a0-f227ea8a461c', 1, NULL, '2022-11-29 14:39:38.5015403 +00:00')
-INSERT INTO [dbo].[WebComponentViewSubSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('8e29c80f-f46f-ed11-835f-02f176033ddb', '3d3c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'seller-basket-population-type', N'Type', N'{
-    "defaultValue": {
-        "isUseTranslateKey": true,
-        "translateKey": "COMMON.BASKET.BASKET_EDIT.BASKET_TYPE"
-    }
-}', N'<cr-control-dropdown
-    [(dataValue)]="self.cache.basket.exclude"
-    (dataValueChange)="self.onChangeType($event)"
-    [dataDisplayField]="''name''"
-    [dataValueField]="''status''"
-    [dataSource]="self.basketTypes"
-    [elementName]="''smart-dropdown:Basket_population_type''"
-    [translateKeys]="{{translateKey}}"
-    [dataLabel]="{{label}}"
-    [class]=''{{classes}}''
-></cr-control-dropdown>', '2022-11-29 14:42:35.5832846 +00:00', 1, N'N', '0ad30ba7-40fb-4c4e-b856-0c9a087c0bb4', 1, NULL, '2022-11-29 14:42:35.5832846 +00:00')
-INSERT INTO [dbo].[WebComponentViewSubSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('2696fca9-f46f-ed11-835f-02f176033ddb', '393c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'seller-basket-population-grid', N'Grid', N'{
-    "defaultValue": {},
-    "fieldSettings": {
-        "validationField": "populationBasketContentList",
-        "grid": {
-            "uniqueField": "id",
-            "previewDataSource": {
-                "responseList": [
-                    {
-                        "id": 1,
-                        "dateFrom": "2022-11-29T00:00:00Z",
-                        "dateTo": "2022-11-29T00:00:00Z",
-                        "type": {
-                            "id": 1,
-                            "name": "Item property"
-                        },
-                        "property": {
-                            "id": 1,
-                            "code": "test",
-                            "name": "test"
-                        },
-                        "value": {
-                            "id": 1,
-                            "code": "test",
-                            "name": "test"
-                        }
-                    }
-                ],
-                "page": 1,
-                "size": 5,
-                "totalElements": 1
-            },
-            "columns": [
-                {
-                    "titleTranslateKey": "EMPLOYEE.DETAILS.SELLER_IN_STORES.DATE_FROM",
-                    "field": "dateFrom",
-                    "type": "date-time"
-                },
-                {
-                    "titleTranslateKey": "EMPLOYEE.DETAILS.SELLER_IN_STORES.DATE_TO",
-                    "field": "dateTo",
-                    "type": "date-time"
-                },
-                {
-                    "titleTranslateKey": "COMMON.BASKET.BASKET_EDIT.TYPE",
-                    "field": "type",
-                    "type": "dropdown",
-                    "dropdownOptions": {
-                        "usePrimitiveForBinding": false,
-                        "textField": "name",
-                        "valueField": "id"
-                    }
-                },
-                {
-                    "titleTranslateKey": "COMMON.BASKET.BASKET_EDIT.PROPERTY",
-                    "field": "property",
-                    "type": "dropdown",
-                    "dropdownOptions": {
-                        "usePrimitiveForBinding": false,
-                        "textField": "name",
-                        "valueField": "id",
-                        "codeField": "code"
-                    }
-                },
-                {
-                    "titleTranslateKey": "COMMON.BASKET.BASKET_EDIT.VALUE",
-                    "field": "value",
-                    "type": "dropdown",
-                    "dropdownOptions": {
-                        "usePrimitiveForBinding": false,
-                        "textField": "displayName",
-                        "valueField": "id",
-                        "codeField": "code"
-                    }
-                }
-            ]
-        }
-    }
-}', N'<div class="cr-grid-wrapper-new">
-    <cr-seller-basket-population-edit-list
-        [dataSource]="self.cache.basket.populationBasketContentList"
-        [typeDropdownFn]="self.typeDropdownFn"
-        [cacheName]="self.cacheName + ''EditList''"
-        [isShowProperty]="self.isShowProperty"
-        [propertyDropdownFn]="self.propertyDropdownFn"
-        [valueDropdownFn]="self.valueDropdownFn"
-        (remove)="self.onRemove($event)"
-        (save)="self.onAdd($event)"
-        [class]=''{{classes}}''
-    ></cr-seller-basket-population-edit-list>
-</div>', '2022-11-29 14:46:54.2959782 +00:00', 1, N'N', 'd961f60e-f25a-4b38-af30-3e39bf63c575', 1, NULL, '2022-11-29 14:46:54.2959782 +00:00')
-INSERT INTO [dbo].[WebComponentViewSubSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('c7043dfc-f96f-ed11-835f-02f176033ddb', '3c3c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'access-level-basket-population-create-header', N'Header', N'{
-    "defaultValue": {
-        "isUseTranslateKey": true,
-        "translateKey": "EMPLOYEE.DETAILS.ACCESS_LEVEL.MANAGE_BASKET.TITLE_CREATE"
-    },
-    "fieldSettings": {
-        "titleHeader": {
-            "elements": [
-                {
-                    "appearance": "primary-button",
-                    "nameTranslateKey": "COMMON.BUTTON.CONFIRM",
-                    "template": "custom"
-                },
-                {
-                    "appearance": "icon-button",
-                    "iconSvg": "icon-close",
-                    "template": "custom"
-                }
-            ]
-        }
-    }
-}', N'<cr-title-header
-    [titleTranslateKey]="{{translateKey}}"
-    [title]="{{label}}"
-    [buttonSettings]="self.titleHeaderButtonSettings"
-    (buttonClickEvent)="self.onTitleHeaderButtonClick($event)"
-></cr-title-header>', '2022-11-29 15:24:59.7750599 +00:00', 1, N'N', '9ecea324-10f3-41ac-bf68-b02807d911ef', 1, NULL, '2022-11-29 15:24:59.7750599 +00:00')
-INSERT INTO [dbo].[WebComponentViewSubSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('b34a291e-fa6f-ed11-835f-02f176033ddb', '3c3c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'access-level-basket-population-edit-header', N'Header', N'{
-    "defaultValue": {
-        "isUseTranslateKey": true,
-        "translateKey": "EMPLOYEE.DETAILS.ACCESS_LEVEL.MANAGE_BASKET.TITLE_EDIT"
-    },
-    "fieldSettings": {
-        "titleHeader": {
-            "elements": [
-                {
-                    "appearance": "primary-button",
-                    "nameTranslateKey": "COMMON.BUTTON.CONFIRM",
-                    "template": "custom"
-                },
-                {
-                    "appearance": "icon-button",
-                    "iconSvg": "icon-close",
-                    "template": "custom"
-                }
-            ]
-        }
-    }
-}', N'<cr-title-header
-    [titleTranslateKey]="{{translateKey}}"
-    [title]="{{label}}"
-    [buttonSettings]="self.titleHeaderButtonSettings"
-    (buttonClickEvent)="self.onTitleHeaderButtonClick($event)"
-></cr-title-header>', '2022-11-29 15:25:56.6883123 +00:00', 1, N'N', 'f8737909-1447-4bc3-b355-730585f26487', 1, NULL, '2022-11-29 15:25:56.6883123 +00:00')
-INSERT INTO [dbo].[WebComponentViewSubSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('5dce3848-fa6f-ed11-835f-02f176033ddb', '373c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'access-level-basket-population-name', N'Name', N'{
-    "defaultValue": {
-        "isUseTranslateKey": true,
-        "translateKey": "COMMON.BASKET.BASKET_EDIT.BASKET_NAME"
-    },
-    "fieldSettings": {
-        "validationField": "name"
-    }
-}', N'<cr-control-edit
-    [(dataValue)]="self.cache.basket.name"
-    (dataValueChange)="self.isDisableAutoChangeName = true"
-    [validator]="self.validator"
-    [validationField]="''name''"
-    [elementName]="''edit:Basket_population_name''"
-    [translateKeys]="{{translateKey}}" 
-    [dataLabel]="{{label}}"
-    [customClass]=''{{classes}}''
-    [isDisabled]="{{disabled}} || !self.isBasketNameEnabled"
-></cr-control-edit>', '2022-11-29 15:27:07.2542941 +00:00', 1, N'N', '87798477-e797-49c7-8443-00b4b69098cc', 1, NULL, '2022-11-29 15:27:07.2542941 +00:00')
-INSERT INTO [dbo].[WebComponentViewSubSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('e09c766a-fa6f-ed11-835f-02f176033ddb', '3d3c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'access-level-basket-population-type', N'Type', N'{
-    "defaultValue": {
-        "isUseTranslateKey": true,
-        "translateKey": "COMMON.BASKET.BASKET_EDIT.BASKET_TYPE"
-    }
-}', N'<cr-control-dropdown
-    [(dataValue)]="self.cache.basket.exclude"
-    (dataValueChange)="self.onChangeType($event)"
-    [dataDisplayField]="''name''"
-    [dataValueField]="''status''"
-    [dataSource]="self.basketTypes"
-    [elementName]="''smart-dropdown:Basket_population_type''"
-    [translateKeys]="{{translateKey}}"
-    [dataLabel]="{{label}}"
-    [class]=''{{classes}}''
-></cr-control-dropdown>', '2022-11-29 15:28:04.7018848 +00:00', 1, N'N', '341ae0c0-aee8-422a-9638-a90e25d5325c', 1, NULL, '2022-11-29 15:28:04.7018848 +00:00')
-INSERT INTO [dbo].[WebComponentViewSubSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('c81b90da-fa6f-ed11-835f-02f176033ddb', '393c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'access-level-basket-population-grid', N'Grid', N'{
-    "defaultValue": {},
-    "fieldSettings": {
-        "validationField": "populationBasketContentList",
-        "grid": {
-            "uniqueField": "id",
-            "previewDataSource": {
-                "responseList": [
-                    {
-                        "id": 1,
-                        "dateFrom": "2022-11-29T00:00:00Z",
-                        "dateTo": "2022-11-29T00:00:00Z",
-                        "accessLevel": {
-                            "id": 1,
-                            "name": "Admin"
-                        },
-                        "type": {
-                            "id": 1,
-                            "name": "Item property"
-                        },
-                        "property": {
-                            "id": 1,
-                            "code": "test",
-                            "name": "test"
-                        },
-                        "value": {
-                            "id": 1,
-                            "code": "test",
-                            "name": "test"
-                        }
-                    }
-                ],
-                "page": 1,
-                "size": 5,
-                "totalElements": 1
-            },
-            "columns": [
-                {
-                    "titleTranslateKey": "EMPLOYEE.DETAILS.ACCESS_LEVEL.DATE_FROM",
-                    "field": "dateFrom",
-                    "type": "date-time"
-                },
-                {
-                    "titleTranslateKey": "EMPLOYEE.DETAILS.ACCESS_LEVEL.DATE_TO",
-                    "field": "dateTo",
-                    "type": "date-time"
-                },
-                {
-                    "titleTranslateKey": "EMPLOYEE.DETAILS.ACCESS_LEVEL.ACCESS_LEVEL",
-                    "field": "type",
-                    "type": "dropdown",
-                    "dropdownOptions": {
-                        "usePrimitiveForBinding": false,
-                        "textField": "name",
-                        "valueField": "id"
-                    }
-                },
-                {
-                    "titleTranslateKey": "COMMON.BASKET.BASKET_EDIT.TYPE",
-                    "field": "type",
-                    "type": "dropdown",
-                    "dropdownOptions": {
-                        "usePrimitiveForBinding": false,
-                        "textField": "name",
-                        "valueField": "id"
-                    }
-                },
-                {
-                    "titleTranslateKey": "COMMON.BASKET.BASKET_EDIT.PROPERTY",
-                    "field": "property",
-                    "type": "dropdown",
-                    "dropdownOptions": {
-                        "usePrimitiveForBinding": false,
-                        "textField": "name",
-                        "valueField": "id",
-                        "codeField": "code"
-                    }
-                },
-                {
-                    "titleTranslateKey": "COMMON.BASKET.BASKET_EDIT.VALUE",
-                    "field": "value",
-                    "type": "dropdown",
-                    "dropdownOptions": {
-                        "usePrimitiveForBinding": false,
-                        "textField": "displayName",
-                        "valueField": "id",
-                        "codeField": "code"
-                    }
-                }
-            ]
-        }
-    }
-}', N'<div class="cr-grid-wrapper-new">
-    <cr-access-level-basket-population-edit-list
-        [dataSource]="self.cache.basket.populationBasketContentList"
-        [typeDropdownFn]="self.typeDropdownFn"
-        [cacheName]="self.cacheName + ''EditList''"
-        [propertyDropdownFn]="self.propertyDropdownFn"
-        [valueDropdownFn]="self.valueDropdownFn"
-        [accessLevelDropdownFn]="self.accessLevelDropdownFn"
-        [selectedValueAccessLevel]="self.selectedValueAccessLevel"
-        (remove)="self.onRemove($event)"
-        (save)="self.onAdd($event)">
-    </cr-access-level-basket-population-edit-list>
-</div>', '2022-11-29 15:31:12.7737928 +00:00', 1, N'N', '956f97fb-816d-45d7-8bd3-855fd7699061', 1, NULL, '2022-11-29 15:31:12.7737928 +00:00')
 INSERT INTO [dbo].[WebComponentViewSubSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('9cd17489-276b-ed11-835f-02f176033ddb', '3c3c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'image-content-title-header', N'Title header', N'{
     "defaultValue": {
         "isUseTranslateKey": true,
@@ -663,64 +289,6 @@ INSERT INTO [dbo].[WebComponentViewSubSettings] ([ID], [WebComponentID], [Code],
     [max]="{{max}}"
     [autoCorrectMinMax]="{{autoCorrectMinMax}}"
 ></cr-numeric-control>', '2022-11-25 09:11:47.9366667 +00:00', 2, N'N', 'e8efba42-c356-4fa4-9f6e-461da4eabb64', 1, NULL, '2022-11-25 09:02:15.1365762 +00:00')
-INSERT INTO [dbo].[WebComponentViewSubSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('5a4521ab-a06c-ed11-835f-02f176033ddb', '393c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'item-modifiers-template-grid', N'Grid', N'{
-    "defaultValue": {},
-    "fieldSettings": {
-        "grid": {
-            "uniqueField": "id",
-            "previewDataSource": {
-                "responseList": [
-                    {
-                        "id": 1,
-                        "code": "test",
-                        "name": "test"
-                    }
-                ],
-                "page": 1,
-                "size": 5,
-                "totalElements": 1
-            },
-            "columns": [
-                {
-                    "titleTranslateKey": "ITEM.DETAILS.MODIFIER_TEMPLATE_LIST.GRID.MODIFIER_TEMPLATE_CODE",
-                    "field": "code",
-                    "type": "link"
-                },
-                {
-                    "titleTranslateKey": "ITEM.DETAILS.MODIFIER_TEMPLATE_LIST.GRID.MODIFIER_TEMPLATE_NAME",
-                    "field": "name",
-                    "type": "text"
-                }
-            ]
-        }
-    }
-}', N'<div class="cr-grid-wrapper-new">
-    <cr-edit-grid-server-paging
-        [elementName]="''grid:Item_details.Modifier_template_list.Popup.List_grid''"
-        [dataCacheName]="''ItemModifierTemplateListCache''"
-        [dataSource]="self.dataSource"
-        [columnSettings]="self.columnSettings"
-        [pageable]="true"
-        [resizable]="true"
-        [uniqueField]="''id''"
-        [initialSelectedRows]="self.cache.selection"
-        [expandable]="true"
-        [expandedRows]="self.cache.expandedRows"
-        (pageChangeEvent)="self.changePage($event)"
-        (expandedRowsChange)="self.onExpandedRowsChange($event)"
-        (cellClickEvent)="self.onCellClick($event)"
-        [class]="{{classes}}"
-    >
-        <ng-template crEditGridExpandDetails let-dataItem="dataItem">
-            <cr-item-modifier-template-modifiers
-                [modifierTemplateId]="dataItem.id"
-                [filter]="self.cache.filter"
-                [selected]="self.cache.selection"
-                (onSelection)="self.onSelectModifierGroupByTemplate($event)"
-            ></cr-item-modifier-template-modifiers>
-        </ng-template>
-    </cr-edit-grid-server-paging>
-</div>', '2022-11-25 09:28:48.7800000 +00:00', 4, N'N', '81ba1d97-f732-4c35-bf05-7d85598e2e33', 1, NULL, '2022-11-25 09:08:05.0004954 +00:00')
 INSERT INTO [dbo].[WebComponentViewSubSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('ff32d126-a26c-ed11-835f-02f176033ddb', '3c3c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'item-modifiers-groups-title-header', N'Header', N'{
     "defaultValue": {
         "isUseTranslateKey": true,
@@ -840,64 +408,6 @@ INSERT INTO [dbo].[WebComponentViewSubSettings] ([ID], [WebComponentID], [Code],
     [max]="{{max}}"
     [autoCorrectMinMax]="{{autoCorrectMinMax}}"
 ></cr-numeric-control>', '2022-11-25 09:27:40.5674970 +00:00', 1, N'N', '9afd2ff8-4d67-41b9-a328-5b862b503379', 1, NULL, '2022-11-25 09:27:40.5674970 +00:00')
-INSERT INTO [dbo].[WebComponentViewSubSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('28f36fe7-a36c-ed11-835f-02f176033ddb', '393c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'item-modifiers-groups-grid', N'Grid', N'{
-    "defaultValue": {},
-    "fieldSettings": {
-        "grid": {
-            "allowMultiselect": true,
-            "uniqueField": "id",
-            "previewDataSource": {
-                "responseList": [
-                    {
-                        "id": 1,
-                        "code": "test",
-                        "name": "test",
-                        "displayName": "test"
-                    }
-                ],
-                "page": 1,
-                "size": 5,
-                "totalElements": 1
-            },
-            "columns": [
-                {
-                    "titleTranslateKey": "ITEM.DETAILS.MODIFIER_GROUP_LIST.GRID.MODIFIER_GROUP_CODE",
-                    "field": "code",
-                    "type": "link"
-                },
-                {
-                    "titleTranslateKey": "ITEM.DETAILS.MODIFIER_GROUP_LIST.GRID.MODIFIER_GROUP_NAME",
-                    "field": "name",
-                    "type": "text"
-                },
-                {
-                    "titleTranslateKey": "ITEM.DETAILS.MODIFIER_GROUP_LIST.GRID.MODIFIER_GROUP_DISPLAY_NAME",
-                    "field": "displayName",
-                    "type": "text"
-                }
-            ]
-        }
-    }
-}', N'<div class="cr-grid-wrapper-new">
-<cr-edit-grid-server-paging
-    [fieldNameForMultiSelectColumnTranslateKey]="''ITEM.DETAILS.MODIFIER_GROUP_LIST.GRID.USE''"
-    [elementName]="''grid:Item_details.Modifier_group_list.Popup.Group_list_grid''"
-    [dataCacheName]="''ItemModifierGroupListCache''"
-    [columnSettings]="self.columnSettings"
-    [uniqueField]="''id''"
-    [resizable]="true"
-    [pageable]="true"
-    [allowMultiSelect]="true"
-    [initialSelectedRows]="self.cache.selection"
-    [selectionDataMode]="''id''"
-    (pageChangeEvent)="self.changePage($event)"
-    (cellClickEvent)="self.onCellClick($event)"
-    (selectionChanged)="self.onSelectionChange($event)"
-    [dataSource]="self.dataSource"
-    [class]="{{classes}}"
-></cr-edit-grid-server-paging>
-</div>
-', '2022-11-25 18:01:50.8533333 +00:00', 3, N'N', '049678f5-1363-4fd1-8b84-7843e5f39896', 1, NULL, '2022-11-25 09:31:14.6696104 +00:00')
 INSERT INTO [dbo].[WebComponentViewSubSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('b80541d8-ac6c-ed11-835f-02f176033ddb', '3c3c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'item-combo-meal-title-header', N'Header', N'{
     "defaultValue": {
         "isUseTranslateKey": true,
@@ -1171,94 +681,6 @@ INSERT INTO [dbo].[WebComponentViewSubSettings] ([ID], [WebComponentID], [Code],
     [max]="{{max}}"
     [autoCorrectMinMax]="{{autoCorrectMinMax}}"
 ></cr-numeric-control>', '2022-11-25 17:07:12.5069127 +00:00', 1, N'N', 'a0c54d94-1888-45e1-85f2-50fc5115d9bd', 1, NULL, '2022-11-25 17:07:12.5069127 +00:00')
-INSERT INTO [dbo].[WebComponentViewSubSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('08c3b0f2-e46c-ed11-835f-02f176033ddb', '393c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'item-combo-meal-items-grid', N'Items', N'{
-    "defaultValue": {},
-    "fieldSettings": {
-        "grid": {
-            "uniqueField": "id",
-            "previewDataSource": {
-                "responseList": [
-                    {
-                        "id": 1,
-                        "code": "test",
-                        "name": "test",
-                        "extraPriceValue": 3.05,
-                        "isDefaultSelection": true
-                    }
-                ],
-                "page": 1,
-                "size": 5,
-                "totalElements": 1
-            },
-            "columns": [
-                {
-                    "titleTranslateKey": "ITEM.DETAILS.COMBO_MEAL.ITEMS.GRID.CODE",
-                    "field": "code",
-                    "type": "link"
-                },
-                {
-                    "type": "decimal",
-                    "field": "extraPriceValue",
-                    "titleTranslateKey": "ITEM.DETAILS.COMBO_MEAL.ITEMS.GRID.EXTRA_PRICE",
-                    "decimals": 2,
-                    "format": "#.##",
-                    "min": 0,
-                    "autoCorrectMinMax": true
-                },
-                {
-                    "type": "boolean",
-                    "field": "isDefaultSelection",
-                    "titleTranslateKey": "ITEM.DETAILS.COMBO_MEAL.ITEMS.GRID.IS_DEFAULT",
-                    "width": "100px"
-                }
-            ]
-        }
-    }
-}', N'<div class="cr-grid-relative-wrapper">
-    <div class="cr-grid-wrapper-new" #gridWrapper>
-        <cr-edit-grid-server-paging
-            [elementName]="''edit-grid-server-paging:Item_details.Combo_meal_category_items_grid''"
-            [permissionSettings]="{
-              isAccessUpdate: self.isNew ? (self.EndpointName.item_combo_meal_category_POST | endpointAccessGrantedPipe) :
-                (self.EndpointName.item_combo_meal_category_id_PUT | endpointAccessGrantedPipe),
-              isAccessDelete: self.isNew ? (self.EndpointName.item_combo_meal_category_POST | endpointAccessGrantedPipe) :
-                (self.EndpointName.item_combo_meal_category_id_PUT | endpointAccessGrantedPipe)
-            }"
-            [dataCacheName]="''ViewComboMealCategoryItemsGrid''"
-            [columnSettings]="self.columnSettings"
-            [dataSource]="self.adapter.dataSource"
-            [uniqueField]="''id''"
-            [selectionDataMode]="''id''"
-            [resizable]="true"
-            [pageable]="true"
-            [hasSorter]="true"
-            [allowUpdateAction]="true"
-            [allowDeleteAction]="true"
-            (pageChangeEvent)="self.changePage($event)"
-            (updateActionEvent)="self.updateHandler($event)"
-            (deleteActionEvent)="self.deleteHandler($event)"
-            (changeStatus)="self.onChangeStatusHandler($event)"
-            (selectionChanged)="self.onSelectionChange($event)"
-            (cellClickEvent)="self.onCellClick($event)"
-            [class]=''{{classes}}''
-        ></cr-edit-grid-server-paging>
-    </div>
-    <cr-sort
-        (changeSort)="self.changeSortHandler($event)"
-        [disableButtons]="{
-            toFirst: self.cache.item.firstSelected,
-            oneUp: self.cache.item.firstSelected,
-            oneDown: self.cache.item.lastSelected,
-            toLast: self.cache.item.lastSelected
-        }"
-        [gridWrapper]="gridWrapper"
-        [hideButtons]="{
-            toFirst: self.adapter.dataSource?.responseList.length < 2,
-            toLast: self.adapter.dataSource?.responseList.length < 2
-        }"
-        [permissionSettings]="(self.EndpointName.item_property_id_sort_order_PUT | endpointAccessGrantedPipe)"
-    ></cr-sort>
-</div>', '2022-11-25 17:16:50.8367240 +00:00', 1, N'N', '4852c1c5-de6d-4f25-b49a-a8c9ef44f07e', 1, NULL, '2022-11-25 17:16:50.8367240 +00:00')
 INSERT INTO [dbo].[WebComponentViewSubSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('9486fabf-e56c-ed11-835f-02f176033ddb', '0f9b4341-e56c-ed11-835f-02f176033ddb', N'item-combo-meal-image-picker', N'Image picker', N'{
     "defaultValue": {
         "isUseTranslateKey": true,
@@ -1399,74 +821,6 @@ INSERT INTO [dbo].[WebComponentViewSubSettings] ([ID], [WebComponentID], [Code],
     [max]="{{max}}"
     [autoCorrectMinMax]="{{autoCorrectMinMax}}"
 ></cr-numeric-control>', '2022-11-26 18:09:01.8233333 +00:00', 2, N'N', '495f56d4-1d25-4275-a2c0-f25da64c2101', 1, NULL, '2022-11-25 17:58:18.4254556 +00:00')
-INSERT INTO [dbo].[WebComponentViewSubSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('e002ee64-eb6c-ed11-835f-02f176033ddb', '393c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'item-combo-meal-select-from-catalog-grid', N'Items grid', N'{
-    "defaultValue": {},
-    "fieldSettings": {
-        "grid": {
-            "allowMultiselect": true,
-            "uniqueField": "id",
-            "previewDataSource": {
-                "responseList": [
-                    {
-                        "id": 1,
-                        "code": "test",
-                        "name": "test",
-                        "barcode": "test",
-                        "model": {
-                            "id": 1,
-                            "name": "Model",
-                            "code": "Model code"
-                        }
-                    }
-                ],
-                "page": 1,
-                "size": 5,
-                "totalElements": 1
-            },
-            "columns": [
-                {
-                    "titleTranslateKey": "ITEM.DETAILS.COMBO_MEAL.SELECT_FROM_CATALOG.GRID.CODE",
-                    "field": "code",
-                    "type": "link"
-                },
-                {
-                    "titleTranslateKey": "ITEM.DETAILS.COMBO_MEAL.SELECT_FROM_CATALOG.GRID.NAME",
-                    "field": "name",
-                    "type": "text"
-                },
-                {
-                    "titleTranslateKey": "ITEM.DETAILS.COMBO_MEAL.SELECT_FROM_CATALOG.GRID.BARCODE",
-                    "field": "barcode",
-                    "type": "text"
-                },
-                {
-                    "type": "fieldWithCode",
-                    "field": "model.name",
-                    "codeField": "model.code",
-                    "titleTranslateKey": "ITEM.DETAILS.COMBO_MEAL.SELECT_FROM_CATALOG.GRID.MODEL"
-                }
-            ]
-        }
-    }
-}', N'<div class="cr-grid-wrapper-new">
-    <cr-edit-grid-server-paging
-        [elementName]="''edit-grid-server-paging:Item_details.Combo_meal_select_from_catalog_grid''"
-        [dataSource]="self.dataSource"
-        [columnSettings]="self.columnSettings"
-        [pageable]="true"
-        [resizable]="true"
-        (cellClickEvent)="self.onCellClick($event)"
-        (pageChangeEvent)="self.changePage($event)"
-        (selectionChanged)="self.onSelectionChange($event)"
-        [initialSelectedRows]="self.cache.selectedItems"
-        [uniqueField]="''id''"
-        [allowMultiSelect]="true"
-        [selectionDataMode]="''object''"
-        [dataCacheName]="''ComboMealCategorySelectFromCatalogGrid''"
-        [class]=''{{classes}}''
-    ></cr-edit-grid-server-paging>
-</div>
-', '2022-11-25 18:02:59.4787680 +00:00', 1, N'N', '8a72eacf-521a-45f8-a74a-d347de4211bf', 1, NULL, '2022-11-25 18:02:59.4787680 +00:00')
 INSERT INTO [dbo].[WebComponentViewSubSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('822e3970-ec6c-ed11-835f-02f176033ddb', '3c3c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'item-combo-meal-select-from-basket-header', N'Header', N'{
     "defaultValue": {
         "isUseTranslateKey": true,
@@ -1530,74 +884,6 @@ INSERT INTO [dbo].[WebComponentViewSubSettings] ([ID], [WebComponentID], [Code],
     [max]="{{max}}"
     [autoCorrectMinMax]="{{autoCorrectMinMax}}"
 ></cr-numeric-control>', '2022-11-26 18:09:17.3800000 +00:00', 2, N'N', 'a21f07bf-71c8-41e5-80d7-216cdcf0eade', 1, NULL, '2022-11-25 18:13:01.1746903 +00:00')
-INSERT INTO [dbo].[WebComponentViewSubSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('20949f12-ed6c-ed11-835f-02f176033ddb', '393c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'item-combo-meal-select-from-basket-grid', N'Items grid', N'{
-    "defaultValue": {},
-    "fieldSettings": {
-        "grid": {
-            "allowMultiselect": true,
-            "uniqueField": "id",
-            "previewDataSource": {
-                "responseList": [
-                    {
-                        "id": 1,
-                        "code": "test",
-                        "name": "test",
-                        "barcode": "test",
-                        "model": {
-                            "id": 1,
-                            "name": "Model",
-                            "code": "Model code"
-                        }
-                    }
-                ],
-                "page": 1,
-                "size": 5,
-                "totalElements": 1
-            },
-            "columns": [
-                {
-                    "titleTranslateKey": "ITEM.DETAILS.COMBO_MEAL.SELECT_FROM_BASKET.GRID.CODE",
-                    "field": "code",
-                    "type": "link"
-                },
-                {
-                    "titleTranslateKey": "ITEM.DETAILS.COMBO_MEAL.SELECT_FROM_BASKET.GRID.NAME",
-                    "field": "name",
-                    "type": "text"
-                },
-                {
-                    "titleTranslateKey": "ITEM.DETAILS.COMBO_MEAL.SELECT_FROM_BASKET.GRID.BARCODE",
-                    "field": "barcode",
-                    "type": "text"
-                },
-                {
-                    "type": "fieldWithCode",
-                    "field": "model.name",
-                    "codeField": "model.code",
-                    "titleTranslateKey": "ITEM.DETAILS.COMBO_MEAL.SELECT_FROM_BASKET.GRID.MODEL"
-                }
-            ]
-        }
-    }
-}', N'<div class="cr-grid-wrapper-new">
-    <cr-edit-grid-server-paging
-        [elementName]="''edit-grid-server-paging:Item_details.Combo_meal_select_from_basket_grid''"
-        [dataSource]="self.dataSource"
-        [columnSettings]="self.columnSettings"
-        [pageable]="true"
-        [resizable]="true"
-        (cellClickEvent)="self.onCellClick($event)"
-        (pageChangeEvent)="self.changePage($event)"
-        (selectionChanged)="self.onSelectionChange($event)"
-        [initialSelectedRows]="self.cache.selectedItems"
-        [uniqueField]="''id''"
-        [allowMultiSelect]="true"
-        [selectionDataMode]="''object''"
-        [dataCacheName]="''ComboMealCategorySelectFromBasketGrid''"
-        [class]=''{{classes}}''
-    ></cr-edit-grid-server-paging>
-</div>
-', '2022-11-25 18:15:00.3850400 +00:00', 1, N'N', '9088a984-17a0-4a79-9efe-2c3b3e93e0d3', 1, NULL, '2022-11-25 18:15:00.3850400 +00:00')
 INSERT INTO [dbo].[WebComponentViewSubSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('51cc3efe-ed6c-ed11-835f-02f176033ddb', '31a5db8f-ed6c-ed11-835f-02f176033ddb', N'item-combo-meal-select-from-basket-population', N'Item basket', N'{
     "defaultValue": {}
 }', N'<cr-basket-population-view
@@ -1701,85 +987,6 @@ INSERT INTO [dbo].[WebComponentViewSubSettings] ([ID], [WebComponentID], [Code],
     [dataLabel]="{{label}}"
     [class]=''{{classes}}''
 ></cr-control-dropdown>', '2022-11-26 14:15:39.4354357 +00:00', 1, N'N', '58e2883f-22ea-4eda-b711-37e78ccd63eb', 1, NULL, '2022-11-26 14:15:39.4354357 +00:00')
-INSERT INTO [dbo].[WebComponentViewSubSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('84a0b718-966d-ed11-835f-02f176033ddb', '393c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'item-basket-population-grid', N'Grid', N'{
-    "defaultValue": {},
-    "fieldSettings": {
-        "validationField": "populationBasketContentList",
-        "grid": {
-            "uniqueField": "id",
-            "previewDataSource": {
-                "responseList": [
-                    {
-                        "id": 1,
-                        "type": {
-                            "id": 1,
-                            "name": "Item property"
-                        },
-                        "property": {
-                            "id": 1,
-                            "code": "test",
-                            "name": "test"
-                        },
-                        "value": {
-                            "id": 1,
-                            "code": "test",
-                            "name": "test"
-                        }
-                    }
-                ],
-                "page": 1,
-                "size": 5,
-                "totalElements": 1
-            },
-            "columns": [
-                {
-                    "titleTranslateKey": "COMMON.BASKET.BASKET_EDIT.TYPE",
-                    "field": "type",
-                    "type": "dropdown",
-                    "dropdownOptions": {
-                        "usePrimitiveForBinding": false,
-                        "textField": "name",
-                        "valueField": "id"
-                    }
-                },
-                {
-                    "titleTranslateKey": "COMMON.BASKET.BASKET_EDIT.PROPERTY",
-                    "field": "property",
-                    "type": "dropdown",
-                    "dropdownOptions": {
-                        "usePrimitiveForBinding": false,
-                        "textField": "name",
-                        "valueField": "id",
-                        "codeField": "code"
-                    }
-                },
-                {
-                    "titleTranslateKey": "COMMON.BASKET.BASKET_EDIT.VALUE",
-                    "field": "value",
-                    "type": "dropdown",
-                    "dropdownOptions": {
-                        "usePrimitiveForBinding": false,
-                        "textField": "displayName",
-                        "valueField": "id",
-                        "codeField": "code"
-                    }
-                }
-            ]
-        }
-    }
-}', N'<div class="cr-grid-wrapper-new">
-    <cr-basket-population-edit-list
-        [dataSource]="self.cache.basket.populationBasketContentList"
-        [typeDropdownFn]="self.typeDropdownFn"
-        [cacheName]="self.cacheName + ''EditList''"
-        [isShowProperty]="self.isShowProperty"
-        [propertyDropdownFn]="self.propertyDropdownFn"
-        [valueDropdownFn]="self.valueDropdownFn"
-        (remove)="self.onRemove($event)"
-        (save)="self.onAdd($event)"
-        [class]=''{{classes}}''
-    ></cr-basket-population-edit-list>
-</div>', '2022-11-26 14:27:47.7066667 +00:00', 2, N'N', 'c819548e-467b-4108-bd8c-5d73eec4f882', 1, NULL, '2022-11-26 14:24:55.5562756 +00:00')
 INSERT INTO [dbo].[WebComponentViewSubSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('b5f96ec4-106f-ed11-835f-02f176033ddb', '3c3c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'manage-user-roles-header', N'Header', N'{
     "defaultValue": {
         "isUseTranslateKey": true,
@@ -1807,50 +1014,184 @@ INSERT INTO [dbo].[WebComponentViewSubSettings] ([ID], [WebComponentID], [Code],
     (buttonClickEvent)="self.onTitleButtonClick($event)"
     [buttonSettings]="self.titleHeaderButtonSettings"
 ></cr-title-header>', '2022-11-28 11:37:12.7600000 +00:00', 2, N'N', '1d5d0300-93ce-454b-8d84-ecaa132690af', 1, NULL, '2022-11-28 11:35:33.4120501 +00:00')
-INSERT INTO [dbo].[WebComponentViewSubSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('140122cc-486f-ed11-835f-02f176033ddb', '393c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'manage-user-roles-grid', N'Roles', N'{
-    "defaultValue": {},
+INSERT INTO [dbo].[WebComponentViewSubSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('abf3574a-f36f-ed11-835f-02f176033ddb', '3c3c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'seller-basket-population-create-header', N'Header', N'{
+    "defaultValue": {
+        "isUseTranslateKey": true,
+        "translateKey": "EMPLOYEE.DETAILS.SELLER_IN_STORES.MANAGE_BASKET.TITLE_CREATE"
+    },
     "fieldSettings": {
-        "grid": {
-            "allowMultiselect": true,
-            "uniqueField": "id",
-            "previewDataSource": {
-                "responseList": [
-                    {
-                        "id": 1,
-                        "name": "Admin"
-                    }
-                ],
-                "page": 1,
-                "size": 5,
-                "totalElements": 1
-            },
-            "columns": [
+        "titleHeader": {
+            "elements": [
                 {
-                    "titleTranslateKey": "USER.DETAILS.ROLE_MANAGER.GRID.NAME",
-                    "field": "name",
-                    "type": "text"
+                    "appearance": "primary-button",
+                    "nameTranslateKey": "COMMON.BUTTON.CONFIRM",
+                    "template": "custom"
+                },
+                {
+                    "appearance": "icon-button",
+                    "iconSvg": "icon-close",
+                    "template": "custom"
                 }
             ]
         }
     }
-}', N'<div class="cr-grid-wrapper-new">
-    <cr-edit-grid-server-paging
-        [elementName]="''edit-grid-server-paging:DETAILS.Details_roles_manager_grid''"
-        [dataSource]="self.dataSource"
-        [columnSettings]="self.columnSettings"
-        [pageable]="true"
-        [resizable]="true"
-        (pageChangeEvent)="self.changePage($event)"
-        [initialSelectedRows]="self.cache.initialSelectedRows"
-        [uniqueField]="''id''"
-        [allowMultiSelect]="true"
-        [selectionDataMode]="''object''"
-        [dataCacheName]="''UserDetailsRoleManagerGrid''"
-        (selectionChanged)="self.onSelectionChange($event)"
-        [class]=''{{classes}}''
-    ></cr-edit-grid-server-paging>
-</div>
-', '2022-11-28 18:16:38.1462420 +00:00', 1, N'N', '3cd72512-1094-436f-be4b-c86453d48ce3', 1, NULL, '2022-11-28 18:16:38.1462420 +00:00')
+}', N'<cr-title-header
+    [titleTranslateKey]="{{translateKey}}"
+    [title]="{{label}}"
+    [buttonSettings]="self.titleHeaderButtonSettings"
+    (buttonClickEvent)="self.onTitleHeaderButtonClick($event)"
+></cr-title-header>', '2022-11-29 14:37:04.3367467 +00:00', 1, N'N', '8dbe941b-7c71-4c2f-8049-508b8749d15e', 1, NULL, '2022-11-29 14:37:04.3367467 +00:00')
+INSERT INTO [dbo].[WebComponentViewSubSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('cb479269-f36f-ed11-835f-02f176033ddb', '3c3c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'seller-basket-population-edit-header', N'Header', N'{
+    "defaultValue": {
+        "isUseTranslateKey": true,
+        "translateKey": "EMPLOYEE.DETAILS.SELLER_IN_STORES.MANAGE_BASKET.TITLE_EDIT"
+    },
+    "fieldSettings": {
+        "titleHeader": {
+            "elements": [
+                {
+                    "appearance": "primary-button",
+                    "nameTranslateKey": "COMMON.BUTTON.CONFIRM",
+                    "template": "custom"
+                },
+                {
+                    "appearance": "icon-button",
+                    "iconSvg": "icon-close",
+                    "template": "custom"
+                }
+            ]
+        }
+    }
+}', N'<cr-title-header
+    [titleTranslateKey]="{{translateKey}}"
+    [title]="{{label}}"
+    [buttonSettings]="self.titleHeaderButtonSettings"
+    (buttonClickEvent)="self.onTitleHeaderButtonClick($event)"
+></cr-title-header>', '2022-11-29 14:37:56.7283787 +00:00', 1, N'N', 'b483e4a0-8fea-411a-952b-77a995b8e927', 1, NULL, '2022-11-29 14:37:56.7283787 +00:00')
+INSERT INTO [dbo].[WebComponentViewSubSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('eba13ba6-f36f-ed11-835f-02f176033ddb', '373c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'seller-basket-population-name', N'Name', N'{
+    "defaultValue": {
+        "isUseTranslateKey": true,
+        "translateKey": "COMMON.BASKET.BASKET_EDIT.BASKET_NAME"
+    },
+    "fieldSettings": {
+        "validationField": "name"
+    }
+}', N'<cr-control-edit
+    [(dataValue)]="self.cache.basket.name"
+    (dataValueChange)="self.isDisableAutoChangeName = true"
+    [validator]="self.validator"
+    [validationField]="''name''"
+    [elementName]="''edit:Basket_population_name''"
+    [translateKeys]="{{translateKey}}" 
+    [dataLabel]="{{label}}"
+    [customClass]=''{{classes}}''
+    [isDisabled]="{{disabled}} || !self.isBasketNameEnabled"
+></cr-control-edit>', '2022-11-29 14:41:15.1800000 +00:00', 2, N'N', 'f12ee59b-4614-4d7d-99a0-f227ea8a461c', 1, NULL, '2022-11-29 14:39:38.5015403 +00:00')
+INSERT INTO [dbo].[WebComponentViewSubSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('8e29c80f-f46f-ed11-835f-02f176033ddb', '3d3c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'seller-basket-population-type', N'Type', N'{
+    "defaultValue": {
+        "isUseTranslateKey": true,
+        "translateKey": "COMMON.BASKET.BASKET_EDIT.BASKET_TYPE"
+    }
+}', N'<cr-control-dropdown
+    [(dataValue)]="self.cache.basket.exclude"
+    (dataValueChange)="self.onChangeType($event)"
+    [dataDisplayField]="''name''"
+    [dataValueField]="''status''"
+    [dataSource]="self.basketTypes"
+    [elementName]="''smart-dropdown:Basket_population_type''"
+    [translateKeys]="{{translateKey}}"
+    [dataLabel]="{{label}}"
+    [class]=''{{classes}}''
+></cr-control-dropdown>', '2022-11-29 14:42:35.5832846 +00:00', 1, N'N', '0ad30ba7-40fb-4c4e-b856-0c9a087c0bb4', 1, NULL, '2022-11-29 14:42:35.5832846 +00:00')
+INSERT INTO [dbo].[WebComponentViewSubSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('c7043dfc-f96f-ed11-835f-02f176033ddb', '3c3c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'access-level-basket-population-create-header', N'Header', N'{
+    "defaultValue": {
+        "isUseTranslateKey": true,
+        "translateKey": "EMPLOYEE.DETAILS.ACCESS_LEVEL.MANAGE_BASKET.TITLE_CREATE"
+    },
+    "fieldSettings": {
+        "titleHeader": {
+            "elements": [
+                {
+                    "appearance": "primary-button",
+                    "nameTranslateKey": "COMMON.BUTTON.CONFIRM",
+                    "template": "custom"
+                },
+                {
+                    "appearance": "icon-button",
+                    "iconSvg": "icon-close",
+                    "template": "custom"
+                }
+            ]
+        }
+    }
+}', N'<cr-title-header
+    [titleTranslateKey]="{{translateKey}}"
+    [title]="{{label}}"
+    [buttonSettings]="self.titleHeaderButtonSettings"
+    (buttonClickEvent)="self.onTitleHeaderButtonClick($event)"
+></cr-title-header>', '2022-11-29 15:24:59.7750599 +00:00', 1, N'N', '9ecea324-10f3-41ac-bf68-b02807d911ef', 1, NULL, '2022-11-29 15:24:59.7750599 +00:00')
+INSERT INTO [dbo].[WebComponentViewSubSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('b34a291e-fa6f-ed11-835f-02f176033ddb', '3c3c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'access-level-basket-population-edit-header', N'Header', N'{
+    "defaultValue": {
+        "isUseTranslateKey": true,
+        "translateKey": "EMPLOYEE.DETAILS.ACCESS_LEVEL.MANAGE_BASKET.TITLE_EDIT"
+    },
+    "fieldSettings": {
+        "titleHeader": {
+            "elements": [
+                {
+                    "appearance": "primary-button",
+                    "nameTranslateKey": "COMMON.BUTTON.CONFIRM",
+                    "template": "custom"
+                },
+                {
+                    "appearance": "icon-button",
+                    "iconSvg": "icon-close",
+                    "template": "custom"
+                }
+            ]
+        }
+    }
+}', N'<cr-title-header
+    [titleTranslateKey]="{{translateKey}}"
+    [title]="{{label}}"
+    [buttonSettings]="self.titleHeaderButtonSettings"
+    (buttonClickEvent)="self.onTitleHeaderButtonClick($event)"
+></cr-title-header>', '2022-11-29 15:25:56.6883123 +00:00', 1, N'N', 'f8737909-1447-4bc3-b355-730585f26487', 1, NULL, '2022-11-29 15:25:56.6883123 +00:00')
+INSERT INTO [dbo].[WebComponentViewSubSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('5dce3848-fa6f-ed11-835f-02f176033ddb', '373c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'access-level-basket-population-name', N'Name', N'{
+    "defaultValue": {
+        "isUseTranslateKey": true,
+        "translateKey": "COMMON.BASKET.BASKET_EDIT.BASKET_NAME"
+    },
+    "fieldSettings": {
+        "validationField": "name"
+    }
+}', N'<cr-control-edit
+    [(dataValue)]="self.cache.basket.name"
+    (dataValueChange)="self.isDisableAutoChangeName = true"
+    [validator]="self.validator"
+    [validationField]="''name''"
+    [elementName]="''edit:Basket_population_name''"
+    [translateKeys]="{{translateKey}}" 
+    [dataLabel]="{{label}}"
+    [customClass]=''{{classes}}''
+    [isDisabled]="{{disabled}} || !self.isBasketNameEnabled"
+></cr-control-edit>', '2022-11-29 15:27:07.2542941 +00:00', 1, N'N', '87798477-e797-49c7-8443-00b4b69098cc', 1, NULL, '2022-11-29 15:27:07.2542941 +00:00')
+INSERT INTO [dbo].[WebComponentViewSubSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('e09c766a-fa6f-ed11-835f-02f176033ddb', '3d3c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'access-level-basket-population-type', N'Type', N'{
+    "defaultValue": {
+        "isUseTranslateKey": true,
+        "translateKey": "COMMON.BASKET.BASKET_EDIT.BASKET_TYPE"
+    }
+}', N'<cr-control-dropdown
+    [(dataValue)]="self.cache.basket.exclude"
+    (dataValueChange)="self.onChangeType($event)"
+    [dataDisplayField]="''name''"
+    [dataValueField]="''status''"
+    [dataSource]="self.basketTypes"
+    [elementName]="''smart-dropdown:Basket_population_type''"
+    [translateKeys]="{{translateKey}}"
+    [dataLabel]="{{label}}"
+    [class]=''{{classes}}''
+></cr-control-dropdown>', '2022-11-29 15:28:04.7018848 +00:00', 1, N'N', '341ae0c0-aee8-422a-9638-a90e25d5325c', 1, NULL, '2022-11-29 15:28:04.7018848 +00:00')
 INSERT INTO [dbo].[WebComponentViewSubSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('e213903c-e94e-ed11-8e5d-4ccc6a2bb6d6', '3c3c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'manage-mailing-category-title-header', N'Title header', N'{
     "defaultValue": {
         "isUseTranslateKey": true,
@@ -1878,140 +1219,6 @@ INSERT INTO [dbo].[WebComponentViewSubSettings] ([ID], [WebComponentID], [Code],
     (buttonClickEvent)="self.onTitleButtonClick($event)"
     [buttonSettings]="self.titleHeaderButtonSettings"
 ></cr-title-header>', '2022-11-21 08:47:46.2666667 +00:00', 8, N'N', '58ce3742-9da3-4c77-80e1-f592d560e4f3', 1, NULL, '2022-09-28 17:31:50.1102942 +03:00')
-INSERT INTO [dbo].[WebComponentViewSubSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('e313903c-e94e-ed11-8e5d-4ccc6a2bb6d6', '393c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'manage-mailing-category-grid', N'Grid', N'{
-    "defaultValue": {},
-    "fieldSettings": {
-        "grid": {
-            "allowMultiselect": true,
-            "uniqueField": "id",
-            "previewDataSource": {
-                "responseList": [
-                    {
-                        "id": 1,
-                        "displayName": "Display name",
-                        "email": true,
-                        "sms": true
-                    }
-                ],
-                "page": 1,
-                "size": 5,
-                "totalElements": 1
-            },
-            "columns": [
-                {
-                    "titleTranslateKey": "PARTNER.DETAILS.GENERAL.DISPLAY_NAME",
-                    "field": "displayName",
-                    "type": "text"
-                },
-                {
-                    "titleTranslateKey": "PARTNER.DETAILS.GENERAL.EMAIL",
-                    "field": "email",
-                    "type": "boolean",
-                    "allowInCellEditing": true,
-                    "width": "120px"
-                },
-                {
-                    "titleTranslateKey": "PARTNER.DETAILS.GENERAL.SMS",
-                    "field": "sms",
-                    "type": "boolean",
-                    "allowInCellEditing": true,
-                    "width": "120px"
-                }
-            ]
-        }
-    }
-}', N'<div class="cr-grid-wrapper-new {{classes}}">
-    <ng-template #tooltipTemplate let-anchor>
-      <span>{{ self.anchor.nativeElement.innerText }}</span>
-    </ng-template>
-
-    <div 
-        kendoTooltip
-        showOn="none"
-        [tooltipTemplate]="self.tooltipTemplate"
-        filter=".k-grid td"
-        (mouseover)="self.showTooltip($event)"
-    >
-      <kendo-grid
-        [attr.data-element-name]="''grid:Partner_details.Mailing_category_manage_grid''"
-        [data]="self.cache.gridView"
-        [pageSize]="self.cache.paginatorGrid?.size"
-        [skip]="self.cache.paginatorGrid?.skip"
-        [pageable]="{
-            buttonCount: 10,
-            info: true,
-            type: ''numeric'' ,
-            pageSizes: true,
-            previousNext: true
-        }"
-        [selectable]="{enabled: true, checkboxOnly: true}"
-        [rowSelected]="self.isRowSelected"
-        [resizable]="true"
-        (selectionChange)="self.onSelectedChange($event)"
-        (pageChange)="self.pageChange($event)"
-      >
-        <kendo-grid-checkbox-column title="" width="60px">
-          <ng-template kendoGridHeaderTemplate>
-                <span [attr.data-translate]="''PARTNER.DETAILS.GENERAL.USE''">
-                  {{ ''PARTNER.DETAILS.GENERAL.USE'' | translate }}
-                </span>
-          </ng-template>
-        </kendo-grid-checkbox-column>
-        <kendo-grid-column title="">
-          <ng-template kendoGridHeaderTemplate>
-                <span [attr.data-translate]="''PARTNER.DETAILS.GENERAL.DISPLAY_NAME''">
-                  {{ ''PARTNER.DETAILS.GENERAL.DISPLAY_NAME'' | translate }}
-                </span>
-          </ng-template>
-          <ng-template kendoGridCellTemplate let-dataItem>
-            <label>{{dataItem.name}}</label>
-          </ng-template>
-        </kendo-grid-column>
-        <kendo-grid-column title="" width="120px">
-          <ng-template kendoGridHeaderTemplate>
-                <span [attr.data-translate]="''PARTNER.DETAILS.GENERAL.EMAIL''">
-                  {{ ''PARTNER.DETAILS.GENERAL.EMAIL'' | translate }}
-                </span>
-          </ng-template>
-          <ng-template kendoGridCellTemplate let-dataItem>
-            <section
-              *ngIf="dataItem.mailingCategorySelected?.action === self.Action.default || dataItem.mailingCategorySelected?.action === self.Action.create || dataItem.mailingCategorySelected?.action === self.Action.update">
-              <cr-checkbox-control
-                [(dataValue)]="dataItem.mailingCategorySelected.sendMail"
-                (dataValueChange)="self.dataChanged(dataItem)"
-              ></cr-checkbox-control>
-            </section>
-          </ng-template>
-        </kendo-grid-column>
-        <kendo-grid-column title="" width="120px">
-          <ng-template kendoGridHeaderTemplate>
-                <span [attr.data-translate]="''PARTNER.DETAILS.GENERAL.SMS''">
-                  {{ ''PARTNER.DETAILS.GENERAL.SMS'' | translate }}
-                </span>
-          </ng-template>
-          <ng-template kendoGridCellTemplate let-dataItem>
-            <section
-              *ngIf="dataItem.mailingCategorySelected?.action === self.Action.default || dataItem.mailingCategorySelected?.action === self.Action.create || dataItem.mailingCategorySelected?.action === self.Action.update">
-              <cr-checkbox-control
-                [(dataValue)]="dataItem.mailingCategorySelected.sendSMS"
-                (dataValueChange)="self.dataChanged(dataItem)"
-              ></cr-checkbox-control>
-            </section>
-          </ng-template>
-        </kendo-grid-column>
-
-        <ng-template kendoGridNoRecordsTemplate>
-            <span [attr.data-translate]="''COMMON.GRID.NO_RECORDS''">
-                {{ ''COMMON.GRID.NO_RECORDS'' | translate }}
-            </span>
-        </ng-template>
-
-        <ng-template kendoPagerTemplate>
-          <cr-grid-paginator [totalElements]="self.cache.paginatorGrid?.totalElements || self.cache.gridView?.total"></cr-grid-paginator>
-        </ng-template>
-      </kendo-grid>
-    </div>
-  </div>', '2022-11-18 16:25:54.3333333 +00:00', 15, N'N', 'aa281e3b-261d-4b7e-b7c8-d2a2286f7cfe', 1, NULL, '2022-09-28 17:31:50.1102942 +03:00')
 INSERT INTO [dbo].[WebComponentViewSubSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('e413903c-e94e-ed11-8e5d-4ccc6a2bb6d6', '3c3c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'manage-partner-group-title-header', N'Title header', N'{
     "defaultValue": {
         "isUseTranslateKey": true,
@@ -2039,166 +1246,6 @@ INSERT INTO [dbo].[WebComponentViewSubSettings] ([ID], [WebComponentID], [Code],
     (buttonClickEvent)="self.onTitleButtonClick($event)"
     [buttonSettings]="self.titleHeaderButtonSettings"
 ></cr-title-header>', '2022-11-21 08:48:15.8100000 +00:00', 4, N'N', 'ba15969a-5d25-49e4-b6c1-2efc3a7e53ca', 1, NULL, '2022-09-28 17:31:50.1102942 +03:00')
-INSERT INTO [dbo].[WebComponentViewSubSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('e513903c-e94e-ed11-8e5d-4ccc6a2bb6d6', '393c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'manage-partner-groups-grid', N'Grid', N'{
-    "defaultValue": {},
-    "fieldSettings": {
-        "grid": {
-            "allowMultiselect": true,
-            "uniqueField": "id",
-            "previewDataSource": {
-                "responseList": [
-                    {
-                        "id": 1,
-                        "displayName": "Display name",
-                        "activated": true,
-                        "from": "1991-06-01T00:00:00.000Z",
-                        "to": "1991-07-01T00:00:00.000Z"
-                    }
-                ],
-                "page": 1,
-                "size": 5,
-                "totalElements": 1
-            },
-            "columns": [
-                {
-                    "titleTranslateKey": "PARTNER.DETAILS.MANAGE_GROUP.DISPLAY_NAME",
-                    "field": "displayName",
-                    "type": "text"
-                },
-                {
-                    "titleTranslateKey": "PARTNER.DETAILS.MANAGE_GROUP.ACTIVATED",
-                    "field": "activated",
-                    "type": "boolean",
-                    "allowInCellEditing": true,
-                    "width": "120px"
-                },
-                {
-                    "titleTranslateKey": "PARTNER.DETAILS.MANAGE_GROUP.FROM",
-                    "field": "from",
-                    "type": "date",
-                    "allowInCellEditing": true,
-                    "width": "180px"
-                },
-                {
-                    "titleTranslateKey": "PARTNER.DETAILS.MANAGE_GROUP.TO",
-                    "field": "to",
-                    "type": "date",
-                    "allowInCellEditing": true,
-                    "width": "180px"
-                }
-            ]
-        }
-    }
-}', N'<div class="cr-grid-wrapper-new {{classes}}">
-<ng-template #tooltipTemplate let-anchor>
-    <span>{{ self.anchor.nativeElement.innerText }}</span>
-</ng-template>
-    <div kendoTooltip
-         showOn="none"
-         [tooltipTemplate]="self.tooltipTemplate"
-         filter=".k-grid td"
-         (mouseover)="self.showTooltip($event)">
-      <kendo-grid
-        [attr.data-element-name]="''grid:Partner_details.Groups_grid''"
-        [data]="self.cache.gridView"
-        [pageSize]="self.cache.paginatorGrid?.size"
-        [skip]="self.cache.paginatorGrid?.skip"
-
-        [pageable]="{
-            buttonCount: 10,
-            info: true,
-            type: ''numeric'' ,
-            pageSizes: true,
-            previousNext: true
-          }"
-        [selectable]="{enabled: true, checkboxOnly: true}"
-        [rowSelected]="self.isRowSelected"
-        [resizable]="true"
-        (selectionChange)="self.onSelectedChange($event)"
-        (pageChange)="self.pageChange($event)"
-      >
-        <kendo-grid-checkbox-column width="60px">
-          <ng-template kendoGridHeaderTemplate>
-                <span [attr.data-translate]="''COMMON.SELECT''">
-                  {{''COMMON.SELECT'' | translate}}
-                </span>
-          </ng-template>
-        </kendo-grid-checkbox-column>
-        <kendo-grid-column>
-          <ng-template kendoGridHeaderTemplate>
-                <span [attr.data-translate]="''PARTNER.DETAILS.MANAGE_GROUP.DISPLAY_NAME''">
-                  {{''PARTNER.DETAILS.MANAGE_GROUP.DISPLAY_NAME'' | translate}}
-                </span>
-          </ng-template>
-          <ng-template kendoGridCellTemplate let-dataItem>
-            <label>{{dataItem.displayName}}</label>
-          </ng-template>
-        </kendo-grid-column>
-        <kendo-grid-column width="120px">
-          <ng-template kendoGridHeaderTemplate>
-                <span [attr.data-translate]="''PARTNER.DETAILS.MANAGE_GROUP.ACTIVATED''">
-                  {{''PARTNER.DETAILS.MANAGE_GROUP.ACTIVATED'' | translate}}
-                </span>
-          </ng-template>
-          <ng-template kendoGridCellTemplate let-dataItem>
-            <section
-              *ngIf="dataItem.partnerGroupSelected?.action === self.Action.default || dataItem.partnerGroupSelected?.action === self.Action.create || dataItem.partnerGroupSelected?.action === self.Action.update">
-              <cr-checkbox-control
-                [elementName]="''checkbox:Partner_details.Partner_group_selected''"
-                [(dataValue)]="dataItem.partnerGroupSelected.isActivated"
-                (dataValueChange)="self.dataChanged(dataItem)"
-              ></cr-checkbox-control>
-            </section>
-          </ng-template>
-        </kendo-grid-column>
-        <kendo-grid-column width="180px">
-          <ng-template kendoGridHeaderTemplate>
-                <span [attr.data-translate]="''PARTNER.DETAILS.MANAGE_GROUP.FROM''">
-                  {{''PARTNER.DETAILS.MANAGE_GROUP.FROM'' | translate}}
-                </span>
-          </ng-template>
-          <ng-template kendoGridCellTemplate let-dataItem>
-            <section
-              *ngIf="dataItem.partnerGroupSelected?.action === self.Action.default || dataItem.partnerGroupSelected?.action === self.Action.create || dataItem.partnerGroupSelected?.action === self.Action.update">
-              <cr-date-picker-simple-control
-                [elementName]="''simple-date:Partner_details.Partner_group_activated_from''"
-                [(dataValue)]="dataItem.partnerGroupSelected.activatedFrom"
-                (dataValueChange)="self.dataChanged(dataItem)"
-                [validationMessage]="self.validateDates(dataItem.partnerGroupSelected.activatedFrom, dataItem.partnerGroupSelected.activatedTo, ''Activated date from should be greater than date to'')"
-              ></cr-date-picker-simple-control>
-            </section>
-          </ng-template>
-        </kendo-grid-column>
-        <kendo-grid-column width="180px">
-          <ng-template kendoGridHeaderTemplate>
-                <span [attr.data-translate]="''PARTNER.DETAILS.MANAGE_GROUP.TO''">
-                  {{''PARTNER.DETAILS.MANAGE_GROUP.TO'' | translate}}
-                </span>
-          </ng-template>
-          <ng-template kendoGridCellTemplate let-dataItem>
-            <section
-              *ngIf="dataItem.partnerGroupSelected?.action === self.Action.default || dataItem.partnerGroupSelected?.action === self.Action.create || dataItem.partnerGroupSelected?.action === self.Action.update">
-              <cr-date-picker-simple-control
-                [elementName]="''simple-date:Partner_details.Partner_group_activated_to''"
-                [(dataValue)]="dataItem.partnerGroupSelected.activatedTo"
-                (dataValueChange)="self.dataChanged(dataItem)"
-                [validationMessage]="self.validateDates(dataItem.partnerGroupSelected.activatedFrom, dataItem.partnerGroupSelected.activatedTo, ''Activated date from should be greater than date to'')"
-              ></cr-date-picker-simple-control>
-            </section>
-          </ng-template>
-        </kendo-grid-column>
-        <ng-template kendoGridNoRecordsTemplate>
-              <span [attr.data-translate]="''COMMON.GRID.NO_RECORDS''">
-                {{ ''COMMON.GRID.NO_RECORDS'' | translate }}
-              </span>
-        </ng-template>
-
-        <ng-template kendoPagerTemplate>
-          <cr-grid-paginator [totalElements]="self.cache.paginatorGrid?.totalElements || self.cache.gridView?.total"></cr-grid-paginator>
-        </ng-template>
-      </kendo-grid>
-    </div>
-</div>', '2022-11-18 17:05:49.9966667 +00:00', 7, N'N', '4ade2bcf-0b2e-4e57-a447-140d7531711a', 1, NULL, '2022-09-28 17:31:50.1102942 +03:00')
 INSERT INTO [dbo].[WebComponentViewSubSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('e613903c-e94e-ed11-8e5d-4ccc6a2bb6d6', '3c3c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'manage-partner-addresses-title-header', N'Title header', N'{
     "defaultValue": {
         "isUseTranslateKey": true,
@@ -2924,22 +1971,6 @@ INSERT INTO [dbo].[WebComponentViewSubSettings] ([ID], [WebComponentID], [Code],
     [elementName]="''edit:Partner_details.Contact_person_is_partner_club''"
     [(dataValue)]="self.contactPerson.isPartnerClub"
 ></cr-checkbox-control>', '2022-11-04 18:14:09.0400000 +00:00', 2, N'N', 'f9265f1a-f07c-4c10-aec0-757b9e568ee8', 1, NULL, '2022-09-28 17:31:50.1102942 +03:00')
-INSERT INTO [dbo].[WebComponentViewSubSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('0e14903c-e94e-ed11-8e5d-4ccc6a2bb6d6', '403c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'manage-partner-contact-person-mailing-category', N'Mailing category', N'{
-    "defaultValue": {
-        "editIcon": "icon-edit",
-        "editable": true
-    }
-}', N'<cr-partner-mailing-category-control
-    [editable]="{{editable}} && (self.isNew ? 
-            self.authService.getEndpointAccessGranted(self.EndpointName.partner_POST) :
-            self.authService.getEndpointAccessGranted(self.EndpointName.partner_id_PUT))"
-
-    [partnerId]="self.contactPerson.id"
-    [selectedMailingCategory]="self.contactPerson.mailingCategories"
-    (editClickEvent)="self.onEditMailingCategory()"
-    [class]=''{{classes}}''
-    [editIcon]="{{editIcon}}"
-></cr-partner-mailing-category-control>', '2022-11-04 18:14:16.7800000 +00:00', 2, N'N', '81f66fcf-ff72-4d30-aeca-91fd86597823', 1, NULL, '2022-09-28 17:31:50.1102942 +03:00')
 INSERT INTO [dbo].[WebComponentViewSubSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('0f14903c-e94e-ed11-8e5d-4ccc6a2bb6d6', '3c3c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'tax-group-definition-title', N'Header', N'{
     "defaultValue": {
         "isUseTranslateKey": true,
@@ -2965,3 +1996,958 @@ INSERT INTO [dbo].[WebComponentViewSubSettings] ([ID], [WebComponentID], [Code],
     [titleValue]="self.titleValueText"
 ></cr-title-header>
 ', '2022-11-21 08:52:16.8766667 +00:00', 3, N'N', '6cc13f49-94f9-4106-9f0c-498c385761c9', 1, NULL, '2022-10-06 12:05:15.6069016 +03:00')
+INSERT INTO [dbo].[WebComponentViewSubSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('5a4521ab-a06c-ed11-835f-02f176033ddb', '393c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'item-modifiers-template-grid', N'Item modifier templates', N'{
+    "defaultValue": {
+        "dynamicColumnSettings": [
+            {
+                "titleTranslateKey": "ITEM.DETAILS.MODIFIER_TEMPLATE_LIST.GRID.MODIFIER_TEMPLATE_CODE",
+                "field": "code",
+                "hidden": false
+            },
+            {
+                "titleTranslateKey": "ITEM.DETAILS.MODIFIER_TEMPLATE_LIST.GRID.MODIFIER_TEMPLATE_NAME",
+                "field": "name",
+                "hidden": false
+            }
+        ]
+    },
+    "fieldSettings": {
+        "grid": {
+            "uniqueField": "id",
+            "expandable": true,
+            "previewDataSource": {
+                "responseList": [
+                    {
+                        "id": 1,
+                        "code": "test",
+                        "name": "test"
+                    }
+                ],
+                "page": 1,
+                "size": 5,
+                "totalElements": 1
+            },
+            "columns": [
+                {
+                    "titleTranslateKey": "ITEM.DETAILS.MODIFIER_TEMPLATE_LIST.GRID.MODIFIER_TEMPLATE_CODE",
+                    "field": "code",
+                    "type": "link"
+                },
+                {
+                    "titleTranslateKey": "ITEM.DETAILS.MODIFIER_TEMPLATE_LIST.GRID.MODIFIER_TEMPLATE_NAME",
+                    "field": "name",
+                    "type": "text"
+                }
+            ]
+        }
+    }
+}', N'<div class="cr-grid-wrapper-new">
+    <cr-edit-grid-server-paging
+        [elementName]="''grid:Item_details.Modifier_template_list.Popup.List_grid''"
+        [dataCacheName]="''ItemModifierTemplateListCache''"
+        [dataSource]="self.dataSource"
+        [columnSettings]=''self.columnSettings | dynamicColumnSettings:{{dynamicColumnSettings}}''
+        [pageable]="true"
+        [resizable]="true"
+        [uniqueField]="''id''"
+        [initialSelectedRows]="self.cache.selection"
+        [expandable]="true"
+        [expandedRows]="self.cache.expandedRows"
+        (pageChangeEvent)="self.changePage($event)"
+        (expandedRowsChange)="self.onExpandedRowsChange($event)"
+        (cellClickEvent)="self.onCellClick($event)"
+        [class]="{{classes}}"
+    >
+        <ng-template crEditGridExpandDetails let-dataItem="dataItem">
+            <cr-item-modifier-template-modifiers
+                [modifierTemplateId]="dataItem.id"
+                [filter]="self.cache.filter"
+                [selected]="self.cache.selection"
+                (onSelection)="self.onSelectModifierGroupByTemplate($event)"
+            ></cr-item-modifier-template-modifiers>
+        </ng-template>
+    </cr-edit-grid-server-paging>
+</div>', '2022-12-08 09:26:43.0433333 +00:00', 7, N'N', '7cbb97c0-ec5b-4332-920e-e07f4d61658b', 1, NULL, '2022-11-25 09:08:05.0004954 +00:00')
+INSERT INTO [dbo].[WebComponentViewSubSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('28f36fe7-a36c-ed11-835f-02f176033ddb', '393c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'item-modifiers-groups-grid', N'Item modifier groups', N'{
+    "defaultValue": {
+        "dynamicColumnSettings": [
+            {
+                "titleTranslateKey": "ITEM.DETAILS.MODIFIER_GROUP_LIST.GRID.MODIFIER_GROUP_CODE",
+                "field": "code",
+                "hidden": false
+            },
+            {
+                "titleTranslateKey": "ITEM.DETAILS.MODIFIER_GROUP_LIST.GRID.MODIFIER_GROUP_NAME",
+                "field": "name",
+                "hidden": false
+            },
+            {
+                "titleTranslateKey": "ITEM.DETAILS.MODIFIER_GROUP_LIST.GRID.MODIFIER_GROUP_DISPLAY_NAME",
+                "field": "displayName",
+                "hidden": false
+            }
+        ]
+    },
+    "fieldSettings": {
+        "grid": {
+            "allowMultiselect": true,
+            "uniqueField": "id",
+            "previewDataSource": {
+                "responseList": [
+                    {
+                        "id": 1,
+                        "code": "test",
+                        "name": "test",
+                        "displayName": "test"
+                    }
+                ],
+                "page": 1,
+                "size": 5,
+                "totalElements": 1
+            },
+            "columns": [
+                {
+                    "titleTranslateKey": "ITEM.DETAILS.MODIFIER_GROUP_LIST.GRID.MODIFIER_GROUP_CODE",
+                    "field": "code",
+                    "type": "link"
+                },
+                {
+                    "titleTranslateKey": "ITEM.DETAILS.MODIFIER_GROUP_LIST.GRID.MODIFIER_GROUP_NAME",
+                    "field": "name",
+                    "type": "text"
+                },
+                {
+                    "titleTranslateKey": "ITEM.DETAILS.MODIFIER_GROUP_LIST.GRID.MODIFIER_GROUP_DISPLAY_NAME",
+                    "field": "displayName",
+                    "type": "text"
+                }
+            ]
+        }
+    }
+}', N'<div class="cr-grid-wrapper-new">
+    <cr-edit-grid-server-paging
+        [fieldNameForMultiSelectColumnTranslateKey]="''ITEM.DETAILS.MODIFIER_GROUP_LIST.GRID.USE''"
+        [elementName]="''grid:Item_details.Modifier_group_list.Popup.Group_list_grid''"
+        [dataCacheName]="''ItemModifierGroupListCache''"
+        [columnSettings]=''self.columnSettings | dynamicColumnSettings:{{dynamicColumnSettings}}''
+        [uniqueField]="''id''"
+        [resizable]="true"
+        [pageable]="true"
+        [allowMultiSelect]="true"
+        [initialSelectedRows]="self.cache.selection"
+        [selectionDataMode]="''id''"
+        (pageChangeEvent)="self.changePage($event)"
+        (cellClickEvent)="self.onCellClick($event)"
+        (selectionChanged)="self.onSelectionChange($event)"
+        [dataSource]="self.dataSource"
+        [class]="{{classes}}"
+    ></cr-edit-grid-server-paging>
+</div>
+', '2022-12-08 09:26:29.1333333 +00:00', 4, N'N', '14912e88-212d-42c5-93b5-23eb6149fd2e', 1, NULL, '2022-11-25 09:31:14.6696104 +00:00')
+INSERT INTO [dbo].[WebComponentViewSubSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('08c3b0f2-e46c-ed11-835f-02f176033ddb', '393c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'item-combo-meal-items-grid', N'Items', N'{
+    "defaultValue": {
+        "dynamicColumnSettings": [
+            {
+                "titleTranslateKey": "ITEM.DETAILS.COMBO_MEAL.ITEMS.GRID.CODE",
+                "field": "code",
+                "hidden": false
+            },
+            {
+                "field": "extraPriceValue",
+                "titleTranslateKey": "ITEM.DETAILS.COMBO_MEAL.ITEMS.GRID.EXTRA_PRICE",
+                "hidden": false
+            },
+            {
+                "field": "isDefaultSelection",
+                "titleTranslateKey": "ITEM.DETAILS.COMBO_MEAL.ITEMS.GRID.IS_DEFAULT",
+                "hidden": false
+            }
+        ]
+    },
+    "fieldSettings": {
+        "grid": {
+            "uniqueField": "id",
+            "userSort": true,
+            "previewDataSource": {
+                "responseList": [
+                    {
+                        "id": 1,
+                        "code": "test",
+                        "name": "test",
+                        "extraPriceValue": 3.05,
+                        "isDefaultSelection": true
+                    }
+                ],
+                "page": 1,
+                "size": 5,
+                "totalElements": 1
+            },
+            "columns": [
+                {
+                    "titleTranslateKey": "ITEM.DETAILS.COMBO_MEAL.ITEMS.GRID.CODE",
+                    "field": "code",
+                    "type": "link"
+                },
+                {
+                    "type": "decimal",
+                    "field": "extraPriceValue",
+                    "titleTranslateKey": "ITEM.DETAILS.COMBO_MEAL.ITEMS.GRID.EXTRA_PRICE",
+                    "decimals": 2,
+                    "format": "#.##",
+                    "min": 0,
+                    "autoCorrectMinMax": true
+                },
+                {
+                    "type": "boolean",
+                    "field": "isDefaultSelection",
+                    "titleTranslateKey": "ITEM.DETAILS.COMBO_MEAL.ITEMS.GRID.IS_DEFAULT",
+                    "width": "100px"
+                }
+            ]
+        }
+    }
+}', N'<div class="cr-grid-relative-wrapper">
+    <div class="cr-grid-wrapper-new" #gridWrapper>
+        <cr-edit-grid-server-paging
+            [elementName]="''edit-grid-server-paging:Item_details.Combo_meal_category_items_grid''"
+            [permissionSettings]="{
+              isAccessUpdate: self.isNew ? (self.EndpointName.item_combo_meal_category_POST | endpointAccessGrantedPipe) :
+                (self.EndpointName.item_combo_meal_category_id_PUT | endpointAccessGrantedPipe),
+              isAccessDelete: self.isNew ? (self.EndpointName.item_combo_meal_category_POST | endpointAccessGrantedPipe) :
+                (self.EndpointName.item_combo_meal_category_id_PUT | endpointAccessGrantedPipe)
+            }"
+            [dataCacheName]="''ViewComboMealCategoryItemsGrid''"
+            [columnSettings]=''self.columnSettings | dynamicColumnSettings:{{dynamicColumnSettings}}''
+            [dataSource]="self.adapter.dataSource"
+            [uniqueField]="''id''"
+            [selectionDataMode]="''id''"
+            [resizable]="true"
+            [pageable]="true"
+            [hasSorter]="true"
+            [allowUpdateAction]="true"
+            [allowDeleteAction]="true"
+            (pageChangeEvent)="self.changePage($event)"
+            (updateActionEvent)="self.updateHandler($event)"
+            (deleteActionEvent)="self.deleteHandler($event)"
+            (changeStatus)="self.onChangeStatusHandler($event)"
+            (selectionChanged)="self.onSelectionChange($event)"
+            (cellClickEvent)="self.onCellClick($event)"
+            [class]=''{{classes}}''
+        ></cr-edit-grid-server-paging>
+    </div>
+    <cr-sort
+        (changeSort)="self.changeSortHandler($event)"
+        [disableButtons]="{
+            toFirst: self.cache.item.firstSelected,
+            oneUp: self.cache.item.firstSelected,
+            oneDown: self.cache.item.lastSelected,
+            toLast: self.cache.item.lastSelected
+        }"
+        [gridWrapper]="gridWrapper"
+        [hideButtons]="{
+            toFirst: self.adapter.dataSource?.responseList.length < 2,
+            toLast: self.adapter.dataSource?.responseList.length < 2
+        }"
+        [permissionSettings]="(self.EndpointName.item_property_id_sort_order_PUT | endpointAccessGrantedPipe)"
+    ></cr-sort>
+</div>', '2022-12-08 09:47:27.6733333 +00:00', 2, N'N', '1814f264-c119-4d17-8957-0ea650064aa6', 1, NULL, '2022-11-25 17:16:50.8367240 +00:00')
+INSERT INTO [dbo].[WebComponentViewSubSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('e002ee64-eb6c-ed11-835f-02f176033ddb', '393c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'item-combo-meal-select-from-catalog-grid', N'Items', N'{
+    "defaultValue": {
+        "dynamicColumnSettings": [
+            {
+                "field": "code",
+                "titleTranslateKey": "ITEM.DETAILS.COMBO_MEAL.SELECT_FROM_CATALOG.GRID.CODE",
+                "hidden": false
+            },
+            {
+                "field": "name",
+                "titleTranslateKey": "ITEM.DETAILS.COMBO_MEAL.SELECT_FROM_CATALOG.GRID.NAME",
+                "hidden": false
+            },
+            {
+                "field": "barcode",
+                "titleTranslateKey": "ITEM.DETAILS.COMBO_MEAL.SELECT_FROM_CATALOG.GRID.BARCODE",
+                "hidden": false
+            },
+            {
+                "field": "model.name",
+                "titleTranslateKey": "ITEM.DETAILS.COMBO_MEAL.SELECT_FROM_CATALOG.GRID.MODEL",
+                "hidden": false
+            }
+        ]
+    },
+    "fieldSettings": {
+        "grid": {
+            "allowMultiselect": true,
+            "uniqueField": "id",
+            "previewDataSource": {
+                "responseList": [
+                    {
+                        "id": 1,
+                        "code": "test",
+                        "name": "test",
+                        "barcode": "test",
+                        "model": {
+                            "id": 1,
+                            "name": "Model",
+                            "code": "Model code"
+                        }
+                    }
+                ],
+                "page": 1,
+                "size": 5,
+                "totalElements": 1
+            },
+            "columns": [
+                {
+                    "titleTranslateKey": "ITEM.DETAILS.COMBO_MEAL.SELECT_FROM_CATALOG.GRID.CODE",
+                    "field": "code",
+                    "type": "link"
+                },
+                {
+                    "titleTranslateKey": "ITEM.DETAILS.COMBO_MEAL.SELECT_FROM_CATALOG.GRID.NAME",
+                    "field": "name",
+                    "type": "text"
+                },
+                {
+                    "titleTranslateKey": "ITEM.DETAILS.COMBO_MEAL.SELECT_FROM_CATALOG.GRID.BARCODE",
+                    "field": "barcode",
+                    "type": "text"
+                },
+                {
+                    "type": "fieldWithCode",
+                    "field": "model.name",
+                    "codeField": "model.code",
+                    "titleTranslateKey": "ITEM.DETAILS.COMBO_MEAL.SELECT_FROM_CATALOG.GRID.MODEL"
+                }
+            ]
+        }
+    }
+}', N'<div class="cr-grid-wrapper-new">
+    <cr-edit-grid-server-paging
+        [elementName]="''edit-grid-server-paging:Item_details.Combo_meal_select_from_catalog_grid''"
+        [dataSource]="self.dataSource"
+        [columnSettings]=''self.columnSettings | dynamicColumnSettings:{{dynamicColumnSettings}}''
+        [pageable]="true"
+        [resizable]="true"
+        (cellClickEvent)="self.onCellClick($event)"
+        (pageChangeEvent)="self.changePage($event)"
+        (selectionChanged)="self.onSelectionChange($event)"
+        [initialSelectedRows]="self.cache.selectedItems"
+        [uniqueField]="''id''"
+        [allowMultiSelect]="true"
+        [selectionDataMode]="''object''"
+        [dataCacheName]="''ComboMealCategorySelectFromCatalogGrid''"
+        [class]=''{{classes}}''
+    ></cr-edit-grid-server-paging>
+</div>
+', '2022-12-08 10:37:07.2433333 +00:00', 2, N'N', '8c1d669f-9ef9-4c17-a67f-819d8fff87b8', 1, NULL, '2022-11-25 18:02:59.4787680 +00:00')
+INSERT INTO [dbo].[WebComponentViewSubSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('20949f12-ed6c-ed11-835f-02f176033ddb', '393c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'item-combo-meal-select-from-basket-grid', N'Items', N'{
+    "defaultValue": {
+        "dynamicColumnSettings": [
+            {
+                "field": "code",
+                "titleTranslateKey": "ITEM.DETAILS.COMBO_MEAL.SELECT_FROM_BASKET.GRID.CODE",
+                "hidden": false
+            },
+            {
+                "field": "name",
+                "titleTranslateKey": "ITEM.DETAILS.COMBO_MEAL.SELECT_FROM_BASKET.GRID.NAME",
+                "hidden": false
+            },
+            {
+                "field": "barcode",
+                "titleTranslateKey": "ITEM.DETAILS.COMBO_MEAL.SELECT_FROM_BASKET.GRID.BARCODE",
+                "hidden": false
+            },
+            {
+                "field": "model.name",
+                "titleTranslateKey": "ITEM.DETAILS.COMBO_MEAL.SELECT_FROM_BASKET.GRID.MODEL",
+                "hidden": false
+            }
+        ]
+    },
+    "fieldSettings": {
+        "grid": {
+            "allowMultiselect": true,
+            "uniqueField": "id",
+            "previewDataSource": {
+                "responseList": [
+                    {
+                        "id": 1,
+                        "code": "test",
+                        "name": "test",
+                        "barcode": "test",
+                        "model": {
+                            "id": 1,
+                            "name": "Model",
+                            "code": "Model code"
+                        }
+                    }
+                ],
+                "page": 1,
+                "size": 5,
+                "totalElements": 1
+            },
+            "columns": [
+                {
+                    "titleTranslateKey": "ITEM.DETAILS.COMBO_MEAL.SELECT_FROM_BASKET.GRID.CODE",
+                    "field": "code",
+                    "type": "link"
+                },
+                {
+                    "titleTranslateKey": "ITEM.DETAILS.COMBO_MEAL.SELECT_FROM_BASKET.GRID.NAME",
+                    "field": "name",
+                    "type": "text"
+                },
+                {
+                    "titleTranslateKey": "ITEM.DETAILS.COMBO_MEAL.SELECT_FROM_BASKET.GRID.BARCODE",
+                    "field": "barcode",
+                    "type": "text"
+                },
+                {
+                    "type": "fieldWithCode",
+                    "field": "model.name",
+                    "codeField": "model.code",
+                    "titleTranslateKey": "ITEM.DETAILS.COMBO_MEAL.SELECT_FROM_BASKET.GRID.MODEL"
+                }
+            ]
+        }
+    }
+}', N'<div class="cr-grid-wrapper-new">
+    <cr-edit-grid-server-paging
+        [elementName]="''edit-grid-server-paging:Item_details.Combo_meal_select_from_basket_grid''"
+        [dataSource]="self.dataSource"
+        [columnSettings]=''self.columnSettings | dynamicColumnSettings:{{dynamicColumnSettings}}''
+        [pageable]="true"
+        [resizable]="true"
+        (cellClickEvent)="self.onCellClick($event)"
+        (pageChangeEvent)="self.changePage($event)"
+        (selectionChanged)="self.onSelectionChange($event)"
+        [initialSelectedRows]="self.cache.selectedItems"
+        [uniqueField]="''id''"
+        [allowMultiSelect]="true"
+        [selectionDataMode]="''object''"
+        [dataCacheName]="''ComboMealCategorySelectFromBasketGrid''"
+        [class]=''{{classes}}''
+    ></cr-edit-grid-server-paging>
+</div>
+', '2022-12-08 10:35:36.6700000 +00:00', 3, N'N', '4dbbd138-ffb1-4439-a9e7-c53bbcdceecd', 1, NULL, '2022-11-25 18:15:00.3850400 +00:00')
+INSERT INTO [dbo].[WebComponentViewSubSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('84a0b718-966d-ed11-835f-02f176033ddb', '393c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'item-basket-population-grid', N'Basket population content', N'{
+    "defaultValue": {},
+    "fieldSettings": {
+        "validationField": "populationBasketContentList",
+        "grid": {
+            "uniqueField": "id",
+            "isColumnManagementHidden": true,
+            "previewDataSource": {
+                "responseList": [
+                    {
+                        "id": 1,
+                        "type": {
+                            "id": 1,
+                            "name": "Item property"
+                        },
+                        "property": {
+                            "id": 1,
+                            "code": "test",
+                            "name": "test"
+                        },
+                        "value": {
+                            "id": 1,
+                            "code": "test",
+                            "name": "test"
+                        }
+                    }
+                ],
+                "page": 1,
+                "size": 5,
+                "totalElements": 1
+            },
+            "columns": [
+                {
+                    "titleTranslateKey": "COMMON.BASKET.BASKET_EDIT.TYPE",
+                    "field": "type",
+                    "type": "dropdown",
+                    "dropdownOptions": {
+                        "usePrimitiveForBinding": false,
+                        "textField": "name",
+                        "valueField": "id"
+                    }
+                },
+                {
+                    "titleTranslateKey": "COMMON.BASKET.BASKET_EDIT.PROPERTY",
+                    "field": "property",
+                    "type": "dropdown",
+                    "dropdownOptions": {
+                        "usePrimitiveForBinding": false,
+                        "textField": "name",
+                        "valueField": "id",
+                        "codeField": "code"
+                    }
+                },
+                {
+                    "titleTranslateKey": "COMMON.BASKET.BASKET_EDIT.VALUE",
+                    "field": "value",
+                    "type": "dropdown",
+                    "dropdownOptions": {
+                        "usePrimitiveForBinding": false,
+                        "textField": "displayName",
+                        "valueField": "id",
+                        "codeField": "code"
+                    }
+                }
+            ]
+        }
+    }
+}', N'<div class="cr-grid-wrapper-new">
+    <cr-basket-population-edit-list
+        [dataSource]="self.cache.basket.populationBasketContentList"
+        [typeDropdownFn]="self.typeDropdownFn"
+        [cacheName]="self.cacheName + ''EditList''"
+        [isShowProperty]="self.isShowProperty"
+        [propertyDropdownFn]="self.propertyDropdownFn"
+        [valueDropdownFn]="self.valueDropdownFn"
+        (remove)="self.onRemove($event)"
+        (save)="self.onAdd($event)"
+        [class]=''{{classes}}''
+    ></cr-basket-population-edit-list>
+</div>', '2022-12-08 10:51:04.3966667 +00:00', 3, N'N', 'f8d2b59b-2fbf-40da-8687-0eb087cddeb7', 1, NULL, '2022-11-26 14:24:55.5562756 +00:00')
+INSERT INTO [dbo].[WebComponentViewSubSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('140122cc-486f-ed11-835f-02f176033ddb', '393c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'manage-user-roles-grid', N'Roles', N'{
+    "defaultValue": {
+        "dynamicColumnSettings": [
+            {
+                "field": "name",
+                "titleTranslateKey": "USER.DETAILS.ROLE_MANAGER.GRID.NAME",
+                "hidden": false
+            }
+        ]
+    },
+    "fieldSettings": {
+        "grid": {
+            "allowMultiselect": true,
+            "uniqueField": "id",
+            "previewDataSource": {
+                "responseList": [
+                    {
+                        "id": 1,
+                        "name": "Admin"
+                    }
+                ],
+                "page": 1,
+                "size": 5,
+                "totalElements": 1
+            },
+            "columns": [
+                {
+                    "titleTranslateKey": "USER.DETAILS.ROLE_MANAGER.GRID.NAME",
+                    "field": "name",
+                    "type": "text"
+                }
+            ]
+        }
+    }
+}', N'<div class="cr-grid-wrapper-new">
+    <cr-edit-grid-server-paging
+        [elementName]="''edit-grid-server-paging:DETAILS.Details_roles_manager_grid''"
+        [dataSource]="self.dataSource"
+        [columnSettings]=''self.columnSettings | dynamicColumnSettings:{{dynamicColumnSettings}}''
+        [pageable]="true"
+        [resizable]="true"
+        (pageChangeEvent)="self.changePage($event)"
+        [initialSelectedRows]="self.cache.initialSelectedRows"
+        [uniqueField]="''id''"
+        [allowMultiSelect]="true"
+        [selectionDataMode]="''object''"
+        [dataCacheName]="''UserDetailsRoleManagerGrid''"
+        (selectionChanged)="self.onSelectionChange($event)"
+        [class]=''{{classes}}''
+    ></cr-edit-grid-server-paging>
+</div>
+', '2022-12-08 10:56:51.1433333 +00:00', 2, N'N', 'ed03d6c4-6d8b-4478-88d0-1d6528b55312', 1, NULL, '2022-11-28 18:16:38.1462420 +00:00')
+INSERT INTO [dbo].[WebComponentViewSubSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('2696fca9-f46f-ed11-835f-02f176033ddb', '393c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'seller-basket-population-grid', N'Seller basket population content', N'{
+    "defaultValue": {},
+    "fieldSettings": {
+        "validationField": "populationBasketContentList",
+        "grid": {
+            "uniqueField": "id",
+            "isColumnManagementHidden": true,
+            "previewDataSource": {
+                "responseList": [
+                    {
+                        "id": 1,
+                        "dateFrom": "2022-11-29T00:00:00Z",
+                        "dateTo": "2022-11-29T00:00:00Z",
+                        "type": {
+                            "id": 1,
+                            "name": "Item property"
+                        },
+                        "property": {
+                            "id": 1,
+                            "code": "test",
+                            "name": "test"
+                        },
+                        "value": {
+                            "id": 1,
+                            "code": "test",
+                            "name": "test"
+                        }
+                    }
+                ],
+                "page": 1,
+                "size": 5,
+                "totalElements": 1
+            },
+            "columns": [
+                {
+                    "titleTranslateKey": "EMPLOYEE.DETAILS.SELLER_IN_STORES.DATE_FROM",
+                    "field": "dateFrom",
+                    "type": "date-time"
+                },
+                {
+                    "titleTranslateKey": "EMPLOYEE.DETAILS.SELLER_IN_STORES.DATE_TO",
+                    "field": "dateTo",
+                    "type": "date-time"
+                },
+                {
+                    "titleTranslateKey": "COMMON.BASKET.BASKET_EDIT.TYPE",
+                    "field": "type",
+                    "type": "dropdown",
+                    "dropdownOptions": {
+                        "usePrimitiveForBinding": false,
+                        "textField": "name",
+                        "valueField": "id"
+                    }
+                },
+                {
+                    "titleTranslateKey": "COMMON.BASKET.BASKET_EDIT.PROPERTY",
+                    "field": "property",
+                    "type": "dropdown",
+                    "dropdownOptions": {
+                        "usePrimitiveForBinding": false,
+                        "textField": "name",
+                        "valueField": "id",
+                        "codeField": "code"
+                    }
+                },
+                {
+                    "titleTranslateKey": "COMMON.BASKET.BASKET_EDIT.VALUE",
+                    "field": "value",
+                    "type": "dropdown",
+                    "dropdownOptions": {
+                        "usePrimitiveForBinding": false,
+                        "textField": "displayName",
+                        "valueField": "id",
+                        "codeField": "code"
+                    }
+                }
+            ]
+        }
+    }
+}', N'<div class="cr-grid-wrapper-new">
+    <cr-seller-basket-population-edit-list
+        [dataSource]="self.cache.basket.populationBasketContentList"
+        [typeDropdownFn]="self.typeDropdownFn"
+        [cacheName]="self.cacheName + ''EditList''"
+        [isShowProperty]="self.isShowProperty"
+        [propertyDropdownFn]="self.propertyDropdownFn"
+        [valueDropdownFn]="self.valueDropdownFn"
+        (remove)="self.onRemove($event)"
+        (save)="self.onAdd($event)"
+        [class]=''{{classes}}''
+    ></cr-seller-basket-population-edit-list>
+</div>', '2022-12-08 10:53:07.2633333 +00:00', 3, N'N', 'f671f4b5-3f35-4ebd-a43a-3a043a6343d0', 1, NULL, '2022-11-29 14:46:54.2959782 +00:00')
+INSERT INTO [dbo].[WebComponentViewSubSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('c81b90da-fa6f-ed11-835f-02f176033ddb', '393c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'access-level-basket-population-grid', N'Access level basket population content', N'{
+    "defaultValue": {},
+    "fieldSettings": {
+        "validationField": "populationBasketContentList",
+        "grid": {
+            "uniqueField": "id",
+            "isColumnManagementHidden": true,
+            "previewDataSource": {
+                "responseList": [
+                    {
+                        "id": 1,
+                        "dateFrom": "2022-11-29T00:00:00Z",
+                        "dateTo": "2022-11-29T00:00:00Z",
+                        "accessLevel": {
+                            "id": 1,
+                            "name": "Admin"
+                        },
+                        "type": {
+                            "id": 1,
+                            "name": "Item property"
+                        },
+                        "property": {
+                            "id": 1,
+                            "code": "test",
+                            "name": "test"
+                        },
+                        "value": {
+                            "id": 1,
+                            "code": "test",
+                            "name": "test"
+                        }
+                    }
+                ],
+                "page": 1,
+                "size": 5,
+                "totalElements": 1
+            },
+            "columns": [
+                {
+                    "titleTranslateKey": "EMPLOYEE.DETAILS.ACCESS_LEVEL.DATE_FROM",
+                    "field": "dateFrom",
+                    "type": "date-time"
+                },
+                {
+                    "titleTranslateKey": "EMPLOYEE.DETAILS.ACCESS_LEVEL.DATE_TO",
+                    "field": "dateTo",
+                    "type": "date-time"
+                },
+                {
+                    "titleTranslateKey": "EMPLOYEE.DETAILS.ACCESS_LEVEL.ACCESS_LEVEL",
+                    "field": "type",
+                    "type": "dropdown",
+                    "dropdownOptions": {
+                        "usePrimitiveForBinding": false,
+                        "textField": "name",
+                        "valueField": "id"
+                    }
+                },
+                {
+                    "titleTranslateKey": "COMMON.BASKET.BASKET_EDIT.TYPE",
+                    "field": "type",
+                    "type": "dropdown",
+                    "dropdownOptions": {
+                        "usePrimitiveForBinding": false,
+                        "textField": "name",
+                        "valueField": "id"
+                    }
+                },
+                {
+                    "titleTranslateKey": "COMMON.BASKET.BASKET_EDIT.PROPERTY",
+                    "field": "property",
+                    "type": "dropdown",
+                    "dropdownOptions": {
+                        "usePrimitiveForBinding": false,
+                        "textField": "name",
+                        "valueField": "id",
+                        "codeField": "code"
+                    }
+                },
+                {
+                    "titleTranslateKey": "COMMON.BASKET.BASKET_EDIT.VALUE",
+                    "field": "value",
+                    "type": "dropdown",
+                    "dropdownOptions": {
+                        "usePrimitiveForBinding": false,
+                        "textField": "displayName",
+                        "valueField": "id",
+                        "codeField": "code"
+                    }
+                }
+            ]
+        }
+    }
+}', N'<div class="cr-grid-wrapper-new">
+    <cr-access-level-basket-population-edit-list
+        [dataSource]="self.cache.basket.populationBasketContentList"
+        [typeDropdownFn]="self.typeDropdownFn"
+        [cacheName]="self.cacheName + ''EditList''"
+        [propertyDropdownFn]="self.propertyDropdownFn"
+        [valueDropdownFn]="self.valueDropdownFn"
+        [accessLevelDropdownFn]="self.accessLevelDropdownFn"
+        [selectedValueAccessLevel]="self.selectedValueAccessLevel"
+        (remove)="self.onRemove($event)"
+        (save)="self.onAdd($event)"
+        [class]=''{{classes}}''
+    ></cr-access-level-basket-population-edit-list>
+</div>', '2022-12-08 10:54:01.7466667 +00:00', 2, N'N', 'fcc61860-ebd3-4c80-a0bc-77a67e515d67', 1, NULL, '2022-11-29 15:31:12.7737928 +00:00')
+INSERT INTO [dbo].[WebComponentViewSubSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('e313903c-e94e-ed11-8e5d-4ccc6a2bb6d6', '393c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'manage-mailing-category-grid', N'Mailing categories', N'{
+    "defaultValue": {
+        "dynamicColumnSettings": [
+                {
+                    "field": "name",
+                    "titleTranslateKey": "PARTNER.DETAILS.GENERAL.DISPLAY_NAME",
+                    "hidden": false
+                },
+                {
+                    "field": "sendMail",
+                    "titleTranslateKey": "PARTNER.DETAILS.GENERAL.EMAIL",
+                    "hidden": false
+                },
+                {
+                    "field": "sendSMS",
+                    "titleTranslateKey": "PARTNER.DETAILS.GENERAL.SMS",
+                    "hidden": false
+                }
+            ]
+    },
+    "fieldSettings": {
+        "grid": {
+            "allowMultiselect": true,
+            "uniqueField": "id",
+            "previewDataSource": {
+                "responseList": [
+                    {
+                        "id": 1,
+                        "name": "Display name",
+                        "sendMail": true,
+                        "sendSMS": true
+                    }
+                ],
+                "page": 1,
+                "size": 5,
+                "totalElements": 1
+            },
+            "columns": [
+                {
+                    "field": "name",
+                    "titleTranslateKey": "PARTNER.DETAILS.GENERAL.DISPLAY_NAME",
+                    "type": "text"
+                },
+                {
+                    "field": "sendMail",
+                    "titleTranslateKey": "PARTNER.DETAILS.GENERAL.EMAIL",
+                    "type": "boolean",
+                    "allowInCellEditing": true,
+                    "autoFit": true
+                },
+                {
+                    "field": "sendSMS",
+                    "titleTranslateKey": "PARTNER.DETAILS.GENERAL.SMS",
+                    "type": "boolean",
+                    "allowInCellEditing": true,
+                    "autoFit": true
+                }
+            ]
+        }
+    }
+}', N'<div class="cr-grid-wrapper-new">
+    <cr-edit-grid-server-paging
+        [elementName]="''edit-grid-server-paging:Partner_details.Mailign_category_grid''"
+        [dataCacheName]="''ManageMailingCategoryGrid''"
+        [columnSettings]=''self.columnSettings | dynamicColumnSettings:{{dynamicColumnSettings}}''
+        [dataSource]="self.dataSource"
+        [uniqueField]="''id''"
+        [resizable]="true"
+        [pageable]="true"
+        [allowMultiSelect]="true"
+        [selectionDataMode]="''object''"
+        [initialSelectedRows]="self.cache.selectedMailingCategory"
+        (pageChangeEvent)="self.changePage($event)"
+        (selectionChanged)="self.onSelectionChange($event)"
+        (inCellEditingChange)="self.inCellEditing($event)"
+        [class]="{{classes}}"
+    ></cr-edit-grid-server-paging>
+</div>', '2022-12-08 09:29:48.4300000 +00:00', 18, N'N', '81f0799e-6a71-48e2-ac9c-dd8527b02651', 1, NULL, '2022-09-28 17:31:50.1102942 +03:00')
+INSERT INTO [dbo].[WebComponentViewSubSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('e513903c-e94e-ed11-8e5d-4ccc6a2bb6d6', '393c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'manage-partner-groups-grid', N'Partner groups', N'{
+    "defaultValue": {
+        "dynamicColumnSettings": [
+            {
+                "titleTranslateKey": "PARTNER.DETAILS.MANAGE_GROUP.DISPLAY_NAME",
+                "field": "name",
+                "hidden": false
+            },
+            {
+                "titleTranslateKey": "PARTNER.DETAILS.MANAGE_GROUP.ACTIVATED",
+                "field": "isActivated",
+                "hidden": false
+            },
+            {
+                "titleTranslateKey": "PARTNER.DETAILS.MANAGE_GROUP.FROM",
+                "field": "activatedFrom",
+                "hidden": false
+            },
+            {
+                "titleTranslateKey": "PARTNER.DETAILS.MANAGE_GROUP.TO",
+                "field": "activatedTo",
+                "hidden": false
+            }
+        ]
+    },
+    "fieldSettings": {
+        "grid": {
+            "allowMultiselect": true,
+            "uniqueField": "id",
+            "previewDataSource": {
+                "responseList": [
+                    {
+                        "id": 1,
+                        "name": "Display name",
+                        "isActivated": true,
+                        "activatedFrom": "1991-06-01T00:00:00.000Z",
+                        "activatedTo": "1991-07-01T00:00:00.000Z"
+                    }
+                ],
+                "page": 1,
+                "size": 5,
+                "totalElements": 1
+            },
+            "columns": [
+                {
+                    "titleTranslateKey": "PARTNER.DETAILS.MANAGE_GROUP.DISPLAY_NAME",
+                    "field": "name",
+                    "type": "text"
+                },
+                {
+                    "titleTranslateKey": "PARTNER.DETAILS.MANAGE_GROUP.ACTIVATED",
+                    "field": "isActivated",
+                    "type": "boolean",
+                    "allowInCellEditing": true,
+                    "autoFit": true
+                },
+                {
+                    "titleTranslateKey": "PARTNER.DETAILS.MANAGE_GROUP.FROM",
+                    "field": "activatedFrom",
+                    "type": "date",
+                    "allowInCellEditing": true,
+                    "width": "180px"
+                },
+                {
+                    "titleTranslateKey": "PARTNER.DETAILS.MANAGE_GROUP.TO",
+                    "field": "activatedTo",
+                    "type": "date",
+                    "allowInCellEditing": true,
+                    "width": "180px"
+                }
+            ]
+        }
+    }
+}', N'<div class="cr-grid-wrapper-new">
+    <cr-edit-grid-server-paging
+        [elementName]="''edit-grid-server-paging:Partner_details.Manage_partner_group_grid''"
+        [dataCacheName]="''ManagePartnerGroupGrid''"
+        [columnSettings]=''self.columnSettings | dynamicColumnSettings:{{dynamicColumnSettings}}''
+        [dataSource]="self.dataSource"
+        [uniqueField]="''groupId''"
+        [resizable]="true"
+        [pageable]="true"
+        [allowMultiSelect]="true"
+        [selectionDataMode]="''object''"
+        [initialSelectedRows]="self.cache.selectedGroups | actionFilter"
+        [inCellValidator]="self.validateDates"
+        (pageChangeEvent)="self.changePage($event)"
+        (selectionChanged)="self.onSelectionChange($event)"
+        (inCellEditingChange)="self.inCellEditing($event)"
+        [class]="{{classes}}"
+    ></cr-edit-grid-server-paging>
+</div>
+', '2022-12-08 09:30:09.5100000 +00:00', 9, N'N', 'bfe2cc17-c273-4cc6-9cab-fa5e99302570', 1, NULL, '2022-09-28 17:31:50.1102942 +03:00')
+INSERT INTO [dbo].[WebComponentViewSubSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('0e14903c-e94e-ed11-8e5d-4ccc6a2bb6d6', '403c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'manage-partner-contact-person-mailing-category', N'Mailing category', N'{
+    "defaultValue": {
+        "editIcon": "icon-edit",
+        "editable": true
+    }
+}', N'<cr-partner-mailing-category-control
+    [editable]="{{editable}} && (self.isNew ? 
+            self.authService.getEndpointAccessGranted(self.EndpointName.partner_POST) :
+            self.authService.getEndpointAccessGranted(self.EndpointName.partner_id_PUT))"
+
+    [partnerId]="self.contactPerson.id"
+    [(selectedMailingCategory)]="self.contactPerson.mailingCategories"
+    (editClickEvent)="self.onEditMailingCategory()"
+    [class]=''{{classes}}''
+    [editIcon]="{{editIcon}}"
+></cr-partner-mailing-category-control>', '2022-12-07 15:21:40.0566667 +00:00', 3, N'N', '6fb89b8d-e7b3-4435-9472-4f2bfc0a5eca', 1, NULL, '2022-09-28 17:31:50.1102942 +03:00')
