@@ -1,3 +1,117 @@
+INSERT INTO [dbo].[WebViewToViewSubAssociation] ([ID], [WebViewID], [WebViewSubID], [HtmlCode], [Html], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('e704c8fb-b47f-ed11-835f-02f176033ddb', 'ddfe3a70-4251-ed11-8e5d-4ccc6a2bb6d6', '9a53528c-4a51-ed11-8e5d-4ccc6a2bb6d6', N'manage-definition', N'<cr-tax-group-definition
+    [subTemplateId]="''{{subTemplateId}}''"
+    [taxGroupLocation]="self.cache.editDefinitionLocation"
+    [isNewTaxGroupDefinition]="false"
+    [isNewTaxGroup]="self.isNew"
+    (addLocationsEvent)="self.addBasketLocationsPopulation()"
+    (editLocationsEvent)="self.onEditLocationsPopulation()"
+    (closeEvent)="self.onCloseDefinitionLocationTab()"
+    (updateEvent)="self.updateDefinitionLocation($event)"
+></cr-tax-group-definition>
+', '2022-12-20 12:26:04.5366667 +00:00', 4, N'N', '5d92ca92-e6ed-498d-a754-d7132b8a46ee', 1, NULL)
+INSERT INTO [dbo].[WebViewToViewSubAssociation] ([ID], [WebViewID], [WebViewSubID], [HtmlCode], [Html], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('e804c8fb-b47f-ed11-835f-02f176033ddb', 'ddfe3a70-4251-ed11-8e5d-4ccc6a2bb6d6', '138435b1-957f-ed11-835f-02f176033ddb', N'create-definition', N'<cr-tax-group-definition
+    [subTemplateId]="''{{subTemplateId}}''"
+    [taxGroupLocation]="self.cache.editDefinitionLocation"
+    [isNewTaxGroupDefinition]="true"
+    [isNewTaxGroup]="self.isNew"
+    (addLocationsEvent)="self.addBasketLocationsPopulation()"
+    (editLocationsEvent)="self.onEditLocationsPopulation()"
+    (closeEvent)="self.onCloseDefinitionLocationTab()"
+    (createEvent)="self.createDefinitionLocation($event)"
+></cr-tax-group-definition>
+', '2022-12-20 12:26:04.5366667 +00:00', 4, N'N', '56db7ac6-dbd0-477c-898c-e0a879768087', 1, NULL)
+INSERT INTO [dbo].[WebViewToViewSubAssociation] ([ID], [WebViewID], [WebViewSubID], [HtmlCode], [Html], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('e904c8fb-b47f-ed11-835f-02f176033ddb', 'ddfe3a70-4251-ed11-8e5d-4ccc6a2bb6d6', 'd79de476-b47f-ed11-835f-02f176033ddb', N'manage-baskets-locations-population', N'<cr-basket-population-edit
+    [subTemplateId]="''{{subTemplateId}}''"
+    [basket]="self.cache.editDefinitionLocation.locationBasketSet.baskets[self.cache.editDefinitionLocation.locationBasketSet.selectedBasketIndex].populationDetails"
+    [cacheName]="''taxGroupLocationsPopulationManage'' + self.cache.editedDefinitionLocationIndex"
+    [isBasketNameEnabled]="true"
+    [isBasketNameRequired]="true"
+    [lastExcludeNumber]="self.cache.editDefinitionLocation.locationBasketSet.lastExcludeNumber"
+    [lastIncludeNumber]="self.cache.editDefinitionLocation.locationBasketSet.lastIncludeNumber"
+    [propertyDropdownFn]="self.locationCriteriaPropertiesDropdownFn"
+    [titleContentTranslateKey]="''COMMON.BASKET.BASKET_EDIT.TITLE_MANAGE_LOCATION_CONTENT_POPULATION''"
+    [titleTranslateKey]="''COMMON.BASKET.BASKET_EDIT.TITLE_MANAGE_LOCATION_POPULATION''"
+    [typeDropdownFn]="self.locationCriteriaDropdownFn"
+    [valueDropdownFn]="self.locationCriteriaValuesDropdownFn"
+    (cancel)="self.onCancelLocationsPopulation()"
+    (confirm)="self.onSaveLocationsPopulation($event)"
+    [basketTypeFn$]="self.basketTypeFn"
+></cr-basket-population-edit>
+', '2022-12-20 12:26:04.5366667 +00:00', 4, N'N', '36aed7ba-768f-45ec-80bd-be5355d3607c', 1, NULL)
+INSERT INTO [dbo].[WebViewToViewSubAssociation] ([ID], [WebViewID], [WebViewSubID], [HtmlCode], [Html], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('ea04c8fb-b47f-ed11-835f-02f176033ddb', 'ddfe3a70-4251-ed11-8e5d-4ccc6a2bb6d6', '80bb6482-b47f-ed11-835f-02f176033ddb', N'create-baskets-locations-population', N'<cr-basket-population-edit
+    [subTemplateId]="''{{subTemplateId}}''"
+    [cacheName]="''taxGroupLocationsPopulationCreate'' + self.cache.editedDefinitionLocationIndex"
+    [isBasketNameEnabled]="true"
+    [isBasketNameRequired]="true"
+    [lastExcludeNumber]="self.cache.editDefinitionLocation.locationBasketSet.lastExcludeNumber"
+    [lastIncludeNumber]="self.cache.editDefinitionLocation.locationBasketSet.lastIncludeNumber"
+    [propertyDropdownFn]="self.locationCriteriaPropertiesDropdownFn"
+    [titleContentTranslateKey]="''COMMON.BASKET.BASKET_EDIT.TITLE_CREATE_LOCATION_CONTENT_POPULATION''"
+    [titleTranslateKey]="''COMMON.BASKET.BASKET_EDIT.TITLE_CREATE_LOCATION_POPULATION''"
+    [typeDropdownFn]="self.locationCriteriaDropdownFn"
+    [valueDropdownFn]="self.locationCriteriaValuesDropdownFn"
+    (cancel)="self.onCancelLocationsPopulation()"
+    (confirm)="self.onCreateLocationsPopulation($event)"
+    [basketTypeFn$]="self.basketTypeFn"
+></cr-basket-population-edit>
+', '2022-12-20 12:26:04.5366667 +00:00', 4, N'N', 'dfb3c440-5e68-42fe-b486-ff932b87b8fd', 1, NULL)
+INSERT INTO [dbo].[WebViewToViewSubAssociation] ([ID], [WebViewID], [WebViewSubID], [HtmlCode], [Html], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('031c7623-bb7f-ed11-835f-02f176033ddb', 'a6e647f0-917f-ed11-835f-02f176033ddb', '9a53528c-4a51-ed11-8e5d-4ccc6a2bb6d6', N'manage-definition', N'<cr-tax-group-definition
+    [subTemplateId]="''{{subTemplateId}}''"
+    [taxGroupLocation]="self.cache.editDefinitionLocation"
+    [isNewTaxGroupDefinition]="false"
+    [isNewTaxGroup]="self.isNew"
+    (addLocationsEvent)="self.addBasketLocationsPopulation()"
+    (editLocationsEvent)="self.onEditLocationsPopulation()"
+    (closeEvent)="self.onCloseDefinitionLocationTab()"
+    (updateEvent)="self.updateDefinitionLocation($event)"
+></cr-tax-group-definition>
+', '2022-12-20 12:26:20.1366667 +00:00', 3, N'N', '1169d2d6-4e4c-4df8-9fb4-8be241d9474b', 1, NULL)
+INSERT INTO [dbo].[WebViewToViewSubAssociation] ([ID], [WebViewID], [WebViewSubID], [HtmlCode], [Html], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('041c7623-bb7f-ed11-835f-02f176033ddb', 'a6e647f0-917f-ed11-835f-02f176033ddb', '138435b1-957f-ed11-835f-02f176033ddb', N'create-definition', N'<cr-tax-group-definition
+    [subTemplateId]="''{{subTemplateId}}''"
+    [taxGroupLocation]="self.cache.editDefinitionLocation"
+    [isNewTaxGroupDefinition]="true"
+    [isNewTaxGroup]="self.isNew"
+    (addLocationsEvent)="self.addBasketLocationsPopulation()"
+    (editLocationsEvent)="self.onEditLocationsPopulation()"
+    (closeEvent)="self.onCloseDefinitionLocationTab()"
+    (createEvent)="self.createDefinitionLocation($event)"
+></cr-tax-group-definition>
+', '2022-12-20 12:26:20.1366667 +00:00', 3, N'N', '0fc80cfb-41a5-48d4-8efe-2f31227e5319', 1, NULL)
+INSERT INTO [dbo].[WebViewToViewSubAssociation] ([ID], [WebViewID], [WebViewSubID], [HtmlCode], [Html], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('051c7623-bb7f-ed11-835f-02f176033ddb', 'a6e647f0-917f-ed11-835f-02f176033ddb', 'd79de476-b47f-ed11-835f-02f176033ddb', N'manage-baskets-locations-population', N'<cr-basket-population-edit
+    [subTemplateId]="''{{subTemplateId}}''"
+    [basket]="self.cache.editDefinitionLocation.locationBasketSet.baskets[self.cache.editDefinitionLocation.locationBasketSet.selectedBasketIndex].populationDetails"
+    [cacheName]="''taxGroupLocationsPopulationManage'' + self.cache.editedDefinitionLocationIndex"
+    [isBasketNameEnabled]="true"
+    [isBasketNameRequired]="true"
+    [lastExcludeNumber]="self.cache.editDefinitionLocation.locationBasketSet.lastExcludeNumber"
+    [lastIncludeNumber]="self.cache.editDefinitionLocation.locationBasketSet.lastIncludeNumber"
+    [propertyDropdownFn]="self.locationCriteriaPropertiesDropdownFn"
+    [titleContentTranslateKey]="''COMMON.BASKET.BASKET_EDIT.TITLE_MANAGE_LOCATION_CONTENT_POPULATION''"
+    [titleTranslateKey]="''COMMON.BASKET.BASKET_EDIT.TITLE_MANAGE_LOCATION_POPULATION''"
+    [typeDropdownFn]="self.locationCriteriaDropdownFn"
+    [valueDropdownFn]="self.locationCriteriaValuesDropdownFn"
+    (cancel)="self.onCancelLocationsPopulation()"
+    (confirm)="self.onSaveLocationsPopulation($event)"
+    [basketTypeFn$]="self.basketTypeFn"
+></cr-basket-population-edit>
+', '2022-12-20 12:26:20.1366667 +00:00', 3, N'N', '7037dfb2-d341-451d-9d89-c8494c5a9b09', 1, NULL)
+INSERT INTO [dbo].[WebViewToViewSubAssociation] ([ID], [WebViewID], [WebViewSubID], [HtmlCode], [Html], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('061c7623-bb7f-ed11-835f-02f176033ddb', 'a6e647f0-917f-ed11-835f-02f176033ddb', '80bb6482-b47f-ed11-835f-02f176033ddb', N'create-baskets-locations-population', N'<cr-basket-population-edit
+    [subTemplateId]="''{{subTemplateId}}''"
+    [cacheName]="''taxGroupLocationsPopulationCreate'' + self.cache.editedDefinitionLocationIndex"
+    [isBasketNameEnabled]="true"
+    [isBasketNameRequired]="true"
+    [lastExcludeNumber]="self.cache.editDefinitionLocation.locationBasketSet.lastExcludeNumber"
+    [lastIncludeNumber]="self.cache.editDefinitionLocation.locationBasketSet.lastIncludeNumber"
+    [propertyDropdownFn]="self.locationCriteriaPropertiesDropdownFn"
+    [titleContentTranslateKey]="''COMMON.BASKET.BASKET_EDIT.TITLE_CREATE_LOCATION_CONTENT_POPULATION''"
+    [titleTranslateKey]="''COMMON.BASKET.BASKET_EDIT.TITLE_CREATE_LOCATION_POPULATION''"
+    [typeDropdownFn]="self.locationCriteriaDropdownFn"
+    [valueDropdownFn]="self.locationCriteriaValuesDropdownFn"
+    (cancel)="self.onCancelLocationsPopulation()"
+    (confirm)="self.onCreateLocationsPopulation($event)"
+    [basketTypeFn$]="self.basketTypeFn"
+></cr-basket-population-edit>
+', '2022-12-20 12:26:20.1366667 +00:00', 3, N'N', '8ae4792c-366f-4c3e-bbf6-09003fc77669', 1, NULL)
 INSERT INTO [dbo].[WebViewToViewSubAssociation] ([ID], [WebViewID], [WebViewSubID], [HtmlCode], [Html], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('a89593ef-1c6b-ed11-835f-02f176033ddb', 'b211b499-f964-ed11-8e60-4ccc6a2bb6d6', 'a55e29d8-1b6b-ed11-835f-02f176033ddb', N'image-content-create', N'<cr-image-basket-details
     [subTemplateId]="''{{subTemplateId}}''"
     [image]="self.cache.selectedImageBasketContent"
@@ -301,62 +415,6 @@ INSERT INTO [dbo].[WebViewToViewSubAssociation] ([ID], [WebViewID], [WebViewSubI
     (delete)="self.onDeleteImageBasketContentPopUp($event)"
     (refresh)="self.onRefreshImageBasketContent()"
 ></cr-image-basket-details>', '2022-12-02 15:59:12.3866667 +00:00', 3, N'N', 'f4ac81cc-5e5e-48cd-9a83-1deddc3fcab8', 1, NULL)
-INSERT INTO [dbo].[WebViewToViewSubAssociation] ([ID], [WebViewID], [WebViewSubID], [HtmlCode], [Html], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('18f6f087-645c-ed11-8e5e-4ccc6a2bb6d6', '15f6f087-645c-ed11-8e5e-4ccc6a2bb6d6', '9453528c-4a51-ed11-8e5d-4ccc6a2bb6d6', N'manage-mailing-category-partner', N'<cr-partner-mailing-category-manage-dynamic
-    [subTemplateId]="''{{subTemplateId}}''"
-    [(selectedMailingCategory)]="self.partnerDetails.mailingCategories"
-    (cancelClickEvent)="self.onCloseMailingCategory()"
-    (confirmClickEvent)="self.onCloseMailingCategory()"
-    [isNew]="!self.isNew"
-></cr-partner-mailing-category-manage-dynamic>
-', '2022-11-04 19:17:17.5554197 +02:00', 1, N'N', 'f63df187-5e4a-4693-a9b1-f546a81989f1', 1, NULL)
-INSERT INTO [dbo].[WebViewToViewSubAssociation] ([ID], [WebViewID], [WebViewSubID], [HtmlCode], [Html], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('19f6f087-645c-ed11-8e5e-4ccc6a2bb6d6', '15f6f087-645c-ed11-8e5e-4ccc6a2bb6d6', '9553528c-4a51-ed11-8e5d-4ccc6a2bb6d6', N'manage-partner-groups', N'<cr-partner-group-manage-dynamic
-    [subTemplateId]="''{{subTemplateId}}''"
-    [partnerId]="self.partnerDetails.id"
-    [partnerTypeId]="self.partnerDetails.partnerTypeId"
-    [(selectedGroups)]="self.partnerDetails.partnerGroups"
-    (cancelClickEvent)="self.onClosePartnerGroup()"
-    (confirmClickEvent)="self.onClosePartnerGroup()"
-></cr-partner-group-manage-dynamic>', '2022-11-04 19:17:17.5554197 +02:00', 1, N'N', '3624cc43-d44a-48fe-a9c0-13940418e2c6', 1, NULL)
-INSERT INTO [dbo].[WebViewToViewSubAssociation] ([ID], [WebViewID], [WebViewSubID], [HtmlCode], [Html], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('1af6f087-645c-ed11-8e5e-4ccc6a2bb6d6', '15f6f087-645c-ed11-8e5e-4ccc6a2bb6d6', '9653528c-4a51-ed11-8e5d-4ccc6a2bb6d6', N'manage-partner-addresses-create', N'<cr-addresses-details-dynamic
-    [subTemplateId]="''{{subTemplateId}}''"
-    (closeClickEvent)="self.onClosePartnerAddresses()"
-    [isNew]="true"
-    [itemAddress]="self.partnerDetailsAddress"
-    (newAddress)="self.onConfirmPartnerAddresses($event, true)"
-></cr-addresses-details-dynamic>
-', '2022-11-04 19:17:17.5554197 +02:00', 1, N'N', 'b30a49b5-90a2-430e-9984-b6dc1cdc6383', 1, NULL)
-INSERT INTO [dbo].[WebViewToViewSubAssociation] ([ID], [WebViewID], [WebViewSubID], [HtmlCode], [Html], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('1bf6f087-645c-ed11-8e5e-4ccc6a2bb6d6', '15f6f087-645c-ed11-8e5e-4ccc6a2bb6d6', '9453528c-4a51-ed11-8e5d-4ccc6a2bb6d6', N'manage-mailing-category-contact-person', N'<cr-partner-mailing-category-manage-dynamic
-    [subTemplateId]="''{{subTemplateId}}''"
-    (selectedMailingCategoryChange)="self.partnerDetailsContactPerson.mailingCategories = $event"
-    [(selectedMailingCategory)]="self.partnerDetailsContactPerson.mailingCategories"
-    (cancelClickEvent)="self.onCloseMailingCategory()"
-    (confirmClickEvent)="self.onCloseMailingCategory()"
-    [isNew]="!self.isNew"
-></cr-partner-mailing-category-manage-dynamic>
-', '2022-11-04 19:17:17.5554197 +02:00', 1, N'N', 'bf66e131-4c88-4c82-ad6a-5e4f2954b3b8', 1, NULL)
-INSERT INTO [dbo].[WebViewToViewSubAssociation] ([ID], [WebViewID], [WebViewSubID], [HtmlCode], [Html], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('1cf6f087-645c-ed11-8e5e-4ccc6a2bb6d6', '15f6f087-645c-ed11-8e5e-4ccc6a2bb6d6', '787f7aa3-535c-ed11-8e5e-4ccc6a2bb6d6', N'manage-partner-addresses-update', N'<cr-addresses-details-dynamic
-    [subTemplateId]="''{{subTemplateId}}''"
-    [isNew]="false"
-    (closeClickEvent)="self.onClosePartnerAddresses()"
-    (confirmAddress)="self.onConfirmPartnerAddresses($event)"
-    [itemAddress]="self.partnerDetailsAddress"
-></cr-addresses-details-dynamic>', '2022-11-04 19:17:17.5554197 +02:00', 1, N'N', 'b6fff6d7-ef03-42c7-ac97-52c1ef18df10', 1, NULL)
-INSERT INTO [dbo].[WebViewToViewSubAssociation] ([ID], [WebViewID], [WebViewSubID], [HtmlCode], [Html], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('1df6f087-645c-ed11-8e5e-4ccc6a2bb6d6', '15f6f087-645c-ed11-8e5e-4ccc6a2bb6d6', 'e0c1dc2a-5b5c-ed11-8e5e-4ccc6a2bb6d6', N'manage-partner-contact-persons-update', N'<cr-partner-contact-persons-details
-    [subTemplateId]="''{{subTemplateId}}''"
-    (openMailingCategory)="self.onEditContactPersonMailingCategory()"
-    (closeClickEvent)="self.onClosePartnerContactPersons()"
-    (confirmContactPerson)="self.onConfirmPartnerContactPersons($event)"
-    [itemContactPerson]="self.partnerDetailsContactPerson"
-></cr-partner-contact-persons-details>', '2022-11-04 19:17:17.5554197 +02:00', 1, N'N', 'f968ae9a-347d-4633-b0df-2f1af3c29bad', 1, NULL)
-INSERT INTO [dbo].[WebViewToViewSubAssociation] ([ID], [WebViewID], [WebViewSubID], [HtmlCode], [Html], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('1ef6f087-645c-ed11-8e5e-4ccc6a2bb6d6', '15f6f087-645c-ed11-8e5e-4ccc6a2bb6d6', '9953528c-4a51-ed11-8e5d-4ccc6a2bb6d6', N'manage-partner-contact-persons-create', N'<cr-partner-contact-persons-details
-    [subTemplateId]="''{{subTemplateId}}''"
-    (openMailingCategory)="self.onEditContactPersonMailingCategory()"
-    (closeClickEvent)="self.onClosePartnerContactPersons()"
-    [isNew]="true"
-    [itemContactPerson]="self.partnerDetailsContactPerson"
-    (newContactPerson)="self.onConfirmPartnerContactPersons($event, true)"
-></cr-partner-contact-persons-details>
-', '2022-11-04 19:17:17.5554197 +02:00', 1, N'N', '8dc73bc7-9af9-403a-814b-82e7922c219d', 1, NULL)
 INSERT INTO [dbo].[WebViewToViewSubAssociation] ([ID], [WebViewID], [WebViewSubID], [HtmlCode], [Html], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('95f78b5e-a258-ed11-8e5e-4ccc6a2bb6d6', 'd9fe3a70-4251-ed11-8e5d-4ccc6a2bb6d6', '9453528c-4a51-ed11-8e5d-4ccc6a2bb6d6', N'manage-mailing-category-partner', N'<cr-partner-mailing-category-manage-dynamic
     [subTemplateId]="''{{subTemplateId}}''"
     [(selectedMailingCategory)]="self.partnerDetails.mailingCategories"
@@ -465,3 +523,59 @@ INSERT INTO [dbo].[WebViewToViewSubAssociation] ([ID], [WebViewID], [WebViewSubI
     (newContactPerson)="self.onConfirmPartnerContactPersons($event, true)"
 ></cr-partner-contact-persons-details>
 ', '2022-12-07 15:22:54.4600000 +00:00', 4, N'N', '5e22da27-c08c-40e3-937f-0d895999da2a', 1, NULL)
+INSERT INTO [dbo].[WebViewToViewSubAssociation] ([ID], [WebViewID], [WebViewSubID], [HtmlCode], [Html], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('18f6f087-645c-ed11-8e5e-4ccc6a2bb6d6', '15f6f087-645c-ed11-8e5e-4ccc6a2bb6d6', '9453528c-4a51-ed11-8e5d-4ccc6a2bb6d6', N'manage-mailing-category-partner', N'<cr-partner-mailing-category-manage-dynamic
+    [subTemplateId]="''{{subTemplateId}}''"
+    [(selectedMailingCategory)]="self.partnerDetails.mailingCategories"
+    (cancelClickEvent)="self.onCloseMailingCategory()"
+    (confirmClickEvent)="self.onCloseMailingCategory()"
+    [isNew]="!self.isNew"
+></cr-partner-mailing-category-manage-dynamic>
+', '2022-11-04 19:17:17.5554197 +02:00', 1, N'N', 'f63df187-5e4a-4693-a9b1-f546a81989f1', 1, NULL)
+INSERT INTO [dbo].[WebViewToViewSubAssociation] ([ID], [WebViewID], [WebViewSubID], [HtmlCode], [Html], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('19f6f087-645c-ed11-8e5e-4ccc6a2bb6d6', '15f6f087-645c-ed11-8e5e-4ccc6a2bb6d6', '9553528c-4a51-ed11-8e5d-4ccc6a2bb6d6', N'manage-partner-groups', N'<cr-partner-group-manage-dynamic
+    [subTemplateId]="''{{subTemplateId}}''"
+    [partnerId]="self.partnerDetails.id"
+    [partnerTypeId]="self.partnerDetails.partnerTypeId"
+    [(selectedGroups)]="self.partnerDetails.partnerGroups"
+    (cancelClickEvent)="self.onClosePartnerGroup()"
+    (confirmClickEvent)="self.onClosePartnerGroup()"
+></cr-partner-group-manage-dynamic>', '2022-11-04 19:17:17.5554197 +02:00', 1, N'N', '3624cc43-d44a-48fe-a9c0-13940418e2c6', 1, NULL)
+INSERT INTO [dbo].[WebViewToViewSubAssociation] ([ID], [WebViewID], [WebViewSubID], [HtmlCode], [Html], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('1af6f087-645c-ed11-8e5e-4ccc6a2bb6d6', '15f6f087-645c-ed11-8e5e-4ccc6a2bb6d6', '9653528c-4a51-ed11-8e5d-4ccc6a2bb6d6', N'manage-partner-addresses-create', N'<cr-addresses-details-dynamic
+    [subTemplateId]="''{{subTemplateId}}''"
+    (closeClickEvent)="self.onClosePartnerAddresses()"
+    [isNew]="true"
+    [itemAddress]="self.partnerDetailsAddress"
+    (newAddress)="self.onConfirmPartnerAddresses($event, true)"
+></cr-addresses-details-dynamic>
+', '2022-11-04 19:17:17.5554197 +02:00', 1, N'N', 'b30a49b5-90a2-430e-9984-b6dc1cdc6383', 1, NULL)
+INSERT INTO [dbo].[WebViewToViewSubAssociation] ([ID], [WebViewID], [WebViewSubID], [HtmlCode], [Html], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('1bf6f087-645c-ed11-8e5e-4ccc6a2bb6d6', '15f6f087-645c-ed11-8e5e-4ccc6a2bb6d6', '9453528c-4a51-ed11-8e5d-4ccc6a2bb6d6', N'manage-mailing-category-contact-person', N'<cr-partner-mailing-category-manage-dynamic
+    [subTemplateId]="''{{subTemplateId}}''"
+    (selectedMailingCategoryChange)="self.partnerDetailsContactPerson.mailingCategories = $event"
+    [(selectedMailingCategory)]="self.partnerDetailsContactPerson.mailingCategories"
+    (cancelClickEvent)="self.onCloseMailingCategory()"
+    (confirmClickEvent)="self.onCloseMailingCategory()"
+    [isNew]="!self.isNew"
+></cr-partner-mailing-category-manage-dynamic>
+', '2022-11-04 19:17:17.5554197 +02:00', 1, N'N', 'bf66e131-4c88-4c82-ad6a-5e4f2954b3b8', 1, NULL)
+INSERT INTO [dbo].[WebViewToViewSubAssociation] ([ID], [WebViewID], [WebViewSubID], [HtmlCode], [Html], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('1cf6f087-645c-ed11-8e5e-4ccc6a2bb6d6', '15f6f087-645c-ed11-8e5e-4ccc6a2bb6d6', '787f7aa3-535c-ed11-8e5e-4ccc6a2bb6d6', N'manage-partner-addresses-update', N'<cr-addresses-details-dynamic
+    [subTemplateId]="''{{subTemplateId}}''"
+    [isNew]="false"
+    (closeClickEvent)="self.onClosePartnerAddresses()"
+    (confirmAddress)="self.onConfirmPartnerAddresses($event)"
+    [itemAddress]="self.partnerDetailsAddress"
+></cr-addresses-details-dynamic>', '2022-11-04 19:17:17.5554197 +02:00', 1, N'N', 'b6fff6d7-ef03-42c7-ac97-52c1ef18df10', 1, NULL)
+INSERT INTO [dbo].[WebViewToViewSubAssociation] ([ID], [WebViewID], [WebViewSubID], [HtmlCode], [Html], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('1df6f087-645c-ed11-8e5e-4ccc6a2bb6d6', '15f6f087-645c-ed11-8e5e-4ccc6a2bb6d6', 'e0c1dc2a-5b5c-ed11-8e5e-4ccc6a2bb6d6', N'manage-partner-contact-persons-update', N'<cr-partner-contact-persons-details
+    [subTemplateId]="''{{subTemplateId}}''"
+    (openMailingCategory)="self.onEditContactPersonMailingCategory()"
+    (closeClickEvent)="self.onClosePartnerContactPersons()"
+    (confirmContactPerson)="self.onConfirmPartnerContactPersons($event)"
+    [itemContactPerson]="self.partnerDetailsContactPerson"
+></cr-partner-contact-persons-details>', '2022-11-04 19:17:17.5554197 +02:00', 1, N'N', 'f968ae9a-347d-4633-b0df-2f1af3c29bad', 1, NULL)
+INSERT INTO [dbo].[WebViewToViewSubAssociation] ([ID], [WebViewID], [WebViewSubID], [HtmlCode], [Html], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('1ef6f087-645c-ed11-8e5e-4ccc6a2bb6d6', '15f6f087-645c-ed11-8e5e-4ccc6a2bb6d6', '9953528c-4a51-ed11-8e5d-4ccc6a2bb6d6', N'manage-partner-contact-persons-create', N'<cr-partner-contact-persons-details
+    [subTemplateId]="''{{subTemplateId}}''"
+    (openMailingCategory)="self.onEditContactPersonMailingCategory()"
+    (closeClickEvent)="self.onClosePartnerContactPersons()"
+    [isNew]="true"
+    [itemContactPerson]="self.partnerDetailsContactPerson"
+    (newContactPerson)="self.onConfirmPartnerContactPersons($event, true)"
+></cr-partner-contact-persons-details>
+', '2022-11-04 19:17:17.5554197 +02:00', 1, N'N', '8dc73bc7-9af9-403a-814b-82e7922c219d', 1, NULL)

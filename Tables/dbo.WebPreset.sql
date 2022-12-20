@@ -16,5 +16,7 @@ CREATE TABLE [dbo].[WebPreset]
 GO
 ALTER TABLE [dbo].[WebPreset] ADD CONSTRAINT [PK_WebPreset] PRIMARY KEY CLUSTERED ([ID]) ON [PRIMARY]
 GO
+ALTER TABLE [dbo].[WebPreset] ADD CONSTRAINT [FK_WebPreset_WebPreset] FOREIGN KEY ([ID]) REFERENCES [dbo].[WebPreset] ([ID])
+GO
 ALTER TABLE [dbo].[WebPreset] ADD CONSTRAINT [FK_WebPreset_WebPresetTypeEnum] FOREIGN KEY ([WebPresetTypeEnumID]) REFERENCES [dbo].[WebPresetTypeEnum] ([ID]) ON DELETE CASCADE ON UPDATE CASCADE
 GO
