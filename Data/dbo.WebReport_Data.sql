@@ -1839,6 +1839,7191 @@ AND [dbo].[Partner].[PartnerCode] = IIF(IsNull(@PartnerCodeValue, '''') = '''', 
   <rd:PageUnit />
   <df:DefaultFontFamily>Segoe UI</df:DefaultFontFamily>
 </Report>', '2022-07-06 13:10:18.4133333 +00:00', 19, N'N', 'f498acdd-81f0-4da3-847b-c31a727cc3af', 1, NULL, 2, '2022-09-28 17:31:50.1416447 +03:00')
+INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySubID], [Name], [Code], [Rdl], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [LanguageID], [CreateDate]) VALUES ('3e6c565d-433e-ed11-8e5b-4ccc6a2bb6d6', '296c565d-433e-ed11-8e5b-4ccc6a2bb6d6', NULL, N'Sales Report', N'SR', N'<?xml version="1.0" encoding="utf-8"?>
+<Report xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner" xmlns:df="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition/defaultfontfamily" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition">
+  <ReportSections>
+    <ReportSection>
+      <Body>
+        <Height>102.75pt</Height>
+        <ReportItems>
+          <Tablix Name="TableCompany">
+            <Left>10.5pt</Left>
+            <Top>12.75pt</Top>
+            <Height>54pt</Height>
+            <Width>513pt</Width>
+            <Style>
+              <FontFamily>Arial</FontFamily>
+              <Border>
+                <Style>None</Style>
+              </Border>
+            </Style>
+            <Visibility>
+              <Hidden>=IIf(Parameters!ReportType.Value=1,False,True)</Hidden>
+            </Visibility>
+            <DataSetName>CompanyData</DataSetName>
+            <TablixBody>
+              <TablixColumns>
+                <TablixColumn>
+                  <Width>102.57813pt</Width>
+                </TablixColumn>
+                <TablixColumn>
+                  <Width>102.57813pt</Width>
+                </TablixColumn>
+                <TablixColumn>
+                  <Width>102.57813pt</Width>
+                </TablixColumn>
+                <TablixColumn>
+                  <Width>102.57813pt</Width>
+                </TablixColumn>
+                <TablixColumn>
+                  <Width>102.6823pt</Width>
+                </TablixColumn>
+              </TablixColumns>
+              <TablixRows>
+                <TablixRow>
+                  <Height>18pt</Height>
+                  <TablixCells>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="TextBox6">
+                          <Left>0in</Left>
+                          <Top>0in</Top>
+                          <Height>18pt</Height>
+                          <Width>102.57825pt</Width>
+                          <Style>
+                            <BackgroundColor>#e3e3e3</BackgroundColor>
+                            <FontFamily>Arial</FontFamily>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                            <Border>
+                              <Width>1.74975pt</Width>
+                              <Color>LightGrey</Color>
+                              <Style>None</Style>
+                            </Border>
+                            <BottomBorder>
+                              <Width>1.37475pt</Width>
+                              <Color>#b3b2b3</Color>
+                              <Style>Solid</Style>
+                            </BottomBorder>
+                            <LeftBorder>
+                              <Style>None</Style>
+                            </LeftBorder>
+                            <RightBorder>
+                              <Style>None</Style>
+                            </RightBorder>
+                            <TopBorder>
+                              <Style>None</Style>
+                            </TopBorder>
+                          </Style>
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>Company</Value>
+                                  <Style>
+                                    <FontFamily>Arial</FontFamily>
+                                    <Color>black</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <FontFamily>Arial</FontFamily>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <UserSort>
+                            <SortExpression>=Fields!Company.Value</SortExpression>
+                            <SortExpressionScope>Details1</SortExpressionScope>
+                            <SortTarget>TableCompany</SortTarget>
+                          </UserSort>
+                        </Textbox>
+                        <RowSpan>1</RowSpan>
+                        <ColSpan>1</ColSpan>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="TextBox9">
+                          <Left>0in</Left>
+                          <Top>0in</Top>
+                          <Height>18pt</Height>
+                          <Width>102.57825pt</Width>
+                          <Style>
+                            <BackgroundColor>#e3e3e3</BackgroundColor>
+                            <FontFamily>Arial</FontFamily>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                            <Border>
+                              <Width>1.74975pt</Width>
+                              <Color>LightGrey</Color>
+                              <Style>None</Style>
+                            </Border>
+                            <BottomBorder>
+                              <Width>1.37475pt</Width>
+                              <Color>#b3b2b3</Color>
+                              <Style>Solid</Style>
+                            </BottomBorder>
+                            <LeftBorder>
+                              <Style>None</Style>
+                            </LeftBorder>
+                            <RightBorder>
+                              <Style>None</Style>
+                            </RightBorder>
+                            <TopBorder>
+                              <Style>None</Style>
+                            </TopBorder>
+                          </Style>
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>AV.amount</Value>
+                                  <Style>
+                                    <FontFamily>Arial</FontFamily>
+                                    <Color>black</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <FontFamily>Arial</FontFamily>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <UserSort>
+                            <SortExpression>=Fields!AV_Amount.Value</SortExpression>
+                            <SortExpressionScope>Details1</SortExpressionScope>
+                            <SortTarget>TableCompany</SortTarget>
+                          </UserSort>
+                        </Textbox>
+                        <RowSpan>1</RowSpan>
+                        <ColSpan>1</ColSpan>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="TextBox13">
+                          <Left>0in</Left>
+                          <Top>0in</Top>
+                          <Height>18pt</Height>
+                          <Width>102.57825pt</Width>
+                          <Style>
+                            <BackgroundColor>#e3e3e3</BackgroundColor>
+                            <FontFamily>Arial</FontFamily>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                            <Border>
+                              <Width>1.74975pt</Width>
+                              <Color>LightGrey</Color>
+                              <Style>None</Style>
+                            </Border>
+                            <BottomBorder>
+                              <Width>1.37475pt</Width>
+                              <Color>#b3b2b3</Color>
+                              <Style>Solid</Style>
+                            </BottomBorder>
+                            <LeftBorder>
+                              <Style>None</Style>
+                            </LeftBorder>
+                            <RightBorder>
+                              <Style>None</Style>
+                            </RightBorder>
+                            <TopBorder>
+                              <Style>None</Style>
+                            </TopBorder>
+                          </Style>
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>Amount</Value>
+                                  <Style>
+                                    <FontFamily>Arial</FontFamily>
+                                    <Color>black</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <FontFamily>Arial</FontFamily>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <UserSort>
+                            <SortExpression>=Fields!Amount.Value</SortExpression>
+                            <SortExpressionScope>Details1</SortExpressionScope>
+                            <SortTarget>TableCompany</SortTarget>
+                          </UserSort>
+                        </Textbox>
+                        <RowSpan>1</RowSpan>
+                        <ColSpan>1</ColSpan>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="TextBox15">
+                          <Left>0in</Left>
+                          <Top>0in</Top>
+                          <Height>18pt</Height>
+                          <Width>102.57825pt</Width>
+                          <Style>
+                            <BackgroundColor>#e3e3e3</BackgroundColor>
+                            <FontFamily>Arial</FontFamily>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                            <Border>
+                              <Width>1.74975pt</Width>
+                              <Color>LightGrey</Color>
+                              <Style>None</Style>
+                            </Border>
+                            <BottomBorder>
+                              <Width>1.37475pt</Width>
+                              <Color>#b3b2b3</Color>
+                              <Style>Solid</Style>
+                            </BottomBorder>
+                            <LeftBorder>
+                              <Style>None</Style>
+                            </LeftBorder>
+                            <RightBorder>
+                              <Style>None</Style>
+                            </RightBorder>
+                            <TopBorder>
+                              <Style>None</Style>
+                            </TopBorder>
+                          </Style>
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>Quantity</Value>
+                                  <Style>
+                                    <FontFamily>Arial</FontFamily>
+                                    <Color>black</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <FontFamily>Arial</FontFamily>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <UserSort>
+                            <SortExpression>=Fields!Quantity.Value</SortExpression>
+                            <SortExpressionScope>Details1</SortExpressionScope>
+                            <SortTarget>TableCompany</SortTarget>
+                          </UserSort>
+                        </Textbox>
+                        <RowSpan>1</RowSpan>
+                        <ColSpan>1</ColSpan>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="TextBox16">
+                          <Left>0in</Left>
+                          <Top>0in</Top>
+                          <Height>18pt</Height>
+                          <Width>102.6825pt</Width>
+                          <Style>
+                            <BackgroundColor>#e3e3e3</BackgroundColor>
+                            <FontFamily>Arial</FontFamily>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                            <Border>
+                              <Width>1.74975pt</Width>
+                              <Color>LightGrey</Color>
+                              <Style>None</Style>
+                            </Border>
+                            <BottomBorder>
+                              <Width>1.37475pt</Width>
+                              <Color>#b3b2b3</Color>
+                              <Style>Solid</Style>
+                            </BottomBorder>
+                            <LeftBorder>
+                              <Style>None</Style>
+                            </LeftBorder>
+                            <RightBorder>
+                              <Style>None</Style>
+                            </RightBorder>
+                            <TopBorder>
+                              <Style>None</Style>
+                            </TopBorder>
+                          </Style>
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>Contribution</Value>
+                                  <Style>
+                                    <FontFamily>Arial</FontFamily>
+                                    <Color>black</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <FontFamily>Arial</FontFamily>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <UserSort>
+                            <SortExpression>=Fields!Contribution.Value</SortExpression>
+                            <SortExpressionScope>Details1</SortExpressionScope>
+                            <SortTarget>TableCompany</SortTarget>
+                          </UserSort>
+                        </Textbox>
+                        <RowSpan>1</RowSpan>
+                        <ColSpan>1</ColSpan>
+                      </CellContents>
+                    </TablixCell>
+                  </TablixCells>
+                </TablixRow>
+                <TablixRow>
+                  <Height>18pt</Height>
+                  <TablixCells>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="TextBox29">
+                          <Left>0in</Left>
+                          <Top>0in</Top>
+                          <Height>18pt</Height>
+                          <Width>102.57825pt</Width>
+                          <Style>
+                            <FontFamily>Arial</FontFamily>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                            <Border>
+                              <Color>LightGrey</Color>
+                              <Style>None</Style>
+                            </Border>
+                            <BottomBorder>
+                              <Style>Solid</Style>
+                            </BottomBorder>
+                            <LeftBorder>
+                              <Style>None</Style>
+                            </LeftBorder>
+                            <RightBorder>
+                              <Style>Solid</Style>
+                            </RightBorder>
+                            <TopBorder>
+                              <Style>None</Style>
+                            </TopBorder>
+                          </Style>
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Fields!Company.Value</Value>
+                                  <Style>
+                                    <FontFamily>Arial</FontFamily>
+                                    <Color>black</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <FontFamily>Arial</FontFamily>
+                                <TextAlign>Left</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                        </Textbox>
+                        <RowSpan>1</RowSpan>
+                        <ColSpan>1</ColSpan>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="TextBox30">
+                          <Left>0in</Left>
+                          <Top>0in</Top>
+                          <Height>18pt</Height>
+                          <Width>102.57825pt</Width>
+                          <Style>
+                            <FontFamily>Arial</FontFamily>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                            <Border>
+                              <Color>LightGrey</Color>
+                              <Style>None</Style>
+                            </Border>
+                            <BottomBorder>
+                              <Style>None</Style>
+                            </BottomBorder>
+                            <LeftBorder>
+                              <Style>None</Style>
+                            </LeftBorder>
+                            <RightBorder>
+                              <Style>None</Style>
+                            </RightBorder>
+                            <TopBorder>
+                              <Style>None</Style>
+                            </TopBorder>
+                          </Style>
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Fields!AV_Amount.Value</Value>
+                                  <Style>
+                                    <FontFamily>Arial</FontFamily>
+                                    <Format>0.00;(0.00)</Format>
+                                    <rd:FormatType>
+                                      <rd:Format>Number</rd:Format>
+                                      <rd:Representation>None</rd:Representation>
+                                      <rd:NegativeValue>(12345)</rd:NegativeValue>
+                                    </rd:FormatType>
+                                    <Color>black</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <FontFamily>Arial</FontFamily>
+                                <TextAlign>Left</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                        </Textbox>
+                        <RowSpan>1</RowSpan>
+                        <ColSpan>1</ColSpan>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="TextBox35">
+                          <Left>0in</Left>
+                          <Top>0in</Top>
+                          <Height>18pt</Height>
+                          <Width>102.57825pt</Width>
+                          <Style>
+                            <FontFamily>Arial</FontFamily>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                            <Border>
+                              <Color>LightGrey</Color>
+                              <Style>None</Style>
+                            </Border>
+                            <BottomBorder>
+                              <Style>None</Style>
+                            </BottomBorder>
+                            <LeftBorder>
+                              <Style>None</Style>
+                            </LeftBorder>
+                            <RightBorder>
+                              <Style>None</Style>
+                            </RightBorder>
+                            <TopBorder>
+                              <Style>None</Style>
+                            </TopBorder>
+                          </Style>
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Fields!Amount.Value</Value>
+                                  <Style>
+                                    <FontFamily>Arial</FontFamily>
+                                    <Format>0.00;(0.00)</Format>
+                                    <rd:FormatType>
+                                      <rd:Format>Number</rd:Format>
+                                      <rd:Representation>None</rd:Representation>
+                                      <rd:NegativeValue>(12345)</rd:NegativeValue>
+                                    </rd:FormatType>
+                                    <Color>black</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <FontFamily>Arial</FontFamily>
+                                <TextAlign>Left</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                        </Textbox>
+                        <RowSpan>1</RowSpan>
+                        <ColSpan>1</ColSpan>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="TextBox36">
+                          <Left>0in</Left>
+                          <Top>0in</Top>
+                          <Height>18pt</Height>
+                          <Width>102.57825pt</Width>
+                          <Style>
+                            <FontFamily>Arial</FontFamily>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                            <Border>
+                              <Color>LightGrey</Color>
+                              <Style>None</Style>
+                            </Border>
+                            <BottomBorder>
+                              <Style>None</Style>
+                            </BottomBorder>
+                            <LeftBorder>
+                              <Style>None</Style>
+                            </LeftBorder>
+                            <RightBorder>
+                              <Style>None</Style>
+                            </RightBorder>
+                            <TopBorder>
+                              <Style>None</Style>
+                            </TopBorder>
+                          </Style>
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Fields!Quantity.Value</Value>
+                                  <Style>
+                                    <FontFamily>Arial</FontFamily>
+                                    <Format>0.00;(0.00)</Format>
+                                    <rd:FormatType>
+                                      <rd:Format>Number</rd:Format>
+                                      <rd:Representation>None</rd:Representation>
+                                      <rd:NegativeValue>(12345)</rd:NegativeValue>
+                                    </rd:FormatType>
+                                    <Color>black</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <FontFamily>Arial</FontFamily>
+                                <TextAlign>Left</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                        </Textbox>
+                        <RowSpan>1</RowSpan>
+                        <ColSpan>1</ColSpan>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="TextBox37">
+                          <Left>0in</Left>
+                          <Top>0in</Top>
+                          <Height>18pt</Height>
+                          <Width>102.6825pt</Width>
+                          <Style>
+                            <FontFamily>Arial</FontFamily>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                            <Border>
+                              <Color>LightGrey</Color>
+                              <Style>None</Style>
+                            </Border>
+                            <BottomBorder>
+                              <Style>None</Style>
+                            </BottomBorder>
+                            <LeftBorder>
+                              <Style>None</Style>
+                            </LeftBorder>
+                            <RightBorder>
+                              <Style>None</Style>
+                            </RightBorder>
+                            <TopBorder>
+                              <Style>None</Style>
+                            </TopBorder>
+                          </Style>
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Fields!Contribution.Value</Value>
+                                  <Style>
+                                    <FontFamily>Arial</FontFamily>
+                                    <Format>0.00%</Format>
+                                    <rd:FormatType>
+                                      <rd:Format>percentage</rd:Format>
+                                    </rd:FormatType>
+                                    <Color>black</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <FontFamily>Arial</FontFamily>
+                                <TextAlign>Left</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                        </Textbox>
+                        <RowSpan>1</RowSpan>
+                        <ColSpan>1</ColSpan>
+                      </CellContents>
+                    </TablixCell>
+                  </TablixCells>
+                </TablixRow>
+                <TablixRow>
+                  <Height>18pt</Height>
+                  <TablixCells>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="TextBox611112">
+                          <Left>0in</Left>
+                          <Top>0in</Top>
+                          <Height>18pt</Height>
+                          <Width>205.1565pt</Width>
+                          <Style>
+                            <BackgroundColor>#e3e3e3</BackgroundColor>
+                            <FontFamily>Arial</FontFamily>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                            <Border>
+                              <Color>LightGrey</Color>
+                              <Style>None</Style>
+                            </Border>
+                            <BottomBorder>
+                              <Style>None</Style>
+                            </BottomBorder>
+                            <LeftBorder>
+                              <Style>None</Style>
+                            </LeftBorder>
+                            <RightBorder>
+                              <Style>None</Style>
+                            </RightBorder>
+                            <TopBorder>
+                              <Style>Double</Style>
+                            </TopBorder>
+                          </Style>
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>Total by companues:</Value>
+                                  <Style>
+                                    <FontFamily>Arial</FontFamily>
+                                    <FontWeight>Bold</FontWeight>
+                                    <Color>black</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <FontFamily>Arial</FontFamily>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                        </Textbox>
+                        <RowSpan>1</RowSpan>
+                        <ColSpan>2</ColSpan>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell />
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="TextBox53">
+                          <Left>0in</Left>
+                          <Top>0in</Top>
+                          <Height>18pt</Height>
+                          <Width>102.57825pt</Width>
+                          <Style>
+                            <BackgroundColor>#e3e3e3</BackgroundColor>
+                            <FontFamily>Arial</FontFamily>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                            <Border>
+                              <Color>LightGrey</Color>
+                              <Style>None</Style>
+                            </Border>
+                            <BottomBorder>
+                              <Style>None</Style>
+                            </BottomBorder>
+                            <LeftBorder>
+                              <Style>None</Style>
+                            </LeftBorder>
+                            <RightBorder>
+                              <Style>None</Style>
+                            </RightBorder>
+                            <TopBorder>
+                              <Style>Double</Style>
+                            </TopBorder>
+                          </Style>
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Sum(Fields!Amount.Value)</Value>
+                                  <Style>
+                                    <FontFamily>Arial</FontFamily>
+                                    <FontWeight>Bold</FontWeight>
+                                    <Format>0.00;(0.00)</Format>
+                                    <rd:FormatType>
+                                      <rd:Format>Number</rd:Format>
+                                      <rd:Representation>None</rd:Representation>
+                                      <rd:NegativeValue>(12345)</rd:NegativeValue>
+                                    </rd:FormatType>
+                                    <Color>black</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <FontFamily>Arial</FontFamily>
+                                <TextAlign>Left</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                        </Textbox>
+                        <RowSpan>1</RowSpan>
+                        <ColSpan>1</ColSpan>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="TextBox54">
+                          <Left>0in</Left>
+                          <Top>0in</Top>
+                          <Height>18pt</Height>
+                          <Width>102.57825pt</Width>
+                          <Style>
+                            <BackgroundColor>#e3e3e3</BackgroundColor>
+                            <FontFamily>Arial</FontFamily>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                            <Border>
+                              <Color>LightGrey</Color>
+                              <Style>None</Style>
+                            </Border>
+                            <BottomBorder>
+                              <Style>None</Style>
+                            </BottomBorder>
+                            <LeftBorder>
+                              <Style>None</Style>
+                            </LeftBorder>
+                            <RightBorder>
+                              <Style>None</Style>
+                            </RightBorder>
+                            <TopBorder>
+                              <Style>Double</Style>
+                            </TopBorder>
+                          </Style>
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Sum(Fields!Quantity.Value)</Value>
+                                  <Style>
+                                    <FontFamily>Arial</FontFamily>
+                                    <FontWeight>Bold</FontWeight>
+                                    <Format>0.00;(0.00)</Format>
+                                    <rd:FormatType>
+                                      <rd:Format>Number</rd:Format>
+                                      <rd:Representation>None</rd:Representation>
+                                      <rd:NegativeValue>(12345)</rd:NegativeValue>
+                                    </rd:FormatType>
+                                    <Color>black</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <FontFamily>Arial</FontFamily>
+                                <TextAlign>Left</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                        </Textbox>
+                        <RowSpan>1</RowSpan>
+                        <ColSpan>1</ColSpan>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="TextBox55">
+                          <Left>0in</Left>
+                          <Top>0in</Top>
+                          <Height>18pt</Height>
+                          <Width>102.6825pt</Width>
+                          <Style>
+                            <BackgroundColor>#e3e3e3</BackgroundColor>
+                            <FontFamily>Arial</FontFamily>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                            <Border>
+                              <Color>LightGrey</Color>
+                              <Style>None</Style>
+                            </Border>
+                            <BottomBorder>
+                              <Style>None</Style>
+                            </BottomBorder>
+                            <LeftBorder>
+                              <Style>None</Style>
+                            </LeftBorder>
+                            <RightBorder>
+                              <Style>None</Style>
+                            </RightBorder>
+                            <TopBorder>
+                              <Style>Double</Style>
+                            </TopBorder>
+                          </Style>
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Sum(Fields!Contribution.Value)</Value>
+                                  <Style>
+                                    <FontFamily>Arial</FontFamily>
+                                    <FontWeight>Bold</FontWeight>
+                                    <Format>0.00%</Format>
+                                    <Color>black</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <FontFamily>Arial</FontFamily>
+                                <TextAlign>Left</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                        </Textbox>
+                        <RowSpan>1</RowSpan>
+                        <ColSpan>1</ColSpan>
+                      </CellContents>
+                    </TablixCell>
+                  </TablixCells>
+                </TablixRow>
+              </TablixRows>
+            </TablixBody>
+            <TablixColumnHierarchy>
+              <TablixMembers>
+                <TablixMember />
+                <TablixMember />
+                <TablixMember />
+                <TablixMember />
+                <TablixMember />
+              </TablixMembers>
+            </TablixColumnHierarchy>
+            <TablixRowHierarchy>
+              <TablixMembers>
+                <TablixMember>
+                  <KeepWithGroup>After</KeepWithGroup>
+                  <RepeatOnNewPage>true</RepeatOnNewPage>
+                </TablixMember>
+                <TablixMember>
+                  <Group Name="Details1" />
+                </TablixMember>
+                <TablixMember>
+                  <KeepWithGroup>Before</KeepWithGroup>
+                </TablixMember>
+              </TablixMembers>
+            </TablixRowHierarchy>
+            <RepeatColumnHeaders>true</RepeatColumnHeaders>
+            <RepeatRowHeaders>true</RepeatRowHeaders>
+          </Tablix>
+          <Tablix Name="Tablix1">
+            <Left>10.5pt</Left>
+            <Top>12.75pt</Top>
+            <Height>54pt</Height>
+            <Width>513pt</Width>
+            <Style>
+              <FontFamily>Arial</FontFamily>
+              <Border>
+                <Style>None</Style>
+              </Border>
+            </Style>
+            <Visibility>
+              <Hidden>=IIf(Parameters!ReportType.Value=4,False,True)</Hidden>
+            </Visibility>
+            <DataSetName>StoreData</DataSetName>
+            <TablixBody>
+              <TablixColumns>
+                <TablixColumn>
+                  <Width>102.57813pt</Width>
+                </TablixColumn>
+                <TablixColumn>
+                  <Width>102.57813pt</Width>
+                </TablixColumn>
+                <TablixColumn>
+                  <Width>102.57813pt</Width>
+                </TablixColumn>
+                <TablixColumn>
+                  <Width>102.57813pt</Width>
+                </TablixColumn>
+                <TablixColumn>
+                  <Width>102.6823pt</Width>
+                </TablixColumn>
+              </TablixColumns>
+              <TablixRows>
+                <TablixRow>
+                  <Height>18pt</Height>
+                  <TablixCells>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="TextBox310">
+                          <Left>0in</Left>
+                          <Top>0in</Top>
+                          <Height>18pt</Height>
+                          <Width>102.57825pt</Width>
+                          <Style>
+                            <BackgroundColor>#e3e3e3</BackgroundColor>
+                            <FontFamily>Arial</FontFamily>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                            <Border>
+                              <Width>1.74975pt</Width>
+                              <Color>LightGrey</Color>
+                              <Style>None</Style>
+                            </Border>
+                            <BottomBorder>
+                              <Width>1.37475pt</Width>
+                              <Color>#b3b2b3</Color>
+                              <Style>Solid</Style>
+                            </BottomBorder>
+                            <LeftBorder>
+                              <Style>None</Style>
+                            </LeftBorder>
+                            <RightBorder>
+                              <Style>None</Style>
+                            </RightBorder>
+                            <TopBorder>
+                              <Style>None</Style>
+                            </TopBorder>
+                          </Style>
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>Store</Value>
+                                  <Style>
+                                    <FontFamily>Arial</FontFamily>
+                                    <Color>black</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <FontFamily>Arial</FontFamily>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <UserSort>
+                            <SortExpression>=Fields!Store.Value</SortExpression>
+                            <SortExpressionScope>Details12</SortExpressionScope>
+                            <SortTarget>Tablix1</SortTarget>
+                          </UserSort>
+                        </Textbox>
+                        <RowSpan>1</RowSpan>
+                        <ColSpan>1</ColSpan>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="TextBox710">
+                          <Left>0in</Left>
+                          <Top>0in</Top>
+                          <Height>18pt</Height>
+                          <Width>102.57825pt</Width>
+                          <Style>
+                            <BackgroundColor>#e3e3e3</BackgroundColor>
+                            <FontFamily>Arial</FontFamily>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                            <Border>
+                              <Width>1.74975pt</Width>
+                              <Color>LightGrey</Color>
+                              <Style>None</Style>
+                            </Border>
+                            <BottomBorder>
+                              <Width>1.37475pt</Width>
+                              <Color>#b3b2b3</Color>
+                              <Style>Solid</Style>
+                            </BottomBorder>
+                            <LeftBorder>
+                              <Style>None</Style>
+                            </LeftBorder>
+                            <RightBorder>
+                              <Style>None</Style>
+                            </RightBorder>
+                            <TopBorder>
+                              <Style>None</Style>
+                            </TopBorder>
+                          </Style>
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>AV.amount</Value>
+                                  <Style>
+                                    <FontFamily>Arial</FontFamily>
+                                    <Color>black</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <FontFamily>Arial</FontFamily>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <UserSort>
+                            <SortExpression>=Fields!AV_Amount.Value</SortExpression>
+                            <SortExpressionScope>Details12</SortExpressionScope>
+                            <SortTarget>Tablix1</SortTarget>
+                          </UserSort>
+                        </Textbox>
+                        <RowSpan>1</RowSpan>
+                        <ColSpan>1</ColSpan>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="TextBox141">
+                          <Left>0in</Left>
+                          <Top>0in</Top>
+                          <Height>18pt</Height>
+                          <Width>102.57825pt</Width>
+                          <Style>
+                            <BackgroundColor>#e3e3e3</BackgroundColor>
+                            <FontFamily>Arial</FontFamily>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                            <Border>
+                              <Width>1.74975pt</Width>
+                              <Color>LightGrey</Color>
+                              <Style>None</Style>
+                            </Border>
+                            <BottomBorder>
+                              <Width>1.37475pt</Width>
+                              <Color>#b3b2b3</Color>
+                              <Style>Solid</Style>
+                            </BottomBorder>
+                            <LeftBorder>
+                              <Style>None</Style>
+                            </LeftBorder>
+                            <RightBorder>
+                              <Style>None</Style>
+                            </RightBorder>
+                            <TopBorder>
+                              <Style>None</Style>
+                            </TopBorder>
+                          </Style>
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>Amount</Value>
+                                  <Style>
+                                    <FontFamily>Arial</FontFamily>
+                                    <Color>black</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <FontFamily>Arial</FontFamily>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <UserSort>
+                            <SortExpression>=Fields!Amount.Value</SortExpression>
+                            <SortExpressionScope>Details12</SortExpressionScope>
+                            <SortTarget>Tablix1</SortTarget>
+                          </UserSort>
+                        </Textbox>
+                        <RowSpan>1</RowSpan>
+                        <ColSpan>1</ColSpan>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="TextBox121">
+                          <Left>0in</Left>
+                          <Top>0in</Top>
+                          <Height>18pt</Height>
+                          <Width>102.57825pt</Width>
+                          <Style>
+                            <BackgroundColor>#e3e3e3</BackgroundColor>
+                            <FontFamily>Arial</FontFamily>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                            <Border>
+                              <Width>1.74975pt</Width>
+                              <Color>LightGrey</Color>
+                              <Style>None</Style>
+                            </Border>
+                            <BottomBorder>
+                              <Width>1.37475pt</Width>
+                              <Color>#b3b2b3</Color>
+                              <Style>Solid</Style>
+                            </BottomBorder>
+                            <LeftBorder>
+                              <Style>None</Style>
+                            </LeftBorder>
+                            <RightBorder>
+                              <Style>None</Style>
+                            </RightBorder>
+                            <TopBorder>
+                              <Style>None</Style>
+                            </TopBorder>
+                          </Style>
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>Quantity</Value>
+                                  <Style>
+                                    <FontFamily>Arial</FontFamily>
+                                    <Color>black</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <FontFamily>Arial</FontFamily>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <UserSort>
+                            <SortExpression>=Fields!Quantity.Value</SortExpression>
+                            <SortExpressionScope>Details12</SortExpressionScope>
+                            <SortTarget>Tablix1</SortTarget>
+                          </UserSort>
+                        </Textbox>
+                        <RowSpan>1</RowSpan>
+                        <ColSpan>1</ColSpan>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="TextBox810">
+                          <Left>0in</Left>
+                          <Top>0in</Top>
+                          <Height>18pt</Height>
+                          <Width>102.6825pt</Width>
+                          <Style>
+                            <BackgroundColor>#e3e3e3</BackgroundColor>
+                            <FontFamily>Arial</FontFamily>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                            <Border>
+                              <Width>1.74975pt</Width>
+                              <Color>LightGrey</Color>
+                              <Style>None</Style>
+                            </Border>
+                            <BottomBorder>
+                              <Width>1.37475pt</Width>
+                              <Color>#b3b2b3</Color>
+                              <Style>Solid</Style>
+                            </BottomBorder>
+                            <LeftBorder>
+                              <Style>None</Style>
+                            </LeftBorder>
+                            <RightBorder>
+                              <Style>None</Style>
+                            </RightBorder>
+                            <TopBorder>
+                              <Style>None</Style>
+                            </TopBorder>
+                          </Style>
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>Contribution</Value>
+                                  <Style>
+                                    <FontFamily>Arial</FontFamily>
+                                    <Color>black</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <FontFamily>Arial</FontFamily>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <UserSort>
+                            <SortExpression>=Fields!Contribution.Value</SortExpression>
+                            <SortExpressionScope>Details12</SortExpressionScope>
+                            <SortTarget>Tablix1</SortTarget>
+                          </UserSort>
+                        </Textbox>
+                        <RowSpan>1</RowSpan>
+                        <ColSpan>1</ColSpan>
+                      </CellContents>
+                    </TablixCell>
+                  </TablixCells>
+                </TablixRow>
+                <TablixRow>
+                  <Height>18pt</Height>
+                  <TablixCells>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="TextBox311">
+                          <Left>0in</Left>
+                          <Top>0in</Top>
+                          <Height>18pt</Height>
+                          <Width>102.57825pt</Width>
+                          <Style>
+                            <FontFamily>Arial</FontFamily>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                            <Border>
+                              <Color>LightGrey</Color>
+                              <Style>None</Style>
+                            </Border>
+                            <BottomBorder>
+                              <Style>Solid</Style>
+                            </BottomBorder>
+                            <LeftBorder>
+                              <Style>None</Style>
+                            </LeftBorder>
+                            <RightBorder>
+                              <Style>Solid</Style>
+                            </RightBorder>
+                            <TopBorder>
+                              <Style>None</Style>
+                            </TopBorder>
+                          </Style>
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Fields!Store.Value</Value>
+                                  <Style>
+                                    <FontFamily>Arial</FontFamily>
+                                    <FontStyle>Normal</FontStyle>
+                                    <TextDecoration>None</TextDecoration>
+                                    <Color>black</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <FontFamily>Arial</FontFamily>
+                                <TextAlign>Left</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                        </Textbox>
+                        <RowSpan>1</RowSpan>
+                        <ColSpan>1</ColSpan>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="TextBox321">
+                          <Left>0in</Left>
+                          <Top>0in</Top>
+                          <Height>18pt</Height>
+                          <Width>102.57825pt</Width>
+                          <Style>
+                            <FontFamily>Arial</FontFamily>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                            <Border>
+                              <Color>LightGrey</Color>
+                              <Style>None</Style>
+                            </Border>
+                            <BottomBorder>
+                              <Style>None</Style>
+                            </BottomBorder>
+                            <LeftBorder>
+                              <Style>None</Style>
+                            </LeftBorder>
+                            <RightBorder>
+                              <Style>None</Style>
+                            </RightBorder>
+                            <TopBorder>
+                              <Style>None</Style>
+                            </TopBorder>
+                          </Style>
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Fields!AV_Amount.Value</Value>
+                                  <Style>
+                                    <FontFamily>Arial</FontFamily>
+                                    <FontStyle>Normal</FontStyle>
+                                    <Format>0.00;(0.00)</Format>
+                                    <rd:FormatType>
+                                      <rd:Format>Number</rd:Format>
+                                      <rd:Representation>None</rd:Representation>
+                                      <rd:NegativeValue>(12345)</rd:NegativeValue>
+                                    </rd:FormatType>
+                                    <TextDecoration>None</TextDecoration>
+                                    <Color>black</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <FontFamily>Arial</FontFamily>
+                                <TextAlign>Left</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                        </Textbox>
+                        <RowSpan>1</RowSpan>
+                        <ColSpan>1</ColSpan>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="TextBox331">
+                          <Left>0in</Left>
+                          <Top>0in</Top>
+                          <Height>18pt</Height>
+                          <Width>102.57825pt</Width>
+                          <Style>
+                            <FontFamily>Arial</FontFamily>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                            <Border>
+                              <Color>LightGrey</Color>
+                              <Style>None</Style>
+                            </Border>
+                            <BottomBorder>
+                              <Style>None</Style>
+                            </BottomBorder>
+                            <LeftBorder>
+                              <Style>None</Style>
+                            </LeftBorder>
+                            <RightBorder>
+                              <Style>None</Style>
+                            </RightBorder>
+                            <TopBorder>
+                              <Style>None</Style>
+                            </TopBorder>
+                          </Style>
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Fields!Amount.Value</Value>
+                                  <Style>
+                                    <FontFamily>Arial</FontFamily>
+                                    <FontStyle>Normal</FontStyle>
+                                    <Format>0.00;(0.00)</Format>
+                                    <rd:FormatType>
+                                      <rd:Format>Number</rd:Format>
+                                      <rd:Representation>None</rd:Representation>
+                                      <rd:NegativeValue>(12345)</rd:NegativeValue>
+                                    </rd:FormatType>
+                                    <TextDecoration>None</TextDecoration>
+                                    <Color>black</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <FontFamily>Arial</FontFamily>
+                                <TextAlign>Left</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                        </Textbox>
+                        <RowSpan>1</RowSpan>
+                        <ColSpan>1</ColSpan>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="TextBox341">
+                          <Left>0in</Left>
+                          <Top>0in</Top>
+                          <Height>18pt</Height>
+                          <Width>102.57825pt</Width>
+                          <Style>
+                            <FontFamily>Arial</FontFamily>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                            <Border>
+                              <Color>LightGrey</Color>
+                              <Style>None</Style>
+                            </Border>
+                            <BottomBorder>
+                              <Style>None</Style>
+                            </BottomBorder>
+                            <LeftBorder>
+                              <Style>None</Style>
+                            </LeftBorder>
+                            <RightBorder>
+                              <Style>None</Style>
+                            </RightBorder>
+                            <TopBorder>
+                              <Style>None</Style>
+                            </TopBorder>
+                          </Style>
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Fields!Quantity.Value</Value>
+                                  <Style>
+                                    <FontFamily>Arial</FontFamily>
+                                    <FontStyle>Normal</FontStyle>
+                                    <Format>0.00;(0.00)</Format>
+                                    <rd:FormatType>
+                                      <rd:Format>Number</rd:Format>
+                                      <rd:Representation>None</rd:Representation>
+                                      <rd:NegativeValue>(12345)</rd:NegativeValue>
+                                    </rd:FormatType>
+                                    <TextDecoration>None</TextDecoration>
+                                    <Color>black</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <FontFamily>Arial</FontFamily>
+                                <TextAlign>Left</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                        </Textbox>
+                        <RowSpan>1</RowSpan>
+                        <ColSpan>1</ColSpan>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="TextBox111">
+                          <Left>0in</Left>
+                          <Top>0in</Top>
+                          <Height>18pt</Height>
+                          <Width>102.6825pt</Width>
+                          <Style>
+                            <FontFamily>Arial</FontFamily>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                            <Border>
+                              <Color>LightGrey</Color>
+                              <Style>None</Style>
+                            </Border>
+                            <BottomBorder>
+                              <Style>None</Style>
+                            </BottomBorder>
+                            <LeftBorder>
+                              <Style>None</Style>
+                            </LeftBorder>
+                            <RightBorder>
+                              <Style>None</Style>
+                            </RightBorder>
+                            <TopBorder>
+                              <Style>None</Style>
+                            </TopBorder>
+                          </Style>
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Fields!Contribution.Value</Value>
+                                  <Style>
+                                    <FontFamily>Arial</FontFamily>
+                                    <FontStyle>Normal</FontStyle>
+                                    <Format>0.00%</Format>
+                                    <TextDecoration>None</TextDecoration>
+                                    <Color>black</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <FontFamily>Arial</FontFamily>
+                                <TextAlign>Left</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                        </Textbox>
+                        <RowSpan>1</RowSpan>
+                        <ColSpan>1</ColSpan>
+                      </CellContents>
+                    </TablixCell>
+                  </TablixCells>
+                </TablixRow>
+                <TablixRow>
+                  <Height>18pt</Height>
+                  <TablixCells>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="TextBox611111111">
+                          <Left>0in</Left>
+                          <Top>0in</Top>
+                          <Height>18pt</Height>
+                          <Width>102.57825pt</Width>
+                          <Style>
+                            <BackgroundColor>#e3e3e3</BackgroundColor>
+                            <FontFamily>Arial</FontFamily>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                            <Border>
+                              <Color>LightGrey</Color>
+                              <Style>None</Style>
+                            </Border>
+                            <BottomBorder>
+                              <Style>None</Style>
+                            </BottomBorder>
+                            <LeftBorder>
+                              <Style>None</Style>
+                            </LeftBorder>
+                            <RightBorder>
+                              <Style>None</Style>
+                            </RightBorder>
+                            <TopBorder>
+                              <Style>Double</Style>
+                            </TopBorder>
+                          </Style>
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>Total by stores:</Value>
+                                  <Style>
+                                    <FontFamily>Arial</FontFamily>
+                                    <FontWeight>Bold</FontWeight>
+                                    <Color>black</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <FontFamily>Arial</FontFamily>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                        </Textbox>
+                        <RowSpan>1</RowSpan>
+                        <ColSpan>1</ColSpan>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="TextBox8">
+                          <Left>0in</Left>
+                          <Top>0in</Top>
+                          <Height>18pt</Height>
+                          <Width>102.57825pt</Width>
+                          <Style>
+                            <BackgroundColor>#e3e3e3</BackgroundColor>
+                            <FontFamily>Arial</FontFamily>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                            <Border>
+                              <Color>LightGrey</Color>
+                              <Style>None</Style>
+                            </Border>
+                            <BottomBorder>
+                              <Style>None</Style>
+                            </BottomBorder>
+                            <LeftBorder>
+                              <Style>None</Style>
+                            </LeftBorder>
+                            <RightBorder>
+                              <Style>None</Style>
+                            </RightBorder>
+                            <TopBorder>
+                              <Style>Double</Style>
+                            </TopBorder>
+                          </Style>
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value />
+                                  <Style>
+                                    <FontFamily>Arial</FontFamily>
+                                    <FontWeight>Bold</FontWeight>
+                                    <Color>black</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <FontFamily>Arial</FontFamily>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                        </Textbox>
+                        <RowSpan>1</RowSpan>
+                        <ColSpan>1</ColSpan>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="TextBox171">
+                          <Left>0in</Left>
+                          <Top>0in</Top>
+                          <Height>18pt</Height>
+                          <Width>102.57825pt</Width>
+                          <Style>
+                            <BackgroundColor>#e3e3e3</BackgroundColor>
+                            <FontFamily>Arial</FontFamily>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                            <Border>
+                              <Color>LightGrey</Color>
+                              <Style>None</Style>
+                            </Border>
+                            <BottomBorder>
+                              <Style>None</Style>
+                            </BottomBorder>
+                            <LeftBorder>
+                              <Style>None</Style>
+                            </LeftBorder>
+                            <RightBorder>
+                              <Style>None</Style>
+                            </RightBorder>
+                            <TopBorder>
+                              <Style>Double</Style>
+                            </TopBorder>
+                          </Style>
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Sum(Fields!Amount.Value)</Value>
+                                  <Style>
+                                    <FontFamily>Arial</FontFamily>
+                                    <FontWeight>Bold</FontWeight>
+                                    <Format>0.00;(0.00)</Format>
+                                    <rd:FormatType>
+                                      <rd:Format>Number</rd:Format>
+                                      <rd:Representation>None</rd:Representation>
+                                      <rd:NegativeValue>(12345)</rd:NegativeValue>
+                                    </rd:FormatType>
+                                    <Color>black</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <FontFamily>Arial</FontFamily>
+                                <TextAlign>Left</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                        </Textbox>
+                        <RowSpan>1</RowSpan>
+                        <ColSpan>1</ColSpan>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="TextBox181">
+                          <Left>0in</Left>
+                          <Top>0in</Top>
+                          <Height>18pt</Height>
+                          <Width>102.57825pt</Width>
+                          <Style>
+                            <BackgroundColor>#e3e3e3</BackgroundColor>
+                            <FontFamily>Arial</FontFamily>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                            <Border>
+                              <Color>LightGrey</Color>
+                              <Style>None</Style>
+                            </Border>
+                            <BottomBorder>
+                              <Style>None</Style>
+                            </BottomBorder>
+                            <LeftBorder>
+                              <Style>None</Style>
+                            </LeftBorder>
+                            <RightBorder>
+                              <Style>None</Style>
+                            </RightBorder>
+                            <TopBorder>
+                              <Style>Double</Style>
+                            </TopBorder>
+                          </Style>
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Sum(Fields!Quantity.Value)</Value>
+                                  <Style>
+                                    <FontFamily>Arial</FontFamily>
+                                    <FontWeight>Bold</FontWeight>
+                                    <Format>0.00;(0.00)</Format>
+                                    <rd:FormatType>
+                                      <rd:Format>Number</rd:Format>
+                                      <rd:Representation>None</rd:Representation>
+                                      <rd:NegativeValue>(12345)</rd:NegativeValue>
+                                    </rd:FormatType>
+                                    <Color>black</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <FontFamily>Arial</FontFamily>
+                                <TextAlign>Left</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                        </Textbox>
+                        <RowSpan>1</RowSpan>
+                        <ColSpan>1</ColSpan>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="TextBox191">
+                          <Left>0in</Left>
+                          <Top>0in</Top>
+                          <Height>18pt</Height>
+                          <Width>102.6825pt</Width>
+                          <Style>
+                            <BackgroundColor>#e3e3e3</BackgroundColor>
+                            <FontFamily>Arial</FontFamily>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                            <Border>
+                              <Color>LightGrey</Color>
+                              <Style>None</Style>
+                            </Border>
+                            <BottomBorder>
+                              <Style>None</Style>
+                            </BottomBorder>
+                            <LeftBorder>
+                              <Style>None</Style>
+                            </LeftBorder>
+                            <RightBorder>
+                              <Style>None</Style>
+                            </RightBorder>
+                            <TopBorder>
+                              <Style>Double</Style>
+                            </TopBorder>
+                          </Style>
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Sum(Fields!Contribution.Value)</Value>
+                                  <Style>
+                                    <FontFamily>Arial</FontFamily>
+                                    <FontWeight>Bold</FontWeight>
+                                    <Format>0.00%</Format>
+                                    <Color>black</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <FontFamily>Arial</FontFamily>
+                                <TextAlign>Left</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                        </Textbox>
+                        <RowSpan>1</RowSpan>
+                        <ColSpan>1</ColSpan>
+                      </CellContents>
+                    </TablixCell>
+                  </TablixCells>
+                </TablixRow>
+              </TablixRows>
+            </TablixBody>
+            <TablixColumnHierarchy>
+              <TablixMembers>
+                <TablixMember />
+                <TablixMember />
+                <TablixMember />
+                <TablixMember />
+                <TablixMember />
+              </TablixMembers>
+            </TablixColumnHierarchy>
+            <TablixRowHierarchy>
+              <TablixMembers>
+                <TablixMember>
+                  <KeepWithGroup>After</KeepWithGroup>
+                  <RepeatOnNewPage>true</RepeatOnNewPage>
+                </TablixMember>
+                <TablixMember>
+                  <Group Name="Details12" />
+                </TablixMember>
+                <TablixMember>
+                  <KeepWithGroup>Before</KeepWithGroup>
+                </TablixMember>
+              </TablixMembers>
+            </TablixRowHierarchy>
+            <RepeatColumnHeaders>true</RepeatColumnHeaders>
+            <RepeatRowHeaders>true</RepeatRowHeaders>
+          </Tablix>
+          <Tablix Name="TableHierarchy">
+            <Left>10.42969pt</Left>
+            <Top>12.67969pt</Top>
+            <Height>71.99998pt</Height>
+            <Width>510.89062pt</Width>
+            <Style>
+              <FontFamily>Arial</FontFamily>
+              <Border>
+                <Style>None</Style>
+              </Border>
+            </Style>
+            <Visibility>
+              <Hidden>=IIf(Parameters!ReportType.Value=3,False,True)</Hidden>
+            </Visibility>
+            <DataSetName>HierarchyData</DataSetName>
+            <TablixBody>
+              <TablixColumns>
+                <TablixColumn>
+                  <Width>90.57292pt</Width>
+                </TablixColumn>
+                <TablixColumn>
+                  <Width>90.57292pt</Width>
+                </TablixColumn>
+                <TablixColumn>
+                  <Width>90.57292pt</Width>
+                </TablixColumn>
+                <TablixColumn>
+                  <Width>90.72917pt</Width>
+                </TablixColumn>
+              </TablixColumns>
+              <TablixRows>
+                <TablixRow>
+                  <Height>18pt</Height>
+                  <TablixCells>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="TextBox64">
+                          <Left>0in</Left>
+                          <Top>0in</Top>
+                          <Height>18pt</Height>
+                          <Width>90.573pt</Width>
+                          <Style>
+                            <BackgroundColor>#e3e3e3</BackgroundColor>
+                            <FontFamily>Arial</FontFamily>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                            <Border>
+                              <Width>1.74975pt</Width>
+                              <Color>LightGrey</Color>
+                              <Style>None</Style>
+                            </Border>
+                            <BottomBorder>
+                              <Width>1.37475pt</Width>
+                              <Color>#b3b2b3</Color>
+                              <Style>Solid</Style>
+                            </BottomBorder>
+                            <LeftBorder>
+                              <Style>None</Style>
+                            </LeftBorder>
+                            <RightBorder>
+                              <Style>None</Style>
+                            </RightBorder>
+                            <TopBorder>
+                              <Style>None</Style>
+                            </TopBorder>
+                          </Style>
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>AV.amount</Value>
+                                  <Style>
+                                    <FontFamily>Arial</FontFamily>
+                                    <Color>black</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <FontFamily>Arial</FontFamily>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <UserSort>
+                            <SortExpression>=Fields!AV_Amount.Value</SortExpression>
+                            <SortExpressionScope>Details112</SortExpressionScope>
+                            <SortTarget>TableHierarchy</SortTarget>
+                          </UserSort>
+                        </Textbox>
+                        <RowSpan>1</RowSpan>
+                        <ColSpan>1</ColSpan>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="TextBox65">
+                          <Left>0in</Left>
+                          <Top>0in</Top>
+                          <Height>18pt</Height>
+                          <Width>90.573pt</Width>
+                          <Style>
+                            <BackgroundColor>#e3e3e3</BackgroundColor>
+                            <FontFamily>Arial</FontFamily>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                            <Border>
+                              <Width>1.74975pt</Width>
+                              <Color>LightGrey</Color>
+                              <Style>None</Style>
+                            </Border>
+                            <BottomBorder>
+                              <Width>1.37475pt</Width>
+                              <Color>#b3b2b3</Color>
+                              <Style>Solid</Style>
+                            </BottomBorder>
+                            <LeftBorder>
+                              <Style>None</Style>
+                            </LeftBorder>
+                            <RightBorder>
+                              <Style>None</Style>
+                            </RightBorder>
+                            <TopBorder>
+                              <Style>None</Style>
+                            </TopBorder>
+                          </Style>
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>Amount</Value>
+                                  <Style>
+                                    <FontFamily>Arial</FontFamily>
+                                    <Color>black</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <FontFamily>Arial</FontFamily>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <UserSort>
+                            <SortExpression>=Fields!Amount.Value</SortExpression>
+                            <SortExpressionScope>Details112</SortExpressionScope>
+                            <SortTarget>TableHierarchy</SortTarget>
+                          </UserSort>
+                        </Textbox>
+                        <RowSpan>1</RowSpan>
+                        <ColSpan>1</ColSpan>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="TextBox66">
+                          <Left>0in</Left>
+                          <Top>0in</Top>
+                          <Height>18pt</Height>
+                          <Width>90.573pt</Width>
+                          <Style>
+                            <BackgroundColor>#e3e3e3</BackgroundColor>
+                            <FontFamily>Arial</FontFamily>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                            <Border>
+                              <Width>1.74975pt</Width>
+                              <Color>LightGrey</Color>
+                              <Style>None</Style>
+                            </Border>
+                            <BottomBorder>
+                              <Width>1.37475pt</Width>
+                              <Color>#b3b2b3</Color>
+                              <Style>Solid</Style>
+                            </BottomBorder>
+                            <LeftBorder>
+                              <Style>None</Style>
+                            </LeftBorder>
+                            <RightBorder>
+                              <Style>None</Style>
+                            </RightBorder>
+                            <TopBorder>
+                              <Style>None</Style>
+                            </TopBorder>
+                          </Style>
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>Quantity</Value>
+                                  <Style>
+                                    <FontFamily>Arial</FontFamily>
+                                    <Color>black</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <FontFamily>Arial</FontFamily>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <UserSort>
+                            <SortExpression>=Fields!Quantity.Value</SortExpression>
+                            <SortExpressionScope>Details112</SortExpressionScope>
+                            <SortTarget>TableHierarchy</SortTarget>
+                          </UserSort>
+                        </Textbox>
+                        <RowSpan>1</RowSpan>
+                        <ColSpan>1</ColSpan>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="TextBox67">
+                          <Left>0in</Left>
+                          <Top>0in</Top>
+                          <Height>18pt</Height>
+                          <Width>90.729pt</Width>
+                          <Style>
+                            <BackgroundColor>#e3e3e3</BackgroundColor>
+                            <FontFamily>Arial</FontFamily>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                            <Border>
+                              <Width>1.74975pt</Width>
+                              <Color>LightGrey</Color>
+                              <Style>None</Style>
+                            </Border>
+                            <BottomBorder>
+                              <Width>1.37475pt</Width>
+                              <Color>#b3b2b3</Color>
+                              <Style>Solid</Style>
+                            </BottomBorder>
+                            <LeftBorder>
+                              <Style>None</Style>
+                            </LeftBorder>
+                            <RightBorder>
+                              <Style>None</Style>
+                            </RightBorder>
+                            <TopBorder>
+                              <Style>None</Style>
+                            </TopBorder>
+                          </Style>
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>Contribution</Value>
+                                  <Style>
+                                    <FontFamily>Arial</FontFamily>
+                                    <Color>black</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <FontFamily>Arial</FontFamily>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <UserSort>
+                            <SortExpression>=Fields!Contribution.Value</SortExpression>
+                            <SortExpressionScope>Details112</SortExpressionScope>
+                            <SortTarget>TableHierarchy</SortTarget>
+                          </UserSort>
+                        </Textbox>
+                        <RowSpan>1</RowSpan>
+                        <ColSpan>1</ColSpan>
+                      </CellContents>
+                    </TablixCell>
+                  </TablixCells>
+                </TablixRow>
+                <TablixRow>
+                  <Height>18pt</Height>
+                  <TablixCells>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="TextBox22">
+                          <Left>0in</Left>
+                          <Top>0in</Top>
+                          <Height>18pt</Height>
+                          <Width>90.573pt</Width>
+                          <Style>
+                            <FontFamily>Arial</FontFamily>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                            <Border>
+                              <Color>LightGrey</Color>
+                              <Style>None</Style>
+                            </Border>
+                            <BottomBorder>
+                              <Style>Solid</Style>
+                            </BottomBorder>
+                            <LeftBorder>
+                              <Style>Solid</Style>
+                            </LeftBorder>
+                            <RightBorder>
+                              <Style>Solid</Style>
+                            </RightBorder>
+                            <TopBorder>
+                              <Style>None</Style>
+                            </TopBorder>
+                          </Style>
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Fields!AV_Amount.Value</Value>
+                                  <Style>
+                                    <FontFamily>Arial</FontFamily>
+                                    <Format>0.00;(0.00)</Format>
+                                    <rd:FormatType>
+                                      <rd:Format>Number</rd:Format>
+                                      <rd:Representation>None</rd:Representation>
+                                      <rd:NegativeValue>(12345)</rd:NegativeValue>
+                                    </rd:FormatType>
+                                    <Color>black</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <FontFamily>Arial</FontFamily>
+                                <TextAlign>Left</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                        </Textbox>
+                        <RowSpan>1</RowSpan>
+                        <ColSpan>1</ColSpan>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="TextBox50">
+                          <Left>0in</Left>
+                          <Top>0in</Top>
+                          <Height>18pt</Height>
+                          <Width>90.573pt</Width>
+                          <Style>
+                            <FontFamily>Arial</FontFamily>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                            <Border>
+                              <Color>LightGrey</Color>
+                              <Style>None</Style>
+                            </Border>
+                            <BottomBorder>
+                              <Style>Solid</Style>
+                            </BottomBorder>
+                            <LeftBorder>
+                              <Style>Solid</Style>
+                            </LeftBorder>
+                            <RightBorder>
+                              <Style>Solid</Style>
+                            </RightBorder>
+                            <TopBorder>
+                              <Style>None</Style>
+                            </TopBorder>
+                          </Style>
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Fields!Amount.Value</Value>
+                                  <Style>
+                                    <FontFamily>Arial</FontFamily>
+                                    <Format>0.00;(0.00)</Format>
+                                    <rd:FormatType>
+                                      <rd:Format>Number</rd:Format>
+                                      <rd:Representation>None</rd:Representation>
+                                      <rd:NegativeValue>(12345)</rd:NegativeValue>
+                                    </rd:FormatType>
+                                    <Color>black</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <FontFamily>Arial</FontFamily>
+                                <TextAlign>Left</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                        </Textbox>
+                        <RowSpan>1</RowSpan>
+                        <ColSpan>1</ColSpan>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="TextBox52">
+                          <Left>0in</Left>
+                          <Top>0in</Top>
+                          <Height>18pt</Height>
+                          <Width>90.573pt</Width>
+                          <Style>
+                            <FontFamily>Arial</FontFamily>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                            <Border>
+                              <Color>LightGrey</Color>
+                              <Style>None</Style>
+                            </Border>
+                            <BottomBorder>
+                              <Style>Solid</Style>
+                            </BottomBorder>
+                            <LeftBorder>
+                              <Style>Solid</Style>
+                            </LeftBorder>
+                            <RightBorder>
+                              <Style>Solid</Style>
+                            </RightBorder>
+                            <TopBorder>
+                              <Style>None</Style>
+                            </TopBorder>
+                          </Style>
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Fields!Quantity.Value</Value>
+                                  <Style>
+                                    <FontFamily>Arial</FontFamily>
+                                    <Format>0.00;(0.00)</Format>
+                                    <rd:FormatType>
+                                      <rd:Format>Number</rd:Format>
+                                      <rd:Representation>None</rd:Representation>
+                                      <rd:NegativeValue>(12345)</rd:NegativeValue>
+                                    </rd:FormatType>
+                                    <Color>black</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <FontFamily>Arial</FontFamily>
+                                <TextAlign>Left</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                        </Textbox>
+                        <RowSpan>1</RowSpan>
+                        <ColSpan>1</ColSpan>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="TextBox56">
+                          <Left>0in</Left>
+                          <Top>0in</Top>
+                          <Height>18pt</Height>
+                          <Width>90.729pt</Width>
+                          <Style>
+                            <FontFamily>Arial</FontFamily>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                            <Border>
+                              <Color>LightGrey</Color>
+                              <Style>None</Style>
+                            </Border>
+                            <BottomBorder>
+                              <Style>Solid</Style>
+                            </BottomBorder>
+                            <LeftBorder>
+                              <Style>Solid</Style>
+                            </LeftBorder>
+                            <RightBorder>
+                              <Style>Solid</Style>
+                            </RightBorder>
+                            <TopBorder>
+                              <Style>None</Style>
+                            </TopBorder>
+                          </Style>
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Fields!Contribution.Value</Value>
+                                  <Style>
+                                    <FontFamily>Arial</FontFamily>
+                                    <Format>0.00%</Format>
+                                    <Color>black</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <FontFamily>Arial</FontFamily>
+                                <TextAlign>Left</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                        </Textbox>
+                        <RowSpan>1</RowSpan>
+                        <ColSpan>1</ColSpan>
+                      </CellContents>
+                    </TablixCell>
+                  </TablixCells>
+                </TablixRow>
+                <TablixRow>
+                  <Height>18pt</Height>
+                  <TablixCells>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="TextBox82">
+                          <Left>0in</Left>
+                          <Top>0in</Top>
+                          <Height>18pt</Height>
+                          <Width>90.573pt</Width>
+                          <Style>
+                            <BackgroundColor>#e3e3e3</BackgroundColor>
+                            <FontFamily>Arial</FontFamily>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                            <Border>
+                              <Color>LightGrey</Color>
+                              <Style>None</Style>
+                            </Border>
+                            <BottomBorder>
+                              <Style>Solid</Style>
+                            </BottomBorder>
+                            <LeftBorder>
+                              <Style>None</Style>
+                            </LeftBorder>
+                            <RightBorder>
+                              <Style>None</Style>
+                            </RightBorder>
+                            <TopBorder>
+                              <Style>Solid</Style>
+                            </TopBorder>
+                          </Style>
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value />
+                                  <Style>
+                                    <FontFamily>Arial</FontFamily>
+                                    <Format>0.00;(0.00)</Format>
+                                    <rd:FormatType>
+                                      <rd:Format>Number</rd:Format>
+                                      <rd:Representation>None</rd:Representation>
+                                      <rd:NegativeValue>(12345)</rd:NegativeValue>
+                                    </rd:FormatType>
+                                    <Color>black</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <FontFamily>Arial</FontFamily>
+                                <TextAlign>Left</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                        </Textbox>
+                        <RowSpan>1</RowSpan>
+                        <ColSpan>1</ColSpan>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="TextBox78">
+                          <Left>0in</Left>
+                          <Top>0in</Top>
+                          <Height>18pt</Height>
+                          <Width>90.573pt</Width>
+                          <Style>
+                            <BackgroundColor>#e3e3e3</BackgroundColor>
+                            <FontFamily>Arial</FontFamily>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                            <Border>
+                              <Color>LightGrey</Color>
+                              <Style>None</Style>
+                            </Border>
+                            <BottomBorder>
+                              <Style>Solid</Style>
+                            </BottomBorder>
+                            <LeftBorder>
+                              <Style>None</Style>
+                            </LeftBorder>
+                            <RightBorder>
+                              <Style>None</Style>
+                            </RightBorder>
+                            <TopBorder>
+                              <Style>Solid</Style>
+                            </TopBorder>
+                          </Style>
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Sum(Fields!Amount.Value)</Value>
+                                  <Style>
+                                    <FontFamily>Arial</FontFamily>
+                                    <Format>0.00;(0.00)</Format>
+                                    <rd:FormatType>
+                                      <rd:Format>Number</rd:Format>
+                                      <rd:Representation>None</rd:Representation>
+                                      <rd:NegativeValue>(12345)</rd:NegativeValue>
+                                    </rd:FormatType>
+                                    <Color>black</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <FontFamily>Arial</FontFamily>
+                                <TextAlign>Left</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                        </Textbox>
+                        <RowSpan>1</RowSpan>
+                        <ColSpan>1</ColSpan>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="TextBox79">
+                          <Left>0in</Left>
+                          <Top>0in</Top>
+                          <Height>18pt</Height>
+                          <Width>90.573pt</Width>
+                          <Style>
+                            <BackgroundColor>#e3e3e3</BackgroundColor>
+                            <FontFamily>Arial</FontFamily>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                            <Border>
+                              <Color>LightGrey</Color>
+                              <Style>None</Style>
+                            </Border>
+                            <BottomBorder>
+                              <Style>Solid</Style>
+                            </BottomBorder>
+                            <LeftBorder>
+                              <Style>None</Style>
+                            </LeftBorder>
+                            <RightBorder>
+                              <Style>None</Style>
+                            </RightBorder>
+                            <TopBorder>
+                              <Style>Solid</Style>
+                            </TopBorder>
+                          </Style>
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Sum(Fields!Quantity.Value)</Value>
+                                  <Style>
+                                    <FontFamily>Arial</FontFamily>
+                                    <Format>0.00;(0.00)</Format>
+                                    <rd:FormatType>
+                                      <rd:Format>Number</rd:Format>
+                                      <rd:Representation>None</rd:Representation>
+                                      <rd:NegativeValue>(12345)</rd:NegativeValue>
+                                    </rd:FormatType>
+                                    <Color>black</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <FontFamily>Arial</FontFamily>
+                                <TextAlign>Left</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                        </Textbox>
+                        <RowSpan>1</RowSpan>
+                        <ColSpan>1</ColSpan>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="TextBox80">
+                          <Left>0in</Left>
+                          <Top>0in</Top>
+                          <Height>18pt</Height>
+                          <Width>90.729pt</Width>
+                          <Style>
+                            <BackgroundColor>#e3e3e3</BackgroundColor>
+                            <FontFamily>Arial</FontFamily>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                            <Border>
+                              <Color>LightGrey</Color>
+                              <Style>None</Style>
+                            </Border>
+                            <BottomBorder>
+                              <Style>Solid</Style>
+                            </BottomBorder>
+                            <LeftBorder>
+                              <Style>None</Style>
+                            </LeftBorder>
+                            <RightBorder>
+                              <Style>None</Style>
+                            </RightBorder>
+                            <TopBorder>
+                              <Style>Solid</Style>
+                            </TopBorder>
+                          </Style>
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Sum(Fields!Contribution.Value)</Value>
+                                  <Style>
+                                    <FontFamily>Arial</FontFamily>
+                                    <Format>0.00%</Format>
+                                    <Color>black</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <FontFamily>Arial</FontFamily>
+                                <TextAlign>Left</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                        </Textbox>
+                        <RowSpan>1</RowSpan>
+                        <ColSpan>1</ColSpan>
+                      </CellContents>
+                    </TablixCell>
+                  </TablixCells>
+                </TablixRow>
+                <TablixRow>
+                  <Height>18pt</Height>
+                  <TablixCells>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="TextBox10">
+                          <Left>0in</Left>
+                          <Top>0in</Top>
+                          <Height>18pt</Height>
+                          <Width>90.573pt</Width>
+                          <Style>
+                            <BackgroundColor>#e3e3e3</BackgroundColor>
+                            <FontFamily>Arial</FontFamily>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                            <Border>
+                              <Color>LightGrey</Color>
+                              <Style>None</Style>
+                            </Border>
+                            <BottomBorder>
+                              <Style>None</Style>
+                            </BottomBorder>
+                            <LeftBorder>
+                              <Style>None</Style>
+                            </LeftBorder>
+                            <RightBorder>
+                              <Style>None</Style>
+                            </RightBorder>
+                            <TopBorder>
+                              <Style>Double</Style>
+                            </TopBorder>
+                          </Style>
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value />
+                                  <Style>
+                                    <FontFamily>Arial</FontFamily>
+                                    <FontWeight>Bold</FontWeight>
+                                    <Color>black</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <FontFamily>Arial</FontFamily>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                        </Textbox>
+                        <RowSpan>1</RowSpan>
+                        <ColSpan>1</ColSpan>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="TextBox40">
+                          <Left>0in</Left>
+                          <Top>0in</Top>
+                          <Height>18pt</Height>
+                          <Width>90.573pt</Width>
+                          <Style>
+                            <BackgroundColor>#e3e3e3</BackgroundColor>
+                            <FontFamily>Arial</FontFamily>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                            <Border>
+                              <Color>LightGrey</Color>
+                              <Style>None</Style>
+                            </Border>
+                            <BottomBorder>
+                              <Style>None</Style>
+                            </BottomBorder>
+                            <LeftBorder>
+                              <Style>None</Style>
+                            </LeftBorder>
+                            <RightBorder>
+                              <Style>None</Style>
+                            </RightBorder>
+                            <TopBorder>
+                              <Style>Double</Style>
+                            </TopBorder>
+                          </Style>
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Sum(Fields!Amount.Value)</Value>
+                                  <Style>
+                                    <FontFamily>Arial</FontFamily>
+                                    <FontWeight>Bold</FontWeight>
+                                    <Format>0.00;(0.00)</Format>
+                                    <rd:FormatType>
+                                      <rd:Format>Number</rd:Format>
+                                      <rd:Representation>None</rd:Representation>
+                                      <rd:NegativeValue>(12345)</rd:NegativeValue>
+                                    </rd:FormatType>
+                                    <Color>black</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <FontFamily>Arial</FontFamily>
+                                <TextAlign>Left</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                        </Textbox>
+                        <RowSpan>1</RowSpan>
+                        <ColSpan>1</ColSpan>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="TextBox41">
+                          <Left>0in</Left>
+                          <Top>0in</Top>
+                          <Height>18pt</Height>
+                          <Width>90.573pt</Width>
+                          <Style>
+                            <BackgroundColor>#e3e3e3</BackgroundColor>
+                            <FontFamily>Arial</FontFamily>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                            <Border>
+                              <Color>LightGrey</Color>
+                              <Style>None</Style>
+                            </Border>
+                            <BottomBorder>
+                              <Style>None</Style>
+                            </BottomBorder>
+                            <LeftBorder>
+                              <Style>None</Style>
+                            </LeftBorder>
+                            <RightBorder>
+                              <Style>None</Style>
+                            </RightBorder>
+                            <TopBorder>
+                              <Style>Double</Style>
+                            </TopBorder>
+                          </Style>
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Sum(Fields!Quantity.Value)</Value>
+                                  <Style>
+                                    <FontFamily>Arial</FontFamily>
+                                    <FontWeight>Bold</FontWeight>
+                                    <Format>0.00;(0.00)</Format>
+                                    <rd:FormatType>
+                                      <rd:Format>Number</rd:Format>
+                                      <rd:Representation>None</rd:Representation>
+                                      <rd:NegativeValue>(12345)</rd:NegativeValue>
+                                    </rd:FormatType>
+                                    <Color>black</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <FontFamily>Arial</FontFamily>
+                                <TextAlign>Left</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                        </Textbox>
+                        <RowSpan>1</RowSpan>
+                        <ColSpan>1</ColSpan>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="TextBox42">
+                          <Left>0in</Left>
+                          <Top>0in</Top>
+                          <Height>18pt</Height>
+                          <Width>90.729pt</Width>
+                          <Style>
+                            <BackgroundColor>#e3e3e3</BackgroundColor>
+                            <FontFamily>Arial</FontFamily>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                            <Border>
+                              <Color>LightGrey</Color>
+                              <Style>None</Style>
+                            </Border>
+                            <BottomBorder>
+                              <Style>None</Style>
+                            </BottomBorder>
+                            <LeftBorder>
+                              <Style>None</Style>
+                            </LeftBorder>
+                            <RightBorder>
+                              <Style>None</Style>
+                            </RightBorder>
+                            <TopBorder>
+                              <Style>Double</Style>
+                            </TopBorder>
+                          </Style>
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Sum(Fields!Contribution.Value)</Value>
+                                  <Style>
+                                    <FontFamily>Arial</FontFamily>
+                                    <FontWeight>Bold</FontWeight>
+                                    <Format>0.00%</Format>
+                                    <Color>black</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <FontFamily>Arial</FontFamily>
+                                <TextAlign>Left</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                        </Textbox>
+                        <RowSpan>1</RowSpan>
+                        <ColSpan>1</ColSpan>
+                      </CellContents>
+                    </TablixCell>
+                  </TablixCells>
+                </TablixRow>
+              </TablixRows>
+            </TablixBody>
+            <TablixColumnHierarchy>
+              <TablixMembers>
+                <TablixMember />
+                <TablixMember />
+                <TablixMember />
+                <TablixMember />
+              </TablixMembers>
+            </TablixColumnHierarchy>
+            <TablixRowHierarchy>
+              <TablixMembers>
+                <TablixMember>
+                  <TablixHeader>
+                    <Size>74.21875pt</Size>
+                    <CellContents>
+                      <Textbox Name="TextBox631">
+                        <Left>0in</Left>
+                        <Top>0in</Top>
+                        <Height>18pt</Height>
+                        <Width>74.21875pt</Width>
+                        <Style>
+                          <BackgroundColor>#e3e3e3</BackgroundColor>
+                          <FontFamily>Arial</FontFamily>
+                          <PaddingLeft>2pt</PaddingLeft>
+                          <PaddingRight>2pt</PaddingRight>
+                          <PaddingTop>2pt</PaddingTop>
+                          <PaddingBottom>2pt</PaddingBottom>
+                          <Border>
+                            <Width>1.74975pt</Width>
+                            <Color>LightGrey</Color>
+                            <Style>None</Style>
+                          </Border>
+                          <BottomBorder>
+                            <Width>1.37475pt</Width>
+                            <Color>#b3b2b3</Color>
+                            <Style>Solid</Style>
+                          </BottomBorder>
+                          <LeftBorder>
+                            <Style>None</Style>
+                          </LeftBorder>
+                          <RightBorder>
+                            <Style>None</Style>
+                          </RightBorder>
+                          <TopBorder>
+                            <Style>None</Style>
+                          </TopBorder>
+                        </Style>
+                        <CanGrow>true</CanGrow>
+                        <KeepTogether>true</KeepTogether>
+                        <Paragraphs>
+                          <Paragraph>
+                            <TextRuns>
+                              <TextRun>
+                                <Value>Store Name</Value>
+                                <Style>
+                                  <FontFamily>Arial</FontFamily>
+                                  <Color>black</Color>
+                                </Style>
+                              </TextRun>
+                            </TextRuns>
+                            <Style>
+                              <FontFamily>Arial</FontFamily>
+                            </Style>
+                          </Paragraph>
+                        </Paragraphs>
+                        <UserSort>
+                          <SortExpression>=Fields!Store.Value</SortExpression>
+                          <SortExpressionScope>Store1</SortExpressionScope>
+                          <SortTarget>TableHierarchy</SortTarget>
+                        </UserSort>
+                      </Textbox>
+                    </CellContents>
+                  </TablixHeader>
+                  <TablixMembers>
+                    <TablixMember>
+                      <TablixHeader>
+                        <Size>74.21875pt</Size>
+                        <CellContents>
+                          <Textbox Name="TextBox201">
+                            <Left>0in</Left>
+                            <Top>0in</Top>
+                            <Height>18pt</Height>
+                            <Width>74.21875pt</Width>
+                            <Style>
+                              <BackgroundColor>#e3e3e3</BackgroundColor>
+                              <FontFamily>Arial</FontFamily>
+                              <PaddingLeft>2pt</PaddingLeft>
+                              <PaddingRight>2pt</PaddingRight>
+                              <PaddingTop>2pt</PaddingTop>
+                              <PaddingBottom>2pt</PaddingBottom>
+                              <Border>
+                                <Width>1.74975pt</Width>
+                                <Color>LightGrey</Color>
+                                <Style>None</Style>
+                              </Border>
+                              <BottomBorder>
+                                <Width>1.37475pt</Width>
+                                <Color>#b3b2b3</Color>
+                                <Style>Solid</Style>
+                              </BottomBorder>
+                              <LeftBorder>
+                                <Style>None</Style>
+                              </LeftBorder>
+                              <RightBorder>
+                                <Style>None</Style>
+                              </RightBorder>
+                              <TopBorder>
+                                <Style>None</Style>
+                              </TopBorder>
+                            </Style>
+                            <CanGrow>true</CanGrow>
+                            <KeepTogether>true</KeepTogether>
+                            <Paragraphs>
+                              <Paragraph>
+                                <TextRuns>
+                                  <TextRun>
+                                    <Value>Hierarchy</Value>
+                                    <Style>
+                                      <FontFamily>Arial</FontFamily>
+                                      <Color>black</Color>
+                                    </Style>
+                                  </TextRun>
+                                </TextRuns>
+                                <Style>
+                                  <FontFamily>Arial</FontFamily>
+                                </Style>
+                              </Paragraph>
+                            </Paragraphs>
+                            <UserSort>
+                              <SortExpression>=Fields!Hierarchy.Value</SortExpression>
+                              <SortExpressionScope>Hierarchy2</SortExpressionScope>
+                              <SortTarget>TableHierarchy</SortTarget>
+                            </UserSort>
+                          </Textbox>
+                        </CellContents>
+                      </TablixHeader>
+                      <TablixMembers>
+                        <TablixMember>
+                          <RepeatOnNewPage>true</RepeatOnNewPage>
+                        </TablixMember>
+                      </TablixMembers>
+                      <RepeatOnNewPage>true</RepeatOnNewPage>
+                    </TablixMember>
+                  </TablixMembers>
+                  <KeepWithGroup>After</KeepWithGroup>
+                  <RepeatOnNewPage>true</RepeatOnNewPage>
+                </TablixMember>
+                <TablixMember>
+                  <Group Name="Store1">
+                    <GroupExpressions>
+                      <GroupExpression>=Fields!Store.Value</GroupExpression>
+                    </GroupExpressions>
+                  </Group>
+                  <SortExpressions>
+                    <SortExpression>
+                      <Value>=Fields!Store.Value</Value>
+                      <Direction>Ascending</Direction>
+                    </SortExpression>
+                  </SortExpressions>
+                  <TablixHeader>
+                    <Size>74.21875pt</Size>
+                    <CellContents>
+                      <Textbox Name="Store11">
+                        <Left>0in</Left>
+                        <Top>0in</Top>
+                        <Height>18pt</Height>
+                        <Width>74.21875pt</Width>
+                        <Style>
+                          <FontFamily>Arial</FontFamily>
+                          <PaddingLeft>2pt</PaddingLeft>
+                          <PaddingRight>2pt</PaddingRight>
+                          <PaddingTop>2pt</PaddingTop>
+                          <PaddingBottom>2pt</PaddingBottom>
+                          <Border>
+                            <Color>LightGrey</Color>
+                            <Style>None</Style>
+                          </Border>
+                          <BottomBorder>
+                            <Style>Solid</Style>
+                          </BottomBorder>
+                          <LeftBorder>
+                            <Style>None</Style>
+                          </LeftBorder>
+                          <RightBorder>
+                            <Style>Solid</Style>
+                          </RightBorder>
+                          <TopBorder>
+                            <Style>None</Style>
+                          </TopBorder>
+                        </Style>
+                        <CanGrow>true</CanGrow>
+                        <KeepTogether>true</KeepTogether>
+                        <Paragraphs>
+                          <Paragraph>
+                            <TextRuns>
+                              <TextRun>
+                                <Value>=Fields!Store.Value</Value>
+                                <Style>
+                                  <FontFamily>Arial</FontFamily>
+                                  <FontWeight>Bold</FontWeight>
+                                  <Color>black</Color>
+                                </Style>
+                              </TextRun>
+                            </TextRuns>
+                            <Style>
+                              <FontFamily>Arial</FontFamily>
+                              <TextAlign>Left</TextAlign>
+                            </Style>
+                          </Paragraph>
+                        </Paragraphs>
+                      </Textbox>
+                    </CellContents>
+                  </TablixHeader>
+                  <TablixMembers>
+                    <TablixMember>
+                      <Group Name="Hierarchy2">
+                        <GroupExpressions>
+                          <GroupExpression>=Fields!Hierarchy.Value</GroupExpression>
+                        </GroupExpressions>
+                      </Group>
+                      <SortExpressions>
+                        <SortExpression>
+                          <Value>=Fields!Hierarchy.Value</Value>
+                          <Direction>Ascending</Direction>
+                        </SortExpression>
+                      </SortExpressions>
+                      <TablixHeader>
+                        <Size>74.21875pt</Size>
+                        <CellContents>
+                          <Textbox Name="Hierarchy21">
+                            <Left>0in</Left>
+                            <Top>0in</Top>
+                            <Height>18pt</Height>
+                            <Width>74.21875pt</Width>
+                            <Style>
+                              <FontFamily>Arial</FontFamily>
+                              <PaddingLeft>2pt</PaddingLeft>
+                              <PaddingRight>2pt</PaddingRight>
+                              <PaddingTop>2pt</PaddingTop>
+                              <PaddingBottom>2pt</PaddingBottom>
+                              <Border>
+                                <Color>LightGrey</Color>
+                                <Style>None</Style>
+                              </Border>
+                              <BottomBorder>
+                                <Style>Solid</Style>
+                              </BottomBorder>
+                              <LeftBorder>
+                                <Style>Solid</Style>
+                              </LeftBorder>
+                              <RightBorder>
+                                <Style>Solid</Style>
+                              </RightBorder>
+                              <TopBorder>
+                                <Style>None</Style>
+                              </TopBorder>
+                            </Style>
+                            <CanGrow>true</CanGrow>
+                            <KeepTogether>true</KeepTogether>
+                            <Paragraphs>
+                              <Paragraph>
+                                <TextRuns>
+                                  <TextRun>
+                                    <Value>=Fields!Hierarchy.Value</Value>
+                                    <Style>
+                                      <FontFamily>Arial</FontFamily>
+                                      <Color>black</Color>
+                                    </Style>
+                                  </TextRun>
+                                </TextRuns>
+                                <Style>
+                                  <FontFamily>Arial</FontFamily>
+                                  <TextAlign>Left</TextAlign>
+                                </Style>
+                              </Paragraph>
+                            </Paragraphs>
+                          </Textbox>
+                        </CellContents>
+                      </TablixHeader>
+                      <TablixMembers>
+                        <TablixMember>
+                          <Group Name="Details112" />
+                        </TablixMember>
+                      </TablixMembers>
+                    </TablixMember>
+                    <TablixMember>
+                      <TablixHeader>
+                        <Size>74.21875pt</Size>
+                        <CellContents>
+                          <Textbox Name="TextBox63">
+                            <Left>0in</Left>
+                            <Top>0in</Top>
+                            <Height>18pt</Height>
+                            <Width>74.21875pt</Width>
+                            <Style>
+                              <BackgroundColor>#e3e3e3</BackgroundColor>
+                              <FontFamily>Arial</FontFamily>
+                              <PaddingLeft>2pt</PaddingLeft>
+                              <PaddingRight>2pt</PaddingRight>
+                              <PaddingTop>2pt</PaddingTop>
+                              <PaddingBottom>2pt</PaddingBottom>
+                              <Border>
+                                <Color>LightGrey</Color>
+                                <Style>None</Style>
+                              </Border>
+                              <BottomBorder>
+                                <Style>Solid</Style>
+                              </BottomBorder>
+                              <LeftBorder>
+                                <Style>Solid</Style>
+                              </LeftBorder>
+                              <RightBorder>
+                                <Style>None</Style>
+                              </RightBorder>
+                              <TopBorder>
+                                <Style>Solid</Style>
+                              </TopBorder>
+                            </Style>
+                            <CanGrow>true</CanGrow>
+                            <KeepTogether>true</KeepTogether>
+                            <Paragraphs>
+                              <Paragraph>
+                                <TextRuns>
+                                  <TextRun>
+                                    <Value>Total</Value>
+                                    <Style>
+                                      <FontFamily>Arial</FontFamily>
+                                      <FontWeight>Bold</FontWeight>
+                                      <Color>black</Color>
+                                    </Style>
+                                  </TextRun>
+                                </TextRuns>
+                                <Style>
+                                  <FontFamily>Arial</FontFamily>
+                                  <TextAlign>Left</TextAlign>
+                                </Style>
+                              </Paragraph>
+                            </Paragraphs>
+                          </Textbox>
+                        </CellContents>
+                      </TablixHeader>
+                      <KeepWithGroup>Before</KeepWithGroup>
+                    </TablixMember>
+                  </TablixMembers>
+                </TablixMember>
+                <TablixMember>
+                  <TablixHeader>
+                    <Size>148.4375pt</Size>
+                    <CellContents>
+                      <Textbox Name="TextBox611111112">
+                        <Left>0in</Left>
+                        <Top>0in</Top>
+                        <Height>18pt</Height>
+                        <Width>148.4375pt</Width>
+                        <Style>
+                          <BackgroundColor>#e3e3e3</BackgroundColor>
+                          <FontFamily>Arial</FontFamily>
+                          <PaddingLeft>2pt</PaddingLeft>
+                          <PaddingRight>2pt</PaddingRight>
+                          <PaddingTop>2pt</PaddingTop>
+                          <PaddingBottom>2pt</PaddingBottom>
+                          <Border>
+                            <Color>LightGrey</Color>
+                            <Style>None</Style>
+                          </Border>
+                          <BottomBorder>
+                            <Style>None</Style>
+                          </BottomBorder>
+                          <LeftBorder>
+                            <Style>None</Style>
+                          </LeftBorder>
+                          <RightBorder>
+                            <Style>None</Style>
+                          </RightBorder>
+                          <TopBorder>
+                            <Style>Double</Style>
+                          </TopBorder>
+                        </Style>
+                        <CanGrow>true</CanGrow>
+                        <KeepTogether>true</KeepTogether>
+                        <Paragraphs>
+                          <Paragraph>
+                            <TextRuns>
+                              <TextRun>
+                                <Value>Total by stores:</Value>
+                                <Style>
+                                  <FontFamily>Arial</FontFamily>
+                                  <FontWeight>Bold</FontWeight>
+                                  <Color>black</Color>
+                                </Style>
+                              </TextRun>
+                            </TextRuns>
+                            <Style>
+                              <FontFamily>Arial</FontFamily>
+                            </Style>
+                          </Paragraph>
+                        </Paragraphs>
+                      </Textbox>
+                    </CellContents>
+                  </TablixHeader>
+                  <TablixMembers>
+                    <TablixMember />
+                  </TablixMembers>
+                  <KeepWithGroup>Before</KeepWithGroup>
+                </TablixMember>
+              </TablixMembers>
+            </TablixRowHierarchy>
+            <RepeatColumnHeaders>true</RepeatColumnHeaders>
+            <RepeatRowHeaders>true</RepeatRowHeaders>
+          </Tablix>
+          <Tablix Name="Tablix2">
+            <Left>10.48828pt</Left>
+            <Top>11.92969pt</Top>
+            <Height>89.99998pt</Height>
+            <Width>651.11707pt</Width>
+            <Style>
+              <FontFamily>Arial</FontFamily>
+              <Border>
+                <Style>None</Style>
+              </Border>
+            </Style>
+            <Visibility>
+              <Hidden>=IIf(Parameters!ReportType.Value=2,False,True)</Hidden>
+            </Visibility>
+            <DataSetName>ItemData</DataSetName>
+            <TablixBody>
+              <TablixColumns>
+                <TablixColumn>
+                  <Width>85pt</Width>
+                </TablixColumn>
+                <TablixColumn>
+                  <Width>84.2448pt</Width>
+                </TablixColumn>
+                <TablixColumn>
+                  <Width>80.4948pt</Width>
+                </TablixColumn>
+                <TablixColumn>
+                  <Width>76.0026pt</Width>
+                </TablixColumn>
+                <TablixColumn>
+                  <Width>69.73959pt</Width>
+                </TablixColumn>
+                <TablixColumn>
+                  <Width>78.11198pt</Width>
+                </TablixColumn>
+              </TablixColumns>
+              <TablixRows>
+                <TablixRow>
+                  <Height>18pt</Height>
+                  <TablixCells>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="TextBox70">
+                          <Left>0in</Left>
+                          <Top>0in</Top>
+                          <Height>18pt</Height>
+                          <Width>84.99975pt</Width>
+                          <Style>
+                            <BackgroundColor>#e3e3e3</BackgroundColor>
+                            <FontFamily>Arial</FontFamily>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                            <Border>
+                              <Width>1.74975pt</Width>
+                              <Color>LightGrey</Color>
+                              <Style>None</Style>
+                            </Border>
+                            <BottomBorder>
+                              <Width>1.37475pt</Width>
+                              <Color>#b3b2b3</Color>
+                              <Style>Solid</Style>
+                            </BottomBorder>
+                            <LeftBorder>
+                              <Style>None</Style>
+                            </LeftBorder>
+                            <RightBorder>
+                              <Style>None</Style>
+                            </RightBorder>
+                            <TopBorder>
+                              <Style>None</Style>
+                            </TopBorder>
+                          </Style>
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>Item code</Value>
+                                  <Style>
+                                    <FontFamily>Arial</FontFamily>
+                                    <Color>black</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <FontFamily>Arial</FontFamily>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <ToggleImage>
+                            <InitialState>false</InitialState>
+                          </ToggleImage>
+                          <UserSort>
+                            <SortExpression>=Fields!ItemCode.Value</SortExpression>
+                            <SortExpressionScope>Details11</SortExpressionScope>
+                            <SortTarget>Tablix2</SortTarget>
+                          </UserSort>
+                        </Textbox>
+                        <RowSpan>1</RowSpan>
+                        <ColSpan>1</ColSpan>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="TextBox72">
+                          <Left>0in</Left>
+                          <Top>0in</Top>
+                          <Height>18pt</Height>
+                          <Width>84.2445pt</Width>
+                          <Style>
+                            <BackgroundColor>#e3e3e3</BackgroundColor>
+                            <FontFamily>Arial</FontFamily>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                            <Border>
+                              <Width>1.74975pt</Width>
+                              <Color>LightGrey</Color>
+                              <Style>None</Style>
+                            </Border>
+                            <BottomBorder>
+                              <Width>1.37475pt</Width>
+                              <Color>#b3b2b3</Color>
+                              <Style>Solid</Style>
+                            </BottomBorder>
+                            <LeftBorder>
+                              <Style>None</Style>
+                            </LeftBorder>
+                            <RightBorder>
+                              <Style>None</Style>
+                            </RightBorder>
+                            <TopBorder>
+                              <Style>None</Style>
+                            </TopBorder>
+                          </Style>
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>Item Name</Value>
+                                  <Style>
+                                    <FontFamily>Arial</FontFamily>
+                                    <Color>black</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <FontFamily>Arial</FontFamily>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <ToggleImage>
+                            <InitialState>false</InitialState>
+                          </ToggleImage>
+                          <UserSort>
+                            <SortExpression>=Fields!ItemName.Value</SortExpression>
+                            <SortExpressionScope>Details11</SortExpressionScope>
+                            <SortTarget>Tablix2</SortTarget>
+                          </UserSort>
+                        </Textbox>
+                        <RowSpan>1</RowSpan>
+                        <ColSpan>1</ColSpan>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="TextBox25">
+                          <Left>0in</Left>
+                          <Top>0in</Top>
+                          <Height>18pt</Height>
+                          <Width>80.4945pt</Width>
+                          <Style>
+                            <BackgroundColor>#e3e3e3</BackgroundColor>
+                            <FontFamily>Arial</FontFamily>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                            <Border>
+                              <Width>1.74975pt</Width>
+                              <Color>LightGrey</Color>
+                              <Style>None</Style>
+                            </Border>
+                            <BottomBorder>
+                              <Width>1.37475pt</Width>
+                              <Color>#b3b2b3</Color>
+                              <Style>Solid</Style>
+                            </BottomBorder>
+                            <LeftBorder>
+                              <Style>None</Style>
+                            </LeftBorder>
+                            <RightBorder>
+                              <Style>None</Style>
+                            </RightBorder>
+                            <TopBorder>
+                              <Style>None</Style>
+                            </TopBorder>
+                          </Style>
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>AV.amount</Value>
+                                  <Style>
+                                    <FontFamily>Arial</FontFamily>
+                                    <Color>black</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <FontFamily>Arial</FontFamily>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <ToggleImage>
+                            <InitialState>false</InitialState>
+                          </ToggleImage>
+                          <UserSort>
+                            <SortExpression>=Fields!AV_Amount.Value</SortExpression>
+                            <SortExpressionScope>Details11</SortExpressionScope>
+                            <SortTarget>Tablix2</SortTarget>
+                          </UserSort>
+                        </Textbox>
+                        <RowSpan>1</RowSpan>
+                        <ColSpan>1</ColSpan>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="TextBox26">
+                          <Left>0in</Left>
+                          <Top>0in</Top>
+                          <Height>18pt</Height>
+                          <Width>76.00275pt</Width>
+                          <Style>
+                            <BackgroundColor>#e3e3e3</BackgroundColor>
+                            <FontFamily>Arial</FontFamily>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                            <Border>
+                              <Width>1.74975pt</Width>
+                              <Color>LightGrey</Color>
+                              <Style>None</Style>
+                            </Border>
+                            <BottomBorder>
+                              <Width>1.37475pt</Width>
+                              <Color>#b3b2b3</Color>
+                              <Style>Solid</Style>
+                            </BottomBorder>
+                            <LeftBorder>
+                              <Style>None</Style>
+                            </LeftBorder>
+                            <RightBorder>
+                              <Style>None</Style>
+                            </RightBorder>
+                            <TopBorder>
+                              <Style>None</Style>
+                            </TopBorder>
+                          </Style>
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>Amount</Value>
+                                  <Style>
+                                    <FontFamily>Arial</FontFamily>
+                                    <Color>black</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <FontFamily>Arial</FontFamily>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <ToggleImage>
+                            <InitialState>false</InitialState>
+                          </ToggleImage>
+                          <UserSort>
+                            <SortExpression>=Fields!Amount.Value</SortExpression>
+                            <SortExpressionScope>Details11</SortExpressionScope>
+                            <SortTarget>Tablix2</SortTarget>
+                          </UserSort>
+                        </Textbox>
+                        <RowSpan>1</RowSpan>
+                        <ColSpan>1</ColSpan>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="TextBox27">
+                          <Left>0in</Left>
+                          <Top>0in</Top>
+                          <Height>18pt</Height>
+                          <Width>69.73958pt</Width>
+                          <Style>
+                            <BackgroundColor>#e3e3e3</BackgroundColor>
+                            <FontFamily>Arial</FontFamily>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                            <Border>
+                              <Width>1.74975pt</Width>
+                              <Color>LightGrey</Color>
+                              <Style>None</Style>
+                            </Border>
+                            <BottomBorder>
+                              <Width>1.37475pt</Width>
+                              <Color>#b3b2b3</Color>
+                              <Style>Solid</Style>
+                            </BottomBorder>
+                            <LeftBorder>
+                              <Style>None</Style>
+                            </LeftBorder>
+                            <RightBorder>
+                              <Style>None</Style>
+                            </RightBorder>
+                            <TopBorder>
+                              <Style>None</Style>
+                            </TopBorder>
+                          </Style>
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>Quantity</Value>
+                                  <Style>
+                                    <FontFamily>Arial</FontFamily>
+                                    <Color>black</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <FontFamily>Arial</FontFamily>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <ToggleImage>
+                            <InitialState>false</InitialState>
+                          </ToggleImage>
+                          <UserSort>
+                            <SortExpression>=Fields!Quantity.Value</SortExpression>
+                            <SortExpressionScope>Details11</SortExpressionScope>
+                            <SortTarget>Tablix2</SortTarget>
+                          </UserSort>
+                        </Textbox>
+                        <RowSpan>1</RowSpan>
+                        <ColSpan>1</ColSpan>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="TextBox28">
+                          <Left>0in</Left>
+                          <Top>0in</Top>
+                          <Height>18pt</Height>
+                          <Width>78.11175pt</Width>
+                          <Style>
+                            <BackgroundColor>#e3e3e3</BackgroundColor>
+                            <FontFamily>Arial</FontFamily>
+                            <VerticalAlign>Top</VerticalAlign>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                            <Border>
+                              <Width>1.74975pt</Width>
+                              <Color>LightGrey</Color>
+                              <Style>None</Style>
+                            </Border>
+                            <BottomBorder>
+                              <Width>1.37475pt</Width>
+                              <Color>#b3b2b3</Color>
+                              <Style>Solid</Style>
+                            </BottomBorder>
+                            <LeftBorder>
+                              <Style>None</Style>
+                            </LeftBorder>
+                            <RightBorder>
+                              <Style>None</Style>
+                            </RightBorder>
+                            <TopBorder>
+                              <Style>None</Style>
+                            </TopBorder>
+                          </Style>
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>Contribution</Value>
+                                  <Style>
+                                    <FontFamily>Arial</FontFamily>
+                                    <Color>black</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <FontFamily>Arial</FontFamily>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <ToggleImage>
+                            <InitialState>false</InitialState>
+                          </ToggleImage>
+                          <UserSort>
+                            <SortExpression>=Fields!Contribution.Value</SortExpression>
+                            <SortExpressionScope>Details11</SortExpressionScope>
+                            <SortTarget>Tablix2</SortTarget>
+                          </UserSort>
+                        </Textbox>
+                        <RowSpan>1</RowSpan>
+                        <ColSpan>1</ColSpan>
+                      </CellContents>
+                    </TablixCell>
+                  </TablixCells>
+                </TablixRow>
+                <TablixRow>
+                  <Height>18pt</Height>
+                  <TablixCells>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="TextBox7111">
+                          <Left>0in</Left>
+                          <Top>0in</Top>
+                          <Height>18pt</Height>
+                          <Width>84.99975pt</Width>
+                          <Style>
+                            <FontFamily>Arial</FontFamily>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                            <Border>
+                              <Color>LightGrey</Color>
+                              <Style>None</Style>
+                            </Border>
+                            <BottomBorder>
+                              <Style>Solid</Style>
+                            </BottomBorder>
+                            <LeftBorder>
+                              <Style>Solid</Style>
+                            </LeftBorder>
+                            <RightBorder>
+                              <Style>Solid</Style>
+                            </RightBorder>
+                            <TopBorder>
+                              <Style>None</Style>
+                            </TopBorder>
+                          </Style>
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Fields!ItemCode.Value</Value>
+                                  <Style>
+                                    <FontFamily>Arial</FontFamily>
+                                    <Color>black</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <FontFamily>Arial</FontFamily>
+                                <TextAlign>Left</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                        </Textbox>
+                        <RowSpan>1</RowSpan>
+                        <ColSpan>1</ColSpan>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="TextBox7811">
+                          <Left>0in</Left>
+                          <Top>0in</Top>
+                          <Height>18pt</Height>
+                          <Width>84.2445pt</Width>
+                          <Style>
+                            <FontFamily>Arial</FontFamily>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                            <Border>
+                              <Color>LightGrey</Color>
+                              <Style>None</Style>
+                            </Border>
+                            <BottomBorder>
+                              <Style>Solid</Style>
+                            </BottomBorder>
+                            <LeftBorder>
+                              <Style>Solid</Style>
+                            </LeftBorder>
+                            <RightBorder>
+                              <Style>Solid</Style>
+                            </RightBorder>
+                            <TopBorder>
+                              <Style>None</Style>
+                            </TopBorder>
+                          </Style>
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Fields!ItemName.Value</Value>
+                                  <Style>
+                                    <FontFamily>Arial</FontFamily>
+                                    <Color>black</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <FontFamily>Arial</FontFamily>
+                                <TextAlign>Left</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                        </Textbox>
+                        <RowSpan>1</RowSpan>
+                        <ColSpan>1</ColSpan>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="TextBox4611">
+                          <Left>0in</Left>
+                          <Top>0in</Top>
+                          <Height>18pt</Height>
+                          <Width>80.4945pt</Width>
+                          <Style>
+                            <FontFamily>Arial</FontFamily>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                            <Border>
+                              <Color>LightGrey</Color>
+                              <Style>None</Style>
+                            </Border>
+                            <BottomBorder>
+                              <Style>Solid</Style>
+                            </BottomBorder>
+                            <LeftBorder>
+                              <Style>Solid</Style>
+                            </LeftBorder>
+                            <RightBorder>
+                              <Style>Solid</Style>
+                            </RightBorder>
+                            <TopBorder>
+                              <Style>None</Style>
+                            </TopBorder>
+                          </Style>
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Fields!AV_Amount.Value</Value>
+                                  <Style>
+                                    <FontFamily>Arial</FontFamily>
+                                    <Format>0.00;(0.00)</Format>
+                                    <rd:FormatType>
+                                      <rd:Format>Number</rd:Format>
+                                      <rd:Representation>None</rd:Representation>
+                                      <rd:NegativeValue>(12345)</rd:NegativeValue>
+                                    </rd:FormatType>
+                                    <Color>black</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <FontFamily>Arial</FontFamily>
+                                <TextAlign>Left</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                        </Textbox>
+                        <RowSpan>1</RowSpan>
+                        <ColSpan>1</ColSpan>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="TextBox4511">
+                          <Left>0in</Left>
+                          <Top>0in</Top>
+                          <Height>18pt</Height>
+                          <Width>76.00275pt</Width>
+                          <Style>
+                            <FontFamily>Arial</FontFamily>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                            <Border>
+                              <Color>LightGrey</Color>
+                              <Style>None</Style>
+                            </Border>
+                            <BottomBorder>
+                              <Style>Solid</Style>
+                            </BottomBorder>
+                            <LeftBorder>
+                              <Style>Solid</Style>
+                            </LeftBorder>
+                            <RightBorder>
+                              <Style>Solid</Style>
+                            </RightBorder>
+                            <TopBorder>
+                              <Style>None</Style>
+                            </TopBorder>
+                          </Style>
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Fields!Amount.Value</Value>
+                                  <Style>
+                                    <FontFamily>Arial</FontFamily>
+                                    <Format>0.00;(0.00)</Format>
+                                    <rd:FormatType>
+                                      <rd:Format>Number</rd:Format>
+                                      <rd:Representation>None</rd:Representation>
+                                      <rd:NegativeValue>(12345)</rd:NegativeValue>
+                                    </rd:FormatType>
+                                    <Color>black</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <FontFamily>Arial</FontFamily>
+                                <TextAlign>Left</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                        </Textbox>
+                        <RowSpan>1</RowSpan>
+                        <ColSpan>1</ColSpan>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="TextBox4411">
+                          <Left>0in</Left>
+                          <Top>0in</Top>
+                          <Height>18pt</Height>
+                          <Width>69.73958pt</Width>
+                          <Style>
+                            <FontFamily>Arial</FontFamily>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                            <Border>
+                              <Color>LightGrey</Color>
+                              <Style>None</Style>
+                            </Border>
+                            <BottomBorder>
+                              <Style>Solid</Style>
+                            </BottomBorder>
+                            <LeftBorder>
+                              <Style>Solid</Style>
+                            </LeftBorder>
+                            <RightBorder>
+                              <Style>Solid</Style>
+                            </RightBorder>
+                            <TopBorder>
+                              <Style>None</Style>
+                            </TopBorder>
+                          </Style>
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Fields!Quantity.Value</Value>
+                                  <Style>
+                                    <FontFamily>Arial</FontFamily>
+                                    <Format>0.00;(0.00)</Format>
+                                    <rd:FormatType>
+                                      <rd:Format>Number</rd:Format>
+                                      <rd:Representation>None</rd:Representation>
+                                      <rd:NegativeValue>(12345)</rd:NegativeValue>
+                                    </rd:FormatType>
+                                    <Color>black</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <FontFamily>Arial</FontFamily>
+                                <TextAlign>Left</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                        </Textbox>
+                        <RowSpan>1</RowSpan>
+                        <ColSpan>1</ColSpan>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="TextBox4311">
+                          <Left>0in</Left>
+                          <Top>0in</Top>
+                          <Height>18pt</Height>
+                          <Width>78.11175pt</Width>
+                          <Style>
+                            <FontFamily>Arial</FontFamily>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                            <Border>
+                              <Color>LightGrey</Color>
+                              <Style>None</Style>
+                            </Border>
+                            <BottomBorder>
+                              <Style>Solid</Style>
+                            </BottomBorder>
+                            <LeftBorder>
+                              <Style>Solid</Style>
+                            </LeftBorder>
+                            <RightBorder>
+                              <Style>Solid</Style>
+                            </RightBorder>
+                            <TopBorder>
+                              <Style>None</Style>
+                            </TopBorder>
+                          </Style>
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Fields!Contribution.Value</Value>
+                                  <Style>
+                                    <FontFamily>Arial</FontFamily>
+                                    <Format>0.00%</Format>
+                                    <Color>black</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <FontFamily>Arial</FontFamily>
+                                <TextAlign>Left</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                        </Textbox>
+                        <RowSpan>1</RowSpan>
+                        <ColSpan>1</ColSpan>
+                      </CellContents>
+                    </TablixCell>
+                  </TablixCells>
+                </TablixRow>
+                <TablixRow>
+                  <Height>18pt</Height>
+                  <TablixCells>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="TextBox39">
+                          <Left>0in</Left>
+                          <Top>0in</Top>
+                          <Height>18pt</Height>
+                          <Width>84.99975pt</Width>
+                          <Style>
+                            <BackgroundColor>#e3e3e3</BackgroundColor>
+                            <FontFamily>Arial</FontFamily>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                            <Border>
+                              <Color>LightGrey</Color>
+                              <Style>None</Style>
+                            </Border>
+                            <BottomBorder>
+                              <Style>Solid</Style>
+                            </BottomBorder>
+                            <LeftBorder>
+                              <Style>Solid</Style>
+                            </LeftBorder>
+                            <RightBorder>
+                              <Style>None</Style>
+                            </RightBorder>
+                            <TopBorder>
+                              <Style>Solid</Style>
+                            </TopBorder>
+                          </Style>
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>Total:</Value>
+                                  <Style>
+                                    <FontFamily>Arial</FontFamily>
+                                    <FontWeight>Bold</FontWeight>
+                                    <Color>black</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <FontFamily>Arial</FontFamily>
+                                <TextAlign>Left</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                        </Textbox>
+                        <RowSpan>1</RowSpan>
+                        <ColSpan>1</ColSpan>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="TextBox43">
+                          <Left>0in</Left>
+                          <Top>0in</Top>
+                          <Height>18pt</Height>
+                          <Width>84.2445pt</Width>
+                          <Style>
+                            <BackgroundColor>#e3e3e3</BackgroundColor>
+                            <FontFamily>Arial</FontFamily>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                            <Border>
+                              <Color>LightGrey</Color>
+                              <Style>None</Style>
+                            </Border>
+                            <BottomBorder>
+                              <Style>Solid</Style>
+                            </BottomBorder>
+                            <LeftBorder>
+                              <Style>None</Style>
+                            </LeftBorder>
+                            <RightBorder>
+                              <Style>None</Style>
+                            </RightBorder>
+                            <TopBorder>
+                              <Style>Solid</Style>
+                            </TopBorder>
+                          </Style>
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value />
+                                  <Style>
+                                    <FontFamily>Arial</FontFamily>
+                                    <Color>black</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <FontFamily>Arial</FontFamily>
+                                <TextAlign>Left</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                        </Textbox>
+                        <RowSpan>1</RowSpan>
+                        <ColSpan>1</ColSpan>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="TextBox44">
+                          <Left>0in</Left>
+                          <Top>0in</Top>
+                          <Height>18pt</Height>
+                          <Width>80.4945pt</Width>
+                          <Style>
+                            <BackgroundColor>#e3e3e3</BackgroundColor>
+                            <FontFamily>Arial</FontFamily>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                            <Border>
+                              <Color>LightGrey</Color>
+                              <Style>None</Style>
+                            </Border>
+                            <BottomBorder>
+                              <Style>Solid</Style>
+                            </BottomBorder>
+                            <LeftBorder>
+                              <Style>None</Style>
+                            </LeftBorder>
+                            <RightBorder>
+                              <Style>None</Style>
+                            </RightBorder>
+                            <TopBorder>
+                              <Style>Solid</Style>
+                            </TopBorder>
+                          </Style>
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Sum(Fields!AV_Amount.Value)</Value>
+                                  <Style>
+                                    <FontFamily>Arial</FontFamily>
+                                    <FontWeight>Bold</FontWeight>
+                                    <Format>0.00;(0.00)</Format>
+                                    <rd:FormatType>
+                                      <rd:Format>Number</rd:Format>
+                                      <rd:Representation>None</rd:Representation>
+                                      <rd:NegativeValue>(12345)</rd:NegativeValue>
+                                    </rd:FormatType>
+                                    <Color>black</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <FontFamily>Arial</FontFamily>
+                                <TextAlign>Left</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                        </Textbox>
+                        <RowSpan>1</RowSpan>
+                        <ColSpan>1</ColSpan>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="TextBox45">
+                          <Left>0in</Left>
+                          <Top>0in</Top>
+                          <Height>18pt</Height>
+                          <Width>76.00275pt</Width>
+                          <Style>
+                            <BackgroundColor>#e3e3e3</BackgroundColor>
+                            <FontFamily>Arial</FontFamily>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                            <Border>
+                              <Color>LightGrey</Color>
+                              <Style>None</Style>
+                            </Border>
+                            <BottomBorder>
+                              <Style>Solid</Style>
+                            </BottomBorder>
+                            <LeftBorder>
+                              <Style>None</Style>
+                            </LeftBorder>
+                            <RightBorder>
+                              <Style>None</Style>
+                            </RightBorder>
+                            <TopBorder>
+                              <Style>Solid</Style>
+                            </TopBorder>
+                          </Style>
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Sum(Fields!Amount.Value)</Value>
+                                  <Style>
+                                    <FontFamily>Arial</FontFamily>
+                                    <FontWeight>Bold</FontWeight>
+                                    <Format>0.00;(0.00)</Format>
+                                    <rd:FormatType>
+                                      <rd:Format>Number</rd:Format>
+                                      <rd:Representation>None</rd:Representation>
+                                      <rd:NegativeValue>(12345)</rd:NegativeValue>
+                                    </rd:FormatType>
+                                    <Color>black</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <FontFamily>Arial</FontFamily>
+                                <TextAlign>Left</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                        </Textbox>
+                        <RowSpan>1</RowSpan>
+                        <ColSpan>1</ColSpan>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="TextBox46">
+                          <Left>0in</Left>
+                          <Top>0in</Top>
+                          <Height>18pt</Height>
+                          <Width>69.73958pt</Width>
+                          <Style>
+                            <BackgroundColor>#e3e3e3</BackgroundColor>
+                            <FontFamily>Arial</FontFamily>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                            <Border>
+                              <Color>LightGrey</Color>
+                              <Style>None</Style>
+                            </Border>
+                            <BottomBorder>
+                              <Style>Solid</Style>
+                            </BottomBorder>
+                            <LeftBorder>
+                              <Style>None</Style>
+                            </LeftBorder>
+                            <RightBorder>
+                              <Style>None</Style>
+                            </RightBorder>
+                            <TopBorder>
+                              <Style>Solid</Style>
+                            </TopBorder>
+                          </Style>
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Sum(Fields!Quantity.Value)</Value>
+                                  <Style>
+                                    <FontFamily>Arial</FontFamily>
+                                    <FontWeight>Bold</FontWeight>
+                                    <Format>0.00;(0.00)</Format>
+                                    <rd:FormatType>
+                                      <rd:Format>Number</rd:Format>
+                                      <rd:Representation>None</rd:Representation>
+                                      <rd:NegativeValue>(12345)</rd:NegativeValue>
+                                    </rd:FormatType>
+                                    <Color>black</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <FontFamily>Arial</FontFamily>
+                                <TextAlign>Left</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                        </Textbox>
+                        <RowSpan>1</RowSpan>
+                        <ColSpan>1</ColSpan>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="TextBox47">
+                          <Left>0in</Left>
+                          <Top>0in</Top>
+                          <Height>18pt</Height>
+                          <Width>78.11175pt</Width>
+                          <Style>
+                            <BackgroundColor>#e3e3e3</BackgroundColor>
+                            <FontFamily>Arial</FontFamily>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                            <Border>
+                              <Color>LightGrey</Color>
+                              <Style>None</Style>
+                            </Border>
+                            <BottomBorder>
+                              <Style>Solid</Style>
+                            </BottomBorder>
+                            <LeftBorder>
+                              <Style>None</Style>
+                            </LeftBorder>
+                            <RightBorder>
+                              <Style>None</Style>
+                            </RightBorder>
+                            <TopBorder>
+                              <Style>Solid</Style>
+                            </TopBorder>
+                          </Style>
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Sum(Fields!Contribution.Value)</Value>
+                                  <Style>
+                                    <FontFamily>Arial</FontFamily>
+                                    <FontWeight>Bold</FontWeight>
+                                    <Format>0.00%</Format>
+                                    <Color>black</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <FontFamily>Arial</FontFamily>
+                                <TextAlign>Left</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                        </Textbox>
+                        <RowSpan>1</RowSpan>
+                        <ColSpan>1</ColSpan>
+                      </CellContents>
+                    </TablixCell>
+                  </TablixCells>
+                </TablixRow>
+                <TablixRow>
+                  <Height>18pt</Height>
+                  <TablixCells>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="TextBox69">
+                          <Left>0in</Left>
+                          <Top>0in</Top>
+                          <Height>18pt</Height>
+                          <Width>84.99975pt</Width>
+                          <Style>
+                            <BackgroundColor>#e3e3e3</BackgroundColor>
+                            <FontFamily>Arial</FontFamily>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                            <Border>
+                              <Color>LightGrey</Color>
+                              <Style>None</Style>
+                            </Border>
+                            <BottomBorder>
+                              <Style>Solid</Style>
+                            </BottomBorder>
+                            <LeftBorder>
+                              <Style>None</Style>
+                            </LeftBorder>
+                            <RightBorder>
+                              <Style>None</Style>
+                            </RightBorder>
+                            <TopBorder>
+                              <Style>Solid</Style>
+                            </TopBorder>
+                          </Style>
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value />
+                                  <Style>
+                                    <FontFamily>Arial</FontFamily>
+                                    <Color>black</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <FontFamily>Arial</FontFamily>
+                                <TextAlign>Left</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                        </Textbox>
+                        <RowSpan>1</RowSpan>
+                        <ColSpan>1</ColSpan>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="TextBox71">
+                          <Left>0in</Left>
+                          <Top>0in</Top>
+                          <Height>18pt</Height>
+                          <Width>84.2445pt</Width>
+                          <Style>
+                            <BackgroundColor>#e3e3e3</BackgroundColor>
+                            <FontFamily>Arial</FontFamily>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                            <Border>
+                              <Color>LightGrey</Color>
+                              <Style>None</Style>
+                            </Border>
+                            <BottomBorder>
+                              <Style>Solid</Style>
+                            </BottomBorder>
+                            <LeftBorder>
+                              <Style>None</Style>
+                            </LeftBorder>
+                            <RightBorder>
+                              <Style>None</Style>
+                            </RightBorder>
+                            <TopBorder>
+                              <Style>Solid</Style>
+                            </TopBorder>
+                          </Style>
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value />
+                                  <Style>
+                                    <FontFamily>Arial</FontFamily>
+                                    <Color>black</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <FontFamily>Arial</FontFamily>
+                                <TextAlign>Left</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                        </Textbox>
+                        <RowSpan>1</RowSpan>
+                        <ColSpan>1</ColSpan>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="TextBox73">
+                          <Left>0in</Left>
+                          <Top>0in</Top>
+                          <Height>18pt</Height>
+                          <Width>80.4945pt</Width>
+                          <Style>
+                            <BackgroundColor>#e3e3e3</BackgroundColor>
+                            <FontFamily>Arial</FontFamily>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                            <Border>
+                              <Color>LightGrey</Color>
+                              <Style>None</Style>
+                            </Border>
+                            <BottomBorder>
+                              <Style>Solid</Style>
+                            </BottomBorder>
+                            <LeftBorder>
+                              <Style>None</Style>
+                            </LeftBorder>
+                            <RightBorder>
+                              <Style>None</Style>
+                            </RightBorder>
+                            <TopBorder>
+                              <Style>Solid</Style>
+                            </TopBorder>
+                          </Style>
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Sum(Fields!AV_Amount.Value)</Value>
+                                  <Style>
+                                    <FontFamily>Arial</FontFamily>
+                                    <FontWeight>Bold</FontWeight>
+                                    <Format>0.00;(0.00)</Format>
+                                    <rd:FormatType>
+                                      <rd:Format>Number</rd:Format>
+                                      <rd:Representation>None</rd:Representation>
+                                      <rd:NegativeValue>(12345)</rd:NegativeValue>
+                                    </rd:FormatType>
+                                    <Color>black</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <FontFamily>Arial</FontFamily>
+                                <TextAlign>Left</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                        </Textbox>
+                        <RowSpan>1</RowSpan>
+                        <ColSpan>1</ColSpan>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="TextBox74">
+                          <Left>0in</Left>
+                          <Top>0in</Top>
+                          <Height>18pt</Height>
+                          <Width>76.00275pt</Width>
+                          <Style>
+                            <BackgroundColor>#e3e3e3</BackgroundColor>
+                            <FontFamily>Arial</FontFamily>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                            <Border>
+                              <Color>LightGrey</Color>
+                              <Style>None</Style>
+                            </Border>
+                            <BottomBorder>
+                              <Style>Solid</Style>
+                            </BottomBorder>
+                            <LeftBorder>
+                              <Style>None</Style>
+                            </LeftBorder>
+                            <RightBorder>
+                              <Style>None</Style>
+                            </RightBorder>
+                            <TopBorder>
+                              <Style>Solid</Style>
+                            </TopBorder>
+                          </Style>
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Sum(Fields!Amount.Value)</Value>
+                                  <Style>
+                                    <FontFamily>Arial</FontFamily>
+                                    <FontWeight>Bold</FontWeight>
+                                    <Format>0.00;(0.00)</Format>
+                                    <rd:FormatType>
+                                      <rd:Format>Number</rd:Format>
+                                      <rd:Representation>None</rd:Representation>
+                                      <rd:NegativeValue>(12345)</rd:NegativeValue>
+                                    </rd:FormatType>
+                                    <Color>black</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <FontFamily>Arial</FontFamily>
+                                <TextAlign>Left</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                        </Textbox>
+                        <RowSpan>1</RowSpan>
+                        <ColSpan>1</ColSpan>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="TextBox75">
+                          <Left>0in</Left>
+                          <Top>0in</Top>
+                          <Height>18pt</Height>
+                          <Width>69.73958pt</Width>
+                          <Style>
+                            <BackgroundColor>#e3e3e3</BackgroundColor>
+                            <FontFamily>Arial</FontFamily>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                            <Border>
+                              <Color>LightGrey</Color>
+                              <Style>None</Style>
+                            </Border>
+                            <BottomBorder>
+                              <Style>Solid</Style>
+                            </BottomBorder>
+                            <LeftBorder>
+                              <Style>None</Style>
+                            </LeftBorder>
+                            <RightBorder>
+                              <Style>None</Style>
+                            </RightBorder>
+                            <TopBorder>
+                              <Style>Solid</Style>
+                            </TopBorder>
+                          </Style>
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Sum(Fields!Quantity.Value)</Value>
+                                  <Style>
+                                    <FontFamily>Arial</FontFamily>
+                                    <FontWeight>Bold</FontWeight>
+                                    <Format>0.00;(0.00)</Format>
+                                    <rd:FormatType>
+                                      <rd:Format>Number</rd:Format>
+                                      <rd:Representation>None</rd:Representation>
+                                      <rd:NegativeValue>(12345)</rd:NegativeValue>
+                                    </rd:FormatType>
+                                    <Color>black</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <FontFamily>Arial</FontFamily>
+                                <TextAlign>Left</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                        </Textbox>
+                        <RowSpan>1</RowSpan>
+                        <ColSpan>1</ColSpan>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="TextBox76">
+                          <Left>0in</Left>
+                          <Top>0in</Top>
+                          <Height>18pt</Height>
+                          <Width>78.11175pt</Width>
+                          <Style>
+                            <BackgroundColor>#e3e3e3</BackgroundColor>
+                            <FontFamily>Arial</FontFamily>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                            <Border>
+                              <Color>LightGrey</Color>
+                              <Style>None</Style>
+                            </Border>
+                            <BottomBorder>
+                              <Style>Solid</Style>
+                            </BottomBorder>
+                            <LeftBorder>
+                              <Style>None</Style>
+                            </LeftBorder>
+                            <RightBorder>
+                              <Style>None</Style>
+                            </RightBorder>
+                            <TopBorder>
+                              <Style>Solid</Style>
+                            </TopBorder>
+                          </Style>
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Sum(Fields!Contribution.Value)</Value>
+                                  <Style>
+                                    <FontFamily>Arial</FontFamily>
+                                    <FontWeight>Bold</FontWeight>
+                                    <Format>0.00%</Format>
+                                    <Color>black</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <FontFamily>Arial</FontFamily>
+                                <TextAlign>Left</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                        </Textbox>
+                        <RowSpan>1</RowSpan>
+                        <ColSpan>1</ColSpan>
+                      </CellContents>
+                    </TablixCell>
+                  </TablixCells>
+                </TablixRow>
+                <TablixRow>
+                  <Height>18pt</Height>
+                  <TablixCells>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="TextBox49">
+                          <Left>0in</Left>
+                          <Top>0in</Top>
+                          <Height>18pt</Height>
+                          <Width>84.99975pt</Width>
+                          <Style>
+                            <BackgroundColor>#e3e3e3</BackgroundColor>
+                            <FontFamily>Arial</FontFamily>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                            <Border>
+                              <Color>LightGrey</Color>
+                              <Style>None</Style>
+                            </Border>
+                            <BottomBorder>
+                              <Style>None</Style>
+                            </BottomBorder>
+                            <LeftBorder>
+                              <Style>None</Style>
+                            </LeftBorder>
+                            <RightBorder>
+                              <Style>None</Style>
+                            </RightBorder>
+                            <TopBorder>
+                              <Style>Double</Style>
+                            </TopBorder>
+                          </Style>
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value />
+                                  <Style>
+                                    <FontFamily>Arial</FontFamily>
+                                    <Color>black</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <FontFamily>Arial</FontFamily>
+                                <TextAlign>Left</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                        </Textbox>
+                        <RowSpan>1</RowSpan>
+                        <ColSpan>1</ColSpan>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="TextBox57">
+                          <Left>0in</Left>
+                          <Top>0in</Top>
+                          <Height>18pt</Height>
+                          <Width>84.2445pt</Width>
+                          <Style>
+                            <BackgroundColor>#e3e3e3</BackgroundColor>
+                            <FontFamily>Arial</FontFamily>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                            <Border>
+                              <Color>LightGrey</Color>
+                              <Style>None</Style>
+                            </Border>
+                            <BottomBorder>
+                              <Style>None</Style>
+                            </BottomBorder>
+                            <LeftBorder>
+                              <Style>None</Style>
+                            </LeftBorder>
+                            <RightBorder>
+                              <Style>None</Style>
+                            </RightBorder>
+                            <TopBorder>
+                              <Style>Double</Style>
+                            </TopBorder>
+                          </Style>
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value />
+                                  <Style>
+                                    <FontFamily>Arial</FontFamily>
+                                    <Color>black</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <FontFamily>Arial</FontFamily>
+                                <TextAlign>Left</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                        </Textbox>
+                        <RowSpan>1</RowSpan>
+                        <ColSpan>1</ColSpan>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="TextBox3">
+                          <Left>0in</Left>
+                          <Top>0in</Top>
+                          <Height>18pt</Height>
+                          <Width>80.4945pt</Width>
+                          <Style>
+                            <BackgroundColor>#e3e3e3</BackgroundColor>
+                            <FontFamily>Arial</FontFamily>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                            <Border>
+                              <Color>LightGrey</Color>
+                              <Style>None</Style>
+                            </Border>
+                            <BottomBorder>
+                              <Style>None</Style>
+                            </BottomBorder>
+                            <LeftBorder>
+                              <Style>None</Style>
+                            </LeftBorder>
+                            <RightBorder>
+                              <Style>None</Style>
+                            </RightBorder>
+                            <TopBorder>
+                              <Style>Double</Style>
+                            </TopBorder>
+                          </Style>
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value />
+                                  <Style>
+                                    <FontFamily>Arial</FontFamily>
+                                    <FontWeight>Bold</FontWeight>
+                                    <Color>black</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <FontFamily>Arial</FontFamily>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                        </Textbox>
+                        <RowSpan>1</RowSpan>
+                        <ColSpan>1</ColSpan>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="TextBox59">
+                          <Left>0in</Left>
+                          <Top>0in</Top>
+                          <Height>18pt</Height>
+                          <Width>76.00275pt</Width>
+                          <Style>
+                            <BackgroundColor>#e3e3e3</BackgroundColor>
+                            <FontFamily>Arial</FontFamily>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                            <Border>
+                              <Color>LightGrey</Color>
+                              <Style>None</Style>
+                            </Border>
+                            <BottomBorder>
+                              <Style>None</Style>
+                            </BottomBorder>
+                            <LeftBorder>
+                              <Style>None</Style>
+                            </LeftBorder>
+                            <RightBorder>
+                              <Style>None</Style>
+                            </RightBorder>
+                            <TopBorder>
+                              <Style>Double</Style>
+                            </TopBorder>
+                          </Style>
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Sum(Fields!Amount.Value)</Value>
+                                  <Style>
+                                    <FontFamily>Arial</FontFamily>
+                                    <FontWeight>Bold</FontWeight>
+                                    <Format>0.00;(0.00)</Format>
+                                    <rd:FormatType>
+                                      <rd:Format>Number</rd:Format>
+                                      <rd:Representation>None</rd:Representation>
+                                      <rd:NegativeValue>(12345)</rd:NegativeValue>
+                                    </rd:FormatType>
+                                    <Color>black</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <FontFamily>Arial</FontFamily>
+                                <TextAlign>Left</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                        </Textbox>
+                        <RowSpan>1</RowSpan>
+                        <ColSpan>1</ColSpan>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="TextBox60">
+                          <Left>0in</Left>
+                          <Top>0in</Top>
+                          <Height>18pt</Height>
+                          <Width>69.73958pt</Width>
+                          <Style>
+                            <BackgroundColor>#e3e3e3</BackgroundColor>
+                            <FontFamily>Arial</FontFamily>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                            <Border>
+                              <Color>LightGrey</Color>
+                              <Style>None</Style>
+                            </Border>
+                            <BottomBorder>
+                              <Style>None</Style>
+                            </BottomBorder>
+                            <LeftBorder>
+                              <Style>None</Style>
+                            </LeftBorder>
+                            <RightBorder>
+                              <Style>None</Style>
+                            </RightBorder>
+                            <TopBorder>
+                              <Style>Double</Style>
+                            </TopBorder>
+                          </Style>
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Sum(Fields!Quantity.Value)</Value>
+                                  <Style>
+                                    <FontFamily>Arial</FontFamily>
+                                    <FontWeight>Bold</FontWeight>
+                                    <Format>0.00;(0.00)</Format>
+                                    <rd:FormatType>
+                                      <rd:Format>Number</rd:Format>
+                                      <rd:Representation>None</rd:Representation>
+                                      <rd:NegativeValue>(12345)</rd:NegativeValue>
+                                    </rd:FormatType>
+                                    <Color>black</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <FontFamily>Arial</FontFamily>
+                                <TextAlign>Left</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                        </Textbox>
+                        <RowSpan>1</RowSpan>
+                        <ColSpan>1</ColSpan>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="TextBox62">
+                          <Left>0in</Left>
+                          <Top>0in</Top>
+                          <Height>18pt</Height>
+                          <Width>78.11175pt</Width>
+                          <Style>
+                            <BackgroundColor>#e3e3e3</BackgroundColor>
+                            <FontFamily>Arial</FontFamily>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                            <Border>
+                              <Color>LightGrey</Color>
+                              <Style>None</Style>
+                            </Border>
+                            <BottomBorder>
+                              <Style>None</Style>
+                            </BottomBorder>
+                            <LeftBorder>
+                              <Style>None</Style>
+                            </LeftBorder>
+                            <RightBorder>
+                              <Style>None</Style>
+                            </RightBorder>
+                            <TopBorder>
+                              <Style>Double</Style>
+                            </TopBorder>
+                          </Style>
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Sum(Fields!Contribution.Value)</Value>
+                                  <Style>
+                                    <FontFamily>Arial</FontFamily>
+                                    <FontWeight>Bold</FontWeight>
+                                    <Format>0.00%</Format>
+                                    <Color>black</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <FontFamily>Arial</FontFamily>
+                                <TextAlign>Left</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                        </Textbox>
+                        <RowSpan>1</RowSpan>
+                        <ColSpan>1</ColSpan>
+                      </CellContents>
+                    </TablixCell>
+                  </TablixCells>
+                </TablixRow>
+              </TablixRows>
+            </TablixBody>
+            <TablixColumnHierarchy>
+              <TablixMembers>
+                <TablixMember />
+                <TablixMember />
+                <TablixMember />
+                <TablixMember />
+                <TablixMember />
+                <TablixMember />
+              </TablixMembers>
+            </TablixColumnHierarchy>
+            <TablixRowHierarchy>
+              <TablixMembers>
+                <TablixMember>
+                  <TablixHeader>
+                    <Size>88.75pt</Size>
+                    <CellContents>
+                      <Textbox Name="TextBox241">
+                        <Left>0in</Left>
+                        <Top>0in</Top>
+                        <Height>18pt</Height>
+                        <Width>88.75pt</Width>
+                        <Style>
+                          <BackgroundColor>#e3e3e3</BackgroundColor>
+                          <FontFamily>Arial</FontFamily>
+                          <PaddingLeft>2pt</PaddingLeft>
+                          <PaddingRight>2pt</PaddingRight>
+                          <PaddingTop>2pt</PaddingTop>
+                          <PaddingBottom>2pt</PaddingBottom>
+                          <Border>
+                            <Width>1.74975pt</Width>
+                            <Color>LightGrey</Color>
+                            <Style>None</Style>
+                          </Border>
+                          <BottomBorder>
+                            <Width>1.37475pt</Width>
+                            <Color>#b3b2b3</Color>
+                            <Style>Solid</Style>
+                          </BottomBorder>
+                          <LeftBorder>
+                            <Style>None</Style>
+                          </LeftBorder>
+                          <RightBorder>
+                            <Style>None</Style>
+                          </RightBorder>
+                          <TopBorder>
+                            <Style>None</Style>
+                          </TopBorder>
+                        </Style>
+                        <CanGrow>true</CanGrow>
+                        <KeepTogether>true</KeepTogether>
+                        <Paragraphs>
+                          <Paragraph>
+                            <TextRuns>
+                              <TextRun>
+                                <Value>Store</Value>
+                                <Style>
+                                  <FontFamily>Arial</FontFamily>
+                                  <Color>black</Color>
+                                </Style>
+                              </TextRun>
+                            </TextRuns>
+                            <Style>
+                              <FontFamily>Arial</FontFamily>
+                            </Style>
+                          </Paragraph>
+                        </Paragraphs>
+                        <ToggleImage>
+                          <InitialState>false</InitialState>
+                        </ToggleImage>
+                        <UserSort>
+                          <SortExpression>=Fields!Store.Value</SortExpression>
+                          <SortExpressionScope>Store3</SortExpressionScope>
+                          <SortTarget>Tablix2</SortTarget>
+                        </UserSort>
+                      </Textbox>
+                    </CellContents>
+                  </TablixHeader>
+                  <TablixMembers>
+                    <TablixMember>
+                      <TablixHeader>
+                        <Size>88.75pt</Size>
+                        <CellContents>
+                          <Textbox Name="TextBox681">
+                            <Left>0in</Left>
+                            <Top>0in</Top>
+                            <Height>18pt</Height>
+                            <Width>88.75pt</Width>
+                            <Style>
+                              <BackgroundColor>#e3e3e3</BackgroundColor>
+                              <FontFamily>Arial</FontFamily>
+                              <PaddingLeft>2pt</PaddingLeft>
+                              <PaddingRight>2pt</PaddingRight>
+                              <PaddingTop>2pt</PaddingTop>
+                              <PaddingBottom>2pt</PaddingBottom>
+                              <Border>
+                                <Width>1.74975pt</Width>
+                                <Color>LightGrey</Color>
+                                <Style>None</Style>
+                              </Border>
+                              <BottomBorder>
+                                <Width>1.37475pt</Width>
+                                <Color>#b3b2b3</Color>
+                                <Style>Solid</Style>
+                              </BottomBorder>
+                              <LeftBorder>
+                                <Style>None</Style>
+                              </LeftBorder>
+                              <RightBorder>
+                                <Style>None</Style>
+                              </RightBorder>
+                              <TopBorder>
+                                <Style>None</Style>
+                              </TopBorder>
+                            </Style>
+                            <CanGrow>true</CanGrow>
+                            <KeepTogether>true</KeepTogether>
+                            <Paragraphs>
+                              <Paragraph>
+                                <TextRuns>
+                                  <TextRun>
+                                    <Value>Hierarchy</Value>
+                                    <Style>
+                                      <FontFamily>Arial</FontFamily>
+                                      <Color>black</Color>
+                                    </Style>
+                                  </TextRun>
+                                </TextRuns>
+                                <Style>
+                                  <FontFamily>Arial</FontFamily>
+                                </Style>
+                              </Paragraph>
+                            </Paragraphs>
+                            <ToggleImage>
+                              <InitialState>false</InitialState>
+                            </ToggleImage>
+                            <UserSort>
+                              <SortExpression>=Fields!Hierarchy.Value</SortExpression>
+                              <SortExpressionScope>Hierarchy1</SortExpressionScope>
+                              <SortTarget>Tablix2</SortTarget>
+                            </UserSort>
+                          </Textbox>
+                        </CellContents>
+                      </TablixHeader>
+                      <TablixMembers>
+                        <TablixMember>
+                          <RepeatOnNewPage>true</RepeatOnNewPage>
+                        </TablixMember>
+                      </TablixMembers>
+                      <RepeatOnNewPage>true</RepeatOnNewPage>
+                    </TablixMember>
+                  </TablixMembers>
+                  <KeepWithGroup>After</KeepWithGroup>
+                  <RepeatOnNewPage>true</RepeatOnNewPage>
+                </TablixMember>
+                <TablixMember>
+                  <Group Name="Store3">
+                    <GroupExpressions>
+                      <GroupExpression>=Fields!Store.Value</GroupExpression>
+                    </GroupExpressions>
+                  </Group>
+                  <SortExpressions>
+                    <SortExpression>
+                      <Value>=Fields!Store.Value</Value>
+                      <Direction>Ascending</Direction>
+                    </SortExpression>
+                  </SortExpressions>
+                  <TablixHeader>
+                    <Size>88.75pt</Size>
+                    <CellContents>
+                      <Textbox Name="Store31">
+                        <Left>0in</Left>
+                        <Top>0in</Top>
+                        <Height>18pt</Height>
+                        <Width>88.75pt</Width>
+                        <Style>
+                          <FontFamily>Arial</FontFamily>
+                          <PaddingLeft>2pt</PaddingLeft>
+                          <PaddingRight>2pt</PaddingRight>
+                          <PaddingTop>2pt</PaddingTop>
+                          <PaddingBottom>2pt</PaddingBottom>
+                          <Border>
+                            <Color>LightGrey</Color>
+                            <Style>None</Style>
+                          </Border>
+                          <BottomBorder>
+                            <Style>Solid</Style>
+                          </BottomBorder>
+                          <LeftBorder>
+                            <Style>None</Style>
+                          </LeftBorder>
+                          <RightBorder>
+                            <Style>Solid</Style>
+                          </RightBorder>
+                          <TopBorder>
+                            <Style>None</Style>
+                          </TopBorder>
+                        </Style>
+                        <CanGrow>true</CanGrow>
+                        <KeepTogether>true</KeepTogether>
+                        <Paragraphs>
+                          <Paragraph>
+                            <TextRuns>
+                              <TextRun>
+                                <Value>=Fields!Store.Value</Value>
+                                <Style>
+                                  <FontFamily>Arial</FontFamily>
+                                  <FontWeight>Bold</FontWeight>
+                                  <Color>black</Color>
+                                </Style>
+                              </TextRun>
+                            </TextRuns>
+                            <Style>
+                              <FontFamily>Arial</FontFamily>
+                              <TextAlign>Left</TextAlign>
+                            </Style>
+                          </Paragraph>
+                        </Paragraphs>
+                      </Textbox>
+                    </CellContents>
+                  </TablixHeader>
+                  <TablixMembers>
+                    <TablixMember>
+                      <Group Name="Hierarchy1">
+                        <GroupExpressions>
+                          <GroupExpression>=Fields!Hierarchy.Value</GroupExpression>
+                        </GroupExpressions>
+                      </Group>
+                      <SortExpressions>
+                        <SortExpression>
+                          <Value>=Fields!Hierarchy.Value</Value>
+                          <Direction>Ascending</Direction>
+                        </SortExpression>
+                      </SortExpressions>
+                      <TablixHeader>
+                        <Size>88.75pt</Size>
+                        <CellContents>
+                          <Textbox Name="Hierarchy11">
+                            <Left>0in</Left>
+                            <Top>0in</Top>
+                            <Height>18pt</Height>
+                            <Width>88.75pt</Width>
+                            <Style>
+                              <FontFamily>Arial</FontFamily>
+                              <PaddingLeft>2pt</PaddingLeft>
+                              <PaddingRight>2pt</PaddingRight>
+                              <PaddingTop>2pt</PaddingTop>
+                              <PaddingBottom>2pt</PaddingBottom>
+                              <Border>
+                                <Color>LightGrey</Color>
+                                <Style>None</Style>
+                              </Border>
+                              <BottomBorder>
+                                <Style>Solid</Style>
+                              </BottomBorder>
+                              <LeftBorder>
+                                <Style>None</Style>
+                              </LeftBorder>
+                              <RightBorder>
+                                <Style>Solid</Style>
+                              </RightBorder>
+                              <TopBorder>
+                                <Style>None</Style>
+                              </TopBorder>
+                            </Style>
+                            <CanGrow>true</CanGrow>
+                            <KeepTogether>true</KeepTogether>
+                            <Paragraphs>
+                              <Paragraph>
+                                <TextRuns>
+                                  <TextRun>
+                                    <Value>=Fields!Hierarchy.Value</Value>
+                                    <Style>
+                                      <FontFamily>Arial</FontFamily>
+                                      <FontWeight>Bold</FontWeight>
+                                      <Color>black</Color>
+                                    </Style>
+                                  </TextRun>
+                                </TextRuns>
+                                <Style>
+                                  <FontFamily>Arial</FontFamily>
+                                  <TextAlign>Left</TextAlign>
+                                </Style>
+                              </Paragraph>
+                            </Paragraphs>
+                          </Textbox>
+                        </CellContents>
+                      </TablixHeader>
+                      <TablixMembers>
+                        <TablixMember>
+                          <Group Name="Details11" />
+                        </TablixMember>
+                        <TablixMember>
+                          <KeepWithGroup>Before</KeepWithGroup>
+                        </TablixMember>
+                      </TablixMembers>
+                    </TablixMember>
+                    <TablixMember>
+                      <TablixHeader>
+                        <Size>88.75pt</Size>
+                        <CellContents>
+                          <Textbox Name="TextBox68">
+                            <Left>0in</Left>
+                            <Top>0in</Top>
+                            <Height>18pt</Height>
+                            <Width>88.75pt</Width>
+                            <Style>
+                              <BackgroundColor>#e3e3e3</BackgroundColor>
+                              <FontFamily>Arial</FontFamily>
+                              <PaddingLeft>2pt</PaddingLeft>
+                              <PaddingRight>2pt</PaddingRight>
+                              <PaddingTop>2pt</PaddingTop>
+                              <PaddingBottom>2pt</PaddingBottom>
+                              <Border>
+                                <Color>LightGrey</Color>
+                                <Style>None</Style>
+                              </Border>
+                              <BottomBorder>
+                                <Style>Solid</Style>
+                              </BottomBorder>
+                              <LeftBorder>
+                                <Style>Solid</Style>
+                              </LeftBorder>
+                              <RightBorder>
+                                <Style>None</Style>
+                              </RightBorder>
+                              <TopBorder>
+                                <Style>Solid</Style>
+                              </TopBorder>
+                            </Style>
+                            <CanGrow>true</CanGrow>
+                            <KeepTogether>true</KeepTogether>
+                            <Paragraphs>
+                              <Paragraph>
+                                <TextRuns>
+                                  <TextRun>
+                                    <Value>Total store:</Value>
+                                    <Style>
+                                      <FontFamily>Arial</FontFamily>
+                                      <FontWeight>Bold</FontWeight>
+                                      <Color>black</Color>
+                                    </Style>
+                                  </TextRun>
+                                </TextRuns>
+                                <Style>
+                                  <FontFamily>Arial</FontFamily>
+                                  <TextAlign>Left</TextAlign>
+                                </Style>
+                              </Paragraph>
+                            </Paragraphs>
+                          </Textbox>
+                        </CellContents>
+                      </TablixHeader>
+                      <KeepWithGroup>Before</KeepWithGroup>
+                    </TablixMember>
+                  </TablixMembers>
+                </TablixMember>
+                <TablixMember>
+                  <TablixHeader>
+                    <Size>88.75pt</Size>
+                    <CellContents>
+                      <Textbox Name="TextBox61111111">
+                        <Left>0in</Left>
+                        <Top>0in</Top>
+                        <Height>18pt</Height>
+                        <Width>88.75pt</Width>
+                        <Style>
+                          <BackgroundColor>#e3e3e3</BackgroundColor>
+                          <FontFamily>Arial</FontFamily>
+                          <PaddingLeft>2pt</PaddingLeft>
+                          <PaddingRight>2pt</PaddingRight>
+                          <PaddingTop>2pt</PaddingTop>
+                          <PaddingBottom>2pt</PaddingBottom>
+                          <Border>
+                            <Color>LightGrey</Color>
+                            <Style>None</Style>
+                          </Border>
+                          <BottomBorder>
+                            <Style>None</Style>
+                          </BottomBorder>
+                          <LeftBorder>
+                            <Style>None</Style>
+                          </LeftBorder>
+                          <RightBorder>
+                            <Style>None</Style>
+                          </RightBorder>
+                          <TopBorder>
+                            <Style>Double</Style>
+                          </TopBorder>
+                        </Style>
+                        <CanGrow>true</CanGrow>
+                        <KeepTogether>true</KeepTogether>
+                        <Paragraphs>
+                          <Paragraph>
+                            <TextRuns>
+                              <TextRun>
+                                <Value>Total by stores:</Value>
+                                <Style>
+                                  <FontFamily>Arial</FontFamily>
+                                  <FontWeight>Bold</FontWeight>
+                                  <Color>black</Color>
+                                </Style>
+                              </TextRun>
+                            </TextRuns>
+                            <Style>
+                              <FontFamily>Arial</FontFamily>
+                            </Style>
+                          </Paragraph>
+                        </Paragraphs>
+                      </Textbox>
+                    </CellContents>
+                  </TablixHeader>
+                  <TablixMembers>
+                    <TablixMember>
+                      <TablixHeader>
+                        <Size>88.75pt</Size>
+                        <CellContents>
+                          <Textbox Name="TextBox113">
+                            <Left>0in</Left>
+                            <Top>0in</Top>
+                            <Height>18pt</Height>
+                            <Width>88.75pt</Width>
+                            <Style>
+                              <BackgroundColor>#e3e3e3</BackgroundColor>
+                              <FontFamily>Arial</FontFamily>
+                              <PaddingLeft>2pt</PaddingLeft>
+                              <PaddingRight>2pt</PaddingRight>
+                              <PaddingTop>2pt</PaddingTop>
+                              <PaddingBottom>2pt</PaddingBottom>
+                              <Border>
+                                <Color>LightGrey</Color>
+                                <Style>None</Style>
+                              </Border>
+                              <BottomBorder>
+                                <Style>None</Style>
+                              </BottomBorder>
+                              <LeftBorder>
+                                <Style>None</Style>
+                              </LeftBorder>
+                              <RightBorder>
+                                <Style>None</Style>
+                              </RightBorder>
+                              <TopBorder>
+                                <Style>Double</Style>
+                              </TopBorder>
+                            </Style>
+                            <CanGrow>true</CanGrow>
+                            <KeepTogether>true</KeepTogether>
+                            <Paragraphs>
+                              <Paragraph>
+                                <TextRuns>
+                                  <TextRun>
+                                    <Value />
+                                    <Style>
+                                      <FontFamily>Arial</FontFamily>
+                                      <Color>black</Color>
+                                    </Style>
+                                  </TextRun>
+                                </TextRuns>
+                                <Style>
+                                  <FontFamily>Arial</FontFamily>
+                                  <TextAlign>Left</TextAlign>
+                                </Style>
+                              </Paragraph>
+                            </Paragraphs>
+                          </Textbox>
+                        </CellContents>
+                      </TablixHeader>
+                      <TablixMembers>
+                        <TablixMember />
+                      </TablixMembers>
+                    </TablixMember>
+                  </TablixMembers>
+                </TablixMember>
+              </TablixMembers>
+            </TablixRowHierarchy>
+            <RepeatColumnHeaders>true</RepeatColumnHeaders>
+            <RepeatRowHeaders>true</RepeatRowHeaders>
+          </Tablix>
+        </ReportItems>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <BackgroundImage>
+            <Source>Embedded</Source>
+            <BackgroundRepeat>Default</BackgroundRepeat>
+          </BackgroundImage>
+        </Style>
+      </Body>
+      <Width>666.75pt</Width>
+      <Page>
+        <PageHeight>841.68pt</PageHeight>
+        <PageWidth>595.44pt</PageWidth>
+        <PageHeader>
+          <Height>113.25pt</Height>
+          <PrintOnFirstPage>true</PrintOnFirstPage>
+          <PrintOnLastPage>true</PrintOnLastPage>
+          <ReportItems>
+            <Textbox Name="TextBox1">
+              <Left>8.625pt</Left>
+              <Top>14.32031pt</Top>
+              <Height>23.25pt</Height>
+              <Width>88.5pt</Width>
+              <Style>
+                <FontFamily>Arial</FontFamily>
+                <PaddingLeft>2pt</PaddingLeft>
+                <PaddingRight>2pt</PaddingRight>
+                <PaddingTop>2pt</PaddingTop>
+                <PaddingBottom>2pt</PaddingBottom>
+                <Border>
+                  <Style>None</Style>
+                </Border>
+              </Style>
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>Sales Report</Value>
+                      <Style>
+                        <FontFamily>Arial</FontFamily>
+                        <FontSize>13.74975pt</FontSize>
+                        <Color>Black</Color>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style>
+                    <FontFamily>Arial</FontFamily>
+                  </Style>
+                </Paragraph>
+              </Paragraphs>
+            </Textbox>
+            <Line Name="Line1">
+              <Left>8.9766pt</Left>
+              <Top>47.4375pt</Top>
+              <Height>0pt</Height>
+              <Width>515.58984pt</Width>
+              <Style>
+                <FontFamily>Arial</FontFamily>
+                <Border>
+                  <Style>Solid</Style>
+                </Border>
+              </Style>
+              <Visibility>
+                <Hidden>=IIf(Parameters!ReportType.Value=2,True,False)</Hidden>
+              </Visibility>
+            </Line>
+            <Textbox Name="TextBox2">
+              <Left>7.17188pt</Left>
+              <Top>53.98828pt</Top>
+              <Height>13.71094pt</Height>
+              <Width>51pt</Width>
+              <Style>
+                <FontFamily>Arial</FontFamily>
+                <PaddingLeft>2pt</PaddingLeft>
+                <PaddingRight>2pt</PaddingRight>
+                <PaddingTop>2pt</PaddingTop>
+                <PaddingBottom>2pt</PaddingBottom>
+                <Border>
+                  <Style>None</Style>
+                </Border>
+              </Style>
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>Date from:</Value>
+                      <Style>
+                        <FontFamily>Arial</FontFamily>
+                        <Color>Black</Color>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style>
+                    <FontFamily>Arial</FontFamily>
+                  </Style>
+                </Paragraph>
+              </Paragraphs>
+            </Textbox>
+            <Textbox Name="TextBox4">
+              <Left>7.16016pt</Left>
+              <Top>72.94922pt</Top>
+              <Height>13.71094pt</Height>
+              <Width>40.27567pt</Width>
+              <Style>
+                <FontFamily>Arial</FontFamily>
+                <PaddingLeft>2pt</PaddingLeft>
+                <PaddingRight>2pt</PaddingRight>
+                <PaddingTop>2pt</PaddingTop>
+                <PaddingBottom>2pt</PaddingBottom>
+                <Border>
+                  <Style>None</Style>
+                </Border>
+              </Style>
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>Date to:</Value>
+                      <Style>
+                        <FontFamily>Arial</FontFamily>
+                        <Color>black</Color>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style>
+                    <FontFamily>Arial</FontFamily>
+                  </Style>
+                </Paragraph>
+              </Paragraphs>
+            </Textbox>
+            <Textbox Name="DateFrom2">
+              <Left>93pt</Left>
+              <Top>53.25pt</Top>
+              <Height>18.75pt</Height>
+              <Width>134.25pt</Width>
+              <Style>
+                <FontFamily>Arial</FontFamily>
+                <PaddingLeft>2pt</PaddingLeft>
+                <PaddingRight>2pt</PaddingRight>
+                <PaddingTop>2pt</PaddingTop>
+                <PaddingBottom>2pt</PaddingBottom>
+                <Border>
+                  <Style>None</Style>
+                </Border>
+              </Style>
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>=First(Fields!DateFrom.Value, "Date")</Value>
+                      <Style>
+                        <FontFamily>Arial</FontFamily>
+                        <Format>M/d/yyyy</Format>
+                        <rd:FormatType>
+                          <rd:Format>date</rd:Format>
+                        </rd:FormatType>
+                        <Color>black</Color>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style>
+                    <FontFamily>Arial</FontFamily>
+                    <TextAlign>Left</TextAlign>
+                  </Style>
+                </Paragraph>
+              </Paragraphs>
+            </Textbox>
+            <Textbox Name="DateTo2">
+              <Left>93pt</Left>
+              <Top>72pt</Top>
+              <Height>18.75pt</Height>
+              <Width>134.25pt</Width>
+              <Style>
+                <FontFamily>Arial</FontFamily>
+                <PaddingLeft>2pt</PaddingLeft>
+                <PaddingRight>2pt</PaddingRight>
+                <PaddingTop>2pt</PaddingTop>
+                <PaddingBottom>2pt</PaddingBottom>
+                <Border>
+                  <Style>None</Style>
+                </Border>
+              </Style>
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>=First(Fields!DateTo.Value, "Date")</Value>
+                      <Style>
+                        <FontFamily>Arial</FontFamily>
+                        <Format>M/d/yyyy</Format>
+                        <rd:FormatType>
+                          <rd:Format>date</rd:Format>
+                        </rd:FormatType>
+                        <Color>black</Color>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style>
+                    <FontFamily>Arial</FontFamily>
+                    <TextAlign>Left</TextAlign>
+                  </Style>
+                </Paragraph>
+              </Paragraphs>
+            </Textbox>
+            <Line Name="Line4">
+              <Left>9pt</Left>
+              <Top>47.25pt</Top>
+              <Height>0pt</Height>
+              <Width>653.58984pt</Width>
+              <Style>
+                <FontFamily>Arial</FontFamily>
+                <Border>
+                  <Style>Solid</Style>
+                </Border>
+              </Style>
+              <Visibility>
+                <Hidden>=IIf(Parameters!ReportType.Value=2,False,True)</Hidden>
+              </Visibility>
+            </Line>
+            <Textbox Name="TextBox5">
+              <Left>7.5pt</Left>
+              <Top>91.5pt</Top>
+              <Height>15.75pt</Height>
+              <Width>83.25pt</Width>
+              <Style>
+                <FontFamily>Arial</FontFamily>
+                <PaddingLeft>2pt</PaddingLeft>
+                <PaddingRight>2pt</PaddingRight>
+                <PaddingTop>2pt</PaddingTop>
+                <PaddingBottom>2pt</PaddingBottom>
+                <Border>
+                  <Style>None</Style>
+                </Border>
+              </Style>
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>Sirius user name:</Value>
+                      <Style>
+                        <FontFamily>Arial</FontFamily>
+                        <Color>Black</Color>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style>
+                    <FontFamily>Arial</FontFamily>
+                  </Style>
+                </Paragraph>
+              </Paragraphs>
+            </Textbox>
+            <Textbox Name="CurrentUserName1">
+              <Left>93pt</Left>
+              <Top>90pt</Top>
+              <Height>18.75pt</Height>
+              <Width>133.5pt</Width>
+              <Style>
+                <FontFamily>Arial</FontFamily>
+                <PaddingLeft>2pt</PaddingLeft>
+                <PaddingRight>2pt</PaddingRight>
+                <PaddingTop>2pt</PaddingTop>
+                <PaddingBottom>2pt</PaddingBottom>
+                <Border>
+                  <Style>None</Style>
+                </Border>
+              </Style>
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>=Parameters!CurrentUserName.Value</Value>
+                      <Style>
+                        <FontFamily>Arial</FontFamily>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style>
+                    <FontFamily>Arial</FontFamily>
+                  </Style>
+                </Paragraph>
+              </Paragraphs>
+            </Textbox>
+            <Textbox Name="CurrentUserName2">
+              <Left>262.5pt</Left>
+              <Top>14.25pt</Top>
+              <Height>24pt</Height>
+              <Width>261.75pt</Width>
+              <Style>
+                <FontFamily>Arial</FontFamily>
+                <PaddingLeft>2pt</PaddingLeft>
+                <PaddingRight>2pt</PaddingRight>
+                <PaddingTop>2pt</PaddingTop>
+                <PaddingBottom>2pt</PaddingBottom>
+                <Border>
+                  <Style>None</Style>
+                </Border>
+              </Style>
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>=Parameters!CurrentCompanyName.Value</Value>
+                      <Style>
+                        <FontFamily>Arial</FontFamily>
+                        <FontSize>13.7498pt</FontSize>
+                        <Color>black</Color>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style>
+                    <FontFamily>Arial</FontFamily>
+                    <TextAlign>Right</TextAlign>
+                  </Style>
+                </Paragraph>
+              </Paragraphs>
+            </Textbox>
+          </ReportItems>
+          <Style>
+            <FontFamily>Arial</FontFamily>
+            <Border>
+              <Style>None</Style>
+            </Border>
+          </Style>
+        </PageHeader>
+        <PageFooter>
+          <Height>68.25pt</Height>
+          <PrintOnFirstPage>true</PrintOnFirstPage>
+          <PrintOnLastPage>true</PrintOnLastPage>
+          <ReportItems>
+            <Line Name="Line3">
+              <Left>10.5pt</Left>
+              <Top>7.5pt</Top>
+              <Height>0pt</Height>
+              <Width>515.58984pt</Width>
+              <Style>
+                <FontFamily>Arial</FontFamily>
+                <Border>
+                  <Style>Solid</Style>
+                </Border>
+              </Style>
+              <Visibility>
+                <Hidden>=IIf(Parameters!ReportType.Value=2,True,False)</Hidden>
+              </Visibility>
+            </Line>
+            <Textbox Name="TextBox20">
+              <Left>7.5pt</Left>
+              <Top>10.5pt</Top>
+              <Height>17.25pt</Height>
+              <Width>253.5pt</Width>
+              <Style>
+                <FontFamily>Arial</FontFamily>
+                <PaddingLeft>2pt</PaddingLeft>
+                <PaddingRight>2pt</PaddingRight>
+                <PaddingTop>2pt</PaddingTop>
+                <PaddingBottom>2pt</PaddingBottom>
+                <Border>
+                  <Style>None</Style>
+                </Border>
+              </Style>
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>=Globals!ExecutionTime</Value>
+                      <Style>
+                        <FontFamily>Arial</FontFamily>
+                        <Color>black</Color>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style>
+                    <FontFamily>Arial</FontFamily>
+                    <TextAlign>Left</TextAlign>
+                  </Style>
+                </Paragraph>
+              </Paragraphs>
+            </Textbox>
+            <Textbox Name="TextBox21">
+              <Left>462.75pt</Left>
+              <Top>11.25pt</Top>
+              <Height>17.25pt</Height>
+              <Width>21.75pt</Width>
+              <Style>
+                <FontFamily>Arial</FontFamily>
+                <PaddingLeft>2pt</PaddingLeft>
+                <PaddingRight>2pt</PaddingRight>
+                <PaddingTop>2pt</PaddingTop>
+                <PaddingBottom>2pt</PaddingBottom>
+                <Border>
+                  <Style>None</Style>
+                </Border>
+              </Style>
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>=Globals!OverallPageNumber</Value>
+                      <Style>
+                        <FontFamily>Arial</FontFamily>
+                        <Color>black</Color>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style>
+                    <FontFamily>Arial</FontFamily>
+                    <TextAlign>Right</TextAlign>
+                  </Style>
+                </Paragraph>
+              </Paragraphs>
+            </Textbox>
+            <Textbox Name="TextBox23">
+              <Left>498pt</Left>
+              <Top>11.25pt</Top>
+              <Height>14.25pt</Height>
+              <Width>21.75pt</Width>
+              <Style>
+                <FontFamily>Arial</FontFamily>
+                <PaddingLeft>2pt</PaddingLeft>
+                <PaddingRight>2pt</PaddingRight>
+                <PaddingTop>2pt</PaddingTop>
+                <PaddingBottom>2pt</PaddingBottom>
+                <Border>
+                  <Style>None</Style>
+                </Border>
+              </Style>
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>=Globals!OverallTotalPages</Value>
+                      <Style>
+                        <FontFamily>Arial</FontFamily>
+                        <Color>black</Color>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style>
+                    <FontFamily>Arial</FontFamily>
+                    <TextAlign>Right</TextAlign>
+                  </Style>
+                </Paragraph>
+              </Paragraphs>
+            </Textbox>
+            <Textbox Name="TextBox24">
+              <Left>435.75pt</Left>
+              <Top>10.5pt</Top>
+              <Height>16.5pt</Height>
+              <Width>30pt</Width>
+              <Style>
+                <FontFamily>Arial</FontFamily>
+                <PaddingLeft>2pt</PaddingLeft>
+                <PaddingRight>2pt</PaddingRight>
+                <PaddingTop>2pt</PaddingTop>
+                <PaddingBottom>2pt</PaddingBottom>
+                <Border>
+                  <Style>None</Style>
+                </Border>
+              </Style>
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>Page</Value>
+                      <Style>
+                        <FontFamily>Arial</FontFamily>
+                        <Color>black</Color>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style>
+                    <FontFamily>Arial</FontFamily>
+                    <TextAlign>Right</TextAlign>
+                  </Style>
+                </Paragraph>
+              </Paragraphs>
+            </Textbox>
+            <Textbox Name="TextBox38">
+              <Left>484.5pt</Left>
+              <Top>11.25pt</Top>
+              <Height>15.75pt</Height>
+              <Width>15.75pt</Width>
+              <Style>
+                <FontFamily>Arial</FontFamily>
+                <PaddingLeft>2pt</PaddingLeft>
+                <PaddingRight>2pt</PaddingRight>
+                <PaddingTop>2pt</PaddingTop>
+                <PaddingBottom>2pt</PaddingBottom>
+                <Border>
+                  <Style>None</Style>
+                </Border>
+              </Style>
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>of</Value>
+                      <Style>
+                        <FontFamily>Arial</FontFamily>
+                        <Color>black</Color>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style>
+                    <FontFamily>Arial</FontFamily>
+                    <TextAlign>Right</TextAlign>
+                  </Style>
+                </Paragraph>
+              </Paragraphs>
+            </Textbox>
+            <Line Name="Line5">
+              <Left>11.25pt</Left>
+              <Top>7.5pt</Top>
+              <Height>0pt</Height>
+              <Width>649.83984pt</Width>
+              <Style>
+                <FontFamily>Arial</FontFamily>
+                <Border>
+                  <Style>Solid</Style>
+                </Border>
+              </Style>
+              <Visibility>
+                <Hidden>=IIf(Parameters!ReportType.Value=2,False,True)</Hidden>
+              </Visibility>
+            </Line>
+          </ReportItems>
+          <Style>
+            <FontFamily>Arial</FontFamily>
+            <Border>
+              <Style>None</Style>
+            </Border>
+          </Style>
+        </PageFooter>
+        <InteractiveHeight>0pt</InteractiveHeight>
+        <InteractiveWidth>612pt</InteractiveWidth>
+        <LeftMargin>1in</LeftMargin>
+        <RightMargin>1in</RightMargin>
+        <TopMargin>1in</TopMargin>
+        <BottomMargin>1in</BottomMargin>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+        </Style>
+      </Page>
+    </ReportSection>
+  </ReportSections>
+  <DataSources>
+    
+          <DataSource Name="CustomerDB">
+              <ConnectionProperties>
+                <DataProvider>SQL</DataProvider>
+              </ConnectionProperties>
+          </DataSource>
+        
+  </DataSources>
+  <DataSets>
+    <DataSet Name="Company">
+      <Query>
+        <DataSourceName>CustomerDB</DataSourceName>
+        <CommandText>SELECT [dbo].[Company].[ID],
+[dbo].[Company].[DisplayName] + '' '' [DisplayName],
+[dbo].[Company].[CompanyBusinessTypeId] FROM [dbo].[Company]</CommandText>
+      </Query>
+      <Fields>
+        <Field Name="ID">
+          <DataField>ID</DataField>
+          <rd:TypeName>System.Int64</rd:TypeName>
+        </Field>
+        <Field Name="DisplayName">
+          <DataField>DisplayName</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="CompanyBusinessTypeId">
+          <DataField>CompanyBusinessTypeId</DataField>
+          <rd:TypeName>System.Int64</rd:TypeName>
+        </Field>
+      </Fields>
+    </DataSet>
+    <DataSet Name="Store">
+      <Query>
+        <DataSourceName>CustomerDB</DataSourceName>
+        <CommandText>SELECT [dbo].[Store].[ID],
+[dbo].[Store].[Code]+'' ''+[dbo].[Store].[DisplayName] [DisplayName] FROM [dbo].[Store]
+where CompanyID in (@CompanyId)</CommandText>
+        <QueryParameters>
+          <QueryParameter Name="@CompanyId">
+            <Value>=Parameters!Company.Value</Value>
+          </QueryParameter>
+        </QueryParameters>
+      </Query>
+      <Fields>
+        <Field Name="ID">
+          <DataField>ID</DataField>
+          <rd:TypeName>System.Int64</rd:TypeName>
+        </Field>
+        <Field Name="DisplayName">
+          <DataField>DisplayName</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+      </Fields>
+    </DataSet>
+    <DataSet Name="StoreData">
+      <Query>
+        <DataSourceName>CustomerDB</DataSourceName>
+        <CommandText>Declare @s int, @DateFrom date, @DateTo date
+
+IF(@Store=4) set @s=4 ELSE set @s=-1
+IF(@DateF is not NULL and @DateT is not NULL) begin set @DateFrom = @DateF set @DateTo=@DateT end 
+ELSE IF(@TimeSlots=1)
+begin set @DateFrom = Getdate() set @DateTo = Getdate() end
+ELSE IF(@TimeSlots=2)
+begin set @DateFrom = Getdate()-1 set @DateTo = Getdate()-1 end
+ELSE IF(@TimeSlots=3)
+begin set @DateFrom = dateadd(day, 1-datepart(dw, getdate()), CONVERT(date,getdate())) set @DateTo = dateadd(day, 7-datepart(dw, getdate()), CONVERT(date,getdate())) end
+ELSE IF(@TimeSlots=4)
+begin set @DateFrom = dateadd(dd, -day(GETDATE()), GETDATE())+1 set @DateTo = dateadd(dd, -day(dateadd(mm, 1, GETDATE())), dateadd(mm, 1, GETDATE())) end
+ELSE IF(@TimeSlots=5)
+begin set @DateFrom = CAST(CAST(YEAR(Getdate()) AS nvarchar)+''-01-01'' AS DATE) set @DateTo = CAST(CAST(YEAR(Getdate()) AS nvarchar)+''-12-31'' AS DATE)end
+
+SELECT s.DisplayName [Store], SUM(ti.Amount+ti.Discount)/SUM(ti.Quantity) [AV.Amount] ,SUM(ti.Amount+ti.Discount) [Amount], SUM(ti.Quantity) [Quantity], 
+SUM(ti.Amount+ti.Discount)/a.total as [Contribution], @DateFrom [DateFrom], @DateTo [DateTo]
+FROM dbo.[Transaction] t
+INNER JOIN dbo.TransactionItem ti ON ti.TransactionID=t.ID and t.TransactionTypeID=2 and Quantity&lt;&gt;0 and @s=4 and CAST(TransactionDate as Date) between @DateFrom and @DateTo
+INNER JOIN dbo.Item i ON i.id=ti.ItemID 
+INNER JOIN dbo.Location l ON t.LocationID=l.ID
+INNER JOIN dbo.Store s ON s.ID=l.StoreID
+INNER JOIN dbo.Company c ON l.CompanyID=c.ID
+INNER JOIN (
+	SELECT SUM(ti.Amount+ti.Discount) as total FROM dbo.[Transaction] t
+	INNER JOIN dbo.TransactionItem ti ON ti.TransactionID=t.ID and t.TransactionTypeID=2 and Quantity&lt;&gt;0 and CAST(TransactionDate as Date) between @DateFrom and @DateTo
+	INNER JOIN dbo.Location l ON t.LocationID=l.ID
+	INNER JOIN dbo.Item i ON i.id=ti.ItemID
+	INNER JOIN dbo.Store s ON s.ID=l.StoreID
+	WHERE s.ID IN (@DataStore) AND ISNULL(i.ItemHierarchy1ID,-2) in (@Hierarchy1) AND ISNULL(i.ItemHierarchy2ID,-2) in (@Hierarchy2) AND ISNULL(i.ItemHierarchy3ID,-2) in (@Hierarchy3)
+	AND ISNULL(i.ItemHierarchy4ID,-2) in (@Hierarchy4) AND ISNULL(i.ItemHierarchy5ID,-2) in (@Hierarchy5)
+	) as a ON 1=1
+WHERE s.ID IN (@DataStore) AND ISNULL(i.ItemHierarchy1ID,-2) in (@Hierarchy1) AND ISNULL(i.ItemHierarchy2ID,-2) in (@Hierarchy2) AND ISNULL(i.ItemHierarchy3ID,-2) in (@Hierarchy3)
+AND ISNULL(i.ItemHierarchy4ID,-2) in (@Hierarchy4) AND ISNULL(i.ItemHierarchy5ID,-2) in (@Hierarchy5)
+GROUP BY s.DisplayName, a.total
+having SUM(ti.Quantity) &lt;&gt; 0</CommandText>
+        <QueryParameters>
+          <QueryParameter Name="@Store">
+            <Value>=Parameters!ReportType.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@DataStore">
+            <Value>=Parameters!Store.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@DateF">
+            <Value>=Parameters!DateFrom.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@DateT">
+            <Value>=Parameters!DataTo.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@TimeSlots">
+            <Value>=Parameters!TimeSlots.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@Hierarchy1">
+            <Value>=Parameters!Hierarchy1.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@Hierarchy2">
+            <Value>=Parameters!Hierarchy2.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@Hierarchy3">
+            <Value>=Parameters!Hierarchy3.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@Hierarchy4">
+            <Value>=Parameters!Hierarchy4.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@Hierarchy5">
+            <Value>=Parameters!Hierarchy5.Value</Value>
+          </QueryParameter>
+        </QueryParameters>
+      </Query>
+      <Fields>
+        <Field Name="Store">
+          <DataField>Store</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="AV_Amount">
+          <DataField>AV.Amount</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="Amount">
+          <DataField>Amount</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="Quantity">
+          <DataField>Quantity</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="Contribution">
+          <DataField>Contribution</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="DateFrom">
+          <DataField>DateFrom</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="DateTo">
+          <DataField>DateTo</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+      </Fields>
+    </DataSet>
+    <DataSet Name="CompanyData">
+      <Query>
+        <DataSourceName>CustomerDB</DataSourceName>
+        <CommandText>Declare @s int, @DateFrom date, @DateTo date
+IF(@Store=1) set @s=1 ELSE set @s=-1
+IF(@DateF is not NULL and @DateT is not NULL) begin set @DateFrom = @DateF set @DateTo=@DateT end 
+ELSE IF(@TimeSlots=1)
+begin set @DateFrom = Getdate() set @DateTo = Getdate() end
+ELSE IF(@TimeSlots=2)
+begin set @DateFrom = Getdate()-1 set @DateTo = Getdate()-1 end
+ELSE IF(@TimeSlots=3)
+begin set @DateFrom = dateadd(day, 1-datepart(dw, getdate()), CONVERT(date,getdate())) set @DateTo = dateadd(day, 7-datepart(dw, getdate()), CONVERT(date,getdate())) end
+ELSE IF(@TimeSlots=4)
+begin set @DateFrom = dateadd(dd, -day(GETDATE()), GETDATE())+1 set @DateTo = dateadd(dd, -day(dateadd(mm, 1, GETDATE())), dateadd(mm, 1, GETDATE())) end
+ELSE IF(@TimeSlots=5)
+begin set @DateFrom = CAST(CAST(YEAR(Getdate()) AS nvarchar)+''-01-01'' AS DATE) set @DateTo = CAST(CAST(YEAR(Getdate()) AS nvarchar)+''-12-31'' AS DATE)end
+
+SELECT c.Code+ '' '' + c.DisplayName [Company], SUM(ti.Amount+ti.Discount)/SUM(ti.Quantity) [AV.Amount] ,SUM(ti.Amount+ti.Discount) [Amount], SUM(ti.Quantity) [Quantity], 
+SUM(ti.Amount+ti.Discount)/a.total as [Contribution]
+FROM dbo.[Transaction] t
+INNER JOIN dbo.TransactionItem ti ON ti.TransactionID=t.ID and t.TransactionTypeID=2 and Quantity&lt;&gt;0 and @s=1 and CAST(TransactionDate as Date) between @DateFrom and @DateTo
+INNER JOIN dbo.Item i ON i.id=ti.ItemID 
+INNER JOIN dbo.Location l ON t.LocationID=l.ID
+INNER JOIN dbo.Store s ON s.ID=l.StoreID
+INNER JOIN dbo.Company c ON l.CompanyID=c.ID
+INNER JOIN (
+	SELECT SUM(ti.Amount+ti.Discount) as total FROM dbo.[Transaction] t
+	INNER JOIN dbo.TransactionItem ti ON ti.TransactionID=t.ID and t.TransactionTypeID=2 and Quantity&lt;&gt;0 and CAST(TransactionDate as Date) between @DateFrom and @DateTo
+	INNER JOIN dbo.Location l ON t.LocationID=l.ID
+	INNER JOIN dbo.Item i ON i.id=ti.ItemID
+	INNER JOIN dbo.Store s ON s.ID=l.StoreID
+	WHERE s.ID IN (@DataStore) AND ISNULL(i.ItemHierarchy1ID,-2) in (@Hierarchy1) AND ISNULL(i.ItemHierarchy2ID,-2) in (@Hierarchy2) AND ISNULL(i.ItemHierarchy3ID,-2) in (@Hierarchy3)
+	AND ISNULL(i.ItemHierarchy4ID,-2) in (@Hierarchy4) AND ISNULL(i.ItemHierarchy5ID,-2) in (@Hierarchy5)
+	) as a ON 1=1
+
+WHERE s.ID IN (@DataStore) AND ISNULL(i.ItemHierarchy1ID,-2) in (@Hierarchy1) AND ISNULL(i.ItemHierarchy2ID,-2) in (@Hierarchy2) AND ISNULL(i.ItemHierarchy3ID,-2) in (@Hierarchy3)
+AND ISNULL(i.ItemHierarchy4ID,-2) in (@Hierarchy4) AND ISNULL(i.ItemHierarchy5ID,-2) in (@Hierarchy5)
+GROUP BY c.Code+ '' '' + c.DisplayName, a.total
+having SUM(ti.Quantity) &lt;&gt; 0</CommandText>
+        <QueryParameters>
+          <QueryParameter Name="@Store">
+            <Value>=Parameters!ReportType.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@DateF">
+            <Value>=Parameters!DateFrom.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@DateT">
+            <Value>=Parameters!DataTo.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@TimeSlots">
+            <Value>=Parameters!TimeSlots.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@DataStore">
+            <Value>=Parameters!Store.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@Hierarchy1">
+            <Value>=Parameters!Hierarchy1.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@Hierarchy2">
+            <Value>=Parameters!Hierarchy2.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@Hierarchy3">
+            <Value>=Parameters!Hierarchy3.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@Hierarchy4">
+            <Value>=Parameters!Hierarchy4.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@Hierarchy5">
+            <Value>=Parameters!Hierarchy5.Value</Value>
+          </QueryParameter>
+        </QueryParameters>
+      </Query>
+      <Fields>
+        <Field Name="Company">
+          <DataField>Company</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="AV_Amount">
+          <DataField>AV.Amount</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="Amount">
+          <DataField>Amount</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="Quantity">
+          <DataField>Quantity</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="Contribution">
+          <DataField>Contribution</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+      </Fields>
+    </DataSet>
+    <DataSet Name="HierarchyData">
+      <Query>
+        <DataSourceName>CustomerDB</DataSourceName>
+        <CommandText>Declare @s int, @DateFrom date, @DateTo date
+IF(@Store=3) set @s=4 ELSE set @s=-1
+IF(@DateF is not NULL and @DateT is not NULL) begin set @DateFrom = @DateF set @DateTo=@DateT end 
+ELSE IF(@TimeSlots=1)
+begin set @DateFrom = Getdate() set @DateTo = Getdate() end
+ELSE IF(@TimeSlots=2)
+begin set @DateFrom = Getdate()-1 set @DateTo = Getdate()-1 end
+ELSE IF(@TimeSlots=3)
+begin set @DateFrom = dateadd(day, 1-datepart(dw, getdate()), CONVERT(date,getdate())) set @DateTo = dateadd(day, 7-datepart(dw, getdate()), CONVERT(date,getdate())) end
+ELSE IF(@TimeSlots=4)
+begin set @DateFrom = dateadd(dd, -day(GETDATE()), GETDATE())+1 set @DateTo = dateadd(dd, -day(dateadd(mm, 1, GETDATE())), dateadd(mm, 1, GETDATE())) end
+ELSE IF(@TimeSlots=5)
+begin set @DateFrom = CAST(CAST(YEAR(Getdate()) AS nvarchar)+''-01-01'' AS DATE) set @DateTo = CAST(CAST(YEAR(Getdate()) AS nvarchar)+''-12-31'' AS DATE)end
+
+SELECT s.Code +'' '' + s.DisplayName [Store], ih1.Code +'' '' + ih1.DisplayName [Hierarchy], SUM(ti.Amount+ti.Discount)/SUM(ti.Quantity) [AV.Amount] ,SUM(ti.Amount+ti.Discount) [Amount], SUM(ti.Quantity) [Quantity], 
+SUM(ti.Amount+ti.Discount)/a.total as [Contribution], @DateFrom [DateFrom], @DateTo [DateTo]
+FROM dbo.[Transaction] t
+INNER JOIN dbo.TransactionItem ti ON ti.TransactionID=t.ID and t.TransactionTypeID=2 and Quantity&lt;&gt;0 and @s=4 and CAST(TransactionDate as Date) between @DateFrom and @DateTo
+INNER JOIN dbo.Item i ON i.id=ti.ItemID 
+INNER JOIN dbo.Location l ON t.LocationID=l.ID
+INNER JOIN dbo.Store s ON s.ID=l.StoreID
+INNER JOIN dbo.Company c ON l.CompanyID=c.ID
+INNER JOIN (
+	SELECT SUM(ti.Amount+ti.Discount) as total FROM dbo.[Transaction] t
+	INNER JOIN dbo.TransactionItem ti ON ti.TransactionID=t.ID and t.TransactionTypeID=2 and Quantity&lt;&gt;0 and CAST(TransactionDate as Date) between @DateFrom and @DateTo
+	INNER JOIN dbo.Location l ON t.LocationID=l.ID
+	INNER JOIN dbo.Item i ON i.id=ti.ItemID
+	INNER JOIN dbo.Store s ON s.ID=l.StoreID
+	WHERE s.ID IN (@DataStore) AND ISNULL(i.ItemHierarchy1ID,-2) in (@Hierarchy1) AND ISNULL(i.ItemHierarchy2ID,-2) in (@Hierarchy2) AND ISNULL(i.ItemHierarchy3ID,-2) in (@Hierarchy3)
+	AND ISNULL(i.ItemHierarchy4ID,-2) in (@Hierarchy4) AND ISNULL(i.ItemHierarchy5ID,-2) in (@Hierarchy5)
+	) as a ON 1=1
+LEFT JOIN dbo.ItemHierarchy1 ih1 ON ih1.Id=i.ItemHierarchy1ID
+WHERE s.ID IN (@DataStore) AND ISNULL(i.ItemHierarchy1ID,-2) in (@Hierarchy1) AND ISNULL(i.ItemHierarchy2ID,-2) in (@Hierarchy2) AND ISNULL(i.ItemHierarchy3ID,-2) in (@Hierarchy3)
+AND ISNULL(i.ItemHierarchy4ID,-2) in (@Hierarchy4) AND ISNULL(i.ItemHierarchy5ID,-2) in (@Hierarchy5)
+GROUP BY s.Code +'' '' + s.DisplayName, a.total, ih1.Code +'' '' + ih1.DisplayName
+having SUM(ti.Quantity) &lt;&gt; 0</CommandText>
+        <QueryParameters>
+          <QueryParameter Name="@Store">
+            <Value>=Parameters!ReportType.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@DateF">
+            <Value>=Parameters!DateFrom.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@DateT">
+            <Value>=Parameters!DataTo.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@TimeSlots">
+            <Value>=Parameters!TimeSlots.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@DataStore">
+            <Value>=Parameters!Store.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@Hierarchy1">
+            <Value>=Parameters!Hierarchy1.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@Hierarchy2">
+            <Value>=Parameters!Hierarchy2.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@Hierarchy3">
+            <Value>=Parameters!Hierarchy3.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@Hierarchy4">
+            <Value>=Parameters!Hierarchy4.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@Hierarchy5">
+            <Value>=Parameters!Hierarchy5.Value</Value>
+          </QueryParameter>
+        </QueryParameters>
+      </Query>
+      <Fields>
+        <Field Name="Store">
+          <DataField>Store</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Hierarchy">
+          <DataField>Hierarchy</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="AV_Amount">
+          <DataField>AV.Amount</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="Amount">
+          <DataField>Amount</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="Quantity">
+          <DataField>Quantity</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="Contribution">
+          <DataField>Contribution</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="DateFrom">
+          <DataField>DateFrom</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="DateTo">
+          <DataField>DateTo</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+      </Fields>
+    </DataSet>
+    <DataSet Name="ItemData">
+      <Query>
+        <DataSourceName>CustomerDB</DataSourceName>
+        <CommandText>Declare @s int, @DateFrom date, @DateTo date
+IF(@Store=2) set @s=4 ELSE set @s=-1
+IF(@DateF is not NULL and @DateT is not NULL) begin set @DateFrom = @DateF set @DateTo=@DateT end 
+ELSE IF(@TimeSlots=1)
+begin set @DateFrom = Getdate() set @DateTo = Getdate() end
+ELSE IF(@TimeSlots=2)
+begin set @DateFrom = Getdate()-1 set @DateTo = Getdate()-1 end
+ELSE IF(@TimeSlots=3)
+begin set @DateFrom = dateadd(day, 1-datepart(dw, getdate()), CONVERT(date,getdate())) set @DateTo = dateadd(day, 7-datepart(dw, getdate()), CONVERT(date,getdate())) end
+ELSE IF(@TimeSlots=4)
+begin set @DateFrom = dateadd(dd, -day(GETDATE()), GETDATE())+1 set @DateTo = dateadd(dd, -day(dateadd(mm, 1, GETDATE())), dateadd(mm, 1, GETDATE())) end
+ELSE IF(@TimeSlots=5)
+begin set @DateFrom = CAST(CAST(YEAR(Getdate()) AS nvarchar)+''-01-01'' AS DATE) set @DateTo = CAST(CAST(YEAR(Getdate()) AS nvarchar)+''-12-31'' AS DATE)end
+
+SELECT s.Code +'' '' + s.DisplayName [Store], ih1.Code +'' '' + ih1.DisplayName [Hierarchy], i.Code [ItemCode], i.ShortDisplayName [ItemName], SUM(ti.Amount+ti.Discount)/SUM(ti.Quantity) [AV.Amount] ,SUM(ti.Amount+ti.Discount) [Amount], SUM(ti.Quantity) [Quantity], 
+SUM(ti.Amount+ti.Discount)/a.total as [Contribution], @DateFrom [DateFrom], @DateTo [DateTo]
+FROM dbo.[Transaction] t
+INNER JOIN dbo.TransactionItem ti ON ti.TransactionID=t.ID and t.TransactionTypeID=2 and Quantity&lt;&gt;0 and @s=4 and CAST(TransactionDate as Date) between @DateFrom and @DateTo
+INNER JOIN dbo.Item i ON i.id=ti.ItemID 
+INNER JOIN dbo.Location l ON t.LocationID=l.ID
+INNER JOIN dbo.Store s ON s.ID=l.StoreID
+INNER JOIN dbo.Company c ON l.CompanyID=c.ID
+INNER JOIN (
+	SELECT SUM(ti.Amount+ti.Discount) as total FROM dbo.[Transaction] t
+	INNER JOIN dbo.TransactionItem ti ON ti.TransactionID=t.ID and t.TransactionTypeID=2 and Quantity&lt;&gt;0 and CAST(TransactionDate as Date) between @DateFrom and @DateTo
+	INNER JOIN dbo.Location l ON t.LocationID=l.ID
+	INNER JOIN dbo.Item i ON i.id=ti.ItemID
+	INNER JOIN dbo.Store s ON s.ID=l.StoreID
+	WHERE s.ID IN (@DataStore) AND ISNULL(i.ItemHierarchy1ID,-2) in (@Hierarchy1) AND ISNULL(i.ItemHierarchy2ID,-2) in (@Hierarchy2) AND ISNULL(i.ItemHierarchy3ID,-2) in (@Hierarchy3)
+	AND ISNULL(i.ItemHierarchy4ID,-2) in (@Hierarchy4) AND ISNULL(i.ItemHierarchy5ID,-2) in (@Hierarchy5)
+	) as a ON 1=1
+LEFT JOIN dbo.ItemHierarchy1 ih1 ON ih1.Id=i.ItemHierarchy1ID
+WHERE s.ID IN (@DataStore) AND ISNULL(i.ItemHierarchy1ID,-2) in (@Hierarchy1) AND ISNULL(i.ItemHierarchy2ID,-2) in (@Hierarchy2) AND ISNULL(i.ItemHierarchy3ID,-2) in (@Hierarchy3)
+AND ISNULL(i.ItemHierarchy4ID,-2) in (@Hierarchy4) AND ISNULL(i.ItemHierarchy5ID,-2) in (@Hierarchy5)
+GROUP BY s.Code +'' '' + s.DisplayName, a.total, ih1.Code +'' '' + ih1.DisplayName, i.Code, i.ShortDisplayName
+having SUM(ti.Quantity) &lt;&gt; 0
+ORDER BY s.Code +'' '' + s.DisplayName, ih1.Code +'' '' + ih1.DisplayName, i.Code </CommandText>
+        <QueryParameters>
+          <QueryParameter Name="@Store">
+            <Value>=Parameters!ReportType.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@DateF">
+            <Value>=Parameters!DateFrom.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@DateT">
+            <Value>=Parameters!DataTo.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@TimeSlots">
+            <Value>=Parameters!TimeSlots.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@DataStore">
+            <Value>=Parameters!Store.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@Hierarchy1">
+            <Value>=Parameters!Hierarchy1.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@Hierarchy2">
+            <Value>=Parameters!Hierarchy2.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@Hierarchy3">
+            <Value>=Parameters!Hierarchy3.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@Hierarchy4">
+            <Value>=Parameters!Hierarchy4.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@Hierarchy5">
+            <Value>=Parameters!Hierarchy5.Value</Value>
+          </QueryParameter>
+        </QueryParameters>
+      </Query>
+      <Fields>
+        <Field Name="Store">
+          <DataField>Store</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Hierarchy">
+          <DataField>Hierarchy</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="ItemCode">
+          <DataField>ItemCode</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="ItemName">
+          <DataField>ItemName</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="AV_Amount">
+          <DataField>AV.Amount</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="Amount">
+          <DataField>Amount</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="Quantity">
+          <DataField>Quantity</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="Contribution">
+          <DataField>Contribution</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="DateFrom">
+          <DataField>DateFrom</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="DateTo">
+          <DataField>DateTo</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+      </Fields>
+    </DataSet>
+    <DataSet Name="Date">
+      <Query>
+        <DataSourceName>CustomerDB</DataSourceName>
+        <CommandText>DECLARE @DateFrom date, @DateTo date
+IF(@DateF is not NULL and @DateT is not NULL) begin set @DateFrom = @DateF set @DateTo=@DateT end 
+ELSE IF(@TimeSlots=1)
+begin set @DateFrom = Getdate() set @DateTo = Getdate() end
+ELSE IF(@TimeSlots=2)
+begin set @DateFrom = Getdate()-1 set @DateTo = Getdate()-1 end
+ELSE IF(@TimeSlots=3)
+begin set @DateFrom = dateadd(day, 1-datepart(dw, getdate()), CONVERT(date,getdate())) set @DateTo = dateadd(day, 7-datepart(dw, getdate()), CONVERT(date,getdate())) end
+ELSE IF(@TimeSlots=4)
+begin set @DateFrom = dateadd(dd, -day(GETDATE()), GETDATE())+1 set @DateTo = dateadd(dd, -day(dateadd(mm, 1, GETDATE())), dateadd(mm, 1, GETDATE())) end
+ELSE IF(@TimeSlots=5)
+begin set @DateFrom = CAST(CAST(YEAR(Getdate()) AS nvarchar)+''-01-01'' AS DATE) set @DateTo = CAST(CAST(YEAR(Getdate()) AS nvarchar)+''-12-31'' AS DATE)end
+
+Select @DateFrom [DateFrom],  @DateTo [DateTo]</CommandText>
+        <QueryParameters>
+          <QueryParameter Name="@DateF">
+            <Value>=Parameters!DateFrom.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@DateT">
+            <Value>=Parameters!DataTo.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@TimeSlots">
+            <Value>=Parameters!TimeSlots.Value</Value>
+          </QueryParameter>
+        </QueryParameters>
+      </Query>
+      <Fields>
+        <Field Name="DateFrom">
+          <DataField>DateFrom</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="DateTo">
+          <DataField>DateTo</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+      </Fields>
+    </DataSet>
+    <DataSet Name="Hierarchy1">
+      <Query>
+        <DataSourceName>CustomerDB</DataSourceName>
+        <CommandText>select -2 id, ''Not selected'' DisplayName
+UNION ALL
+select Id,DisplayName + '' '' from ItemHierarchy1</CommandText>
+      </Query>
+      <Fields>
+        <Field Name="id">
+          <DataField>id</DataField>
+          <rd:TypeName>System.Int64</rd:TypeName>
+        </Field>
+        <Field Name="DisplayName">
+          <DataField>DisplayName</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+      </Fields>
+    </DataSet>
+    <DataSet Name="Hierarchy2">
+      <Query>
+        <DataSourceName>CustomerDB</DataSourceName>
+        <CommandText>select -2 id, ''Not selected'' DisplayName
+UNION ALL
+select Id,DisplayName + '' '' from ItemHierarchy2</CommandText>
+      </Query>
+      <Fields>
+        <Field Name="id">
+          <DataField>id</DataField>
+          <rd:TypeName>System.Int64</rd:TypeName>
+        </Field>
+        <Field Name="DisplayName">
+          <DataField>DisplayName</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+      </Fields>
+    </DataSet>
+    <DataSet Name="Hierarchy3">
+      <Query>
+        <DataSourceName>CustomerDB</DataSourceName>
+        <CommandText>select -2 id, ''Not selected'' DisplayName
+UNION ALL
+select Id,DisplayName + '' '' from ItemHierarchy3</CommandText>
+      </Query>
+      <Fields>
+        <Field Name="id">
+          <DataField>id</DataField>
+          <rd:TypeName>System.Int64</rd:TypeName>
+        </Field>
+        <Field Name="DisplayName">
+          <DataField>DisplayName</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+      </Fields>
+    </DataSet>
+    <DataSet Name="Hierarchy4">
+      <Query>
+        <DataSourceName>CustomerDB</DataSourceName>
+        <CommandText>select -2 id, ''Not selected'' DisplayName
+UNION ALL
+select Id,DisplayName + '' '' from ItemHierarchy4</CommandText>
+      </Query>
+      <Fields>
+        <Field Name="id">
+          <DataField>id</DataField>
+          <rd:TypeName>System.Int64</rd:TypeName>
+        </Field>
+        <Field Name="DisplayName">
+          <DataField>DisplayName</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+      </Fields>
+    </DataSet>
+    <DataSet Name="Hierarchy5">
+      <Query>
+        <DataSourceName>CustomerDB</DataSourceName>
+        <CommandText>select -2 id, ''Not selected'' DisplayName
+UNION ALL
+select Id,DisplayName + '' '' from ItemHierarchy5</CommandText>
+      </Query>
+      <Fields>
+        <Field Name="id">
+          <DataField>id</DataField>
+          <rd:TypeName>System.Int64</rd:TypeName>
+        </Field>
+        <Field Name="DisplayName">
+          <DataField>DisplayName</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+      </Fields>
+    </DataSet>
+    <DataSet Name="Item">
+      <Query>
+        <DataSourceName>CustomerDB</DataSourceName>
+        <CommandText>select ID,
+Code + '' '' + ShortDisplayName [DisplayName]
+FROM [dbo].[Item]</CommandText>
+      </Query>
+      <Fields>
+        <Field Name="ID">
+          <DataField>ID</DataField>
+          <rd:TypeName>System.Int64</rd:TypeName>
+        </Field>
+        <Field Name="DisplayName">
+          <DataField>DisplayName</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+      </Fields>
+    </DataSet>
+  </DataSets>
+  <ReportParameters>
+    <ReportParameter Name="ReportType">
+      <DataType>Integer</DataType>
+      <Prompt>Report Type</Prompt>
+      <DefaultValue>
+        <Values>
+          <Value>2</Value>
+        </Values>
+      </DefaultValue>
+      <ValidValues>
+        <ParameterValues>
+          <ParameterValue>
+            <Value>1</Value>
+            <Label>Company</Label>
+          </ParameterValue>
+          <ParameterValue>
+            <Value>2</Value>
+            <Label>Item</Label>
+          </ParameterValue>
+          <ParameterValue>
+            <Value>3</Value>
+            <Label>Hierarchy</Label>
+          </ParameterValue>
+          <ParameterValue>
+            <Value>4</Value>
+            <Label>Store</Label>
+          </ParameterValue>
+        </ParameterValues>
+      </ValidValues>
+    </ReportParameter>
+    <ReportParameter Name="Store">
+      <DataType>Integer</DataType>
+      <Prompt>Store</Prompt>
+      <DefaultValue>
+        <DataSetReference>
+          <DataSetName>Store</DataSetName>
+          <ValueField>ID</ValueField>
+        </DataSetReference>
+      </DefaultValue>
+      <ValidValues>
+        <DataSetReference>
+          <DataSetName>Store</DataSetName>
+          <ValueField>ID</ValueField>
+          <LabelField>DisplayName</LabelField>
+        </DataSetReference>
+      </ValidValues>
+      <MultiValue>true</MultiValue>
+    </ReportParameter>
+    <ReportParameter Name="Item">
+      <DataType>Integer</DataType>
+      <Prompt>Item</Prompt>
+      <DefaultValue>
+        <DataSetReference>
+          <DataSetName>Item</DataSetName>
+          <ValueField>ID</ValueField>
+        </DataSetReference>
+      </DefaultValue>
+      <ValidValues>
+        <DataSetReference>
+          <DataSetName>Item</DataSetName>
+          <ValueField>ID</ValueField>
+          <LabelField>DisplayName</LabelField>
+        </DataSetReference>
+      </ValidValues>
+      <MultiValue>true</MultiValue>
+    </ReportParameter>
+    <ReportParameter Name="DateFrom">
+      <DataType>DateTime</DataType>
+      <Prompt>Date From</Prompt>
+      <DefaultValue>
+        <Values>
+          <Value>=DateAdd("d",-Day(Globals!ExecutionTime)+1,Globals!ExecutionTime)</Value>
+        </Values>
+      </DefaultValue>
+    </ReportParameter>
+    <ReportParameter Name="DataTo">
+      <DataType>DateTime</DataType>
+      <Prompt>Date To</Prompt>
+      <DefaultValue>
+        <Values>
+          <Value>=Globals!ExecutionTime</Value>
+        </Values>
+      </DefaultValue>
+    </ReportParameter>
+    <ReportParameter Name="TimeSlots">
+      <DataType>Integer</DataType>
+      <Prompt>Time slots</Prompt>
+      <DefaultValue>
+        <Values>
+          <Value>4</Value>
+        </Values>
+      </DefaultValue>
+      <Hidden>true</Hidden>
+      <ValidValues>
+        <ParameterValues>
+          <ParameterValue>
+            <Value>1</Value>
+            <Label>Today</Label>
+          </ParameterValue>
+          <ParameterValue>
+            <Value>2</Value>
+            <Label>Yesterday</Label>
+          </ParameterValue>
+          <ParameterValue>
+            <Value>3</Value>
+            <Label>This week</Label>
+          </ParameterValue>
+          <ParameterValue>
+            <Value>4</Value>
+            <Label>This month</Label>
+          </ParameterValue>
+          <ParameterValue>
+            <Value>5</Value>
+            <Label>This year</Label>
+          </ParameterValue>
+        </ParameterValues>
+      </ValidValues>
+    </ReportParameter>
+    <ReportParameter Name="Hierarchy1">
+      <DataType>Integer</DataType>
+      <Prompt>Hierarchy1</Prompt>
+      <DefaultValue>
+        <DataSetReference>
+          <DataSetName>Hierarchy1</DataSetName>
+          <ValueField>id</ValueField>
+        </DataSetReference>
+      </DefaultValue>
+      <ValidValues>
+        <DataSetReference>
+          <DataSetName>Hierarchy1</DataSetName>
+          <ValueField>id</ValueField>
+          <LabelField>DisplayName</LabelField>
+        </DataSetReference>
+      </ValidValues>
+      <MultiValue>true</MultiValue>
+    </ReportParameter>
+    <ReportParameter Name="Hierarchy2">
+      <DataType>Integer</DataType>
+      <Prompt>Hierarchy2</Prompt>
+      <DefaultValue>
+        <DataSetReference>
+          <DataSetName>Hierarchy2</DataSetName>
+          <ValueField>id</ValueField>
+        </DataSetReference>
+      </DefaultValue>
+      <ValidValues>
+        <DataSetReference>
+          <DataSetName>Hierarchy2</DataSetName>
+          <ValueField>id</ValueField>
+          <LabelField>DisplayName</LabelField>
+        </DataSetReference>
+      </ValidValues>
+      <MultiValue>true</MultiValue>
+    </ReportParameter>
+    <ReportParameter Name="Hierarchy3">
+      <DataType>Integer</DataType>
+      <Prompt>Hierarchy3</Prompt>
+      <DefaultValue>
+        <DataSetReference>
+          <DataSetName>Hierarchy3</DataSetName>
+          <ValueField>id</ValueField>
+        </DataSetReference>
+      </DefaultValue>
+      <Hidden>true</Hidden>
+      <ValidValues>
+        <DataSetReference>
+          <DataSetName>Hierarchy3</DataSetName>
+          <ValueField>id</ValueField>
+          <LabelField>DisplayName</LabelField>
+        </DataSetReference>
+      </ValidValues>
+      <MultiValue>true</MultiValue>
+    </ReportParameter>
+    <ReportParameter Name="Hierarchy4">
+      <DataType>Integer</DataType>
+      <Prompt>Hierarchy4</Prompt>
+      <DefaultValue>
+        <DataSetReference>
+          <DataSetName>Hierarchy4</DataSetName>
+          <ValueField>id</ValueField>
+        </DataSetReference>
+      </DefaultValue>
+      <Hidden>true</Hidden>
+      <ValidValues>
+        <DataSetReference>
+          <DataSetName>Hierarchy4</DataSetName>
+          <ValueField>id</ValueField>
+          <LabelField>DisplayName</LabelField>
+        </DataSetReference>
+      </ValidValues>
+      <MultiValue>true</MultiValue>
+    </ReportParameter>
+    <ReportParameter Name="Hierarchy5">
+      <DataType>Integer</DataType>
+      <Prompt>Hierarchy5</Prompt>
+      <DefaultValue>
+        <DataSetReference>
+          <DataSetName>Hierarchy5</DataSetName>
+          <ValueField>id</ValueField>
+        </DataSetReference>
+      </DefaultValue>
+      <Hidden>true</Hidden>
+      <ValidValues>
+        <DataSetReference>
+          <DataSetName>Hierarchy5</DataSetName>
+          <ValueField>id</ValueField>
+          <LabelField>DisplayName</LabelField>
+        </DataSetReference>
+      </ValidValues>
+      <MultiValue>true</MultiValue>
+    </ReportParameter>
+    <ReportParameter Name="Company">
+      <DataType>Integer</DataType>
+      <Prompt>Company</Prompt>
+      <DefaultValue>
+        <DataSetReference>
+          <DataSetName>Company</DataSetName>
+          <ValueField>ID</ValueField>
+        </DataSetReference>
+      </DefaultValue>
+      <Hidden>true</Hidden>
+      <ValidValues>
+        <DataSetReference>
+          <DataSetName>Company</DataSetName>
+          <ValueField>ID</ValueField>
+          <LabelField>DisplayName</LabelField>
+        </DataSetReference>
+      </ValidValues>
+      <MultiValue>true</MultiValue>
+    </ReportParameter>
+    <ReportParameter Name="CurrentUserName">
+      <DataType>String</DataType>
+      <Prompt>CurrentUserName</Prompt>
+      <Hidden>true</Hidden>
+    </ReportParameter>
+    <ReportParameter Name="CurrentCompanyName">
+      <DataType>String</DataType>
+      <Prompt>CurrentCompanyName</Prompt>
+      <Hidden>true</Hidden>
+    </ReportParameter>
+  </ReportParameters>
+  <ReportParametersLayout>
+    <GridLayoutDefinition>
+      <NumberOfColumns>3</NumberOfColumns>
+      <NumberOfRows>5</NumberOfRows>
+      <CellDefinitions>
+        <CellDefinition>
+          <ColumnIndex>0</ColumnIndex>
+          <RowIndex>0</RowIndex>
+          <ParameterName>ReportType</ParameterName>
+        </CellDefinition>
+        <CellDefinition>
+          <ColumnIndex>1</ColumnIndex>
+          <RowIndex>0</RowIndex>
+          <ParameterName>Store</ParameterName>
+        </CellDefinition>
+        <CellDefinition>
+          <ColumnIndex>2</ColumnIndex>
+          <RowIndex>0</RowIndex>
+          <ParameterName>Item</ParameterName>
+        </CellDefinition>
+        <CellDefinition>
+          <ColumnIndex>0</ColumnIndex>
+          <RowIndex>1</RowIndex>
+          <ParameterName>DateFrom</ParameterName>
+        </CellDefinition>
+        <CellDefinition>
+          <ColumnIndex>1</ColumnIndex>
+          <RowIndex>1</RowIndex>
+          <ParameterName>DataTo</ParameterName>
+        </CellDefinition>
+        <CellDefinition>
+          <ColumnIndex>2</ColumnIndex>
+          <RowIndex>1</RowIndex>
+          <ParameterName>TimeSlots</ParameterName>
+        </CellDefinition>
+        <CellDefinition>
+          <ColumnIndex>0</ColumnIndex>
+          <RowIndex>2</RowIndex>
+          <ParameterName>Hierarchy1</ParameterName>
+        </CellDefinition>
+        <CellDefinition>
+          <ColumnIndex>1</ColumnIndex>
+          <RowIndex>2</RowIndex>
+          <ParameterName>Hierarchy2</ParameterName>
+        </CellDefinition>
+        <CellDefinition>
+          <ColumnIndex>2</ColumnIndex>
+          <RowIndex>2</RowIndex>
+          <ParameterName>Hierarchy3</ParameterName>
+        </CellDefinition>
+        <CellDefinition>
+          <ColumnIndex>0</ColumnIndex>
+          <RowIndex>3</RowIndex>
+          <ParameterName>Hierarchy4</ParameterName>
+        </CellDefinition>
+        <CellDefinition>
+          <ColumnIndex>1</ColumnIndex>
+          <RowIndex>3</RowIndex>
+          <ParameterName>Hierarchy5</ParameterName>
+        </CellDefinition>
+        <CellDefinition>
+          <ColumnIndex>2</ColumnIndex>
+          <RowIndex>3</RowIndex>
+          <ParameterName>Company</ParameterName>
+        </CellDefinition>
+        <CellDefinition>
+          <ColumnIndex>0</ColumnIndex>
+          <RowIndex>4</RowIndex>
+          <ParameterName>CurrentUserName</ParameterName>
+        </CellDefinition>
+        <CellDefinition>
+          <ColumnIndex>1</ColumnIndex>
+          <RowIndex>4</RowIndex>
+          <ParameterName>CurrentCompanyName</ParameterName>
+        </CellDefinition>
+      </CellDefinitions>
+    </GridLayoutDefinition>
+  </ReportParametersLayout>
+  <CustomProperties>
+    <CustomProperty>
+      <Name>UniqueValueParameters</Name>
+      <Value>ReportType,TimeSlots</Value>
+    </CustomProperty>
+    <CustomProperty>
+      <Name>EnableFilterSearch</Name>
+      <Value>True</Value>
+    </CustomProperty>
+    <CustomProperty>
+      <Name>PopupHeight</Name>
+      <Value>300px</Value>
+    </CustomProperty>
+  </CustomProperties>
+  <rd:ReportUnitType>Inch</rd:ReportUnitType>
+  <rd:PageUnit>Px</rd:PageUnit>
+  <df:DefaultFontFamily>Segoe UI</df:DefaultFontFamily>
+</Report>', '2022-12-23 18:11:07.9100000 +00:00', 249, N'N', '0a647015-27f5-47f9-b3bf-a94c3b72605c', 1, NULL, 2, '2022-09-28 17:31:50.1416447 +03:00')
 INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySubID], [Name], [Code], [Rdl], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [LanguageID], [CreateDate]) VALUES ('416c565d-433e-ed11-8e5b-4ccc6a2bb6d6', '296c565d-433e-ed11-8e5b-4ccc6a2bb6d6', NULL, N'SR test', N'SR', N'<?xml version="1.0" encoding="utf-8"?>
 <Report xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner" xmlns:df="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition/defaultfontfamily" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition">
   <ReportSections>
@@ -13612,13 +20797,13 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
   <ReportSections>
     <ReportSection>
       <Body>
-        <Height>141.74475pt</Height>
+        <Height>118.5pt</Height>
         <ReportItems>
           <Tablix Name="Tablix3">
             <Left>7.5pt</Left>
             <Top>8.25pt</Top>
-            <Height>126pt</Height>
-            <Width>648.0079pt</Width>
+            <Height>108pt</Height>
+            <Width>695.15625pt</Width>
             <Style>
               <FontFamily>Arial</FontFamily>
               <Border>
@@ -13644,7 +20829,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                   <Width>71.98828pt</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>72.09375pt</Width>
+                  <Width>119.25pt</Width>
                 </TablixColumn>
               </TablixColumns>
               <TablixRows>
@@ -13689,6 +20874,11 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                               </Style>
                             </Paragraph>
                           </Paragraphs>
+                          <UserSort>
+                            <SortExpression>=Fields!Sing_in.Value</SortExpression>
+                            <SortExpressionScope>Details1</SortExpressionScope>
+                            <SortTarget>SummaryData</SortTarget>
+                          </UserSort>
                         </Textbox>
                         <RowSpan>1</RowSpan>
                         <ColSpan>1</ColSpan>
@@ -13732,6 +20922,11 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                               </Style>
                             </Paragraph>
                           </Paragraphs>
+                          <UserSort>
+                            <SortExpression>=Fields!Sing_out.Value</SortExpression>
+                            <SortExpressionScope>Details1</SortExpressionScope>
+                            <SortTarget>SummaryData</SortTarget>
+                          </UserSort>
                         </Textbox>
                         <RowSpan>1</RowSpan>
                         <ColSpan>1</ColSpan>
@@ -13775,6 +20970,11 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                               </Style>
                             </Paragraph>
                           </Paragraphs>
+                          <UserSort>
+                            <SortExpression>=Fields!Date.Value</SortExpression>
+                            <SortExpressionScope>Details1</SortExpressionScope>
+                            <SortTarget>SummaryData</SortTarget>
+                          </UserSort>
                         </Textbox>
                         <RowSpan>1</RowSpan>
                         <ColSpan>1</ColSpan>
@@ -13818,6 +21018,11 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                               </Style>
                             </Paragraph>
                           </Paragraphs>
+                          <UserSort>
+                            <SortExpression>=Fields!DayNumber.Value</SortExpression>
+                            <SortExpressionScope>Details1</SortExpressionScope>
+                            <SortTarget>SummaryData</SortTarget>
+                          </UserSort>
                         </Textbox>
                         <RowSpan>1</RowSpan>
                         <ColSpan>1</ColSpan>
@@ -13829,7 +21034,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                           <Left>0in</Left>
                           <Top>0in</Top>
                           <Height>18pt</Height>
-                          <Width>72.09375pt</Width>
+                          <Width>119.25pt</Width>
                           <Style>
                             <BackgroundColor>#eeeeee</BackgroundColor>
                             <FontFamily>Arial</FontFamily>
@@ -13861,6 +21066,11 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                               </Style>
                             </Paragraph>
                           </Paragraphs>
+                          <UserSort>
+                            <SortExpression>=Fields!Skip.Value</SortExpression>
+                            <SortExpressionScope>Details1</SortExpressionScope>
+                            <SortTarget>SummaryData</SortTarget>
+                          </UserSort>
                         </Textbox>
                         <RowSpan>1</RowSpan>
                         <ColSpan>1</ColSpan>
@@ -14101,7 +21311,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                           <Left>0in</Left>
                           <Top>0in</Top>
                           <Height>18pt</Height>
-                          <Width>72.09375pt</Width>
+                          <Width>119.25pt</Width>
                           <Style>
                             <BackgroundColor>#c3c3c3</BackgroundColor>
                             <FontFamily>Arial</FontFamily>
@@ -14136,241 +21346,6 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                                   <Style>
                                     <FontFamily>Arial</FontFamily>
                                     <FontWeight>Bold</FontWeight>
-                                    <Color>black</Color>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style>
-                                <FontFamily>Arial</FontFamily>
-                                <TextAlign>Center</TextAlign>
-                              </Style>
-                            </Paragraph>
-                          </Paragraphs>
-                        </Textbox>
-                        <RowSpan>1</RowSpan>
-                        <ColSpan>1</ColSpan>
-                      </CellContents>
-                    </TablixCell>
-                  </TablixCells>
-                </TablixRow>
-                <TablixRow>
-                  <Height>18pt</Height>
-                  <TablixCells>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="TextBox86">
-                          <Left>0in</Left>
-                          <Top>0in</Top>
-                          <Height>18pt</Height>
-                          <Width>71.9883pt</Width>
-                          <Style>
-                            <BackgroundColor>#d5d5d5</BackgroundColor>
-                            <FontFamily>Arial</FontFamily>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                            <Border>
-                              <Color>LightGrey</Color>
-                              <Style>None</Style>
-                            </Border>
-                            <BottomBorder>
-                              <Style>Solid</Style>
-                            </BottomBorder>
-                          </Style>
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value />
-                                  <Style>
-                                    <FontFamily>Arial</FontFamily>
-                                    <Color>black</Color>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style>
-                                <FontFamily>Arial</FontFamily>
-                                <TextAlign>Center</TextAlign>
-                              </Style>
-                            </Paragraph>
-                          </Paragraphs>
-                        </Textbox>
-                        <RowSpan>1</RowSpan>
-                        <ColSpan>1</ColSpan>
-                      </CellContents>
-                    </TablixCell>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="TextBox141">
-                          <Left>0in</Left>
-                          <Top>0in</Top>
-                          <Height>18pt</Height>
-                          <Width>71.9883pt</Width>
-                          <Style>
-                            <BackgroundColor>#d5d5d5</BackgroundColor>
-                            <FontFamily>Arial</FontFamily>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                            <Border>
-                              <Color>LightGrey</Color>
-                              <Style>None</Style>
-                            </Border>
-                            <BottomBorder>
-                              <Style>Solid</Style>
-                            </BottomBorder>
-                          </Style>
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value />
-                                  <Style>
-                                    <FontFamily>Arial</FontFamily>
-                                    <Color>black</Color>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style>
-                                <FontFamily>Arial</FontFamily>
-                                <TextAlign>Center</TextAlign>
-                              </Style>
-                            </Paragraph>
-                          </Paragraphs>
-                        </Textbox>
-                        <RowSpan>1</RowSpan>
-                        <ColSpan>1</ColSpan>
-                      </CellContents>
-                    </TablixCell>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="TextBox147">
-                          <Left>0in</Left>
-                          <Top>0in</Top>
-                          <Height>18pt</Height>
-                          <Width>71.9883pt</Width>
-                          <Style>
-                            <BackgroundColor>#d5d5d5</BackgroundColor>
-                            <FontFamily>Arial</FontFamily>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                            <Border>
-                              <Color>LightGrey</Color>
-                              <Style>None</Style>
-                            </Border>
-                            <BottomBorder>
-                              <Style>Solid</Style>
-                            </BottomBorder>
-                          </Style>
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value />
-                                  <Style>
-                                    <FontFamily>Arial</FontFamily>
-                                    <Color>black</Color>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style>
-                                <FontFamily>Arial</FontFamily>
-                                <TextAlign>Center</TextAlign>
-                              </Style>
-                            </Paragraph>
-                          </Paragraphs>
-                        </Textbox>
-                        <RowSpan>1</RowSpan>
-                        <ColSpan>1</ColSpan>
-                      </CellContents>
-                    </TablixCell>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="TextBox153">
-                          <Left>0in</Left>
-                          <Top>0in</Top>
-                          <Height>18pt</Height>
-                          <Width>71.9883pt</Width>
-                          <Style>
-                            <BackgroundColor>#d5d5d5</BackgroundColor>
-                            <FontFamily>Arial</FontFamily>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                            <Border>
-                              <Color>LightGrey</Color>
-                              <Style>None</Style>
-                            </Border>
-                            <BottomBorder>
-                              <Style>Solid</Style>
-                            </BottomBorder>
-                          </Style>
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value />
-                                  <Style>
-                                    <FontFamily>Arial</FontFamily>
-                                    <Color>black</Color>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style>
-                                <FontFamily>Arial</FontFamily>
-                                <TextAlign>Center</TextAlign>
-                              </Style>
-                            </Paragraph>
-                          </Paragraphs>
-                        </Textbox>
-                        <RowSpan>1</RowSpan>
-                        <ColSpan>1</ColSpan>
-                      </CellContents>
-                    </TablixCell>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="TextBox159">
-                          <Left>0in</Left>
-                          <Top>0in</Top>
-                          <Height>18pt</Height>
-                          <Width>72.09375pt</Width>
-                          <Style>
-                            <BackgroundColor>#d5d5d5</BackgroundColor>
-                            <FontFamily>Arial</FontFamily>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                            <Border>
-                              <Color>LightGrey</Color>
-                              <Style>None</Style>
-                            </Border>
-                            <BottomBorder>
-                              <Style>Solid</Style>
-                            </BottomBorder>
-                          </Style>
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value />
-                                  <Style>
-                                    <FontFamily>Arial</FontFamily>
                                     <Color>black</Color>
                                   </Style>
                                 </TextRun>
@@ -14577,7 +21552,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                           <Left>0in</Left>
                           <Top>0in</Top>
                           <Height>18pt</Height>
-                          <Width>72.09375pt</Width>
+                          <Width>119.25pt</Width>
                           <Style>
                             <FontFamily>Arial</FontFamily>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -14811,7 +21786,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                           <Left>0in</Left>
                           <Top>0in</Top>
                           <Height>18pt</Height>
-                          <Width>72.09375pt</Width>
+                          <Width>119.25pt</Width>
                           <Style>
                             <BackgroundColor>#eeeeee</BackgroundColor>
                             <FontFamily>Arial</FontFamily>
@@ -15058,7 +22033,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                           <Left>0in</Left>
                           <Top>0in</Top>
                           <Height>18pt</Height>
-                          <Width>72.09375pt</Width>
+                          <Width>119.25pt</Width>
                           <Style>
                             <BackgroundColor>#d5d5d5</BackgroundColor>
                             <FontFamily>Arial</FontFamily>
@@ -15297,7 +22272,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                           <Left>0in</Left>
                           <Top>0in</Top>
                           <Height>18pt</Height>
-                          <Width>72.09375pt</Width>
+                          <Width>119.25pt</Width>
                           <Style>
                             <FontFamily>Arial</FontFamily>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -15391,6 +22366,11 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                             </Style>
                           </Paragraph>
                         </Paragraphs>
+                        <UserSort>
+                          <SortExpression>=Fields!Store.Value</SortExpression>
+                          <SortExpressionScope>Store2</SortExpressionScope>
+                          <SortTarget>SummaryData</SortTarget>
+                        </UserSort>
                       </Textbox>
                     </CellContents>
                   </TablixHeader>
@@ -15435,6 +22415,11 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                                 </Style>
                               </Paragraph>
                             </Paragraphs>
+                            <UserSort>
+                              <SortExpression>=Fields!Employee.Value</SortExpression>
+                              <SortExpressionScope>Employee3</SortExpressionScope>
+                              <SortTarget>SummaryData</SortTarget>
+                            </UserSort>
                           </Textbox>
                         </CellContents>
                       </TablixHeader>
@@ -15479,6 +22464,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                                     </Style>
                                   </Paragraph>
                                 </Paragraphs>
+                                <UserSort />
                               </Textbox>
                             </CellContents>
                           </TablixHeader>
@@ -15523,6 +22509,11 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                                         </Style>
                                       </Paragraph>
                                     </Paragraphs>
+                                    <UserSort>
+                                      <SortExpression>=Fields!Worked_hours_sec.Value</SortExpression>
+                                      <SortExpressionScope>Worked_hours2</SortExpressionScope>
+                                      <SortTarget>SummaryData</SortTarget>
+                                    </UserSort>
                                   </Textbox>
                                 </CellContents>
                               </TablixHeader>
@@ -15783,201 +22774,6 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                     </SortExpression>
                   </SortExpressions>
                   <TablixMembers>
-                    <TablixMember>
-                      <TablixHeader>
-                        <Size>71.98828pt</Size>
-                        <CellContents>
-                          <Textbox Name="TextBox118">
-                            <Left>0in</Left>
-                            <Top>0in</Top>
-                            <Height>18pt</Height>
-                            <Width>71.98828pt</Width>
-                            <Style>
-                              <BackgroundColor>#d5d5d5</BackgroundColor>
-                              <FontFamily>Arial</FontFamily>
-                              <PaddingLeft>2pt</PaddingLeft>
-                              <PaddingRight>2pt</PaddingRight>
-                              <PaddingTop>2pt</PaddingTop>
-                              <PaddingBottom>2pt</PaddingBottom>
-                              <Border>
-                                <Color>LightGrey</Color>
-                                <Style>None</Style>
-                              </Border>
-                              <BottomBorder>
-                                <Style>Solid</Style>
-                              </BottomBorder>
-                            </Style>
-                            <CanGrow>true</CanGrow>
-                            <KeepTogether>true</KeepTogether>
-                            <Paragraphs>
-                              <Paragraph>
-                                <TextRuns>
-                                  <TextRun>
-                                    <Value />
-                                    <Style>
-                                      <FontFamily>Arial</FontFamily>
-                                      <Color>black</Color>
-                                    </Style>
-                                  </TextRun>
-                                </TextRuns>
-                                <Style>
-                                  <FontFamily>Arial</FontFamily>
-                                  <TextAlign>Center</TextAlign>
-                                </Style>
-                              </Paragraph>
-                            </Paragraphs>
-                          </Textbox>
-                        </CellContents>
-                      </TablixHeader>
-                      <TablixMembers>
-                        <TablixMember>
-                          <TablixHeader>
-                            <Size>71.98828pt</Size>
-                            <CellContents>
-                              <Textbox Name="TextBox931">
-                                <Left>0in</Left>
-                                <Top>0in</Top>
-                                <Height>18pt</Height>
-                                <Width>71.98828pt</Width>
-                                <Style>
-                                  <BackgroundColor>#d5d5d5</BackgroundColor>
-                                  <FontFamily>Arial</FontFamily>
-                                  <PaddingLeft>2pt</PaddingLeft>
-                                  <PaddingRight>2pt</PaddingRight>
-                                  <PaddingTop>2pt</PaddingTop>
-                                  <PaddingBottom>2pt</PaddingBottom>
-                                  <Border>
-                                    <Color>LightGrey</Color>
-                                    <Style>None</Style>
-                                  </Border>
-                                  <BottomBorder>
-                                    <Style>Solid</Style>
-                                  </BottomBorder>
-                                </Style>
-                                <CanGrow>true</CanGrow>
-                                <KeepTogether>true</KeepTogether>
-                                <Paragraphs>
-                                  <Paragraph>
-                                    <TextRuns>
-                                      <TextRun>
-                                        <Value>=CountDistinct(Fields!Employee.Value)</Value>
-                                        <Style>
-                                          <FontFamily>Arial</FontFamily>
-                                          <Color>black</Color>
-                                        </Style>
-                                      </TextRun>
-                                    </TextRuns>
-                                    <Style>
-                                      <FontFamily>Arial</FontFamily>
-                                      <TextAlign>Center</TextAlign>
-                                    </Style>
-                                  </Paragraph>
-                                </Paragraphs>
-                              </Textbox>
-                            </CellContents>
-                          </TablixHeader>
-                          <TablixMembers>
-                            <TablixMember>
-                              <TablixHeader>
-                                <Size>71.98828pt</Size>
-                                <CellContents>
-                                  <Textbox Name="TextBox1162">
-                                    <Left>0in</Left>
-                                    <Top>0in</Top>
-                                    <Height>18pt</Height>
-                                    <Width>71.98828pt</Width>
-                                    <Style>
-                                      <BackgroundColor>#d5d5d5</BackgroundColor>
-                                      <FontFamily>Arial</FontFamily>
-                                      <PaddingLeft>2pt</PaddingLeft>
-                                      <PaddingRight>2pt</PaddingRight>
-                                      <PaddingTop>2pt</PaddingTop>
-                                      <PaddingBottom>2pt</PaddingBottom>
-                                      <Border>
-                                        <Color>LightGrey</Color>
-                                        <Style>None</Style>
-                                      </Border>
-                                      <BottomBorder>
-                                        <Style>Solid</Style>
-                                      </BottomBorder>
-                                    </Style>
-                                    <CanGrow>true</CanGrow>
-                                    <KeepTogether>true</KeepTogether>
-                                    <Paragraphs>
-                                      <Paragraph>
-                                        <TextRuns>
-                                          <TextRun>
-                                            <Value>=CountDistinct(Fields!Date.Value)</Value>
-                                            <Style>
-                                              <FontFamily>Arial</FontFamily>
-                                              <Color>black</Color>
-                                            </Style>
-                                          </TextRun>
-                                        </TextRuns>
-                                        <Style>
-                                          <FontFamily>Arial</FontFamily>
-                                          <TextAlign>Center</TextAlign>
-                                        </Style>
-                                      </Paragraph>
-                                    </Paragraphs>
-                                  </Textbox>
-                                </CellContents>
-                              </TablixHeader>
-                              <TablixMembers>
-                                <TablixMember>
-                                  <TablixHeader>
-                                    <Size>71.98828pt</Size>
-                                    <CellContents>
-                                      <Textbox Name="TextBox120">
-                                        <Left>0in</Left>
-                                        <Top>0in</Top>
-                                        <Height>18pt</Height>
-                                        <Width>71.98828pt</Width>
-                                        <Style>
-                                          <BackgroundColor>#d5d5d5</BackgroundColor>
-                                          <FontFamily>Arial</FontFamily>
-                                          <PaddingLeft>2pt</PaddingLeft>
-                                          <PaddingRight>2pt</PaddingRight>
-                                          <PaddingTop>2pt</PaddingTop>
-                                          <PaddingBottom>2pt</PaddingBottom>
-                                          <Border>
-                                            <Color>LightGrey</Color>
-                                            <Style>None</Style>
-                                          </Border>
-                                          <BottomBorder>
-                                            <Style>Solid</Style>
-                                          </BottomBorder>
-                                        </Style>
-                                        <CanGrow>true</CanGrow>
-                                        <KeepTogether>true</KeepTogether>
-                                        <Paragraphs>
-                                          <Paragraph>
-                                            <TextRuns>
-                                              <TextRun>
-                                                <Value>=Fields!TotalCompany.Value</Value>
-                                                <Style>
-                                                  <FontFamily>Arial</FontFamily>
-                                                  <Color>black</Color>
-                                                </Style>
-                                              </TextRun>
-                                            </TextRuns>
-                                            <Style>
-                                              <FontFamily>Arial</FontFamily>
-                                              <TextAlign>Center</TextAlign>
-                                            </Style>
-                                          </Paragraph>
-                                        </Paragraphs>
-                                      </Textbox>
-                                    </CellContents>
-                                  </TablixHeader>
-                                </TablixMember>
-                              </TablixMembers>
-                            </TablixMember>
-                          </TablixMembers>
-                        </TablixMember>
-                      </TablixMembers>
-                      <KeepWithGroup>After</KeepWithGroup>
-                    </TablixMember>
                     <TablixMember>
                       <Group Name="Store2">
                         <GroupExpressions>
@@ -16331,14 +23127,14 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                                   </TablixHeader>
                                 </TablixMember>
                                 <TablixMember>
-                                  <Group Name="TotalEmployeeData1">
+                                  <Group Name="Date1">
                                     <GroupExpressions>
-                                      <GroupExpression>=Fields!TotalEmployeeData.Value</GroupExpression>
+                                      <GroupExpression>=Fields!Date.Value</GroupExpression>
                                     </GroupExpressions>
                                   </Group>
                                   <SortExpressions>
                                     <SortExpression>
-                                      <Value>=Fields!TotalEmployeeData.Value</Value>
+                                      <Value>=Fields!Date.Value</Value>
                                       <Direction>Ascending</Direction>
                                     </SortExpression>
                                   </SortExpressions>
@@ -16482,10 +23278,10 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
             </TablixRowHierarchy>
           </Tablix>
           <Tablix Name="Tablix2">
-            <Left>7.42187pt</Left>
-            <Top>8.20312pt</Top>
+            <Left>7.41797pt</Left>
+            <Top>8.19141pt</Top>
             <Height>62.99998pt</Height>
-            <Width>570.7031pt</Width>
+            <Width>672.4922pt</Width>
             <Style>
               <FontFamily>Arial</FontFamily>
               <Border>
@@ -16514,13 +23310,13 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                   <Width>71.94141pt</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>55.44141pt</Width>
+                  <Width>70.5pt</Width>
                 </TablixColumn>
                 <TablixColumn>
                   <Width>71.94141pt</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>47.48438pt</Width>
+                  <Width>134.25pt</Width>
                 </TablixColumn>
               </TablixColumns>
               <TablixRows>
@@ -16578,6 +23374,11 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                               </Style>
                             </Paragraph>
                           </Paragraphs>
+                          <UserSort>
+                            <SortExpression>=Fields!Store.Value</SortExpression>
+                            <SortExpressionScope>Details</SortExpressionScope>
+                            <SortTarget>DetailData</SortTarget>
+                          </UserSort>
                         </Textbox>
                         <RowSpan>1</RowSpan>
                         <ColSpan>1</ColSpan>
@@ -16634,6 +23435,11 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                               </Style>
                             </Paragraph>
                           </Paragraphs>
+                          <UserSort>
+                            <SortExpression>=Fields!Employee.Value</SortExpression>
+                            <SortExpressionScope>Details</SortExpressionScope>
+                            <SortTarget>DetailData</SortTarget>
+                          </UserSort>
                         </Textbox>
                         <RowSpan>1</RowSpan>
                         <ColSpan>1</ColSpan>
@@ -16690,6 +23496,11 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                               </Style>
                             </Paragraph>
                           </Paragraphs>
+                          <UserSort>
+                            <SortExpression>=Fields!Sing_in.Value</SortExpression>
+                            <SortExpressionScope>Details</SortExpressionScope>
+                            <SortTarget>DetailData</SortTarget>
+                          </UserSort>
                         </Textbox>
                         <RowSpan>1</RowSpan>
                         <ColSpan>1</ColSpan>
@@ -16746,6 +23557,11 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                               </Style>
                             </Paragraph>
                           </Paragraphs>
+                          <UserSort>
+                            <SortExpression>=Fields!Sing_out.Value</SortExpression>
+                            <SortExpressionScope>Details</SortExpressionScope>
+                            <SortTarget>DetailData</SortTarget>
+                          </UserSort>
                         </Textbox>
                         <RowSpan>1</RowSpan>
                         <ColSpan>1</ColSpan>
@@ -16802,6 +23618,11 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                               </Style>
                             </Paragraph>
                           </Paragraphs>
+                          <UserSort>
+                            <SortExpression>=Fields!Worked_hours_sec.Value</SortExpression>
+                            <SortExpressionScope>Details</SortExpressionScope>
+                            <SortTarget>DetailData</SortTarget>
+                          </UserSort>
                         </Textbox>
                         <RowSpan>1</RowSpan>
                         <ColSpan>1</ColSpan>
@@ -16813,7 +23634,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                           <Left>0in</Left>
                           <Top>0in</Top>
                           <Height>27pt</Height>
-                          <Width>55.44143pt</Width>
+                          <Width>70.5pt</Width>
                           <Style>
                             <BackgroundColor>#eeeeee</BackgroundColor>
                             <FontFamily>Arial</FontFamily>
@@ -16858,6 +23679,11 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                               </Style>
                             </Paragraph>
                           </Paragraphs>
+                          <UserSort>
+                            <SortExpression>=Fields!Date.Value</SortExpression>
+                            <SortExpressionScope>Details</SortExpressionScope>
+                            <SortTarget>DetailData</SortTarget>
+                          </UserSort>
                         </Textbox>
                         <RowSpan>1</RowSpan>
                         <ColSpan>1</ColSpan>
@@ -16914,6 +23740,11 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                               </Style>
                             </Paragraph>
                           </Paragraphs>
+                          <UserSort>
+                            <SortExpression>=Fields!DayNumber.Value</SortExpression>
+                            <SortExpressionScope>Details</SortExpressionScope>
+                            <SortTarget>DetailData</SortTarget>
+                          </UserSort>
                         </Textbox>
                         <RowSpan>1</RowSpan>
                         <ColSpan>1</ColSpan>
@@ -16925,7 +23756,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                           <Left>0in</Left>
                           <Top>0in</Top>
                           <Height>27pt</Height>
-                          <Width>47.48438pt</Width>
+                          <Width>134.25pt</Width>
                           <Style>
                             <BackgroundColor>#eeeeee</BackgroundColor>
                             <FontFamily>Arial</FontFamily>
@@ -16970,6 +23801,11 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                               </Style>
                             </Paragraph>
                           </Paragraphs>
+                          <UserSort>
+                            <SortExpression>=Fields!Skip.Value</SortExpression>
+                            <SortExpressionScope>Details</SortExpressionScope>
+                            <SortTarget>DetailData</SortTarget>
+                          </UserSort>
                         </Textbox>
                         <RowSpan>1</RowSpan>
                         <ColSpan>1</ColSpan>
@@ -17288,7 +24124,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                           <Left>0in</Left>
                           <Top>0in</Top>
                           <Height>18pt</Height>
-                          <Width>55.44143pt</Width>
+                          <Width>70.5pt</Width>
                           <Style>
                             <BackgroundColor>#c3c3c3</BackgroundColor>
                             <FontFamily>Arial</FontFamily>
@@ -17416,7 +24252,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                           <Left>0in</Left>
                           <Top>0in</Top>
                           <Height>18pt</Height>
-                          <Width>47.48438pt</Width>
+                          <Width>134.25pt</Width>
                           <Style>
                             <BackgroundColor>#c3c3c3</BackgroundColor>
                             <FontFamily>Arial</FontFamily>
@@ -17775,7 +24611,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                           <Left>0in</Left>
                           <Top>0in</Top>
                           <Height>18pt</Height>
-                          <Width>55.44143pt</Width>
+                          <Width>70.5pt</Width>
                           <Style>
                             <FontFamily>Arial</FontFamily>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -17895,7 +24731,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                           <Left>0in</Left>
                           <Top>0in</Top>
                           <Height>18pt</Height>
-                          <Width>47.48438pt</Width>
+                          <Width>134.25pt</Width>
                           <Style>
                             <FontFamily>Arial</FontFamily>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -18701,6 +25537,8 @@ END[Day]
 , TotalStore.TotalStore
 , TotalCompany.TotalCompany
 , TotalAll.TotalAll
+,DATEPART(WEEKDAY,ClockInDateTime)[DayNumber]
+,(DATEDIFF(second, ClockInDateTime, ClockOutDateTime)) [Worked hours sec]
 FROM dbo.EmployeeClockInOutEvent ecioe
 INNER JOIN dbo.Employee e ON e.ID=ecioe.EmployeeID and @s=1 and (ClockInDateTime is not null and ClockOutDateTime is not null) and CAST(ClockInDateTime as Date) between @DateFrom and @DateTo 
 INNER JOIN dbo.Store s ON s.ID=ecioe.StoreID
@@ -18859,6 +25697,14 @@ WHERE s.ID IN (@DataStore)</CommandText>
         <Field Name="TotalAll">
           <DataField>TotalAll</DataField>
           <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="DayNumber">
+          <DataField>DayNumber</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="Worked_hours_sec">
+          <DataField>Worked hours sec</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
       </Fields>
     </DataSet>
@@ -18908,6 +25754,8 @@ END[Day]
 , TotalStore.TotalStore
 , TotalCompany.TotalCompany
 , TotalAll.TotalAll
+,DATEPART(WEEKDAY,ClockInDateTime)[DayNumber]
+,(DATEDIFF(second, ClockInDateTime, ClockOutDateTime)) [Worked hours sec]
 FROM dbo.EmployeeClockInOutEvent ecioe
 INNER JOIN dbo.Employee e ON e.ID=ecioe.EmployeeID and @s=1 and (ClockInDateTime is not null and ClockOutDateTime is not null) and CAST(ClockInDateTime as Date) between @DateFrom and @DateTo 
 INNER JOIN dbo.Store s ON s.ID=ecioe.StoreID
@@ -19066,6 +25914,14 @@ WHERE s.ID IN (@DataStore)</CommandText>
         <Field Name="TotalAll">
           <DataField>TotalAll</DataField>
           <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="DayNumber">
+          <DataField>DayNumber</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="Worked_hours_sec">
+          <DataField>Worked hours sec</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
       </Fields>
     </DataSet>
@@ -19342,7 +26198,7 @@ WHERE id = @Type
   <rd:ReportUnitType>Inch</rd:ReportUnitType>
   <rd:PageUnit>Px</rd:PageUnit>
   <df:DefaultFontFamily>Segoe UI</df:DefaultFontFamily>
-</Report>', '2022-12-28 09:28:09.7200000 +00:00', 34, N'N', '6c4bb793-dfa3-4f98-a6f7-402cb653b9f2', 1, NULL, 2, '2022-12-12 15:20:33.1023601 +00:00')
+</Report>', '2022-12-28 14:14:00.0133333 +00:00', 40, N'N', 'df729315-1f73-427d-a605-e47f1ff52167', 1, NULL, 2, '2022-12-12 15:20:33.1023601 +00:00')
 INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySubID], [Name], [Code], [Rdl], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [LanguageID], [CreateDate]) VALUES ('3e851252-667c-ed11-835f-02f176033ddb', '296c565d-433e-ed11-8e5b-4ccc6a2bb6d6', NULL, N'Accounting and VAT', N'AccVatRep', N'<?xml version="1.0" encoding="utf-8"?>
 <Report xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner" xmlns:df="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition/defaultfontfamily" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition">
   <ReportSections>
@@ -19354,7 +26210,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
             <Left>6.75pt</Left>
             <Top>6pt</Top>
             <Height>74.25pt</Height>
-            <Width>1152pt</Width>
+            <Width>1151.9883pt</Width>
             <Style>
               <FontFamily>Arial</FontFamily>
               <Border>
@@ -19371,7 +26227,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                         <Left>0in</Left>
                         <Top>0in</Top>
                         <Height>38.25pt</Height>
-                        <Width>71.9922pt</Width>
+                        <Width>71.9883pt</Width>
                         <Style>
                           <BackgroundColor>#eeeeee</BackgroundColor>
                           <FontFamily>Arial</FontFamily>
@@ -19385,6 +26241,9 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                             <Style>Solid</Style>
                           </Border>
                         </Style>
+                        <Visibility>
+                          <Hidden>False</Hidden>
+                        </Visibility>
                         <CanGrow>true</CanGrow>
                         <KeepTogether>true</KeepTogether>
                         <Paragraphs>
@@ -19404,6 +26263,11 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                             </Style>
                           </Paragraph>
                         </Paragraphs>
+                        <UserSort>
+                          <SortExpression>=Fields!date.Value</SortExpression>
+                          <SortExpressionScope>date1</SortExpressionScope>
+                          <SortTarget>SummaryData</SortTarget>
+                        </UserSort>
                       </Textbox>
                       <RowSpan>1</RowSpan>
                       <ColSpan>1</ColSpan>
@@ -19415,7 +26279,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                         <Left>0in</Left>
                         <Top>0in</Top>
                         <Height>38.25pt</Height>
-                        <Width>71.9922pt</Width>
+                        <Width>71.9883pt</Width>
                         <Style>
                           <BackgroundColor>#eeeeee</BackgroundColor>
                           <FontFamily>Arial</FontFamily>
@@ -19448,6 +26312,11 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                             </Style>
                           </Paragraph>
                         </Paragraphs>
+                        <UserSort>
+                          <SortExpression>=Fields!time.Value</SortExpression>
+                          <SortExpressionScope>date1</SortExpressionScope>
+                          <SortTarget>SummaryData</SortTarget>
+                        </UserSort>
                       </Textbox>
                       <RowSpan>1</RowSpan>
                       <ColSpan>1</ColSpan>
@@ -19459,7 +26328,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                         <Left>0in</Left>
                         <Top>0in</Top>
                         <Height>38.25pt</Height>
-                        <Width>71.9922pt</Width>
+                        <Width>71.9883pt</Width>
                         <Style>
                           <BackgroundColor>#eeeeee</BackgroundColor>
                           <FontFamily>Arial</FontFamily>
@@ -19492,6 +26361,11 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                             </Style>
                           </Paragraph>
                         </Paragraphs>
+                        <UserSort>
+                          <SortExpression>=Fields!date.Value</SortExpression>
+                          <SortExpressionScope>date1</SortExpressionScope>
+                          <SortTarget>SummaryData</SortTarget>
+                        </UserSort>
                       </Textbox>
                       <RowSpan>1</RowSpan>
                       <ColSpan>1</ColSpan>
@@ -19503,7 +26377,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                         <Left>0in</Left>
                         <Top>0in</Top>
                         <Height>38.25pt</Height>
-                        <Width>71.9922pt</Width>
+                        <Width>71.9883pt</Width>
                         <Style>
                           <BackgroundColor>#eeeeee</BackgroundColor>
                           <FontFamily>Arial</FontFamily>
@@ -19536,6 +26410,11 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                             </Style>
                           </Paragraph>
                         </Paragraphs>
+                        <UserSort>
+                          <SortExpression>=Fields!ItmeCode.Value</SortExpression>
+                          <SortExpressionScope>ItmeCode1</SortExpressionScope>
+                          <SortTarget>SummaryData</SortTarget>
+                        </UserSort>
                       </Textbox>
                       <RowSpan>1</RowSpan>
                       <ColSpan>1</ColSpan>
@@ -19547,7 +26426,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                         <Left>0in</Left>
                         <Top>0in</Top>
                         <Height>38.25pt</Height>
-                        <Width>71.9922pt</Width>
+                        <Width>71.9883pt</Width>
                         <Style>
                           <BackgroundColor>#eeeeee</BackgroundColor>
                           <FontFamily>Arial</FontFamily>
@@ -19580,6 +26459,11 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                             </Style>
                           </Paragraph>
                         </Paragraphs>
+                        <UserSort>
+                          <SortExpression>=Fields!ItemName.Value</SortExpression>
+                          <SortExpressionScope>ItmeCode1</SortExpressionScope>
+                          <SortTarget>SummaryData</SortTarget>
+                        </UserSort>
                       </Textbox>
                       <RowSpan>1</RowSpan>
                       <ColSpan>1</ColSpan>
@@ -19591,7 +26475,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                         <Left>0in</Left>
                         <Top>0in</Top>
                         <Height>38.25pt</Height>
-                        <Width>71.9922pt</Width>
+                        <Width>71.9883pt</Width>
                         <Style>
                           <BackgroundColor>#eeeeee</BackgroundColor>
                           <FontFamily>Arial</FontFamily>
@@ -19624,6 +26508,11 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                             </Style>
                           </Paragraph>
                         </Paragraphs>
+                        <UserSort>
+                          <SortExpression>=Fields!Quantity.Value</SortExpression>
+                          <SortExpressionScope>ItmeCode1</SortExpressionScope>
+                          <SortTarget>SummaryData</SortTarget>
+                        </UserSort>
                       </Textbox>
                       <RowSpan>1</RowSpan>
                       <ColSpan>1</ColSpan>
@@ -19635,7 +26524,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                         <Left>0in</Left>
                         <Top>0in</Top>
                         <Height>38.25pt</Height>
-                        <Width>71.9922pt</Width>
+                        <Width>71.9883pt</Width>
                         <Style>
                           <BackgroundColor>#eeeeee</BackgroundColor>
                           <FontFamily>Arial</FontFamily>
@@ -19668,6 +26557,11 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                             </Style>
                           </Paragraph>
                         </Paragraphs>
+                        <UserSort>
+                          <SortExpression>=Fields!Price.Value</SortExpression>
+                          <SortExpressionScope>ItmeCode1</SortExpressionScope>
+                          <SortTarget>SummaryData</SortTarget>
+                        </UserSort>
                       </Textbox>
                       <RowSpan>1</RowSpan>
                       <ColSpan>1</ColSpan>
@@ -19679,7 +26573,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                         <Left>0in</Left>
                         <Top>0in</Top>
                         <Height>38.25pt</Height>
-                        <Width>71.9922pt</Width>
+                        <Width>71.9883pt</Width>
                         <Style>
                           <BackgroundColor>#eeeeee</BackgroundColor>
                           <FontFamily>Arial</FontFamily>
@@ -19712,6 +26606,11 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                             </Style>
                           </Paragraph>
                         </Paragraphs>
+                        <UserSort>
+                          <SortExpression>=Fields!VAT_rate.Value</SortExpression>
+                          <SortExpressionScope>ItmeCode1</SortExpressionScope>
+                          <SortTarget>SummaryData</SortTarget>
+                        </UserSort>
                       </Textbox>
                       <RowSpan>1</RowSpan>
                       <ColSpan>1</ColSpan>
@@ -19723,7 +26622,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                         <Left>0in</Left>
                         <Top>0in</Top>
                         <Height>38.25pt</Height>
-                        <Width>71.9922pt</Width>
+                        <Width>71.9883pt</Width>
                         <Style>
                           <BackgroundColor>#eeeeee</BackgroundColor>
                           <FontFamily>Arial</FontFamily>
@@ -19756,6 +26655,11 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                             </Style>
                           </Paragraph>
                         </Paragraphs>
+                        <UserSort>
+                          <SortExpression>=Fields!VAT.Value</SortExpression>
+                          <SortExpressionScope>ItmeCode1</SortExpressionScope>
+                          <SortTarget>SummaryData</SortTarget>
+                        </UserSort>
                       </Textbox>
                       <RowSpan>1</RowSpan>
                       <ColSpan>1</ColSpan>
@@ -19767,7 +26671,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                         <Left>0in</Left>
                         <Top>0in</Top>
                         <Height>38.25pt</Height>
-                        <Width>71.9922pt</Width>
+                        <Width>71.9883pt</Width>
                         <Style>
                           <BackgroundColor>#eeeeee</BackgroundColor>
                           <FontFamily>Arial</FontFamily>
@@ -19800,6 +26704,11 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                             </Style>
                           </Paragraph>
                         </Paragraphs>
+                        <UserSort>
+                          <SortExpression>=Fields!PriceWithVAT.Value</SortExpression>
+                          <SortExpressionScope>ItmeCode1</SortExpressionScope>
+                          <SortTarget>SummaryData</SortTarget>
+                        </UserSort>
                       </Textbox>
                       <RowSpan>1</RowSpan>
                       <ColSpan>1</ColSpan>
@@ -19811,7 +26720,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                         <Left>0in</Left>
                         <Top>0in</Top>
                         <Height>38.25pt</Height>
-                        <Width>71.9922pt</Width>
+                        <Width>71.9883pt</Width>
                         <Style>
                           <BackgroundColor>#eeeeee</BackgroundColor>
                           <FontFamily>Arial</FontFamily>
@@ -19844,6 +26753,11 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                             </Style>
                           </Paragraph>
                         </Paragraphs>
+                        <UserSort>
+                          <SortExpression>=Fields!Discount.Value</SortExpression>
+                          <SortExpressionScope>ItmeCode1</SortExpressionScope>
+                          <SortTarget>SummaryData</SortTarget>
+                        </UserSort>
                       </Textbox>
                       <RowSpan>1</RowSpan>
                       <ColSpan>1</ColSpan>
@@ -19855,7 +26769,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                         <Left>0in</Left>
                         <Top>0in</Top>
                         <Height>38.25pt</Height>
-                        <Width>71.9922pt</Width>
+                        <Width>71.9883pt</Width>
                         <Style>
                           <BackgroundColor>#eeeeee</BackgroundColor>
                           <FontFamily>Arial</FontFamily>
@@ -19888,6 +26802,11 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                             </Style>
                           </Paragraph>
                         </Paragraphs>
+                        <UserSort>
+                          <SortExpression>=Fields!Gross_price.Value</SortExpression>
+                          <SortExpressionScope>ItmeCode1</SortExpressionScope>
+                          <SortTarget>SummaryData</SortTarget>
+                        </UserSort>
                       </Textbox>
                       <RowSpan>1</RowSpan>
                       <ColSpan>1</ColSpan>
@@ -19899,7 +26818,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                         <Left>0in</Left>
                         <Top>0in</Top>
                         <Height>38.25pt</Height>
-                        <Width>71.9922pt</Width>
+                        <Width>71.9883pt</Width>
                         <Style>
                           <BackgroundColor>#eeeeee</BackgroundColor>
                           <FontFamily>Arial</FontFamily>
@@ -19932,6 +26851,11 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                             </Style>
                           </Paragraph>
                         </Paragraphs>
+                        <UserSort>
+                          <SortExpression>=Fields!Net_Total.Value</SortExpression>
+                          <SortExpressionScope>ItmeCode1</SortExpressionScope>
+                          <SortTarget>SummaryData</SortTarget>
+                        </UserSort>
                       </Textbox>
                       <RowSpan>1</RowSpan>
                       <ColSpan>1</ColSpan>
@@ -19943,7 +26867,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                         <Left>0in</Left>
                         <Top>0in</Top>
                         <Height>38.25pt</Height>
-                        <Width>71.9922pt</Width>
+                        <Width>71.9883pt</Width>
                         <Style>
                           <BackgroundColor>#eeeeee</BackgroundColor>
                           <FontFamily>Arial</FontFamily>
@@ -19976,6 +26900,11 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                             </Style>
                           </Paragraph>
                         </Paragraphs>
+                        <UserSort>
+                          <SortExpression>=Fields!TotalAfterDisc.Value</SortExpression>
+                          <SortExpressionScope>ItmeCode1</SortExpressionScope>
+                          <SortTarget>SummaryData</SortTarget>
+                        </UserSort>
                       </Textbox>
                       <RowSpan>1</RowSpan>
                       <ColSpan>1</ColSpan>
@@ -19987,7 +26916,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                         <Left>0in</Left>
                         <Top>0in</Top>
                         <Height>38.25pt</Height>
-                        <Width>71.9922pt</Width>
+                        <Width>71.9883pt</Width>
                         <Style>
                           <BackgroundColor>#eeeeee</BackgroundColor>
                           <FontFamily>Arial</FontFamily>
@@ -20020,6 +26949,11 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                             </Style>
                           </Paragraph>
                         </Paragraphs>
+                        <UserSort>
+                          <SortExpression>=Fields!TotalVatAfterDis.Value</SortExpression>
+                          <SortExpressionScope>ItmeCode1</SortExpressionScope>
+                          <SortTarget>SummaryData</SortTarget>
+                        </UserSort>
                       </Textbox>
                       <RowSpan>1</RowSpan>
                       <ColSpan>1</ColSpan>
@@ -20031,7 +26965,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
             <TablixBody>
               <TablixColumns>
                 <TablixColumn>
-                  <Width>72.10938pt</Width>
+                  <Width>72.16406pt</Width>
                 </TablixColumn>
               </TablixColumns>
               <TablixRows>
@@ -20044,7 +26978,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                           <Left>0in</Left>
                           <Top>0in</Top>
                           <Height>18pt</Height>
-                          <Width>72.10935pt</Width>
+                          <Width>72.1641pt</Width>
                           <Style>
                             <BackgroundColor>#c3c3c3</BackgroundColor>
                             <FontFamily>Arial</FontFamily>
@@ -20095,7 +27029,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                           <Left>0in</Left>
                           <Top>0in</Top>
                           <Height>18pt</Height>
-                          <Width>72.10935pt</Width>
+                          <Width>72.1641pt</Width>
                           <Style>
                             <FontFamily>Arial</FontFamily>
                             <VerticalAlign>Middle</VerticalAlign>
@@ -20152,13 +27086,13 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                     </SortExpression>
                   </SortExpressions>
                   <TablixHeader>
-                    <Size>38.24219pt</Size>
+                    <Size>38.23828pt</Size>
                     <CellContents>
                       <Textbox Name="Tender11">
                         <Left>0in</Left>
                         <Top>0in</Top>
-                        <Height>38.24219pt</Height>
-                        <Width>72.10935pt</Width>
+                        <Height>38.23828pt</Height>
+                        <Width>72.1641pt</Width>
                         <Style>
                           <BackgroundColor>#eeeeee</BackgroundColor>
                           <FontFamily>Arial</FontFamily>
@@ -20191,6 +27125,11 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                             </Style>
                           </Paragraph>
                         </Paragraphs>
+                        <UserSort>
+                          <SortExpression>=Fields!AmountTend.Value</SortExpression>
+                          <SortExpressionScope>ItmeCode1</SortExpressionScope>
+                          <SortTarget>SummaryData</SortTarget>
+                        </UserSort>
                       </Textbox>
                     </CellContents>
                   </TablixHeader>
@@ -20201,13 +27140,13 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
               <TablixMembers>
                 <TablixMember>
                   <TablixHeader>
-                    <Size>71.99219pt</Size>
+                    <Size>71.98828pt</Size>
                     <CellContents>
                       <Textbox Name="TextBox7">
                         <Left>0in</Left>
                         <Top>0in</Top>
                         <Height>18pt</Height>
-                        <Width>71.99219pt</Width>
+                        <Width>71.98828pt</Width>
                         <Style>
                           <BackgroundColor>#c3c3c3</BackgroundColor>
                           <FontFamily>Arial</FontFamily>
@@ -20221,6 +27160,9 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                             <Style>Solid</Style>
                           </Border>
                         </Style>
+                        <Visibility>
+                          <Hidden>False</Hidden>
+                        </Visibility>
                         <CanGrow>true</CanGrow>
                         <KeepTogether>true</KeepTogether>
                         <Paragraphs>
@@ -20251,13 +27193,13 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                   <TablixMembers>
                     <TablixMember>
                       <TablixHeader>
-                        <Size>71.99219pt</Size>
+                        <Size>71.98828pt</Size>
                         <CellContents>
                           <Textbox Name="TextBox10">
                             <Left>0in</Left>
                             <Top>0in</Top>
                             <Height>18pt</Height>
-                            <Width>71.99219pt</Width>
+                            <Width>71.98828pt</Width>
                             <Style>
                               <BackgroundColor>#c3c3c3</BackgroundColor>
                               <FontFamily>Arial</FontFamily>
@@ -20301,13 +27243,13 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                       <TablixMembers>
                         <TablixMember>
                           <TablixHeader>
-                            <Size>71.99219pt</Size>
+                            <Size>71.98828pt</Size>
                             <CellContents>
                               <Textbox Name="TextBox11">
                                 <Left>0in</Left>
                                 <Top>0in</Top>
                                 <Height>18pt</Height>
-                                <Width>71.99219pt</Width>
+                                <Width>71.98828pt</Width>
                                 <Style>
                                   <BackgroundColor>#c3c3c3</BackgroundColor>
                                   <FontFamily>Arial</FontFamily>
@@ -20353,13 +27295,13 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                           <TablixMembers>
                             <TablixMember>
                               <TablixHeader>
-                                <Size>71.99219pt</Size>
+                                <Size>71.98828pt</Size>
                                 <CellContents>
                                   <Textbox Name="TextBox12">
                                     <Left>0in</Left>
                                     <Top>0in</Top>
                                     <Height>18pt</Height>
-                                    <Width>71.99219pt</Width>
+                                    <Width>71.98828pt</Width>
                                     <Style>
                                       <BackgroundColor>#c3c3c3</BackgroundColor>
                                       <FontFamily>Arial</FontFamily>
@@ -20399,13 +27341,13 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                               <TablixMembers>
                                 <TablixMember>
                                   <TablixHeader>
-                                    <Size>71.99219pt</Size>
+                                    <Size>71.98828pt</Size>
                                     <CellContents>
                                       <Textbox Name="TextBox14">
                                         <Left>0in</Left>
                                         <Top>0in</Top>
                                         <Height>18pt</Height>
-                                        <Width>71.99219pt</Width>
+                                        <Width>71.98828pt</Width>
                                         <Style>
                                           <BackgroundColor>#c3c3c3</BackgroundColor>
                                           <FontFamily>Arial</FontFamily>
@@ -20445,13 +27387,13 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                                   <TablixMembers>
                                     <TablixMember>
                                       <TablixHeader>
-                                        <Size>71.99219pt</Size>
+                                        <Size>71.98828pt</Size>
                                         <CellContents>
                                           <Textbox Name="TextBox15">
                                             <Left>0in</Left>
                                             <Top>0in</Top>
                                             <Height>18pt</Height>
-                                            <Width>71.99219pt</Width>
+                                            <Width>71.98828pt</Width>
                                             <Style>
                                               <BackgroundColor>#c3c3c3</BackgroundColor>
                                               <FontFamily>Arial</FontFamily>
@@ -20497,13 +27439,13 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                                       <TablixMembers>
                                         <TablixMember>
                                           <TablixHeader>
-                                            <Size>71.99219pt</Size>
+                                            <Size>71.98828pt</Size>
                                             <CellContents>
                                               <Textbox Name="TextBox16">
                                                 <Left>0in</Left>
                                                 <Top>0in</Top>
                                                 <Height>18pt</Height>
-                                                <Width>71.99219pt</Width>
+                                                <Width>71.98828pt</Width>
                                                 <Style>
                                                   <BackgroundColor>#c3c3c3</BackgroundColor>
                                                   <FontFamily>Arial</FontFamily>
@@ -20544,13 +27486,13 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                                           <TablixMembers>
                                             <TablixMember>
                                               <TablixHeader>
-                                                <Size>71.99219pt</Size>
+                                                <Size>71.98828pt</Size>
                                                 <CellContents>
                                                   <Textbox Name="TextBox42">
                                                     <Left>0in</Left>
                                                     <Top>0in</Top>
                                                     <Height>18pt</Height>
-                                                    <Width>71.99219pt</Width>
+                                                    <Width>71.98828pt</Width>
                                                     <Style>
                                                       <BackgroundColor>#c3c3c3</BackgroundColor>
                                                       <FontFamily>Arial</FontFamily>
@@ -20591,13 +27533,13 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                                               <TablixMembers>
                                                 <TablixMember>
                                                   <TablixHeader>
-                                                    <Size>71.99219pt</Size>
+                                                    <Size>71.98828pt</Size>
                                                     <CellContents>
                                                       <Textbox Name="TextBox45">
                                                         <Left>0in</Left>
                                                         <Top>0in</Top>
                                                         <Height>18pt</Height>
-                                                        <Width>71.99219pt</Width>
+                                                        <Width>71.98828pt</Width>
                                                         <Style>
                                                           <BackgroundColor>#c3c3c3</BackgroundColor>
                                                           <FontFamily>Arial</FontFamily>
@@ -20638,13 +27580,13 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                                                   <TablixMembers>
                                                     <TablixMember>
                                                       <TablixHeader>
-                                                        <Size>71.99219pt</Size>
+                                                        <Size>71.98828pt</Size>
                                                         <CellContents>
                                                           <Textbox Name="TextBox46">
                                                             <Left>0in</Left>
                                                             <Top>0in</Top>
                                                             <Height>18pt</Height>
-                                                            <Width>71.99219pt</Width>
+                                                            <Width>71.98828pt</Width>
                                                             <Style>
                                                               <BackgroundColor>#c3c3c3</BackgroundColor>
                                                               <FontFamily>Arial</FontFamily>
@@ -20685,13 +27627,13 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                                                       <TablixMembers>
                                                         <TablixMember>
                                                           <TablixHeader>
-                                                            <Size>71.99219pt</Size>
+                                                            <Size>71.98828pt</Size>
                                                             <CellContents>
                                                               <Textbox Name="TextBox47">
                                                                 <Left>0in</Left>
                                                                 <Top>0in</Top>
                                                                 <Height>18pt</Height>
-                                                                <Width>71.99219pt</Width>
+                                                                <Width>71.98828pt</Width>
                                                                 <Style>
                                                                   <BackgroundColor>#c3c3c3</BackgroundColor>
                                                                   <FontFamily>Arial</FontFamily>
@@ -20732,13 +27674,13 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                                                           <TablixMembers>
                                                             <TablixMember>
                                                               <TablixHeader>
-                                                                <Size>71.99219pt</Size>
+                                                                <Size>71.98828pt</Size>
                                                                 <CellContents>
                                                                   <Textbox Name="TextBox48">
                                                                     <Left>0in</Left>
                                                                     <Top>0in</Top>
                                                                     <Height>18pt</Height>
-                                                                    <Width>71.99219pt</Width>
+                                                                    <Width>71.98828pt</Width>
                                                                     <Style>
                                                                       <BackgroundColor>#c3c3c3</BackgroundColor>
                                                                       <FontFamily>Arial</FontFamily>
@@ -20779,13 +27721,13 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                                                               <TablixMembers>
                                                                 <TablixMember>
                                                                   <TablixHeader>
-                                                                    <Size>71.99219pt</Size>
+                                                                    <Size>71.98828pt</Size>
                                                                     <CellContents>
                                                                       <Textbox Name="TextBox491">
                                                                         <Left>0in</Left>
                                                                         <Top>0in</Top>
                                                                         <Height>18pt</Height>
-                                                                        <Width>71.99219pt</Width>
+                                                                        <Width>71.98828pt</Width>
                                                                         <Style>
                                                                           <BackgroundColor>#c3c3c3</BackgroundColor>
                                                                           <FontFamily>Arial</FontFamily>
@@ -20826,13 +27768,13 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                                                                   <TablixMembers>
                                                                     <TablixMember>
                                                                       <TablixHeader>
-                                                                        <Size>71.99219pt</Size>
+                                                                        <Size>71.98828pt</Size>
                                                                         <CellContents>
                                                                           <Textbox Name="TextBox49">
                                                                             <Left>0in</Left>
                                                                             <Top>0in</Top>
                                                                             <Height>18pt</Height>
-                                                                            <Width>71.99219pt</Width>
+                                                                            <Width>71.98828pt</Width>
                                                                             <Style>
                                                                               <BackgroundColor>#c3c3c3</BackgroundColor>
                                                                               <FontFamily>Arial</FontFamily>
@@ -20873,13 +27815,13 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                                                                       <TablixMembers>
                                                                         <TablixMember>
                                                                           <TablixHeader>
-                                                                            <Size>71.99219pt</Size>
+                                                                            <Size>71.98828pt</Size>
                                                                             <CellContents>
                                                                               <Textbox Name="TextBox50">
                                                                                 <Left>0in</Left>
                                                                                 <Top>0in</Top>
                                                                                 <Height>18pt</Height>
-                                                                                <Width>71.99219pt</Width>
+                                                                                <Width>71.98828pt</Width>
                                                                                 <Style>
                                                                                   <BackgroundColor>#c3c3c3</BackgroundColor>
                                                                                   <FontFamily>Arial</FontFamily>
@@ -20960,13 +27902,13 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                     </SortExpression>
                   </SortExpressions>
                   <TablixHeader>
-                    <Size>71.99219pt</Size>
+                    <Size>71.98828pt</Size>
                     <CellContents>
                       <Textbox Name="date11">
                         <Left>0in</Left>
                         <Top>0in</Top>
                         <Height>18pt</Height>
-                        <Width>71.99219pt</Width>
+                        <Width>71.98828pt</Width>
                         <Style>
                           <FontFamily>Arial</FontFamily>
                           <VerticalAlign>Middle</VerticalAlign>
@@ -20979,6 +27921,9 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                             <Style>Solid</Style>
                           </Border>
                         </Style>
+                        <Visibility>
+                          <Hidden>False</Hidden>
+                        </Visibility>
                         <CanGrow>true</CanGrow>
                         <KeepTogether>true</KeepTogether>
                         <Paragraphs>
@@ -21008,13 +27953,13 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                   <TablixMembers>
                     <TablixMember>
                       <TablixHeader>
-                        <Size>71.99219pt</Size>
+                        <Size>71.98828pt</Size>
                         <CellContents>
                           <Textbox Name="TextBox18">
                             <Left>0in</Left>
                             <Top>0in</Top>
                             <Height>18pt</Height>
-                            <Width>71.99219pt</Width>
+                            <Width>71.98828pt</Width>
                             <Style>
                               <FontFamily>Arial</FontFamily>
                               <VerticalAlign>Middle</VerticalAlign>
@@ -21056,13 +28001,13 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                       <TablixMembers>
                         <TablixMember>
                           <TablixHeader>
-                            <Size>71.99219pt</Size>
+                            <Size>71.98828pt</Size>
                             <CellContents>
                               <Textbox Name="TextBox22">
                                 <Left>0in</Left>
                                 <Top>0in</Top>
                                 <Height>18pt</Height>
-                                <Width>71.99219pt</Width>
+                                <Width>71.98828pt</Width>
                                 <Style>
                                   <FontFamily>Arial</FontFamily>
                                   <VerticalAlign>Middle</VerticalAlign>
@@ -21117,13 +28062,13 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                                 </SortExpression>
                               </SortExpressions>
                               <TablixHeader>
-                                <Size>71.99219pt</Size>
+                                <Size>71.98828pt</Size>
                                 <CellContents>
                                   <Textbox Name="ItmeCode11">
                                     <Left>0in</Left>
                                     <Top>0in</Top>
                                     <Height>18pt</Height>
-                                    <Width>71.99219pt</Width>
+                                    <Width>71.98828pt</Width>
                                     <Style>
                                       <FontFamily>Arial</FontFamily>
                                       <VerticalAlign>Middle</VerticalAlign>
@@ -21161,13 +28106,13 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                               <TablixMembers>
                                 <TablixMember>
                                   <TablixHeader>
-                                    <Size>71.99219pt</Size>
+                                    <Size>71.98828pt</Size>
                                     <CellContents>
                                       <Textbox Name="TextBox26">
                                         <Left>0in</Left>
                                         <Top>0in</Top>
                                         <Height>18pt</Height>
-                                        <Width>71.99219pt</Width>
+                                        <Width>71.98828pt</Width>
                                         <Style>
                                           <FontFamily>Arial</FontFamily>
                                           <VerticalAlign>Middle</VerticalAlign>
@@ -21205,13 +28150,13 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                                   <TablixMembers>
                                     <TablixMember>
                                       <TablixHeader>
-                                        <Size>71.99219pt</Size>
+                                        <Size>71.98828pt</Size>
                                         <CellContents>
                                           <Textbox Name="TextBox28">
                                             <Left>0in</Left>
                                             <Top>0in</Top>
                                             <Height>18pt</Height>
-                                            <Width>71.99219pt</Width>
+                                            <Width>71.98828pt</Width>
                                             <Style>
                                               <FontFamily>Arial</FontFamily>
                                               <VerticalAlign>Middle</VerticalAlign>
@@ -21255,13 +28200,13 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                                       <TablixMembers>
                                         <TablixMember>
                                           <TablixHeader>
-                                            <Size>71.99219pt</Size>
+                                            <Size>71.98828pt</Size>
                                             <CellContents>
                                               <Textbox Name="TextBox30">
                                                 <Left>0in</Left>
                                                 <Top>0in</Top>
                                                 <Height>18pt</Height>
-                                                <Width>71.99219pt</Width>
+                                                <Width>71.98828pt</Width>
                                                 <Style>
                                                   <FontFamily>Arial</FontFamily>
                                                   <VerticalAlign>Middle</VerticalAlign>
@@ -21300,13 +28245,13 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                                           <TablixMembers>
                                             <TablixMember>
                                               <TablixHeader>
-                                                <Size>71.99219pt</Size>
+                                                <Size>71.98828pt</Size>
                                                 <CellContents>
                                                   <Textbox Name="TextBox32">
                                                     <Left>0in</Left>
                                                     <Top>0in</Top>
                                                     <Height>18pt</Height>
-                                                    <Width>71.99219pt</Width>
+                                                    <Width>71.98828pt</Width>
                                                     <Style>
                                                       <FontFamily>Arial</FontFamily>
                                                       <VerticalAlign>Middle</VerticalAlign>
@@ -21345,13 +28290,13 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                                               <TablixMembers>
                                                 <TablixMember>
                                                   <TablixHeader>
-                                                    <Size>71.99219pt</Size>
+                                                    <Size>71.98828pt</Size>
                                                     <CellContents>
                                                       <Textbox Name="TextBox34">
                                                         <Left>0in</Left>
                                                         <Top>0in</Top>
                                                         <Height>18pt</Height>
-                                                        <Width>71.99219pt</Width>
+                                                        <Width>71.98828pt</Width>
                                                         <Style>
                                                           <FontFamily>Arial</FontFamily>
                                                           <VerticalAlign>Middle</VerticalAlign>
@@ -21390,13 +28335,13 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                                                   <TablixMembers>
                                                     <TablixMember>
                                                       <TablixHeader>
-                                                        <Size>71.99219pt</Size>
+                                                        <Size>71.98828pt</Size>
                                                         <CellContents>
                                                           <Textbox Name="TextBox36">
                                                             <Left>0in</Left>
                                                             <Top>0in</Top>
                                                             <Height>18pt</Height>
-                                                            <Width>71.99219pt</Width>
+                                                            <Width>71.98828pt</Width>
                                                             <Style>
                                                               <FontFamily>Arial</FontFamily>
                                                               <VerticalAlign>Middle</VerticalAlign>
@@ -21435,13 +28380,13 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                                                       <TablixMembers>
                                                         <TablixMember>
                                                           <TablixHeader>
-                                                            <Size>71.99219pt</Size>
+                                                            <Size>71.98828pt</Size>
                                                             <CellContents>
                                                               <Textbox Name="TextBox39">
                                                                 <Left>0in</Left>
                                                                 <Top>0in</Top>
                                                                 <Height>18pt</Height>
-                                                                <Width>71.99219pt</Width>
+                                                                <Width>71.98828pt</Width>
                                                                 <Style>
                                                                   <FontFamily>Arial</FontFamily>
                                                                   <VerticalAlign>Middle</VerticalAlign>
@@ -21480,13 +28425,13 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                                                           <TablixMembers>
                                                             <TablixMember>
                                                               <TablixHeader>
-                                                                <Size>71.99219pt</Size>
+                                                                <Size>71.98828pt</Size>
                                                                 <CellContents>
                                                                   <Textbox Name="TextBox41">
                                                                     <Left>0in</Left>
                                                                     <Top>0in</Top>
                                                                     <Height>18pt</Height>
-                                                                    <Width>71.99219pt</Width>
+                                                                    <Width>71.98828pt</Width>
                                                                     <Style>
                                                                       <FontFamily>Arial</FontFamily>
                                                                       <VerticalAlign>Middle</VerticalAlign>
@@ -21525,13 +28470,13 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                                                               <TablixMembers>
                                                                 <TablixMember>
                                                                   <TablixHeader>
-                                                                    <Size>71.99219pt</Size>
+                                                                    <Size>71.98828pt</Size>
                                                                     <CellContents>
                                                                       <Textbox Name="TextBox58">
                                                                         <Left>0in</Left>
                                                                         <Top>0in</Top>
                                                                         <Height>18pt</Height>
-                                                                        <Width>71.99219pt</Width>
+                                                                        <Width>71.98828pt</Width>
                                                                         <Style>
                                                                           <FontFamily>Arial</FontFamily>
                                                                           <VerticalAlign>Middle</VerticalAlign>
@@ -21570,13 +28515,13 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                                                                   <TablixMembers>
                                                                     <TablixMember>
                                                                       <TablixHeader>
-                                                                        <Size>71.99219pt</Size>
+                                                                        <Size>71.98828pt</Size>
                                                                         <CellContents>
                                                                           <Textbox Name="TextBox44">
                                                                             <Left>0in</Left>
                                                                             <Top>0in</Top>
                                                                             <Height>18pt</Height>
-                                                                            <Width>71.99219pt</Width>
+                                                                            <Width>71.98828pt</Width>
                                                                             <Style>
                                                                               <FontFamily>Arial</FontFamily>
                                                                               <VerticalAlign>Middle</VerticalAlign>
@@ -21615,13 +28560,13 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                                                                       <TablixMembers>
                                                                         <TablixMember>
                                                                           <TablixHeader>
-                                                                            <Size>71.99219pt</Size>
+                                                                            <Size>71.98828pt</Size>
                                                                             <CellContents>
                                                                               <Textbox Name="TextBox72">
                                                                                 <Left>0in</Left>
                                                                                 <Top>0in</Top>
                                                                                 <Height>18pt</Height>
-                                                                                <Width>71.99219pt</Width>
+                                                                                <Width>71.98828pt</Width>
                                                                                 <Style>
                                                                                   <FontFamily>Arial</FontFamily>
                                                                                   <VerticalAlign>Middle</VerticalAlign>
@@ -21703,7 +28648,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
           </BackgroundImage>
         </Style>
       </Body>
-      <Width>1160.25pt</Width>
+      <Width>1232.2383pt</Width>
       <Page>
         <PageHeight>841.68pt</PageHeight>
         <PageWidth>595.44pt</PageWidth>
@@ -22266,15 +29211,16 @@ SELECT cast(t.TransactionDate as date) [date], cast(t.TransactionDate as time) [
 (ti.Price+(ti.TaxAmount/ti.Quantity))+ti.Discount [Gross price], ti.Amount+ti.Discount+ti.TaxAmount [TotalAfterDisc]
 , case when ti.Price &lt;&gt; 0 then ABS(ti.TaxAmount*(100+(ti.Discount/ti.Amount*100))/100) else 0 end [TotalVatAfterDis]
 , c.Code+ '' '' + c.DisplayName [Company], s.DisplayName [Store], tt.Name [TransactionType], tender.Name [Tender], -SUM(tmi.Amount) [AmountTend] 
+,Case when -15 in (@Tender) Then 1 else 0 END [1],1 [2],1 [3],1 [4],1 [5],1 [6],1 [7],1 [8],1 [9],1 [10],1 [11],1 [12],1 [13],1 [14],1 [15]
 FROM dbo.[Transaction] t
-INNER JOIN dbo.TransactionMediaItem tmi ON t.id=tmi.TransactionID and t.TransactionTypeID in (@TranType) and CAST(TransactionDate as Date) between @DateFrom and @DateTo 
+INNER JOIN dbo.TransactionMediaItem tmi ON t.id=tmi.TransactionID and t.TransactionTypeID in (/*@TranType*/2,6) and CAST(TransactionDate as Date) between @DateFrom and @DateTo 
 INNER JOIN dbo.TransactionItem ti ON ti.TransactionID=t.ID and Quantity&lt;&gt;0
 INNER JOIN dbo.Item i ON i.id=ti.ItemID 
 INNER JOIN dbo.Location l ON t.LocationID=l.ID
 INNER JOIN dbo.Store s ON s.ID=l.StoreID
 INNER JOIN dbo.Company c ON l.CompanyID=c.ID
 INNER JOIN dbo.TransactionType tt ON tt.ID=t.TransactionTypeID
-INNER JOIN dbo.Tender tender on tender.ID=tmi.TenderID
+INNER JOIN dbo.Tender tender on tender.ID=tmi.TenderID and tender.ID in (@Tender)
 WHERE s.ID IN (@DataStore) 
 GROUP BY c.Code+ '' '' + c.DisplayName, s.DisplayName, t.TransactionNumber, tt.Name, tender.Name,t.TransactionDate, i.Code, i.ShortDisplayName, ti.Quantity, ti.TaxAmount, ti.Price, ti.Discount,ti.Amount
 ORDER BY 1,2</CommandText>
@@ -22291,8 +29237,8 @@ ORDER BY 1,2</CommandText>
           <QueryParameter Name="@DataStore">
             <Value>=Parameters!Store.Value</Value>
           </QueryParameter>
-          <QueryParameter Name="@TranType">
-            <Value>=Parameters!TranType.Value</Value>
+          <QueryParameter Name="@Tender">
+            <Value>=Parameters!Columns.Value</Value>
           </QueryParameter>
         </QueryParameters>
       </Query>
@@ -22376,6 +29322,66 @@ ORDER BY 1,2</CommandText>
         <Field Name="AmountTend">
           <DataField>AmountTend</DataField>
           <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="ID1">
+          <DataField>1</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="ID2">
+          <DataField>2</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="ID3">
+          <DataField>3</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="ID4">
+          <DataField>4</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="ID5">
+          <DataField>5</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="ID6">
+          <DataField>6</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="ID7">
+          <DataField>7</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="ID8">
+          <DataField>8</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="ID9">
+          <DataField>9</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="ID10">
+          <DataField>10</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="ID11">
+          <DataField>11</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="ID12">
+          <DataField>12</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="ID13">
+          <DataField>13</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="ID14">
+          <DataField>14</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="ID15">
+          <DataField>15</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
       </Fields>
     </DataSet>
@@ -22610,24 +29616,6 @@ order by 1</CommandText>
         </DataSetReference>
       </ValidValues>
     </ReportParameter>
-    <ReportParameter Name="Columns">
-      <DataType>Integer</DataType>
-      <Prompt>Manage columns</Prompt>
-      <DefaultValue>
-        <DataSetReference>
-          <DataSetName>Columns</DataSetName>
-          <ValueField>ID</ValueField>
-        </DataSetReference>
-      </DefaultValue>
-      <ValidValues>
-        <DataSetReference>
-          <DataSetName>Columns</DataSetName>
-          <ValueField>ID</ValueField>
-          <LabelField>Name</LabelField>
-        </DataSetReference>
-      </ValidValues>
-      <MultiValue>true</MultiValue>
-    </ReportParameter>
     <ReportParameter Name="TranType">
       <DataType>Integer</DataType>
       <Prompt>Transaction type</Prompt>
@@ -22641,6 +29629,24 @@ order by 1</CommandText>
         <DataSetReference>
           <DataSetName>TranType</DataSetName>
           <ValueField>id</ValueField>
+          <LabelField>Name</LabelField>
+        </DataSetReference>
+      </ValidValues>
+      <MultiValue>true</MultiValue>
+    </ReportParameter>
+    <ReportParameter Name="Columns">
+      <DataType>Integer</DataType>
+      <Prompt>Manage columns</Prompt>
+      <DefaultValue>
+        <DataSetReference>
+          <DataSetName>Columns</DataSetName>
+          <ValueField>ID</ValueField>
+        </DataSetReference>
+      </DefaultValue>
+      <ValidValues>
+        <DataSetReference>
+          <DataSetName>Columns</DataSetName>
+          <ValueField>ID</ValueField>
           <LabelField>Name</LabelField>
         </DataSetReference>
       </ValidValues>
@@ -22741,12 +29747,12 @@ order by 1</CommandText>
         <CellDefinition>
           <ColumnIndex>1</ColumnIndex>
           <RowIndex>0</RowIndex>
-          <ParameterName>Columns</ParameterName>
+          <ParameterName>TranType</ParameterName>
         </CellDefinition>
         <CellDefinition>
           <ColumnIndex>2</ColumnIndex>
           <RowIndex>0</RowIndex>
-          <ParameterName>TranType</ParameterName>
+          <ParameterName>Columns</ParameterName>
         </CellDefinition>
         <CellDefinition>
           <ColumnIndex>0</ColumnIndex>
@@ -22798,7204 +29804,19 @@ order by 1</CommandText>
   <rd:ReportUnitType>Inch</rd:ReportUnitType>
   <rd:PageUnit>Px</rd:PageUnit>
   <df:DefaultFontFamily>Segoe UI</df:DefaultFontFamily>
-</Report>', '2022-12-23 18:03:42.9566667 +00:00', 35, N'N', 'e7f6e5e5-a28f-4057-8d31-30fba106e103', 1, NULL, 2, '2022-12-15 10:50:43.3807294 +00:00')
-INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySubID], [Name], [Code], [Rdl], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [LanguageID], [CreateDate]) VALUES ('3e6c565d-433e-ed11-8e5b-4ccc6a2bb6d6', '296c565d-433e-ed11-8e5b-4ccc6a2bb6d6', NULL, N'Sales Report', N'SR', N'<?xml version="1.0" encoding="utf-8"?>
-<Report xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner" xmlns:df="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition/defaultfontfamily" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition">
-  <ReportSections>
-    <ReportSection>
-      <Body>
-        <Height>102.75pt</Height>
-        <ReportItems>
-          <Tablix Name="TableCompany">
-            <Left>10.5pt</Left>
-            <Top>12.75pt</Top>
-            <Height>54pt</Height>
-            <Width>513pt</Width>
-            <Style>
-              <FontFamily>Arial</FontFamily>
-              <Border>
-                <Style>None</Style>
-              </Border>
-            </Style>
-            <Visibility>
-              <Hidden>=IIf(Parameters!ReportType.Value=1,False,True)</Hidden>
-            </Visibility>
-            <DataSetName>CompanyData</DataSetName>
-            <TablixBody>
-              <TablixColumns>
-                <TablixColumn>
-                  <Width>102.57813pt</Width>
-                </TablixColumn>
-                <TablixColumn>
-                  <Width>102.57813pt</Width>
-                </TablixColumn>
-                <TablixColumn>
-                  <Width>102.57813pt</Width>
-                </TablixColumn>
-                <TablixColumn>
-                  <Width>102.57813pt</Width>
-                </TablixColumn>
-                <TablixColumn>
-                  <Width>102.6823pt</Width>
-                </TablixColumn>
-              </TablixColumns>
-              <TablixRows>
-                <TablixRow>
-                  <Height>18pt</Height>
-                  <TablixCells>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="TextBox6">
-                          <Left>0in</Left>
-                          <Top>0in</Top>
-                          <Height>18pt</Height>
-                          <Width>102.57825pt</Width>
-                          <Style>
-                            <BackgroundColor>#e3e3e3</BackgroundColor>
-                            <FontFamily>Arial</FontFamily>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                            <Border>
-                              <Width>1.74975pt</Width>
-                              <Color>LightGrey</Color>
-                              <Style>None</Style>
-                            </Border>
-                            <BottomBorder>
-                              <Width>1.37475pt</Width>
-                              <Color>#b3b2b3</Color>
-                              <Style>Solid</Style>
-                            </BottomBorder>
-                            <LeftBorder>
-                              <Style>None</Style>
-                            </LeftBorder>
-                            <RightBorder>
-                              <Style>None</Style>
-                            </RightBorder>
-                            <TopBorder>
-                              <Style>None</Style>
-                            </TopBorder>
-                          </Style>
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value>Company</Value>
-                                  <Style>
-                                    <FontFamily>Arial</FontFamily>
-                                    <Color>black</Color>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style>
-                                <FontFamily>Arial</FontFamily>
-                              </Style>
-                            </Paragraph>
-                          </Paragraphs>
-                          <UserSort>
-                            <SortExpression>=Fields!Company.Value</SortExpression>
-                            <SortExpressionScope>Details1</SortExpressionScope>
-                            <SortTarget>TableCompany</SortTarget>
-                          </UserSort>
-                        </Textbox>
-                        <RowSpan>1</RowSpan>
-                        <ColSpan>1</ColSpan>
-                      </CellContents>
-                    </TablixCell>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="TextBox9">
-                          <Left>0in</Left>
-                          <Top>0in</Top>
-                          <Height>18pt</Height>
-                          <Width>102.57825pt</Width>
-                          <Style>
-                            <BackgroundColor>#e3e3e3</BackgroundColor>
-                            <FontFamily>Arial</FontFamily>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                            <Border>
-                              <Width>1.74975pt</Width>
-                              <Color>LightGrey</Color>
-                              <Style>None</Style>
-                            </Border>
-                            <BottomBorder>
-                              <Width>1.37475pt</Width>
-                              <Color>#b3b2b3</Color>
-                              <Style>Solid</Style>
-                            </BottomBorder>
-                            <LeftBorder>
-                              <Style>None</Style>
-                            </LeftBorder>
-                            <RightBorder>
-                              <Style>None</Style>
-                            </RightBorder>
-                            <TopBorder>
-                              <Style>None</Style>
-                            </TopBorder>
-                          </Style>
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value>AV.amount</Value>
-                                  <Style>
-                                    <FontFamily>Arial</FontFamily>
-                                    <Color>black</Color>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style>
-                                <FontFamily>Arial</FontFamily>
-                              </Style>
-                            </Paragraph>
-                          </Paragraphs>
-                          <UserSort>
-                            <SortExpression>=Fields!AV_Amount.Value</SortExpression>
-                            <SortExpressionScope>Details1</SortExpressionScope>
-                            <SortTarget>TableCompany</SortTarget>
-                          </UserSort>
-                        </Textbox>
-                        <RowSpan>1</RowSpan>
-                        <ColSpan>1</ColSpan>
-                      </CellContents>
-                    </TablixCell>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="TextBox13">
-                          <Left>0in</Left>
-                          <Top>0in</Top>
-                          <Height>18pt</Height>
-                          <Width>102.57825pt</Width>
-                          <Style>
-                            <BackgroundColor>#e3e3e3</BackgroundColor>
-                            <FontFamily>Arial</FontFamily>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                            <Border>
-                              <Width>1.74975pt</Width>
-                              <Color>LightGrey</Color>
-                              <Style>None</Style>
-                            </Border>
-                            <BottomBorder>
-                              <Width>1.37475pt</Width>
-                              <Color>#b3b2b3</Color>
-                              <Style>Solid</Style>
-                            </BottomBorder>
-                            <LeftBorder>
-                              <Style>None</Style>
-                            </LeftBorder>
-                            <RightBorder>
-                              <Style>None</Style>
-                            </RightBorder>
-                            <TopBorder>
-                              <Style>None</Style>
-                            </TopBorder>
-                          </Style>
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value>Amount</Value>
-                                  <Style>
-                                    <FontFamily>Arial</FontFamily>
-                                    <Color>black</Color>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style>
-                                <FontFamily>Arial</FontFamily>
-                              </Style>
-                            </Paragraph>
-                          </Paragraphs>
-                          <UserSort>
-                            <SortExpression>=Fields!Amount.Value</SortExpression>
-                            <SortExpressionScope>Details1</SortExpressionScope>
-                            <SortTarget>TableCompany</SortTarget>
-                          </UserSort>
-                        </Textbox>
-                        <RowSpan>1</RowSpan>
-                        <ColSpan>1</ColSpan>
-                      </CellContents>
-                    </TablixCell>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="TextBox15">
-                          <Left>0in</Left>
-                          <Top>0in</Top>
-                          <Height>18pt</Height>
-                          <Width>102.57825pt</Width>
-                          <Style>
-                            <BackgroundColor>#e3e3e3</BackgroundColor>
-                            <FontFamily>Arial</FontFamily>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                            <Border>
-                              <Width>1.74975pt</Width>
-                              <Color>LightGrey</Color>
-                              <Style>None</Style>
-                            </Border>
-                            <BottomBorder>
-                              <Width>1.37475pt</Width>
-                              <Color>#b3b2b3</Color>
-                              <Style>Solid</Style>
-                            </BottomBorder>
-                            <LeftBorder>
-                              <Style>None</Style>
-                            </LeftBorder>
-                            <RightBorder>
-                              <Style>None</Style>
-                            </RightBorder>
-                            <TopBorder>
-                              <Style>None</Style>
-                            </TopBorder>
-                          </Style>
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value>Quantity</Value>
-                                  <Style>
-                                    <FontFamily>Arial</FontFamily>
-                                    <Color>black</Color>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style>
-                                <FontFamily>Arial</FontFamily>
-                              </Style>
-                            </Paragraph>
-                          </Paragraphs>
-                          <UserSort>
-                            <SortExpression>=Fields!Quantity.Value</SortExpression>
-                            <SortExpressionScope>Details1</SortExpressionScope>
-                            <SortTarget>TableCompany</SortTarget>
-                          </UserSort>
-                        </Textbox>
-                        <RowSpan>1</RowSpan>
-                        <ColSpan>1</ColSpan>
-                      </CellContents>
-                    </TablixCell>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="TextBox16">
-                          <Left>0in</Left>
-                          <Top>0in</Top>
-                          <Height>18pt</Height>
-                          <Width>102.6825pt</Width>
-                          <Style>
-                            <BackgroundColor>#e3e3e3</BackgroundColor>
-                            <FontFamily>Arial</FontFamily>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                            <Border>
-                              <Width>1.74975pt</Width>
-                              <Color>LightGrey</Color>
-                              <Style>None</Style>
-                            </Border>
-                            <BottomBorder>
-                              <Width>1.37475pt</Width>
-                              <Color>#b3b2b3</Color>
-                              <Style>Solid</Style>
-                            </BottomBorder>
-                            <LeftBorder>
-                              <Style>None</Style>
-                            </LeftBorder>
-                            <RightBorder>
-                              <Style>None</Style>
-                            </RightBorder>
-                            <TopBorder>
-                              <Style>None</Style>
-                            </TopBorder>
-                          </Style>
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value>Contribution</Value>
-                                  <Style>
-                                    <FontFamily>Arial</FontFamily>
-                                    <Color>black</Color>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style>
-                                <FontFamily>Arial</FontFamily>
-                              </Style>
-                            </Paragraph>
-                          </Paragraphs>
-                          <UserSort>
-                            <SortExpression>=Fields!Contribution.Value</SortExpression>
-                            <SortExpressionScope>Details1</SortExpressionScope>
-                            <SortTarget>TableCompany</SortTarget>
-                          </UserSort>
-                        </Textbox>
-                        <RowSpan>1</RowSpan>
-                        <ColSpan>1</ColSpan>
-                      </CellContents>
-                    </TablixCell>
-                  </TablixCells>
-                </TablixRow>
-                <TablixRow>
-                  <Height>18pt</Height>
-                  <TablixCells>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="TextBox29">
-                          <Left>0in</Left>
-                          <Top>0in</Top>
-                          <Height>18pt</Height>
-                          <Width>102.57825pt</Width>
-                          <Style>
-                            <FontFamily>Arial</FontFamily>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                            <Border>
-                              <Color>LightGrey</Color>
-                              <Style>None</Style>
-                            </Border>
-                            <BottomBorder>
-                              <Style>Solid</Style>
-                            </BottomBorder>
-                            <LeftBorder>
-                              <Style>None</Style>
-                            </LeftBorder>
-                            <RightBorder>
-                              <Style>Solid</Style>
-                            </RightBorder>
-                            <TopBorder>
-                              <Style>None</Style>
-                            </TopBorder>
-                          </Style>
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value>=Fields!Company.Value</Value>
-                                  <Style>
-                                    <FontFamily>Arial</FontFamily>
-                                    <Color>black</Color>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style>
-                                <FontFamily>Arial</FontFamily>
-                                <TextAlign>Left</TextAlign>
-                              </Style>
-                            </Paragraph>
-                          </Paragraphs>
-                        </Textbox>
-                        <RowSpan>1</RowSpan>
-                        <ColSpan>1</ColSpan>
-                      </CellContents>
-                    </TablixCell>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="TextBox30">
-                          <Left>0in</Left>
-                          <Top>0in</Top>
-                          <Height>18pt</Height>
-                          <Width>102.57825pt</Width>
-                          <Style>
-                            <FontFamily>Arial</FontFamily>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                            <Border>
-                              <Color>LightGrey</Color>
-                              <Style>None</Style>
-                            </Border>
-                            <BottomBorder>
-                              <Style>None</Style>
-                            </BottomBorder>
-                            <LeftBorder>
-                              <Style>None</Style>
-                            </LeftBorder>
-                            <RightBorder>
-                              <Style>None</Style>
-                            </RightBorder>
-                            <TopBorder>
-                              <Style>None</Style>
-                            </TopBorder>
-                          </Style>
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value>=Fields!AV_Amount.Value</Value>
-                                  <Style>
-                                    <FontFamily>Arial</FontFamily>
-                                    <Format>0.00;(0.00)</Format>
-                                    <rd:FormatType>
-                                      <rd:Format>Number</rd:Format>
-                                      <rd:Representation>None</rd:Representation>
-                                      <rd:NegativeValue>(12345)</rd:NegativeValue>
-                                    </rd:FormatType>
-                                    <Color>black</Color>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style>
-                                <FontFamily>Arial</FontFamily>
-                                <TextAlign>Left</TextAlign>
-                              </Style>
-                            </Paragraph>
-                          </Paragraphs>
-                        </Textbox>
-                        <RowSpan>1</RowSpan>
-                        <ColSpan>1</ColSpan>
-                      </CellContents>
-                    </TablixCell>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="TextBox35">
-                          <Left>0in</Left>
-                          <Top>0in</Top>
-                          <Height>18pt</Height>
-                          <Width>102.57825pt</Width>
-                          <Style>
-                            <FontFamily>Arial</FontFamily>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                            <Border>
-                              <Color>LightGrey</Color>
-                              <Style>None</Style>
-                            </Border>
-                            <BottomBorder>
-                              <Style>None</Style>
-                            </BottomBorder>
-                            <LeftBorder>
-                              <Style>None</Style>
-                            </LeftBorder>
-                            <RightBorder>
-                              <Style>None</Style>
-                            </RightBorder>
-                            <TopBorder>
-                              <Style>None</Style>
-                            </TopBorder>
-                          </Style>
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value>=Fields!Amount.Value</Value>
-                                  <Style>
-                                    <FontFamily>Arial</FontFamily>
-                                    <Format>0.00;(0.00)</Format>
-                                    <rd:FormatType>
-                                      <rd:Format>Number</rd:Format>
-                                      <rd:Representation>None</rd:Representation>
-                                      <rd:NegativeValue>(12345)</rd:NegativeValue>
-                                    </rd:FormatType>
-                                    <Color>black</Color>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style>
-                                <FontFamily>Arial</FontFamily>
-                                <TextAlign>Left</TextAlign>
-                              </Style>
-                            </Paragraph>
-                          </Paragraphs>
-                        </Textbox>
-                        <RowSpan>1</RowSpan>
-                        <ColSpan>1</ColSpan>
-                      </CellContents>
-                    </TablixCell>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="TextBox36">
-                          <Left>0in</Left>
-                          <Top>0in</Top>
-                          <Height>18pt</Height>
-                          <Width>102.57825pt</Width>
-                          <Style>
-                            <FontFamily>Arial</FontFamily>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                            <Border>
-                              <Color>LightGrey</Color>
-                              <Style>None</Style>
-                            </Border>
-                            <BottomBorder>
-                              <Style>None</Style>
-                            </BottomBorder>
-                            <LeftBorder>
-                              <Style>None</Style>
-                            </LeftBorder>
-                            <RightBorder>
-                              <Style>None</Style>
-                            </RightBorder>
-                            <TopBorder>
-                              <Style>None</Style>
-                            </TopBorder>
-                          </Style>
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value>=Fields!Quantity.Value</Value>
-                                  <Style>
-                                    <FontFamily>Arial</FontFamily>
-                                    <Format>0.00;(0.00)</Format>
-                                    <rd:FormatType>
-                                      <rd:Format>Number</rd:Format>
-                                      <rd:Representation>None</rd:Representation>
-                                      <rd:NegativeValue>(12345)</rd:NegativeValue>
-                                    </rd:FormatType>
-                                    <Color>black</Color>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style>
-                                <FontFamily>Arial</FontFamily>
-                                <TextAlign>Left</TextAlign>
-                              </Style>
-                            </Paragraph>
-                          </Paragraphs>
-                        </Textbox>
-                        <RowSpan>1</RowSpan>
-                        <ColSpan>1</ColSpan>
-                      </CellContents>
-                    </TablixCell>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="TextBox37">
-                          <Left>0in</Left>
-                          <Top>0in</Top>
-                          <Height>18pt</Height>
-                          <Width>102.6825pt</Width>
-                          <Style>
-                            <FontFamily>Arial</FontFamily>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                            <Border>
-                              <Color>LightGrey</Color>
-                              <Style>None</Style>
-                            </Border>
-                            <BottomBorder>
-                              <Style>None</Style>
-                            </BottomBorder>
-                            <LeftBorder>
-                              <Style>None</Style>
-                            </LeftBorder>
-                            <RightBorder>
-                              <Style>None</Style>
-                            </RightBorder>
-                            <TopBorder>
-                              <Style>None</Style>
-                            </TopBorder>
-                          </Style>
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value>=Fields!Contribution.Value</Value>
-                                  <Style>
-                                    <FontFamily>Arial</FontFamily>
-                                    <Format>0.00%</Format>
-                                    <rd:FormatType>
-                                      <rd:Format>percentage</rd:Format>
-                                    </rd:FormatType>
-                                    <Color>black</Color>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style>
-                                <FontFamily>Arial</FontFamily>
-                                <TextAlign>Left</TextAlign>
-                              </Style>
-                            </Paragraph>
-                          </Paragraphs>
-                        </Textbox>
-                        <RowSpan>1</RowSpan>
-                        <ColSpan>1</ColSpan>
-                      </CellContents>
-                    </TablixCell>
-                  </TablixCells>
-                </TablixRow>
-                <TablixRow>
-                  <Height>18pt</Height>
-                  <TablixCells>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="TextBox611112">
-                          <Left>0in</Left>
-                          <Top>0in</Top>
-                          <Height>18pt</Height>
-                          <Width>205.1565pt</Width>
-                          <Style>
-                            <BackgroundColor>#e3e3e3</BackgroundColor>
-                            <FontFamily>Arial</FontFamily>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                            <Border>
-                              <Color>LightGrey</Color>
-                              <Style>None</Style>
-                            </Border>
-                            <BottomBorder>
-                              <Style>None</Style>
-                            </BottomBorder>
-                            <LeftBorder>
-                              <Style>None</Style>
-                            </LeftBorder>
-                            <RightBorder>
-                              <Style>None</Style>
-                            </RightBorder>
-                            <TopBorder>
-                              <Style>Double</Style>
-                            </TopBorder>
-                          </Style>
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value>Total by companues:</Value>
-                                  <Style>
-                                    <FontFamily>Arial</FontFamily>
-                                    <FontWeight>Bold</FontWeight>
-                                    <Color>black</Color>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style>
-                                <FontFamily>Arial</FontFamily>
-                              </Style>
-                            </Paragraph>
-                          </Paragraphs>
-                        </Textbox>
-                        <RowSpan>1</RowSpan>
-                        <ColSpan>2</ColSpan>
-                      </CellContents>
-                    </TablixCell>
-                    <TablixCell />
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="TextBox53">
-                          <Left>0in</Left>
-                          <Top>0in</Top>
-                          <Height>18pt</Height>
-                          <Width>102.57825pt</Width>
-                          <Style>
-                            <BackgroundColor>#e3e3e3</BackgroundColor>
-                            <FontFamily>Arial</FontFamily>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                            <Border>
-                              <Color>LightGrey</Color>
-                              <Style>None</Style>
-                            </Border>
-                            <BottomBorder>
-                              <Style>None</Style>
-                            </BottomBorder>
-                            <LeftBorder>
-                              <Style>None</Style>
-                            </LeftBorder>
-                            <RightBorder>
-                              <Style>None</Style>
-                            </RightBorder>
-                            <TopBorder>
-                              <Style>Double</Style>
-                            </TopBorder>
-                          </Style>
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value>=Sum(Fields!Amount.Value)</Value>
-                                  <Style>
-                                    <FontFamily>Arial</FontFamily>
-                                    <FontWeight>Bold</FontWeight>
-                                    <Format>0.00;(0.00)</Format>
-                                    <rd:FormatType>
-                                      <rd:Format>Number</rd:Format>
-                                      <rd:Representation>None</rd:Representation>
-                                      <rd:NegativeValue>(12345)</rd:NegativeValue>
-                                    </rd:FormatType>
-                                    <Color>black</Color>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style>
-                                <FontFamily>Arial</FontFamily>
-                                <TextAlign>Left</TextAlign>
-                              </Style>
-                            </Paragraph>
-                          </Paragraphs>
-                        </Textbox>
-                        <RowSpan>1</RowSpan>
-                        <ColSpan>1</ColSpan>
-                      </CellContents>
-                    </TablixCell>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="TextBox54">
-                          <Left>0in</Left>
-                          <Top>0in</Top>
-                          <Height>18pt</Height>
-                          <Width>102.57825pt</Width>
-                          <Style>
-                            <BackgroundColor>#e3e3e3</BackgroundColor>
-                            <FontFamily>Arial</FontFamily>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                            <Border>
-                              <Color>LightGrey</Color>
-                              <Style>None</Style>
-                            </Border>
-                            <BottomBorder>
-                              <Style>None</Style>
-                            </BottomBorder>
-                            <LeftBorder>
-                              <Style>None</Style>
-                            </LeftBorder>
-                            <RightBorder>
-                              <Style>None</Style>
-                            </RightBorder>
-                            <TopBorder>
-                              <Style>Double</Style>
-                            </TopBorder>
-                          </Style>
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value>=Sum(Fields!Quantity.Value)</Value>
-                                  <Style>
-                                    <FontFamily>Arial</FontFamily>
-                                    <FontWeight>Bold</FontWeight>
-                                    <Format>0.00;(0.00)</Format>
-                                    <rd:FormatType>
-                                      <rd:Format>Number</rd:Format>
-                                      <rd:Representation>None</rd:Representation>
-                                      <rd:NegativeValue>(12345)</rd:NegativeValue>
-                                    </rd:FormatType>
-                                    <Color>black</Color>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style>
-                                <FontFamily>Arial</FontFamily>
-                                <TextAlign>Left</TextAlign>
-                              </Style>
-                            </Paragraph>
-                          </Paragraphs>
-                        </Textbox>
-                        <RowSpan>1</RowSpan>
-                        <ColSpan>1</ColSpan>
-                      </CellContents>
-                    </TablixCell>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="TextBox55">
-                          <Left>0in</Left>
-                          <Top>0in</Top>
-                          <Height>18pt</Height>
-                          <Width>102.6825pt</Width>
-                          <Style>
-                            <BackgroundColor>#e3e3e3</BackgroundColor>
-                            <FontFamily>Arial</FontFamily>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                            <Border>
-                              <Color>LightGrey</Color>
-                              <Style>None</Style>
-                            </Border>
-                            <BottomBorder>
-                              <Style>None</Style>
-                            </BottomBorder>
-                            <LeftBorder>
-                              <Style>None</Style>
-                            </LeftBorder>
-                            <RightBorder>
-                              <Style>None</Style>
-                            </RightBorder>
-                            <TopBorder>
-                              <Style>Double</Style>
-                            </TopBorder>
-                          </Style>
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value>=Sum(Fields!Contribution.Value)</Value>
-                                  <Style>
-                                    <FontFamily>Arial</FontFamily>
-                                    <FontWeight>Bold</FontWeight>
-                                    <Format>0.00%</Format>
-                                    <Color>black</Color>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style>
-                                <FontFamily>Arial</FontFamily>
-                                <TextAlign>Left</TextAlign>
-                              </Style>
-                            </Paragraph>
-                          </Paragraphs>
-                        </Textbox>
-                        <RowSpan>1</RowSpan>
-                        <ColSpan>1</ColSpan>
-                      </CellContents>
-                    </TablixCell>
-                  </TablixCells>
-                </TablixRow>
-              </TablixRows>
-            </TablixBody>
-            <TablixColumnHierarchy>
-              <TablixMembers>
-                <TablixMember />
-                <TablixMember />
-                <TablixMember />
-                <TablixMember />
-                <TablixMember />
-              </TablixMembers>
-            </TablixColumnHierarchy>
-            <TablixRowHierarchy>
-              <TablixMembers>
-                <TablixMember>
-                  <KeepWithGroup>After</KeepWithGroup>
-                  <RepeatOnNewPage>true</RepeatOnNewPage>
-                </TablixMember>
-                <TablixMember>
-                  <Group Name="Details1" />
-                </TablixMember>
-                <TablixMember>
-                  <KeepWithGroup>Before</KeepWithGroup>
-                </TablixMember>
-              </TablixMembers>
-            </TablixRowHierarchy>
-            <RepeatColumnHeaders>true</RepeatColumnHeaders>
-            <RepeatRowHeaders>true</RepeatRowHeaders>
-          </Tablix>
-          <Tablix Name="Tablix1">
-            <Left>10.5pt</Left>
-            <Top>12.75pt</Top>
-            <Height>54pt</Height>
-            <Width>513pt</Width>
-            <Style>
-              <FontFamily>Arial</FontFamily>
-              <Border>
-                <Style>None</Style>
-              </Border>
-            </Style>
-            <Visibility>
-              <Hidden>=IIf(Parameters!ReportType.Value=4,False,True)</Hidden>
-            </Visibility>
-            <DataSetName>StoreData</DataSetName>
-            <TablixBody>
-              <TablixColumns>
-                <TablixColumn>
-                  <Width>102.57813pt</Width>
-                </TablixColumn>
-                <TablixColumn>
-                  <Width>102.57813pt</Width>
-                </TablixColumn>
-                <TablixColumn>
-                  <Width>102.57813pt</Width>
-                </TablixColumn>
-                <TablixColumn>
-                  <Width>102.57813pt</Width>
-                </TablixColumn>
-                <TablixColumn>
-                  <Width>102.6823pt</Width>
-                </TablixColumn>
-              </TablixColumns>
-              <TablixRows>
-                <TablixRow>
-                  <Height>18pt</Height>
-                  <TablixCells>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="TextBox310">
-                          <Left>0in</Left>
-                          <Top>0in</Top>
-                          <Height>18pt</Height>
-                          <Width>102.57825pt</Width>
-                          <Style>
-                            <BackgroundColor>#e3e3e3</BackgroundColor>
-                            <FontFamily>Arial</FontFamily>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                            <Border>
-                              <Width>1.74975pt</Width>
-                              <Color>LightGrey</Color>
-                              <Style>None</Style>
-                            </Border>
-                            <BottomBorder>
-                              <Width>1.37475pt</Width>
-                              <Color>#b3b2b3</Color>
-                              <Style>Solid</Style>
-                            </BottomBorder>
-                            <LeftBorder>
-                              <Style>None</Style>
-                            </LeftBorder>
-                            <RightBorder>
-                              <Style>None</Style>
-                            </RightBorder>
-                            <TopBorder>
-                              <Style>None</Style>
-                            </TopBorder>
-                          </Style>
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value>Store</Value>
-                                  <Style>
-                                    <FontFamily>Arial</FontFamily>
-                                    <Color>black</Color>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style>
-                                <FontFamily>Arial</FontFamily>
-                              </Style>
-                            </Paragraph>
-                          </Paragraphs>
-                          <UserSort>
-                            <SortExpression>=Fields!Store.Value</SortExpression>
-                            <SortExpressionScope>Details12</SortExpressionScope>
-                            <SortTarget>Tablix1</SortTarget>
-                          </UserSort>
-                        </Textbox>
-                        <RowSpan>1</RowSpan>
-                        <ColSpan>1</ColSpan>
-                      </CellContents>
-                    </TablixCell>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="TextBox710">
-                          <Left>0in</Left>
-                          <Top>0in</Top>
-                          <Height>18pt</Height>
-                          <Width>102.57825pt</Width>
-                          <Style>
-                            <BackgroundColor>#e3e3e3</BackgroundColor>
-                            <FontFamily>Arial</FontFamily>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                            <Border>
-                              <Width>1.74975pt</Width>
-                              <Color>LightGrey</Color>
-                              <Style>None</Style>
-                            </Border>
-                            <BottomBorder>
-                              <Width>1.37475pt</Width>
-                              <Color>#b3b2b3</Color>
-                              <Style>Solid</Style>
-                            </BottomBorder>
-                            <LeftBorder>
-                              <Style>None</Style>
-                            </LeftBorder>
-                            <RightBorder>
-                              <Style>None</Style>
-                            </RightBorder>
-                            <TopBorder>
-                              <Style>None</Style>
-                            </TopBorder>
-                          </Style>
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value>AV.amount</Value>
-                                  <Style>
-                                    <FontFamily>Arial</FontFamily>
-                                    <Color>black</Color>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style>
-                                <FontFamily>Arial</FontFamily>
-                              </Style>
-                            </Paragraph>
-                          </Paragraphs>
-                          <UserSort>
-                            <SortExpression>=Fields!AV_Amount.Value</SortExpression>
-                            <SortExpressionScope>Details12</SortExpressionScope>
-                            <SortTarget>Tablix1</SortTarget>
-                          </UserSort>
-                        </Textbox>
-                        <RowSpan>1</RowSpan>
-                        <ColSpan>1</ColSpan>
-                      </CellContents>
-                    </TablixCell>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="TextBox141">
-                          <Left>0in</Left>
-                          <Top>0in</Top>
-                          <Height>18pt</Height>
-                          <Width>102.57825pt</Width>
-                          <Style>
-                            <BackgroundColor>#e3e3e3</BackgroundColor>
-                            <FontFamily>Arial</FontFamily>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                            <Border>
-                              <Width>1.74975pt</Width>
-                              <Color>LightGrey</Color>
-                              <Style>None</Style>
-                            </Border>
-                            <BottomBorder>
-                              <Width>1.37475pt</Width>
-                              <Color>#b3b2b3</Color>
-                              <Style>Solid</Style>
-                            </BottomBorder>
-                            <LeftBorder>
-                              <Style>None</Style>
-                            </LeftBorder>
-                            <RightBorder>
-                              <Style>None</Style>
-                            </RightBorder>
-                            <TopBorder>
-                              <Style>None</Style>
-                            </TopBorder>
-                          </Style>
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value>Amount</Value>
-                                  <Style>
-                                    <FontFamily>Arial</FontFamily>
-                                    <Color>black</Color>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style>
-                                <FontFamily>Arial</FontFamily>
-                              </Style>
-                            </Paragraph>
-                          </Paragraphs>
-                          <UserSort>
-                            <SortExpression>=Fields!Amount.Value</SortExpression>
-                            <SortExpressionScope>Details12</SortExpressionScope>
-                            <SortTarget>Tablix1</SortTarget>
-                          </UserSort>
-                        </Textbox>
-                        <RowSpan>1</RowSpan>
-                        <ColSpan>1</ColSpan>
-                      </CellContents>
-                    </TablixCell>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="TextBox121">
-                          <Left>0in</Left>
-                          <Top>0in</Top>
-                          <Height>18pt</Height>
-                          <Width>102.57825pt</Width>
-                          <Style>
-                            <BackgroundColor>#e3e3e3</BackgroundColor>
-                            <FontFamily>Arial</FontFamily>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                            <Border>
-                              <Width>1.74975pt</Width>
-                              <Color>LightGrey</Color>
-                              <Style>None</Style>
-                            </Border>
-                            <BottomBorder>
-                              <Width>1.37475pt</Width>
-                              <Color>#b3b2b3</Color>
-                              <Style>Solid</Style>
-                            </BottomBorder>
-                            <LeftBorder>
-                              <Style>None</Style>
-                            </LeftBorder>
-                            <RightBorder>
-                              <Style>None</Style>
-                            </RightBorder>
-                            <TopBorder>
-                              <Style>None</Style>
-                            </TopBorder>
-                          </Style>
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value>Quantity</Value>
-                                  <Style>
-                                    <FontFamily>Arial</FontFamily>
-                                    <Color>black</Color>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style>
-                                <FontFamily>Arial</FontFamily>
-                              </Style>
-                            </Paragraph>
-                          </Paragraphs>
-                          <UserSort>
-                            <SortExpression>=Fields!Quantity.Value</SortExpression>
-                            <SortExpressionScope>Details12</SortExpressionScope>
-                            <SortTarget>Tablix1</SortTarget>
-                          </UserSort>
-                        </Textbox>
-                        <RowSpan>1</RowSpan>
-                        <ColSpan>1</ColSpan>
-                      </CellContents>
-                    </TablixCell>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="TextBox810">
-                          <Left>0in</Left>
-                          <Top>0in</Top>
-                          <Height>18pt</Height>
-                          <Width>102.6825pt</Width>
-                          <Style>
-                            <BackgroundColor>#e3e3e3</BackgroundColor>
-                            <FontFamily>Arial</FontFamily>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                            <Border>
-                              <Width>1.74975pt</Width>
-                              <Color>LightGrey</Color>
-                              <Style>None</Style>
-                            </Border>
-                            <BottomBorder>
-                              <Width>1.37475pt</Width>
-                              <Color>#b3b2b3</Color>
-                              <Style>Solid</Style>
-                            </BottomBorder>
-                            <LeftBorder>
-                              <Style>None</Style>
-                            </LeftBorder>
-                            <RightBorder>
-                              <Style>None</Style>
-                            </RightBorder>
-                            <TopBorder>
-                              <Style>None</Style>
-                            </TopBorder>
-                          </Style>
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value>Contribution</Value>
-                                  <Style>
-                                    <FontFamily>Arial</FontFamily>
-                                    <Color>black</Color>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style>
-                                <FontFamily>Arial</FontFamily>
-                              </Style>
-                            </Paragraph>
-                          </Paragraphs>
-                          <UserSort>
-                            <SortExpression>=Fields!Contribution.Value</SortExpression>
-                            <SortExpressionScope>Details12</SortExpressionScope>
-                            <SortTarget>Tablix1</SortTarget>
-                          </UserSort>
-                        </Textbox>
-                        <RowSpan>1</RowSpan>
-                        <ColSpan>1</ColSpan>
-                      </CellContents>
-                    </TablixCell>
-                  </TablixCells>
-                </TablixRow>
-                <TablixRow>
-                  <Height>18pt</Height>
-                  <TablixCells>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="TextBox311">
-                          <Left>0in</Left>
-                          <Top>0in</Top>
-                          <Height>18pt</Height>
-                          <Width>102.57825pt</Width>
-                          <Style>
-                            <FontFamily>Arial</FontFamily>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                            <Border>
-                              <Color>LightGrey</Color>
-                              <Style>None</Style>
-                            </Border>
-                            <BottomBorder>
-                              <Style>Solid</Style>
-                            </BottomBorder>
-                            <LeftBorder>
-                              <Style>None</Style>
-                            </LeftBorder>
-                            <RightBorder>
-                              <Style>Solid</Style>
-                            </RightBorder>
-                            <TopBorder>
-                              <Style>None</Style>
-                            </TopBorder>
-                          </Style>
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value>=Fields!Store.Value</Value>
-                                  <Style>
-                                    <FontFamily>Arial</FontFamily>
-                                    <FontStyle>Normal</FontStyle>
-                                    <TextDecoration>None</TextDecoration>
-                                    <Color>black</Color>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style>
-                                <FontFamily>Arial</FontFamily>
-                                <TextAlign>Left</TextAlign>
-                              </Style>
-                            </Paragraph>
-                          </Paragraphs>
-                        </Textbox>
-                        <RowSpan>1</RowSpan>
-                        <ColSpan>1</ColSpan>
-                      </CellContents>
-                    </TablixCell>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="TextBox321">
-                          <Left>0in</Left>
-                          <Top>0in</Top>
-                          <Height>18pt</Height>
-                          <Width>102.57825pt</Width>
-                          <Style>
-                            <FontFamily>Arial</FontFamily>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                            <Border>
-                              <Color>LightGrey</Color>
-                              <Style>None</Style>
-                            </Border>
-                            <BottomBorder>
-                              <Style>None</Style>
-                            </BottomBorder>
-                            <LeftBorder>
-                              <Style>None</Style>
-                            </LeftBorder>
-                            <RightBorder>
-                              <Style>None</Style>
-                            </RightBorder>
-                            <TopBorder>
-                              <Style>None</Style>
-                            </TopBorder>
-                          </Style>
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value>=Fields!AV_Amount.Value</Value>
-                                  <Style>
-                                    <FontFamily>Arial</FontFamily>
-                                    <FontStyle>Normal</FontStyle>
-                                    <Format>0.00;(0.00)</Format>
-                                    <rd:FormatType>
-                                      <rd:Format>Number</rd:Format>
-                                      <rd:Representation>None</rd:Representation>
-                                      <rd:NegativeValue>(12345)</rd:NegativeValue>
-                                    </rd:FormatType>
-                                    <TextDecoration>None</TextDecoration>
-                                    <Color>black</Color>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style>
-                                <FontFamily>Arial</FontFamily>
-                                <TextAlign>Left</TextAlign>
-                              </Style>
-                            </Paragraph>
-                          </Paragraphs>
-                        </Textbox>
-                        <RowSpan>1</RowSpan>
-                        <ColSpan>1</ColSpan>
-                      </CellContents>
-                    </TablixCell>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="TextBox331">
-                          <Left>0in</Left>
-                          <Top>0in</Top>
-                          <Height>18pt</Height>
-                          <Width>102.57825pt</Width>
-                          <Style>
-                            <FontFamily>Arial</FontFamily>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                            <Border>
-                              <Color>LightGrey</Color>
-                              <Style>None</Style>
-                            </Border>
-                            <BottomBorder>
-                              <Style>None</Style>
-                            </BottomBorder>
-                            <LeftBorder>
-                              <Style>None</Style>
-                            </LeftBorder>
-                            <RightBorder>
-                              <Style>None</Style>
-                            </RightBorder>
-                            <TopBorder>
-                              <Style>None</Style>
-                            </TopBorder>
-                          </Style>
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value>=Fields!Amount.Value</Value>
-                                  <Style>
-                                    <FontFamily>Arial</FontFamily>
-                                    <FontStyle>Normal</FontStyle>
-                                    <Format>0.00;(0.00)</Format>
-                                    <rd:FormatType>
-                                      <rd:Format>Number</rd:Format>
-                                      <rd:Representation>None</rd:Representation>
-                                      <rd:NegativeValue>(12345)</rd:NegativeValue>
-                                    </rd:FormatType>
-                                    <TextDecoration>None</TextDecoration>
-                                    <Color>black</Color>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style>
-                                <FontFamily>Arial</FontFamily>
-                                <TextAlign>Left</TextAlign>
-                              </Style>
-                            </Paragraph>
-                          </Paragraphs>
-                        </Textbox>
-                        <RowSpan>1</RowSpan>
-                        <ColSpan>1</ColSpan>
-                      </CellContents>
-                    </TablixCell>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="TextBox341">
-                          <Left>0in</Left>
-                          <Top>0in</Top>
-                          <Height>18pt</Height>
-                          <Width>102.57825pt</Width>
-                          <Style>
-                            <FontFamily>Arial</FontFamily>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                            <Border>
-                              <Color>LightGrey</Color>
-                              <Style>None</Style>
-                            </Border>
-                            <BottomBorder>
-                              <Style>None</Style>
-                            </BottomBorder>
-                            <LeftBorder>
-                              <Style>None</Style>
-                            </LeftBorder>
-                            <RightBorder>
-                              <Style>None</Style>
-                            </RightBorder>
-                            <TopBorder>
-                              <Style>None</Style>
-                            </TopBorder>
-                          </Style>
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value>=Fields!Quantity.Value</Value>
-                                  <Style>
-                                    <FontFamily>Arial</FontFamily>
-                                    <FontStyle>Normal</FontStyle>
-                                    <Format>0.00;(0.00)</Format>
-                                    <rd:FormatType>
-                                      <rd:Format>Number</rd:Format>
-                                      <rd:Representation>None</rd:Representation>
-                                      <rd:NegativeValue>(12345)</rd:NegativeValue>
-                                    </rd:FormatType>
-                                    <TextDecoration>None</TextDecoration>
-                                    <Color>black</Color>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style>
-                                <FontFamily>Arial</FontFamily>
-                                <TextAlign>Left</TextAlign>
-                              </Style>
-                            </Paragraph>
-                          </Paragraphs>
-                        </Textbox>
-                        <RowSpan>1</RowSpan>
-                        <ColSpan>1</ColSpan>
-                      </CellContents>
-                    </TablixCell>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="TextBox111">
-                          <Left>0in</Left>
-                          <Top>0in</Top>
-                          <Height>18pt</Height>
-                          <Width>102.6825pt</Width>
-                          <Style>
-                            <FontFamily>Arial</FontFamily>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                            <Border>
-                              <Color>LightGrey</Color>
-                              <Style>None</Style>
-                            </Border>
-                            <BottomBorder>
-                              <Style>None</Style>
-                            </BottomBorder>
-                            <LeftBorder>
-                              <Style>None</Style>
-                            </LeftBorder>
-                            <RightBorder>
-                              <Style>None</Style>
-                            </RightBorder>
-                            <TopBorder>
-                              <Style>None</Style>
-                            </TopBorder>
-                          </Style>
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value>=Fields!Contribution.Value</Value>
-                                  <Style>
-                                    <FontFamily>Arial</FontFamily>
-                                    <FontStyle>Normal</FontStyle>
-                                    <Format>0.00%</Format>
-                                    <TextDecoration>None</TextDecoration>
-                                    <Color>black</Color>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style>
-                                <FontFamily>Arial</FontFamily>
-                                <TextAlign>Left</TextAlign>
-                              </Style>
-                            </Paragraph>
-                          </Paragraphs>
-                        </Textbox>
-                        <RowSpan>1</RowSpan>
-                        <ColSpan>1</ColSpan>
-                      </CellContents>
-                    </TablixCell>
-                  </TablixCells>
-                </TablixRow>
-                <TablixRow>
-                  <Height>18pt</Height>
-                  <TablixCells>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="TextBox611111111">
-                          <Left>0in</Left>
-                          <Top>0in</Top>
-                          <Height>18pt</Height>
-                          <Width>102.57825pt</Width>
-                          <Style>
-                            <BackgroundColor>#e3e3e3</BackgroundColor>
-                            <FontFamily>Arial</FontFamily>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                            <Border>
-                              <Color>LightGrey</Color>
-                              <Style>None</Style>
-                            </Border>
-                            <BottomBorder>
-                              <Style>None</Style>
-                            </BottomBorder>
-                            <LeftBorder>
-                              <Style>None</Style>
-                            </LeftBorder>
-                            <RightBorder>
-                              <Style>None</Style>
-                            </RightBorder>
-                            <TopBorder>
-                              <Style>Double</Style>
-                            </TopBorder>
-                          </Style>
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value>Total by stores:</Value>
-                                  <Style>
-                                    <FontFamily>Arial</FontFamily>
-                                    <FontWeight>Bold</FontWeight>
-                                    <Color>black</Color>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style>
-                                <FontFamily>Arial</FontFamily>
-                              </Style>
-                            </Paragraph>
-                          </Paragraphs>
-                        </Textbox>
-                        <RowSpan>1</RowSpan>
-                        <ColSpan>1</ColSpan>
-                      </CellContents>
-                    </TablixCell>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="TextBox8">
-                          <Left>0in</Left>
-                          <Top>0in</Top>
-                          <Height>18pt</Height>
-                          <Width>102.57825pt</Width>
-                          <Style>
-                            <BackgroundColor>#e3e3e3</BackgroundColor>
-                            <FontFamily>Arial</FontFamily>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                            <Border>
-                              <Color>LightGrey</Color>
-                              <Style>None</Style>
-                            </Border>
-                            <BottomBorder>
-                              <Style>None</Style>
-                            </BottomBorder>
-                            <LeftBorder>
-                              <Style>None</Style>
-                            </LeftBorder>
-                            <RightBorder>
-                              <Style>None</Style>
-                            </RightBorder>
-                            <TopBorder>
-                              <Style>Double</Style>
-                            </TopBorder>
-                          </Style>
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value />
-                                  <Style>
-                                    <FontFamily>Arial</FontFamily>
-                                    <FontWeight>Bold</FontWeight>
-                                    <Color>black</Color>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style>
-                                <FontFamily>Arial</FontFamily>
-                              </Style>
-                            </Paragraph>
-                          </Paragraphs>
-                        </Textbox>
-                        <RowSpan>1</RowSpan>
-                        <ColSpan>1</ColSpan>
-                      </CellContents>
-                    </TablixCell>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="TextBox171">
-                          <Left>0in</Left>
-                          <Top>0in</Top>
-                          <Height>18pt</Height>
-                          <Width>102.57825pt</Width>
-                          <Style>
-                            <BackgroundColor>#e3e3e3</BackgroundColor>
-                            <FontFamily>Arial</FontFamily>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                            <Border>
-                              <Color>LightGrey</Color>
-                              <Style>None</Style>
-                            </Border>
-                            <BottomBorder>
-                              <Style>None</Style>
-                            </BottomBorder>
-                            <LeftBorder>
-                              <Style>None</Style>
-                            </LeftBorder>
-                            <RightBorder>
-                              <Style>None</Style>
-                            </RightBorder>
-                            <TopBorder>
-                              <Style>Double</Style>
-                            </TopBorder>
-                          </Style>
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value>=Sum(Fields!Amount.Value)</Value>
-                                  <Style>
-                                    <FontFamily>Arial</FontFamily>
-                                    <FontWeight>Bold</FontWeight>
-                                    <Format>0.00;(0.00)</Format>
-                                    <rd:FormatType>
-                                      <rd:Format>Number</rd:Format>
-                                      <rd:Representation>None</rd:Representation>
-                                      <rd:NegativeValue>(12345)</rd:NegativeValue>
-                                    </rd:FormatType>
-                                    <Color>black</Color>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style>
-                                <FontFamily>Arial</FontFamily>
-                                <TextAlign>Left</TextAlign>
-                              </Style>
-                            </Paragraph>
-                          </Paragraphs>
-                        </Textbox>
-                        <RowSpan>1</RowSpan>
-                        <ColSpan>1</ColSpan>
-                      </CellContents>
-                    </TablixCell>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="TextBox181">
-                          <Left>0in</Left>
-                          <Top>0in</Top>
-                          <Height>18pt</Height>
-                          <Width>102.57825pt</Width>
-                          <Style>
-                            <BackgroundColor>#e3e3e3</BackgroundColor>
-                            <FontFamily>Arial</FontFamily>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                            <Border>
-                              <Color>LightGrey</Color>
-                              <Style>None</Style>
-                            </Border>
-                            <BottomBorder>
-                              <Style>None</Style>
-                            </BottomBorder>
-                            <LeftBorder>
-                              <Style>None</Style>
-                            </LeftBorder>
-                            <RightBorder>
-                              <Style>None</Style>
-                            </RightBorder>
-                            <TopBorder>
-                              <Style>Double</Style>
-                            </TopBorder>
-                          </Style>
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value>=Sum(Fields!Quantity.Value)</Value>
-                                  <Style>
-                                    <FontFamily>Arial</FontFamily>
-                                    <FontWeight>Bold</FontWeight>
-                                    <Format>0.00;(0.00)</Format>
-                                    <rd:FormatType>
-                                      <rd:Format>Number</rd:Format>
-                                      <rd:Representation>None</rd:Representation>
-                                      <rd:NegativeValue>(12345)</rd:NegativeValue>
-                                    </rd:FormatType>
-                                    <Color>black</Color>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style>
-                                <FontFamily>Arial</FontFamily>
-                                <TextAlign>Left</TextAlign>
-                              </Style>
-                            </Paragraph>
-                          </Paragraphs>
-                        </Textbox>
-                        <RowSpan>1</RowSpan>
-                        <ColSpan>1</ColSpan>
-                      </CellContents>
-                    </TablixCell>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="TextBox191">
-                          <Left>0in</Left>
-                          <Top>0in</Top>
-                          <Height>18pt</Height>
-                          <Width>102.6825pt</Width>
-                          <Style>
-                            <BackgroundColor>#e3e3e3</BackgroundColor>
-                            <FontFamily>Arial</FontFamily>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                            <Border>
-                              <Color>LightGrey</Color>
-                              <Style>None</Style>
-                            </Border>
-                            <BottomBorder>
-                              <Style>None</Style>
-                            </BottomBorder>
-                            <LeftBorder>
-                              <Style>None</Style>
-                            </LeftBorder>
-                            <RightBorder>
-                              <Style>None</Style>
-                            </RightBorder>
-                            <TopBorder>
-                              <Style>Double</Style>
-                            </TopBorder>
-                          </Style>
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value>=Sum(Fields!Contribution.Value)</Value>
-                                  <Style>
-                                    <FontFamily>Arial</FontFamily>
-                                    <FontWeight>Bold</FontWeight>
-                                    <Format>0.00%</Format>
-                                    <Color>black</Color>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style>
-                                <FontFamily>Arial</FontFamily>
-                                <TextAlign>Left</TextAlign>
-                              </Style>
-                            </Paragraph>
-                          </Paragraphs>
-                        </Textbox>
-                        <RowSpan>1</RowSpan>
-                        <ColSpan>1</ColSpan>
-                      </CellContents>
-                    </TablixCell>
-                  </TablixCells>
-                </TablixRow>
-              </TablixRows>
-            </TablixBody>
-            <TablixColumnHierarchy>
-              <TablixMembers>
-                <TablixMember />
-                <TablixMember />
-                <TablixMember />
-                <TablixMember />
-                <TablixMember />
-              </TablixMembers>
-            </TablixColumnHierarchy>
-            <TablixRowHierarchy>
-              <TablixMembers>
-                <TablixMember>
-                  <KeepWithGroup>After</KeepWithGroup>
-                  <RepeatOnNewPage>true</RepeatOnNewPage>
-                </TablixMember>
-                <TablixMember>
-                  <Group Name="Details12" />
-                </TablixMember>
-                <TablixMember>
-                  <KeepWithGroup>Before</KeepWithGroup>
-                </TablixMember>
-              </TablixMembers>
-            </TablixRowHierarchy>
-            <RepeatColumnHeaders>true</RepeatColumnHeaders>
-            <RepeatRowHeaders>true</RepeatRowHeaders>
-          </Tablix>
-          <Tablix Name="TableHierarchy">
-            <Left>10.42969pt</Left>
-            <Top>12.67969pt</Top>
-            <Height>71.99998pt</Height>
-            <Width>510.89062pt</Width>
-            <Style>
-              <FontFamily>Arial</FontFamily>
-              <Border>
-                <Style>None</Style>
-              </Border>
-            </Style>
-            <Visibility>
-              <Hidden>=IIf(Parameters!ReportType.Value=3,False,True)</Hidden>
-            </Visibility>
-            <DataSetName>HierarchyData</DataSetName>
-            <TablixBody>
-              <TablixColumns>
-                <TablixColumn>
-                  <Width>90.57292pt</Width>
-                </TablixColumn>
-                <TablixColumn>
-                  <Width>90.57292pt</Width>
-                </TablixColumn>
-                <TablixColumn>
-                  <Width>90.57292pt</Width>
-                </TablixColumn>
-                <TablixColumn>
-                  <Width>90.72917pt</Width>
-                </TablixColumn>
-              </TablixColumns>
-              <TablixRows>
-                <TablixRow>
-                  <Height>18pt</Height>
-                  <TablixCells>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="TextBox64">
-                          <Left>0in</Left>
-                          <Top>0in</Top>
-                          <Height>18pt</Height>
-                          <Width>90.573pt</Width>
-                          <Style>
-                            <BackgroundColor>#e3e3e3</BackgroundColor>
-                            <FontFamily>Arial</FontFamily>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                            <Border>
-                              <Width>1.74975pt</Width>
-                              <Color>LightGrey</Color>
-                              <Style>None</Style>
-                            </Border>
-                            <BottomBorder>
-                              <Width>1.37475pt</Width>
-                              <Color>#b3b2b3</Color>
-                              <Style>Solid</Style>
-                            </BottomBorder>
-                            <LeftBorder>
-                              <Style>None</Style>
-                            </LeftBorder>
-                            <RightBorder>
-                              <Style>None</Style>
-                            </RightBorder>
-                            <TopBorder>
-                              <Style>None</Style>
-                            </TopBorder>
-                          </Style>
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value>AV.amount</Value>
-                                  <Style>
-                                    <FontFamily>Arial</FontFamily>
-                                    <Color>black</Color>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style>
-                                <FontFamily>Arial</FontFamily>
-                              </Style>
-                            </Paragraph>
-                          </Paragraphs>
-                          <UserSort>
-                            <SortExpression>=Fields!AV_Amount.Value</SortExpression>
-                            <SortExpressionScope>Details112</SortExpressionScope>
-                            <SortTarget>TableHierarchy</SortTarget>
-                          </UserSort>
-                        </Textbox>
-                        <RowSpan>1</RowSpan>
-                        <ColSpan>1</ColSpan>
-                      </CellContents>
-                    </TablixCell>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="TextBox65">
-                          <Left>0in</Left>
-                          <Top>0in</Top>
-                          <Height>18pt</Height>
-                          <Width>90.573pt</Width>
-                          <Style>
-                            <BackgroundColor>#e3e3e3</BackgroundColor>
-                            <FontFamily>Arial</FontFamily>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                            <Border>
-                              <Width>1.74975pt</Width>
-                              <Color>LightGrey</Color>
-                              <Style>None</Style>
-                            </Border>
-                            <BottomBorder>
-                              <Width>1.37475pt</Width>
-                              <Color>#b3b2b3</Color>
-                              <Style>Solid</Style>
-                            </BottomBorder>
-                            <LeftBorder>
-                              <Style>None</Style>
-                            </LeftBorder>
-                            <RightBorder>
-                              <Style>None</Style>
-                            </RightBorder>
-                            <TopBorder>
-                              <Style>None</Style>
-                            </TopBorder>
-                          </Style>
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value>Amount</Value>
-                                  <Style>
-                                    <FontFamily>Arial</FontFamily>
-                                    <Color>black</Color>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style>
-                                <FontFamily>Arial</FontFamily>
-                              </Style>
-                            </Paragraph>
-                          </Paragraphs>
-                          <UserSort>
-                            <SortExpression>=Fields!Amount.Value</SortExpression>
-                            <SortExpressionScope>Details112</SortExpressionScope>
-                            <SortTarget>TableHierarchy</SortTarget>
-                          </UserSort>
-                        </Textbox>
-                        <RowSpan>1</RowSpan>
-                        <ColSpan>1</ColSpan>
-                      </CellContents>
-                    </TablixCell>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="TextBox66">
-                          <Left>0in</Left>
-                          <Top>0in</Top>
-                          <Height>18pt</Height>
-                          <Width>90.573pt</Width>
-                          <Style>
-                            <BackgroundColor>#e3e3e3</BackgroundColor>
-                            <FontFamily>Arial</FontFamily>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                            <Border>
-                              <Width>1.74975pt</Width>
-                              <Color>LightGrey</Color>
-                              <Style>None</Style>
-                            </Border>
-                            <BottomBorder>
-                              <Width>1.37475pt</Width>
-                              <Color>#b3b2b3</Color>
-                              <Style>Solid</Style>
-                            </BottomBorder>
-                            <LeftBorder>
-                              <Style>None</Style>
-                            </LeftBorder>
-                            <RightBorder>
-                              <Style>None</Style>
-                            </RightBorder>
-                            <TopBorder>
-                              <Style>None</Style>
-                            </TopBorder>
-                          </Style>
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value>Quantity</Value>
-                                  <Style>
-                                    <FontFamily>Arial</FontFamily>
-                                    <Color>black</Color>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style>
-                                <FontFamily>Arial</FontFamily>
-                              </Style>
-                            </Paragraph>
-                          </Paragraphs>
-                          <UserSort>
-                            <SortExpression>=Fields!Quantity.Value</SortExpression>
-                            <SortExpressionScope>Details112</SortExpressionScope>
-                            <SortTarget>TableHierarchy</SortTarget>
-                          </UserSort>
-                        </Textbox>
-                        <RowSpan>1</RowSpan>
-                        <ColSpan>1</ColSpan>
-                      </CellContents>
-                    </TablixCell>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="TextBox67">
-                          <Left>0in</Left>
-                          <Top>0in</Top>
-                          <Height>18pt</Height>
-                          <Width>90.729pt</Width>
-                          <Style>
-                            <BackgroundColor>#e3e3e3</BackgroundColor>
-                            <FontFamily>Arial</FontFamily>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                            <Border>
-                              <Width>1.74975pt</Width>
-                              <Color>LightGrey</Color>
-                              <Style>None</Style>
-                            </Border>
-                            <BottomBorder>
-                              <Width>1.37475pt</Width>
-                              <Color>#b3b2b3</Color>
-                              <Style>Solid</Style>
-                            </BottomBorder>
-                            <LeftBorder>
-                              <Style>None</Style>
-                            </LeftBorder>
-                            <RightBorder>
-                              <Style>None</Style>
-                            </RightBorder>
-                            <TopBorder>
-                              <Style>None</Style>
-                            </TopBorder>
-                          </Style>
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value>Contribution</Value>
-                                  <Style>
-                                    <FontFamily>Arial</FontFamily>
-                                    <Color>black</Color>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style>
-                                <FontFamily>Arial</FontFamily>
-                              </Style>
-                            </Paragraph>
-                          </Paragraphs>
-                          <UserSort>
-                            <SortExpression>=Fields!Contribution.Value</SortExpression>
-                            <SortExpressionScope>Details112</SortExpressionScope>
-                            <SortTarget>TableHierarchy</SortTarget>
-                          </UserSort>
-                        </Textbox>
-                        <RowSpan>1</RowSpan>
-                        <ColSpan>1</ColSpan>
-                      </CellContents>
-                    </TablixCell>
-                  </TablixCells>
-                </TablixRow>
-                <TablixRow>
-                  <Height>18pt</Height>
-                  <TablixCells>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="TextBox22">
-                          <Left>0in</Left>
-                          <Top>0in</Top>
-                          <Height>18pt</Height>
-                          <Width>90.573pt</Width>
-                          <Style>
-                            <FontFamily>Arial</FontFamily>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                            <Border>
-                              <Color>LightGrey</Color>
-                              <Style>None</Style>
-                            </Border>
-                            <BottomBorder>
-                              <Style>Solid</Style>
-                            </BottomBorder>
-                            <LeftBorder>
-                              <Style>Solid</Style>
-                            </LeftBorder>
-                            <RightBorder>
-                              <Style>Solid</Style>
-                            </RightBorder>
-                            <TopBorder>
-                              <Style>None</Style>
-                            </TopBorder>
-                          </Style>
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value>=Fields!AV_Amount.Value</Value>
-                                  <Style>
-                                    <FontFamily>Arial</FontFamily>
-                                    <Format>0.00;(0.00)</Format>
-                                    <rd:FormatType>
-                                      <rd:Format>Number</rd:Format>
-                                      <rd:Representation>None</rd:Representation>
-                                      <rd:NegativeValue>(12345)</rd:NegativeValue>
-                                    </rd:FormatType>
-                                    <Color>black</Color>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style>
-                                <FontFamily>Arial</FontFamily>
-                                <TextAlign>Left</TextAlign>
-                              </Style>
-                            </Paragraph>
-                          </Paragraphs>
-                        </Textbox>
-                        <RowSpan>1</RowSpan>
-                        <ColSpan>1</ColSpan>
-                      </CellContents>
-                    </TablixCell>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="TextBox50">
-                          <Left>0in</Left>
-                          <Top>0in</Top>
-                          <Height>18pt</Height>
-                          <Width>90.573pt</Width>
-                          <Style>
-                            <FontFamily>Arial</FontFamily>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                            <Border>
-                              <Color>LightGrey</Color>
-                              <Style>None</Style>
-                            </Border>
-                            <BottomBorder>
-                              <Style>Solid</Style>
-                            </BottomBorder>
-                            <LeftBorder>
-                              <Style>Solid</Style>
-                            </LeftBorder>
-                            <RightBorder>
-                              <Style>Solid</Style>
-                            </RightBorder>
-                            <TopBorder>
-                              <Style>None</Style>
-                            </TopBorder>
-                          </Style>
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value>=Fields!Amount.Value</Value>
-                                  <Style>
-                                    <FontFamily>Arial</FontFamily>
-                                    <Format>0.00;(0.00)</Format>
-                                    <rd:FormatType>
-                                      <rd:Format>Number</rd:Format>
-                                      <rd:Representation>None</rd:Representation>
-                                      <rd:NegativeValue>(12345)</rd:NegativeValue>
-                                    </rd:FormatType>
-                                    <Color>black</Color>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style>
-                                <FontFamily>Arial</FontFamily>
-                                <TextAlign>Left</TextAlign>
-                              </Style>
-                            </Paragraph>
-                          </Paragraphs>
-                        </Textbox>
-                        <RowSpan>1</RowSpan>
-                        <ColSpan>1</ColSpan>
-                      </CellContents>
-                    </TablixCell>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="TextBox52">
-                          <Left>0in</Left>
-                          <Top>0in</Top>
-                          <Height>18pt</Height>
-                          <Width>90.573pt</Width>
-                          <Style>
-                            <FontFamily>Arial</FontFamily>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                            <Border>
-                              <Color>LightGrey</Color>
-                              <Style>None</Style>
-                            </Border>
-                            <BottomBorder>
-                              <Style>Solid</Style>
-                            </BottomBorder>
-                            <LeftBorder>
-                              <Style>Solid</Style>
-                            </LeftBorder>
-                            <RightBorder>
-                              <Style>Solid</Style>
-                            </RightBorder>
-                            <TopBorder>
-                              <Style>None</Style>
-                            </TopBorder>
-                          </Style>
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value>=Fields!Quantity.Value</Value>
-                                  <Style>
-                                    <FontFamily>Arial</FontFamily>
-                                    <Format>0.00;(0.00)</Format>
-                                    <rd:FormatType>
-                                      <rd:Format>Number</rd:Format>
-                                      <rd:Representation>None</rd:Representation>
-                                      <rd:NegativeValue>(12345)</rd:NegativeValue>
-                                    </rd:FormatType>
-                                    <Color>black</Color>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style>
-                                <FontFamily>Arial</FontFamily>
-                                <TextAlign>Left</TextAlign>
-                              </Style>
-                            </Paragraph>
-                          </Paragraphs>
-                        </Textbox>
-                        <RowSpan>1</RowSpan>
-                        <ColSpan>1</ColSpan>
-                      </CellContents>
-                    </TablixCell>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="TextBox56">
-                          <Left>0in</Left>
-                          <Top>0in</Top>
-                          <Height>18pt</Height>
-                          <Width>90.729pt</Width>
-                          <Style>
-                            <FontFamily>Arial</FontFamily>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                            <Border>
-                              <Color>LightGrey</Color>
-                              <Style>None</Style>
-                            </Border>
-                            <BottomBorder>
-                              <Style>Solid</Style>
-                            </BottomBorder>
-                            <LeftBorder>
-                              <Style>Solid</Style>
-                            </LeftBorder>
-                            <RightBorder>
-                              <Style>Solid</Style>
-                            </RightBorder>
-                            <TopBorder>
-                              <Style>None</Style>
-                            </TopBorder>
-                          </Style>
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value>=Fields!Contribution.Value</Value>
-                                  <Style>
-                                    <FontFamily>Arial</FontFamily>
-                                    <Format>0.00%</Format>
-                                    <Color>black</Color>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style>
-                                <FontFamily>Arial</FontFamily>
-                                <TextAlign>Left</TextAlign>
-                              </Style>
-                            </Paragraph>
-                          </Paragraphs>
-                        </Textbox>
-                        <RowSpan>1</RowSpan>
-                        <ColSpan>1</ColSpan>
-                      </CellContents>
-                    </TablixCell>
-                  </TablixCells>
-                </TablixRow>
-                <TablixRow>
-                  <Height>18pt</Height>
-                  <TablixCells>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="TextBox82">
-                          <Left>0in</Left>
-                          <Top>0in</Top>
-                          <Height>18pt</Height>
-                          <Width>90.573pt</Width>
-                          <Style>
-                            <BackgroundColor>#e3e3e3</BackgroundColor>
-                            <FontFamily>Arial</FontFamily>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                            <Border>
-                              <Color>LightGrey</Color>
-                              <Style>None</Style>
-                            </Border>
-                            <BottomBorder>
-                              <Style>Solid</Style>
-                            </BottomBorder>
-                            <LeftBorder>
-                              <Style>None</Style>
-                            </LeftBorder>
-                            <RightBorder>
-                              <Style>None</Style>
-                            </RightBorder>
-                            <TopBorder>
-                              <Style>Solid</Style>
-                            </TopBorder>
-                          </Style>
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value />
-                                  <Style>
-                                    <FontFamily>Arial</FontFamily>
-                                    <Format>0.00;(0.00)</Format>
-                                    <rd:FormatType>
-                                      <rd:Format>Number</rd:Format>
-                                      <rd:Representation>None</rd:Representation>
-                                      <rd:NegativeValue>(12345)</rd:NegativeValue>
-                                    </rd:FormatType>
-                                    <Color>black</Color>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style>
-                                <FontFamily>Arial</FontFamily>
-                                <TextAlign>Left</TextAlign>
-                              </Style>
-                            </Paragraph>
-                          </Paragraphs>
-                        </Textbox>
-                        <RowSpan>1</RowSpan>
-                        <ColSpan>1</ColSpan>
-                      </CellContents>
-                    </TablixCell>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="TextBox78">
-                          <Left>0in</Left>
-                          <Top>0in</Top>
-                          <Height>18pt</Height>
-                          <Width>90.573pt</Width>
-                          <Style>
-                            <BackgroundColor>#e3e3e3</BackgroundColor>
-                            <FontFamily>Arial</FontFamily>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                            <Border>
-                              <Color>LightGrey</Color>
-                              <Style>None</Style>
-                            </Border>
-                            <BottomBorder>
-                              <Style>Solid</Style>
-                            </BottomBorder>
-                            <LeftBorder>
-                              <Style>None</Style>
-                            </LeftBorder>
-                            <RightBorder>
-                              <Style>None</Style>
-                            </RightBorder>
-                            <TopBorder>
-                              <Style>Solid</Style>
-                            </TopBorder>
-                          </Style>
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value>=Sum(Fields!Amount.Value)</Value>
-                                  <Style>
-                                    <FontFamily>Arial</FontFamily>
-                                    <Format>0.00;(0.00)</Format>
-                                    <rd:FormatType>
-                                      <rd:Format>Number</rd:Format>
-                                      <rd:Representation>None</rd:Representation>
-                                      <rd:NegativeValue>(12345)</rd:NegativeValue>
-                                    </rd:FormatType>
-                                    <Color>black</Color>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style>
-                                <FontFamily>Arial</FontFamily>
-                                <TextAlign>Left</TextAlign>
-                              </Style>
-                            </Paragraph>
-                          </Paragraphs>
-                        </Textbox>
-                        <RowSpan>1</RowSpan>
-                        <ColSpan>1</ColSpan>
-                      </CellContents>
-                    </TablixCell>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="TextBox79">
-                          <Left>0in</Left>
-                          <Top>0in</Top>
-                          <Height>18pt</Height>
-                          <Width>90.573pt</Width>
-                          <Style>
-                            <BackgroundColor>#e3e3e3</BackgroundColor>
-                            <FontFamily>Arial</FontFamily>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                            <Border>
-                              <Color>LightGrey</Color>
-                              <Style>None</Style>
-                            </Border>
-                            <BottomBorder>
-                              <Style>Solid</Style>
-                            </BottomBorder>
-                            <LeftBorder>
-                              <Style>None</Style>
-                            </LeftBorder>
-                            <RightBorder>
-                              <Style>None</Style>
-                            </RightBorder>
-                            <TopBorder>
-                              <Style>Solid</Style>
-                            </TopBorder>
-                          </Style>
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value>=Sum(Fields!Quantity.Value)</Value>
-                                  <Style>
-                                    <FontFamily>Arial</FontFamily>
-                                    <Format>0.00;(0.00)</Format>
-                                    <rd:FormatType>
-                                      <rd:Format>Number</rd:Format>
-                                      <rd:Representation>None</rd:Representation>
-                                      <rd:NegativeValue>(12345)</rd:NegativeValue>
-                                    </rd:FormatType>
-                                    <Color>black</Color>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style>
-                                <FontFamily>Arial</FontFamily>
-                                <TextAlign>Left</TextAlign>
-                              </Style>
-                            </Paragraph>
-                          </Paragraphs>
-                        </Textbox>
-                        <RowSpan>1</RowSpan>
-                        <ColSpan>1</ColSpan>
-                      </CellContents>
-                    </TablixCell>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="TextBox80">
-                          <Left>0in</Left>
-                          <Top>0in</Top>
-                          <Height>18pt</Height>
-                          <Width>90.729pt</Width>
-                          <Style>
-                            <BackgroundColor>#e3e3e3</BackgroundColor>
-                            <FontFamily>Arial</FontFamily>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                            <Border>
-                              <Color>LightGrey</Color>
-                              <Style>None</Style>
-                            </Border>
-                            <BottomBorder>
-                              <Style>Solid</Style>
-                            </BottomBorder>
-                            <LeftBorder>
-                              <Style>None</Style>
-                            </LeftBorder>
-                            <RightBorder>
-                              <Style>None</Style>
-                            </RightBorder>
-                            <TopBorder>
-                              <Style>Solid</Style>
-                            </TopBorder>
-                          </Style>
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value>=Sum(Fields!Contribution.Value)</Value>
-                                  <Style>
-                                    <FontFamily>Arial</FontFamily>
-                                    <Format>0.00%</Format>
-                                    <Color>black</Color>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style>
-                                <FontFamily>Arial</FontFamily>
-                                <TextAlign>Left</TextAlign>
-                              </Style>
-                            </Paragraph>
-                          </Paragraphs>
-                        </Textbox>
-                        <RowSpan>1</RowSpan>
-                        <ColSpan>1</ColSpan>
-                      </CellContents>
-                    </TablixCell>
-                  </TablixCells>
-                </TablixRow>
-                <TablixRow>
-                  <Height>18pt</Height>
-                  <TablixCells>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="TextBox10">
-                          <Left>0in</Left>
-                          <Top>0in</Top>
-                          <Height>18pt</Height>
-                          <Width>90.573pt</Width>
-                          <Style>
-                            <BackgroundColor>#e3e3e3</BackgroundColor>
-                            <FontFamily>Arial</FontFamily>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                            <Border>
-                              <Color>LightGrey</Color>
-                              <Style>None</Style>
-                            </Border>
-                            <BottomBorder>
-                              <Style>None</Style>
-                            </BottomBorder>
-                            <LeftBorder>
-                              <Style>None</Style>
-                            </LeftBorder>
-                            <RightBorder>
-                              <Style>None</Style>
-                            </RightBorder>
-                            <TopBorder>
-                              <Style>Double</Style>
-                            </TopBorder>
-                          </Style>
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value />
-                                  <Style>
-                                    <FontFamily>Arial</FontFamily>
-                                    <FontWeight>Bold</FontWeight>
-                                    <Color>black</Color>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style>
-                                <FontFamily>Arial</FontFamily>
-                              </Style>
-                            </Paragraph>
-                          </Paragraphs>
-                        </Textbox>
-                        <RowSpan>1</RowSpan>
-                        <ColSpan>1</ColSpan>
-                      </CellContents>
-                    </TablixCell>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="TextBox40">
-                          <Left>0in</Left>
-                          <Top>0in</Top>
-                          <Height>18pt</Height>
-                          <Width>90.573pt</Width>
-                          <Style>
-                            <BackgroundColor>#e3e3e3</BackgroundColor>
-                            <FontFamily>Arial</FontFamily>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                            <Border>
-                              <Color>LightGrey</Color>
-                              <Style>None</Style>
-                            </Border>
-                            <BottomBorder>
-                              <Style>None</Style>
-                            </BottomBorder>
-                            <LeftBorder>
-                              <Style>None</Style>
-                            </LeftBorder>
-                            <RightBorder>
-                              <Style>None</Style>
-                            </RightBorder>
-                            <TopBorder>
-                              <Style>Double</Style>
-                            </TopBorder>
-                          </Style>
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value>=Sum(Fields!Amount.Value)</Value>
-                                  <Style>
-                                    <FontFamily>Arial</FontFamily>
-                                    <FontWeight>Bold</FontWeight>
-                                    <Format>0.00;(0.00)</Format>
-                                    <rd:FormatType>
-                                      <rd:Format>Number</rd:Format>
-                                      <rd:Representation>None</rd:Representation>
-                                      <rd:NegativeValue>(12345)</rd:NegativeValue>
-                                    </rd:FormatType>
-                                    <Color>black</Color>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style>
-                                <FontFamily>Arial</FontFamily>
-                                <TextAlign>Left</TextAlign>
-                              </Style>
-                            </Paragraph>
-                          </Paragraphs>
-                        </Textbox>
-                        <RowSpan>1</RowSpan>
-                        <ColSpan>1</ColSpan>
-                      </CellContents>
-                    </TablixCell>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="TextBox41">
-                          <Left>0in</Left>
-                          <Top>0in</Top>
-                          <Height>18pt</Height>
-                          <Width>90.573pt</Width>
-                          <Style>
-                            <BackgroundColor>#e3e3e3</BackgroundColor>
-                            <FontFamily>Arial</FontFamily>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                            <Border>
-                              <Color>LightGrey</Color>
-                              <Style>None</Style>
-                            </Border>
-                            <BottomBorder>
-                              <Style>None</Style>
-                            </BottomBorder>
-                            <LeftBorder>
-                              <Style>None</Style>
-                            </LeftBorder>
-                            <RightBorder>
-                              <Style>None</Style>
-                            </RightBorder>
-                            <TopBorder>
-                              <Style>Double</Style>
-                            </TopBorder>
-                          </Style>
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value>=Sum(Fields!Quantity.Value)</Value>
-                                  <Style>
-                                    <FontFamily>Arial</FontFamily>
-                                    <FontWeight>Bold</FontWeight>
-                                    <Format>0.00;(0.00)</Format>
-                                    <rd:FormatType>
-                                      <rd:Format>Number</rd:Format>
-                                      <rd:Representation>None</rd:Representation>
-                                      <rd:NegativeValue>(12345)</rd:NegativeValue>
-                                    </rd:FormatType>
-                                    <Color>black</Color>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style>
-                                <FontFamily>Arial</FontFamily>
-                                <TextAlign>Left</TextAlign>
-                              </Style>
-                            </Paragraph>
-                          </Paragraphs>
-                        </Textbox>
-                        <RowSpan>1</RowSpan>
-                        <ColSpan>1</ColSpan>
-                      </CellContents>
-                    </TablixCell>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="TextBox42">
-                          <Left>0in</Left>
-                          <Top>0in</Top>
-                          <Height>18pt</Height>
-                          <Width>90.729pt</Width>
-                          <Style>
-                            <BackgroundColor>#e3e3e3</BackgroundColor>
-                            <FontFamily>Arial</FontFamily>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                            <Border>
-                              <Color>LightGrey</Color>
-                              <Style>None</Style>
-                            </Border>
-                            <BottomBorder>
-                              <Style>None</Style>
-                            </BottomBorder>
-                            <LeftBorder>
-                              <Style>None</Style>
-                            </LeftBorder>
-                            <RightBorder>
-                              <Style>None</Style>
-                            </RightBorder>
-                            <TopBorder>
-                              <Style>Double</Style>
-                            </TopBorder>
-                          </Style>
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value>=Sum(Fields!Contribution.Value)</Value>
-                                  <Style>
-                                    <FontFamily>Arial</FontFamily>
-                                    <FontWeight>Bold</FontWeight>
-                                    <Format>0.00%</Format>
-                                    <Color>black</Color>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style>
-                                <FontFamily>Arial</FontFamily>
-                                <TextAlign>Left</TextAlign>
-                              </Style>
-                            </Paragraph>
-                          </Paragraphs>
-                        </Textbox>
-                        <RowSpan>1</RowSpan>
-                        <ColSpan>1</ColSpan>
-                      </CellContents>
-                    </TablixCell>
-                  </TablixCells>
-                </TablixRow>
-              </TablixRows>
-            </TablixBody>
-            <TablixColumnHierarchy>
-              <TablixMembers>
-                <TablixMember />
-                <TablixMember />
-                <TablixMember />
-                <TablixMember />
-              </TablixMembers>
-            </TablixColumnHierarchy>
-            <TablixRowHierarchy>
-              <TablixMembers>
-                <TablixMember>
-                  <TablixHeader>
-                    <Size>74.21875pt</Size>
-                    <CellContents>
-                      <Textbox Name="TextBox631">
-                        <Left>0in</Left>
-                        <Top>0in</Top>
-                        <Height>18pt</Height>
-                        <Width>74.21875pt</Width>
-                        <Style>
-                          <BackgroundColor>#e3e3e3</BackgroundColor>
-                          <FontFamily>Arial</FontFamily>
-                          <PaddingLeft>2pt</PaddingLeft>
-                          <PaddingRight>2pt</PaddingRight>
-                          <PaddingTop>2pt</PaddingTop>
-                          <PaddingBottom>2pt</PaddingBottom>
-                          <Border>
-                            <Width>1.74975pt</Width>
-                            <Color>LightGrey</Color>
-                            <Style>None</Style>
-                          </Border>
-                          <BottomBorder>
-                            <Width>1.37475pt</Width>
-                            <Color>#b3b2b3</Color>
-                            <Style>Solid</Style>
-                          </BottomBorder>
-                          <LeftBorder>
-                            <Style>None</Style>
-                          </LeftBorder>
-                          <RightBorder>
-                            <Style>None</Style>
-                          </RightBorder>
-                          <TopBorder>
-                            <Style>None</Style>
-                          </TopBorder>
-                        </Style>
-                        <CanGrow>true</CanGrow>
-                        <KeepTogether>true</KeepTogether>
-                        <Paragraphs>
-                          <Paragraph>
-                            <TextRuns>
-                              <TextRun>
-                                <Value>Store Name</Value>
-                                <Style>
-                                  <FontFamily>Arial</FontFamily>
-                                  <Color>black</Color>
-                                </Style>
-                              </TextRun>
-                            </TextRuns>
-                            <Style>
-                              <FontFamily>Arial</FontFamily>
-                            </Style>
-                          </Paragraph>
-                        </Paragraphs>
-                        <UserSort>
-                          <SortExpression>=Fields!Store.Value</SortExpression>
-                          <SortExpressionScope>Store1</SortExpressionScope>
-                          <SortTarget>TableHierarchy</SortTarget>
-                        </UserSort>
-                      </Textbox>
-                    </CellContents>
-                  </TablixHeader>
-                  <TablixMembers>
-                    <TablixMember>
-                      <TablixHeader>
-                        <Size>74.21875pt</Size>
-                        <CellContents>
-                          <Textbox Name="TextBox201">
-                            <Left>0in</Left>
-                            <Top>0in</Top>
-                            <Height>18pt</Height>
-                            <Width>74.21875pt</Width>
-                            <Style>
-                              <BackgroundColor>#e3e3e3</BackgroundColor>
-                              <FontFamily>Arial</FontFamily>
-                              <PaddingLeft>2pt</PaddingLeft>
-                              <PaddingRight>2pt</PaddingRight>
-                              <PaddingTop>2pt</PaddingTop>
-                              <PaddingBottom>2pt</PaddingBottom>
-                              <Border>
-                                <Width>1.74975pt</Width>
-                                <Color>LightGrey</Color>
-                                <Style>None</Style>
-                              </Border>
-                              <BottomBorder>
-                                <Width>1.37475pt</Width>
-                                <Color>#b3b2b3</Color>
-                                <Style>Solid</Style>
-                              </BottomBorder>
-                              <LeftBorder>
-                                <Style>None</Style>
-                              </LeftBorder>
-                              <RightBorder>
-                                <Style>None</Style>
-                              </RightBorder>
-                              <TopBorder>
-                                <Style>None</Style>
-                              </TopBorder>
-                            </Style>
-                            <CanGrow>true</CanGrow>
-                            <KeepTogether>true</KeepTogether>
-                            <Paragraphs>
-                              <Paragraph>
-                                <TextRuns>
-                                  <TextRun>
-                                    <Value>Hierarchy</Value>
-                                    <Style>
-                                      <FontFamily>Arial</FontFamily>
-                                      <Color>black</Color>
-                                    </Style>
-                                  </TextRun>
-                                </TextRuns>
-                                <Style>
-                                  <FontFamily>Arial</FontFamily>
-                                </Style>
-                              </Paragraph>
-                            </Paragraphs>
-                            <UserSort>
-                              <SortExpression>=Fields!Hierarchy.Value</SortExpression>
-                              <SortExpressionScope>Hierarchy2</SortExpressionScope>
-                              <SortTarget>TableHierarchy</SortTarget>
-                            </UserSort>
-                          </Textbox>
-                        </CellContents>
-                      </TablixHeader>
-                      <TablixMembers>
-                        <TablixMember>
-                          <RepeatOnNewPage>true</RepeatOnNewPage>
-                        </TablixMember>
-                      </TablixMembers>
-                      <RepeatOnNewPage>true</RepeatOnNewPage>
-                    </TablixMember>
-                  </TablixMembers>
-                  <KeepWithGroup>After</KeepWithGroup>
-                  <RepeatOnNewPage>true</RepeatOnNewPage>
-                </TablixMember>
-                <TablixMember>
-                  <Group Name="Store1">
-                    <GroupExpressions>
-                      <GroupExpression>=Fields!Store.Value</GroupExpression>
-                    </GroupExpressions>
-                  </Group>
-                  <SortExpressions>
-                    <SortExpression>
-                      <Value>=Fields!Store.Value</Value>
-                      <Direction>Ascending</Direction>
-                    </SortExpression>
-                  </SortExpressions>
-                  <TablixHeader>
-                    <Size>74.21875pt</Size>
-                    <CellContents>
-                      <Textbox Name="Store11">
-                        <Left>0in</Left>
-                        <Top>0in</Top>
-                        <Height>18pt</Height>
-                        <Width>74.21875pt</Width>
-                        <Style>
-                          <FontFamily>Arial</FontFamily>
-                          <PaddingLeft>2pt</PaddingLeft>
-                          <PaddingRight>2pt</PaddingRight>
-                          <PaddingTop>2pt</PaddingTop>
-                          <PaddingBottom>2pt</PaddingBottom>
-                          <Border>
-                            <Color>LightGrey</Color>
-                            <Style>None</Style>
-                          </Border>
-                          <BottomBorder>
-                            <Style>Solid</Style>
-                          </BottomBorder>
-                          <LeftBorder>
-                            <Style>None</Style>
-                          </LeftBorder>
-                          <RightBorder>
-                            <Style>Solid</Style>
-                          </RightBorder>
-                          <TopBorder>
-                            <Style>None</Style>
-                          </TopBorder>
-                        </Style>
-                        <CanGrow>true</CanGrow>
-                        <KeepTogether>true</KeepTogether>
-                        <Paragraphs>
-                          <Paragraph>
-                            <TextRuns>
-                              <TextRun>
-                                <Value>=Fields!Store.Value</Value>
-                                <Style>
-                                  <FontFamily>Arial</FontFamily>
-                                  <FontWeight>Bold</FontWeight>
-                                  <Color>black</Color>
-                                </Style>
-                              </TextRun>
-                            </TextRuns>
-                            <Style>
-                              <FontFamily>Arial</FontFamily>
-                              <TextAlign>Left</TextAlign>
-                            </Style>
-                          </Paragraph>
-                        </Paragraphs>
-                      </Textbox>
-                    </CellContents>
-                  </TablixHeader>
-                  <TablixMembers>
-                    <TablixMember>
-                      <Group Name="Hierarchy2">
-                        <GroupExpressions>
-                          <GroupExpression>=Fields!Hierarchy.Value</GroupExpression>
-                        </GroupExpressions>
-                      </Group>
-                      <SortExpressions>
-                        <SortExpression>
-                          <Value>=Fields!Hierarchy.Value</Value>
-                          <Direction>Ascending</Direction>
-                        </SortExpression>
-                      </SortExpressions>
-                      <TablixHeader>
-                        <Size>74.21875pt</Size>
-                        <CellContents>
-                          <Textbox Name="Hierarchy21">
-                            <Left>0in</Left>
-                            <Top>0in</Top>
-                            <Height>18pt</Height>
-                            <Width>74.21875pt</Width>
-                            <Style>
-                              <FontFamily>Arial</FontFamily>
-                              <PaddingLeft>2pt</PaddingLeft>
-                              <PaddingRight>2pt</PaddingRight>
-                              <PaddingTop>2pt</PaddingTop>
-                              <PaddingBottom>2pt</PaddingBottom>
-                              <Border>
-                                <Color>LightGrey</Color>
-                                <Style>None</Style>
-                              </Border>
-                              <BottomBorder>
-                                <Style>Solid</Style>
-                              </BottomBorder>
-                              <LeftBorder>
-                                <Style>Solid</Style>
-                              </LeftBorder>
-                              <RightBorder>
-                                <Style>Solid</Style>
-                              </RightBorder>
-                              <TopBorder>
-                                <Style>None</Style>
-                              </TopBorder>
-                            </Style>
-                            <CanGrow>true</CanGrow>
-                            <KeepTogether>true</KeepTogether>
-                            <Paragraphs>
-                              <Paragraph>
-                                <TextRuns>
-                                  <TextRun>
-                                    <Value>=Fields!Hierarchy.Value</Value>
-                                    <Style>
-                                      <FontFamily>Arial</FontFamily>
-                                      <Color>black</Color>
-                                    </Style>
-                                  </TextRun>
-                                </TextRuns>
-                                <Style>
-                                  <FontFamily>Arial</FontFamily>
-                                  <TextAlign>Left</TextAlign>
-                                </Style>
-                              </Paragraph>
-                            </Paragraphs>
-                          </Textbox>
-                        </CellContents>
-                      </TablixHeader>
-                      <TablixMembers>
-                        <TablixMember>
-                          <Group Name="Details112" />
-                        </TablixMember>
-                      </TablixMembers>
-                    </TablixMember>
-                    <TablixMember>
-                      <TablixHeader>
-                        <Size>74.21875pt</Size>
-                        <CellContents>
-                          <Textbox Name="TextBox63">
-                            <Left>0in</Left>
-                            <Top>0in</Top>
-                            <Height>18pt</Height>
-                            <Width>74.21875pt</Width>
-                            <Style>
-                              <BackgroundColor>#e3e3e3</BackgroundColor>
-                              <FontFamily>Arial</FontFamily>
-                              <PaddingLeft>2pt</PaddingLeft>
-                              <PaddingRight>2pt</PaddingRight>
-                              <PaddingTop>2pt</PaddingTop>
-                              <PaddingBottom>2pt</PaddingBottom>
-                              <Border>
-                                <Color>LightGrey</Color>
-                                <Style>None</Style>
-                              </Border>
-                              <BottomBorder>
-                                <Style>Solid</Style>
-                              </BottomBorder>
-                              <LeftBorder>
-                                <Style>Solid</Style>
-                              </LeftBorder>
-                              <RightBorder>
-                                <Style>None</Style>
-                              </RightBorder>
-                              <TopBorder>
-                                <Style>Solid</Style>
-                              </TopBorder>
-                            </Style>
-                            <CanGrow>true</CanGrow>
-                            <KeepTogether>true</KeepTogether>
-                            <Paragraphs>
-                              <Paragraph>
-                                <TextRuns>
-                                  <TextRun>
-                                    <Value>Total</Value>
-                                    <Style>
-                                      <FontFamily>Arial</FontFamily>
-                                      <FontWeight>Bold</FontWeight>
-                                      <Color>black</Color>
-                                    </Style>
-                                  </TextRun>
-                                </TextRuns>
-                                <Style>
-                                  <FontFamily>Arial</FontFamily>
-                                  <TextAlign>Left</TextAlign>
-                                </Style>
-                              </Paragraph>
-                            </Paragraphs>
-                          </Textbox>
-                        </CellContents>
-                      </TablixHeader>
-                      <KeepWithGroup>Before</KeepWithGroup>
-                    </TablixMember>
-                  </TablixMembers>
-                </TablixMember>
-                <TablixMember>
-                  <TablixHeader>
-                    <Size>148.4375pt</Size>
-                    <CellContents>
-                      <Textbox Name="TextBox611111112">
-                        <Left>0in</Left>
-                        <Top>0in</Top>
-                        <Height>18pt</Height>
-                        <Width>148.4375pt</Width>
-                        <Style>
-                          <BackgroundColor>#e3e3e3</BackgroundColor>
-                          <FontFamily>Arial</FontFamily>
-                          <PaddingLeft>2pt</PaddingLeft>
-                          <PaddingRight>2pt</PaddingRight>
-                          <PaddingTop>2pt</PaddingTop>
-                          <PaddingBottom>2pt</PaddingBottom>
-                          <Border>
-                            <Color>LightGrey</Color>
-                            <Style>None</Style>
-                          </Border>
-                          <BottomBorder>
-                            <Style>None</Style>
-                          </BottomBorder>
-                          <LeftBorder>
-                            <Style>None</Style>
-                          </LeftBorder>
-                          <RightBorder>
-                            <Style>None</Style>
-                          </RightBorder>
-                          <TopBorder>
-                            <Style>Double</Style>
-                          </TopBorder>
-                        </Style>
-                        <CanGrow>true</CanGrow>
-                        <KeepTogether>true</KeepTogether>
-                        <Paragraphs>
-                          <Paragraph>
-                            <TextRuns>
-                              <TextRun>
-                                <Value>Total by stores:</Value>
-                                <Style>
-                                  <FontFamily>Arial</FontFamily>
-                                  <FontWeight>Bold</FontWeight>
-                                  <Color>black</Color>
-                                </Style>
-                              </TextRun>
-                            </TextRuns>
-                            <Style>
-                              <FontFamily>Arial</FontFamily>
-                            </Style>
-                          </Paragraph>
-                        </Paragraphs>
-                      </Textbox>
-                    </CellContents>
-                  </TablixHeader>
-                  <TablixMembers>
-                    <TablixMember />
-                  </TablixMembers>
-                  <KeepWithGroup>Before</KeepWithGroup>
-                </TablixMember>
-              </TablixMembers>
-            </TablixRowHierarchy>
-            <RepeatColumnHeaders>true</RepeatColumnHeaders>
-            <RepeatRowHeaders>true</RepeatRowHeaders>
-          </Tablix>
-          <Tablix Name="Tablix2">
-            <Left>10.48828pt</Left>
-            <Top>11.92969pt</Top>
-            <Height>89.99998pt</Height>
-            <Width>651.11707pt</Width>
-            <Style>
-              <FontFamily>Arial</FontFamily>
-              <Border>
-                <Style>None</Style>
-              </Border>
-            </Style>
-            <Visibility>
-              <Hidden>=IIf(Parameters!ReportType.Value=2,False,True)</Hidden>
-            </Visibility>
-            <DataSetName>ItemData</DataSetName>
-            <TablixBody>
-              <TablixColumns>
-                <TablixColumn>
-                  <Width>85pt</Width>
-                </TablixColumn>
-                <TablixColumn>
-                  <Width>84.2448pt</Width>
-                </TablixColumn>
-                <TablixColumn>
-                  <Width>80.4948pt</Width>
-                </TablixColumn>
-                <TablixColumn>
-                  <Width>76.0026pt</Width>
-                </TablixColumn>
-                <TablixColumn>
-                  <Width>69.73959pt</Width>
-                </TablixColumn>
-                <TablixColumn>
-                  <Width>78.11198pt</Width>
-                </TablixColumn>
-              </TablixColumns>
-              <TablixRows>
-                <TablixRow>
-                  <Height>18pt</Height>
-                  <TablixCells>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="TextBox70">
-                          <Left>0in</Left>
-                          <Top>0in</Top>
-                          <Height>18pt</Height>
-                          <Width>84.99975pt</Width>
-                          <Style>
-                            <BackgroundColor>#e3e3e3</BackgroundColor>
-                            <FontFamily>Arial</FontFamily>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                            <Border>
-                              <Width>1.74975pt</Width>
-                              <Color>LightGrey</Color>
-                              <Style>None</Style>
-                            </Border>
-                            <BottomBorder>
-                              <Width>1.37475pt</Width>
-                              <Color>#b3b2b3</Color>
-                              <Style>Solid</Style>
-                            </BottomBorder>
-                            <LeftBorder>
-                              <Style>None</Style>
-                            </LeftBorder>
-                            <RightBorder>
-                              <Style>None</Style>
-                            </RightBorder>
-                            <TopBorder>
-                              <Style>None</Style>
-                            </TopBorder>
-                          </Style>
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value>Item code</Value>
-                                  <Style>
-                                    <FontFamily>Arial</FontFamily>
-                                    <Color>black</Color>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style>
-                                <FontFamily>Arial</FontFamily>
-                              </Style>
-                            </Paragraph>
-                          </Paragraphs>
-                          <ToggleImage>
-                            <InitialState>false</InitialState>
-                          </ToggleImage>
-                          <UserSort>
-                            <SortExpression>=Fields!ItemCode.Value</SortExpression>
-                            <SortExpressionScope>Details11</SortExpressionScope>
-                            <SortTarget>Tablix2</SortTarget>
-                          </UserSort>
-                        </Textbox>
-                        <RowSpan>1</RowSpan>
-                        <ColSpan>1</ColSpan>
-                      </CellContents>
-                    </TablixCell>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="TextBox72">
-                          <Left>0in</Left>
-                          <Top>0in</Top>
-                          <Height>18pt</Height>
-                          <Width>84.2445pt</Width>
-                          <Style>
-                            <BackgroundColor>#e3e3e3</BackgroundColor>
-                            <FontFamily>Arial</FontFamily>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                            <Border>
-                              <Width>1.74975pt</Width>
-                              <Color>LightGrey</Color>
-                              <Style>None</Style>
-                            </Border>
-                            <BottomBorder>
-                              <Width>1.37475pt</Width>
-                              <Color>#b3b2b3</Color>
-                              <Style>Solid</Style>
-                            </BottomBorder>
-                            <LeftBorder>
-                              <Style>None</Style>
-                            </LeftBorder>
-                            <RightBorder>
-                              <Style>None</Style>
-                            </RightBorder>
-                            <TopBorder>
-                              <Style>None</Style>
-                            </TopBorder>
-                          </Style>
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value>Item Name</Value>
-                                  <Style>
-                                    <FontFamily>Arial</FontFamily>
-                                    <Color>black</Color>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style>
-                                <FontFamily>Arial</FontFamily>
-                              </Style>
-                            </Paragraph>
-                          </Paragraphs>
-                          <ToggleImage>
-                            <InitialState>false</InitialState>
-                          </ToggleImage>
-                          <UserSort>
-                            <SortExpression>=Fields!ItemName.Value</SortExpression>
-                            <SortExpressionScope>Details11</SortExpressionScope>
-                            <SortTarget>Tablix2</SortTarget>
-                          </UserSort>
-                        </Textbox>
-                        <RowSpan>1</RowSpan>
-                        <ColSpan>1</ColSpan>
-                      </CellContents>
-                    </TablixCell>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="TextBox25">
-                          <Left>0in</Left>
-                          <Top>0in</Top>
-                          <Height>18pt</Height>
-                          <Width>80.4945pt</Width>
-                          <Style>
-                            <BackgroundColor>#e3e3e3</BackgroundColor>
-                            <FontFamily>Arial</FontFamily>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                            <Border>
-                              <Width>1.74975pt</Width>
-                              <Color>LightGrey</Color>
-                              <Style>None</Style>
-                            </Border>
-                            <BottomBorder>
-                              <Width>1.37475pt</Width>
-                              <Color>#b3b2b3</Color>
-                              <Style>Solid</Style>
-                            </BottomBorder>
-                            <LeftBorder>
-                              <Style>None</Style>
-                            </LeftBorder>
-                            <RightBorder>
-                              <Style>None</Style>
-                            </RightBorder>
-                            <TopBorder>
-                              <Style>None</Style>
-                            </TopBorder>
-                          </Style>
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value>AV.amount</Value>
-                                  <Style>
-                                    <FontFamily>Arial</FontFamily>
-                                    <Color>black</Color>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style>
-                                <FontFamily>Arial</FontFamily>
-                              </Style>
-                            </Paragraph>
-                          </Paragraphs>
-                          <ToggleImage>
-                            <InitialState>false</InitialState>
-                          </ToggleImage>
-                          <UserSort>
-                            <SortExpression>=Fields!AV_Amount.Value</SortExpression>
-                            <SortExpressionScope>Details11</SortExpressionScope>
-                            <SortTarget>Tablix2</SortTarget>
-                          </UserSort>
-                        </Textbox>
-                        <RowSpan>1</RowSpan>
-                        <ColSpan>1</ColSpan>
-                      </CellContents>
-                    </TablixCell>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="TextBox26">
-                          <Left>0in</Left>
-                          <Top>0in</Top>
-                          <Height>18pt</Height>
-                          <Width>76.00275pt</Width>
-                          <Style>
-                            <BackgroundColor>#e3e3e3</BackgroundColor>
-                            <FontFamily>Arial</FontFamily>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                            <Border>
-                              <Width>1.74975pt</Width>
-                              <Color>LightGrey</Color>
-                              <Style>None</Style>
-                            </Border>
-                            <BottomBorder>
-                              <Width>1.37475pt</Width>
-                              <Color>#b3b2b3</Color>
-                              <Style>Solid</Style>
-                            </BottomBorder>
-                            <LeftBorder>
-                              <Style>None</Style>
-                            </LeftBorder>
-                            <RightBorder>
-                              <Style>None</Style>
-                            </RightBorder>
-                            <TopBorder>
-                              <Style>None</Style>
-                            </TopBorder>
-                          </Style>
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value>Amount</Value>
-                                  <Style>
-                                    <FontFamily>Arial</FontFamily>
-                                    <Color>black</Color>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style>
-                                <FontFamily>Arial</FontFamily>
-                              </Style>
-                            </Paragraph>
-                          </Paragraphs>
-                          <ToggleImage>
-                            <InitialState>false</InitialState>
-                          </ToggleImage>
-                          <UserSort>
-                            <SortExpression>=Fields!Amount.Value</SortExpression>
-                            <SortExpressionScope>Details11</SortExpressionScope>
-                            <SortTarget>Tablix2</SortTarget>
-                          </UserSort>
-                        </Textbox>
-                        <RowSpan>1</RowSpan>
-                        <ColSpan>1</ColSpan>
-                      </CellContents>
-                    </TablixCell>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="TextBox27">
-                          <Left>0in</Left>
-                          <Top>0in</Top>
-                          <Height>18pt</Height>
-                          <Width>69.73958pt</Width>
-                          <Style>
-                            <BackgroundColor>#e3e3e3</BackgroundColor>
-                            <FontFamily>Arial</FontFamily>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                            <Border>
-                              <Width>1.74975pt</Width>
-                              <Color>LightGrey</Color>
-                              <Style>None</Style>
-                            </Border>
-                            <BottomBorder>
-                              <Width>1.37475pt</Width>
-                              <Color>#b3b2b3</Color>
-                              <Style>Solid</Style>
-                            </BottomBorder>
-                            <LeftBorder>
-                              <Style>None</Style>
-                            </LeftBorder>
-                            <RightBorder>
-                              <Style>None</Style>
-                            </RightBorder>
-                            <TopBorder>
-                              <Style>None</Style>
-                            </TopBorder>
-                          </Style>
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value>Quantity</Value>
-                                  <Style>
-                                    <FontFamily>Arial</FontFamily>
-                                    <Color>black</Color>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style>
-                                <FontFamily>Arial</FontFamily>
-                              </Style>
-                            </Paragraph>
-                          </Paragraphs>
-                          <ToggleImage>
-                            <InitialState>false</InitialState>
-                          </ToggleImage>
-                          <UserSort>
-                            <SortExpression>=Fields!Quantity.Value</SortExpression>
-                            <SortExpressionScope>Details11</SortExpressionScope>
-                            <SortTarget>Tablix2</SortTarget>
-                          </UserSort>
-                        </Textbox>
-                        <RowSpan>1</RowSpan>
-                        <ColSpan>1</ColSpan>
-                      </CellContents>
-                    </TablixCell>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="TextBox28">
-                          <Left>0in</Left>
-                          <Top>0in</Top>
-                          <Height>18pt</Height>
-                          <Width>78.11175pt</Width>
-                          <Style>
-                            <BackgroundColor>#e3e3e3</BackgroundColor>
-                            <FontFamily>Arial</FontFamily>
-                            <VerticalAlign>Top</VerticalAlign>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                            <Border>
-                              <Width>1.74975pt</Width>
-                              <Color>LightGrey</Color>
-                              <Style>None</Style>
-                            </Border>
-                            <BottomBorder>
-                              <Width>1.37475pt</Width>
-                              <Color>#b3b2b3</Color>
-                              <Style>Solid</Style>
-                            </BottomBorder>
-                            <LeftBorder>
-                              <Style>None</Style>
-                            </LeftBorder>
-                            <RightBorder>
-                              <Style>None</Style>
-                            </RightBorder>
-                            <TopBorder>
-                              <Style>None</Style>
-                            </TopBorder>
-                          </Style>
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value>Contribution</Value>
-                                  <Style>
-                                    <FontFamily>Arial</FontFamily>
-                                    <Color>black</Color>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style>
-                                <FontFamily>Arial</FontFamily>
-                              </Style>
-                            </Paragraph>
-                          </Paragraphs>
-                          <ToggleImage>
-                            <InitialState>false</InitialState>
-                          </ToggleImage>
-                          <UserSort>
-                            <SortExpression>=Fields!Contribution.Value</SortExpression>
-                            <SortExpressionScope>Details11</SortExpressionScope>
-                            <SortTarget>Tablix2</SortTarget>
-                          </UserSort>
-                        </Textbox>
-                        <RowSpan>1</RowSpan>
-                        <ColSpan>1</ColSpan>
-                      </CellContents>
-                    </TablixCell>
-                  </TablixCells>
-                </TablixRow>
-                <TablixRow>
-                  <Height>18pt</Height>
-                  <TablixCells>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="TextBox7111">
-                          <Left>0in</Left>
-                          <Top>0in</Top>
-                          <Height>18pt</Height>
-                          <Width>84.99975pt</Width>
-                          <Style>
-                            <FontFamily>Arial</FontFamily>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                            <Border>
-                              <Color>LightGrey</Color>
-                              <Style>None</Style>
-                            </Border>
-                            <BottomBorder>
-                              <Style>Solid</Style>
-                            </BottomBorder>
-                            <LeftBorder>
-                              <Style>Solid</Style>
-                            </LeftBorder>
-                            <RightBorder>
-                              <Style>Solid</Style>
-                            </RightBorder>
-                            <TopBorder>
-                              <Style>None</Style>
-                            </TopBorder>
-                          </Style>
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value>=Fields!ItemCode.Value</Value>
-                                  <Style>
-                                    <FontFamily>Arial</FontFamily>
-                                    <Color>black</Color>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style>
-                                <FontFamily>Arial</FontFamily>
-                                <TextAlign>Left</TextAlign>
-                              </Style>
-                            </Paragraph>
-                          </Paragraphs>
-                        </Textbox>
-                        <RowSpan>1</RowSpan>
-                        <ColSpan>1</ColSpan>
-                      </CellContents>
-                    </TablixCell>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="TextBox7811">
-                          <Left>0in</Left>
-                          <Top>0in</Top>
-                          <Height>18pt</Height>
-                          <Width>84.2445pt</Width>
-                          <Style>
-                            <FontFamily>Arial</FontFamily>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                            <Border>
-                              <Color>LightGrey</Color>
-                              <Style>None</Style>
-                            </Border>
-                            <BottomBorder>
-                              <Style>Solid</Style>
-                            </BottomBorder>
-                            <LeftBorder>
-                              <Style>Solid</Style>
-                            </LeftBorder>
-                            <RightBorder>
-                              <Style>Solid</Style>
-                            </RightBorder>
-                            <TopBorder>
-                              <Style>None</Style>
-                            </TopBorder>
-                          </Style>
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value>=Fields!ItemName.Value</Value>
-                                  <Style>
-                                    <FontFamily>Arial</FontFamily>
-                                    <Color>black</Color>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style>
-                                <FontFamily>Arial</FontFamily>
-                                <TextAlign>Left</TextAlign>
-                              </Style>
-                            </Paragraph>
-                          </Paragraphs>
-                        </Textbox>
-                        <RowSpan>1</RowSpan>
-                        <ColSpan>1</ColSpan>
-                      </CellContents>
-                    </TablixCell>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="TextBox4611">
-                          <Left>0in</Left>
-                          <Top>0in</Top>
-                          <Height>18pt</Height>
-                          <Width>80.4945pt</Width>
-                          <Style>
-                            <FontFamily>Arial</FontFamily>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                            <Border>
-                              <Color>LightGrey</Color>
-                              <Style>None</Style>
-                            </Border>
-                            <BottomBorder>
-                              <Style>Solid</Style>
-                            </BottomBorder>
-                            <LeftBorder>
-                              <Style>Solid</Style>
-                            </LeftBorder>
-                            <RightBorder>
-                              <Style>Solid</Style>
-                            </RightBorder>
-                            <TopBorder>
-                              <Style>None</Style>
-                            </TopBorder>
-                          </Style>
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value>=Fields!AV_Amount.Value</Value>
-                                  <Style>
-                                    <FontFamily>Arial</FontFamily>
-                                    <Format>0.00;(0.00)</Format>
-                                    <rd:FormatType>
-                                      <rd:Format>Number</rd:Format>
-                                      <rd:Representation>None</rd:Representation>
-                                      <rd:NegativeValue>(12345)</rd:NegativeValue>
-                                    </rd:FormatType>
-                                    <Color>black</Color>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style>
-                                <FontFamily>Arial</FontFamily>
-                                <TextAlign>Left</TextAlign>
-                              </Style>
-                            </Paragraph>
-                          </Paragraphs>
-                        </Textbox>
-                        <RowSpan>1</RowSpan>
-                        <ColSpan>1</ColSpan>
-                      </CellContents>
-                    </TablixCell>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="TextBox4511">
-                          <Left>0in</Left>
-                          <Top>0in</Top>
-                          <Height>18pt</Height>
-                          <Width>76.00275pt</Width>
-                          <Style>
-                            <FontFamily>Arial</FontFamily>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                            <Border>
-                              <Color>LightGrey</Color>
-                              <Style>None</Style>
-                            </Border>
-                            <BottomBorder>
-                              <Style>Solid</Style>
-                            </BottomBorder>
-                            <LeftBorder>
-                              <Style>Solid</Style>
-                            </LeftBorder>
-                            <RightBorder>
-                              <Style>Solid</Style>
-                            </RightBorder>
-                            <TopBorder>
-                              <Style>None</Style>
-                            </TopBorder>
-                          </Style>
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value>=Fields!Amount.Value</Value>
-                                  <Style>
-                                    <FontFamily>Arial</FontFamily>
-                                    <Format>0.00;(0.00)</Format>
-                                    <rd:FormatType>
-                                      <rd:Format>Number</rd:Format>
-                                      <rd:Representation>None</rd:Representation>
-                                      <rd:NegativeValue>(12345)</rd:NegativeValue>
-                                    </rd:FormatType>
-                                    <Color>black</Color>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style>
-                                <FontFamily>Arial</FontFamily>
-                                <TextAlign>Left</TextAlign>
-                              </Style>
-                            </Paragraph>
-                          </Paragraphs>
-                        </Textbox>
-                        <RowSpan>1</RowSpan>
-                        <ColSpan>1</ColSpan>
-                      </CellContents>
-                    </TablixCell>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="TextBox4411">
-                          <Left>0in</Left>
-                          <Top>0in</Top>
-                          <Height>18pt</Height>
-                          <Width>69.73958pt</Width>
-                          <Style>
-                            <FontFamily>Arial</FontFamily>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                            <Border>
-                              <Color>LightGrey</Color>
-                              <Style>None</Style>
-                            </Border>
-                            <BottomBorder>
-                              <Style>Solid</Style>
-                            </BottomBorder>
-                            <LeftBorder>
-                              <Style>Solid</Style>
-                            </LeftBorder>
-                            <RightBorder>
-                              <Style>Solid</Style>
-                            </RightBorder>
-                            <TopBorder>
-                              <Style>None</Style>
-                            </TopBorder>
-                          </Style>
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value>=Fields!Quantity.Value</Value>
-                                  <Style>
-                                    <FontFamily>Arial</FontFamily>
-                                    <Format>0.00;(0.00)</Format>
-                                    <rd:FormatType>
-                                      <rd:Format>Number</rd:Format>
-                                      <rd:Representation>None</rd:Representation>
-                                      <rd:NegativeValue>(12345)</rd:NegativeValue>
-                                    </rd:FormatType>
-                                    <Color>black</Color>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style>
-                                <FontFamily>Arial</FontFamily>
-                                <TextAlign>Left</TextAlign>
-                              </Style>
-                            </Paragraph>
-                          </Paragraphs>
-                        </Textbox>
-                        <RowSpan>1</RowSpan>
-                        <ColSpan>1</ColSpan>
-                      </CellContents>
-                    </TablixCell>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="TextBox4311">
-                          <Left>0in</Left>
-                          <Top>0in</Top>
-                          <Height>18pt</Height>
-                          <Width>78.11175pt</Width>
-                          <Style>
-                            <FontFamily>Arial</FontFamily>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                            <Border>
-                              <Color>LightGrey</Color>
-                              <Style>None</Style>
-                            </Border>
-                            <BottomBorder>
-                              <Style>Solid</Style>
-                            </BottomBorder>
-                            <LeftBorder>
-                              <Style>Solid</Style>
-                            </LeftBorder>
-                            <RightBorder>
-                              <Style>Solid</Style>
-                            </RightBorder>
-                            <TopBorder>
-                              <Style>None</Style>
-                            </TopBorder>
-                          </Style>
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value>=Fields!Contribution.Value</Value>
-                                  <Style>
-                                    <FontFamily>Arial</FontFamily>
-                                    <Format>0.00%</Format>
-                                    <Color>black</Color>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style>
-                                <FontFamily>Arial</FontFamily>
-                                <TextAlign>Left</TextAlign>
-                              </Style>
-                            </Paragraph>
-                          </Paragraphs>
-                        </Textbox>
-                        <RowSpan>1</RowSpan>
-                        <ColSpan>1</ColSpan>
-                      </CellContents>
-                    </TablixCell>
-                  </TablixCells>
-                </TablixRow>
-                <TablixRow>
-                  <Height>18pt</Height>
-                  <TablixCells>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="TextBox39">
-                          <Left>0in</Left>
-                          <Top>0in</Top>
-                          <Height>18pt</Height>
-                          <Width>84.99975pt</Width>
-                          <Style>
-                            <BackgroundColor>#e3e3e3</BackgroundColor>
-                            <FontFamily>Arial</FontFamily>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                            <Border>
-                              <Color>LightGrey</Color>
-                              <Style>None</Style>
-                            </Border>
-                            <BottomBorder>
-                              <Style>Solid</Style>
-                            </BottomBorder>
-                            <LeftBorder>
-                              <Style>Solid</Style>
-                            </LeftBorder>
-                            <RightBorder>
-                              <Style>None</Style>
-                            </RightBorder>
-                            <TopBorder>
-                              <Style>Solid</Style>
-                            </TopBorder>
-                          </Style>
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value>Total:</Value>
-                                  <Style>
-                                    <FontFamily>Arial</FontFamily>
-                                    <FontWeight>Bold</FontWeight>
-                                    <Color>black</Color>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style>
-                                <FontFamily>Arial</FontFamily>
-                                <TextAlign>Left</TextAlign>
-                              </Style>
-                            </Paragraph>
-                          </Paragraphs>
-                        </Textbox>
-                        <RowSpan>1</RowSpan>
-                        <ColSpan>1</ColSpan>
-                      </CellContents>
-                    </TablixCell>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="TextBox43">
-                          <Left>0in</Left>
-                          <Top>0in</Top>
-                          <Height>18pt</Height>
-                          <Width>84.2445pt</Width>
-                          <Style>
-                            <BackgroundColor>#e3e3e3</BackgroundColor>
-                            <FontFamily>Arial</FontFamily>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                            <Border>
-                              <Color>LightGrey</Color>
-                              <Style>None</Style>
-                            </Border>
-                            <BottomBorder>
-                              <Style>Solid</Style>
-                            </BottomBorder>
-                            <LeftBorder>
-                              <Style>None</Style>
-                            </LeftBorder>
-                            <RightBorder>
-                              <Style>None</Style>
-                            </RightBorder>
-                            <TopBorder>
-                              <Style>Solid</Style>
-                            </TopBorder>
-                          </Style>
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value />
-                                  <Style>
-                                    <FontFamily>Arial</FontFamily>
-                                    <Color>black</Color>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style>
-                                <FontFamily>Arial</FontFamily>
-                                <TextAlign>Left</TextAlign>
-                              </Style>
-                            </Paragraph>
-                          </Paragraphs>
-                        </Textbox>
-                        <RowSpan>1</RowSpan>
-                        <ColSpan>1</ColSpan>
-                      </CellContents>
-                    </TablixCell>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="TextBox44">
-                          <Left>0in</Left>
-                          <Top>0in</Top>
-                          <Height>18pt</Height>
-                          <Width>80.4945pt</Width>
-                          <Style>
-                            <BackgroundColor>#e3e3e3</BackgroundColor>
-                            <FontFamily>Arial</FontFamily>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                            <Border>
-                              <Color>LightGrey</Color>
-                              <Style>None</Style>
-                            </Border>
-                            <BottomBorder>
-                              <Style>Solid</Style>
-                            </BottomBorder>
-                            <LeftBorder>
-                              <Style>None</Style>
-                            </LeftBorder>
-                            <RightBorder>
-                              <Style>None</Style>
-                            </RightBorder>
-                            <TopBorder>
-                              <Style>Solid</Style>
-                            </TopBorder>
-                          </Style>
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value>=Sum(Fields!AV_Amount.Value)</Value>
-                                  <Style>
-                                    <FontFamily>Arial</FontFamily>
-                                    <FontWeight>Bold</FontWeight>
-                                    <Format>0.00;(0.00)</Format>
-                                    <rd:FormatType>
-                                      <rd:Format>Number</rd:Format>
-                                      <rd:Representation>None</rd:Representation>
-                                      <rd:NegativeValue>(12345)</rd:NegativeValue>
-                                    </rd:FormatType>
-                                    <Color>black</Color>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style>
-                                <FontFamily>Arial</FontFamily>
-                                <TextAlign>Left</TextAlign>
-                              </Style>
-                            </Paragraph>
-                          </Paragraphs>
-                        </Textbox>
-                        <RowSpan>1</RowSpan>
-                        <ColSpan>1</ColSpan>
-                      </CellContents>
-                    </TablixCell>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="TextBox45">
-                          <Left>0in</Left>
-                          <Top>0in</Top>
-                          <Height>18pt</Height>
-                          <Width>76.00275pt</Width>
-                          <Style>
-                            <BackgroundColor>#e3e3e3</BackgroundColor>
-                            <FontFamily>Arial</FontFamily>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                            <Border>
-                              <Color>LightGrey</Color>
-                              <Style>None</Style>
-                            </Border>
-                            <BottomBorder>
-                              <Style>Solid</Style>
-                            </BottomBorder>
-                            <LeftBorder>
-                              <Style>None</Style>
-                            </LeftBorder>
-                            <RightBorder>
-                              <Style>None</Style>
-                            </RightBorder>
-                            <TopBorder>
-                              <Style>Solid</Style>
-                            </TopBorder>
-                          </Style>
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value>=Sum(Fields!Amount.Value)</Value>
-                                  <Style>
-                                    <FontFamily>Arial</FontFamily>
-                                    <FontWeight>Bold</FontWeight>
-                                    <Format>0.00;(0.00)</Format>
-                                    <rd:FormatType>
-                                      <rd:Format>Number</rd:Format>
-                                      <rd:Representation>None</rd:Representation>
-                                      <rd:NegativeValue>(12345)</rd:NegativeValue>
-                                    </rd:FormatType>
-                                    <Color>black</Color>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style>
-                                <FontFamily>Arial</FontFamily>
-                                <TextAlign>Left</TextAlign>
-                              </Style>
-                            </Paragraph>
-                          </Paragraphs>
-                        </Textbox>
-                        <RowSpan>1</RowSpan>
-                        <ColSpan>1</ColSpan>
-                      </CellContents>
-                    </TablixCell>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="TextBox46">
-                          <Left>0in</Left>
-                          <Top>0in</Top>
-                          <Height>18pt</Height>
-                          <Width>69.73958pt</Width>
-                          <Style>
-                            <BackgroundColor>#e3e3e3</BackgroundColor>
-                            <FontFamily>Arial</FontFamily>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                            <Border>
-                              <Color>LightGrey</Color>
-                              <Style>None</Style>
-                            </Border>
-                            <BottomBorder>
-                              <Style>Solid</Style>
-                            </BottomBorder>
-                            <LeftBorder>
-                              <Style>None</Style>
-                            </LeftBorder>
-                            <RightBorder>
-                              <Style>None</Style>
-                            </RightBorder>
-                            <TopBorder>
-                              <Style>Solid</Style>
-                            </TopBorder>
-                          </Style>
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value>=Sum(Fields!Quantity.Value)</Value>
-                                  <Style>
-                                    <FontFamily>Arial</FontFamily>
-                                    <FontWeight>Bold</FontWeight>
-                                    <Format>0.00;(0.00)</Format>
-                                    <rd:FormatType>
-                                      <rd:Format>Number</rd:Format>
-                                      <rd:Representation>None</rd:Representation>
-                                      <rd:NegativeValue>(12345)</rd:NegativeValue>
-                                    </rd:FormatType>
-                                    <Color>black</Color>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style>
-                                <FontFamily>Arial</FontFamily>
-                                <TextAlign>Left</TextAlign>
-                              </Style>
-                            </Paragraph>
-                          </Paragraphs>
-                        </Textbox>
-                        <RowSpan>1</RowSpan>
-                        <ColSpan>1</ColSpan>
-                      </CellContents>
-                    </TablixCell>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="TextBox47">
-                          <Left>0in</Left>
-                          <Top>0in</Top>
-                          <Height>18pt</Height>
-                          <Width>78.11175pt</Width>
-                          <Style>
-                            <BackgroundColor>#e3e3e3</BackgroundColor>
-                            <FontFamily>Arial</FontFamily>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                            <Border>
-                              <Color>LightGrey</Color>
-                              <Style>None</Style>
-                            </Border>
-                            <BottomBorder>
-                              <Style>Solid</Style>
-                            </BottomBorder>
-                            <LeftBorder>
-                              <Style>None</Style>
-                            </LeftBorder>
-                            <RightBorder>
-                              <Style>None</Style>
-                            </RightBorder>
-                            <TopBorder>
-                              <Style>Solid</Style>
-                            </TopBorder>
-                          </Style>
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value>=Sum(Fields!Contribution.Value)</Value>
-                                  <Style>
-                                    <FontFamily>Arial</FontFamily>
-                                    <FontWeight>Bold</FontWeight>
-                                    <Format>0.00%</Format>
-                                    <Color>black</Color>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style>
-                                <FontFamily>Arial</FontFamily>
-                                <TextAlign>Left</TextAlign>
-                              </Style>
-                            </Paragraph>
-                          </Paragraphs>
-                        </Textbox>
-                        <RowSpan>1</RowSpan>
-                        <ColSpan>1</ColSpan>
-                      </CellContents>
-                    </TablixCell>
-                  </TablixCells>
-                </TablixRow>
-                <TablixRow>
-                  <Height>18pt</Height>
-                  <TablixCells>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="TextBox69">
-                          <Left>0in</Left>
-                          <Top>0in</Top>
-                          <Height>18pt</Height>
-                          <Width>84.99975pt</Width>
-                          <Style>
-                            <BackgroundColor>#e3e3e3</BackgroundColor>
-                            <FontFamily>Arial</FontFamily>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                            <Border>
-                              <Color>LightGrey</Color>
-                              <Style>None</Style>
-                            </Border>
-                            <BottomBorder>
-                              <Style>Solid</Style>
-                            </BottomBorder>
-                            <LeftBorder>
-                              <Style>None</Style>
-                            </LeftBorder>
-                            <RightBorder>
-                              <Style>None</Style>
-                            </RightBorder>
-                            <TopBorder>
-                              <Style>Solid</Style>
-                            </TopBorder>
-                          </Style>
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value />
-                                  <Style>
-                                    <FontFamily>Arial</FontFamily>
-                                    <Color>black</Color>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style>
-                                <FontFamily>Arial</FontFamily>
-                                <TextAlign>Left</TextAlign>
-                              </Style>
-                            </Paragraph>
-                          </Paragraphs>
-                        </Textbox>
-                        <RowSpan>1</RowSpan>
-                        <ColSpan>1</ColSpan>
-                      </CellContents>
-                    </TablixCell>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="TextBox71">
-                          <Left>0in</Left>
-                          <Top>0in</Top>
-                          <Height>18pt</Height>
-                          <Width>84.2445pt</Width>
-                          <Style>
-                            <BackgroundColor>#e3e3e3</BackgroundColor>
-                            <FontFamily>Arial</FontFamily>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                            <Border>
-                              <Color>LightGrey</Color>
-                              <Style>None</Style>
-                            </Border>
-                            <BottomBorder>
-                              <Style>Solid</Style>
-                            </BottomBorder>
-                            <LeftBorder>
-                              <Style>None</Style>
-                            </LeftBorder>
-                            <RightBorder>
-                              <Style>None</Style>
-                            </RightBorder>
-                            <TopBorder>
-                              <Style>Solid</Style>
-                            </TopBorder>
-                          </Style>
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value />
-                                  <Style>
-                                    <FontFamily>Arial</FontFamily>
-                                    <Color>black</Color>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style>
-                                <FontFamily>Arial</FontFamily>
-                                <TextAlign>Left</TextAlign>
-                              </Style>
-                            </Paragraph>
-                          </Paragraphs>
-                        </Textbox>
-                        <RowSpan>1</RowSpan>
-                        <ColSpan>1</ColSpan>
-                      </CellContents>
-                    </TablixCell>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="TextBox73">
-                          <Left>0in</Left>
-                          <Top>0in</Top>
-                          <Height>18pt</Height>
-                          <Width>80.4945pt</Width>
-                          <Style>
-                            <BackgroundColor>#e3e3e3</BackgroundColor>
-                            <FontFamily>Arial</FontFamily>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                            <Border>
-                              <Color>LightGrey</Color>
-                              <Style>None</Style>
-                            </Border>
-                            <BottomBorder>
-                              <Style>Solid</Style>
-                            </BottomBorder>
-                            <LeftBorder>
-                              <Style>None</Style>
-                            </LeftBorder>
-                            <RightBorder>
-                              <Style>None</Style>
-                            </RightBorder>
-                            <TopBorder>
-                              <Style>Solid</Style>
-                            </TopBorder>
-                          </Style>
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value>=Sum(Fields!AV_Amount.Value)</Value>
-                                  <Style>
-                                    <FontFamily>Arial</FontFamily>
-                                    <FontWeight>Bold</FontWeight>
-                                    <Format>0.00;(0.00)</Format>
-                                    <rd:FormatType>
-                                      <rd:Format>Number</rd:Format>
-                                      <rd:Representation>None</rd:Representation>
-                                      <rd:NegativeValue>(12345)</rd:NegativeValue>
-                                    </rd:FormatType>
-                                    <Color>black</Color>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style>
-                                <FontFamily>Arial</FontFamily>
-                                <TextAlign>Left</TextAlign>
-                              </Style>
-                            </Paragraph>
-                          </Paragraphs>
-                        </Textbox>
-                        <RowSpan>1</RowSpan>
-                        <ColSpan>1</ColSpan>
-                      </CellContents>
-                    </TablixCell>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="TextBox74">
-                          <Left>0in</Left>
-                          <Top>0in</Top>
-                          <Height>18pt</Height>
-                          <Width>76.00275pt</Width>
-                          <Style>
-                            <BackgroundColor>#e3e3e3</BackgroundColor>
-                            <FontFamily>Arial</FontFamily>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                            <Border>
-                              <Color>LightGrey</Color>
-                              <Style>None</Style>
-                            </Border>
-                            <BottomBorder>
-                              <Style>Solid</Style>
-                            </BottomBorder>
-                            <LeftBorder>
-                              <Style>None</Style>
-                            </LeftBorder>
-                            <RightBorder>
-                              <Style>None</Style>
-                            </RightBorder>
-                            <TopBorder>
-                              <Style>Solid</Style>
-                            </TopBorder>
-                          </Style>
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value>=Sum(Fields!Amount.Value)</Value>
-                                  <Style>
-                                    <FontFamily>Arial</FontFamily>
-                                    <FontWeight>Bold</FontWeight>
-                                    <Format>0.00;(0.00)</Format>
-                                    <rd:FormatType>
-                                      <rd:Format>Number</rd:Format>
-                                      <rd:Representation>None</rd:Representation>
-                                      <rd:NegativeValue>(12345)</rd:NegativeValue>
-                                    </rd:FormatType>
-                                    <Color>black</Color>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style>
-                                <FontFamily>Arial</FontFamily>
-                                <TextAlign>Left</TextAlign>
-                              </Style>
-                            </Paragraph>
-                          </Paragraphs>
-                        </Textbox>
-                        <RowSpan>1</RowSpan>
-                        <ColSpan>1</ColSpan>
-                      </CellContents>
-                    </TablixCell>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="TextBox75">
-                          <Left>0in</Left>
-                          <Top>0in</Top>
-                          <Height>18pt</Height>
-                          <Width>69.73958pt</Width>
-                          <Style>
-                            <BackgroundColor>#e3e3e3</BackgroundColor>
-                            <FontFamily>Arial</FontFamily>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                            <Border>
-                              <Color>LightGrey</Color>
-                              <Style>None</Style>
-                            </Border>
-                            <BottomBorder>
-                              <Style>Solid</Style>
-                            </BottomBorder>
-                            <LeftBorder>
-                              <Style>None</Style>
-                            </LeftBorder>
-                            <RightBorder>
-                              <Style>None</Style>
-                            </RightBorder>
-                            <TopBorder>
-                              <Style>Solid</Style>
-                            </TopBorder>
-                          </Style>
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value>=Sum(Fields!Quantity.Value)</Value>
-                                  <Style>
-                                    <FontFamily>Arial</FontFamily>
-                                    <FontWeight>Bold</FontWeight>
-                                    <Format>0.00;(0.00)</Format>
-                                    <rd:FormatType>
-                                      <rd:Format>Number</rd:Format>
-                                      <rd:Representation>None</rd:Representation>
-                                      <rd:NegativeValue>(12345)</rd:NegativeValue>
-                                    </rd:FormatType>
-                                    <Color>black</Color>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style>
-                                <FontFamily>Arial</FontFamily>
-                                <TextAlign>Left</TextAlign>
-                              </Style>
-                            </Paragraph>
-                          </Paragraphs>
-                        </Textbox>
-                        <RowSpan>1</RowSpan>
-                        <ColSpan>1</ColSpan>
-                      </CellContents>
-                    </TablixCell>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="TextBox76">
-                          <Left>0in</Left>
-                          <Top>0in</Top>
-                          <Height>18pt</Height>
-                          <Width>78.11175pt</Width>
-                          <Style>
-                            <BackgroundColor>#e3e3e3</BackgroundColor>
-                            <FontFamily>Arial</FontFamily>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                            <Border>
-                              <Color>LightGrey</Color>
-                              <Style>None</Style>
-                            </Border>
-                            <BottomBorder>
-                              <Style>Solid</Style>
-                            </BottomBorder>
-                            <LeftBorder>
-                              <Style>None</Style>
-                            </LeftBorder>
-                            <RightBorder>
-                              <Style>None</Style>
-                            </RightBorder>
-                            <TopBorder>
-                              <Style>Solid</Style>
-                            </TopBorder>
-                          </Style>
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value>=Sum(Fields!Contribution.Value)</Value>
-                                  <Style>
-                                    <FontFamily>Arial</FontFamily>
-                                    <FontWeight>Bold</FontWeight>
-                                    <Format>0.00%</Format>
-                                    <Color>black</Color>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style>
-                                <FontFamily>Arial</FontFamily>
-                                <TextAlign>Left</TextAlign>
-                              </Style>
-                            </Paragraph>
-                          </Paragraphs>
-                        </Textbox>
-                        <RowSpan>1</RowSpan>
-                        <ColSpan>1</ColSpan>
-                      </CellContents>
-                    </TablixCell>
-                  </TablixCells>
-                </TablixRow>
-                <TablixRow>
-                  <Height>18pt</Height>
-                  <TablixCells>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="TextBox49">
-                          <Left>0in</Left>
-                          <Top>0in</Top>
-                          <Height>18pt</Height>
-                          <Width>84.99975pt</Width>
-                          <Style>
-                            <BackgroundColor>#e3e3e3</BackgroundColor>
-                            <FontFamily>Arial</FontFamily>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                            <Border>
-                              <Color>LightGrey</Color>
-                              <Style>None</Style>
-                            </Border>
-                            <BottomBorder>
-                              <Style>None</Style>
-                            </BottomBorder>
-                            <LeftBorder>
-                              <Style>None</Style>
-                            </LeftBorder>
-                            <RightBorder>
-                              <Style>None</Style>
-                            </RightBorder>
-                            <TopBorder>
-                              <Style>Double</Style>
-                            </TopBorder>
-                          </Style>
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value />
-                                  <Style>
-                                    <FontFamily>Arial</FontFamily>
-                                    <Color>black</Color>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style>
-                                <FontFamily>Arial</FontFamily>
-                                <TextAlign>Left</TextAlign>
-                              </Style>
-                            </Paragraph>
-                          </Paragraphs>
-                        </Textbox>
-                        <RowSpan>1</RowSpan>
-                        <ColSpan>1</ColSpan>
-                      </CellContents>
-                    </TablixCell>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="TextBox57">
-                          <Left>0in</Left>
-                          <Top>0in</Top>
-                          <Height>18pt</Height>
-                          <Width>84.2445pt</Width>
-                          <Style>
-                            <BackgroundColor>#e3e3e3</BackgroundColor>
-                            <FontFamily>Arial</FontFamily>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                            <Border>
-                              <Color>LightGrey</Color>
-                              <Style>None</Style>
-                            </Border>
-                            <BottomBorder>
-                              <Style>None</Style>
-                            </BottomBorder>
-                            <LeftBorder>
-                              <Style>None</Style>
-                            </LeftBorder>
-                            <RightBorder>
-                              <Style>None</Style>
-                            </RightBorder>
-                            <TopBorder>
-                              <Style>Double</Style>
-                            </TopBorder>
-                          </Style>
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value />
-                                  <Style>
-                                    <FontFamily>Arial</FontFamily>
-                                    <Color>black</Color>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style>
-                                <FontFamily>Arial</FontFamily>
-                                <TextAlign>Left</TextAlign>
-                              </Style>
-                            </Paragraph>
-                          </Paragraphs>
-                        </Textbox>
-                        <RowSpan>1</RowSpan>
-                        <ColSpan>1</ColSpan>
-                      </CellContents>
-                    </TablixCell>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="TextBox3">
-                          <Left>0in</Left>
-                          <Top>0in</Top>
-                          <Height>18pt</Height>
-                          <Width>80.4945pt</Width>
-                          <Style>
-                            <BackgroundColor>#e3e3e3</BackgroundColor>
-                            <FontFamily>Arial</FontFamily>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                            <Border>
-                              <Color>LightGrey</Color>
-                              <Style>None</Style>
-                            </Border>
-                            <BottomBorder>
-                              <Style>None</Style>
-                            </BottomBorder>
-                            <LeftBorder>
-                              <Style>None</Style>
-                            </LeftBorder>
-                            <RightBorder>
-                              <Style>None</Style>
-                            </RightBorder>
-                            <TopBorder>
-                              <Style>Double</Style>
-                            </TopBorder>
-                          </Style>
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value />
-                                  <Style>
-                                    <FontFamily>Arial</FontFamily>
-                                    <FontWeight>Bold</FontWeight>
-                                    <Color>black</Color>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style>
-                                <FontFamily>Arial</FontFamily>
-                              </Style>
-                            </Paragraph>
-                          </Paragraphs>
-                        </Textbox>
-                        <RowSpan>1</RowSpan>
-                        <ColSpan>1</ColSpan>
-                      </CellContents>
-                    </TablixCell>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="TextBox59">
-                          <Left>0in</Left>
-                          <Top>0in</Top>
-                          <Height>18pt</Height>
-                          <Width>76.00275pt</Width>
-                          <Style>
-                            <BackgroundColor>#e3e3e3</BackgroundColor>
-                            <FontFamily>Arial</FontFamily>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                            <Border>
-                              <Color>LightGrey</Color>
-                              <Style>None</Style>
-                            </Border>
-                            <BottomBorder>
-                              <Style>None</Style>
-                            </BottomBorder>
-                            <LeftBorder>
-                              <Style>None</Style>
-                            </LeftBorder>
-                            <RightBorder>
-                              <Style>None</Style>
-                            </RightBorder>
-                            <TopBorder>
-                              <Style>Double</Style>
-                            </TopBorder>
-                          </Style>
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value>=Sum(Fields!Amount.Value)</Value>
-                                  <Style>
-                                    <FontFamily>Arial</FontFamily>
-                                    <FontWeight>Bold</FontWeight>
-                                    <Format>0.00;(0.00)</Format>
-                                    <rd:FormatType>
-                                      <rd:Format>Number</rd:Format>
-                                      <rd:Representation>None</rd:Representation>
-                                      <rd:NegativeValue>(12345)</rd:NegativeValue>
-                                    </rd:FormatType>
-                                    <Color>black</Color>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style>
-                                <FontFamily>Arial</FontFamily>
-                                <TextAlign>Left</TextAlign>
-                              </Style>
-                            </Paragraph>
-                          </Paragraphs>
-                        </Textbox>
-                        <RowSpan>1</RowSpan>
-                        <ColSpan>1</ColSpan>
-                      </CellContents>
-                    </TablixCell>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="TextBox60">
-                          <Left>0in</Left>
-                          <Top>0in</Top>
-                          <Height>18pt</Height>
-                          <Width>69.73958pt</Width>
-                          <Style>
-                            <BackgroundColor>#e3e3e3</BackgroundColor>
-                            <FontFamily>Arial</FontFamily>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                            <Border>
-                              <Color>LightGrey</Color>
-                              <Style>None</Style>
-                            </Border>
-                            <BottomBorder>
-                              <Style>None</Style>
-                            </BottomBorder>
-                            <LeftBorder>
-                              <Style>None</Style>
-                            </LeftBorder>
-                            <RightBorder>
-                              <Style>None</Style>
-                            </RightBorder>
-                            <TopBorder>
-                              <Style>Double</Style>
-                            </TopBorder>
-                          </Style>
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value>=Sum(Fields!Quantity.Value)</Value>
-                                  <Style>
-                                    <FontFamily>Arial</FontFamily>
-                                    <FontWeight>Bold</FontWeight>
-                                    <Format>0.00;(0.00)</Format>
-                                    <rd:FormatType>
-                                      <rd:Format>Number</rd:Format>
-                                      <rd:Representation>None</rd:Representation>
-                                      <rd:NegativeValue>(12345)</rd:NegativeValue>
-                                    </rd:FormatType>
-                                    <Color>black</Color>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style>
-                                <FontFamily>Arial</FontFamily>
-                                <TextAlign>Left</TextAlign>
-                              </Style>
-                            </Paragraph>
-                          </Paragraphs>
-                        </Textbox>
-                        <RowSpan>1</RowSpan>
-                        <ColSpan>1</ColSpan>
-                      </CellContents>
-                    </TablixCell>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="TextBox62">
-                          <Left>0in</Left>
-                          <Top>0in</Top>
-                          <Height>18pt</Height>
-                          <Width>78.11175pt</Width>
-                          <Style>
-                            <BackgroundColor>#e3e3e3</BackgroundColor>
-                            <FontFamily>Arial</FontFamily>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                            <Border>
-                              <Color>LightGrey</Color>
-                              <Style>None</Style>
-                            </Border>
-                            <BottomBorder>
-                              <Style>None</Style>
-                            </BottomBorder>
-                            <LeftBorder>
-                              <Style>None</Style>
-                            </LeftBorder>
-                            <RightBorder>
-                              <Style>None</Style>
-                            </RightBorder>
-                            <TopBorder>
-                              <Style>Double</Style>
-                            </TopBorder>
-                          </Style>
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value>=Sum(Fields!Contribution.Value)</Value>
-                                  <Style>
-                                    <FontFamily>Arial</FontFamily>
-                                    <FontWeight>Bold</FontWeight>
-                                    <Format>0.00%</Format>
-                                    <Color>black</Color>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style>
-                                <FontFamily>Arial</FontFamily>
-                                <TextAlign>Left</TextAlign>
-                              </Style>
-                            </Paragraph>
-                          </Paragraphs>
-                        </Textbox>
-                        <RowSpan>1</RowSpan>
-                        <ColSpan>1</ColSpan>
-                      </CellContents>
-                    </TablixCell>
-                  </TablixCells>
-                </TablixRow>
-              </TablixRows>
-            </TablixBody>
-            <TablixColumnHierarchy>
-              <TablixMembers>
-                <TablixMember />
-                <TablixMember />
-                <TablixMember />
-                <TablixMember />
-                <TablixMember />
-                <TablixMember />
-              </TablixMembers>
-            </TablixColumnHierarchy>
-            <TablixRowHierarchy>
-              <TablixMembers>
-                <TablixMember>
-                  <TablixHeader>
-                    <Size>88.75pt</Size>
-                    <CellContents>
-                      <Textbox Name="TextBox241">
-                        <Left>0in</Left>
-                        <Top>0in</Top>
-                        <Height>18pt</Height>
-                        <Width>88.75pt</Width>
-                        <Style>
-                          <BackgroundColor>#e3e3e3</BackgroundColor>
-                          <FontFamily>Arial</FontFamily>
-                          <PaddingLeft>2pt</PaddingLeft>
-                          <PaddingRight>2pt</PaddingRight>
-                          <PaddingTop>2pt</PaddingTop>
-                          <PaddingBottom>2pt</PaddingBottom>
-                          <Border>
-                            <Width>1.74975pt</Width>
-                            <Color>LightGrey</Color>
-                            <Style>None</Style>
-                          </Border>
-                          <BottomBorder>
-                            <Width>1.37475pt</Width>
-                            <Color>#b3b2b3</Color>
-                            <Style>Solid</Style>
-                          </BottomBorder>
-                          <LeftBorder>
-                            <Style>None</Style>
-                          </LeftBorder>
-                          <RightBorder>
-                            <Style>None</Style>
-                          </RightBorder>
-                          <TopBorder>
-                            <Style>None</Style>
-                          </TopBorder>
-                        </Style>
-                        <CanGrow>true</CanGrow>
-                        <KeepTogether>true</KeepTogether>
-                        <Paragraphs>
-                          <Paragraph>
-                            <TextRuns>
-                              <TextRun>
-                                <Value>Store</Value>
-                                <Style>
-                                  <FontFamily>Arial</FontFamily>
-                                  <Color>black</Color>
-                                </Style>
-                              </TextRun>
-                            </TextRuns>
-                            <Style>
-                              <FontFamily>Arial</FontFamily>
-                            </Style>
-                          </Paragraph>
-                        </Paragraphs>
-                        <ToggleImage>
-                          <InitialState>false</InitialState>
-                        </ToggleImage>
-                        <UserSort>
-                          <SortExpression>=Fields!Store.Value</SortExpression>
-                          <SortExpressionScope>Store3</SortExpressionScope>
-                          <SortTarget>Tablix2</SortTarget>
-                        </UserSort>
-                      </Textbox>
-                    </CellContents>
-                  </TablixHeader>
-                  <TablixMembers>
-                    <TablixMember>
-                      <TablixHeader>
-                        <Size>88.75pt</Size>
-                        <CellContents>
-                          <Textbox Name="TextBox681">
-                            <Left>0in</Left>
-                            <Top>0in</Top>
-                            <Height>18pt</Height>
-                            <Width>88.75pt</Width>
-                            <Style>
-                              <BackgroundColor>#e3e3e3</BackgroundColor>
-                              <FontFamily>Arial</FontFamily>
-                              <PaddingLeft>2pt</PaddingLeft>
-                              <PaddingRight>2pt</PaddingRight>
-                              <PaddingTop>2pt</PaddingTop>
-                              <PaddingBottom>2pt</PaddingBottom>
-                              <Border>
-                                <Width>1.74975pt</Width>
-                                <Color>LightGrey</Color>
-                                <Style>None</Style>
-                              </Border>
-                              <BottomBorder>
-                                <Width>1.37475pt</Width>
-                                <Color>#b3b2b3</Color>
-                                <Style>Solid</Style>
-                              </BottomBorder>
-                              <LeftBorder>
-                                <Style>None</Style>
-                              </LeftBorder>
-                              <RightBorder>
-                                <Style>None</Style>
-                              </RightBorder>
-                              <TopBorder>
-                                <Style>None</Style>
-                              </TopBorder>
-                            </Style>
-                            <CanGrow>true</CanGrow>
-                            <KeepTogether>true</KeepTogether>
-                            <Paragraphs>
-                              <Paragraph>
-                                <TextRuns>
-                                  <TextRun>
-                                    <Value>Hierarchy</Value>
-                                    <Style>
-                                      <FontFamily>Arial</FontFamily>
-                                      <Color>black</Color>
-                                    </Style>
-                                  </TextRun>
-                                </TextRuns>
-                                <Style>
-                                  <FontFamily>Arial</FontFamily>
-                                </Style>
-                              </Paragraph>
-                            </Paragraphs>
-                            <ToggleImage>
-                              <InitialState>false</InitialState>
-                            </ToggleImage>
-                            <UserSort>
-                              <SortExpression>=Fields!Hierarchy.Value</SortExpression>
-                              <SortExpressionScope>Hierarchy1</SortExpressionScope>
-                              <SortTarget>Tablix2</SortTarget>
-                            </UserSort>
-                          </Textbox>
-                        </CellContents>
-                      </TablixHeader>
-                      <TablixMembers>
-                        <TablixMember>
-                          <RepeatOnNewPage>true</RepeatOnNewPage>
-                        </TablixMember>
-                      </TablixMembers>
-                      <RepeatOnNewPage>true</RepeatOnNewPage>
-                    </TablixMember>
-                  </TablixMembers>
-                  <KeepWithGroup>After</KeepWithGroup>
-                  <RepeatOnNewPage>true</RepeatOnNewPage>
-                </TablixMember>
-                <TablixMember>
-                  <Group Name="Store3">
-                    <GroupExpressions>
-                      <GroupExpression>=Fields!Store.Value</GroupExpression>
-                    </GroupExpressions>
-                  </Group>
-                  <SortExpressions>
-                    <SortExpression>
-                      <Value>=Fields!Store.Value</Value>
-                      <Direction>Ascending</Direction>
-                    </SortExpression>
-                  </SortExpressions>
-                  <TablixHeader>
-                    <Size>88.75pt</Size>
-                    <CellContents>
-                      <Textbox Name="Store31">
-                        <Left>0in</Left>
-                        <Top>0in</Top>
-                        <Height>18pt</Height>
-                        <Width>88.75pt</Width>
-                        <Style>
-                          <FontFamily>Arial</FontFamily>
-                          <PaddingLeft>2pt</PaddingLeft>
-                          <PaddingRight>2pt</PaddingRight>
-                          <PaddingTop>2pt</PaddingTop>
-                          <PaddingBottom>2pt</PaddingBottom>
-                          <Border>
-                            <Color>LightGrey</Color>
-                            <Style>None</Style>
-                          </Border>
-                          <BottomBorder>
-                            <Style>Solid</Style>
-                          </BottomBorder>
-                          <LeftBorder>
-                            <Style>None</Style>
-                          </LeftBorder>
-                          <RightBorder>
-                            <Style>Solid</Style>
-                          </RightBorder>
-                          <TopBorder>
-                            <Style>None</Style>
-                          </TopBorder>
-                        </Style>
-                        <CanGrow>true</CanGrow>
-                        <KeepTogether>true</KeepTogether>
-                        <Paragraphs>
-                          <Paragraph>
-                            <TextRuns>
-                              <TextRun>
-                                <Value>=Fields!Store.Value</Value>
-                                <Style>
-                                  <FontFamily>Arial</FontFamily>
-                                  <FontWeight>Bold</FontWeight>
-                                  <Color>black</Color>
-                                </Style>
-                              </TextRun>
-                            </TextRuns>
-                            <Style>
-                              <FontFamily>Arial</FontFamily>
-                              <TextAlign>Left</TextAlign>
-                            </Style>
-                          </Paragraph>
-                        </Paragraphs>
-                      </Textbox>
-                    </CellContents>
-                  </TablixHeader>
-                  <TablixMembers>
-                    <TablixMember>
-                      <Group Name="Hierarchy1">
-                        <GroupExpressions>
-                          <GroupExpression>=Fields!Hierarchy.Value</GroupExpression>
-                        </GroupExpressions>
-                      </Group>
-                      <SortExpressions>
-                        <SortExpression>
-                          <Value>=Fields!Hierarchy.Value</Value>
-                          <Direction>Ascending</Direction>
-                        </SortExpression>
-                      </SortExpressions>
-                      <TablixHeader>
-                        <Size>88.75pt</Size>
-                        <CellContents>
-                          <Textbox Name="Hierarchy11">
-                            <Left>0in</Left>
-                            <Top>0in</Top>
-                            <Height>18pt</Height>
-                            <Width>88.75pt</Width>
-                            <Style>
-                              <FontFamily>Arial</FontFamily>
-                              <PaddingLeft>2pt</PaddingLeft>
-                              <PaddingRight>2pt</PaddingRight>
-                              <PaddingTop>2pt</PaddingTop>
-                              <PaddingBottom>2pt</PaddingBottom>
-                              <Border>
-                                <Color>LightGrey</Color>
-                                <Style>None</Style>
-                              </Border>
-                              <BottomBorder>
-                                <Style>Solid</Style>
-                              </BottomBorder>
-                              <LeftBorder>
-                                <Style>None</Style>
-                              </LeftBorder>
-                              <RightBorder>
-                                <Style>Solid</Style>
-                              </RightBorder>
-                              <TopBorder>
-                                <Style>None</Style>
-                              </TopBorder>
-                            </Style>
-                            <CanGrow>true</CanGrow>
-                            <KeepTogether>true</KeepTogether>
-                            <Paragraphs>
-                              <Paragraph>
-                                <TextRuns>
-                                  <TextRun>
-                                    <Value>=Fields!Hierarchy.Value</Value>
-                                    <Style>
-                                      <FontFamily>Arial</FontFamily>
-                                      <FontWeight>Bold</FontWeight>
-                                      <Color>black</Color>
-                                    </Style>
-                                  </TextRun>
-                                </TextRuns>
-                                <Style>
-                                  <FontFamily>Arial</FontFamily>
-                                  <TextAlign>Left</TextAlign>
-                                </Style>
-                              </Paragraph>
-                            </Paragraphs>
-                          </Textbox>
-                        </CellContents>
-                      </TablixHeader>
-                      <TablixMembers>
-                        <TablixMember>
-                          <Group Name="Details11" />
-                        </TablixMember>
-                        <TablixMember>
-                          <KeepWithGroup>Before</KeepWithGroup>
-                        </TablixMember>
-                      </TablixMembers>
-                    </TablixMember>
-                    <TablixMember>
-                      <TablixHeader>
-                        <Size>88.75pt</Size>
-                        <CellContents>
-                          <Textbox Name="TextBox68">
-                            <Left>0in</Left>
-                            <Top>0in</Top>
-                            <Height>18pt</Height>
-                            <Width>88.75pt</Width>
-                            <Style>
-                              <BackgroundColor>#e3e3e3</BackgroundColor>
-                              <FontFamily>Arial</FontFamily>
-                              <PaddingLeft>2pt</PaddingLeft>
-                              <PaddingRight>2pt</PaddingRight>
-                              <PaddingTop>2pt</PaddingTop>
-                              <PaddingBottom>2pt</PaddingBottom>
-                              <Border>
-                                <Color>LightGrey</Color>
-                                <Style>None</Style>
-                              </Border>
-                              <BottomBorder>
-                                <Style>Solid</Style>
-                              </BottomBorder>
-                              <LeftBorder>
-                                <Style>Solid</Style>
-                              </LeftBorder>
-                              <RightBorder>
-                                <Style>None</Style>
-                              </RightBorder>
-                              <TopBorder>
-                                <Style>Solid</Style>
-                              </TopBorder>
-                            </Style>
-                            <CanGrow>true</CanGrow>
-                            <KeepTogether>true</KeepTogether>
-                            <Paragraphs>
-                              <Paragraph>
-                                <TextRuns>
-                                  <TextRun>
-                                    <Value>Total store:</Value>
-                                    <Style>
-                                      <FontFamily>Arial</FontFamily>
-                                      <FontWeight>Bold</FontWeight>
-                                      <Color>black</Color>
-                                    </Style>
-                                  </TextRun>
-                                </TextRuns>
-                                <Style>
-                                  <FontFamily>Arial</FontFamily>
-                                  <TextAlign>Left</TextAlign>
-                                </Style>
-                              </Paragraph>
-                            </Paragraphs>
-                          </Textbox>
-                        </CellContents>
-                      </TablixHeader>
-                      <KeepWithGroup>Before</KeepWithGroup>
-                    </TablixMember>
-                  </TablixMembers>
-                </TablixMember>
-                <TablixMember>
-                  <TablixHeader>
-                    <Size>88.75pt</Size>
-                    <CellContents>
-                      <Textbox Name="TextBox61111111">
-                        <Left>0in</Left>
-                        <Top>0in</Top>
-                        <Height>18pt</Height>
-                        <Width>88.75pt</Width>
-                        <Style>
-                          <BackgroundColor>#e3e3e3</BackgroundColor>
-                          <FontFamily>Arial</FontFamily>
-                          <PaddingLeft>2pt</PaddingLeft>
-                          <PaddingRight>2pt</PaddingRight>
-                          <PaddingTop>2pt</PaddingTop>
-                          <PaddingBottom>2pt</PaddingBottom>
-                          <Border>
-                            <Color>LightGrey</Color>
-                            <Style>None</Style>
-                          </Border>
-                          <BottomBorder>
-                            <Style>None</Style>
-                          </BottomBorder>
-                          <LeftBorder>
-                            <Style>None</Style>
-                          </LeftBorder>
-                          <RightBorder>
-                            <Style>None</Style>
-                          </RightBorder>
-                          <TopBorder>
-                            <Style>Double</Style>
-                          </TopBorder>
-                        </Style>
-                        <CanGrow>true</CanGrow>
-                        <KeepTogether>true</KeepTogether>
-                        <Paragraphs>
-                          <Paragraph>
-                            <TextRuns>
-                              <TextRun>
-                                <Value>Total by stores:</Value>
-                                <Style>
-                                  <FontFamily>Arial</FontFamily>
-                                  <FontWeight>Bold</FontWeight>
-                                  <Color>black</Color>
-                                </Style>
-                              </TextRun>
-                            </TextRuns>
-                            <Style>
-                              <FontFamily>Arial</FontFamily>
-                            </Style>
-                          </Paragraph>
-                        </Paragraphs>
-                      </Textbox>
-                    </CellContents>
-                  </TablixHeader>
-                  <TablixMembers>
-                    <TablixMember>
-                      <TablixHeader>
-                        <Size>88.75pt</Size>
-                        <CellContents>
-                          <Textbox Name="TextBox113">
-                            <Left>0in</Left>
-                            <Top>0in</Top>
-                            <Height>18pt</Height>
-                            <Width>88.75pt</Width>
-                            <Style>
-                              <BackgroundColor>#e3e3e3</BackgroundColor>
-                              <FontFamily>Arial</FontFamily>
-                              <PaddingLeft>2pt</PaddingLeft>
-                              <PaddingRight>2pt</PaddingRight>
-                              <PaddingTop>2pt</PaddingTop>
-                              <PaddingBottom>2pt</PaddingBottom>
-                              <Border>
-                                <Color>LightGrey</Color>
-                                <Style>None</Style>
-                              </Border>
-                              <BottomBorder>
-                                <Style>None</Style>
-                              </BottomBorder>
-                              <LeftBorder>
-                                <Style>None</Style>
-                              </LeftBorder>
-                              <RightBorder>
-                                <Style>None</Style>
-                              </RightBorder>
-                              <TopBorder>
-                                <Style>Double</Style>
-                              </TopBorder>
-                            </Style>
-                            <CanGrow>true</CanGrow>
-                            <KeepTogether>true</KeepTogether>
-                            <Paragraphs>
-                              <Paragraph>
-                                <TextRuns>
-                                  <TextRun>
-                                    <Value />
-                                    <Style>
-                                      <FontFamily>Arial</FontFamily>
-                                      <Color>black</Color>
-                                    </Style>
-                                  </TextRun>
-                                </TextRuns>
-                                <Style>
-                                  <FontFamily>Arial</FontFamily>
-                                  <TextAlign>Left</TextAlign>
-                                </Style>
-                              </Paragraph>
-                            </Paragraphs>
-                          </Textbox>
-                        </CellContents>
-                      </TablixHeader>
-                      <TablixMembers>
-                        <TablixMember />
-                      </TablixMembers>
-                    </TablixMember>
-                  </TablixMembers>
-                </TablixMember>
-              </TablixMembers>
-            </TablixRowHierarchy>
-            <RepeatColumnHeaders>true</RepeatColumnHeaders>
-            <RepeatRowHeaders>true</RepeatRowHeaders>
-          </Tablix>
-        </ReportItems>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-          <BackgroundImage>
-            <Source>Embedded</Source>
-            <BackgroundRepeat>Default</BackgroundRepeat>
-          </BackgroundImage>
-        </Style>
-      </Body>
-      <Width>666.75pt</Width>
-      <Page>
-        <PageHeight>841.68pt</PageHeight>
-        <PageWidth>595.44pt</PageWidth>
-        <PageHeader>
-          <Height>113.25pt</Height>
-          <PrintOnFirstPage>true</PrintOnFirstPage>
-          <PrintOnLastPage>true</PrintOnLastPage>
-          <ReportItems>
-            <Textbox Name="TextBox1">
-              <Left>8.625pt</Left>
-              <Top>14.32031pt</Top>
-              <Height>23.25pt</Height>
-              <Width>88.5pt</Width>
-              <Style>
-                <FontFamily>Arial</FontFamily>
-                <PaddingLeft>2pt</PaddingLeft>
-                <PaddingRight>2pt</PaddingRight>
-                <PaddingTop>2pt</PaddingTop>
-                <PaddingBottom>2pt</PaddingBottom>
-                <Border>
-                  <Style>None</Style>
-                </Border>
-              </Style>
-              <CanGrow>true</CanGrow>
-              <KeepTogether>true</KeepTogether>
-              <Paragraphs>
-                <Paragraph>
-                  <TextRuns>
-                    <TextRun>
-                      <Value>Sales Report</Value>
-                      <Style>
-                        <FontFamily>Arial</FontFamily>
-                        <FontSize>13.74975pt</FontSize>
-                        <Color>Black</Color>
-                      </Style>
-                    </TextRun>
-                  </TextRuns>
-                  <Style>
-                    <FontFamily>Arial</FontFamily>
-                  </Style>
-                </Paragraph>
-              </Paragraphs>
-            </Textbox>
-            <Line Name="Line1">
-              <Left>8.9766pt</Left>
-              <Top>47.4375pt</Top>
-              <Height>0pt</Height>
-              <Width>515.58984pt</Width>
-              <Style>
-                <FontFamily>Arial</FontFamily>
-                <Border>
-                  <Style>Solid</Style>
-                </Border>
-              </Style>
-              <Visibility>
-                <Hidden>=IIf(Parameters!ReportType.Value=2,True,False)</Hidden>
-              </Visibility>
-            </Line>
-            <Textbox Name="TextBox2">
-              <Left>7.17188pt</Left>
-              <Top>53.98828pt</Top>
-              <Height>13.71094pt</Height>
-              <Width>51pt</Width>
-              <Style>
-                <FontFamily>Arial</FontFamily>
-                <PaddingLeft>2pt</PaddingLeft>
-                <PaddingRight>2pt</PaddingRight>
-                <PaddingTop>2pt</PaddingTop>
-                <PaddingBottom>2pt</PaddingBottom>
-                <Border>
-                  <Style>None</Style>
-                </Border>
-              </Style>
-              <CanGrow>true</CanGrow>
-              <KeepTogether>true</KeepTogether>
-              <Paragraphs>
-                <Paragraph>
-                  <TextRuns>
-                    <TextRun>
-                      <Value>Date from:</Value>
-                      <Style>
-                        <FontFamily>Arial</FontFamily>
-                        <Color>Black</Color>
-                      </Style>
-                    </TextRun>
-                  </TextRuns>
-                  <Style>
-                    <FontFamily>Arial</FontFamily>
-                  </Style>
-                </Paragraph>
-              </Paragraphs>
-            </Textbox>
-            <Textbox Name="TextBox4">
-              <Left>7.16016pt</Left>
-              <Top>72.94922pt</Top>
-              <Height>13.71094pt</Height>
-              <Width>40.27567pt</Width>
-              <Style>
-                <FontFamily>Arial</FontFamily>
-                <PaddingLeft>2pt</PaddingLeft>
-                <PaddingRight>2pt</PaddingRight>
-                <PaddingTop>2pt</PaddingTop>
-                <PaddingBottom>2pt</PaddingBottom>
-                <Border>
-                  <Style>None</Style>
-                </Border>
-              </Style>
-              <CanGrow>true</CanGrow>
-              <KeepTogether>true</KeepTogether>
-              <Paragraphs>
-                <Paragraph>
-                  <TextRuns>
-                    <TextRun>
-                      <Value>Date to:</Value>
-                      <Style>
-                        <FontFamily>Arial</FontFamily>
-                        <Color>black</Color>
-                      </Style>
-                    </TextRun>
-                  </TextRuns>
-                  <Style>
-                    <FontFamily>Arial</FontFamily>
-                  </Style>
-                </Paragraph>
-              </Paragraphs>
-            </Textbox>
-            <Textbox Name="DateFrom2">
-              <Left>93pt</Left>
-              <Top>53.25pt</Top>
-              <Height>18.75pt</Height>
-              <Width>134.25pt</Width>
-              <Style>
-                <FontFamily>Arial</FontFamily>
-                <PaddingLeft>2pt</PaddingLeft>
-                <PaddingRight>2pt</PaddingRight>
-                <PaddingTop>2pt</PaddingTop>
-                <PaddingBottom>2pt</PaddingBottom>
-                <Border>
-                  <Style>None</Style>
-                </Border>
-              </Style>
-              <CanGrow>true</CanGrow>
-              <KeepTogether>true</KeepTogether>
-              <Paragraphs>
-                <Paragraph>
-                  <TextRuns>
-                    <TextRun>
-                      <Value>=First(Fields!DateFrom.Value, "Date")</Value>
-                      <Style>
-                        <FontFamily>Arial</FontFamily>
-                        <Format>M/d/yyyy</Format>
-                        <rd:FormatType>
-                          <rd:Format>date</rd:Format>
-                        </rd:FormatType>
-                        <Color>black</Color>
-                      </Style>
-                    </TextRun>
-                  </TextRuns>
-                  <Style>
-                    <FontFamily>Arial</FontFamily>
-                    <TextAlign>Left</TextAlign>
-                  </Style>
-                </Paragraph>
-              </Paragraphs>
-            </Textbox>
-            <Textbox Name="DateTo2">
-              <Left>93pt</Left>
-              <Top>72pt</Top>
-              <Height>18.75pt</Height>
-              <Width>134.25pt</Width>
-              <Style>
-                <FontFamily>Arial</FontFamily>
-                <PaddingLeft>2pt</PaddingLeft>
-                <PaddingRight>2pt</PaddingRight>
-                <PaddingTop>2pt</PaddingTop>
-                <PaddingBottom>2pt</PaddingBottom>
-                <Border>
-                  <Style>None</Style>
-                </Border>
-              </Style>
-              <CanGrow>true</CanGrow>
-              <KeepTogether>true</KeepTogether>
-              <Paragraphs>
-                <Paragraph>
-                  <TextRuns>
-                    <TextRun>
-                      <Value>=First(Fields!DateTo.Value, "Date")</Value>
-                      <Style>
-                        <FontFamily>Arial</FontFamily>
-                        <Format>M/d/yyyy</Format>
-                        <rd:FormatType>
-                          <rd:Format>date</rd:Format>
-                        </rd:FormatType>
-                        <Color>black</Color>
-                      </Style>
-                    </TextRun>
-                  </TextRuns>
-                  <Style>
-                    <FontFamily>Arial</FontFamily>
-                    <TextAlign>Left</TextAlign>
-                  </Style>
-                </Paragraph>
-              </Paragraphs>
-            </Textbox>
-            <Line Name="Line4">
-              <Left>9pt</Left>
-              <Top>47.25pt</Top>
-              <Height>0pt</Height>
-              <Width>653.58984pt</Width>
-              <Style>
-                <FontFamily>Arial</FontFamily>
-                <Border>
-                  <Style>Solid</Style>
-                </Border>
-              </Style>
-              <Visibility>
-                <Hidden>=IIf(Parameters!ReportType.Value=2,False,True)</Hidden>
-              </Visibility>
-            </Line>
-            <Textbox Name="TextBox5">
-              <Left>7.5pt</Left>
-              <Top>91.5pt</Top>
-              <Height>15.75pt</Height>
-              <Width>83.25pt</Width>
-              <Style>
-                <FontFamily>Arial</FontFamily>
-                <PaddingLeft>2pt</PaddingLeft>
-                <PaddingRight>2pt</PaddingRight>
-                <PaddingTop>2pt</PaddingTop>
-                <PaddingBottom>2pt</PaddingBottom>
-                <Border>
-                  <Style>None</Style>
-                </Border>
-              </Style>
-              <CanGrow>true</CanGrow>
-              <KeepTogether>true</KeepTogether>
-              <Paragraphs>
-                <Paragraph>
-                  <TextRuns>
-                    <TextRun>
-                      <Value>Sirius user name:</Value>
-                      <Style>
-                        <FontFamily>Arial</FontFamily>
-                        <Color>Black</Color>
-                      </Style>
-                    </TextRun>
-                  </TextRuns>
-                  <Style>
-                    <FontFamily>Arial</FontFamily>
-                  </Style>
-                </Paragraph>
-              </Paragraphs>
-            </Textbox>
-            <Textbox Name="CurrentUserName1">
-              <Left>93pt</Left>
-              <Top>90pt</Top>
-              <Height>18.75pt</Height>
-              <Width>133.5pt</Width>
-              <Style>
-                <FontFamily>Arial</FontFamily>
-                <PaddingLeft>2pt</PaddingLeft>
-                <PaddingRight>2pt</PaddingRight>
-                <PaddingTop>2pt</PaddingTop>
-                <PaddingBottom>2pt</PaddingBottom>
-                <Border>
-                  <Style>None</Style>
-                </Border>
-              </Style>
-              <CanGrow>true</CanGrow>
-              <KeepTogether>true</KeepTogether>
-              <Paragraphs>
-                <Paragraph>
-                  <TextRuns>
-                    <TextRun>
-                      <Value>=Parameters!CurrentUserName.Value</Value>
-                      <Style>
-                        <FontFamily>Arial</FontFamily>
-                      </Style>
-                    </TextRun>
-                  </TextRuns>
-                  <Style>
-                    <FontFamily>Arial</FontFamily>
-                  </Style>
-                </Paragraph>
-              </Paragraphs>
-            </Textbox>
-            <Textbox Name="CurrentUserName2">
-              <Left>262.5pt</Left>
-              <Top>14.25pt</Top>
-              <Height>24pt</Height>
-              <Width>261.75pt</Width>
-              <Style>
-                <FontFamily>Arial</FontFamily>
-                <PaddingLeft>2pt</PaddingLeft>
-                <PaddingRight>2pt</PaddingRight>
-                <PaddingTop>2pt</PaddingTop>
-                <PaddingBottom>2pt</PaddingBottom>
-                <Border>
-                  <Style>None</Style>
-                </Border>
-              </Style>
-              <CanGrow>true</CanGrow>
-              <KeepTogether>true</KeepTogether>
-              <Paragraphs>
-                <Paragraph>
-                  <TextRuns>
-                    <TextRun>
-                      <Value>=Parameters!CurrentCompanyName.Value</Value>
-                      <Style>
-                        <FontFamily>Arial</FontFamily>
-                        <FontSize>13.7498pt</FontSize>
-                        <Color>black</Color>
-                      </Style>
-                    </TextRun>
-                  </TextRuns>
-                  <Style>
-                    <FontFamily>Arial</FontFamily>
-                    <TextAlign>Right</TextAlign>
-                  </Style>
-                </Paragraph>
-              </Paragraphs>
-            </Textbox>
-          </ReportItems>
-          <Style>
-            <FontFamily>Arial</FontFamily>
-            <Border>
-              <Style>None</Style>
-            </Border>
-          </Style>
-        </PageHeader>
-        <PageFooter>
-          <Height>68.25pt</Height>
-          <PrintOnFirstPage>true</PrintOnFirstPage>
-          <PrintOnLastPage>true</PrintOnLastPage>
-          <ReportItems>
-            <Line Name="Line3">
-              <Left>10.5pt</Left>
-              <Top>7.5pt</Top>
-              <Height>0pt</Height>
-              <Width>515.58984pt</Width>
-              <Style>
-                <FontFamily>Arial</FontFamily>
-                <Border>
-                  <Style>Solid</Style>
-                </Border>
-              </Style>
-              <Visibility>
-                <Hidden>=IIf(Parameters!ReportType.Value=2,True,False)</Hidden>
-              </Visibility>
-            </Line>
-            <Textbox Name="TextBox20">
-              <Left>7.5pt</Left>
-              <Top>10.5pt</Top>
-              <Height>17.25pt</Height>
-              <Width>253.5pt</Width>
-              <Style>
-                <FontFamily>Arial</FontFamily>
-                <PaddingLeft>2pt</PaddingLeft>
-                <PaddingRight>2pt</PaddingRight>
-                <PaddingTop>2pt</PaddingTop>
-                <PaddingBottom>2pt</PaddingBottom>
-                <Border>
-                  <Style>None</Style>
-                </Border>
-              </Style>
-              <CanGrow>true</CanGrow>
-              <KeepTogether>true</KeepTogether>
-              <Paragraphs>
-                <Paragraph>
-                  <TextRuns>
-                    <TextRun>
-                      <Value>=Globals!ExecutionTime</Value>
-                      <Style>
-                        <FontFamily>Arial</FontFamily>
-                        <Color>black</Color>
-                      </Style>
-                    </TextRun>
-                  </TextRuns>
-                  <Style>
-                    <FontFamily>Arial</FontFamily>
-                    <TextAlign>Left</TextAlign>
-                  </Style>
-                </Paragraph>
-              </Paragraphs>
-            </Textbox>
-            <Textbox Name="TextBox21">
-              <Left>462.75pt</Left>
-              <Top>11.25pt</Top>
-              <Height>17.25pt</Height>
-              <Width>21.75pt</Width>
-              <Style>
-                <FontFamily>Arial</FontFamily>
-                <PaddingLeft>2pt</PaddingLeft>
-                <PaddingRight>2pt</PaddingRight>
-                <PaddingTop>2pt</PaddingTop>
-                <PaddingBottom>2pt</PaddingBottom>
-                <Border>
-                  <Style>None</Style>
-                </Border>
-              </Style>
-              <CanGrow>true</CanGrow>
-              <KeepTogether>true</KeepTogether>
-              <Paragraphs>
-                <Paragraph>
-                  <TextRuns>
-                    <TextRun>
-                      <Value>=Globals!OverallPageNumber</Value>
-                      <Style>
-                        <FontFamily>Arial</FontFamily>
-                        <Color>black</Color>
-                      </Style>
-                    </TextRun>
-                  </TextRuns>
-                  <Style>
-                    <FontFamily>Arial</FontFamily>
-                    <TextAlign>Right</TextAlign>
-                  </Style>
-                </Paragraph>
-              </Paragraphs>
-            </Textbox>
-            <Textbox Name="TextBox23">
-              <Left>498pt</Left>
-              <Top>11.25pt</Top>
-              <Height>14.25pt</Height>
-              <Width>21.75pt</Width>
-              <Style>
-                <FontFamily>Arial</FontFamily>
-                <PaddingLeft>2pt</PaddingLeft>
-                <PaddingRight>2pt</PaddingRight>
-                <PaddingTop>2pt</PaddingTop>
-                <PaddingBottom>2pt</PaddingBottom>
-                <Border>
-                  <Style>None</Style>
-                </Border>
-              </Style>
-              <CanGrow>true</CanGrow>
-              <KeepTogether>true</KeepTogether>
-              <Paragraphs>
-                <Paragraph>
-                  <TextRuns>
-                    <TextRun>
-                      <Value>=Globals!OverallTotalPages</Value>
-                      <Style>
-                        <FontFamily>Arial</FontFamily>
-                        <Color>black</Color>
-                      </Style>
-                    </TextRun>
-                  </TextRuns>
-                  <Style>
-                    <FontFamily>Arial</FontFamily>
-                    <TextAlign>Right</TextAlign>
-                  </Style>
-                </Paragraph>
-              </Paragraphs>
-            </Textbox>
-            <Textbox Name="TextBox24">
-              <Left>435.75pt</Left>
-              <Top>10.5pt</Top>
-              <Height>16.5pt</Height>
-              <Width>30pt</Width>
-              <Style>
-                <FontFamily>Arial</FontFamily>
-                <PaddingLeft>2pt</PaddingLeft>
-                <PaddingRight>2pt</PaddingRight>
-                <PaddingTop>2pt</PaddingTop>
-                <PaddingBottom>2pt</PaddingBottom>
-                <Border>
-                  <Style>None</Style>
-                </Border>
-              </Style>
-              <CanGrow>true</CanGrow>
-              <KeepTogether>true</KeepTogether>
-              <Paragraphs>
-                <Paragraph>
-                  <TextRuns>
-                    <TextRun>
-                      <Value>Page</Value>
-                      <Style>
-                        <FontFamily>Arial</FontFamily>
-                        <Color>black</Color>
-                      </Style>
-                    </TextRun>
-                  </TextRuns>
-                  <Style>
-                    <FontFamily>Arial</FontFamily>
-                    <TextAlign>Right</TextAlign>
-                  </Style>
-                </Paragraph>
-              </Paragraphs>
-            </Textbox>
-            <Textbox Name="TextBox38">
-              <Left>484.5pt</Left>
-              <Top>11.25pt</Top>
-              <Height>15.75pt</Height>
-              <Width>15.75pt</Width>
-              <Style>
-                <FontFamily>Arial</FontFamily>
-                <PaddingLeft>2pt</PaddingLeft>
-                <PaddingRight>2pt</PaddingRight>
-                <PaddingTop>2pt</PaddingTop>
-                <PaddingBottom>2pt</PaddingBottom>
-                <Border>
-                  <Style>None</Style>
-                </Border>
-              </Style>
-              <CanGrow>true</CanGrow>
-              <KeepTogether>true</KeepTogether>
-              <Paragraphs>
-                <Paragraph>
-                  <TextRuns>
-                    <TextRun>
-                      <Value>of</Value>
-                      <Style>
-                        <FontFamily>Arial</FontFamily>
-                        <Color>black</Color>
-                      </Style>
-                    </TextRun>
-                  </TextRuns>
-                  <Style>
-                    <FontFamily>Arial</FontFamily>
-                    <TextAlign>Right</TextAlign>
-                  </Style>
-                </Paragraph>
-              </Paragraphs>
-            </Textbox>
-            <Line Name="Line5">
-              <Left>11.25pt</Left>
-              <Top>7.5pt</Top>
-              <Height>0pt</Height>
-              <Width>649.83984pt</Width>
-              <Style>
-                <FontFamily>Arial</FontFamily>
-                <Border>
-                  <Style>Solid</Style>
-                </Border>
-              </Style>
-              <Visibility>
-                <Hidden>=IIf(Parameters!ReportType.Value=2,False,True)</Hidden>
-              </Visibility>
-            </Line>
-          </ReportItems>
-          <Style>
-            <FontFamily>Arial</FontFamily>
-            <Border>
-              <Style>None</Style>
-            </Border>
-          </Style>
-        </PageFooter>
-        <InteractiveHeight>0pt</InteractiveHeight>
-        <InteractiveWidth>612pt</InteractiveWidth>
-        <LeftMargin>1in</LeftMargin>
-        <RightMargin>1in</RightMargin>
-        <TopMargin>1in</TopMargin>
-        <BottomMargin>1in</BottomMargin>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-        </Style>
-      </Page>
-    </ReportSection>
-  </ReportSections>
-  <DataSources>
-    
-          <DataSource Name="CustomerDB">
-              <ConnectionProperties>
-                <DataProvider>SQL</DataProvider>
-              </ConnectionProperties>
-          </DataSource>
-        
-  </DataSources>
-  <DataSets>
-    <DataSet Name="Company">
-      <Query>
-        <DataSourceName>CustomerDB</DataSourceName>
-        <CommandText>SELECT [dbo].[Company].[ID],
-[dbo].[Company].[DisplayName] + '' '' [DisplayName],
-[dbo].[Company].[CompanyBusinessTypeId] FROM [dbo].[Company]</CommandText>
-      </Query>
-      <Fields>
-        <Field Name="ID">
-          <DataField>ID</DataField>
-          <rd:TypeName>System.Int64</rd:TypeName>
-        </Field>
-        <Field Name="DisplayName">
-          <DataField>DisplayName</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="CompanyBusinessTypeId">
-          <DataField>CompanyBusinessTypeId</DataField>
-          <rd:TypeName>System.Int64</rd:TypeName>
-        </Field>
-      </Fields>
-    </DataSet>
-    <DataSet Name="Store">
-      <Query>
-        <DataSourceName>CustomerDB</DataSourceName>
-        <CommandText>SELECT [dbo].[Store].[ID],
-[dbo].[Store].[Code]+'' ''+[dbo].[Store].[DisplayName] [DisplayName] FROM [dbo].[Store]
-where CompanyID in (@CompanyId)</CommandText>
-        <QueryParameters>
-          <QueryParameter Name="@CompanyId">
-            <Value>=Parameters!Company.Value</Value>
-          </QueryParameter>
-        </QueryParameters>
-      </Query>
-      <Fields>
-        <Field Name="ID">
-          <DataField>ID</DataField>
-          <rd:TypeName>System.Int64</rd:TypeName>
-        </Field>
-        <Field Name="DisplayName">
-          <DataField>DisplayName</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-      </Fields>
-    </DataSet>
-    <DataSet Name="StoreData">
-      <Query>
-        <DataSourceName>CustomerDB</DataSourceName>
-        <CommandText>Declare @s int, @DateFrom date, @DateTo date
-
-IF(@Store=4) set @s=4 ELSE set @s=-1
-IF(@DateF is not NULL and @DateT is not NULL) begin set @DateFrom = @DateF set @DateTo=@DateT end 
-ELSE IF(@TimeSlots=1)
-begin set @DateFrom = Getdate() set @DateTo = Getdate() end
-ELSE IF(@TimeSlots=2)
-begin set @DateFrom = Getdate()-1 set @DateTo = Getdate()-1 end
-ELSE IF(@TimeSlots=3)
-begin set @DateFrom = dateadd(day, 1-datepart(dw, getdate()), CONVERT(date,getdate())) set @DateTo = dateadd(day, 7-datepart(dw, getdate()), CONVERT(date,getdate())) end
-ELSE IF(@TimeSlots=4)
-begin set @DateFrom = dateadd(dd, -day(GETDATE()), GETDATE())+1 set @DateTo = dateadd(dd, -day(dateadd(mm, 1, GETDATE())), dateadd(mm, 1, GETDATE())) end
-ELSE IF(@TimeSlots=5)
-begin set @DateFrom = CAST(CAST(YEAR(Getdate()) AS nvarchar)+''-01-01'' AS DATE) set @DateTo = CAST(CAST(YEAR(Getdate()) AS nvarchar)+''-12-31'' AS DATE)end
-
-SELECT s.DisplayName [Store], SUM(ti.Amount+ti.Discount)/SUM(ti.Quantity) [AV.Amount] ,SUM(ti.Amount+ti.Discount) [Amount], SUM(ti.Quantity) [Quantity], 
-SUM(ti.Amount+ti.Discount)/a.total as [Contribution], @DateFrom [DateFrom], @DateTo [DateTo]
-FROM dbo.[Transaction] t
-INNER JOIN dbo.TransactionItem ti ON ti.TransactionID=t.ID and t.TransactionTypeID=2 and Quantity&lt;&gt;0 and @s=4 and CAST(TransactionDate as Date) between @DateFrom and @DateTo
-INNER JOIN dbo.Item i ON i.id=ti.ItemID 
-INNER JOIN dbo.Location l ON t.LocationID=l.ID
-INNER JOIN dbo.Store s ON s.ID=l.StoreID
-INNER JOIN dbo.Company c ON l.CompanyID=c.ID
-INNER JOIN (
-	SELECT SUM(ti.Amount+ti.Discount) as total FROM dbo.[Transaction] t
-	INNER JOIN dbo.TransactionItem ti ON ti.TransactionID=t.ID and t.TransactionTypeID=2 and Quantity&lt;&gt;0 and CAST(TransactionDate as Date) between @DateFrom and @DateTo
-	INNER JOIN dbo.Location l ON t.LocationID=l.ID
-	INNER JOIN dbo.Item i ON i.id=ti.ItemID
-	INNER JOIN dbo.Store s ON s.ID=l.StoreID
-	WHERE s.ID IN (@DataStore) AND ISNULL(i.ItemHierarchy1ID,-2) in (@Hierarchy1) AND ISNULL(i.ItemHierarchy2ID,-2) in (@Hierarchy2) AND ISNULL(i.ItemHierarchy3ID,-2) in (@Hierarchy3)
-	AND ISNULL(i.ItemHierarchy4ID,-2) in (@Hierarchy4) AND ISNULL(i.ItemHierarchy5ID,-2) in (@Hierarchy5)
-	) as a ON 1=1
-WHERE s.ID IN (@DataStore) AND ISNULL(i.ItemHierarchy1ID,-2) in (@Hierarchy1) AND ISNULL(i.ItemHierarchy2ID,-2) in (@Hierarchy2) AND ISNULL(i.ItemHierarchy3ID,-2) in (@Hierarchy3)
-AND ISNULL(i.ItemHierarchy4ID,-2) in (@Hierarchy4) AND ISNULL(i.ItemHierarchy5ID,-2) in (@Hierarchy5)
-GROUP BY s.DisplayName, a.total
-having SUM(ti.Quantity) &lt;&gt; 0</CommandText>
-        <QueryParameters>
-          <QueryParameter Name="@Store">
-            <Value>=Parameters!ReportType.Value</Value>
-          </QueryParameter>
-          <QueryParameter Name="@DataStore">
-            <Value>=Parameters!Store.Value</Value>
-          </QueryParameter>
-          <QueryParameter Name="@DateF">
-            <Value>=Parameters!DateFrom.Value</Value>
-          </QueryParameter>
-          <QueryParameter Name="@DateT">
-            <Value>=Parameters!DataTo.Value</Value>
-          </QueryParameter>
-          <QueryParameter Name="@TimeSlots">
-            <Value>=Parameters!TimeSlots.Value</Value>
-          </QueryParameter>
-          <QueryParameter Name="@Hierarchy1">
-            <Value>=Parameters!Hierarchy1.Value</Value>
-          </QueryParameter>
-          <QueryParameter Name="@Hierarchy2">
-            <Value>=Parameters!Hierarchy2.Value</Value>
-          </QueryParameter>
-          <QueryParameter Name="@Hierarchy3">
-            <Value>=Parameters!Hierarchy3.Value</Value>
-          </QueryParameter>
-          <QueryParameter Name="@Hierarchy4">
-            <Value>=Parameters!Hierarchy4.Value</Value>
-          </QueryParameter>
-          <QueryParameter Name="@Hierarchy5">
-            <Value>=Parameters!Hierarchy5.Value</Value>
-          </QueryParameter>
-        </QueryParameters>
-      </Query>
-      <Fields>
-        <Field Name="Store">
-          <DataField>Store</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="AV_Amount">
-          <DataField>AV.Amount</DataField>
-          <rd:TypeName>System.Decimal</rd:TypeName>
-        </Field>
-        <Field Name="Amount">
-          <DataField>Amount</DataField>
-          <rd:TypeName>System.Decimal</rd:TypeName>
-        </Field>
-        <Field Name="Quantity">
-          <DataField>Quantity</DataField>
-          <rd:TypeName>System.Decimal</rd:TypeName>
-        </Field>
-        <Field Name="Contribution">
-          <DataField>Contribution</DataField>
-          <rd:TypeName>System.Decimal</rd:TypeName>
-        </Field>
-        <Field Name="DateFrom">
-          <DataField>DateFrom</DataField>
-          <rd:TypeName>System.DateTime</rd:TypeName>
-        </Field>
-        <Field Name="DateTo">
-          <DataField>DateTo</DataField>
-          <rd:TypeName>System.DateTime</rd:TypeName>
-        </Field>
-      </Fields>
-    </DataSet>
-    <DataSet Name="CompanyData">
-      <Query>
-        <DataSourceName>CustomerDB</DataSourceName>
-        <CommandText>Declare @s int, @DateFrom date, @DateTo date
-IF(@Store=1) set @s=1 ELSE set @s=-1
-IF(@DateF is not NULL and @DateT is not NULL) begin set @DateFrom = @DateF set @DateTo=@DateT end 
-ELSE IF(@TimeSlots=1)
-begin set @DateFrom = Getdate() set @DateTo = Getdate() end
-ELSE IF(@TimeSlots=2)
-begin set @DateFrom = Getdate()-1 set @DateTo = Getdate()-1 end
-ELSE IF(@TimeSlots=3)
-begin set @DateFrom = dateadd(day, 1-datepart(dw, getdate()), CONVERT(date,getdate())) set @DateTo = dateadd(day, 7-datepart(dw, getdate()), CONVERT(date,getdate())) end
-ELSE IF(@TimeSlots=4)
-begin set @DateFrom = dateadd(dd, -day(GETDATE()), GETDATE())+1 set @DateTo = dateadd(dd, -day(dateadd(mm, 1, GETDATE())), dateadd(mm, 1, GETDATE())) end
-ELSE IF(@TimeSlots=5)
-begin set @DateFrom = CAST(CAST(YEAR(Getdate()) AS nvarchar)+''-01-01'' AS DATE) set @DateTo = CAST(CAST(YEAR(Getdate()) AS nvarchar)+''-12-31'' AS DATE)end
-
-SELECT c.Code+ '' '' + c.DisplayName [Company], SUM(ti.Amount+ti.Discount)/SUM(ti.Quantity) [AV.Amount] ,SUM(ti.Amount+ti.Discount) [Amount], SUM(ti.Quantity) [Quantity], 
-SUM(ti.Amount+ti.Discount)/a.total as [Contribution]
-FROM dbo.[Transaction] t
-INNER JOIN dbo.TransactionItem ti ON ti.TransactionID=t.ID and t.TransactionTypeID=2 and Quantity&lt;&gt;0 and @s=1 and CAST(TransactionDate as Date) between @DateFrom and @DateTo
-INNER JOIN dbo.Item i ON i.id=ti.ItemID 
-INNER JOIN dbo.Location l ON t.LocationID=l.ID
-INNER JOIN dbo.Store s ON s.ID=l.StoreID
-INNER JOIN dbo.Company c ON l.CompanyID=c.ID
-INNER JOIN (
-	SELECT SUM(ti.Amount+ti.Discount) as total FROM dbo.[Transaction] t
-	INNER JOIN dbo.TransactionItem ti ON ti.TransactionID=t.ID and t.TransactionTypeID=2 and Quantity&lt;&gt;0 and CAST(TransactionDate as Date) between @DateFrom and @DateTo
-	INNER JOIN dbo.Location l ON t.LocationID=l.ID
-	INNER JOIN dbo.Item i ON i.id=ti.ItemID
-	INNER JOIN dbo.Store s ON s.ID=l.StoreID
-	WHERE s.ID IN (@DataStore) AND ISNULL(i.ItemHierarchy1ID,-2) in (@Hierarchy1) AND ISNULL(i.ItemHierarchy2ID,-2) in (@Hierarchy2) AND ISNULL(i.ItemHierarchy3ID,-2) in (@Hierarchy3)
-	AND ISNULL(i.ItemHierarchy4ID,-2) in (@Hierarchy4) AND ISNULL(i.ItemHierarchy5ID,-2) in (@Hierarchy5)
-	) as a ON 1=1
-
-WHERE s.ID IN (@DataStore) AND ISNULL(i.ItemHierarchy1ID,-2) in (@Hierarchy1) AND ISNULL(i.ItemHierarchy2ID,-2) in (@Hierarchy2) AND ISNULL(i.ItemHierarchy3ID,-2) in (@Hierarchy3)
-AND ISNULL(i.ItemHierarchy4ID,-2) in (@Hierarchy4) AND ISNULL(i.ItemHierarchy5ID,-2) in (@Hierarchy5)
-GROUP BY c.Code+ '' '' + c.DisplayName, a.total
-having SUM(ti.Quantity) &lt;&gt; 0</CommandText>
-        <QueryParameters>
-          <QueryParameter Name="@Store">
-            <Value>=Parameters!ReportType.Value</Value>
-          </QueryParameter>
-          <QueryParameter Name="@DateF">
-            <Value>=Parameters!DateFrom.Value</Value>
-          </QueryParameter>
-          <QueryParameter Name="@DateT">
-            <Value>=Parameters!DataTo.Value</Value>
-          </QueryParameter>
-          <QueryParameter Name="@TimeSlots">
-            <Value>=Parameters!TimeSlots.Value</Value>
-          </QueryParameter>
-          <QueryParameter Name="@DataStore">
-            <Value>=Parameters!Store.Value</Value>
-          </QueryParameter>
-          <QueryParameter Name="@Hierarchy1">
-            <Value>=Parameters!Hierarchy1.Value</Value>
-          </QueryParameter>
-          <QueryParameter Name="@Hierarchy2">
-            <Value>=Parameters!Hierarchy2.Value</Value>
-          </QueryParameter>
-          <QueryParameter Name="@Hierarchy3">
-            <Value>=Parameters!Hierarchy3.Value</Value>
-          </QueryParameter>
-          <QueryParameter Name="@Hierarchy4">
-            <Value>=Parameters!Hierarchy4.Value</Value>
-          </QueryParameter>
-          <QueryParameter Name="@Hierarchy5">
-            <Value>=Parameters!Hierarchy5.Value</Value>
-          </QueryParameter>
-        </QueryParameters>
-      </Query>
-      <Fields>
-        <Field Name="Company">
-          <DataField>Company</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="AV_Amount">
-          <DataField>AV.Amount</DataField>
-          <rd:TypeName>System.Decimal</rd:TypeName>
-        </Field>
-        <Field Name="Amount">
-          <DataField>Amount</DataField>
-          <rd:TypeName>System.Decimal</rd:TypeName>
-        </Field>
-        <Field Name="Quantity">
-          <DataField>Quantity</DataField>
-          <rd:TypeName>System.Decimal</rd:TypeName>
-        </Field>
-        <Field Name="Contribution">
-          <DataField>Contribution</DataField>
-          <rd:TypeName>System.Decimal</rd:TypeName>
-        </Field>
-      </Fields>
-    </DataSet>
-    <DataSet Name="HierarchyData">
-      <Query>
-        <DataSourceName>CustomerDB</DataSourceName>
-        <CommandText>Declare @s int, @DateFrom date, @DateTo date
-IF(@Store=3) set @s=4 ELSE set @s=-1
-IF(@DateF is not NULL and @DateT is not NULL) begin set @DateFrom = @DateF set @DateTo=@DateT end 
-ELSE IF(@TimeSlots=1)
-begin set @DateFrom = Getdate() set @DateTo = Getdate() end
-ELSE IF(@TimeSlots=2)
-begin set @DateFrom = Getdate()-1 set @DateTo = Getdate()-1 end
-ELSE IF(@TimeSlots=3)
-begin set @DateFrom = dateadd(day, 1-datepart(dw, getdate()), CONVERT(date,getdate())) set @DateTo = dateadd(day, 7-datepart(dw, getdate()), CONVERT(date,getdate())) end
-ELSE IF(@TimeSlots=4)
-begin set @DateFrom = dateadd(dd, -day(GETDATE()), GETDATE())+1 set @DateTo = dateadd(dd, -day(dateadd(mm, 1, GETDATE())), dateadd(mm, 1, GETDATE())) end
-ELSE IF(@TimeSlots=5)
-begin set @DateFrom = CAST(CAST(YEAR(Getdate()) AS nvarchar)+''-01-01'' AS DATE) set @DateTo = CAST(CAST(YEAR(Getdate()) AS nvarchar)+''-12-31'' AS DATE)end
-
-SELECT s.Code +'' '' + s.DisplayName [Store], ih1.Code +'' '' + ih1.DisplayName [Hierarchy], SUM(ti.Amount+ti.Discount)/SUM(ti.Quantity) [AV.Amount] ,SUM(ti.Amount+ti.Discount) [Amount], SUM(ti.Quantity) [Quantity], 
-SUM(ti.Amount+ti.Discount)/a.total as [Contribution], @DateFrom [DateFrom], @DateTo [DateTo]
-FROM dbo.[Transaction] t
-INNER JOIN dbo.TransactionItem ti ON ti.TransactionID=t.ID and t.TransactionTypeID=2 and Quantity&lt;&gt;0 and @s=4 and CAST(TransactionDate as Date) between @DateFrom and @DateTo
-INNER JOIN dbo.Item i ON i.id=ti.ItemID 
-INNER JOIN dbo.Location l ON t.LocationID=l.ID
-INNER JOIN dbo.Store s ON s.ID=l.StoreID
-INNER JOIN dbo.Company c ON l.CompanyID=c.ID
-INNER JOIN (
-	SELECT SUM(ti.Amount+ti.Discount) as total FROM dbo.[Transaction] t
-	INNER JOIN dbo.TransactionItem ti ON ti.TransactionID=t.ID and t.TransactionTypeID=2 and Quantity&lt;&gt;0 and CAST(TransactionDate as Date) between @DateFrom and @DateTo
-	INNER JOIN dbo.Location l ON t.LocationID=l.ID
-	INNER JOIN dbo.Item i ON i.id=ti.ItemID
-	INNER JOIN dbo.Store s ON s.ID=l.StoreID
-	WHERE s.ID IN (@DataStore) AND ISNULL(i.ItemHierarchy1ID,-2) in (@Hierarchy1) AND ISNULL(i.ItemHierarchy2ID,-2) in (@Hierarchy2) AND ISNULL(i.ItemHierarchy3ID,-2) in (@Hierarchy3)
-	AND ISNULL(i.ItemHierarchy4ID,-2) in (@Hierarchy4) AND ISNULL(i.ItemHierarchy5ID,-2) in (@Hierarchy5)
-	) as a ON 1=1
-LEFT JOIN dbo.ItemHierarchy1 ih1 ON ih1.Id=i.ItemHierarchy1ID
-WHERE s.ID IN (@DataStore) AND ISNULL(i.ItemHierarchy1ID,-2) in (@Hierarchy1) AND ISNULL(i.ItemHierarchy2ID,-2) in (@Hierarchy2) AND ISNULL(i.ItemHierarchy3ID,-2) in (@Hierarchy3)
-AND ISNULL(i.ItemHierarchy4ID,-2) in (@Hierarchy4) AND ISNULL(i.ItemHierarchy5ID,-2) in (@Hierarchy5)
-GROUP BY s.Code +'' '' + s.DisplayName, a.total, ih1.Code +'' '' + ih1.DisplayName
-having SUM(ti.Quantity) &lt;&gt; 0</CommandText>
-        <QueryParameters>
-          <QueryParameter Name="@Store">
-            <Value>=Parameters!ReportType.Value</Value>
-          </QueryParameter>
-          <QueryParameter Name="@DateF">
-            <Value>=Parameters!DateFrom.Value</Value>
-          </QueryParameter>
-          <QueryParameter Name="@DateT">
-            <Value>=Parameters!DataTo.Value</Value>
-          </QueryParameter>
-          <QueryParameter Name="@TimeSlots">
-            <Value>=Parameters!TimeSlots.Value</Value>
-          </QueryParameter>
-          <QueryParameter Name="@DataStore">
-            <Value>=Parameters!Store.Value</Value>
-          </QueryParameter>
-          <QueryParameter Name="@Hierarchy1">
-            <Value>=Parameters!Hierarchy1.Value</Value>
-          </QueryParameter>
-          <QueryParameter Name="@Hierarchy2">
-            <Value>=Parameters!Hierarchy2.Value</Value>
-          </QueryParameter>
-          <QueryParameter Name="@Hierarchy3">
-            <Value>=Parameters!Hierarchy3.Value</Value>
-          </QueryParameter>
-          <QueryParameter Name="@Hierarchy4">
-            <Value>=Parameters!Hierarchy4.Value</Value>
-          </QueryParameter>
-          <QueryParameter Name="@Hierarchy5">
-            <Value>=Parameters!Hierarchy5.Value</Value>
-          </QueryParameter>
-        </QueryParameters>
-      </Query>
-      <Fields>
-        <Field Name="Store">
-          <DataField>Store</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="Hierarchy">
-          <DataField>Hierarchy</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="AV_Amount">
-          <DataField>AV.Amount</DataField>
-          <rd:TypeName>System.Decimal</rd:TypeName>
-        </Field>
-        <Field Name="Amount">
-          <DataField>Amount</DataField>
-          <rd:TypeName>System.Decimal</rd:TypeName>
-        </Field>
-        <Field Name="Quantity">
-          <DataField>Quantity</DataField>
-          <rd:TypeName>System.Decimal</rd:TypeName>
-        </Field>
-        <Field Name="Contribution">
-          <DataField>Contribution</DataField>
-          <rd:TypeName>System.Decimal</rd:TypeName>
-        </Field>
-        <Field Name="DateFrom">
-          <DataField>DateFrom</DataField>
-          <rd:TypeName>System.DateTime</rd:TypeName>
-        </Field>
-        <Field Name="DateTo">
-          <DataField>DateTo</DataField>
-          <rd:TypeName>System.DateTime</rd:TypeName>
-        </Field>
-      </Fields>
-    </DataSet>
-    <DataSet Name="ItemData">
-      <Query>
-        <DataSourceName>CustomerDB</DataSourceName>
-        <CommandText>Declare @s int, @DateFrom date, @DateTo date
-IF(@Store=2) set @s=4 ELSE set @s=-1
-IF(@DateF is not NULL and @DateT is not NULL) begin set @DateFrom = @DateF set @DateTo=@DateT end 
-ELSE IF(@TimeSlots=1)
-begin set @DateFrom = Getdate() set @DateTo = Getdate() end
-ELSE IF(@TimeSlots=2)
-begin set @DateFrom = Getdate()-1 set @DateTo = Getdate()-1 end
-ELSE IF(@TimeSlots=3)
-begin set @DateFrom = dateadd(day, 1-datepart(dw, getdate()), CONVERT(date,getdate())) set @DateTo = dateadd(day, 7-datepart(dw, getdate()), CONVERT(date,getdate())) end
-ELSE IF(@TimeSlots=4)
-begin set @DateFrom = dateadd(dd, -day(GETDATE()), GETDATE())+1 set @DateTo = dateadd(dd, -day(dateadd(mm, 1, GETDATE())), dateadd(mm, 1, GETDATE())) end
-ELSE IF(@TimeSlots=5)
-begin set @DateFrom = CAST(CAST(YEAR(Getdate()) AS nvarchar)+''-01-01'' AS DATE) set @DateTo = CAST(CAST(YEAR(Getdate()) AS nvarchar)+''-12-31'' AS DATE)end
-
-SELECT s.Code +'' '' + s.DisplayName [Store], ih1.Code +'' '' + ih1.DisplayName [Hierarchy], i.Code [ItemCode], i.ShortDisplayName [ItemName], SUM(ti.Amount+ti.Discount)/SUM(ti.Quantity) [AV.Amount] ,SUM(ti.Amount+ti.Discount) [Amount], SUM(ti.Quantity) [Quantity], 
-SUM(ti.Amount+ti.Discount)/a.total as [Contribution], @DateFrom [DateFrom], @DateTo [DateTo]
-FROM dbo.[Transaction] t
-INNER JOIN dbo.TransactionItem ti ON ti.TransactionID=t.ID and t.TransactionTypeID=2 and Quantity&lt;&gt;0 and @s=4 and CAST(TransactionDate as Date) between @DateFrom and @DateTo
-INNER JOIN dbo.Item i ON i.id=ti.ItemID 
-INNER JOIN dbo.Location l ON t.LocationID=l.ID
-INNER JOIN dbo.Store s ON s.ID=l.StoreID
-INNER JOIN dbo.Company c ON l.CompanyID=c.ID
-INNER JOIN (
-	SELECT SUM(ti.Amount+ti.Discount) as total FROM dbo.[Transaction] t
-	INNER JOIN dbo.TransactionItem ti ON ti.TransactionID=t.ID and t.TransactionTypeID=2 and Quantity&lt;&gt;0 and CAST(TransactionDate as Date) between @DateFrom and @DateTo
-	INNER JOIN dbo.Location l ON t.LocationID=l.ID
-	INNER JOIN dbo.Item i ON i.id=ti.ItemID
-	INNER JOIN dbo.Store s ON s.ID=l.StoreID
-	WHERE s.ID IN (@DataStore) AND ISNULL(i.ItemHierarchy1ID,-2) in (@Hierarchy1) AND ISNULL(i.ItemHierarchy2ID,-2) in (@Hierarchy2) AND ISNULL(i.ItemHierarchy3ID,-2) in (@Hierarchy3)
-	AND ISNULL(i.ItemHierarchy4ID,-2) in (@Hierarchy4) AND ISNULL(i.ItemHierarchy5ID,-2) in (@Hierarchy5)
-	) as a ON 1=1
-LEFT JOIN dbo.ItemHierarchy1 ih1 ON ih1.Id=i.ItemHierarchy1ID
-WHERE s.ID IN (@DataStore) AND ISNULL(i.ItemHierarchy1ID,-2) in (@Hierarchy1) AND ISNULL(i.ItemHierarchy2ID,-2) in (@Hierarchy2) AND ISNULL(i.ItemHierarchy3ID,-2) in (@Hierarchy3)
-AND ISNULL(i.ItemHierarchy4ID,-2) in (@Hierarchy4) AND ISNULL(i.ItemHierarchy5ID,-2) in (@Hierarchy5)
-GROUP BY s.Code +'' '' + s.DisplayName, a.total, ih1.Code +'' '' + ih1.DisplayName, i.Code, i.ShortDisplayName
-having SUM(ti.Quantity) &lt;&gt; 0
-ORDER BY s.Code +'' '' + s.DisplayName, ih1.Code +'' '' + ih1.DisplayName, i.Code </CommandText>
-        <QueryParameters>
-          <QueryParameter Name="@Store">
-            <Value>=Parameters!ReportType.Value</Value>
-          </QueryParameter>
-          <QueryParameter Name="@DateF">
-            <Value>=Parameters!DateFrom.Value</Value>
-          </QueryParameter>
-          <QueryParameter Name="@DateT">
-            <Value>=Parameters!DataTo.Value</Value>
-          </QueryParameter>
-          <QueryParameter Name="@TimeSlots">
-            <Value>=Parameters!TimeSlots.Value</Value>
-          </QueryParameter>
-          <QueryParameter Name="@DataStore">
-            <Value>=Parameters!Store.Value</Value>
-          </QueryParameter>
-          <QueryParameter Name="@Hierarchy1">
-            <Value>=Parameters!Hierarchy1.Value</Value>
-          </QueryParameter>
-          <QueryParameter Name="@Hierarchy2">
-            <Value>=Parameters!Hierarchy2.Value</Value>
-          </QueryParameter>
-          <QueryParameter Name="@Hierarchy3">
-            <Value>=Parameters!Hierarchy3.Value</Value>
-          </QueryParameter>
-          <QueryParameter Name="@Hierarchy4">
-            <Value>=Parameters!Hierarchy4.Value</Value>
-          </QueryParameter>
-          <QueryParameter Name="@Hierarchy5">
-            <Value>=Parameters!Hierarchy5.Value</Value>
-          </QueryParameter>
-        </QueryParameters>
-      </Query>
-      <Fields>
-        <Field Name="Store">
-          <DataField>Store</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="Hierarchy">
-          <DataField>Hierarchy</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="ItemCode">
-          <DataField>ItemCode</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="ItemName">
-          <DataField>ItemName</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="AV_Amount">
-          <DataField>AV.Amount</DataField>
-          <rd:TypeName>System.Decimal</rd:TypeName>
-        </Field>
-        <Field Name="Amount">
-          <DataField>Amount</DataField>
-          <rd:TypeName>System.Decimal</rd:TypeName>
-        </Field>
-        <Field Name="Quantity">
-          <DataField>Quantity</DataField>
-          <rd:TypeName>System.Decimal</rd:TypeName>
-        </Field>
-        <Field Name="Contribution">
-          <DataField>Contribution</DataField>
-          <rd:TypeName>System.Decimal</rd:TypeName>
-        </Field>
-        <Field Name="DateFrom">
-          <DataField>DateFrom</DataField>
-          <rd:TypeName>System.DateTime</rd:TypeName>
-        </Field>
-        <Field Name="DateTo">
-          <DataField>DateTo</DataField>
-          <rd:TypeName>System.DateTime</rd:TypeName>
-        </Field>
-      </Fields>
-    </DataSet>
-    <DataSet Name="Date">
-      <Query>
-        <DataSourceName>CustomerDB</DataSourceName>
-        <CommandText>DECLARE @DateFrom date, @DateTo date
-IF(@DateF is not NULL and @DateT is not NULL) begin set @DateFrom = @DateF set @DateTo=@DateT end 
-ELSE IF(@TimeSlots=1)
-begin set @DateFrom = Getdate() set @DateTo = Getdate() end
-ELSE IF(@TimeSlots=2)
-begin set @DateFrom = Getdate()-1 set @DateTo = Getdate()-1 end
-ELSE IF(@TimeSlots=3)
-begin set @DateFrom = dateadd(day, 1-datepart(dw, getdate()), CONVERT(date,getdate())) set @DateTo = dateadd(day, 7-datepart(dw, getdate()), CONVERT(date,getdate())) end
-ELSE IF(@TimeSlots=4)
-begin set @DateFrom = dateadd(dd, -day(GETDATE()), GETDATE())+1 set @DateTo = dateadd(dd, -day(dateadd(mm, 1, GETDATE())), dateadd(mm, 1, GETDATE())) end
-ELSE IF(@TimeSlots=5)
-begin set @DateFrom = CAST(CAST(YEAR(Getdate()) AS nvarchar)+''-01-01'' AS DATE) set @DateTo = CAST(CAST(YEAR(Getdate()) AS nvarchar)+''-12-31'' AS DATE)end
-
-Select @DateFrom [DateFrom],  @DateTo [DateTo]</CommandText>
-        <QueryParameters>
-          <QueryParameter Name="@DateF">
-            <Value>=Parameters!DateFrom.Value</Value>
-          </QueryParameter>
-          <QueryParameter Name="@DateT">
-            <Value>=Parameters!DataTo.Value</Value>
-          </QueryParameter>
-          <QueryParameter Name="@TimeSlots">
-            <Value>=Parameters!TimeSlots.Value</Value>
-          </QueryParameter>
-        </QueryParameters>
-      </Query>
-      <Fields>
-        <Field Name="DateFrom">
-          <DataField>DateFrom</DataField>
-          <rd:TypeName>System.DateTime</rd:TypeName>
-        </Field>
-        <Field Name="DateTo">
-          <DataField>DateTo</DataField>
-          <rd:TypeName>System.DateTime</rd:TypeName>
-        </Field>
-      </Fields>
-    </DataSet>
-    <DataSet Name="Hierarchy1">
-      <Query>
-        <DataSourceName>CustomerDB</DataSourceName>
-        <CommandText>select -2 id, ''Not selected'' DisplayName
-UNION ALL
-select Id,DisplayName + '' '' from ItemHierarchy1</CommandText>
-      </Query>
-      <Fields>
-        <Field Name="id">
-          <DataField>id</DataField>
-          <rd:TypeName>System.Int64</rd:TypeName>
-        </Field>
-        <Field Name="DisplayName">
-          <DataField>DisplayName</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-      </Fields>
-    </DataSet>
-    <DataSet Name="Hierarchy2">
-      <Query>
-        <DataSourceName>CustomerDB</DataSourceName>
-        <CommandText>select -2 id, ''Not selected'' DisplayName
-UNION ALL
-select Id,DisplayName + '' '' from ItemHierarchy2</CommandText>
-      </Query>
-      <Fields>
-        <Field Name="id">
-          <DataField>id</DataField>
-          <rd:TypeName>System.Int64</rd:TypeName>
-        </Field>
-        <Field Name="DisplayName">
-          <DataField>DisplayName</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-      </Fields>
-    </DataSet>
-    <DataSet Name="Hierarchy3">
-      <Query>
-        <DataSourceName>CustomerDB</DataSourceName>
-        <CommandText>select -2 id, ''Not selected'' DisplayName
-UNION ALL
-select Id,DisplayName + '' '' from ItemHierarchy3</CommandText>
-      </Query>
-      <Fields>
-        <Field Name="id">
-          <DataField>id</DataField>
-          <rd:TypeName>System.Int64</rd:TypeName>
-        </Field>
-        <Field Name="DisplayName">
-          <DataField>DisplayName</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-      </Fields>
-    </DataSet>
-    <DataSet Name="Hierarchy4">
-      <Query>
-        <DataSourceName>CustomerDB</DataSourceName>
-        <CommandText>select -2 id, ''Not selected'' DisplayName
-UNION ALL
-select Id,DisplayName + '' '' from ItemHierarchy4</CommandText>
-      </Query>
-      <Fields>
-        <Field Name="id">
-          <DataField>id</DataField>
-          <rd:TypeName>System.Int64</rd:TypeName>
-        </Field>
-        <Field Name="DisplayName">
-          <DataField>DisplayName</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-      </Fields>
-    </DataSet>
-    <DataSet Name="Hierarchy5">
-      <Query>
-        <DataSourceName>CustomerDB</DataSourceName>
-        <CommandText>select -2 id, ''Not selected'' DisplayName
-UNION ALL
-select Id,DisplayName + '' '' from ItemHierarchy5</CommandText>
-      </Query>
-      <Fields>
-        <Field Name="id">
-          <DataField>id</DataField>
-          <rd:TypeName>System.Int64</rd:TypeName>
-        </Field>
-        <Field Name="DisplayName">
-          <DataField>DisplayName</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-      </Fields>
-    </DataSet>
-    <DataSet Name="Item">
-      <Query>
-        <DataSourceName>CustomerDB</DataSourceName>
-        <CommandText>select ID,
-Code + '' '' + ShortDisplayName [DisplayName]
-FROM [dbo].[Item]</CommandText>
-      </Query>
-      <Fields>
-        <Field Name="ID">
-          <DataField>ID</DataField>
-          <rd:TypeName>System.Int64</rd:TypeName>
-        </Field>
-        <Field Name="DisplayName">
-          <DataField>DisplayName</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-      </Fields>
-    </DataSet>
-  </DataSets>
-  <ReportParameters>
-    <ReportParameter Name="ReportType">
-      <DataType>Integer</DataType>
-      <Prompt>Report Type</Prompt>
-      <DefaultValue>
-        <Values>
-          <Value>2</Value>
-        </Values>
-      </DefaultValue>
-      <ValidValues>
-        <ParameterValues>
-          <ParameterValue>
-            <Value>1</Value>
-            <Label>Company</Label>
-          </ParameterValue>
-          <ParameterValue>
-            <Value>2</Value>
-            <Label>Item</Label>
-          </ParameterValue>
-          <ParameterValue>
-            <Value>3</Value>
-            <Label>Hierarchy</Label>
-          </ParameterValue>
-          <ParameterValue>
-            <Value>4</Value>
-            <Label>Store</Label>
-          </ParameterValue>
-        </ParameterValues>
-      </ValidValues>
-    </ReportParameter>
-    <ReportParameter Name="Store">
-      <DataType>Integer</DataType>
-      <Prompt>Store</Prompt>
-      <DefaultValue>
-        <DataSetReference>
-          <DataSetName>Store</DataSetName>
-          <ValueField>ID</ValueField>
-        </DataSetReference>
-      </DefaultValue>
-      <ValidValues>
-        <DataSetReference>
-          <DataSetName>Store</DataSetName>
-          <ValueField>ID</ValueField>
-          <LabelField>DisplayName</LabelField>
-        </DataSetReference>
-      </ValidValues>
-      <MultiValue>true</MultiValue>
-    </ReportParameter>
-    <ReportParameter Name="Item">
-      <DataType>Integer</DataType>
-      <Prompt>Item</Prompt>
-      <DefaultValue>
-        <DataSetReference>
-          <DataSetName>Item</DataSetName>
-          <ValueField>ID</ValueField>
-        </DataSetReference>
-      </DefaultValue>
-      <ValidValues>
-        <DataSetReference>
-          <DataSetName>Item</DataSetName>
-          <ValueField>ID</ValueField>
-          <LabelField>DisplayName</LabelField>
-        </DataSetReference>
-      </ValidValues>
-      <MultiValue>true</MultiValue>
-    </ReportParameter>
-    <ReportParameter Name="DateFrom">
-      <DataType>DateTime</DataType>
-      <Prompt>Date From</Prompt>
-      <DefaultValue>
-        <Values>
-          <Value>=DateAdd("d",-Day(Globals!ExecutionTime)+1,Globals!ExecutionTime)</Value>
-        </Values>
-      </DefaultValue>
-    </ReportParameter>
-    <ReportParameter Name="DataTo">
-      <DataType>DateTime</DataType>
-      <Prompt>Date To</Prompt>
-      <DefaultValue>
-        <Values>
-          <Value>=Globals!ExecutionTime</Value>
-        </Values>
-      </DefaultValue>
-    </ReportParameter>
-    <ReportParameter Name="TimeSlots">
-      <DataType>Integer</DataType>
-      <Prompt>Time slots</Prompt>
-      <DefaultValue>
-        <Values>
-          <Value>4</Value>
-        </Values>
-      </DefaultValue>
-      <Hidden>true</Hidden>
-      <ValidValues>
-        <ParameterValues>
-          <ParameterValue>
-            <Value>1</Value>
-            <Label>Today</Label>
-          </ParameterValue>
-          <ParameterValue>
-            <Value>2</Value>
-            <Label>Yesterday</Label>
-          </ParameterValue>
-          <ParameterValue>
-            <Value>3</Value>
-            <Label>This week</Label>
-          </ParameterValue>
-          <ParameterValue>
-            <Value>4</Value>
-            <Label>This month</Label>
-          </ParameterValue>
-          <ParameterValue>
-            <Value>5</Value>
-            <Label>This year</Label>
-          </ParameterValue>
-        </ParameterValues>
-      </ValidValues>
-    </ReportParameter>
-    <ReportParameter Name="Hierarchy1">
-      <DataType>Integer</DataType>
-      <Prompt>Hierarchy1</Prompt>
-      <DefaultValue>
-        <DataSetReference>
-          <DataSetName>Hierarchy1</DataSetName>
-          <ValueField>id</ValueField>
-        </DataSetReference>
-      </DefaultValue>
-      <ValidValues>
-        <DataSetReference>
-          <DataSetName>Hierarchy1</DataSetName>
-          <ValueField>id</ValueField>
-          <LabelField>DisplayName</LabelField>
-        </DataSetReference>
-      </ValidValues>
-      <MultiValue>true</MultiValue>
-    </ReportParameter>
-    <ReportParameter Name="Hierarchy2">
-      <DataType>Integer</DataType>
-      <Prompt>Hierarchy2</Prompt>
-      <DefaultValue>
-        <DataSetReference>
-          <DataSetName>Hierarchy2</DataSetName>
-          <ValueField>id</ValueField>
-        </DataSetReference>
-      </DefaultValue>
-      <ValidValues>
-        <DataSetReference>
-          <DataSetName>Hierarchy2</DataSetName>
-          <ValueField>id</ValueField>
-          <LabelField>DisplayName</LabelField>
-        </DataSetReference>
-      </ValidValues>
-      <MultiValue>true</MultiValue>
-    </ReportParameter>
-    <ReportParameter Name="Hierarchy3">
-      <DataType>Integer</DataType>
-      <Prompt>Hierarchy3</Prompt>
-      <DefaultValue>
-        <DataSetReference>
-          <DataSetName>Hierarchy3</DataSetName>
-          <ValueField>id</ValueField>
-        </DataSetReference>
-      </DefaultValue>
-      <Hidden>true</Hidden>
-      <ValidValues>
-        <DataSetReference>
-          <DataSetName>Hierarchy3</DataSetName>
-          <ValueField>id</ValueField>
-          <LabelField>DisplayName</LabelField>
-        </DataSetReference>
-      </ValidValues>
-      <MultiValue>true</MultiValue>
-    </ReportParameter>
-    <ReportParameter Name="Hierarchy4">
-      <DataType>Integer</DataType>
-      <Prompt>Hierarchy4</Prompt>
-      <DefaultValue>
-        <DataSetReference>
-          <DataSetName>Hierarchy4</DataSetName>
-          <ValueField>id</ValueField>
-        </DataSetReference>
-      </DefaultValue>
-      <Hidden>true</Hidden>
-      <ValidValues>
-        <DataSetReference>
-          <DataSetName>Hierarchy4</DataSetName>
-          <ValueField>id</ValueField>
-          <LabelField>DisplayName</LabelField>
-        </DataSetReference>
-      </ValidValues>
-      <MultiValue>true</MultiValue>
-    </ReportParameter>
-    <ReportParameter Name="Hierarchy5">
-      <DataType>Integer</DataType>
-      <Prompt>Hierarchy5</Prompt>
-      <DefaultValue>
-        <DataSetReference>
-          <DataSetName>Hierarchy5</DataSetName>
-          <ValueField>id</ValueField>
-        </DataSetReference>
-      </DefaultValue>
-      <Hidden>true</Hidden>
-      <ValidValues>
-        <DataSetReference>
-          <DataSetName>Hierarchy5</DataSetName>
-          <ValueField>id</ValueField>
-          <LabelField>DisplayName</LabelField>
-        </DataSetReference>
-      </ValidValues>
-      <MultiValue>true</MultiValue>
-    </ReportParameter>
-    <ReportParameter Name="Company">
-      <DataType>Integer</DataType>
-      <Prompt>Company</Prompt>
-      <DefaultValue>
-        <DataSetReference>
-          <DataSetName>Company</DataSetName>
-          <ValueField>ID</ValueField>
-        </DataSetReference>
-      </DefaultValue>
-      <Hidden>true</Hidden>
-      <ValidValues>
-        <DataSetReference>
-          <DataSetName>Company</DataSetName>
-          <ValueField>ID</ValueField>
-          <LabelField>DisplayName</LabelField>
-        </DataSetReference>
-      </ValidValues>
-      <MultiValue>true</MultiValue>
-    </ReportParameter>
-    <ReportParameter Name="CurrentUserName">
-      <DataType>String</DataType>
-      <Prompt>CurrentUserName</Prompt>
-      <Hidden>true</Hidden>
-    </ReportParameter>
-    <ReportParameter Name="CurrentCompanyName">
-      <DataType>String</DataType>
-      <Prompt>CurrentCompanyName</Prompt>
-      <Hidden>true</Hidden>
-    </ReportParameter>
-  </ReportParameters>
-  <ReportParametersLayout>
-    <GridLayoutDefinition>
-      <NumberOfColumns>3</NumberOfColumns>
-      <NumberOfRows>5</NumberOfRows>
-      <CellDefinitions>
-        <CellDefinition>
-          <ColumnIndex>0</ColumnIndex>
-          <RowIndex>0</RowIndex>
-          <ParameterName>ReportType</ParameterName>
-        </CellDefinition>
-        <CellDefinition>
-          <ColumnIndex>1</ColumnIndex>
-          <RowIndex>0</RowIndex>
-          <ParameterName>Store</ParameterName>
-        </CellDefinition>
-        <CellDefinition>
-          <ColumnIndex>2</ColumnIndex>
-          <RowIndex>0</RowIndex>
-          <ParameterName>Item</ParameterName>
-        </CellDefinition>
-        <CellDefinition>
-          <ColumnIndex>0</ColumnIndex>
-          <RowIndex>1</RowIndex>
-          <ParameterName>DateFrom</ParameterName>
-        </CellDefinition>
-        <CellDefinition>
-          <ColumnIndex>1</ColumnIndex>
-          <RowIndex>1</RowIndex>
-          <ParameterName>DataTo</ParameterName>
-        </CellDefinition>
-        <CellDefinition>
-          <ColumnIndex>2</ColumnIndex>
-          <RowIndex>1</RowIndex>
-          <ParameterName>TimeSlots</ParameterName>
-        </CellDefinition>
-        <CellDefinition>
-          <ColumnIndex>0</ColumnIndex>
-          <RowIndex>2</RowIndex>
-          <ParameterName>Hierarchy1</ParameterName>
-        </CellDefinition>
-        <CellDefinition>
-          <ColumnIndex>1</ColumnIndex>
-          <RowIndex>2</RowIndex>
-          <ParameterName>Hierarchy2</ParameterName>
-        </CellDefinition>
-        <CellDefinition>
-          <ColumnIndex>2</ColumnIndex>
-          <RowIndex>2</RowIndex>
-          <ParameterName>Hierarchy3</ParameterName>
-        </CellDefinition>
-        <CellDefinition>
-          <ColumnIndex>0</ColumnIndex>
-          <RowIndex>3</RowIndex>
-          <ParameterName>Hierarchy4</ParameterName>
-        </CellDefinition>
-        <CellDefinition>
-          <ColumnIndex>1</ColumnIndex>
-          <RowIndex>3</RowIndex>
-          <ParameterName>Hierarchy5</ParameterName>
-        </CellDefinition>
-        <CellDefinition>
-          <ColumnIndex>2</ColumnIndex>
-          <RowIndex>3</RowIndex>
-          <ParameterName>Company</ParameterName>
-        </CellDefinition>
-        <CellDefinition>
-          <ColumnIndex>0</ColumnIndex>
-          <RowIndex>4</RowIndex>
-          <ParameterName>CurrentUserName</ParameterName>
-        </CellDefinition>
-        <CellDefinition>
-          <ColumnIndex>1</ColumnIndex>
-          <RowIndex>4</RowIndex>
-          <ParameterName>CurrentCompanyName</ParameterName>
-        </CellDefinition>
-      </CellDefinitions>
-    </GridLayoutDefinition>
-  </ReportParametersLayout>
-  <CustomProperties>
-    <CustomProperty>
-      <Name>UniqueValueParameters</Name>
-      <Value>ReportType,TimeSlots</Value>
-    </CustomProperty>
-    <CustomProperty>
-      <Name>EnableFilterSearch</Name>
-      <Value>True</Value>
-    </CustomProperty>
-    <CustomProperty>
-      <Name>PopupHeight</Name>
-      <Value>300px</Value>
-    </CustomProperty>
-  </CustomProperties>
-  <rd:ReportUnitType>Inch</rd:ReportUnitType>
-  <rd:PageUnit>Px</rd:PageUnit>
-  <df:DefaultFontFamily>Segoe UI</df:DefaultFontFamily>
-</Report>', '2022-12-23 18:11:07.9100000 +00:00', 249, N'N', '0a647015-27f5-47f9-b3bf-a94c3b72605c', 1, NULL, 2, '2022-09-28 17:31:50.1416447 +03:00')
+</Report>', '2022-12-28 15:02:56.8333333 +00:00', 38, N'N', '7bd0470b-f025-4f55-bc77-bd3be68f3784', 1, NULL, 2, '2022-12-15 10:50:43.3807294 +00:00')
 INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySubID], [Name], [Code], [Rdl], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [LanguageID], [CreateDate]) VALUES ('a9b155c2-c559-ed11-8e5e-4ccc6a2bb6d6', '296c565d-433e-ed11-8e5b-4ccc6a2bb6d6', NULL, N'Transactions Report', N'TranRep', N'<?xml version="1.0" encoding="utf-8"?>
 <Report xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner" xmlns:df="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition/defaultfontfamily" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition">
   <ReportSections>
     <ReportSection>
       <Body>
-        <Height>93.75pt</Height>
+        <Height>95.25pt</Height>
         <ReportItems>
           <Tablix Name="Tablix2">
             <Left>6.70572pt</Left>
             <Top>5.95053pt</Top>
-            <Height>62.99998pt</Height>
-            <Width>731.14453pt</Width>
+            <Height>66pt</Height>
+            <Width>1019.1094pt</Width>
             <Style>
               <FontFamily>Arial</FontFamily>
               <Border>
@@ -30013,6 +29834,18 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                 </TablixColumn>
                 <TablixColumn>
                   <Width>71.97656pt</Width>
+                </TablixColumn>
+                <TablixColumn>
+                  <Width>72pt</Width>
+                </TablixColumn>
+                <TablixColumn>
+                  <Width>72pt</Width>
+                </TablixColumn>
+                <TablixColumn>
+                  <Width>72pt</Width>
+                </TablixColumn>
+                <TablixColumn>
+                  <Width>72pt</Width>
                 </TablixColumn>
                 <TablixColumn>
                   <Width>64.47656pt</Width>
@@ -30044,14 +29877,14 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
               </TablixColumns>
               <TablixRows>
                 <TablixRow>
-                  <Height>27pt</Height>
+                  <Height>30pt</Height>
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
                         <Textbox Name="TextBox57">
                           <Left>0in</Left>
                           <Top>0in</Top>
-                          <Height>27pt</Height>
+                          <Height>30pt</Height>
                           <Width>71.9766pt</Width>
                           <Style>
                             <BackgroundColor>#eeeeee</BackgroundColor>
@@ -30097,6 +29930,11 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                               </Style>
                             </Paragraph>
                           </Paragraphs>
+                          <UserSort>
+                            <SortExpression>=Fields!Store.Value</SortExpression>
+                            <SortExpressionScope>Details</SortExpressionScope>
+                            <SortTarget>DetailData</SortTarget>
+                          </UserSort>
                         </Textbox>
                         <RowSpan>1</RowSpan>
                         <ColSpan>1</ColSpan>
@@ -30107,7 +29945,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                         <Textbox Name="TextBox58">
                           <Left>0in</Left>
                           <Top>0in</Top>
-                          <Height>27pt</Height>
+                          <Height>30pt</Height>
                           <Width>71.9766pt</Width>
                           <Style>
                             <BackgroundColor>#eeeeee</BackgroundColor>
@@ -30153,6 +29991,255 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                               </Style>
                             </Paragraph>
                           </Paragraphs>
+                          <UserSort>
+                            <SortExpression>=Fields!TransactionNumber.Value</SortExpression>
+                            <SortExpressionScope>Details</SortExpressionScope>
+                            <SortTarget>DetailData</SortTarget>
+                          </UserSort>
+                        </Textbox>
+                        <RowSpan>1</RowSpan>
+                        <ColSpan>1</ColSpan>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="TextBox8">
+                          <Left>0in</Left>
+                          <Top>0in</Top>
+                          <Height>30pt</Height>
+                          <Width>72pt</Width>
+                          <Style>
+                            <BackgroundColor>#eeeeee</BackgroundColor>
+                            <FontFamily>Arial</FontFamily>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                            <Border>
+                              <Color>LightGrey</Color>
+                              <Style>None</Style>
+                            </Border>
+                            <BottomBorder>
+                              <Color>#c6c6c6</Color>
+                              <Style>None</Style>
+                            </BottomBorder>
+                            <LeftBorder>
+                              <Style>None</Style>
+                            </LeftBorder>
+                            <RightBorder>
+                              <Style>None</Style>
+                            </RightBorder>
+                            <TopBorder>
+                              <Style>None</Style>
+                            </TopBorder>
+                          </Style>
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>Customer</Value>
+                                  <Style>
+                                    <FontFamily>Arial</FontFamily>
+                                    <Color>black</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <FontFamily>Arial</FontFamily>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <UserSort>
+                            <SortExpression>=Fields!CustomerName.Value</SortExpression>
+                            <SortExpressionScope>Details</SortExpressionScope>
+                            <SortTarget>DetailData</SortTarget>
+                          </UserSort>
+                        </Textbox>
+                        <RowSpan>1</RowSpan>
+                        <ColSpan>1</ColSpan>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="TextBox11">
+                          <Left>0in</Left>
+                          <Top>0in</Top>
+                          <Height>30pt</Height>
+                          <Width>72pt</Width>
+                          <Style>
+                            <BackgroundColor>#eeeeee</BackgroundColor>
+                            <FontFamily>Arial</FontFamily>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                            <Border>
+                              <Color>LightGrey</Color>
+                              <Style>None</Style>
+                            </Border>
+                            <BottomBorder>
+                              <Color>#c6c6c6</Color>
+                              <Style>None</Style>
+                            </BottomBorder>
+                            <LeftBorder>
+                              <Style>None</Style>
+                            </LeftBorder>
+                            <RightBorder>
+                              <Style>None</Style>
+                            </RightBorder>
+                            <TopBorder>
+                              <Style>None</Style>
+                            </TopBorder>
+                          </Style>
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>Phone</Value>
+                                  <Style>
+                                    <FontFamily>Arial</FontFamily>
+                                    <Color>black</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <FontFamily>Arial</FontFamily>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <UserSort>
+                            <SortExpression>=Fields!Phone1.Value</SortExpression>
+                            <SortExpressionScope>Details</SortExpressionScope>
+                            <SortTarget>DetailData</SortTarget>
+                          </UserSort>
+                        </Textbox>
+                        <RowSpan>1</RowSpan>
+                        <ColSpan>1</ColSpan>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="TextBox33">
+                          <Left>0in</Left>
+                          <Top>0in</Top>
+                          <Height>30pt</Height>
+                          <Width>72pt</Width>
+                          <Style>
+                            <BackgroundColor>#eeeeee</BackgroundColor>
+                            <FontFamily>Arial</FontFamily>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                            <Border>
+                              <Color>LightGrey</Color>
+                              <Style>None</Style>
+                            </Border>
+                            <BottomBorder>
+                              <Color>#c6c6c6</Color>
+                              <Style>None</Style>
+                            </BottomBorder>
+                            <LeftBorder>
+                              <Style>None</Style>
+                            </LeftBorder>
+                            <RightBorder>
+                              <Style>None</Style>
+                            </RightBorder>
+                            <TopBorder>
+                              <Style>None</Style>
+                            </TopBorder>
+                          </Style>
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>Card number</Value>
+                                  <Style>
+                                    <FontFamily>Arial</FontFamily>
+                                    <Color>black</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <FontFamily>Arial</FontFamily>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <UserSort>
+                            <SortExpression>=Fields!card.Value</SortExpression>
+                            <SortExpressionScope>Details</SortExpressionScope>
+                            <SortTarget>DetailData</SortTarget>
+                          </UserSort>
+                        </Textbox>
+                        <RowSpan>1</RowSpan>
+                        <ColSpan>1</ColSpan>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="TextBox43">
+                          <Left>0in</Left>
+                          <Top>0in</Top>
+                          <Height>30pt</Height>
+                          <Width>72pt</Width>
+                          <Style>
+                            <BackgroundColor>#eeeeee</BackgroundColor>
+                            <FontFamily>Arial</FontFamily>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                            <Border>
+                              <Color>LightGrey</Color>
+                              <Style>None</Style>
+                            </Border>
+                            <BottomBorder>
+                              <Color>#c6c6c6</Color>
+                              <Style>None</Style>
+                            </BottomBorder>
+                            <LeftBorder>
+                              <Style>None</Style>
+                            </LeftBorder>
+                            <RightBorder>
+                              <Style>None</Style>
+                            </RightBorder>
+                            <TopBorder>
+                              <Style>None</Style>
+                            </TopBorder>
+                          </Style>
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>Number of payments</Value>
+                                  <Style>
+                                    <FontFamily>Arial</FontFamily>
+                                    <Color>black</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <FontFamily>Arial</FontFamily>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <UserSort>
+                            <SortExpression>=Fields!pay.Value</SortExpression>
+                            <SortExpressionScope>Details</SortExpressionScope>
+                            <SortTarget>DetailData</SortTarget>
+                          </UserSort>
                         </Textbox>
                         <RowSpan>1</RowSpan>
                         <ColSpan>1</ColSpan>
@@ -30163,7 +30250,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                         <Textbox Name="TextBox76">
                           <Left>0in</Left>
                           <Top>0in</Top>
-                          <Height>27pt</Height>
+                          <Height>30pt</Height>
                           <Width>64.4766pt</Width>
                           <Style>
                             <BackgroundColor>#eeeeee</BackgroundColor>
@@ -30209,6 +30296,11 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                               </Style>
                             </Paragraph>
                           </Paragraphs>
+                          <UserSort>
+                            <SortExpression>=Fields!TransactionType.Value</SortExpression>
+                            <SortExpressionScope>Details</SortExpressionScope>
+                            <SortTarget>DetailData</SortTarget>
+                          </UserSort>
                         </Textbox>
                         <RowSpan>1</RowSpan>
                         <ColSpan>1</ColSpan>
@@ -30219,7 +30311,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                         <Textbox Name="TextBox74">
                           <Left>0in</Left>
                           <Top>0in</Top>
-                          <Height>27pt</Height>
+                          <Height>30pt</Height>
                           <Width>71.9766pt</Width>
                           <Style>
                             <BackgroundColor>#eeeeee</BackgroundColor>
@@ -30265,6 +30357,11 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                               </Style>
                             </Paragraph>
                           </Paragraphs>
+                          <UserSort>
+                            <SortExpression>=Fields!Cashier.Value</SortExpression>
+                            <SortExpressionScope>Details</SortExpressionScope>
+                            <SortTarget>DetailData</SortTarget>
+                          </UserSort>
                         </Textbox>
                         <RowSpan>1</RowSpan>
                         <ColSpan>1</ColSpan>
@@ -30275,7 +30372,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                         <Textbox Name="TextBox72">
                           <Left>0in</Left>
                           <Top>0in</Top>
-                          <Height>27pt</Height>
+                          <Height>30pt</Height>
                           <Width>71.9766pt</Width>
                           <Style>
                             <BackgroundColor>#eeeeee</BackgroundColor>
@@ -30321,6 +30418,11 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                               </Style>
                             </Paragraph>
                           </Paragraphs>
+                          <UserSort>
+                            <SortExpression>=Fields!AmountBeforeDid.Value</SortExpression>
+                            <SortExpressionScope>Details</SortExpressionScope>
+                            <SortTarget>DetailData</SortTarget>
+                          </UserSort>
                         </Textbox>
                         <RowSpan>1</RowSpan>
                         <ColSpan>1</ColSpan>
@@ -30331,7 +30433,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                         <Textbox Name="TextBox70">
                           <Left>0in</Left>
                           <Top>0in</Top>
-                          <Height>27pt</Height>
+                          <Height>30pt</Height>
                           <Width>55.4766pt</Width>
                           <Style>
                             <BackgroundColor>#eeeeee</BackgroundColor>
@@ -30377,6 +30479,11 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                               </Style>
                             </Paragraph>
                           </Paragraphs>
+                          <UserSort>
+                            <SortExpression>=Fields!DiscountPer.Value</SortExpression>
+                            <SortExpressionScope>Details</SortExpressionScope>
+                            <SortTarget>DetailData</SortTarget>
+                          </UserSort>
                         </Textbox>
                         <RowSpan>1</RowSpan>
                         <ColSpan>1</ColSpan>
@@ -30387,7 +30494,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                         <Textbox Name="TextBox68">
                           <Left>0in</Left>
                           <Top>0in</Top>
-                          <Height>27pt</Height>
+                          <Height>30pt</Height>
                           <Width>71.9766pt</Width>
                           <Style>
                             <BackgroundColor>#eeeeee</BackgroundColor>
@@ -30433,6 +30540,11 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                               </Style>
                             </Paragraph>
                           </Paragraphs>
+                          <UserSort>
+                            <SortExpression>=Fields!Amount.Value</SortExpression>
+                            <SortExpressionScope>Details</SortExpressionScope>
+                            <SortTarget>DetailData</SortTarget>
+                          </UserSort>
                         </Textbox>
                         <RowSpan>1</RowSpan>
                         <ColSpan>1</ColSpan>
@@ -30443,7 +30555,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                         <Textbox Name="TextBox66">
                           <Left>0in</Left>
                           <Top>0in</Top>
-                          <Height>27pt</Height>
+                          <Height>30pt</Height>
                           <Width>47.19143pt</Width>
                           <Style>
                             <BackgroundColor>#eeeeee</BackgroundColor>
@@ -30489,6 +30601,11 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                               </Style>
                             </Paragraph>
                           </Paragraphs>
+                          <UserSort>
+                            <SortExpression>=Fields!Quantity.Value</SortExpression>
+                            <SortExpressionScope>Details</SortExpressionScope>
+                            <SortTarget>DetailData</SortTarget>
+                          </UserSort>
                         </Textbox>
                         <RowSpan>1</RowSpan>
                         <ColSpan>1</ColSpan>
@@ -30499,7 +30616,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                         <Textbox Name="TextBox62">
                           <Left>0in</Left>
                           <Top>0in</Top>
-                          <Height>27pt</Height>
+                          <Height>30pt</Height>
                           <Width>71.9766pt</Width>
                           <Style>
                             <BackgroundColor>#eeeeee</BackgroundColor>
@@ -30545,6 +30662,11 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                               </Style>
                             </Paragraph>
                           </Paragraphs>
+                          <UserSort>
+                            <SortExpression>=Fields!ReturnsPer.Value</SortExpression>
+                            <SortExpressionScope>Details</SortExpressionScope>
+                            <SortTarget>DetailData</SortTarget>
+                          </UserSort>
                         </Textbox>
                         <RowSpan>1</RowSpan>
                         <ColSpan>1</ColSpan>
@@ -30555,7 +30677,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                         <Textbox Name="TextBox64">
                           <Left>0in</Left>
                           <Top>0in</Top>
-                          <Height>27pt</Height>
+                          <Height>30pt</Height>
                           <Width>77.97675pt</Width>
                           <Style>
                             <BackgroundColor>#eeeeee</BackgroundColor>
@@ -30601,6 +30723,11 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                               </Style>
                             </Paragraph>
                           </Paragraphs>
+                          <UserSort>
+                            <SortExpression>=Fields!CloseDateTime.Value</SortExpression>
+                            <SortExpressionScope>Details</SortExpressionScope>
+                            <SortTarget>DetailData</SortTarget>
+                          </UserSort>
                         </Textbox>
                         <RowSpan>1</RowSpan>
                         <ColSpan>1</ColSpan>
@@ -30611,7 +30738,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                         <Textbox Name="TextBox6">
                           <Left>0in</Left>
                           <Top>0in</Top>
-                          <Height>27pt</Height>
+                          <Height>30pt</Height>
                           <Width>54.12893pt</Width>
                           <Style>
                             <BackgroundColor>#eeeeee</BackgroundColor>
@@ -30657,6 +30784,11 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                               </Style>
                             </Paragraph>
                           </Paragraphs>
+                          <UserSort>
+                            <SortExpression>=Fields!CloseDateTime.Value</SortExpression>
+                            <SortExpressionScope>Details</SortExpressionScope>
+                            <SortTarget>DetailData</SortTarget>
+                          </UserSort>
                         </Textbox>
                         <RowSpan>1</RowSpan>
                         <ColSpan>1</ColSpan>
@@ -30759,6 +30891,246 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                               <TextRuns>
                                 <TextRun>
                                   <Value>=Count(Fields!TransactionNumber.Value)</Value>
+                                  <Style>
+                                    <FontFamily>Arial</FontFamily>
+                                    <Format>0;(0)</Format>
+                                    <rd:FormatType>
+                                      <rd:Format>Number</rd:Format>
+                                      <rd:Representation>None</rd:Representation>
+                                      <rd:NegativeValue>(12345)</rd:NegativeValue>
+                                    </rd:FormatType>
+                                    <Color>black</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <FontFamily>Arial</FontFamily>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                        </Textbox>
+                        <RowSpan>1</RowSpan>
+                        <ColSpan>1</ColSpan>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="TextBox9">
+                          <Left>0in</Left>
+                          <Top>0in</Top>
+                          <Height>18pt</Height>
+                          <Width>72pt</Width>
+                          <Style>
+                            <BackgroundColor>#c3c3c3</BackgroundColor>
+                            <FontFamily>Arial</FontFamily>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                            <Border>
+                              <Color>LightGrey</Color>
+                              <Style>None</Style>
+                            </Border>
+                            <BottomBorder>
+                              <Style>Solid</Style>
+                            </BottomBorder>
+                            <LeftBorder>
+                              <Style>None</Style>
+                            </LeftBorder>
+                            <RightBorder>
+                              <Style>None</Style>
+                            </RightBorder>
+                            <TopBorder>
+                              <Style>Solid</Style>
+                            </TopBorder>
+                          </Style>
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value />
+                                  <Style>
+                                    <FontFamily>Arial</FontFamily>
+                                    <Format>0;(0)</Format>
+                                    <rd:FormatType>
+                                      <rd:Format>Number</rd:Format>
+                                      <rd:Representation>None</rd:Representation>
+                                      <rd:NegativeValue>(12345)</rd:NegativeValue>
+                                    </rd:FormatType>
+                                    <Color>black</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <FontFamily>Arial</FontFamily>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                        </Textbox>
+                        <RowSpan>1</RowSpan>
+                        <ColSpan>1</ColSpan>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="TextBox15">
+                          <Left>0in</Left>
+                          <Top>0in</Top>
+                          <Height>18pt</Height>
+                          <Width>72pt</Width>
+                          <Style>
+                            <BackgroundColor>#c3c3c3</BackgroundColor>
+                            <FontFamily>Arial</FontFamily>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                            <Border>
+                              <Color>LightGrey</Color>
+                              <Style>None</Style>
+                            </Border>
+                            <BottomBorder>
+                              <Style>Solid</Style>
+                            </BottomBorder>
+                            <LeftBorder>
+                              <Style>None</Style>
+                            </LeftBorder>
+                            <RightBorder>
+                              <Style>None</Style>
+                            </RightBorder>
+                            <TopBorder>
+                              <Style>Solid</Style>
+                            </TopBorder>
+                          </Style>
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value />
+                                  <Style>
+                                    <FontFamily>Arial</FontFamily>
+                                    <Format>0;(0)</Format>
+                                    <rd:FormatType>
+                                      <rd:Format>Number</rd:Format>
+                                      <rd:Representation>None</rd:Representation>
+                                      <rd:NegativeValue>(12345)</rd:NegativeValue>
+                                    </rd:FormatType>
+                                    <Color>black</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <FontFamily>Arial</FontFamily>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                        </Textbox>
+                        <RowSpan>1</RowSpan>
+                        <ColSpan>1</ColSpan>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="TextBox36">
+                          <Left>0in</Left>
+                          <Top>0in</Top>
+                          <Height>18pt</Height>
+                          <Width>72pt</Width>
+                          <Style>
+                            <BackgroundColor>#c3c3c3</BackgroundColor>
+                            <FontFamily>Arial</FontFamily>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                            <Border>
+                              <Color>LightGrey</Color>
+                              <Style>None</Style>
+                            </Border>
+                            <BottomBorder>
+                              <Style>Solid</Style>
+                            </BottomBorder>
+                            <LeftBorder>
+                              <Style>None</Style>
+                            </LeftBorder>
+                            <RightBorder>
+                              <Style>None</Style>
+                            </RightBorder>
+                            <TopBorder>
+                              <Style>Solid</Style>
+                            </TopBorder>
+                          </Style>
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value />
+                                  <Style>
+                                    <FontFamily>Arial</FontFamily>
+                                    <Format>0;(0)</Format>
+                                    <rd:FormatType>
+                                      <rd:Format>Number</rd:Format>
+                                      <rd:Representation>None</rd:Representation>
+                                      <rd:NegativeValue>(12345)</rd:NegativeValue>
+                                    </rd:FormatType>
+                                    <Color>black</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <FontFamily>Arial</FontFamily>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                        </Textbox>
+                        <RowSpan>1</RowSpan>
+                        <ColSpan>1</ColSpan>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="TextBox46">
+                          <Left>0in</Left>
+                          <Top>0in</Top>
+                          <Height>18pt</Height>
+                          <Width>72pt</Width>
+                          <Style>
+                            <BackgroundColor>#c3c3c3</BackgroundColor>
+                            <FontFamily>Arial</FontFamily>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                            <Border>
+                              <Color>LightGrey</Color>
+                              <Style>None</Style>
+                            </Border>
+                            <BottomBorder>
+                              <Style>Solid</Style>
+                            </BottomBorder>
+                            <LeftBorder>
+                              <Style>None</Style>
+                            </LeftBorder>
+                            <RightBorder>
+                              <Style>None</Style>
+                            </RightBorder>
+                            <TopBorder>
+                              <Style>Solid</Style>
+                            </TopBorder>
+                          </Style>
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value />
                                   <Style>
                                     <FontFamily>Arial</FontFamily>
                                     <Format>0;(0)</Format>
@@ -31299,6 +31671,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                           <Width>71.9766pt</Width>
                           <Style>
                             <FontFamily>Arial</FontFamily>
+                            <VerticalAlign>Middle</VerticalAlign>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -31335,6 +31708,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                               </TextRuns>
                               <Style>
                                 <FontFamily>Arial</FontFamily>
+                                <TextAlign>Center</TextAlign>
                               </Style>
                             </Paragraph>
                           </Paragraphs>
@@ -31352,6 +31726,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                           <Width>71.9766pt</Width>
                           <Style>
                             <FontFamily>Arial</FontFamily>
+                            <VerticalAlign>Middle</VerticalAlign>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -31394,6 +31769,251 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                               </TextRuns>
                               <Style>
                                 <FontFamily>Arial</FontFamily>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                        </Textbox>
+                        <RowSpan>1</RowSpan>
+                        <ColSpan>1</ColSpan>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="TextBox10">
+                          <Left>0in</Left>
+                          <Top>0in</Top>
+                          <Height>18pt</Height>
+                          <Width>72pt</Width>
+                          <Style>
+                            <FontFamily>Arial</FontFamily>
+                            <VerticalAlign>Middle</VerticalAlign>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                            <Border>
+                              <Color>LightGrey</Color>
+                              <Style>None</Style>
+                            </Border>
+                            <BottomBorder>
+                              <Style>Solid</Style>
+                            </BottomBorder>
+                            <LeftBorder>
+                              <Style>None</Style>
+                            </LeftBorder>
+                            <RightBorder>
+                              <Style>None</Style>
+                            </RightBorder>
+                            <TopBorder>
+                              <Style>None</Style>
+                            </TopBorder>
+                          </Style>
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Fields!CustomerName.Value</Value>
+                                  <Style>
+                                    <FontFamily>Arial</FontFamily>
+                                    <Format>0;(0)</Format>
+                                    <rd:FormatType>
+                                      <rd:Format>Number</rd:Format>
+                                      <rd:Representation>None</rd:Representation>
+                                      <rd:NegativeValue>(12345)</rd:NegativeValue>
+                                    </rd:FormatType>
+                                    <Color>black</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <FontFamily>Arial</FontFamily>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                        </Textbox>
+                        <RowSpan>1</RowSpan>
+                        <ColSpan>1</ColSpan>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="TextBox32">
+                          <Left>0in</Left>
+                          <Top>0in</Top>
+                          <Height>18pt</Height>
+                          <Width>72pt</Width>
+                          <Style>
+                            <FontFamily>Arial</FontFamily>
+                            <VerticalAlign>Middle</VerticalAlign>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                            <Border>
+                              <Color>LightGrey</Color>
+                              <Style>None</Style>
+                            </Border>
+                            <BottomBorder>
+                              <Style>Solid</Style>
+                            </BottomBorder>
+                            <LeftBorder>
+                              <Style>None</Style>
+                            </LeftBorder>
+                            <RightBorder>
+                              <Style>None</Style>
+                            </RightBorder>
+                            <TopBorder>
+                              <Style>None</Style>
+                            </TopBorder>
+                          </Style>
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Fields!Phone1.Value</Value>
+                                  <Style>
+                                    <FontFamily>Arial</FontFamily>
+                                    <Format>0;(0)</Format>
+                                    <rd:FormatType>
+                                      <rd:Format>Number</rd:Format>
+                                      <rd:Representation>None</rd:Representation>
+                                      <rd:NegativeValue>(12345)</rd:NegativeValue>
+                                    </rd:FormatType>
+                                    <Color>black</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <FontFamily>Arial</FontFamily>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                        </Textbox>
+                        <RowSpan>1</RowSpan>
+                        <ColSpan>1</ColSpan>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="TextBox41">
+                          <Left>0in</Left>
+                          <Top>0in</Top>
+                          <Height>18pt</Height>
+                          <Width>72pt</Width>
+                          <Style>
+                            <FontFamily>Arial</FontFamily>
+                            <VerticalAlign>Middle</VerticalAlign>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                            <Border>
+                              <Color>LightGrey</Color>
+                              <Style>None</Style>
+                            </Border>
+                            <BottomBorder>
+                              <Style>Solid</Style>
+                            </BottomBorder>
+                            <LeftBorder>
+                              <Style>None</Style>
+                            </LeftBorder>
+                            <RightBorder>
+                              <Style>None</Style>
+                            </RightBorder>
+                            <TopBorder>
+                              <Style>None</Style>
+                            </TopBorder>
+                          </Style>
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Fields!card.Value</Value>
+                                  <Style>
+                                    <FontFamily>Arial</FontFamily>
+                                    <Format>0;(0)</Format>
+                                    <rd:FormatType>
+                                      <rd:Format>Number</rd:Format>
+                                      <rd:Representation>None</rd:Representation>
+                                      <rd:NegativeValue>(12345)</rd:NegativeValue>
+                                    </rd:FormatType>
+                                    <Color>black</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <FontFamily>Arial</FontFamily>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                        </Textbox>
+                        <RowSpan>1</RowSpan>
+                        <ColSpan>1</ColSpan>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="TextBox55">
+                          <Left>0in</Left>
+                          <Top>0in</Top>
+                          <Height>18pt</Height>
+                          <Width>72pt</Width>
+                          <Style>
+                            <FontFamily>Arial</FontFamily>
+                            <VerticalAlign>Middle</VerticalAlign>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                            <Border>
+                              <Color>LightGrey</Color>
+                              <Style>None</Style>
+                            </Border>
+                            <BottomBorder>
+                              <Style>Solid</Style>
+                            </BottomBorder>
+                            <LeftBorder>
+                              <Style>None</Style>
+                            </LeftBorder>
+                            <RightBorder>
+                              <Style>None</Style>
+                            </RightBorder>
+                            <TopBorder>
+                              <Style>None</Style>
+                            </TopBorder>
+                          </Style>
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Fields!pay.Value</Value>
+                                  <Style>
+                                    <FontFamily>Arial</FontFamily>
+                                    <Format>0;(0)</Format>
+                                    <rd:FormatType>
+                                      <rd:Format>Number</rd:Format>
+                                      <rd:Representation>None</rd:Representation>
+                                      <rd:NegativeValue>(12345)</rd:NegativeValue>
+                                    </rd:FormatType>
+                                    <Color>black</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <FontFamily>Arial</FontFamily>
+                                <TextAlign>Center</TextAlign>
                               </Style>
                             </Paragraph>
                           </Paragraphs>
@@ -31411,6 +32031,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                           <Width>64.4766pt</Width>
                           <Style>
                             <FontFamily>Arial</FontFamily>
+                            <VerticalAlign>Middle</VerticalAlign>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -31447,6 +32068,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                               </TextRuns>
                               <Style>
                                 <FontFamily>Arial</FontFamily>
+                                <TextAlign>Center</TextAlign>
                               </Style>
                             </Paragraph>
                           </Paragraphs>
@@ -31464,6 +32086,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                           <Width>71.9766pt</Width>
                           <Style>
                             <FontFamily>Arial</FontFamily>
+                            <VerticalAlign>Middle</VerticalAlign>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -31500,6 +32123,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                               </TextRuns>
                               <Style>
                                 <FontFamily>Arial</FontFamily>
+                                <TextAlign>Center</TextAlign>
                               </Style>
                             </Paragraph>
                           </Paragraphs>
@@ -31517,6 +32141,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                           <Width>71.9766pt</Width>
                           <Style>
                             <FontFamily>Arial</FontFamily>
+                            <VerticalAlign>Middle</VerticalAlign>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -31559,6 +32184,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                               </TextRuns>
                               <Style>
                                 <FontFamily>Arial</FontFamily>
+                                <TextAlign>Center</TextAlign>
                               </Style>
                             </Paragraph>
                           </Paragraphs>
@@ -31576,6 +32202,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                           <Width>55.4766pt</Width>
                           <Style>
                             <FontFamily>Arial</FontFamily>
+                            <VerticalAlign>Middle</VerticalAlign>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -31616,6 +32243,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                               </TextRuns>
                               <Style>
                                 <FontFamily>Arial</FontFamily>
+                                <TextAlign>Center</TextAlign>
                               </Style>
                             </Paragraph>
                           </Paragraphs>
@@ -31633,6 +32261,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                           <Width>71.9766pt</Width>
                           <Style>
                             <FontFamily>Arial</FontFamily>
+                            <VerticalAlign>Middle</VerticalAlign>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -31675,6 +32304,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                               </TextRuns>
                               <Style>
                                 <FontFamily>Arial</FontFamily>
+                                <TextAlign>Center</TextAlign>
                               </Style>
                             </Paragraph>
                           </Paragraphs>
@@ -31692,6 +32322,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                           <Width>47.19143pt</Width>
                           <Style>
                             <FontFamily>Arial</FontFamily>
+                            <VerticalAlign>Middle</VerticalAlign>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -31734,6 +32365,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                               </TextRuns>
                               <Style>
                                 <FontFamily>Arial</FontFamily>
+                                <TextAlign>Center</TextAlign>
                               </Style>
                             </Paragraph>
                           </Paragraphs>
@@ -31751,6 +32383,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                           <Width>71.9766pt</Width>
                           <Style>
                             <FontFamily>Arial</FontFamily>
+                            <VerticalAlign>Middle</VerticalAlign>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -31791,6 +32424,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                               </TextRuns>
                               <Style>
                                 <FontFamily>Arial</FontFamily>
+                                <TextAlign>Center</TextAlign>
                               </Style>
                             </Paragraph>
                           </Paragraphs>
@@ -31808,6 +32442,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                           <Width>77.97675pt</Width>
                           <Style>
                             <FontFamily>Arial</FontFamily>
+                            <VerticalAlign>Middle</VerticalAlign>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -31866,6 +32501,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                           <Width>54.12893pt</Width>
                           <Style>
                             <FontFamily>Arial</FontFamily>
+                            <VerticalAlign>Middle</VerticalAlign>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -31932,6 +32568,10 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                 <TablixMember />
                 <TablixMember />
                 <TablixMember />
+                <TablixMember />
+                <TablixMember />
+                <TablixMember />
+                <TablixMember />
               </TablixMembers>
             </TablixColumnHierarchy>
             <TablixRowHierarchy>
@@ -31949,8 +32589,8 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
             </TablixRowHierarchy>
           </Tablix>
           <Tablix Name="Tablix1">
-            <Left>7.5pt</Left>
-            <Top>3.75pt</Top>
+            <Left>6.75pt</Left>
+            <Top>7.5pt</Top>
             <Height>82.49998pt</Height>
             <Width>803.9881pt</Width>
             <Style>
@@ -32048,6 +32688,11 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                               </Style>
                             </Paragraph>
                           </Paragraphs>
+                          <UserSort>
+                            <SortExpression>=Fields!AmountBeforeDid.Value</SortExpression>
+                            <SortExpressionScope>TransactionNumber1</SortExpressionScope>
+                            <SortTarget>SummaryData</SortTarget>
+                          </UserSort>
                         </Textbox>
                         <RowSpan>1</RowSpan>
                         <ColSpan>1</ColSpan>
@@ -32104,6 +32749,11 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                               </Style>
                             </Paragraph>
                           </Paragraphs>
+                          <UserSort>
+                            <SortExpression>=Fields!DiscountPer.Value</SortExpression>
+                            <SortExpressionScope>TransactionNumber1</SortExpressionScope>
+                            <SortTarget>SummaryData</SortTarget>
+                          </UserSort>
                         </Textbox>
                         <RowSpan>1</RowSpan>
                         <ColSpan>1</ColSpan>
@@ -32160,6 +32810,11 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                               </Style>
                             </Paragraph>
                           </Paragraphs>
+                          <UserSort>
+                            <SortExpression>=Fields!Amount.Value</SortExpression>
+                            <SortExpressionScope>TransactionNumber1</SortExpressionScope>
+                            <SortTarget>SummaryData</SortTarget>
+                          </UserSort>
                         </Textbox>
                         <RowSpan>1</RowSpan>
                         <ColSpan>1</ColSpan>
@@ -32216,6 +32871,11 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                               </Style>
                             </Paragraph>
                           </Paragraphs>
+                          <UserSort>
+                            <SortExpression>=Fields!Quantity.Value</SortExpression>
+                            <SortExpressionScope>TransactionNumber1</SortExpressionScope>
+                            <SortTarget>SummaryData</SortTarget>
+                          </UserSort>
                         </Textbox>
                         <RowSpan>1</RowSpan>
                         <ColSpan>1</ColSpan>
@@ -32384,6 +33044,11 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                               </Style>
                             </Paragraph>
                           </Paragraphs>
+                          <UserSort>
+                            <SortExpression>=Fields!TransactionDate.Value</SortExpression>
+                            <SortExpressionScope>TransactionNumber1</SortExpressionScope>
+                            <SortTarget>SummaryData</SortTarget>
+                          </UserSort>
                         </Textbox>
                         <RowSpan>1</RowSpan>
                         <ColSpan>1</ColSpan>
@@ -32440,6 +33105,11 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                               </Style>
                             </Paragraph>
                           </Paragraphs>
+                          <UserSort>
+                            <SortExpression>=Fields!TransactionDate.Value</SortExpression>
+                            <SortExpressionScope>TransactionNumber1</SortExpressionScope>
+                            <SortTarget>SummaryData</SortTarget>
+                          </UserSort>
                         </Textbox>
                         <RowSpan>1</RowSpan>
                         <ColSpan>1</ColSpan>
@@ -32496,6 +33166,11 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                               </Style>
                             </Paragraph>
                           </Paragraphs>
+                          <UserSort>
+                            <SortExpression>=Fields!ReturnsPerStore.Value</SortExpression>
+                            <SortExpressionScope>TransactionNumber1</SortExpressionScope>
+                            <SortTarget>SummaryData</SortTarget>
+                          </UserSort>
                         </Textbox>
                         <RowSpan>1</RowSpan>
                         <ColSpan>1</ColSpan>
@@ -34049,6 +34724,11 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                             </Style>
                           </Paragraph>
                         </Paragraphs>
+                        <UserSort>
+                          <SortExpression>=Fields!Store.Value</SortExpression>
+                          <SortExpressionScope>Store1</SortExpressionScope>
+                          <SortTarget>SummaryData</SortTarget>
+                        </UserSort>
                       </Textbox>
                     </CellContents>
                   </TablixHeader>
@@ -34106,6 +34786,11 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                                 </Style>
                               </Paragraph>
                             </Paragraphs>
+                            <UserSort>
+                              <SortExpression>=Fields!TransactionNumber.Value</SortExpression>
+                              <SortExpressionScope>TransactionNumber1</SortExpressionScope>
+                              <SortTarget>SummaryData</SortTarget>
+                            </UserSort>
                           </Textbox>
                         </CellContents>
                       </TablixHeader>
@@ -34163,6 +34848,11 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                                     </Style>
                                   </Paragraph>
                                 </Paragraphs>
+                                <UserSort>
+                                  <SortExpression>=Fields!TransactionType.Value</SortExpression>
+                                  <SortExpressionScope>TransactionNumber1</SortExpressionScope>
+                                  <SortTarget>SummaryData</SortTarget>
+                                </UserSort>
                               </Textbox>
                             </CellContents>
                           </TablixHeader>
@@ -34702,12 +35392,12 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
           </BackgroundImage>
         </Style>
       </Body>
-      <Width>816pt</Width>
+      <Width>1030.5pt</Width>
       <Page>
         <PageHeight>841.68pt</PageHeight>
         <PageWidth>595.44pt</PageWidth>
         <PageHeader>
-          <Height>139.5pt</Height>
+          <Height>135.75pt</Height>
           <PrintOnFirstPage>true</PrintOnFirstPage>
           <PrintOnLastPage>true</PrintOnLastPage>
           <ReportItems>
@@ -35488,13 +36178,24 @@ ORDER BY 1,2</CommandText>
         <DataSourceName>CustomerDB</DataSourceName>
         <CommandText>Declare @s int, @DateFrom date, @DateTo date
 IF(@Store=2) set @s=1 ELSE set @s=-1
-set @DateFrom = @DateF set @DateTo=@DateT 
+IF(@DateF is not NULL and @DateT is not NULL) begin set @DateFrom = @DateF set @DateTo=@DateT end 
+ELSE IF(@TimeSlots=1)
+begin set @DateFrom = Getdate() set @DateTo = Getdate() end
+ELSE IF(@TimeSlots=2)
+begin set @DateFrom = Getdate()-1 set @DateTo = Getdate()-1 end
+ELSE IF(@TimeSlots=3)
+begin set @DateFrom = dateadd(day, 1-datepart(dw, getdate()), CONVERT(date,getdate())) set @DateTo = dateadd(day, 7-datepart(dw, getdate()), CONVERT(date,getdate())) end
+ELSE IF(@TimeSlots=4)
+begin set @DateFrom = dateadd(dd, -day(GETDATE()), GETDATE())+1 set @DateTo = dateadd(dd, -day(dateadd(mm, 1, GETDATE())), dateadd(mm, 1, GETDATE())) end
+ELSE IF(@TimeSlots=5)
+begin set @DateFrom = CAST(CAST(YEAR(Getdate()) AS nvarchar)+''-01-01'' AS DATE) set @DateTo = CAST(CAST(YEAR(Getdate()) AS nvarchar)+''-12-31'' AS DATE)end
 
 SELECT c.Code+ '' '' + c.DisplayName [Company], s.DisplayName [Store], t.TransactionNumber, tt.Name [TransactionType], e.LastName + '' '' + e.FirstName [Cashier],
 SUM(ti.Amount) [AmountBeforeDid], 
-CASE WHEN SUM(ti.Amount) &lt;&gt; 0 then 100-(SUM(ti.Amount)+SUM(ti.Discount))/SUM(ti.Amount)*100 else 0 end [DiscountPer], SUM(ti.Amount+ti.Discount) [Amount], 
-SUM(ti.Quantity) [Quantity], ((CAST(ISNULL(cr.CountReturns,0) AS numeric(15,4))/CAST(cs.CountSales AS numeric(15,4)))*100) [ReturnsPer]
-, t.CloseDateTime
+CASE WHEN SUM(ti.Amount) &lt;&gt; 0 then (100-((SUM(ti.Amount)+SUM(ti.Discount))/SUM(ti.Amount)*100))/100 else 0 end [DiscountPer], SUM(ti.Amount+ti.Discount) [Amount], 
+SUM(ti.Quantity) [Quantity], 
+Case when ((CAST(ISNULL(cr.CountReturns,0) AS numeric(15,4))/CAST(cs.CountSales AS numeric(15,4))))=0 then NULL else ((CAST(ISNULL(cr.CountReturns,0) AS numeric(15,4))/CAST(cs.CountSales AS numeric(15,4)))) end [ReturnsPer]
+, t.CloseDateTime, card.card, card.pay, p.FirstName+'' ''+p.LastName [CustomerName], p.Phone1
 FROM dbo.[Transaction] t
 INNER JOIN dbo.TransactionItem ti ON ti.TransactionID=t.ID and t.TransactionTypeID in (@TranType) and Quantity&lt;&gt;0 and @s=1 and CAST(TransactionDate as Date) between @DateFrom and @DateTo 
 INNER JOIN dbo.Location l ON t.LocationID=l.ID
@@ -35502,6 +36203,7 @@ INNER JOIN dbo.Store s ON s.ID=l.StoreID
 INNER JOIN dbo.Company c ON l.CompanyID=c.ID
 INNER JOIN dbo.TransactionType tt ON tt.ID=t.TransactionTypeID
 INNER JOIN dbo.Employee e ON e.ID=t.CashierID
+INNER JOIN dbo.Partner p ON p.ID=t.PartnerId and p.id in (@Customer)
 LEFT JOIN (
 	SELECT ABS(Sum(ti.Quantity)) as CountSales, t.ID FROM dbo.[Transaction] t
 	INNER JOIN dbo.TransactionItem ti ON ti.TransactionID=t.ID and t.TransactionTypeID in (@TranType) and Quantity&gt;0 and @s=1 and CAST(TransactionDate as Date) between @DateFrom and @DateTo 
@@ -35518,9 +36220,19 @@ LEFT JOIN (
 	WHERE s.ID IN (@DataStore)
 	GROUP BY t.ID
 	) as cr ON t.ID=cr.ID
+LEFT JOIN (
+	select tmi.TransactionId TransactionId, STRING_AGG(tmi.ID, '','') pay, STRING_AGG(tmi.Info1, '','') card
+	FROM dbo.[Transaction] t
+	INNER JOIN dbo.TransactionMediaItem tmi ON tmi.TransactionID=t.ID and t.TransactionTypeID in (@TranType) and @s=1 and CAST(TransactionDate as Date) between @DateFrom and @DateTo 
+	INNER JOIN dbo.Location l ON t.LocationID=l.ID
+	INNER JOIN dbo.Store s ON s.ID=l.StoreID
+	WHERE s.ID IN (@DataStore)
+	and Info1 is not null and Info1 LIKE ''%*%''
+	GROUP BY tmi.TransactionId
+	) as card ON card.TransactionId=t.ID
 WHERE Quantity&lt;&gt;0
 and s.ID IN (@DataStore) 
-GROUP BY c.Code+ '' '' + c.DisplayName, s.DisplayName, t.TransactionNumber,cr.CountReturns,cs.CountSales, tt.Name, e.LastName, e.FirstName, t.CloseDateTime
+GROUP BY c.Code+ '' '' + c.DisplayName, s.DisplayName, t.TransactionNumber,cr.CountReturns,cs.CountSales, tt.Name, e.LastName, e.FirstName, t.CloseDateTime, card.card, card.pay, p.FirstName+'' ''+p.LastName, p.Phone1
 having SUM(ti.Quantity) &lt;&gt; 0 and SUM(ti.Amount+ti.Discount) &gt;= ISNULL(cast(@MinAmount as numeric(25,6)),SUM(ti.Amount+ti.Discount)) and SUM(ti.Amount+ti.Discount) &lt;= ISNULL(cast(@MaxAmount as numeric(25,6)),SUM(ti.Amount+ti.Discount))
 ORDER BY 1,2</CommandText>
         <QueryParameters>
@@ -35544,6 +36256,12 @@ ORDER BY 1,2</CommandText>
           </QueryParameter>
           <QueryParameter Name="@MaxAmount">
             <Value>=Parameters!MaxAmount.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@TimeSlots">
+            <Value>=Parameters!TimeSlots.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@Customer">
+            <Value>=Parameters!Customer.Value</Value>
           </QueryParameter>
         </QueryParameters>
       </Query>
@@ -35591,6 +36309,22 @@ ORDER BY 1,2</CommandText>
         <Field Name="CloseDateTime">
           <DataField>CloseDateTime</DataField>
           <rd:TypeName>System.DateTimeOffset</rd:TypeName>
+        </Field>
+        <Field Name="card">
+          <DataField>card</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="pay">
+          <DataField>pay</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="CustomerName">
+          <DataField>CustomerName</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Phone1">
+          <DataField>Phone1</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
         </Field>
       </Fields>
     </DataSet>
@@ -35662,6 +36396,22 @@ WHERE id = @Type
         </Field>
         <Field Name="Name">
           <DataField>Name</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+      </Fields>
+    </DataSet>
+    <DataSet Name="Customer">
+      <Query>
+        <DataSourceName>CustomerDB</DataSourceName>
+        <CommandText>select ID, FirstName+'' ''+LastName DisplayName from Partner</CommandText>
+      </Query>
+      <Fields>
+        <Field Name="ID">
+          <DataField>ID</DataField>
+          <rd:TypeName>System.Int64</rd:TypeName>
+        </Field>
+        <Field Name="DisplayName">
+          <DataField>DisplayName</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
       </Fields>
@@ -35743,39 +36493,23 @@ WHERE id = @Type
         </Values>
       </DefaultValue>
     </ReportParameter>
-    <ReportParameter Name="TimeSlots">
+    <ReportParameter Name="Customer">
       <DataType>Integer</DataType>
-      <Prompt>Time slots</Prompt>
+      <Prompt>Customer</Prompt>
       <DefaultValue>
-        <Values>
-          <Value>1</Value>
-        </Values>
+        <DataSetReference>
+          <DataSetName>Customer</DataSetName>
+          <ValueField>ID</ValueField>
+        </DataSetReference>
       </DefaultValue>
-      <Hidden>true</Hidden>
       <ValidValues>
-        <ParameterValues>
-          <ParameterValue>
-            <Value>1</Value>
-            <Label>Today</Label>
-          </ParameterValue>
-          <ParameterValue>
-            <Value>2</Value>
-            <Label>Yesterday</Label>
-          </ParameterValue>
-          <ParameterValue>
-            <Value>3</Value>
-            <Label>This week</Label>
-          </ParameterValue>
-          <ParameterValue>
-            <Value>4</Value>
-            <Label>This month</Label>
-          </ParameterValue>
-          <ParameterValue>
-            <Value>5</Value>
-            <Label>This year</Label>
-          </ParameterValue>
-        </ParameterValues>
+        <DataSetReference>
+          <DataSetName>Customer</DataSetName>
+          <ValueField>ID</ValueField>
+          <LabelField>DisplayName</LabelField>
+        </DataSetReference>
       </ValidValues>
+      <MultiValue>true</MultiValue>
     </ReportParameter>
     <ReportParameter Name="MinAmount">
       <DataType>Integer</DataType>
@@ -35818,6 +36552,40 @@ WHERE id = @Type
       <Prompt>CurrentCompanyName</Prompt>
       <Hidden>true</Hidden>
     </ReportParameter>
+    <ReportParameter Name="TimeSlots">
+      <DataType>Integer</DataType>
+      <Prompt>Time slots</Prompt>
+      <DefaultValue>
+        <Values>
+          <Value>1</Value>
+        </Values>
+      </DefaultValue>
+      <Hidden>true</Hidden>
+      <ValidValues>
+        <ParameterValues>
+          <ParameterValue>
+            <Value>1</Value>
+            <Label>Today</Label>
+          </ParameterValue>
+          <ParameterValue>
+            <Value>2</Value>
+            <Label>Yesterday</Label>
+          </ParameterValue>
+          <ParameterValue>
+            <Value>3</Value>
+            <Label>This week</Label>
+          </ParameterValue>
+          <ParameterValue>
+            <Value>4</Value>
+            <Label>This month</Label>
+          </ParameterValue>
+          <ParameterValue>
+            <Value>5</Value>
+            <Label>This year</Label>
+          </ParameterValue>
+        </ParameterValues>
+      </ValidValues>
+    </ReportParameter>
   </ReportParameters>
   <ReportParametersLayout>
     <GridLayoutDefinition>
@@ -35852,7 +36620,7 @@ WHERE id = @Type
         <CellDefinition>
           <ColumnIndex>2</ColumnIndex>
           <RowIndex>1</RowIndex>
-          <ParameterName>TimeSlots</ParameterName>
+          <ParameterName>Customer</ParameterName>
         </CellDefinition>
         <CellDefinition>
           <ColumnIndex>0</ColumnIndex>
@@ -35879,6 +36647,11 @@ WHERE id = @Type
           <RowIndex>3</RowIndex>
           <ParameterName>CurrentCompanyName</ParameterName>
         </CellDefinition>
+        <CellDefinition>
+          <ColumnIndex>2</ColumnIndex>
+          <RowIndex>3</RowIndex>
+          <ParameterName>TimeSlots</ParameterName>
+        </CellDefinition>
       </CellDefinitions>
     </GridLayoutDefinition>
   </ReportParametersLayout>
@@ -35899,7 +36672,7 @@ WHERE id = @Type
   <rd:ReportUnitType>Inch</rd:ReportUnitType>
   <rd:PageUnit>Px</rd:PageUnit>
   <df:DefaultFontFamily>Segoe UI</df:DefaultFontFamily>
-</Report>', '2022-12-28 10:23:39.5066667 +00:00', 118, N'N', 'f5d9e140-9e77-4247-bf69-37eb86458413', 1, NULL, 2, '2022-11-01 11:15:44.8955945 +02:00')
+</Report>', '2022-12-28 13:57:33.8333333 +00:00', 127, N'N', '7b2ba544-2b15-4405-b29f-d1ff3a763f24', 1, NULL, 2, '2022-11-01 11:15:44.8955945 +02:00')
 INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySubID], [Name], [Code], [Rdl], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [LanguageID], [CreateDate]) VALUES ('74c20f7b-cc61-ed11-8e60-4ccc6a2bb6d6', '296c565d-433e-ed11-8e5b-4ccc6a2bb6d6', NULL, N'Payment type report', N'PayRep', N'<?xml version="1.0" encoding="utf-8"?>
 <Report xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner" xmlns:df="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition/defaultfontfamily" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition">
   <ReportSections>
@@ -35925,19 +36698,19 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
             <TablixBody>
               <TablixColumns>
                 <TablixColumn>
-                  <Width>71.99219pt</Width>
+                  <Width>71.98828pt</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>58.48959pt</Width>
+                  <Width>58.48828pt</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>62.23959pt</Width>
+                  <Width>62.23828pt</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>71.99219pt</Width>
+                  <Width>71.98828pt</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>75.07813pt</Width>
+                  <Width>75.09375pt</Width>
                 </TablixColumn>
               </TablixColumns>
               <TablixRows>
@@ -35950,7 +36723,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                           <Left>0in</Left>
                           <Top>0in</Top>
                           <Height>28.5pt</Height>
-                          <Width>71.9922pt</Width>
+                          <Width>71.9883pt</Width>
                           <Style>
                             <BackgroundColor>#eeeeee</BackgroundColor>
                             <FontFamily>Arial</FontFamily>
@@ -36006,7 +36779,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                           <Left>0in</Left>
                           <Top>0in</Top>
                           <Height>28.5pt</Height>
-                          <Width>58.48957pt</Width>
+                          <Width>58.4883pt</Width>
                           <Style>
                             <BackgroundColor>#eeeeee</BackgroundColor>
                             <FontFamily>Arial</FontFamily>
@@ -36062,7 +36835,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                           <Left>0in</Left>
                           <Top>0in</Top>
                           <Height>28.5pt</Height>
-                          <Width>62.23957pt</Width>
+                          <Width>62.2383pt</Width>
                           <Style>
                             <BackgroundColor>#eeeeee</BackgroundColor>
                             <FontFamily>Arial</FontFamily>
@@ -36118,7 +36891,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                           <Left>0in</Left>
                           <Top>0in</Top>
                           <Height>28.5pt</Height>
-                          <Width>71.9922pt</Width>
+                          <Width>71.9883pt</Width>
                           <Style>
                             <BackgroundColor>#eeeeee</BackgroundColor>
                             <FontFamily>Arial</FontFamily>
@@ -36174,7 +36947,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                           <Left>0in</Left>
                           <Top>0in</Top>
                           <Height>28.5pt</Height>
-                          <Width>75.078pt</Width>
+                          <Width>75.09375pt</Width>
                           <Style>
                             <BackgroundColor>#eeeeee</BackgroundColor>
                             <FontFamily>Arial</FontFamily>
@@ -36235,7 +37008,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                           <Left>0in</Left>
                           <Top>0in</Top>
                           <Height>18pt</Height>
-                          <Width>71.9922pt</Width>
+                          <Width>71.9883pt</Width>
                           <Style>
                             <BackgroundColor>#c3c3c3</BackgroundColor>
                             <FontFamily>Arial</FontFamily>
@@ -36285,7 +37058,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                           <Left>0in</Left>
                           <Top>0in</Top>
                           <Height>18pt</Height>
-                          <Width>58.48957pt</Width>
+                          <Width>58.4883pt</Width>
                           <Style>
                             <BackgroundColor>#c3c3c3</BackgroundColor>
                             <FontFamily>Arial</FontFamily>
@@ -36335,7 +37108,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                           <Left>0in</Left>
                           <Top>0in</Top>
                           <Height>18pt</Height>
-                          <Width>62.23957pt</Width>
+                          <Width>62.2383pt</Width>
                           <Style>
                             <BackgroundColor>#c3c3c3</BackgroundColor>
                             <FontFamily>Arial</FontFamily>
@@ -36398,7 +37171,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                           <Left>0in</Left>
                           <Top>0in</Top>
                           <Height>18pt</Height>
-                          <Width>71.9922pt</Width>
+                          <Width>71.9883pt</Width>
                           <Style>
                             <BackgroundColor>#c3c3c3</BackgroundColor>
                             <FontFamily>Arial</FontFamily>
@@ -36442,7 +37215,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                           <Left>0in</Left>
                           <Top>0in</Top>
                           <Height>18pt</Height>
-                          <Width>75.078pt</Width>
+                          <Width>75.09375pt</Width>
                           <Style>
                             <BackgroundColor>#c3c3c3</BackgroundColor>
                             <FontFamily>Arial</FontFamily>
@@ -36491,7 +37264,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                           <Left>0in</Left>
                           <Top>0in</Top>
                           <Height>18pt</Height>
-                          <Width>71.9922pt</Width>
+                          <Width>71.9883pt</Width>
                           <Style>
                             <BackgroundColor>#d5d5d5</BackgroundColor>
                             <FontFamily>Arial</FontFamily>
@@ -36553,7 +37326,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                           <Left>0in</Left>
                           <Top>0in</Top>
                           <Height>18pt</Height>
-                          <Width>58.48957pt</Width>
+                          <Width>58.4883pt</Width>
                           <Style>
                             <BackgroundColor>#d5d5d5</BackgroundColor>
                             <FontFamily>Arial</FontFamily>
@@ -36610,7 +37383,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                           <Left>0in</Left>
                           <Top>0in</Top>
                           <Height>18pt</Height>
-                          <Width>62.23957pt</Width>
+                          <Width>62.2383pt</Width>
                           <Style>
                             <BackgroundColor>#d5d5d5</BackgroundColor>
                             <FontFamily>Arial</FontFamily>
@@ -36672,7 +37445,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                           <Left>0in</Left>
                           <Top>0in</Top>
                           <Height>18pt</Height>
-                          <Width>71.9922pt</Width>
+                          <Width>71.9883pt</Width>
                           <Style>
                             <BackgroundColor>#d5d5d5</BackgroundColor>
                             <FontFamily>Arial</FontFamily>
@@ -36729,7 +37502,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                           <Left>0in</Left>
                           <Top>0in</Top>
                           <Height>18pt</Height>
-                          <Width>75.078pt</Width>
+                          <Width>75.09375pt</Width>
                           <Style>
                             <BackgroundColor>#d5d5d5</BackgroundColor>
                             <FontFamily>Arial</FontFamily>
@@ -36796,7 +37569,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                           <Left>0in</Left>
                           <Top>0in</Top>
                           <Height>18pt</Height>
-                          <Width>71.9922pt</Width>
+                          <Width>71.9883pt</Width>
                           <Style>
                             <FontFamily>Arial</FontFamily>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -36857,7 +37630,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                           <Left>0in</Left>
                           <Top>0in</Top>
                           <Height>18pt</Height>
-                          <Width>58.48957pt</Width>
+                          <Width>58.4883pt</Width>
                           <Style>
                             <FontFamily>Arial</FontFamily>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -36913,7 +37686,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                           <Left>0in</Left>
                           <Top>0in</Top>
                           <Height>18pt</Height>
-                          <Width>62.23957pt</Width>
+                          <Width>62.2383pt</Width>
                           <Style>
                             <FontFamily>Arial</FontFamily>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -36968,7 +37741,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                           <Left>0in</Left>
                           <Top>0in</Top>
                           <Height>18pt</Height>
-                          <Width>71.9922pt</Width>
+                          <Width>71.9883pt</Width>
                           <Style>
                             <FontFamily>Arial</FontFamily>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -37024,7 +37797,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                           <Left>0in</Left>
                           <Top>0in</Top>
                           <Height>18pt</Height>
-                          <Width>75.078pt</Width>
+                          <Width>75.09375pt</Width>
                           <Style>
                             <FontFamily>Arial</FontFamily>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -37084,7 +37857,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                           <Left>0in</Left>
                           <Top>0in</Top>
                           <Height>18pt</Height>
-                          <Width>71.9922pt</Width>
+                          <Width>71.9883pt</Width>
                           <Style>
                             <BackgroundColor>#eeeeee</BackgroundColor>
                             <FontFamily>Arial</FontFamily>
@@ -37146,7 +37919,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                           <Left>0in</Left>
                           <Top>0in</Top>
                           <Height>18pt</Height>
-                          <Width>58.48957pt</Width>
+                          <Width>58.4883pt</Width>
                           <Style>
                             <BackgroundColor>#eeeeee</BackgroundColor>
                             <FontFamily>Arial</FontFamily>
@@ -37203,7 +37976,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                           <Left>0in</Left>
                           <Top>0in</Top>
                           <Height>18pt</Height>
-                          <Width>62.23957pt</Width>
+                          <Width>62.2383pt</Width>
                           <Style>
                             <BackgroundColor>#eeeeee</BackgroundColor>
                             <FontFamily>Arial</FontFamily>
@@ -37259,7 +38032,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                           <Left>0in</Left>
                           <Top>0in</Top>
                           <Height>18pt</Height>
-                          <Width>71.9922pt</Width>
+                          <Width>71.9883pt</Width>
                           <Style>
                             <BackgroundColor>#eeeeee</BackgroundColor>
                             <FontFamily>Arial</FontFamily>
@@ -37316,7 +38089,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                           <Left>0in</Left>
                           <Top>0in</Top>
                           <Height>18pt</Height>
-                          <Width>75.078pt</Width>
+                          <Width>75.09375pt</Width>
                           <Style>
                             <BackgroundColor>#eeeeee</BackgroundColor>
                             <FontFamily>Arial</FontFamily>
@@ -37381,7 +38154,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                           <Left>0in</Left>
                           <Top>0in</Top>
                           <Height>18pt</Height>
-                          <Width>71.9922pt</Width>
+                          <Width>71.9883pt</Width>
                           <Style>
                             <FontFamily>Arial</FontFamily>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -37442,7 +38215,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                           <Left>0in</Left>
                           <Top>0in</Top>
                           <Height>18pt</Height>
-                          <Width>58.48957pt</Width>
+                          <Width>58.4883pt</Width>
                           <Style>
                             <FontFamily>Arial</FontFamily>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -37498,7 +38271,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                           <Left>0in</Left>
                           <Top>0in</Top>
                           <Height>18pt</Height>
-                          <Width>62.23957pt</Width>
+                          <Width>62.2383pt</Width>
                           <Style>
                             <FontFamily>Arial</FontFamily>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -37553,7 +38326,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                           <Left>0in</Left>
                           <Top>0in</Top>
                           <Height>18pt</Height>
-                          <Width>71.9922pt</Width>
+                          <Width>71.9883pt</Width>
                           <Style>
                             <FontFamily>Arial</FontFamily>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -37608,7 +38381,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                           <Left>0in</Left>
                           <Top>0in</Top>
                           <Height>18pt</Height>
-                          <Width>75.078pt</Width>
+                          <Width>75.09375pt</Width>
                           <Style>
                             <FontFamily>Arial</FontFamily>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -37674,13 +38447,13 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
               <TablixMembers>
                 <TablixMember>
                   <TablixHeader>
-                    <Size>71.99219pt</Size>
+                    <Size>71.98828pt</Size>
                     <CellContents>
                       <Textbox Name="TextBox37">
                         <Left>0in</Left>
                         <Top>0in</Top>
                         <Height>28.5pt</Height>
-                        <Width>71.99219pt</Width>
+                        <Width>71.98828pt</Width>
                         <Style>
                           <BackgroundColor>#eeeeee</BackgroundColor>
                           <FontFamily>Arial</FontFamily>
@@ -37731,13 +38504,13 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                   <TablixMembers>
                     <TablixMember>
                       <TablixHeader>
-                        <Size>71.99219pt</Size>
+                        <Size>71.98828pt</Size>
                         <CellContents>
                           <Textbox Name="TextBox131">
                             <Left>0in</Left>
                             <Top>0in</Top>
                             <Height>28.5pt</Height>
-                            <Width>71.99219pt</Width>
+                            <Width>71.98828pt</Width>
                             <Style>
                               <BackgroundColor>#eeeeee</BackgroundColor>
                               <FontFamily>Arial</FontFamily>
@@ -37788,13 +38561,13 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                       <TablixMembers>
                         <TablixMember>
                           <TablixHeader>
-                            <Size>71.99219pt</Size>
+                            <Size>71.98828pt</Size>
                             <CellContents>
                               <Textbox Name="TextBox85">
                                 <Left>0in</Left>
                                 <Top>0in</Top>
                                 <Height>28.5pt</Height>
-                                <Width>71.99219pt</Width>
+                                <Width>71.98828pt</Width>
                                 <Style>
                                   <BackgroundColor>#eeeeee</BackgroundColor>
                                   <FontFamily>Arial</FontFamily>
@@ -37852,13 +38625,13 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                 </TablixMember>
                 <TablixMember>
                   <TablixHeader>
-                    <Size>71.99219pt</Size>
+                    <Size>71.98828pt</Size>
                     <CellContents>
                       <Textbox Name="TextBox77">
                         <Left>0in</Left>
                         <Top>0in</Top>
                         <Height>18pt</Height>
-                        <Width>71.99219pt</Width>
+                        <Width>71.98828pt</Width>
                         <Style>
                           <BackgroundColor>#c3c3c3</BackgroundColor>
                           <FontFamily>Arial</FontFamily>
@@ -37897,13 +38670,13 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                   <TablixMembers>
                     <TablixMember>
                       <TablixHeader>
-                        <Size>71.99219pt</Size>
+                        <Size>71.98828pt</Size>
                         <CellContents>
                           <Textbox Name="TextBox1391">
                             <Left>0in</Left>
                             <Top>0in</Top>
                             <Height>18pt</Height>
-                            <Width>71.99219pt</Width>
+                            <Width>71.98828pt</Width>
                             <Style>
                               <BackgroundColor>#c3c3c3</BackgroundColor>
                               <FontFamily>Arial</FontFamily>
@@ -37948,13 +38721,13 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                       <TablixMembers>
                         <TablixMember>
                           <TablixHeader>
-                            <Size>71.99219pt</Size>
+                            <Size>71.98828pt</Size>
                             <CellContents>
                               <Textbox Name="TextBox461">
                                 <Left>0in</Left>
                                 <Top>0in</Top>
                                 <Height>18pt</Height>
-                                <Width>71.99219pt</Width>
+                                <Width>71.98828pt</Width>
                                 <Style>
                                   <BackgroundColor>#c3c3c3</BackgroundColor>
                                   <FontFamily>Arial</FontFamily>
@@ -38016,13 +38789,13 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                   <TablixMembers>
                     <TablixMember>
                       <TablixHeader>
-                        <Size>71.99219pt</Size>
+                        <Size>71.98828pt</Size>
                         <CellContents>
                           <Textbox Name="TextBox36">
                             <Left>0in</Left>
                             <Top>0in</Top>
                             <Height>18pt</Height>
-                            <Width>71.99219pt</Width>
+                            <Width>71.98828pt</Width>
                             <Style>
                               <BackgroundColor>#d5d5d5</BackgroundColor>
                               <FontFamily>Arial</FontFamily>
@@ -38073,13 +38846,13 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                       <TablixMembers>
                         <TablixMember>
                           <TablixHeader>
-                            <Size>71.99219pt</Size>
+                            <Size>71.98828pt</Size>
                             <CellContents>
                               <Textbox Name="TextBox134">
                                 <Left>0in</Left>
                                 <Top>0in</Top>
                                 <Height>18pt</Height>
-                                <Width>71.99219pt</Width>
+                                <Width>71.98828pt</Width>
                                 <Style>
                                   <BackgroundColor>#d5d5d5</BackgroundColor>
                                   <FontFamily>Arial</FontFamily>
@@ -38136,13 +38909,13 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                           <TablixMembers>
                             <TablixMember>
                               <TablixHeader>
-                                <Size>71.99219pt</Size>
+                                <Size>71.98828pt</Size>
                                 <CellContents>
                                   <Textbox Name="TextBox123">
                                     <Left>0in</Left>
                                     <Top>0in</Top>
                                     <Height>18pt</Height>
-                                    <Width>71.99219pt</Width>
+                                    <Width>71.98828pt</Width>
                                     <Style>
                                       <BackgroundColor>#d5d5d5</BackgroundColor>
                                       <FontFamily>Arial</FontFamily>
@@ -38215,13 +38988,13 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                         </SortExpression>
                       </SortExpressions>
                       <TablixHeader>
-                        <Size>71.99219pt</Size>
+                        <Size>71.98828pt</Size>
                         <CellContents>
                           <Textbox Name="Store11">
                             <Left>0in</Left>
                             <Top>0in</Top>
                             <Height>18pt</Height>
-                            <Width>71.99219pt</Width>
+                            <Width>71.98828pt</Width>
                             <Style>
                               <FontFamily>Arial</FontFamily>
                               <PaddingLeft>2pt</PaddingLeft>
@@ -38274,13 +39047,13 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                       <TablixMembers>
                         <TablixMember>
                           <TablixHeader>
-                            <Size>71.99219pt</Size>
+                            <Size>71.98828pt</Size>
                             <CellContents>
                               <Textbox Name="TextBox135">
                                 <Left>0in</Left>
                                 <Top>0in</Top>
                                 <Height>18pt</Height>
-                                <Width>71.99219pt</Width>
+                                <Width>71.98828pt</Width>
                                 <Style>
                                   <FontFamily>Arial</FontFamily>
                                   <PaddingLeft>2pt</PaddingLeft>
@@ -38336,13 +39109,13 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                           <TablixMembers>
                             <TablixMember>
                               <TablixHeader>
-                                <Size>71.99219pt</Size>
+                                <Size>71.98828pt</Size>
                                 <CellContents>
                                   <Textbox Name="TextBox35">
                                     <Left>0in</Left>
                                     <Top>0in</Top>
                                     <Height>18pt</Height>
-                                    <Width>71.99219pt</Width>
+                                    <Width>71.98828pt</Width>
                                     <Style>
                                       <FontFamily>Arial</FontFamily>
                                       <PaddingLeft>2pt</PaddingLeft>
@@ -38413,13 +39186,13 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                           <TablixMembers>
                             <TablixMember>
                               <TablixHeader>
-                                <Size>71.99219pt</Size>
+                                <Size>71.98828pt</Size>
                                 <CellContents>
                                   <Textbox Name="TextBox137">
                                     <Left>0in</Left>
                                     <Top>0in</Top>
                                     <Height>18pt</Height>
-                                    <Width>71.99219pt</Width>
+                                    <Width>71.98828pt</Width>
                                     <Style>
                                       <BackgroundColor>#eeeeee</BackgroundColor>
                                       <FontFamily>Arial</FontFamily>
@@ -38476,13 +39249,13 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                               <TablixMembers>
                                 <TablixMember>
                                   <TablixHeader>
-                                    <Size>71.99219pt</Size>
+                                    <Size>71.98828pt</Size>
                                     <CellContents>
                                       <Textbox Name="TextBox114">
                                         <Left>0in</Left>
                                         <Top>0in</Top>
                                         <Height>18pt</Height>
-                                        <Width>71.99219pt</Width>
+                                        <Width>71.98828pt</Width>
                                         <Style>
                                           <BackgroundColor>#eeeeee</BackgroundColor>
                                           <FontFamily>Arial</FontFamily>
@@ -38554,13 +39327,13 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                               <TablixMembers>
                                 <TablixMember>
                                   <TablixHeader>
-                                    <Size>71.99219pt</Size>
+                                    <Size>71.98828pt</Size>
                                     <CellContents>
                                       <Textbox Name="TextBox138">
                                         <Left>0in</Left>
                                         <Top>0in</Top>
                                         <Height>18pt</Height>
-                                        <Width>71.99219pt</Width>
+                                        <Width>71.98828pt</Width>
                                         <Style>
                                           <FontFamily>Arial</FontFamily>
                                           <PaddingLeft>2pt</PaddingLeft>
@@ -38616,13 +39389,13 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                                   <TablixMembers>
                                     <TablixMember>
                                       <TablixHeader>
-                                        <Size>71.99219pt</Size>
+                                        <Size>71.98828pt</Size>
                                         <CellContents>
                                           <Textbox Name="TextBox15">
                                             <Left>0in</Left>
                                             <Top>0in</Top>
                                             <Height>18pt</Height>
-                                            <Width>71.99219pt</Width>
+                                            <Width>71.98828pt</Width>
                                             <Style>
                                               <FontFamily>Arial</FontFamily>
                                               <PaddingLeft>2pt</PaddingLeft>
@@ -38718,31 +39491,31 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
             <TablixBody>
               <TablixColumns>
                 <TablixColumn>
-                  <Width>101.22397pt</Width>
+                  <Width>101.21484pt</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>80.23438pt</Width>
+                  <Width>80.22656pt</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>64.46615pt</Width>
+                  <Width>64.46484pt</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>83.22917pt</Width>
+                  <Width>83.22656pt</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>71.96615pt</Width>
+                  <Width>71.96484pt</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>68.21615pt</Width>
+                  <Width>68.21484pt</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>71.96615pt</Width>
+                  <Width>71.96484pt</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>68.9974pt</Width>
+                  <Width>68.98828pt</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>52.56511pt</Width>
+                  <Width>52.59375pt</Width>
                 </TablixColumn>
               </TablixColumns>
               <TablixRows>
@@ -38755,7 +39528,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                           <Left>0in</Left>
                           <Top>0in</Top>
                           <Height>27pt</Height>
-                          <Width>101.22375pt</Width>
+                          <Width>101.21475pt</Width>
                           <Style>
                             <BackgroundColor>#eeeeee</BackgroundColor>
                             <FontFamily>Arial</FontFamily>
@@ -38811,7 +39584,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                           <Left>0in</Left>
                           <Top>0in</Top>
                           <Height>27pt</Height>
-                          <Width>80.23425pt</Width>
+                          <Width>80.22675pt</Width>
                           <Style>
                             <BackgroundColor>#eeeeee</BackgroundColor>
                             <FontFamily>Arial</FontFamily>
@@ -38867,7 +39640,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                           <Left>0in</Left>
                           <Top>0in</Top>
                           <Height>27pt</Height>
-                          <Width>64.46617pt</Width>
+                          <Width>64.46483pt</Width>
                           <Style>
                             <BackgroundColor>#eeeeee</BackgroundColor>
                             <FontFamily>Arial</FontFamily>
@@ -38923,7 +39696,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                           <Left>0in</Left>
                           <Top>0in</Top>
                           <Height>27pt</Height>
-                          <Width>83.229pt</Width>
+                          <Width>83.22675pt</Width>
                           <Style>
                             <BackgroundColor>#eeeeee</BackgroundColor>
                             <FontFamily>Arial</FontFamily>
@@ -38979,7 +39752,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                           <Left>0in</Left>
                           <Top>0in</Top>
                           <Height>27pt</Height>
-                          <Width>71.96617pt</Width>
+                          <Width>71.96483pt</Width>
                           <Style>
                             <BackgroundColor>#eeeeee</BackgroundColor>
                             <FontFamily>Arial</FontFamily>
@@ -39035,7 +39808,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                           <Left>0in</Left>
                           <Top>0in</Top>
                           <Height>27pt</Height>
-                          <Width>68.21617pt</Width>
+                          <Width>68.21483pt</Width>
                           <Style>
                             <BackgroundColor>#eeeeee</BackgroundColor>
                             <FontFamily>Arial</FontFamily>
@@ -39091,7 +39864,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                           <Left>0in</Left>
                           <Top>0in</Top>
                           <Height>27pt</Height>
-                          <Width>71.96617pt</Width>
+                          <Width>71.96483pt</Width>
                           <Style>
                             <BackgroundColor>#eeeeee</BackgroundColor>
                             <FontFamily>Arial</FontFamily>
@@ -39147,7 +39920,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                           <Left>0in</Left>
                           <Top>0in</Top>
                           <Height>27pt</Height>
-                          <Width>68.99738pt</Width>
+                          <Width>68.9883pt</Width>
                           <Style>
                             <BackgroundColor>#eeeeee</BackgroundColor>
                             <FontFamily>Arial</FontFamily>
@@ -39203,7 +39976,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                           <Left>0in</Left>
                           <Top>0in</Top>
                           <Height>27pt</Height>
-                          <Width>52.5651pt</Width>
+                          <Width>52.59375pt</Width>
                           <Style>
                             <BackgroundColor>#eeeeee</BackgroundColor>
                             <FontFamily>Arial</FontFamily>
@@ -39264,7 +40037,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                           <Left>0in</Left>
                           <Top>0in</Top>
                           <Height>18pt</Height>
-                          <Width>101.22375pt</Width>
+                          <Width>101.21475pt</Width>
                           <Style>
                             <BackgroundColor>#c3c3c3</BackgroundColor>
                             <FontFamily>Arial</FontFamily>
@@ -39319,7 +40092,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                           <Left>0in</Left>
                           <Top>0in</Top>
                           <Height>18pt</Height>
-                          <Width>80.23425pt</Width>
+                          <Width>80.22675pt</Width>
                           <Style>
                             <BackgroundColor>#c3c3c3</BackgroundColor>
                             <FontFamily>Arial</FontFamily>
@@ -39380,7 +40153,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                           <Left>0in</Left>
                           <Top>0in</Top>
                           <Height>18pt</Height>
-                          <Width>64.46617pt</Width>
+                          <Width>64.46483pt</Width>
                           <Style>
                             <BackgroundColor>#c3c3c3</BackgroundColor>
                             <FontFamily>Arial</FontFamily>
@@ -39435,7 +40208,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                           <Left>0in</Left>
                           <Top>0in</Top>
                           <Height>18pt</Height>
-                          <Width>83.229pt</Width>
+                          <Width>83.22675pt</Width>
                           <Style>
                             <BackgroundColor>#c3c3c3</BackgroundColor>
                             <FontFamily>Arial</FontFamily>
@@ -39490,7 +40263,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                           <Left>0in</Left>
                           <Top>0in</Top>
                           <Height>18pt</Height>
-                          <Width>71.96617pt</Width>
+                          <Width>71.96483pt</Width>
                           <Style>
                             <BackgroundColor>#c3c3c3</BackgroundColor>
                             <FontFamily>Arial</FontFamily>
@@ -39551,7 +40324,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                           <Left>0in</Left>
                           <Top>0in</Top>
                           <Height>18pt</Height>
-                          <Width>68.21617pt</Width>
+                          <Width>68.21483pt</Width>
                           <Style>
                             <BackgroundColor>#c3c3c3</BackgroundColor>
                             <FontFamily>Arial</FontFamily>
@@ -39613,7 +40386,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                           <Left>0in</Left>
                           <Top>0in</Top>
                           <Height>18pt</Height>
-                          <Width>71.96617pt</Width>
+                          <Width>71.96483pt</Width>
                           <Style>
                             <BackgroundColor>#c3c3c3</BackgroundColor>
                             <FontFamily>Arial</FontFamily>
@@ -39674,7 +40447,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                           <Left>0in</Left>
                           <Top>0in</Top>
                           <Height>18pt</Height>
-                          <Width>68.99738pt</Width>
+                          <Width>68.9883pt</Width>
                           <Style>
                             <BackgroundColor>#c3c3c3</BackgroundColor>
                             <FontFamily>Arial</FontFamily>
@@ -39733,7 +40506,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                           <Left>0in</Left>
                           <Top>0in</Top>
                           <Height>18pt</Height>
-                          <Width>52.5651pt</Width>
+                          <Width>52.59375pt</Width>
                           <Style>
                             <BackgroundColor>#c3c3c3</BackgroundColor>
                             <FontFamily>Arial</FontFamily>
@@ -39797,7 +40570,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                           <Left>0in</Left>
                           <Top>0in</Top>
                           <Height>18pt</Height>
-                          <Width>101.22375pt</Width>
+                          <Width>101.21475pt</Width>
                           <Style>
                             <FontFamily>Arial</FontFamily>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -39851,7 +40624,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                           <Left>0in</Left>
                           <Top>0in</Top>
                           <Height>18pt</Height>
-                          <Width>80.23425pt</Width>
+                          <Width>80.22675pt</Width>
                           <Style>
                             <FontFamily>Arial</FontFamily>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -39905,7 +40678,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                           <Left>0in</Left>
                           <Top>0in</Top>
                           <Height>18pt</Height>
-                          <Width>64.46617pt</Width>
+                          <Width>64.46483pt</Width>
                           <Style>
                             <FontFamily>Arial</FontFamily>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -39959,7 +40732,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                           <Left>0in</Left>
                           <Top>0in</Top>
                           <Height>18pt</Height>
-                          <Width>83.229pt</Width>
+                          <Width>83.22675pt</Width>
                           <Style>
                             <FontFamily>Arial</FontFamily>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -40013,7 +40786,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                           <Left>0in</Left>
                           <Top>0in</Top>
                           <Height>18pt</Height>
-                          <Width>71.96617pt</Width>
+                          <Width>71.96483pt</Width>
                           <Style>
                             <FontFamily>Arial</FontFamily>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -40067,7 +40840,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                           <Left>0in</Left>
                           <Top>0in</Top>
                           <Height>18pt</Height>
-                          <Width>68.21617pt</Width>
+                          <Width>68.21483pt</Width>
                           <Style>
                             <FontFamily>Arial</FontFamily>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -40127,7 +40900,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                           <Left>0in</Left>
                           <Top>0in</Top>
                           <Height>18pt</Height>
-                          <Width>71.96617pt</Width>
+                          <Width>71.96483pt</Width>
                           <Style>
                             <FontFamily>Arial</FontFamily>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -40181,7 +40954,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                           <Left>0in</Left>
                           <Top>0in</Top>
                           <Height>18pt</Height>
-                          <Width>68.99738pt</Width>
+                          <Width>68.9883pt</Width>
                           <Style>
                             <FontFamily>Arial</FontFamily>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -40239,7 +41012,7 @@ INSERT INTO [dbo].[WebReport] ([ID], [WebReportCategoryID], [WebReportCategorySu
                           <Left>0in</Left>
                           <Top>0in</Top>
                           <Height>18pt</Height>
-                          <Width>52.5651pt</Width>
+                          <Width>52.59375pt</Width>
                           <Style>
                             <FontFamily>Arial</FontFamily>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -41127,7 +41900,7 @@ SELECT c.Code+ '' '' + c.DisplayName [Company], s.DisplayName [Store], p.Display
 FROM dbo.[Transaction] t
 INNER JOIN dbo.TransactionMediaItem tmi ON t.id=tmi.TransactionID and t.TransactionTypeID in (@TranType) and @s=1 and CAST(TransactionDate as Date) between @DateFrom and @DateTo 
 INNER JOIN dbo.Location l ON t.LocationID=l.ID
-INNER JOIN dbo.POS p ON t.LocationID=p.ID
+INNER JOIN dbo.POS p ON l.PosID=p.ID
 INNER JOIN dbo.Store s ON s.ID=l.StoreID
 INNER JOIN dbo.Company c ON l.CompanyID=c.ID
 INNER JOIN dbo.TransactionType tt ON tt.ID=t.TransactionTypeID
@@ -41579,4 +42352,4 @@ where TenderID in (@Tender)</CommandText>
   <rd:ReportUnitType>Inch</rd:ReportUnitType>
   <rd:PageUnit>Px</rd:PageUnit>
   <df:DefaultFontFamily>Segoe UI</df:DefaultFontFamily>
-</Report>', '2022-12-23 17:52:37.5366667 +00:00', 46, N'N', '5a9c1a4c-45a6-4fef-a14d-c1f32bf07568', 1, NULL, 2, '2022-11-11 16:23:59.4206452 +02:00')
+</Report>', '2022-12-28 10:55:23.4066667 +00:00', 47, N'N', 'bcd23cdd-9fe0-4072-9d52-05fb1f7cac7d', 1, NULL, 2, '2022-11-11 16:23:59.4206452 +02:00')
