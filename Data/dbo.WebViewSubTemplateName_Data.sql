@@ -1,683 +1,3 @@
-INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [LanguageID], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('084480d1-b97f-ed11-835f-02f176033ddb', '6e29cd53-b87f-ed11-835f-02f176033ddb', 1, N'<ng-container><cr-title-header
-    [titleTranslateKey]="''TAX_GROUP.DETAILS.PANEL.TITLE_DEFINITIONS''"
-    [title]="''''"
-    (buttonClickEvent)="self.onTitleButtonClick($event)"
-    [additionalTranslateKeys]="''COMMON.NEW''"
-    [buttonSettings]="self.titleHeaderButtonSettings"
-    [titleValue]="self.titleValueText"
-></cr-title-header>
-      <cr-panel
-        [panelTemplateType]="''collapsible-panel''"
-        [expanded]="self.panelsViewState?.[''general''] ?? true"
-        (expandedChange)="self.panelStateChange(''general'', $event)"
-        [titleTranslateKey]="true ? ''TAX_GROUP.DETAILS.PANEL.GENERAL'' : null"
-        [title]="true ? null : ''General he''"
-        [customClass]="''''"
-        [headerClass]="''''"
-        [validator]="self.validator"
-        [validatorGroupName]="''general''"
-        [containFields]=''["name"]''
-      >
-        <ng-template crPanelContent>
-          <div class="row "><div class=''col-md-12''><cr-control-edit
-    [(dataValue)]="self.taxGroupLocation.name"
-    [elementName]="''edit:TaxGroup_details.Name''"
-    [validationField]="''name''"
-    [validator]="self.validator"
-    [permissionSettings]="{
-      isAccessEdit: self.isNewTaxGroup ? (self.EndpointName.tax_group_POST | endpointAccessGrantedPipe) :
-        (self.EndpointName.tax_group_id_PUT | endpointAccessGrantedPipe)
-    }"
-    [translateKeys]="''TAX_GROUP.DETAILS.GRID.NAME''" 
-    [dataLabel]="''''"
-    [customClass]=''""''
-    [isDisabled]="false"
-></cr-control-edit></div><div class=''col-md-6''></div></div>
-        </ng-template>
-      </cr-panel>
-      <cr-panel
-        [panelTemplateType]="''collapsible-panel''"
-        [expanded]="self.panelsViewState?.[''values''] ?? true"
-        (expandedChange)="self.panelStateChange(''values'', $event)"
-        [titleTranslateKey]="true ? ''TAX_GROUP.DETAILS.PANEL.TAX_DEFINITIONS_VALUES'' : null"
-        [title]="true ? null : ''Values he''"
-        [customClass]="''''"
-        [headerClass]="''''"
-        [validator]="self.validator"
-        [validatorGroupName]="''values''"
-        [containFields]=''["taxGroupDefinitionList"]''
-      >
-        <ng-template crPanelContent>
-          <div class="cr-grid-wrapper-new">
-    <cr-edit-grid-server-paging
-        [columnSettings]=''self.columnSettings | dynamicColumnSettings:[{"field":"taxPercent","titleTranslateKey":"TAX_GROUP.DETAILS.GRID_VALUES.TAX_PERCENT","hidden":false,"sortOrder":1},{"field":"deductionPercent","titleTranslateKey":"TAX_GROUP.DETAILS.GRID_VALUES.DEDUCTION_PERCENT","hidden":false,"sortOrder":2},{"field":"fromDate","titleTranslateKey":"TAX_GROUP.DETAILS.GRID_VALUES.DATE_FROM","hidden":false,"sortOrder":3}]''
-        [dataSource]="self.adapter.dataSource"
-        [elementName]="''edit-grid-server-paging:TaxGroup_details.DefinitionList''"
-        [allowCreateAction]="true"
-        [allowDeleteAction]="true"
-        [allowUpdateAction]="true"
-        [isCloseEditorAfterAdd]="true"
-        [pageable]="true"
-        [resizable]="true"
-        [uniqueField]="''uid''"
-        [validator]="self.taxGroupDefinitionListValidator"
-        (createActionEvent)="self.onNewDefinitionValue($event)"
-        (deleteActionEvent)="self.onDeleteDefinitionValue($event)"
-        (pageChangeEvent)="self.onPageChangeDefinitionValue($event)"
-        (updateActionEvent)="self.onUpdateDefinitionValue($event)"
-        [dataCacheName]="''taxGroupDefinitionListCache''"
-        [permissionSettings]="{
-            isAccessCreate: self.isNewTaxGroup ? (self.EndpointName.tax_group_POST | endpointAccessGrantedPipe) : (self.EndpointName.tax_group_id_PUT | endpointAccessGrantedPipe),
-            isAccessUpdate: self.isNewTaxGroup ? (self.EndpointName.tax_group_POST | endpointAccessGrantedPipe) : (self.EndpointName.tax_group_id_PUT | endpointAccessGrantedPipe),
-            isAccessDelete: self.isNewTaxGroup ? (self.EndpointName.tax_group_POST | endpointAccessGrantedPipe) : (self.EndpointName.tax_group_id_PUT | endpointAccessGrantedPipe)
-        }"
-        [class]=''undefined''
-    ></cr-edit-grid-server-paging>
-</div>
-
-        </ng-template>
-      </cr-panel>
-      <cr-panel
-        [panelTemplateType]="''collapsible-panel''"
-        [expanded]="self.panelsViewState?.[''locations''] ?? true"
-        (expandedChange)="self.panelStateChange(''locations'', $event)"
-        [titleTranslateKey]="true ? ''TAX_GROUP.DETAILS.PANEL.TAX_DEFINITIONS_LOCATIONS'' : null"
-        [title]="true ? null : ''Locations he''"
-        [customClass]="''''"
-        [headerClass]="''''"
-        [validator]="self.validator"
-        [validatorGroupName]="''locations''"
-        [containFields]=''[]''
-      >
-        <ng-template crPanelContent>
-          <cr-basket-population-view
-    [cacheName]="''taxGroupLocationsPopulationViewState''"
-    [elementName]="''tax-group:Locations_population''"
-    [isShowAdd]="true"
-    [isShowDelete]="true"
-    [isShowEdit]="true"
-    [populations]="self.taxGroupLocation.locationBasketSet"
-    (addBasket)="self.addBasketLocationsPopulation()"
-    (edit)="self.onEditLocationsPopulation()"
-    [permissionSettings]="{
-        isAccessEdit: self.isNewTaxGroup ? (self.EndpointName.tax_group_POST | endpointAccessGrantedPipe) :
-            (self.EndpointName.tax_group_id_PUT | endpointAccessGrantedPipe)
-    }"
-></cr-basket-population-view>
-        </ng-template>
-      </cr-panel></ng-container>', '2022-12-20 11:58:31.5833333 +00:00', 4, N'N', 'd8566c5a-b6c8-467d-830f-af62d90d756c', 1, NULL)
-INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [LanguageID], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('094480d1-b97f-ed11-835f-02f176033ddb', '6e29cd53-b87f-ed11-835f-02f176033ddb', 2, N'<ng-container><cr-title-header
-    [titleTranslateKey]="''TAX_GROUP.DETAILS.PANEL.TITLE_DEFINITIONS''"
-    [title]="''''"
-    (buttonClickEvent)="self.onTitleButtonClick($event)"
-    [additionalTranslateKeys]="''COMMON.NEW''"
-    [buttonSettings]="self.titleHeaderButtonSettings"
-    [titleValue]="self.titleValueText"
-></cr-title-header>
-      <cr-panel
-        [panelTemplateType]="''collapsible-panel''"
-        [expanded]="self.panelsViewState?.[''general''] ?? true"
-        (expandedChange)="self.panelStateChange(''general'', $event)"
-        [titleTranslateKey]="true ? ''TAX_GROUP.DETAILS.PANEL.GENERAL'' : null"
-        [title]="true ? null : ''General''"
-        [customClass]="''''"
-        [headerClass]="''''"
-        [validator]="self.validator"
-        [validatorGroupName]="''general''"
-        [containFields]=''["name"]''
-      >
-        <ng-template crPanelContent>
-          <div class="row "><div class=''col-md-12''><cr-control-edit
-    [(dataValue)]="self.taxGroupLocation.name"
-    [elementName]="''edit:TaxGroup_details.Name''"
-    [validationField]="''name''"
-    [validator]="self.validator"
-    [permissionSettings]="{
-      isAccessEdit: self.isNewTaxGroup ? (self.EndpointName.tax_group_POST | endpointAccessGrantedPipe) :
-        (self.EndpointName.tax_group_id_PUT | endpointAccessGrantedPipe)
-    }"
-    [translateKeys]="''TAX_GROUP.DETAILS.GRID.NAME''" 
-    [dataLabel]="''''"
-    [customClass]=''""''
-    [isDisabled]="false"
-></cr-control-edit></div><div class=''col-md-6''></div></div>
-        </ng-template>
-      </cr-panel>
-      <cr-panel
-        [panelTemplateType]="''collapsible-panel''"
-        [expanded]="self.panelsViewState?.[''values''] ?? true"
-        (expandedChange)="self.panelStateChange(''values'', $event)"
-        [titleTranslateKey]="true ? ''TAX_GROUP.DETAILS.PANEL.TAX_DEFINITIONS_VALUES'' : null"
-        [title]="true ? null : ''Values''"
-        [customClass]="''''"
-        [headerClass]="''''"
-        [validator]="self.validator"
-        [validatorGroupName]="''values''"
-        [containFields]=''["taxGroupDefinitionList"]''
-      >
-        <ng-template crPanelContent>
-          <div class="cr-grid-wrapper-new">
-    <cr-edit-grid-server-paging
-        [columnSettings]=''self.columnSettings | dynamicColumnSettings:[{"field":"taxPercent","titleTranslateKey":"TAX_GROUP.DETAILS.GRID_VALUES.TAX_PERCENT","hidden":false,"sortOrder":1},{"field":"deductionPercent","titleTranslateKey":"TAX_GROUP.DETAILS.GRID_VALUES.DEDUCTION_PERCENT","hidden":false,"sortOrder":2},{"field":"fromDate","titleTranslateKey":"TAX_GROUP.DETAILS.GRID_VALUES.DATE_FROM","hidden":false,"sortOrder":3}]''
-        [dataSource]="self.adapter.dataSource"
-        [elementName]="''edit-grid-server-paging:TaxGroup_details.DefinitionList''"
-        [allowCreateAction]="true"
-        [allowDeleteAction]="true"
-        [allowUpdateAction]="true"
-        [isCloseEditorAfterAdd]="true"
-        [pageable]="true"
-        [resizable]="true"
-        [uniqueField]="''uid''"
-        [validator]="self.taxGroupDefinitionListValidator"
-        (createActionEvent)="self.onNewDefinitionValue($event)"
-        (deleteActionEvent)="self.onDeleteDefinitionValue($event)"
-        (pageChangeEvent)="self.onPageChangeDefinitionValue($event)"
-        (updateActionEvent)="self.onUpdateDefinitionValue($event)"
-        [dataCacheName]="''taxGroupDefinitionListCache''"
-        [permissionSettings]="{
-            isAccessCreate: self.isNewTaxGroup ? (self.EndpointName.tax_group_POST | endpointAccessGrantedPipe) : (self.EndpointName.tax_group_id_PUT | endpointAccessGrantedPipe),
-            isAccessUpdate: self.isNewTaxGroup ? (self.EndpointName.tax_group_POST | endpointAccessGrantedPipe) : (self.EndpointName.tax_group_id_PUT | endpointAccessGrantedPipe),
-            isAccessDelete: self.isNewTaxGroup ? (self.EndpointName.tax_group_POST | endpointAccessGrantedPipe) : (self.EndpointName.tax_group_id_PUT | endpointAccessGrantedPipe)
-        }"
-        [class]=''undefined''
-    ></cr-edit-grid-server-paging>
-</div>
-
-        </ng-template>
-      </cr-panel>
-      <cr-panel
-        [panelTemplateType]="''collapsible-panel''"
-        [expanded]="self.panelsViewState?.[''locations''] ?? true"
-        (expandedChange)="self.panelStateChange(''locations'', $event)"
-        [titleTranslateKey]="true ? ''TAX_GROUP.DETAILS.PANEL.TAX_DEFINITIONS_LOCATIONS'' : null"
-        [title]="true ? null : ''Locations''"
-        [customClass]="''''"
-        [headerClass]="''''"
-        [validator]="self.validator"
-        [validatorGroupName]="''locations''"
-        [containFields]=''[]''
-      >
-        <ng-template crPanelContent>
-          <cr-basket-population-view
-    [cacheName]="''taxGroupLocationsPopulationViewState''"
-    [elementName]="''tax-group:Locations_population''"
-    [isShowAdd]="true"
-    [isShowDelete]="true"
-    [isShowEdit]="true"
-    [populations]="self.taxGroupLocation.locationBasketSet"
-    (addBasket)="self.addBasketLocationsPopulation()"
-    (edit)="self.onEditLocationsPopulation()"
-    [permissionSettings]="{
-        isAccessEdit: self.isNewTaxGroup ? (self.EndpointName.tax_group_POST | endpointAccessGrantedPipe) :
-            (self.EndpointName.tax_group_id_PUT | endpointAccessGrantedPipe)
-    }"
-></cr-basket-population-view>
-        </ng-template>
-      </cr-panel></ng-container>', '2022-12-20 11:58:31.5833333 +00:00', 4, N'N', '1c701984-0eac-49af-90ae-8f789825a87d', 1, NULL)
-INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [LanguageID], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('f633dce2-b97f-ed11-835f-02f176033ddb', '646c425d-b87f-ed11-835f-02f176033ddb', 1, N'<ng-container><cr-title-header
-    [titleTranslateKey]="''TAX_GROUP.DETAILS.PANEL.TITLE_DEFINITIONS''"
-    [title]="''''"
-    (buttonClickEvent)="self.onTitleButtonClick($event)"
-    [additionalTranslateKeys]="''COMMON.NEW''"
-    [buttonSettings]="self.titleHeaderButtonSettings"
-    [titleValue]="self.titleValueText"
-></cr-title-header>
-      <cr-panel
-        [panelTemplateType]="''collapsible-panel''"
-        [expanded]="self.panelsViewState?.[''general''] ?? true"
-        (expandedChange)="self.panelStateChange(''general'', $event)"
-        [titleTranslateKey]="true ? ''TAX_GROUP.DETAILS.PANEL.GENERAL'' : null"
-        [title]="true ? null : ''General he''"
-        [customClass]="''''"
-        [headerClass]="''''"
-        [validator]="self.validator"
-        [validatorGroupName]="''general''"
-        [containFields]=''["name"]''
-      >
-        <ng-template crPanelContent>
-          <div class="row "><div class=''col-md-12''><cr-control-edit
-    [(dataValue)]="self.taxGroupLocation.name"
-    [elementName]="''edit:TaxGroup_details.Name''"
-    [validationField]="''name''"
-    [validator]="self.validator"
-    [permissionSettings]="{
-      isAccessEdit: self.isNewTaxGroup ? (self.EndpointName.tax_group_POST | endpointAccessGrantedPipe) :
-        (self.EndpointName.tax_group_id_PUT | endpointAccessGrantedPipe)
-    }"
-    [translateKeys]="''TAX_GROUP.DETAILS.GRID.NAME''" 
-    [dataLabel]="''''"
-    [customClass]=''""''
-    [isDisabled]="false"
-></cr-control-edit></div><div class=''col-md-6''></div></div>
-        </ng-template>
-      </cr-panel>
-      <cr-panel
-        [panelTemplateType]="''collapsible-panel''"
-        [expanded]="self.panelsViewState?.[''values''] ?? true"
-        (expandedChange)="self.panelStateChange(''values'', $event)"
-        [titleTranslateKey]="true ? ''TAX_GROUP.DETAILS.PANEL.TAX_DEFINITIONS_VALUES'' : null"
-        [title]="true ? null : ''Values he''"
-        [customClass]="''''"
-        [headerClass]="''''"
-        [validator]="self.validator"
-        [validatorGroupName]="''values''"
-        [containFields]=''["taxGroupDefinitionList"]''
-      >
-        <ng-template crPanelContent>
-          <div class="cr-grid-wrapper-new">
-    <cr-edit-grid-server-paging
-        [columnSettings]=''self.columnSettings | dynamicColumnSettings:[{"field":"taxPercent","titleTranslateKey":"TAX_GROUP.DETAILS.GRID_VALUES.TAX_PERCENT","hidden":false,"sortOrder":1},{"field":"deductionPercent","titleTranslateKey":"TAX_GROUP.DETAILS.GRID_VALUES.DEDUCTION_PERCENT","hidden":false,"sortOrder":2},{"field":"fromDate","titleTranslateKey":"TAX_GROUP.DETAILS.GRID_VALUES.DATE_FROM","hidden":false,"sortOrder":3}]''
-        [dataSource]="self.adapter.dataSource"
-        [elementName]="''edit-grid-server-paging:TaxGroup_details.DefinitionList''"
-        [allowCreateAction]="true"
-        [allowDeleteAction]="true"
-        [allowUpdateAction]="true"
-        [isCloseEditorAfterAdd]="true"
-        [pageable]="true"
-        [resizable]="true"
-        [uniqueField]="''uid''"
-        [validator]="self.taxGroupDefinitionListValidator"
-        (createActionEvent)="self.onNewDefinitionValue($event)"
-        (deleteActionEvent)="self.onDeleteDefinitionValue($event)"
-        (pageChangeEvent)="self.onPageChangeDefinitionValue($event)"
-        (updateActionEvent)="self.onUpdateDefinitionValue($event)"
-        [dataCacheName]="''taxGroupDefinitionListCache''"
-        [permissionSettings]="{
-            isAccessCreate: self.isNewTaxGroup ? (self.EndpointName.tax_group_POST | endpointAccessGrantedPipe) : (self.EndpointName.tax_group_id_PUT | endpointAccessGrantedPipe),
-            isAccessUpdate: self.isNewTaxGroup ? (self.EndpointName.tax_group_POST | endpointAccessGrantedPipe) : (self.EndpointName.tax_group_id_PUT | endpointAccessGrantedPipe),
-            isAccessDelete: self.isNewTaxGroup ? (self.EndpointName.tax_group_POST | endpointAccessGrantedPipe) : (self.EndpointName.tax_group_id_PUT | endpointAccessGrantedPipe)
-        }"
-        [class]=''undefined''
-    ></cr-edit-grid-server-paging>
-</div>
-
-        </ng-template>
-      </cr-panel>
-      <cr-panel
-        [panelTemplateType]="''collapsible-panel''"
-        [expanded]="self.panelsViewState?.[''locations''] ?? true"
-        (expandedChange)="self.panelStateChange(''locations'', $event)"
-        [titleTranslateKey]="true ? ''TAX_GROUP.DETAILS.PANEL.TAX_DEFINITIONS_LOCATIONS'' : null"
-        [title]="true ? null : ''Locations he''"
-        [customClass]="''''"
-        [headerClass]="''''"
-        [validator]="self.validator"
-        [validatorGroupName]="''locations''"
-        [containFields]=''[]''
-      >
-        <ng-template crPanelContent>
-          <cr-basket-population-view
-    [cacheName]="''taxGroupLocationsPopulationViewState''"
-    [elementName]="''tax-group:Locations_population''"
-    [isShowAdd]="true"
-    [isShowDelete]="true"
-    [isShowEdit]="true"
-    [populations]="self.taxGroupLocation.locationBasketSet"
-    (addBasket)="self.addBasketLocationsPopulation()"
-    (edit)="self.onEditLocationsPopulation()"
-    [permissionSettings]="{
-        isAccessEdit: self.isNewTaxGroup ? (self.EndpointName.tax_group_POST | endpointAccessGrantedPipe) :
-            (self.EndpointName.tax_group_id_PUT | endpointAccessGrantedPipe)
-    }"
-></cr-basket-population-view>
-        </ng-template>
-      </cr-panel></ng-container>', '2022-12-20 11:58:53.1700000 +00:00', 4, N'N', '2aaef766-9f8a-4b86-a359-1d78201ab342', 1, NULL)
-INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [LanguageID], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('f733dce2-b97f-ed11-835f-02f176033ddb', '646c425d-b87f-ed11-835f-02f176033ddb', 2, N'<ng-container><cr-title-header
-    [titleTranslateKey]="''TAX_GROUP.DETAILS.PANEL.TITLE_DEFINITIONS''"
-    [title]="''''"
-    (buttonClickEvent)="self.onTitleButtonClick($event)"
-    [additionalTranslateKeys]="''COMMON.NEW''"
-    [buttonSettings]="self.titleHeaderButtonSettings"
-    [titleValue]="self.titleValueText"
-></cr-title-header>
-      <cr-panel
-        [panelTemplateType]="''collapsible-panel''"
-        [expanded]="self.panelsViewState?.[''general''] ?? true"
-        (expandedChange)="self.panelStateChange(''general'', $event)"
-        [titleTranslateKey]="true ? ''TAX_GROUP.DETAILS.PANEL.GENERAL'' : null"
-        [title]="true ? null : ''General''"
-        [customClass]="''''"
-        [headerClass]="''''"
-        [validator]="self.validator"
-        [validatorGroupName]="''general''"
-        [containFields]=''["name"]''
-      >
-        <ng-template crPanelContent>
-          <div class="row "><div class=''col-md-12''><cr-control-edit
-    [(dataValue)]="self.taxGroupLocation.name"
-    [elementName]="''edit:TaxGroup_details.Name''"
-    [validationField]="''name''"
-    [validator]="self.validator"
-    [permissionSettings]="{
-      isAccessEdit: self.isNewTaxGroup ? (self.EndpointName.tax_group_POST | endpointAccessGrantedPipe) :
-        (self.EndpointName.tax_group_id_PUT | endpointAccessGrantedPipe)
-    }"
-    [translateKeys]="''TAX_GROUP.DETAILS.GRID.NAME''" 
-    [dataLabel]="''''"
-    [customClass]=''""''
-    [isDisabled]="false"
-></cr-control-edit></div><div class=''col-md-6''></div></div>
-        </ng-template>
-      </cr-panel>
-      <cr-panel
-        [panelTemplateType]="''collapsible-panel''"
-        [expanded]="self.panelsViewState?.[''values''] ?? true"
-        (expandedChange)="self.panelStateChange(''values'', $event)"
-        [titleTranslateKey]="true ? ''TAX_GROUP.DETAILS.PANEL.TAX_DEFINITIONS_VALUES'' : null"
-        [title]="true ? null : ''Values''"
-        [customClass]="''''"
-        [headerClass]="''''"
-        [validator]="self.validator"
-        [validatorGroupName]="''values''"
-        [containFields]=''["taxGroupDefinitionList"]''
-      >
-        <ng-template crPanelContent>
-          <div class="cr-grid-wrapper-new">
-    <cr-edit-grid-server-paging
-        [columnSettings]=''self.columnSettings | dynamicColumnSettings:[{"field":"taxPercent","titleTranslateKey":"TAX_GROUP.DETAILS.GRID_VALUES.TAX_PERCENT","hidden":false,"sortOrder":1},{"field":"deductionPercent","titleTranslateKey":"TAX_GROUP.DETAILS.GRID_VALUES.DEDUCTION_PERCENT","hidden":false,"sortOrder":2},{"field":"fromDate","titleTranslateKey":"TAX_GROUP.DETAILS.GRID_VALUES.DATE_FROM","hidden":false,"sortOrder":3}]''
-        [dataSource]="self.adapter.dataSource"
-        [elementName]="''edit-grid-server-paging:TaxGroup_details.DefinitionList''"
-        [allowCreateAction]="true"
-        [allowDeleteAction]="true"
-        [allowUpdateAction]="true"
-        [isCloseEditorAfterAdd]="true"
-        [pageable]="true"
-        [resizable]="true"
-        [uniqueField]="''uid''"
-        [validator]="self.taxGroupDefinitionListValidator"
-        (createActionEvent)="self.onNewDefinitionValue($event)"
-        (deleteActionEvent)="self.onDeleteDefinitionValue($event)"
-        (pageChangeEvent)="self.onPageChangeDefinitionValue($event)"
-        (updateActionEvent)="self.onUpdateDefinitionValue($event)"
-        [dataCacheName]="''taxGroupDefinitionListCache''"
-        [permissionSettings]="{
-            isAccessCreate: self.isNewTaxGroup ? (self.EndpointName.tax_group_POST | endpointAccessGrantedPipe) : (self.EndpointName.tax_group_id_PUT | endpointAccessGrantedPipe),
-            isAccessUpdate: self.isNewTaxGroup ? (self.EndpointName.tax_group_POST | endpointAccessGrantedPipe) : (self.EndpointName.tax_group_id_PUT | endpointAccessGrantedPipe),
-            isAccessDelete: self.isNewTaxGroup ? (self.EndpointName.tax_group_POST | endpointAccessGrantedPipe) : (self.EndpointName.tax_group_id_PUT | endpointAccessGrantedPipe)
-        }"
-        [class]=''undefined''
-    ></cr-edit-grid-server-paging>
-</div>
-
-        </ng-template>
-      </cr-panel>
-      <cr-panel
-        [panelTemplateType]="''collapsible-panel''"
-        [expanded]="self.panelsViewState?.[''locations''] ?? true"
-        (expandedChange)="self.panelStateChange(''locations'', $event)"
-        [titleTranslateKey]="true ? ''TAX_GROUP.DETAILS.PANEL.TAX_DEFINITIONS_LOCATIONS'' : null"
-        [title]="true ? null : ''Locations''"
-        [customClass]="''''"
-        [headerClass]="''''"
-        [validator]="self.validator"
-        [validatorGroupName]="''locations''"
-        [containFields]=''[]''
-      >
-        <ng-template crPanelContent>
-          <cr-basket-population-view
-    [cacheName]="''taxGroupLocationsPopulationViewState''"
-    [elementName]="''tax-group:Locations_population''"
-    [isShowAdd]="true"
-    [isShowDelete]="true"
-    [isShowEdit]="true"
-    [populations]="self.taxGroupLocation.locationBasketSet"
-    (addBasket)="self.addBasketLocationsPopulation()"
-    (edit)="self.onEditLocationsPopulation()"
-    [permissionSettings]="{
-        isAccessEdit: self.isNewTaxGroup ? (self.EndpointName.tax_group_POST | endpointAccessGrantedPipe) :
-            (self.EndpointName.tax_group_id_PUT | endpointAccessGrantedPipe)
-    }"
-></cr-basket-population-view>
-        </ng-template>
-      </cr-panel></ng-container>', '2022-12-20 11:58:53.1700000 +00:00', 4, N'N', 'a04c4abc-9677-440e-873a-da6ba90b96a3', 1, NULL)
-INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [LanguageID], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('2b86515f-4580-ed11-835f-02f176033ddb', '19435038-b87f-ed11-835f-02f176033ddb', 1, N'<ng-container><cr-title-header
-    [titleTranslateKey]="''COMMON.BASKET.BASKET_EDIT.TITLE_MANAGE_LOCATION_POPULATION''"
-    [title]="''''"
-    [buttonSettings]="self.titleHeaderButtonSettings"
-    (buttonClickEvent)="self.onTitleHeaderButtonClick($event)"
-></cr-title-header>
-      <cr-panel
-        [panelTemplateType]="''well''"
-        [customClass]="''''"
-      >
-        <ng-template crPanelContent>
-          <div class="row undefined"><div class=''col-md-4''><cr-control-edit
-    [(dataValue)]="self.cache.basket.name"
-    (dataValueChange)="self.isDisableAutoChangeName = true"
-    [validator]="self.basketValidator"
-    [validationField]="''name''"
-    [elementName]="''edit:Basket_population_name''"
-    [translateKeys]="''COMMON.BASKET.BASKET_EDIT.BASKET_NAME''" 
-    [dataLabel]="''''"
-    [customClass]=''""''
-    [isDisabled]="false || !self.isBasketNameEnabled"
-></cr-control-edit></div><div class=''col-md-2''><cr-control-dropdown
-    [(dataValue)]="self.cache.basket.exclude"
-    (dataValueChange)="self.onChangeType($event)"
-    [dataDisplayField]="''name''"
-    [dataValueField]="''status''"
-    [dataSource]="self.basketTypes"
-    [elementName]="''smart-dropdown:Basket_population_type''"
-    [translateKeys]="''COMMON.BASKET.BASKET_EDIT.BASKET_TYPE''"
-    [dataLabel]="''''"
-    [class]=''""''
-></cr-control-dropdown></div><div class=''col-md-6''></div></div>
-        </ng-template>
-      </cr-panel>
-      <cr-panel
-        [panelTemplateType]="''panel''"
-        [expanded]="self.panelsViewState?.[''undefined''] ?? true"
-        (expandedChange)="self.panelStateChange(''undefined'', $event)"
-        [titleTranslateKey]="true ? ''COMMON.BASKET.BASKET_EDIT.TITLE_CREATE_ITEM_CONTENT_POPULATION'' : null"
-        [title]="true ? null : ''Item population basket''"
-        [customClass]="''''"
-        [headerClass]="''''"
-        [validator]="self.validator"
-        [validatorGroupName]="''undefined''"
-        [containFields]=''["populationBasketContentList"]''
-      >
-        <ng-template crPanelContent>
-          <div class="cr-grid-wrapper-new">
-    <cr-basket-population-edit-list
-        [dataSource]="self.cache.basket.populationBasketContentList"
-        [typeDropdownFn]="self.typeDropdownFn"
-        [cacheName]="self.cacheName + ''EditList''"
-        [isShowProperty]="self.isShowProperty"
-        [propertyDropdownFn]="self.propertyDropdownFn"
-        [valueDropdownFn]="self.valueDropdownFn"
-        (remove)="self.onRemove($event)"
-        (save)="self.onAdd($event)"
-        [class]=''undefined''
-    ></cr-basket-population-edit-list>
-</div>
-        </ng-template>
-      </cr-panel></ng-container>', '2022-12-20 12:15:25.1933333 +00:00', 2, N'N', 'a00ff096-f882-42ce-affa-0a4ace8d0803', 1, NULL)
-INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [LanguageID], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('2c86515f-4580-ed11-835f-02f176033ddb', '19435038-b87f-ed11-835f-02f176033ddb', 2, N'<ng-container><cr-title-header
-    [titleTranslateKey]="''COMMON.BASKET.BASKET_EDIT.TITLE_MANAGE_LOCATION_POPULATION''"
-    [title]="''''"
-    [buttonSettings]="self.titleHeaderButtonSettings"
-    (buttonClickEvent)="self.onTitleHeaderButtonClick($event)"
-></cr-title-header>
-      <cr-panel
-        [panelTemplateType]="''well''"
-        [customClass]="''''"
-      >
-        <ng-template crPanelContent>
-          <div class="row undefined"><div class=''col-md-4''><cr-control-edit
-    [(dataValue)]="self.cache.basket.name"
-    (dataValueChange)="self.isDisableAutoChangeName = true"
-    [validator]="self.basketValidator"
-    [validationField]="''name''"
-    [elementName]="''edit:Basket_population_name''"
-    [translateKeys]="''COMMON.BASKET.BASKET_EDIT.BASKET_NAME''" 
-    [dataLabel]="''''"
-    [customClass]=''""''
-    [isDisabled]="false || !self.isBasketNameEnabled"
-></cr-control-edit></div><div class=''col-md-2''><cr-control-dropdown
-    [(dataValue)]="self.cache.basket.exclude"
-    (dataValueChange)="self.onChangeType($event)"
-    [dataDisplayField]="''name''"
-    [dataValueField]="''status''"
-    [dataSource]="self.basketTypes"
-    [elementName]="''smart-dropdown:Basket_population_type''"
-    [translateKeys]="''COMMON.BASKET.BASKET_EDIT.BASKET_TYPE''"
-    [dataLabel]="''''"
-    [class]=''""''
-></cr-control-dropdown></div><div class=''col-md-6''></div></div>
-        </ng-template>
-      </cr-panel>
-      <cr-panel
-        [panelTemplateType]="''panel''"
-        [expanded]="self.panelsViewState?.[''undefined''] ?? true"
-        (expandedChange)="self.panelStateChange(''undefined'', $event)"
-        [titleTranslateKey]="true ? ''COMMON.BASKET.BASKET_EDIT.TITLE_CREATE_ITEM_CONTENT_POPULATION'' : null"
-        [title]="true ? null : ''Item population basket''"
-        [customClass]="''''"
-        [headerClass]="''''"
-        [validator]="self.validator"
-        [validatorGroupName]="''undefined''"
-        [containFields]=''["populationBasketContentList"]''
-      >
-        <ng-template crPanelContent>
-          <div class="cr-grid-wrapper-new">
-    <cr-basket-population-edit-list
-        [dataSource]="self.cache.basket.populationBasketContentList"
-        [typeDropdownFn]="self.typeDropdownFn"
-        [cacheName]="self.cacheName + ''EditList''"
-        [isShowProperty]="self.isShowProperty"
-        [propertyDropdownFn]="self.propertyDropdownFn"
-        [valueDropdownFn]="self.valueDropdownFn"
-        (remove)="self.onRemove($event)"
-        (save)="self.onAdd($event)"
-        [class]=''undefined''
-    ></cr-basket-population-edit-list>
-</div>
-        </ng-template>
-      </cr-panel></ng-container>', '2022-12-20 12:15:25.1933333 +00:00', 2, N'N', 'ffa917cb-a8ca-462c-bd1c-d1dd5426159d', 1, NULL)
-INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [LanguageID], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('2d86515f-4580-ed11-835f-02f176033ddb', '91c33f40-b87f-ed11-835f-02f176033ddb', 1, N'<ng-container><cr-title-header
-    [titleTranslateKey]="''COMMON.BASKET.BASKET_EDIT.TITLE_CREATE_LOCATION_POPULATION''"
-    [title]="''''"
-    [buttonSettings]="self.titleHeaderButtonSettings"
-    (buttonClickEvent)="self.onTitleHeaderButtonClick($event)"
-></cr-title-header>
-      <cr-panel
-        [panelTemplateType]="''well''"
-        [customClass]="''''"
-      >
-        <ng-template crPanelContent>
-          <div class="row undefined"><div class=''col-md-4''><cr-control-edit
-    [(dataValue)]="self.cache.basket.name"
-    (dataValueChange)="self.isDisableAutoChangeName = true"
-    [validator]="self.basketValidator"
-    [validationField]="''name''"
-    [elementName]="''edit:Basket_population_name''"
-    [translateKeys]="''COMMON.BASKET.BASKET_EDIT.BASKET_NAME''" 
-    [dataLabel]="''''"
-    [customClass]=''""''
-    [isDisabled]="false || !self.isBasketNameEnabled"
-></cr-control-edit></div><div class=''col-md-2''><cr-control-dropdown
-    [(dataValue)]="self.cache.basket.exclude"
-    (dataValueChange)="self.onChangeType($event)"
-    [dataDisplayField]="''name''"
-    [dataValueField]="''status''"
-    [dataSource]="self.basketTypes"
-    [elementName]="''smart-dropdown:Basket_population_type''"
-    [translateKeys]="''COMMON.BASKET.BASKET_EDIT.BASKET_TYPE''"
-    [dataLabel]="''''"
-    [class]=''""''
-></cr-control-dropdown></div><div class=''col-md-6''></div></div>
-        </ng-template>
-      </cr-panel>
-      <cr-panel
-        [panelTemplateType]="''panel''"
-        [expanded]="self.panelsViewState?.[''undefined''] ?? true"
-        (expandedChange)="self.panelStateChange(''undefined'', $event)"
-        [titleTranslateKey]="true ? ''COMMON.BASKET.BASKET_EDIT.TITLE_CREATE_ITEM_CONTENT_POPULATION'' : null"
-        [title]="true ? null : ''Item population basket''"
-        [customClass]="''''"
-        [headerClass]="''''"
-        [validator]="self.validator"
-        [validatorGroupName]="''undefined''"
-        [containFields]=''["populationBasketContentList"]''
-      >
-        <ng-template crPanelContent>
-          <div class="cr-grid-wrapper-new">
-    <cr-basket-population-edit-list
-        [dataSource]="self.cache.basket.populationBasketContentList"
-        [typeDropdownFn]="self.typeDropdownFn"
-        [cacheName]="self.cacheName + ''EditList''"
-        [isShowProperty]="self.isShowProperty"
-        [propertyDropdownFn]="self.propertyDropdownFn"
-        [valueDropdownFn]="self.valueDropdownFn"
-        (remove)="self.onRemove($event)"
-        (save)="self.onAdd($event)"
-        [class]=''undefined''
-    ></cr-basket-population-edit-list>
-</div>
-        </ng-template>
-      </cr-panel></ng-container>', '2022-12-20 12:15:59.8666667 +00:00', 2, N'N', '9fe3e04e-6324-4830-8e0e-d6c23489b503', 1, NULL)
-INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [LanguageID], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('2e86515f-4580-ed11-835f-02f176033ddb', '91c33f40-b87f-ed11-835f-02f176033ddb', 2, N'<ng-container><cr-title-header
-    [titleTranslateKey]="''COMMON.BASKET.BASKET_EDIT.TITLE_CREATE_LOCATION_POPULATION''"
-    [title]="''''"
-    [buttonSettings]="self.titleHeaderButtonSettings"
-    (buttonClickEvent)="self.onTitleHeaderButtonClick($event)"
-></cr-title-header>
-      <cr-panel
-        [panelTemplateType]="''well''"
-        [customClass]="''''"
-      >
-        <ng-template crPanelContent>
-          <div class="row undefined"><div class=''col-md-4''><cr-control-edit
-    [(dataValue)]="self.cache.basket.name"
-    (dataValueChange)="self.isDisableAutoChangeName = true"
-    [validator]="self.basketValidator"
-    [validationField]="''name''"
-    [elementName]="''edit:Basket_population_name''"
-    [translateKeys]="''COMMON.BASKET.BASKET_EDIT.BASKET_NAME''" 
-    [dataLabel]="''''"
-    [customClass]=''""''
-    [isDisabled]="false || !self.isBasketNameEnabled"
-></cr-control-edit></div><div class=''col-md-2''><cr-control-dropdown
-    [(dataValue)]="self.cache.basket.exclude"
-    (dataValueChange)="self.onChangeType($event)"
-    [dataDisplayField]="''name''"
-    [dataValueField]="''status''"
-    [dataSource]="self.basketTypes"
-    [elementName]="''smart-dropdown:Basket_population_type''"
-    [translateKeys]="''COMMON.BASKET.BASKET_EDIT.BASKET_TYPE''"
-    [dataLabel]="''''"
-    [class]=''""''
-></cr-control-dropdown></div><div class=''col-md-6''></div></div>
-        </ng-template>
-      </cr-panel>
-      <cr-panel
-        [panelTemplateType]="''panel''"
-        [expanded]="self.panelsViewState?.[''undefined''] ?? true"
-        (expandedChange)="self.panelStateChange(''undefined'', $event)"
-        [titleTranslateKey]="true ? ''COMMON.BASKET.BASKET_EDIT.TITLE_CREATE_ITEM_CONTENT_POPULATION'' : null"
-        [title]="true ? null : ''Item population basket''"
-        [customClass]="''''"
-        [headerClass]="''''"
-        [validator]="self.validator"
-        [validatorGroupName]="''undefined''"
-        [containFields]=''["populationBasketContentList"]''
-      >
-        <ng-template crPanelContent>
-          <div class="cr-grid-wrapper-new">
-    <cr-basket-population-edit-list
-        [dataSource]="self.cache.basket.populationBasketContentList"
-        [typeDropdownFn]="self.typeDropdownFn"
-        [cacheName]="self.cacheName + ''EditList''"
-        [isShowProperty]="self.isShowProperty"
-        [propertyDropdownFn]="self.propertyDropdownFn"
-        [valueDropdownFn]="self.valueDropdownFn"
-        (remove)="self.onRemove($event)"
-        (save)="self.onAdd($event)"
-        [class]=''undefined''
-    ></cr-basket-population-edit-list>
-</div>
-        </ng-template>
-      </cr-panel></ng-container>', '2022-12-20 12:15:59.8666667 +00:00', 2, N'N', '6350f96d-77f7-4c0e-b46a-c25721878c80', 1, NULL)
 INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [LanguageID], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('a52eded3-4251-ed11-8e5d-4ccc6a2bb6d6', '0c00aebd-4251-ed11-8e5d-4ccc6a2bb6d6', 1, N'<ng-container><cr-title-header
     [titleTranslateKey]="''PARTNER.DETAILS.ADDRESS.DETAILS_TITLE''"
     [title]="''''"
@@ -1270,7 +590,7 @@ INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [Langu
     [isDisabled]="false"
 ></cr-translate-editor></div></div></div></div>
         </ng-template>
-      </cr-panel></ng-container>', '2022-12-20 09:04:50.4933333 +00:00', 11, N'N', 'd5b7200d-8bad-4579-9b0f-a61882a65d7b', 1, NULL)
+      </cr-panel></ng-container>', '2022-12-27 14:01:01.2133333 +00:00', 15, N'N', '9c37fc26-5d1d-4419-8db7-9cd85015b923', 1, NULL)
 INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [LanguageID], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('dcb6a30d-296b-ed11-835f-02f176033ddb', 'd98d4cf1-1d6b-ed11-835f-02f176033ddb', 2, N'<ng-container><cr-title-header
     (buttonClickEvent)="self.onTitleButtonClick($event)"
     [additionalTranslateKeys]="''COMMON.NEW''"
@@ -1341,7 +661,7 @@ INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [Langu
     [isDisabled]="false"
 ></cr-translate-editor></div></div></div></div>
         </ng-template>
-      </cr-panel></ng-container>', '2022-12-20 09:04:50.4933333 +00:00', 11, N'N', 'c79a5ad7-a91b-4a5a-8e3c-e23b9ebe6df0', 1, NULL)
+      </cr-panel></ng-container>', '2022-12-27 14:01:01.2133333 +00:00', 15, N'N', 'e81d2cb1-020b-4fcd-a6f4-4e14f5376e0a', 1, NULL)
 INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [LanguageID], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('28d5af8b-476b-ed11-835f-02f176033ddb', '38b2c3fd-1d6b-ed11-835f-02f176033ddb', 1, N'<ng-container><cr-title-header
     (buttonClickEvent)="self.onTitleButtonClick($event)"
     [additionalTranslateKeys]="''COMMON.NEW''"
@@ -1452,7 +772,7 @@ INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [Langu
     [class]=''""''
 ></cr-label-control></div><div class=''col-md-6''></div></div>
         </ng-template>
-      </cr-panel></ng-container>', '2022-12-20 09:04:51.1800000 +00:00', 7, N'N', '516c8124-511d-4da0-9739-a48be68734fb', 1, NULL)
+      </cr-panel></ng-container>', '2022-12-27 14:01:02.6833333 +00:00', 11, N'N', '23c5e9d4-2d81-467e-8a41-268002df3c78', 1, NULL)
 INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [LanguageID], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('29d5af8b-476b-ed11-835f-02f176033ddb', '38b2c3fd-1d6b-ed11-835f-02f176033ddb', 2, N'<ng-container><cr-title-header
     (buttonClickEvent)="self.onTitleButtonClick($event)"
     [additionalTranslateKeys]="''COMMON.NEW''"
@@ -1563,7 +883,7 @@ INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [Langu
     [class]=''""''
 ></cr-label-control></div><div class=''col-md-6''></div></div>
         </ng-template>
-      </cr-panel></ng-container>', '2022-12-20 09:04:51.1800000 +00:00', 7, N'N', '2ba00c81-9f0b-46c6-af3f-df53bd47966e', 1, NULL)
+      </cr-panel></ng-container>', '2022-12-27 14:01:02.6833333 +00:00', 11, N'N', 'b971eca4-c40a-4414-ab15-74ae150ae413', 1, NULL)
 INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [LanguageID], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('72e7cc01-9b6c-ed11-835f-02f176033ddb', '2f906084-986c-ed11-835f-02f176033ddb', 1, N'<ng-container><cr-title-header
     [titleTranslateKey]="''ITEM.DETAILS.MODIFIER_TEMPLATE_LIST.TITLE''"
     [title]="''''"
@@ -1583,7 +903,7 @@ INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [Langu
         [containFields]=''[]''
       >
         <ng-template crPanelContent>
-          <div class="row "><div class=''col-md-2''><cr-control-edit
+          <div class="row undefined"><div class=''col-md-2''><cr-control-edit
     [elementName]="''edit:Item_details.Modifier_template_list.Popup.Code''"
     [(dataValue)]="self.cache.filter.code"
     [translateKeys]="''ITEM.DETAILS.MODIFIER_TEMPLATE_LIST.TEMPLATE_CODE''" 
@@ -1635,7 +955,7 @@ INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [Langu
         [containFields]=''[]''
       >
         <ng-template crPanelContent>
-          <div class="row "><div class=''col-md-2''><cr-numeric-control
+          <div class="row undefined"><div class=''col-md-2''><cr-numeric-control
     [elementName]="''numeric:Item_details.Modifier_template_list.Popup.Groups''"
     [dataValue]="self.cache.selection?.length"
     [isDisabled]="true"
@@ -1675,7 +995,7 @@ INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [Langu
     </cr-edit-grid-server-paging>
 </div>
         </ng-template>
-      </cr-panel></ng-container>', '2022-12-20 09:04:51.8766667 +00:00', 15, N'N', 'b186ada2-3841-4096-9b34-867292b7453c', 1, NULL)
+      </cr-panel></ng-container>', '2022-12-27 14:01:04.2433333 +00:00', 19, N'N', '5b01a3f5-2d25-4d91-a1d9-ba568eb5b77d', 1, NULL)
 INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [LanguageID], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('73e7cc01-9b6c-ed11-835f-02f176033ddb', '2f906084-986c-ed11-835f-02f176033ddb', 2, N'<ng-container><cr-title-header
     [titleTranslateKey]="''ITEM.DETAILS.MODIFIER_TEMPLATE_LIST.TITLE''"
     [title]="''''"
@@ -1695,7 +1015,7 @@ INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [Langu
         [containFields]=''[]''
       >
         <ng-template crPanelContent>
-          <div class="row "><div class=''col-md-2''><cr-control-edit
+          <div class="row undefined"><div class=''col-md-2''><cr-control-edit
     [elementName]="''edit:Item_details.Modifier_template_list.Popup.Code''"
     [(dataValue)]="self.cache.filter.code"
     [translateKeys]="''ITEM.DETAILS.MODIFIER_TEMPLATE_LIST.TEMPLATE_CODE''" 
@@ -1747,7 +1067,7 @@ INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [Langu
         [containFields]=''[]''
       >
         <ng-template crPanelContent>
-          <div class="row "><div class=''col-md-2''><cr-numeric-control
+          <div class="row undefined"><div class=''col-md-2''><cr-numeric-control
     [elementName]="''numeric:Item_details.Modifier_template_list.Popup.Groups''"
     [dataValue]="self.cache.selection?.length"
     [isDisabled]="true"
@@ -1787,7 +1107,7 @@ INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [Langu
     </cr-edit-grid-server-paging>
 </div>
         </ng-template>
-      </cr-panel></ng-container>', '2022-12-20 09:04:51.8766667 +00:00', 15, N'N', '290af816-8cd3-409f-8933-ffd9b3e5f485', 1, NULL)
+      </cr-panel></ng-container>', '2022-12-27 14:01:04.2433333 +00:00', 19, N'N', '9d9a003b-37e1-4135-abff-f22232bfe9c5', 1, NULL)
 INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [LanguageID], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('56ad9952-9e6c-ed11-835f-02f176033ddb', 'a7f3165f-996c-ed11-835f-02f176033ddb', 1, N'<ng-container><cr-title-header
     [titleTranslateKey]="''ITEM.DETAILS.MODIFIER_GROUP_LIST.TITLE''"
     [title]="''''"
@@ -1899,7 +1219,7 @@ INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [Langu
 </div>
 
         </ng-template>
-      </cr-panel></ng-container>', '2022-12-20 09:04:52.5833333 +00:00', 8, N'N', 'e5ad4297-9f1a-464a-803b-f8918fe7a1ad', 1, NULL)
+      </cr-panel></ng-container>', '2022-12-27 14:01:05.9633333 +00:00', 12, N'N', '8b03f349-3614-44f8-9d7a-b42299b94937', 1, NULL)
 INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [LanguageID], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('57ad9952-9e6c-ed11-835f-02f176033ddb', 'a7f3165f-996c-ed11-835f-02f176033ddb', 2, N'<ng-container><cr-title-header
     [titleTranslateKey]="''ITEM.DETAILS.MODIFIER_GROUP_LIST.TITLE''"
     [title]="''''"
@@ -2011,7 +1331,7 @@ INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [Langu
 </div>
 
         </ng-template>
-      </cr-panel></ng-container>', '2022-12-20 09:04:52.5833333 +00:00', 8, N'N', 'e0f8a69c-e619-4333-a39d-72883291f92c', 1, NULL)
+      </cr-panel></ng-container>', '2022-12-27 14:01:05.9633333 +00:00', 12, N'N', 'f5d93b11-7cc8-4866-bfe1-de7b060a46f4', 1, NULL)
 INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [LanguageID], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('2152f05d-aa6c-ed11-835f-02f176033ddb', '945629e2-a86c-ed11-835f-02f176033ddb', 1, N'<ng-container><cr-title-header
     [titleTranslateKey]="''ITEM.DETAILS.COMBO_MEAL.TITLE''"
     [title]="''''"
@@ -2021,14 +1341,14 @@ INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [Langu
     [buttonSettings]="self.titleHeaderButtonSettings"
     [titleValue]="self.titleValueText"
 ></cr-title-header>
-        <ng-template [ngIf]="comboMealCategory">
+        <ng-template [ngIf]="self.comboMealCategory">
             
       <cr-panel
         [panelTemplateType]="''well''"
         [customClass]="''''"
       >
         <ng-template crPanelContent>
-          <div class="row undefined"><div class=''col-md-4''><cr-control-edit
+          <div class="row "><div class=''col-md-4''><cr-control-edit
     [(dataValue)]="self.comboMealCategory.code"
     [elementName]="''edit:Item_details.Combo_meal_code''"
     [permissionSettings]="{
@@ -2105,7 +1425,7 @@ INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [Langu
     [icon]="''undefined''"
 ></cr-button-control><cr-button-control
     [elementName]="''button:Item_details.Combo_meal_select_by_catalog''"
-    (buttonClickEvent)="onSelectFromCatalog()"
+    (buttonClickEvent)="self.onSelectFromCatalog()"
     [permissionSettings]="{
         isAccessEdit: (self.isNew ? (self.EndpointName.item_combo_meal_category_POST | endpointAccessGrantedPipe) :
             (self.EndpointName.item_combo_meal_category_id_PUT | endpointAccessGrantedPipe)) && (self.EndpointName.item__combo_item_modifier_GET | endpointAccessGrantedPipe)
@@ -2131,7 +1451,7 @@ INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [Langu
                 (self.EndpointName.item_combo_meal_category_id_PUT | endpointAccessGrantedPipe)
             }"
             [dataCacheName]="''ViewComboMealCategoryItemsGrid''"
-            [columnSettings]=''self.columnSettings | dynamicColumnSettings:[{"field":"code","titleTranslateKey":"ITEM.DETAILS.COMBO_MEAL.ITEMS.GRID.CODE","hidden":false,"sortOrder":1},{"field":"extraPriceValue","titleTranslateKey":"ITEM.DETAILS.COMBO_MEAL.ITEMS.GRID.EXTRA_PRICE","hidden":false,"sortOrder":2},{"field":"isDefaultSelection","titleTranslateKey":"ITEM.DETAILS.COMBO_MEAL.ITEMS.GRID.IS_DEFAULT","hidden":false,"sortOrder":3}]''
+            [columnSettings]=''self.columnSettings | dynamicColumnSettings:[{"field":"code","titleTranslateKey":"ITEM.DETAILS.COMBO_MEAL.ITEMS.GRID.CODE","hidden":false,"sortOrder":1},{"field":"extraPriceValue","titleTranslateKey":"ITEM.DETAILS.COMBO_MEAL.ITEMS.GRID.EXTRA_PRICE","hidden":false,"sortOrder":3},{"field":"name","titleTranslateKey":"ITEM.DETAILS.COMBO_MEAL.ITEMS.GRID.NAME","hidden":false,"sortOrder":2},{"field":"isDefaultSelection","titleTranslateKey":"ITEM.DETAILS.COMBO_MEAL.ITEMS.GRID.IS_DEFAULT","hidden":false,"sortOrder":4}]''
             [dataSource]="self.adapter.dataSource"
             [uniqueField]="''id''"
             [selectionDataMode]="''id''"
@@ -2140,6 +1460,9 @@ INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [Langu
             [hasSorter]="true"
             [allowUpdateAction]="true"
             [allowDeleteAction]="true"
+            [buttonSettings]="{
+                updateLabelTranslateKey: ''COMMON.BUTTON.CONFIRM''
+            }"
             (pageChangeEvent)="self.changePage($event)"
             (updateActionEvent)="self.updateHandler($event)"
             (deleteActionEvent)="self.deleteHandler($event)"
@@ -2237,7 +1560,7 @@ INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [Langu
     [customClass]=''""''
     [format]="''n0''" 
     [decimals]="null" 
-    [min]="1" 
+    [min]="null" 
     [max]="1000"
     [autoCorrectMinMax]="true"
 ></cr-numeric-control></div><div class=''col-md-4''><cr-numeric-control
@@ -2258,7 +1581,7 @@ INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [Langu
     [min]="1" 
     [max]="1000"
     [autoCorrectMinMax]="true"
-></cr-numeric-control></div></div><div class="row undefined"><div class=''col-md-4''><cr-checkbox-control
+></cr-numeric-control></div></div><div class="row "><div class=''col-md-4''><cr-checkbox-control
     [(dataValue)]="self.comboMealCategory.isMoveToNextAfterLimit"
     (dataValueChange)="self.onAllowOnlyOneSelectionChange()"
     [permissionSettings]="{
@@ -2273,7 +1596,7 @@ INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [Langu
 ></cr-checkbox-control></div><div class=''col-md-8''></div></div>
         </ng-template>
       </cr-panel>
-        </ng-template></ng-container>', '2022-12-20 09:04:53.3100000 +00:00', 12, N'N', '844487c8-c5f3-4553-9d96-0a4dcc76a98f', 1, NULL)
+        </ng-template></ng-container>', '2022-12-28 10:16:18.6433333 +00:00', 22, N'N', '6a00fc55-8161-4ee7-bf63-bbf8c8259aaf', 1, NULL)
 INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [LanguageID], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('2252f05d-aa6c-ed11-835f-02f176033ddb', '945629e2-a86c-ed11-835f-02f176033ddb', 2, N'<ng-container><cr-title-header
     [titleTranslateKey]="''ITEM.DETAILS.COMBO_MEAL.TITLE''"
     [title]="''''"
@@ -2283,14 +1606,14 @@ INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [Langu
     [buttonSettings]="self.titleHeaderButtonSettings"
     [titleValue]="self.titleValueText"
 ></cr-title-header>
-        <ng-template [ngIf]="comboMealCategory">
+        <ng-template [ngIf]="self.comboMealCategory">
             
       <cr-panel
         [panelTemplateType]="''well''"
         [customClass]="''''"
       >
         <ng-template crPanelContent>
-          <div class="row undefined"><div class=''col-md-4''><cr-control-edit
+          <div class="row "><div class=''col-md-4''><cr-control-edit
     [(dataValue)]="self.comboMealCategory.code"
     [elementName]="''edit:Item_details.Combo_meal_code''"
     [permissionSettings]="{
@@ -2367,7 +1690,7 @@ INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [Langu
     [icon]="''undefined''"
 ></cr-button-control><cr-button-control
     [elementName]="''button:Item_details.Combo_meal_select_by_catalog''"
-    (buttonClickEvent)="onSelectFromCatalog()"
+    (buttonClickEvent)="self.onSelectFromCatalog()"
     [permissionSettings]="{
         isAccessEdit: (self.isNew ? (self.EndpointName.item_combo_meal_category_POST | endpointAccessGrantedPipe) :
             (self.EndpointName.item_combo_meal_category_id_PUT | endpointAccessGrantedPipe)) && (self.EndpointName.item__combo_item_modifier_GET | endpointAccessGrantedPipe)
@@ -2393,7 +1716,7 @@ INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [Langu
                 (self.EndpointName.item_combo_meal_category_id_PUT | endpointAccessGrantedPipe)
             }"
             [dataCacheName]="''ViewComboMealCategoryItemsGrid''"
-            [columnSettings]=''self.columnSettings | dynamicColumnSettings:[{"field":"code","titleTranslateKey":"ITEM.DETAILS.COMBO_MEAL.ITEMS.GRID.CODE","hidden":false,"sortOrder":1},{"field":"extraPriceValue","titleTranslateKey":"ITEM.DETAILS.COMBO_MEAL.ITEMS.GRID.EXTRA_PRICE","hidden":false,"sortOrder":2},{"field":"isDefaultSelection","titleTranslateKey":"ITEM.DETAILS.COMBO_MEAL.ITEMS.GRID.IS_DEFAULT","hidden":false,"sortOrder":3}]''
+            [columnSettings]=''self.columnSettings | dynamicColumnSettings:[{"field":"code","titleTranslateKey":"ITEM.DETAILS.COMBO_MEAL.ITEMS.GRID.CODE","hidden":false,"sortOrder":1},{"field":"extraPriceValue","titleTranslateKey":"ITEM.DETAILS.COMBO_MEAL.ITEMS.GRID.EXTRA_PRICE","hidden":false,"sortOrder":3},{"field":"name","titleTranslateKey":"ITEM.DETAILS.COMBO_MEAL.ITEMS.GRID.NAME","hidden":false,"sortOrder":2},{"field":"isDefaultSelection","titleTranslateKey":"ITEM.DETAILS.COMBO_MEAL.ITEMS.GRID.IS_DEFAULT","hidden":false,"sortOrder":4}]''
             [dataSource]="self.adapter.dataSource"
             [uniqueField]="''id''"
             [selectionDataMode]="''id''"
@@ -2402,6 +1725,9 @@ INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [Langu
             [hasSorter]="true"
             [allowUpdateAction]="true"
             [allowDeleteAction]="true"
+            [buttonSettings]="{
+                updateLabelTranslateKey: ''COMMON.BUTTON.CONFIRM''
+            }"
             (pageChangeEvent)="self.changePage($event)"
             (updateActionEvent)="self.updateHandler($event)"
             (deleteActionEvent)="self.deleteHandler($event)"
@@ -2499,7 +1825,7 @@ INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [Langu
     [customClass]=''""''
     [format]="''n0''" 
     [decimals]="null" 
-    [min]="1" 
+    [min]="null" 
     [max]="1000"
     [autoCorrectMinMax]="true"
 ></cr-numeric-control></div><div class=''col-md-4''><cr-numeric-control
@@ -2520,7 +1846,7 @@ INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [Langu
     [min]="1" 
     [max]="1000"
     [autoCorrectMinMax]="true"
-></cr-numeric-control></div></div><div class="row undefined"><div class=''col-md-4''><cr-checkbox-control
+></cr-numeric-control></div></div><div class="row "><div class=''col-md-4''><cr-checkbox-control
     [(dataValue)]="self.comboMealCategory.isMoveToNextAfterLimit"
     (dataValueChange)="self.onAllowOnlyOneSelectionChange()"
     [permissionSettings]="{
@@ -2535,7 +1861,7 @@ INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [Langu
 ></cr-checkbox-control></div><div class=''col-md-8''></div></div>
         </ng-template>
       </cr-panel>
-        </ng-template></ng-container>', '2022-12-20 09:04:53.3100000 +00:00', 12, N'N', '101b90fe-f26d-41b6-a9a4-7e6d671dfbcf', 1, NULL)
+        </ng-template></ng-container>', '2022-12-28 10:16:18.6433333 +00:00', 22, N'N', '3ec8e5a3-5ade-4cd7-9868-65d7390cfda4', 1, NULL)
 INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [LanguageID], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('2352f05d-aa6c-ed11-835f-02f176033ddb', 'd0b506ed-a86c-ed11-835f-02f176033ddb', 1, N'<ng-container><cr-title-header
     [titleTranslateKey]="''ITEM.DETAILS.COMBO_MEAL.TITLE''"
     [title]="''''"
@@ -2545,14 +1871,14 @@ INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [Langu
     [buttonSettings]="self.titleHeaderButtonSettings"
     [titleValue]="self.titleValueText"
 ></cr-title-header>
-        <ng-template [ngIf]="comboMealCategory">
+        <ng-template [ngIf]="self.comboMealCategory">
             
       <cr-panel
         [panelTemplateType]="''well''"
         [customClass]="''''"
       >
         <ng-template crPanelContent>
-          <div class="row undefined"><div class=''col-md-4''><cr-control-edit
+          <div class="row "><div class=''col-md-4''><cr-control-edit
     [(dataValue)]="self.comboMealCategory.code"
     [elementName]="''edit:Item_details.Combo_meal_code''"
     [permissionSettings]="{
@@ -2629,7 +1955,7 @@ INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [Langu
     [icon]="''undefined''"
 ></cr-button-control><cr-button-control
     [elementName]="''button:Item_details.Combo_meal_select_by_catalog''"
-    (buttonClickEvent)="onSelectFromCatalog()"
+    (buttonClickEvent)="self.onSelectFromCatalog()"
     [permissionSettings]="{
         isAccessEdit: (self.isNew ? (self.EndpointName.item_combo_meal_category_POST | endpointAccessGrantedPipe) :
             (self.EndpointName.item_combo_meal_category_id_PUT | endpointAccessGrantedPipe)) && (self.EndpointName.item__combo_item_modifier_GET | endpointAccessGrantedPipe)
@@ -2655,7 +1981,7 @@ INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [Langu
                 (self.EndpointName.item_combo_meal_category_id_PUT | endpointAccessGrantedPipe)
             }"
             [dataCacheName]="''ViewComboMealCategoryItemsGrid''"
-            [columnSettings]=''self.columnSettings | dynamicColumnSettings:[{"field":"code","titleTranslateKey":"ITEM.DETAILS.COMBO_MEAL.ITEMS.GRID.CODE","hidden":false,"sortOrder":1},{"field":"extraPriceValue","titleTranslateKey":"ITEM.DETAILS.COMBO_MEAL.ITEMS.GRID.EXTRA_PRICE","hidden":false,"sortOrder":2},{"field":"isDefaultSelection","titleTranslateKey":"ITEM.DETAILS.COMBO_MEAL.ITEMS.GRID.IS_DEFAULT","hidden":false,"sortOrder":3}]''
+            [columnSettings]=''self.columnSettings | dynamicColumnSettings:[{"field":"code","titleTranslateKey":"ITEM.DETAILS.COMBO_MEAL.ITEMS.GRID.CODE","hidden":false,"sortOrder":1},{"field":"extraPriceValue","titleTranslateKey":"ITEM.DETAILS.COMBO_MEAL.ITEMS.GRID.EXTRA_PRICE","hidden":false,"sortOrder":3},{"field":"name","titleTranslateKey":"ITEM.DETAILS.COMBO_MEAL.ITEMS.GRID.NAME","hidden":false,"sortOrder":2},{"field":"isDefaultSelection","titleTranslateKey":"ITEM.DETAILS.COMBO_MEAL.ITEMS.GRID.IS_DEFAULT","hidden":false,"sortOrder":4}]''
             [dataSource]="self.adapter.dataSource"
             [uniqueField]="''id''"
             [selectionDataMode]="''id''"
@@ -2664,6 +1990,9 @@ INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [Langu
             [hasSorter]="true"
             [allowUpdateAction]="true"
             [allowDeleteAction]="true"
+            [buttonSettings]="{
+                updateLabelTranslateKey: ''COMMON.BUTTON.CONFIRM''
+            }"
             (pageChangeEvent)="self.changePage($event)"
             (updateActionEvent)="self.updateHandler($event)"
             (deleteActionEvent)="self.deleteHandler($event)"
@@ -2761,7 +2090,7 @@ INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [Langu
     [customClass]=''""''
     [format]="''n0''" 
     [decimals]="null" 
-    [min]="1" 
+    [min]="null" 
     [max]="1000"
     [autoCorrectMinMax]="true"
 ></cr-numeric-control></div><div class=''col-md-4''><cr-numeric-control
@@ -2782,7 +2111,7 @@ INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [Langu
     [min]="1" 
     [max]="1000"
     [autoCorrectMinMax]="true"
-></cr-numeric-control></div></div><div class="row undefined"><div class=''col-md-4''><cr-checkbox-control
+></cr-numeric-control></div></div><div class="row "><div class=''col-md-4''><cr-checkbox-control
     [(dataValue)]="self.comboMealCategory.isMoveToNextAfterLimit"
     (dataValueChange)="self.onAllowOnlyOneSelectionChange()"
     [permissionSettings]="{
@@ -2797,7 +2126,7 @@ INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [Langu
 ></cr-checkbox-control></div><div class=''col-md-8''></div></div>
         </ng-template>
       </cr-panel>
-        </ng-template></ng-container>', '2022-12-20 09:04:54.0266667 +00:00', 5, N'N', 'bde190f6-a534-4e71-8ca9-4d1c28ab1ce3', 1, NULL)
+        </ng-template></ng-container>', '2022-12-28 10:16:40.6866667 +00:00', 14, N'N', '5e2fd13d-f641-470e-a004-a36dd7c6d67e', 1, NULL)
 INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [LanguageID], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('2452f05d-aa6c-ed11-835f-02f176033ddb', 'd0b506ed-a86c-ed11-835f-02f176033ddb', 2, N'<ng-container><cr-title-header
     [titleTranslateKey]="''ITEM.DETAILS.COMBO_MEAL.TITLE''"
     [title]="''''"
@@ -2807,14 +2136,14 @@ INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [Langu
     [buttonSettings]="self.titleHeaderButtonSettings"
     [titleValue]="self.titleValueText"
 ></cr-title-header>
-        <ng-template [ngIf]="comboMealCategory">
+        <ng-template [ngIf]="self.comboMealCategory">
             
       <cr-panel
         [panelTemplateType]="''well''"
         [customClass]="''''"
       >
         <ng-template crPanelContent>
-          <div class="row undefined"><div class=''col-md-4''><cr-control-edit
+          <div class="row "><div class=''col-md-4''><cr-control-edit
     [(dataValue)]="self.comboMealCategory.code"
     [elementName]="''edit:Item_details.Combo_meal_code''"
     [permissionSettings]="{
@@ -2891,7 +2220,7 @@ INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [Langu
     [icon]="''undefined''"
 ></cr-button-control><cr-button-control
     [elementName]="''button:Item_details.Combo_meal_select_by_catalog''"
-    (buttonClickEvent)="onSelectFromCatalog()"
+    (buttonClickEvent)="self.onSelectFromCatalog()"
     [permissionSettings]="{
         isAccessEdit: (self.isNew ? (self.EndpointName.item_combo_meal_category_POST | endpointAccessGrantedPipe) :
             (self.EndpointName.item_combo_meal_category_id_PUT | endpointAccessGrantedPipe)) && (self.EndpointName.item__combo_item_modifier_GET | endpointAccessGrantedPipe)
@@ -2917,7 +2246,7 @@ INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [Langu
                 (self.EndpointName.item_combo_meal_category_id_PUT | endpointAccessGrantedPipe)
             }"
             [dataCacheName]="''ViewComboMealCategoryItemsGrid''"
-            [columnSettings]=''self.columnSettings | dynamicColumnSettings:[{"field":"code","titleTranslateKey":"ITEM.DETAILS.COMBO_MEAL.ITEMS.GRID.CODE","hidden":false,"sortOrder":1},{"field":"extraPriceValue","titleTranslateKey":"ITEM.DETAILS.COMBO_MEAL.ITEMS.GRID.EXTRA_PRICE","hidden":false,"sortOrder":2},{"field":"isDefaultSelection","titleTranslateKey":"ITEM.DETAILS.COMBO_MEAL.ITEMS.GRID.IS_DEFAULT","hidden":false,"sortOrder":3}]''
+            [columnSettings]=''self.columnSettings | dynamicColumnSettings:[{"field":"code","titleTranslateKey":"ITEM.DETAILS.COMBO_MEAL.ITEMS.GRID.CODE","hidden":false,"sortOrder":1},{"field":"extraPriceValue","titleTranslateKey":"ITEM.DETAILS.COMBO_MEAL.ITEMS.GRID.EXTRA_PRICE","hidden":false,"sortOrder":3},{"field":"name","titleTranslateKey":"ITEM.DETAILS.COMBO_MEAL.ITEMS.GRID.NAME","hidden":false,"sortOrder":2},{"field":"isDefaultSelection","titleTranslateKey":"ITEM.DETAILS.COMBO_MEAL.ITEMS.GRID.IS_DEFAULT","hidden":false,"sortOrder":4}]''
             [dataSource]="self.adapter.dataSource"
             [uniqueField]="''id''"
             [selectionDataMode]="''id''"
@@ -2926,6 +2255,9 @@ INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [Langu
             [hasSorter]="true"
             [allowUpdateAction]="true"
             [allowDeleteAction]="true"
+            [buttonSettings]="{
+                updateLabelTranslateKey: ''COMMON.BUTTON.CONFIRM''
+            }"
             (pageChangeEvent)="self.changePage($event)"
             (updateActionEvent)="self.updateHandler($event)"
             (deleteActionEvent)="self.deleteHandler($event)"
@@ -3023,7 +2355,7 @@ INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [Langu
     [customClass]=''""''
     [format]="''n0''" 
     [decimals]="null" 
-    [min]="1" 
+    [min]="null" 
     [max]="1000"
     [autoCorrectMinMax]="true"
 ></cr-numeric-control></div><div class=''col-md-4''><cr-numeric-control
@@ -3044,7 +2376,7 @@ INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [Langu
     [min]="1" 
     [max]="1000"
     [autoCorrectMinMax]="true"
-></cr-numeric-control></div></div><div class="row undefined"><div class=''col-md-4''><cr-checkbox-control
+></cr-numeric-control></div></div><div class="row "><div class=''col-md-4''><cr-checkbox-control
     [(dataValue)]="self.comboMealCategory.isMoveToNextAfterLimit"
     (dataValueChange)="self.onAllowOnlyOneSelectionChange()"
     [permissionSettings]="{
@@ -3059,7 +2391,7 @@ INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [Langu
 ></cr-checkbox-control></div><div class=''col-md-8''></div></div>
         </ng-template>
       </cr-panel>
-        </ng-template></ng-container>', '2022-12-20 09:04:54.0266667 +00:00', 5, N'N', 'b04ebe12-1e09-4af1-bd53-f503ed6f60c6', 1, NULL)
+        </ng-template></ng-container>', '2022-12-28 10:16:40.6866667 +00:00', 14, N'N', '245b1ff6-e5a5-4082-947a-8367aaaf9533', 1, NULL)
 INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [LanguageID], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('030cdae1-eb6c-ed11-835f-02f176033ddb', '720e3302-e96c-ed11-835f-02f176033ddb', 1, N'<ng-container><cr-title-header
     (buttonClickEvent)="self.onTitleButtonClick($event)"
     [buttonSettings]="self.titleHeaderButtonSettings"
@@ -3079,7 +2411,7 @@ INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [Langu
         [containFields]=''[]''
       >
         <ng-template crPanelContent>
-          <div class="row undefined"><div class=''col-md-2''><cr-control-edit
+          <div class="row "><div class=''col-md-2''><cr-control-edit
     [elementName]="''edit:Item_details.Combo_meal_select_from_catalog_filter_code''"
     [(dataValue)]="self.cache.filter.code"
     [translateKeys]="''ITEM.DETAILS.COMBO_MEAL.SELECT_FROM_CATALOG.FILTER.CODE''" 
@@ -3132,7 +2464,7 @@ INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [Langu
         [containFields]=''[]''
       >
         <ng-template crPanelContent>
-          <div class="row undefined"><div class=''col-md-2''><cr-numeric-control
+          <div class="row "><div class=''col-md-2''><cr-numeric-control
     [elementName]="''numeric:Item_details.Combo_meal_select_from_catalog_items_total''"
     [dataValue]="self.cache.selectedItems?.length"
     [isDisabled]="true"
@@ -3159,12 +2491,13 @@ INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [Langu
         [allowMultiSelect]="true"
         [selectionDataMode]="''object''"
         [dataCacheName]="''ComboMealCategorySelectFromCatalogGrid''"
+        [fieldNameForMultiSelectColumnTranslateKey]="''COMMON.USE''"
         [class]=''undefined''
     ></cr-edit-grid-server-paging>
 </div>
 
         </ng-template>
-      </cr-panel></ng-container>', '2022-12-20 09:04:54.7366667 +00:00', 8, N'N', '00a8ac9b-cf9d-4113-bfc3-f4333484f037', 1, NULL)
+      </cr-panel></ng-container>', '2022-12-27 14:28:16.5966667 +00:00', 12, N'N', 'eb89f438-39c3-4b2e-bbee-e9391a84e29a', 1, NULL)
 INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [LanguageID], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('040cdae1-eb6c-ed11-835f-02f176033ddb', '720e3302-e96c-ed11-835f-02f176033ddb', 2, N'<ng-container><cr-title-header
     (buttonClickEvent)="self.onTitleButtonClick($event)"
     [buttonSettings]="self.titleHeaderButtonSettings"
@@ -3184,7 +2517,7 @@ INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [Langu
         [containFields]=''[]''
       >
         <ng-template crPanelContent>
-          <div class="row undefined"><div class=''col-md-2''><cr-control-edit
+          <div class="row "><div class=''col-md-2''><cr-control-edit
     [elementName]="''edit:Item_details.Combo_meal_select_from_catalog_filter_code''"
     [(dataValue)]="self.cache.filter.code"
     [translateKeys]="''ITEM.DETAILS.COMBO_MEAL.SELECT_FROM_CATALOG.FILTER.CODE''" 
@@ -3237,7 +2570,7 @@ INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [Langu
         [containFields]=''[]''
       >
         <ng-template crPanelContent>
-          <div class="row undefined"><div class=''col-md-2''><cr-numeric-control
+          <div class="row "><div class=''col-md-2''><cr-numeric-control
     [elementName]="''numeric:Item_details.Combo_meal_select_from_catalog_items_total''"
     [dataValue]="self.cache.selectedItems?.length"
     [isDisabled]="true"
@@ -3264,12 +2597,13 @@ INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [Langu
         [allowMultiSelect]="true"
         [selectionDataMode]="''object''"
         [dataCacheName]="''ComboMealCategorySelectFromCatalogGrid''"
+        [fieldNameForMultiSelectColumnTranslateKey]="''COMMON.USE''"
         [class]=''undefined''
     ></cr-edit-grid-server-paging>
 </div>
 
         </ng-template>
-      </cr-panel></ng-container>', '2022-12-20 09:04:54.7366667 +00:00', 8, N'N', '5f867540-0f91-485b-8fa1-3db3024ee938', 1, NULL)
+      </cr-panel></ng-container>', '2022-12-27 14:28:16.5966667 +00:00', 12, N'N', '3d9db19e-e847-499e-81ee-d989eb99d149', 1, NULL)
 INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [LanguageID], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('39243568-ed6c-ed11-835f-02f176033ddb', '9804e012-e96c-ed11-835f-02f176033ddb', 1, N'<ng-container><cr-title-header
     (buttonClickEvent)="self.onTitleButtonClick($event)"
     [buttonSettings]="self.titleHeaderButtonSettings"
@@ -3300,7 +2634,7 @@ INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [Langu
     [isShowEdit]="true"
     [populations]="self.cache.filter"
     [class]=''""''
-></cr-basket-population-view><div class="row undefined"><div class=''col-md-12''><cr-button-control 
+></cr-basket-population-view><div class="row "><div class=''col-md-12''><cr-button-control 
     [buttonTemplateType]="''underlined-action-button''"
     [text]="''''"
     [textTranslateKey]="''COMMON.SEARCH''"
@@ -3325,7 +2659,7 @@ INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [Langu
         [containFields]=''[]''
       >
         <ng-template crPanelContent>
-          <div class="row undefined"><div class=''col-md-2''><cr-numeric-control
+          <div class="row "><div class=''col-md-2''><cr-numeric-control
     [elementName]="''numeric:Item_details.Combo_meal_select_from_basket_items_total''"
     [dataValue]="self.cache.selectedItems?.length"
     [isDisabled]="true"
@@ -3352,12 +2686,13 @@ INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [Langu
         [allowMultiSelect]="true"
         [selectionDataMode]="''object''"
         [dataCacheName]="''ComboMealCategorySelectFromBasketGrid''"
+        [fieldNameForMultiSelectColumnTranslateKey]="''COMMON.USE''"
         [class]=''undefined''
     ></cr-edit-grid-server-paging>
 </div>
 
         </ng-template>
-      </cr-panel></ng-container>', '2022-12-20 09:04:55.4500000 +00:00', 7, N'N', 'e3368c73-894f-4379-b824-bf67b513d526', 1, NULL)
+      </cr-panel></ng-container>', '2022-12-27 14:28:29.1100000 +00:00', 11, N'N', '6490ed2a-3e78-4ea4-bcfe-e43335c51e6a', 1, NULL)
 INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [LanguageID], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('3a243568-ed6c-ed11-835f-02f176033ddb', '9804e012-e96c-ed11-835f-02f176033ddb', 2, N'<ng-container><cr-title-header
     (buttonClickEvent)="self.onTitleButtonClick($event)"
     [buttonSettings]="self.titleHeaderButtonSettings"
@@ -3388,7 +2723,7 @@ INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [Langu
     [isShowEdit]="true"
     [populations]="self.cache.filter"
     [class]=''""''
-></cr-basket-population-view><div class="row undefined"><div class=''col-md-12''><cr-button-control 
+></cr-basket-population-view><div class="row "><div class=''col-md-12''><cr-button-control 
     [buttonTemplateType]="''underlined-action-button''"
     [text]="''''"
     [textTranslateKey]="''COMMON.SEARCH''"
@@ -3413,7 +2748,7 @@ INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [Langu
         [containFields]=''[]''
       >
         <ng-template crPanelContent>
-          <div class="row undefined"><div class=''col-md-2''><cr-numeric-control
+          <div class="row "><div class=''col-md-2''><cr-numeric-control
     [elementName]="''numeric:Item_details.Combo_meal_select_from_basket_items_total''"
     [dataValue]="self.cache.selectedItems?.length"
     [isDisabled]="true"
@@ -3440,12 +2775,13 @@ INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [Langu
         [allowMultiSelect]="true"
         [selectionDataMode]="''object''"
         [dataCacheName]="''ComboMealCategorySelectFromBasketGrid''"
+        [fieldNameForMultiSelectColumnTranslateKey]="''COMMON.USE''"
         [class]=''undefined''
     ></cr-edit-grid-server-paging>
 </div>
 
         </ng-template>
-      </cr-panel></ng-container>', '2022-12-20 09:04:55.4500000 +00:00', 7, N'N', '6664c462-dcf6-4cdc-8d9f-1f6849ea70cd', 1, NULL)
+      </cr-panel></ng-container>', '2022-12-27 14:28:29.1100000 +00:00', 11, N'N', '22cdb36b-4cf7-4de2-ba35-3e9d73eb30ce', 1, NULL)
 INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [LanguageID], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('981dc0da-966d-ed11-835f-02f176033ddb', '5c4deb84-f36c-ed11-835f-02f176033ddb', 1, N'<ng-container><cr-title-header
     [titleTranslateKey]="''COMMON.BASKET.BASKET_EDIT.TITLE_CREATE_ITEM_POPULATION''"
     [title]="''''"
@@ -3507,7 +2843,7 @@ INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [Langu
     ></cr-basket-population-edit-list>
 </div>
         </ng-template>
-      </cr-panel></ng-container>', '2022-12-20 09:04:56.1533333 +00:00', 5, N'N', 'c311e2d2-c920-4179-a3f0-53cb68874aeb', 1, NULL)
+      </cr-panel></ng-container>', '2022-12-27 14:01:13.6266667 +00:00', 8, N'N', '940e8d12-542f-4586-a8c0-60fca02fa2dd', 1, NULL)
 INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [LanguageID], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('991dc0da-966d-ed11-835f-02f176033ddb', '5c4deb84-f36c-ed11-835f-02f176033ddb', 2, N'<ng-container><cr-title-header
     [titleTranslateKey]="''COMMON.BASKET.BASKET_EDIT.TITLE_CREATE_ITEM_POPULATION''"
     [title]="''''"
@@ -3569,7 +2905,7 @@ INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [Langu
     ></cr-basket-population-edit-list>
 </div>
         </ng-template>
-      </cr-panel></ng-container>', '2022-12-20 09:04:56.1533333 +00:00', 5, N'N', 'ad6ced64-6be1-4df1-a2ad-df6db3a0886c', 1, NULL)
+      </cr-panel></ng-container>', '2022-12-27 14:01:13.6266667 +00:00', 8, N'N', '30d80a73-2ce6-44e7-8d04-5f11074e8417', 1, NULL)
 INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [LanguageID], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('d632460c-986d-ed11-835f-02f176033ddb', 'b315d290-f36c-ed11-835f-02f176033ddb', 1, N'<ng-container><cr-title-header
     [titleTranslateKey]="''COMMON.BASKET.BASKET_EDIT.TITLE_MANAGE_ITEM_POPULATION''"
     [title]="''''"
@@ -3631,7 +2967,7 @@ INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [Langu
     ></cr-basket-population-edit-list>
 </div>
         </ng-template>
-      </cr-panel></ng-container>', '2022-12-20 09:04:56.8666667 +00:00', 4, N'N', 'a4512109-821f-4b70-bd3a-a3b642411a82', 1, NULL)
+      </cr-panel></ng-container>', '2022-12-27 14:01:14.6800000 +00:00', 7, N'N', '23371c35-8640-4f8c-a907-f3af0b7952a1', 1, NULL)
 INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [LanguageID], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('d732460c-986d-ed11-835f-02f176033ddb', 'b315d290-f36c-ed11-835f-02f176033ddb', 2, N'<ng-container><cr-title-header
     [titleTranslateKey]="''COMMON.BASKET.BASKET_EDIT.TITLE_MANAGE_ITEM_POPULATION''"
     [title]="''''"
@@ -3693,7 +3029,7 @@ INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [Langu
     ></cr-basket-population-edit-list>
 </div>
         </ng-template>
-      </cr-panel></ng-container>', '2022-12-20 09:04:56.8666667 +00:00', 4, N'N', 'e0f9315c-011f-4c2c-8aa1-1090677462e5', 1, NULL)
+      </cr-panel></ng-container>', '2022-12-27 14:01:14.6800000 +00:00', 7, N'N', '48217771-05d9-467a-8bdf-740c1c8606ec', 1, NULL)
 INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [LanguageID], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('b133300c-116f-ed11-835f-02f176033ddb', '1bb629a9-d26d-ed11-835f-02f176033ddb', 1, N'<ng-container><cr-title-header
     [titleTranslateKey]="''USER.DETAILS.ROLE_MANAGER.TITLE''"
     [title]="''''"
@@ -3732,7 +3068,7 @@ INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [Langu
 </div>
 
         </ng-template>
-      </cr-panel></ng-container>', '2022-12-20 09:04:57.5933333 +00:00', 7, N'N', '26f5fd95-747e-4204-888c-78e404e64b38', 1, NULL)
+      </cr-panel></ng-container>', '2022-12-27 14:01:15.7233333 +00:00', 10, N'N', '23c19920-6fda-4781-a1ab-4a936ed164ae', 1, NULL)
 INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [LanguageID], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('b233300c-116f-ed11-835f-02f176033ddb', '1bb629a9-d26d-ed11-835f-02f176033ddb', 2, N'<ng-container><cr-title-header
     [titleTranslateKey]="''USER.DETAILS.ROLE_MANAGER.TITLE''"
     [title]="''''"
@@ -3771,7 +3107,7 @@ INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [Langu
 </div>
 
         </ng-template>
-      </cr-panel></ng-container>', '2022-12-20 09:04:57.5933333 +00:00', 7, N'N', '4c798be8-862e-4442-af72-06ae79c2b5b7', 1, NULL)
+      </cr-panel></ng-container>', '2022-12-27 14:01:15.7233333 +00:00', 10, N'N', '19ab6149-3ce5-4836-b3c9-facc4f5301ad', 1, NULL)
 INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [LanguageID], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('e59851da-f46f-ed11-835f-02f176033ddb', '22c5ae2c-f06f-ed11-835f-02f176033ddb', 1, N'<ng-container><cr-title-header
     [titleTranslateKey]="''EMPLOYEE.DETAILS.SELLER_IN_STORES.MANAGE_BASKET.TITLE_EDIT''"
     [title]="''''"
@@ -3833,7 +3169,7 @@ INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [Langu
     ></cr-seller-basket-population-edit-list>
 </div>
         </ng-template>
-      </cr-panel></ng-container>', '2022-12-20 09:04:58.2866667 +00:00', 6, N'N', '476c37bc-d351-4aaa-9252-eacafed01bf4', 1, NULL)
+      </cr-panel></ng-container>', '2022-12-27 14:01:16.8566667 +00:00', 9, N'N', 'cdba3d7e-c4ea-4a2a-9bd6-f7c4b1623e9d', 1, NULL)
 INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [LanguageID], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('e69851da-f46f-ed11-835f-02f176033ddb', '22c5ae2c-f06f-ed11-835f-02f176033ddb', 2, N'<ng-container><cr-title-header
     [titleTranslateKey]="''EMPLOYEE.DETAILS.SELLER_IN_STORES.MANAGE_BASKET.TITLE_EDIT''"
     [title]="''''"
@@ -3895,7 +3231,7 @@ INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [Langu
     ></cr-seller-basket-population-edit-list>
 </div>
         </ng-template>
-      </cr-panel></ng-container>', '2022-12-20 09:04:58.2866667 +00:00', 6, N'N', '29e8419e-e11a-46df-b3a1-ce9f78803795', 1, NULL)
+      </cr-panel></ng-container>', '2022-12-27 14:01:16.8566667 +00:00', 9, N'N', '74dcfe94-5569-4e03-9465-5d2e04ec140a', 1, NULL)
 INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [LanguageID], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('14165d32-f56f-ed11-835f-02f176033ddb', 'b8a0c44a-f06f-ed11-835f-02f176033ddb', 1, N'<ng-container><cr-title-header
     [titleTranslateKey]="''EMPLOYEE.DETAILS.SELLER_IN_STORES.MANAGE_BASKET.TITLE_CREATE''"
     [title]="''''"
@@ -3957,7 +3293,7 @@ INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [Langu
     ></cr-seller-basket-population-edit-list>
 </div>
         </ng-template>
-      </cr-panel></ng-container>', '2022-12-20 09:04:59.0400000 +00:00', 4, N'N', '269fd2d8-d30b-4fb5-9bca-088736998f6c', 1, NULL)
+      </cr-panel></ng-container>', '2022-12-27 14:01:17.9733333 +00:00', 7, N'N', '844a7481-9280-402d-93ca-2c26a989e4cb', 1, NULL)
 INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [LanguageID], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('15165d32-f56f-ed11-835f-02f176033ddb', 'b8a0c44a-f06f-ed11-835f-02f176033ddb', 2, N'<ng-container><cr-title-header
     [titleTranslateKey]="''EMPLOYEE.DETAILS.SELLER_IN_STORES.MANAGE_BASKET.TITLE_CREATE''"
     [title]="''''"
@@ -4019,7 +3355,7 @@ INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [Langu
     ></cr-seller-basket-population-edit-list>
 </div>
         </ng-template>
-      </cr-panel></ng-container>', '2022-12-20 09:04:59.0400000 +00:00', 4, N'N', 'b248038e-21df-4ccd-bd4c-f6d9a8f61118', 1, NULL)
+      </cr-panel></ng-container>', '2022-12-27 14:01:17.9733333 +00:00', 7, N'N', '2fe4262f-b831-4970-bca5-4c0b01bbd647', 1, NULL)
 INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [LanguageID], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('e5d2a916-fb6f-ed11-835f-02f176033ddb', 'be44ca58-f06f-ed11-835f-02f176033ddb', 1, N'<ng-container><cr-title-header
     [titleTranslateKey]="''EMPLOYEE.DETAILS.ACCESS_LEVEL.MANAGE_BASKET.TITLE_EDIT''"
     [title]="''''"
@@ -4082,7 +3418,7 @@ INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [Langu
     ></cr-access-level-basket-population-edit-list>
 </div>
         </ng-template>
-      </cr-panel></ng-container>', '2022-12-20 09:04:59.7166667 +00:00', 5, N'N', '4f74ee75-3ac4-477a-8acb-6a37a235bb48', 1, NULL)
+      </cr-panel></ng-container>', '2022-12-27 14:01:18.9200000 +00:00', 8, N'N', '4f2abaf5-426c-41df-986c-f61c66c92c61', 1, NULL)
 INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [LanguageID], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('e6d2a916-fb6f-ed11-835f-02f176033ddb', 'be44ca58-f06f-ed11-835f-02f176033ddb', 2, N'<ng-container><cr-title-header
     [titleTranslateKey]="''EMPLOYEE.DETAILS.ACCESS_LEVEL.MANAGE_BASKET.TITLE_EDIT''"
     [title]="''''"
@@ -4145,7 +3481,7 @@ INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [Langu
     ></cr-access-level-basket-population-edit-list>
 </div>
         </ng-template>
-      </cr-panel></ng-container>', '2022-12-20 09:04:59.7166667 +00:00', 5, N'N', '7a5e952d-9c50-4eaa-8d3f-13a0f2210452', 1, NULL)
+      </cr-panel></ng-container>', '2022-12-27 14:01:18.9200000 +00:00', 8, N'N', '4321a2ee-2168-44e0-b730-77bc2c87815d', 1, NULL)
 INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [LanguageID], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('6bb0bd2d-fb6f-ed11-835f-02f176033ddb', 'bc281366-f06f-ed11-835f-02f176033ddb', 1, N'<ng-container><cr-title-header
     [titleTranslateKey]="''EMPLOYEE.DETAILS.ACCESS_LEVEL.MANAGE_BASKET.TITLE_CREATE''"
     [title]="''''"
@@ -4208,7 +3544,7 @@ INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [Langu
     ></cr-access-level-basket-population-edit-list>
 </div>
         </ng-template>
-      </cr-panel></ng-container>', '2022-12-20 09:05:00.3933333 +00:00', 4, N'N', '0f7386ee-7028-4da8-886a-e75c24e28b61', 1, NULL)
+      </cr-panel></ng-container>', '2022-12-27 14:01:19.9400000 +00:00', 7, N'N', 'df46b6e8-53e7-4307-a645-73bf7d6bc3a7', 1, NULL)
 INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [LanguageID], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('6cb0bd2d-fb6f-ed11-835f-02f176033ddb', 'bc281366-f06f-ed11-835f-02f176033ddb', 2, N'<ng-container><cr-title-header
     [titleTranslateKey]="''EMPLOYEE.DETAILS.ACCESS_LEVEL.MANAGE_BASKET.TITLE_CREATE''"
     [title]="''''"
@@ -4271,7 +3607,687 @@ INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [Langu
     ></cr-access-level-basket-population-edit-list>
 </div>
         </ng-template>
-      </cr-panel></ng-container>', '2022-12-20 09:05:00.3933333 +00:00', 4, N'N', '99d786b3-1cb4-40a1-b0f9-17d91fa8aa86', 1, NULL)
+      </cr-panel></ng-container>', '2022-12-27 14:01:19.9400000 +00:00', 7, N'N', '982f65f1-3640-4a41-9ebb-ccfba2415c9b', 1, NULL)
+INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [LanguageID], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('084480d1-b97f-ed11-835f-02f176033ddb', '6e29cd53-b87f-ed11-835f-02f176033ddb', 1, N'<ng-container><cr-title-header
+    [titleTranslateKey]="''TAX_GROUP.DETAILS.PANEL.TITLE_DEFINITIONS''"
+    [title]="''''"
+    (buttonClickEvent)="self.onTitleButtonClick($event)"
+    [additionalTranslateKeys]="''COMMON.NEW''"
+    [buttonSettings]="self.titleHeaderButtonSettings"
+    [titleValue]="self.titleValueText"
+></cr-title-header>
+      <cr-panel
+        [panelTemplateType]="''collapsible-panel''"
+        [expanded]="self.panelsViewState?.[''general''] ?? true"
+        (expandedChange)="self.panelStateChange(''general'', $event)"
+        [titleTranslateKey]="true ? ''TAX_GROUP.DETAILS.PANEL.GENERAL'' : null"
+        [title]="true ? null : ''General he''"
+        [customClass]="''''"
+        [headerClass]="''''"
+        [validator]="self.validator"
+        [validatorGroupName]="''general''"
+        [containFields]=''["name"]''
+      >
+        <ng-template crPanelContent>
+          <div class="row undefined"><div class=''col-md-3''><cr-control-edit
+    [(dataValue)]="self.taxGroupLocation.name"
+    [elementName]="''edit:TaxGroup_details.Name''"
+    [validationField]="''name''"
+    [validator]="self.validator"
+    [permissionSettings]="{
+      isAccessEdit: self.isNewTaxGroup ? (self.EndpointName.tax_group_POST | endpointAccessGrantedPipe) :
+        (self.EndpointName.tax_group_id_PUT | endpointAccessGrantedPipe)
+    }"
+    [translateKeys]="''TAX_GROUP.DETAILS.GRID.NAME''" 
+    [dataLabel]="''''"
+    [customClass]=''""''
+    [isDisabled]="false"
+></cr-control-edit></div><div class=''col-md-9''></div></div>
+        </ng-template>
+      </cr-panel>
+      <cr-panel
+        [panelTemplateType]="''collapsible-panel''"
+        [expanded]="self.panelsViewState?.[''values''] ?? true"
+        (expandedChange)="self.panelStateChange(''values'', $event)"
+        [titleTranslateKey]="true ? ''TAX_GROUP.DETAILS.PANEL.TAX_DEFINITIONS_VALUES'' : null"
+        [title]="true ? null : ''Values he''"
+        [customClass]="''''"
+        [headerClass]="''''"
+        [validator]="self.validator"
+        [validatorGroupName]="''values''"
+        [containFields]=''["taxGroupDefinitionList"]''
+      >
+        <ng-template crPanelContent>
+          <div class="cr-grid-wrapper-new">
+    <cr-edit-grid-server-paging
+        [columnSettings]=''self.columnSettings | dynamicColumnSettings:[{"field":"taxPercent","titleTranslateKey":"TAX_GROUP.DETAILS.GRID_VALUES.TAX_PERCENT","hidden":false,"sortOrder":1},{"field":"deductionPercent","titleTranslateKey":"TAX_GROUP.DETAILS.GRID_VALUES.DEDUCTION_PERCENT","hidden":false,"sortOrder":2},{"field":"fromDate","titleTranslateKey":"TAX_GROUP.DETAILS.GRID_VALUES.DATE_FROM","hidden":false,"sortOrder":3}]''
+        [dataSource]="self.adapter.dataSource"
+        [elementName]="''edit-grid-server-paging:TaxGroup_details.DefinitionList''"
+        [allowCreateAction]="true"
+        [allowDeleteAction]="true"
+        [allowUpdateAction]="true"
+        [isCloseEditorAfterAdd]="true"
+        [pageable]="true"
+        [resizable]="true"
+        [uniqueField]="''uid''"
+        [validator]="self.taxGroupDefinitionListValidator"
+        (createActionEvent)="self.onNewDefinitionValue($event)"
+        (deleteActionEvent)="self.onDeleteDefinitionValue($event)"
+        (pageChangeEvent)="self.onPageChangeDefinitionValue($event)"
+        (updateActionEvent)="self.onUpdateDefinitionValue($event)"
+        [dataCacheName]="''taxGroupDefinitionListCache''"
+        [permissionSettings]="{
+            isAccessCreate: self.isNewTaxGroup ? (self.EndpointName.tax_group_POST | endpointAccessGrantedPipe) : (self.EndpointName.tax_group_id_PUT | endpointAccessGrantedPipe),
+            isAccessUpdate: self.isNewTaxGroup ? (self.EndpointName.tax_group_POST | endpointAccessGrantedPipe) : (self.EndpointName.tax_group_id_PUT | endpointAccessGrantedPipe),
+            isAccessDelete: self.isNewTaxGroup ? (self.EndpointName.tax_group_POST | endpointAccessGrantedPipe) : (self.EndpointName.tax_group_id_PUT | endpointAccessGrantedPipe)
+        }"
+        [class]=''undefined''
+    ></cr-edit-grid-server-paging>
+</div>
+
+        </ng-template>
+      </cr-panel>
+      <cr-panel
+        [panelTemplateType]="''collapsible-panel''"
+        [expanded]="self.panelsViewState?.[''locations''] ?? true"
+        (expandedChange)="self.panelStateChange(''locations'', $event)"
+        [titleTranslateKey]="true ? ''TAX_GROUP.DETAILS.PANEL.TAX_DEFINITIONS_LOCATIONS'' : null"
+        [title]="true ? null : ''Locations he''"
+        [customClass]="''''"
+        [headerClass]="''''"
+        [validator]="self.validator"
+        [validatorGroupName]="''locations''"
+        [containFields]=''[]''
+      >
+        <ng-template crPanelContent>
+          <cr-basket-population-view
+    [cacheName]="''taxGroupLocationsPopulationViewState''"
+    [elementName]="''tax-group:Locations_population''"
+    [isShowAdd]="true"
+    [isShowDelete]="true"
+    [isShowEdit]="true"
+    [populations]="self.taxGroupLocation.locationBasketSet"
+    (addBasket)="self.addBasketLocationsPopulation()"
+    (edit)="self.onEditLocationsPopulation()"
+    [permissionSettings]="{
+        isAccessEdit: self.isNewTaxGroup ? (self.EndpointName.tax_group_POST | endpointAccessGrantedPipe) :
+            (self.EndpointName.tax_group_id_PUT | endpointAccessGrantedPipe)
+    }"
+></cr-basket-population-view>
+        </ng-template>
+      </cr-panel></ng-container>', '2022-12-27 14:01:23.3566667 +00:00', 8, N'N', 'd46a53d0-db89-47d9-aca5-f4529e4fd643', 1, NULL)
+INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [LanguageID], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('094480d1-b97f-ed11-835f-02f176033ddb', '6e29cd53-b87f-ed11-835f-02f176033ddb', 2, N'<ng-container><cr-title-header
+    [titleTranslateKey]="''TAX_GROUP.DETAILS.PANEL.TITLE_DEFINITIONS''"
+    [title]="''''"
+    (buttonClickEvent)="self.onTitleButtonClick($event)"
+    [additionalTranslateKeys]="''COMMON.NEW''"
+    [buttonSettings]="self.titleHeaderButtonSettings"
+    [titleValue]="self.titleValueText"
+></cr-title-header>
+      <cr-panel
+        [panelTemplateType]="''collapsible-panel''"
+        [expanded]="self.panelsViewState?.[''general''] ?? true"
+        (expandedChange)="self.panelStateChange(''general'', $event)"
+        [titleTranslateKey]="true ? ''TAX_GROUP.DETAILS.PANEL.GENERAL'' : null"
+        [title]="true ? null : ''General''"
+        [customClass]="''''"
+        [headerClass]="''''"
+        [validator]="self.validator"
+        [validatorGroupName]="''general''"
+        [containFields]=''["name"]''
+      >
+        <ng-template crPanelContent>
+          <div class="row undefined"><div class=''col-md-3''><cr-control-edit
+    [(dataValue)]="self.taxGroupLocation.name"
+    [elementName]="''edit:TaxGroup_details.Name''"
+    [validationField]="''name''"
+    [validator]="self.validator"
+    [permissionSettings]="{
+      isAccessEdit: self.isNewTaxGroup ? (self.EndpointName.tax_group_POST | endpointAccessGrantedPipe) :
+        (self.EndpointName.tax_group_id_PUT | endpointAccessGrantedPipe)
+    }"
+    [translateKeys]="''TAX_GROUP.DETAILS.GRID.NAME''" 
+    [dataLabel]="''''"
+    [customClass]=''""''
+    [isDisabled]="false"
+></cr-control-edit></div><div class=''col-md-9''></div></div>
+        </ng-template>
+      </cr-panel>
+      <cr-panel
+        [panelTemplateType]="''collapsible-panel''"
+        [expanded]="self.panelsViewState?.[''values''] ?? true"
+        (expandedChange)="self.panelStateChange(''values'', $event)"
+        [titleTranslateKey]="true ? ''TAX_GROUP.DETAILS.PANEL.TAX_DEFINITIONS_VALUES'' : null"
+        [title]="true ? null : ''Values''"
+        [customClass]="''''"
+        [headerClass]="''''"
+        [validator]="self.validator"
+        [validatorGroupName]="''values''"
+        [containFields]=''["taxGroupDefinitionList"]''
+      >
+        <ng-template crPanelContent>
+          <div class="cr-grid-wrapper-new">
+    <cr-edit-grid-server-paging
+        [columnSettings]=''self.columnSettings | dynamicColumnSettings:[{"field":"taxPercent","titleTranslateKey":"TAX_GROUP.DETAILS.GRID_VALUES.TAX_PERCENT","hidden":false,"sortOrder":1},{"field":"deductionPercent","titleTranslateKey":"TAX_GROUP.DETAILS.GRID_VALUES.DEDUCTION_PERCENT","hidden":false,"sortOrder":2},{"field":"fromDate","titleTranslateKey":"TAX_GROUP.DETAILS.GRID_VALUES.DATE_FROM","hidden":false,"sortOrder":3}]''
+        [dataSource]="self.adapter.dataSource"
+        [elementName]="''edit-grid-server-paging:TaxGroup_details.DefinitionList''"
+        [allowCreateAction]="true"
+        [allowDeleteAction]="true"
+        [allowUpdateAction]="true"
+        [isCloseEditorAfterAdd]="true"
+        [pageable]="true"
+        [resizable]="true"
+        [uniqueField]="''uid''"
+        [validator]="self.taxGroupDefinitionListValidator"
+        (createActionEvent)="self.onNewDefinitionValue($event)"
+        (deleteActionEvent)="self.onDeleteDefinitionValue($event)"
+        (pageChangeEvent)="self.onPageChangeDefinitionValue($event)"
+        (updateActionEvent)="self.onUpdateDefinitionValue($event)"
+        [dataCacheName]="''taxGroupDefinitionListCache''"
+        [permissionSettings]="{
+            isAccessCreate: self.isNewTaxGroup ? (self.EndpointName.tax_group_POST | endpointAccessGrantedPipe) : (self.EndpointName.tax_group_id_PUT | endpointAccessGrantedPipe),
+            isAccessUpdate: self.isNewTaxGroup ? (self.EndpointName.tax_group_POST | endpointAccessGrantedPipe) : (self.EndpointName.tax_group_id_PUT | endpointAccessGrantedPipe),
+            isAccessDelete: self.isNewTaxGroup ? (self.EndpointName.tax_group_POST | endpointAccessGrantedPipe) : (self.EndpointName.tax_group_id_PUT | endpointAccessGrantedPipe)
+        }"
+        [class]=''undefined''
+    ></cr-edit-grid-server-paging>
+</div>
+
+        </ng-template>
+      </cr-panel>
+      <cr-panel
+        [panelTemplateType]="''collapsible-panel''"
+        [expanded]="self.panelsViewState?.[''locations''] ?? true"
+        (expandedChange)="self.panelStateChange(''locations'', $event)"
+        [titleTranslateKey]="true ? ''TAX_GROUP.DETAILS.PANEL.TAX_DEFINITIONS_LOCATIONS'' : null"
+        [title]="true ? null : ''Locations''"
+        [customClass]="''''"
+        [headerClass]="''''"
+        [validator]="self.validator"
+        [validatorGroupName]="''locations''"
+        [containFields]=''[]''
+      >
+        <ng-template crPanelContent>
+          <cr-basket-population-view
+    [cacheName]="''taxGroupLocationsPopulationViewState''"
+    [elementName]="''tax-group:Locations_population''"
+    [isShowAdd]="true"
+    [isShowDelete]="true"
+    [isShowEdit]="true"
+    [populations]="self.taxGroupLocation.locationBasketSet"
+    (addBasket)="self.addBasketLocationsPopulation()"
+    (edit)="self.onEditLocationsPopulation()"
+    [permissionSettings]="{
+        isAccessEdit: self.isNewTaxGroup ? (self.EndpointName.tax_group_POST | endpointAccessGrantedPipe) :
+            (self.EndpointName.tax_group_id_PUT | endpointAccessGrantedPipe)
+    }"
+></cr-basket-population-view>
+        </ng-template>
+      </cr-panel></ng-container>', '2022-12-27 14:01:23.3566667 +00:00', 8, N'N', 'faae3ef9-fd13-44c4-a972-6f52ddf5fca1', 1, NULL)
+INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [LanguageID], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('f633dce2-b97f-ed11-835f-02f176033ddb', '646c425d-b87f-ed11-835f-02f176033ddb', 1, N'<ng-container><cr-title-header
+    [titleTranslateKey]="''TAX_GROUP.DETAILS.PANEL.TITLE_DEFINITIONS''"
+    [title]="''''"
+    (buttonClickEvent)="self.onTitleButtonClick($event)"
+    [additionalTranslateKeys]="''COMMON.NEW''"
+    [buttonSettings]="self.titleHeaderButtonSettings"
+    [titleValue]="self.titleValueText"
+></cr-title-header>
+      <cr-panel
+        [panelTemplateType]="''collapsible-panel''"
+        [expanded]="self.panelsViewState?.[''general''] ?? true"
+        (expandedChange)="self.panelStateChange(''general'', $event)"
+        [titleTranslateKey]="true ? ''TAX_GROUP.DETAILS.PANEL.GENERAL'' : null"
+        [title]="true ? null : ''General he''"
+        [customClass]="''''"
+        [headerClass]="''''"
+        [validator]="self.validator"
+        [validatorGroupName]="''general''"
+        [containFields]=''["name"]''
+      >
+        <ng-template crPanelContent>
+          <div class="row undefined"><div class=''col-md-3''><cr-control-edit
+    [(dataValue)]="self.taxGroupLocation.name"
+    [elementName]="''edit:TaxGroup_details.Name''"
+    [validationField]="''name''"
+    [validator]="self.validator"
+    [permissionSettings]="{
+      isAccessEdit: self.isNewTaxGroup ? (self.EndpointName.tax_group_POST | endpointAccessGrantedPipe) :
+        (self.EndpointName.tax_group_id_PUT | endpointAccessGrantedPipe)
+    }"
+    [translateKeys]="''TAX_GROUP.DETAILS.GRID.NAME''" 
+    [dataLabel]="''''"
+    [customClass]=''""''
+    [isDisabled]="false"
+></cr-control-edit></div><div class=''col-md-9''></div></div>
+        </ng-template>
+      </cr-panel>
+      <cr-panel
+        [panelTemplateType]="''collapsible-panel''"
+        [expanded]="self.panelsViewState?.[''values''] ?? true"
+        (expandedChange)="self.panelStateChange(''values'', $event)"
+        [titleTranslateKey]="true ? ''TAX_GROUP.DETAILS.PANEL.TAX_DEFINITIONS_VALUES'' : null"
+        [title]="true ? null : ''Values he''"
+        [customClass]="''''"
+        [headerClass]="''''"
+        [validator]="self.validator"
+        [validatorGroupName]="''values''"
+        [containFields]=''["taxGroupDefinitionList"]''
+      >
+        <ng-template crPanelContent>
+          <div class="cr-grid-wrapper-new">
+    <cr-edit-grid-server-paging
+        [columnSettings]=''self.columnSettings | dynamicColumnSettings:[{"field":"taxPercent","titleTranslateKey":"TAX_GROUP.DETAILS.GRID_VALUES.TAX_PERCENT","hidden":false,"sortOrder":1},{"field":"deductionPercent","titleTranslateKey":"TAX_GROUP.DETAILS.GRID_VALUES.DEDUCTION_PERCENT","hidden":false,"sortOrder":2},{"field":"fromDate","titleTranslateKey":"TAX_GROUP.DETAILS.GRID_VALUES.DATE_FROM","hidden":false,"sortOrder":3}]''
+        [dataSource]="self.adapter.dataSource"
+        [elementName]="''edit-grid-server-paging:TaxGroup_details.DefinitionList''"
+        [allowCreateAction]="true"
+        [allowDeleteAction]="true"
+        [allowUpdateAction]="true"
+        [isCloseEditorAfterAdd]="true"
+        [pageable]="true"
+        [resizable]="true"
+        [uniqueField]="''uid''"
+        [validator]="self.taxGroupDefinitionListValidator"
+        (createActionEvent)="self.onNewDefinitionValue($event)"
+        (deleteActionEvent)="self.onDeleteDefinitionValue($event)"
+        (pageChangeEvent)="self.onPageChangeDefinitionValue($event)"
+        (updateActionEvent)="self.onUpdateDefinitionValue($event)"
+        [dataCacheName]="''taxGroupDefinitionListCache''"
+        [permissionSettings]="{
+            isAccessCreate: self.isNewTaxGroup ? (self.EndpointName.tax_group_POST | endpointAccessGrantedPipe) : (self.EndpointName.tax_group_id_PUT | endpointAccessGrantedPipe),
+            isAccessUpdate: self.isNewTaxGroup ? (self.EndpointName.tax_group_POST | endpointAccessGrantedPipe) : (self.EndpointName.tax_group_id_PUT | endpointAccessGrantedPipe),
+            isAccessDelete: self.isNewTaxGroup ? (self.EndpointName.tax_group_POST | endpointAccessGrantedPipe) : (self.EndpointName.tax_group_id_PUT | endpointAccessGrantedPipe)
+        }"
+        [class]=''undefined''
+    ></cr-edit-grid-server-paging>
+</div>
+
+        </ng-template>
+      </cr-panel>
+      <cr-panel
+        [panelTemplateType]="''collapsible-panel''"
+        [expanded]="self.panelsViewState?.[''locations''] ?? true"
+        (expandedChange)="self.panelStateChange(''locations'', $event)"
+        [titleTranslateKey]="true ? ''TAX_GROUP.DETAILS.PANEL.TAX_DEFINITIONS_LOCATIONS'' : null"
+        [title]="true ? null : ''Locations he''"
+        [customClass]="''''"
+        [headerClass]="''''"
+        [validator]="self.validator"
+        [validatorGroupName]="''locations''"
+        [containFields]=''[]''
+      >
+        <ng-template crPanelContent>
+          <cr-basket-population-view
+    [cacheName]="''taxGroupLocationsPopulationViewState''"
+    [elementName]="''tax-group:Locations_population''"
+    [isShowAdd]="true"
+    [isShowDelete]="true"
+    [isShowEdit]="true"
+    [populations]="self.taxGroupLocation.locationBasketSet"
+    (addBasket)="self.addBasketLocationsPopulation()"
+    (edit)="self.onEditLocationsPopulation()"
+    [permissionSettings]="{
+        isAccessEdit: self.isNewTaxGroup ? (self.EndpointName.tax_group_POST | endpointAccessGrantedPipe) :
+            (self.EndpointName.tax_group_id_PUT | endpointAccessGrantedPipe)
+    }"
+></cr-basket-population-view>
+        </ng-template>
+      </cr-panel></ng-container>', '2022-12-27 14:01:24.7133333 +00:00', 8, N'N', 'cd6d5f58-e9a6-44ca-b9de-a589f25874d6', 1, NULL)
+INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [LanguageID], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('f733dce2-b97f-ed11-835f-02f176033ddb', '646c425d-b87f-ed11-835f-02f176033ddb', 2, N'<ng-container><cr-title-header
+    [titleTranslateKey]="''TAX_GROUP.DETAILS.PANEL.TITLE_DEFINITIONS''"
+    [title]="''''"
+    (buttonClickEvent)="self.onTitleButtonClick($event)"
+    [additionalTranslateKeys]="''COMMON.NEW''"
+    [buttonSettings]="self.titleHeaderButtonSettings"
+    [titleValue]="self.titleValueText"
+></cr-title-header>
+      <cr-panel
+        [panelTemplateType]="''collapsible-panel''"
+        [expanded]="self.panelsViewState?.[''general''] ?? true"
+        (expandedChange)="self.panelStateChange(''general'', $event)"
+        [titleTranslateKey]="true ? ''TAX_GROUP.DETAILS.PANEL.GENERAL'' : null"
+        [title]="true ? null : ''General''"
+        [customClass]="''''"
+        [headerClass]="''''"
+        [validator]="self.validator"
+        [validatorGroupName]="''general''"
+        [containFields]=''["name"]''
+      >
+        <ng-template crPanelContent>
+          <div class="row undefined"><div class=''col-md-3''><cr-control-edit
+    [(dataValue)]="self.taxGroupLocation.name"
+    [elementName]="''edit:TaxGroup_details.Name''"
+    [validationField]="''name''"
+    [validator]="self.validator"
+    [permissionSettings]="{
+      isAccessEdit: self.isNewTaxGroup ? (self.EndpointName.tax_group_POST | endpointAccessGrantedPipe) :
+        (self.EndpointName.tax_group_id_PUT | endpointAccessGrantedPipe)
+    }"
+    [translateKeys]="''TAX_GROUP.DETAILS.GRID.NAME''" 
+    [dataLabel]="''''"
+    [customClass]=''""''
+    [isDisabled]="false"
+></cr-control-edit></div><div class=''col-md-9''></div></div>
+        </ng-template>
+      </cr-panel>
+      <cr-panel
+        [panelTemplateType]="''collapsible-panel''"
+        [expanded]="self.panelsViewState?.[''values''] ?? true"
+        (expandedChange)="self.panelStateChange(''values'', $event)"
+        [titleTranslateKey]="true ? ''TAX_GROUP.DETAILS.PANEL.TAX_DEFINITIONS_VALUES'' : null"
+        [title]="true ? null : ''Values''"
+        [customClass]="''''"
+        [headerClass]="''''"
+        [validator]="self.validator"
+        [validatorGroupName]="''values''"
+        [containFields]=''["taxGroupDefinitionList"]''
+      >
+        <ng-template crPanelContent>
+          <div class="cr-grid-wrapper-new">
+    <cr-edit-grid-server-paging
+        [columnSettings]=''self.columnSettings | dynamicColumnSettings:[{"field":"taxPercent","titleTranslateKey":"TAX_GROUP.DETAILS.GRID_VALUES.TAX_PERCENT","hidden":false,"sortOrder":1},{"field":"deductionPercent","titleTranslateKey":"TAX_GROUP.DETAILS.GRID_VALUES.DEDUCTION_PERCENT","hidden":false,"sortOrder":2},{"field":"fromDate","titleTranslateKey":"TAX_GROUP.DETAILS.GRID_VALUES.DATE_FROM","hidden":false,"sortOrder":3}]''
+        [dataSource]="self.adapter.dataSource"
+        [elementName]="''edit-grid-server-paging:TaxGroup_details.DefinitionList''"
+        [allowCreateAction]="true"
+        [allowDeleteAction]="true"
+        [allowUpdateAction]="true"
+        [isCloseEditorAfterAdd]="true"
+        [pageable]="true"
+        [resizable]="true"
+        [uniqueField]="''uid''"
+        [validator]="self.taxGroupDefinitionListValidator"
+        (createActionEvent)="self.onNewDefinitionValue($event)"
+        (deleteActionEvent)="self.onDeleteDefinitionValue($event)"
+        (pageChangeEvent)="self.onPageChangeDefinitionValue($event)"
+        (updateActionEvent)="self.onUpdateDefinitionValue($event)"
+        [dataCacheName]="''taxGroupDefinitionListCache''"
+        [permissionSettings]="{
+            isAccessCreate: self.isNewTaxGroup ? (self.EndpointName.tax_group_POST | endpointAccessGrantedPipe) : (self.EndpointName.tax_group_id_PUT | endpointAccessGrantedPipe),
+            isAccessUpdate: self.isNewTaxGroup ? (self.EndpointName.tax_group_POST | endpointAccessGrantedPipe) : (self.EndpointName.tax_group_id_PUT | endpointAccessGrantedPipe),
+            isAccessDelete: self.isNewTaxGroup ? (self.EndpointName.tax_group_POST | endpointAccessGrantedPipe) : (self.EndpointName.tax_group_id_PUT | endpointAccessGrantedPipe)
+        }"
+        [class]=''undefined''
+    ></cr-edit-grid-server-paging>
+</div>
+
+        </ng-template>
+      </cr-panel>
+      <cr-panel
+        [panelTemplateType]="''collapsible-panel''"
+        [expanded]="self.panelsViewState?.[''locations''] ?? true"
+        (expandedChange)="self.panelStateChange(''locations'', $event)"
+        [titleTranslateKey]="true ? ''TAX_GROUP.DETAILS.PANEL.TAX_DEFINITIONS_LOCATIONS'' : null"
+        [title]="true ? null : ''Locations''"
+        [customClass]="''''"
+        [headerClass]="''''"
+        [validator]="self.validator"
+        [validatorGroupName]="''locations''"
+        [containFields]=''[]''
+      >
+        <ng-template crPanelContent>
+          <cr-basket-population-view
+    [cacheName]="''taxGroupLocationsPopulationViewState''"
+    [elementName]="''tax-group:Locations_population''"
+    [isShowAdd]="true"
+    [isShowDelete]="true"
+    [isShowEdit]="true"
+    [populations]="self.taxGroupLocation.locationBasketSet"
+    (addBasket)="self.addBasketLocationsPopulation()"
+    (edit)="self.onEditLocationsPopulation()"
+    [permissionSettings]="{
+        isAccessEdit: self.isNewTaxGroup ? (self.EndpointName.tax_group_POST | endpointAccessGrantedPipe) :
+            (self.EndpointName.tax_group_id_PUT | endpointAccessGrantedPipe)
+    }"
+></cr-basket-population-view>
+        </ng-template>
+      </cr-panel></ng-container>', '2022-12-27 14:01:24.7133333 +00:00', 8, N'N', 'a947df36-dbee-4aad-8d0d-d701e82d7c82', 1, NULL)
+INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [LanguageID], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('2b86515f-4580-ed11-835f-02f176033ddb', '19435038-b87f-ed11-835f-02f176033ddb', 1, N'<ng-container><cr-title-header
+    [titleTranslateKey]="''COMMON.BASKET.BASKET_EDIT.TITLE_MANAGE_LOCATION_POPULATION''"
+    [title]="''''"
+    [buttonSettings]="self.titleHeaderButtonSettings"
+    (buttonClickEvent)="self.onTitleHeaderButtonClick($event)"
+></cr-title-header>
+      <cr-panel
+        [panelTemplateType]="''well''"
+        [customClass]="''''"
+      >
+        <ng-template crPanelContent>
+          <div class="row undefined"><div class=''col-md-4''><cr-control-edit
+    [(dataValue)]="self.cache.basket.name"
+    (dataValueChange)="self.isDisableAutoChangeName = true"
+    [validator]="self.basketValidator"
+    [validationField]="''name''"
+    [elementName]="''edit:Basket_population_name''"
+    [translateKeys]="''COMMON.BASKET.BASKET_EDIT.BASKET_NAME''" 
+    [dataLabel]="''''"
+    [customClass]=''""''
+    [isDisabled]="false || !self.isBasketNameEnabled"
+></cr-control-edit></div><div class=''col-md-2''><cr-control-dropdown
+    [(dataValue)]="self.cache.basket.exclude"
+    (dataValueChange)="self.onChangeType($event)"
+    [dataDisplayField]="''name''"
+    [dataValueField]="''status''"
+    [dataSource]="self.basketTypes"
+    [elementName]="''smart-dropdown:Basket_population_type''"
+    [translateKeys]="''COMMON.BASKET.BASKET_EDIT.BASKET_TYPE''"
+    [dataLabel]="''''"
+    [class]=''""''
+></cr-control-dropdown></div><div class=''col-md-6''></div></div>
+        </ng-template>
+      </cr-panel>
+      <cr-panel
+        [panelTemplateType]="''panel''"
+        [expanded]="self.panelsViewState?.[''undefined''] ?? true"
+        (expandedChange)="self.panelStateChange(''undefined'', $event)"
+        [titleTranslateKey]="true ? ''COMMON.BASKET.BASKET_EDIT.TITLE_CREATE_ITEM_CONTENT_POPULATION'' : null"
+        [title]="true ? null : ''Item population basket''"
+        [customClass]="''''"
+        [headerClass]="''''"
+        [validator]="self.validator"
+        [validatorGroupName]="''undefined''"
+        [containFields]=''["populationBasketContentList"]''
+      >
+        <ng-template crPanelContent>
+          <div class="cr-grid-wrapper-new">
+    <cr-basket-population-edit-list
+        [dataSource]="self.cache.basket.populationBasketContentList"
+        [typeDropdownFn]="self.typeDropdownFn"
+        [cacheName]="self.cacheName + ''EditList''"
+        [isShowProperty]="self.isShowProperty"
+        [propertyDropdownFn]="self.propertyDropdownFn"
+        [valueDropdownFn]="self.valueDropdownFn"
+        (remove)="self.onRemove($event)"
+        (save)="self.onAdd($event)"
+        [class]=''undefined''
+    ></cr-basket-population-edit-list>
+</div>
+        </ng-template>
+      </cr-panel></ng-container>', '2022-12-27 14:01:20.9666667 +00:00', 5, N'N', '8e3934ea-15b0-451f-a872-1e091571aa29', 1, NULL)
+INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [LanguageID], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('2c86515f-4580-ed11-835f-02f176033ddb', '19435038-b87f-ed11-835f-02f176033ddb', 2, N'<ng-container><cr-title-header
+    [titleTranslateKey]="''COMMON.BASKET.BASKET_EDIT.TITLE_MANAGE_LOCATION_POPULATION''"
+    [title]="''''"
+    [buttonSettings]="self.titleHeaderButtonSettings"
+    (buttonClickEvent)="self.onTitleHeaderButtonClick($event)"
+></cr-title-header>
+      <cr-panel
+        [panelTemplateType]="''well''"
+        [customClass]="''''"
+      >
+        <ng-template crPanelContent>
+          <div class="row undefined"><div class=''col-md-4''><cr-control-edit
+    [(dataValue)]="self.cache.basket.name"
+    (dataValueChange)="self.isDisableAutoChangeName = true"
+    [validator]="self.basketValidator"
+    [validationField]="''name''"
+    [elementName]="''edit:Basket_population_name''"
+    [translateKeys]="''COMMON.BASKET.BASKET_EDIT.BASKET_NAME''" 
+    [dataLabel]="''''"
+    [customClass]=''""''
+    [isDisabled]="false || !self.isBasketNameEnabled"
+></cr-control-edit></div><div class=''col-md-2''><cr-control-dropdown
+    [(dataValue)]="self.cache.basket.exclude"
+    (dataValueChange)="self.onChangeType($event)"
+    [dataDisplayField]="''name''"
+    [dataValueField]="''status''"
+    [dataSource]="self.basketTypes"
+    [elementName]="''smart-dropdown:Basket_population_type''"
+    [translateKeys]="''COMMON.BASKET.BASKET_EDIT.BASKET_TYPE''"
+    [dataLabel]="''''"
+    [class]=''""''
+></cr-control-dropdown></div><div class=''col-md-6''></div></div>
+        </ng-template>
+      </cr-panel>
+      <cr-panel
+        [panelTemplateType]="''panel''"
+        [expanded]="self.panelsViewState?.[''undefined''] ?? true"
+        (expandedChange)="self.panelStateChange(''undefined'', $event)"
+        [titleTranslateKey]="true ? ''COMMON.BASKET.BASKET_EDIT.TITLE_CREATE_ITEM_CONTENT_POPULATION'' : null"
+        [title]="true ? null : ''Item population basket''"
+        [customClass]="''''"
+        [headerClass]="''''"
+        [validator]="self.validator"
+        [validatorGroupName]="''undefined''"
+        [containFields]=''["populationBasketContentList"]''
+      >
+        <ng-template crPanelContent>
+          <div class="cr-grid-wrapper-new">
+    <cr-basket-population-edit-list
+        [dataSource]="self.cache.basket.populationBasketContentList"
+        [typeDropdownFn]="self.typeDropdownFn"
+        [cacheName]="self.cacheName + ''EditList''"
+        [isShowProperty]="self.isShowProperty"
+        [propertyDropdownFn]="self.propertyDropdownFn"
+        [valueDropdownFn]="self.valueDropdownFn"
+        (remove)="self.onRemove($event)"
+        (save)="self.onAdd($event)"
+        [class]=''undefined''
+    ></cr-basket-population-edit-list>
+</div>
+        </ng-template>
+      </cr-panel></ng-container>', '2022-12-27 14:01:20.9666667 +00:00', 5, N'N', 'baa2aba5-134c-436c-bbfa-3dbce42b0784', 1, NULL)
+INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [LanguageID], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('2d86515f-4580-ed11-835f-02f176033ddb', '91c33f40-b87f-ed11-835f-02f176033ddb', 1, N'<ng-container><cr-title-header
+    [titleTranslateKey]="''COMMON.BASKET.BASKET_EDIT.TITLE_CREATE_LOCATION_POPULATION''"
+    [title]="''''"
+    [buttonSettings]="self.titleHeaderButtonSettings"
+    (buttonClickEvent)="self.onTitleHeaderButtonClick($event)"
+></cr-title-header>
+      <cr-panel
+        [panelTemplateType]="''well''"
+        [customClass]="''''"
+      >
+        <ng-template crPanelContent>
+          <div class="row undefined"><div class=''col-md-4''><cr-control-edit
+    [(dataValue)]="self.cache.basket.name"
+    (dataValueChange)="self.isDisableAutoChangeName = true"
+    [validator]="self.basketValidator"
+    [validationField]="''name''"
+    [elementName]="''edit:Basket_population_name''"
+    [translateKeys]="''COMMON.BASKET.BASKET_EDIT.BASKET_NAME''" 
+    [dataLabel]="''''"
+    [customClass]=''""''
+    [isDisabled]="false || !self.isBasketNameEnabled"
+></cr-control-edit></div><div class=''col-md-2''><cr-control-dropdown
+    [(dataValue)]="self.cache.basket.exclude"
+    (dataValueChange)="self.onChangeType($event)"
+    [dataDisplayField]="''name''"
+    [dataValueField]="''status''"
+    [dataSource]="self.basketTypes"
+    [elementName]="''smart-dropdown:Basket_population_type''"
+    [translateKeys]="''COMMON.BASKET.BASKET_EDIT.BASKET_TYPE''"
+    [dataLabel]="''''"
+    [class]=''""''
+></cr-control-dropdown></div><div class=''col-md-6''></div></div>
+        </ng-template>
+      </cr-panel>
+      <cr-panel
+        [panelTemplateType]="''panel''"
+        [expanded]="self.panelsViewState?.[''undefined''] ?? true"
+        (expandedChange)="self.panelStateChange(''undefined'', $event)"
+        [titleTranslateKey]="true ? ''COMMON.BASKET.BASKET_EDIT.TITLE_CREATE_ITEM_CONTENT_POPULATION'' : null"
+        [title]="true ? null : ''Item population basket''"
+        [customClass]="''''"
+        [headerClass]="''''"
+        [validator]="self.validator"
+        [validatorGroupName]="''undefined''"
+        [containFields]=''["populationBasketContentList"]''
+      >
+        <ng-template crPanelContent>
+          <div class="cr-grid-wrapper-new">
+    <cr-basket-population-edit-list
+        [dataSource]="self.cache.basket.populationBasketContentList"
+        [typeDropdownFn]="self.typeDropdownFn"
+        [cacheName]="self.cacheName + ''EditList''"
+        [isShowProperty]="self.isShowProperty"
+        [propertyDropdownFn]="self.propertyDropdownFn"
+        [valueDropdownFn]="self.valueDropdownFn"
+        (remove)="self.onRemove($event)"
+        (save)="self.onAdd($event)"
+        [class]=''undefined''
+    ></cr-basket-population-edit-list>
+</div>
+        </ng-template>
+      </cr-panel></ng-container>', '2022-12-27 14:01:21.9833333 +00:00', 5, N'N', 'd8435872-f9d6-440f-b6e7-4112412fe56b', 1, NULL)
+INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [LanguageID], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('2e86515f-4580-ed11-835f-02f176033ddb', '91c33f40-b87f-ed11-835f-02f176033ddb', 2, N'<ng-container><cr-title-header
+    [titleTranslateKey]="''COMMON.BASKET.BASKET_EDIT.TITLE_CREATE_LOCATION_POPULATION''"
+    [title]="''''"
+    [buttonSettings]="self.titleHeaderButtonSettings"
+    (buttonClickEvent)="self.onTitleHeaderButtonClick($event)"
+></cr-title-header>
+      <cr-panel
+        [panelTemplateType]="''well''"
+        [customClass]="''''"
+      >
+        <ng-template crPanelContent>
+          <div class="row undefined"><div class=''col-md-4''><cr-control-edit
+    [(dataValue)]="self.cache.basket.name"
+    (dataValueChange)="self.isDisableAutoChangeName = true"
+    [validator]="self.basketValidator"
+    [validationField]="''name''"
+    [elementName]="''edit:Basket_population_name''"
+    [translateKeys]="''COMMON.BASKET.BASKET_EDIT.BASKET_NAME''" 
+    [dataLabel]="''''"
+    [customClass]=''""''
+    [isDisabled]="false || !self.isBasketNameEnabled"
+></cr-control-edit></div><div class=''col-md-2''><cr-control-dropdown
+    [(dataValue)]="self.cache.basket.exclude"
+    (dataValueChange)="self.onChangeType($event)"
+    [dataDisplayField]="''name''"
+    [dataValueField]="''status''"
+    [dataSource]="self.basketTypes"
+    [elementName]="''smart-dropdown:Basket_population_type''"
+    [translateKeys]="''COMMON.BASKET.BASKET_EDIT.BASKET_TYPE''"
+    [dataLabel]="''''"
+    [class]=''""''
+></cr-control-dropdown></div><div class=''col-md-6''></div></div>
+        </ng-template>
+      </cr-panel>
+      <cr-panel
+        [panelTemplateType]="''panel''"
+        [expanded]="self.panelsViewState?.[''undefined''] ?? true"
+        (expandedChange)="self.panelStateChange(''undefined'', $event)"
+        [titleTranslateKey]="true ? ''COMMON.BASKET.BASKET_EDIT.TITLE_CREATE_ITEM_CONTENT_POPULATION'' : null"
+        [title]="true ? null : ''Item population basket''"
+        [customClass]="''''"
+        [headerClass]="''''"
+        [validator]="self.validator"
+        [validatorGroupName]="''undefined''"
+        [containFields]=''["populationBasketContentList"]''
+      >
+        <ng-template crPanelContent>
+          <div class="cr-grid-wrapper-new">
+    <cr-basket-population-edit-list
+        [dataSource]="self.cache.basket.populationBasketContentList"
+        [typeDropdownFn]="self.typeDropdownFn"
+        [cacheName]="self.cacheName + ''EditList''"
+        [isShowProperty]="self.isShowProperty"
+        [propertyDropdownFn]="self.propertyDropdownFn"
+        [valueDropdownFn]="self.valueDropdownFn"
+        (remove)="self.onRemove($event)"
+        (save)="self.onAdd($event)"
+        [class]=''undefined''
+    ></cr-basket-population-edit-list>
+</div>
+        </ng-template>
+      </cr-panel></ng-container>', '2022-12-27 14:01:21.9833333 +00:00', 5, N'N', '0835958b-3c84-4fe7-ba21-151cd0435460', 1, NULL)
 INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [LanguageID], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('9f2eded3-4251-ed11-8e5d-4ccc6a2bb6d6', '0900aebd-4251-ed11-8e5d-4ccc6a2bb6d6', 1, N'<ng-container><cr-title-header
     [titleTranslateKey]="''PARTNER.DETAILS.GENERAL.MANAGE_MAILING_CATEGORIES''"
     [title]="''''"
@@ -4310,7 +4326,7 @@ INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [Langu
     ></cr-edit-grid-server-paging>
 </div>
         </ng-template>
-      </cr-panel></ng-container>', '2022-12-20 09:04:46.2766667 +00:00', 83, N'N', '31525eab-06bb-49fa-9310-2549685206b7', 1, NULL)
+      </cr-panel></ng-container>', '2022-12-27 14:00:54.7866667 +00:00', 87, N'N', '479fc0f5-87c2-4c02-8c0e-0ef352e39913', 1, NULL)
 INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [LanguageID], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('a02eded3-4251-ed11-8e5d-4ccc6a2bb6d6', '0900aebd-4251-ed11-8e5d-4ccc6a2bb6d6', 2, N'<ng-container><cr-title-header
     [titleTranslateKey]="''PARTNER.DETAILS.GENERAL.MANAGE_MAILING_CATEGORIES''"
     [title]="''''"
@@ -4349,7 +4365,7 @@ INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [Langu
     ></cr-edit-grid-server-paging>
 </div>
         </ng-template>
-      </cr-panel></ng-container>', '2022-12-20 09:04:46.2766667 +00:00', 83, N'N', '2b3a745d-32e8-4034-96d3-9c98bf8b44bb', 1, NULL)
+      </cr-panel></ng-container>', '2022-12-27 14:00:54.7866667 +00:00', 87, N'N', '9795ac7e-5f85-48cc-b8ec-c89d77fe587c', 1, NULL)
 INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [LanguageID], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('a12eded3-4251-ed11-8e5d-4ccc6a2bb6d6', '0a00aebd-4251-ed11-8e5d-4ccc6a2bb6d6', 1, N'<ng-container><cr-title-header
     [titleTranslateKey]="''PARTNER.DETAILS.MANAGE_GROUP.TITLE''"
     [title]="''''"
@@ -4390,7 +4406,7 @@ INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [Langu
 </div>
 
         </ng-template>
-      </cr-panel></ng-container>', '2022-12-20 09:04:46.9766667 +00:00', 79, N'N', 'a50eac55-d1b9-43f5-9ff1-318226ca31eb', 1, NULL)
+      </cr-panel></ng-container>', '2022-12-27 14:00:55.6166667 +00:00', 83, N'N', '60d37895-d5b4-46ef-9d7a-1a97ebd085e6', 1, NULL)
 INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [LanguageID], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('a22eded3-4251-ed11-8e5d-4ccc6a2bb6d6', '0a00aebd-4251-ed11-8e5d-4ccc6a2bb6d6', 2, N'<ng-container><cr-title-header
     [titleTranslateKey]="''PARTNER.DETAILS.MANAGE_GROUP.TITLE''"
     [title]="''''"
@@ -4431,7 +4447,7 @@ INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [Langu
 </div>
 
         </ng-template>
-      </cr-panel></ng-container>', '2022-12-20 09:04:46.9766667 +00:00', 79, N'N', 'f4216ccf-3f58-4609-a9db-c00e2b436d9c', 1, NULL)
+      </cr-panel></ng-container>', '2022-12-27 14:00:55.6166667 +00:00', 83, N'N', '76ee1b71-a3ce-4d59-9d3f-62f4a9109166', 1, NULL)
 INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [LanguageID], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('a32eded3-4251-ed11-8e5d-4ccc6a2bb6d6', '0b00aebd-4251-ed11-8e5d-4ccc6a2bb6d6', 1, N'<ng-container><cr-title-header
     [titleTranslateKey]="''PARTNER.DETAILS.ADDRESS.DETAILS_TITLE''"
     [title]="''''"
@@ -4561,7 +4577,7 @@ INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [Langu
     [maxlength]="20"
 ></cr-control-edit></div></div>
         </ng-template>
-      </cr-panel></ng-container>', '2022-12-20 09:04:47.6700000 +00:00', 79, N'N', '36fec9ca-353f-4f11-8eda-c13b42c50082', 1, NULL)
+      </cr-panel></ng-container>', '2022-12-27 14:00:56.5833333 +00:00', 83, N'N', 'fe969fbf-bcc6-4e9a-88c8-cec0e3630684', 1, NULL)
 INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [LanguageID], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('a42eded3-4251-ed11-8e5d-4ccc6a2bb6d6', '0b00aebd-4251-ed11-8e5d-4ccc6a2bb6d6', 2, N'<ng-container><cr-title-header
     [titleTranslateKey]="''PARTNER.DETAILS.ADDRESS.DETAILS_TITLE''"
     [title]="''''"
@@ -4691,7 +4707,7 @@ INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [Langu
     [maxlength]="20"
 ></cr-control-edit></div></div>
         </ng-template>
-      </cr-panel></ng-container>', '2022-12-20 09:04:47.6700000 +00:00', 79, N'N', '731ca526-5774-4423-b304-6a03b278cd6b', 1, NULL)
+      </cr-panel></ng-container>', '2022-12-27 14:00:56.5833333 +00:00', 83, N'N', '2cb78f87-2446-43be-ac57-4bb503572a66', 1, NULL)
 INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [LanguageID], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('a72eded3-4251-ed11-8e5d-4ccc6a2bb6d6', '0e00aebd-4251-ed11-8e5d-4ccc6a2bb6d6', 1, N'<ng-container><cr-title-header
     [titleTranslateKey]="''PARTNER.DETAILS.CONTACT_PERSON.DETAILS_TITLE''"
     [title]="''''"
@@ -4704,7 +4720,7 @@ INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [Langu
         [customClass]="''''"
       >
         <ng-template crPanelContent>
-          <div class="row undefined"><div class=''col-md-6''><div class="row undefined"><div class=''col-md-4''><cr-control-edit 
+          <div class="row "><div class=''col-md-6''><div class="row "><div class=''col-md-4''><cr-control-edit 
     [translateKeys]="''PARTNER.DETAILS.CONTACT_PERSON.CODE''" 
     [dataLabel]="''''"
     [customClass]=''""''
@@ -4731,7 +4747,7 @@ INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [Langu
     [(dataValue)]="self.contactPerson.lastName"
     [validator]="self.validator"
     [validationField]="''lastName''"
-></cr-control-edit></div></div><div class="row undefined"><div class=''col-md-4''><cr-control-edit 
+></cr-control-edit></div></div><div class="row "><div class=''col-md-4''><cr-control-edit 
     [translateKeys]="''PARTNER.DETAILS.CONTACT_PERSON.DISPLAY_NAME''" 
     [dataLabel]="''''"
     [customClass]=''""''
@@ -4750,7 +4766,7 @@ INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [Langu
     [dataTranslateKeyField]="''translateKey''"
     [(currentItemValue)]="self.contactPerson.contactPersonType"
     [getListItemsFunction]="self.loadContactPersonTypeListForDropdownFn"
-    [validator]="self.contactPersonValidator"
+    [validator]="self.validator"
     [validationField]="''contactPersonType.id''"
     [unselectedItemValue]="{id: null, translateKey: ''COMMON.NOT_SELECTED''}"
     [labelTranslateKey]="''PARTNER.DETAILS.CONTACT_PERSON.CONTACT_PERSON_TYPE''"
@@ -4766,7 +4782,7 @@ INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [Langu
     [(dataValue)]="self.contactPerson.email"
     [validator]="self.validator"
     [validationField]="''email''"
-></cr-control-edit></div></div><div class="row undefined"><div class=''col-md-4''><cr-control-edit 
+></cr-control-edit></div></div><div class="row "><div class=''col-md-4''><cr-control-edit 
     [translateKeys]="''PARTNER.DETAILS.CONTACT_PERSON.CELLULAR''" 
     [dataLabel]="''''"
     [customClass]=''""''
@@ -4787,7 +4803,7 @@ INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [Langu
     [isDisabled]="false"
     [elementName]="''edit:Partner_details.Contact_person_passport''"
     [(dataValue)]="self.contactPerson.passport"
-></cr-control-edit></div></div><div class="row undefined"><div class=''col-md-4''><cr-control-edit 
+></cr-control-edit></div></div><div class="row "><div class=''col-md-4''><cr-control-edit 
     [translateKeys]="''PARTNER.DETAILS.CONTACT_PERSON.FAX''" 
     [dataLabel]="''''"
     [customClass]=''""''
@@ -4808,7 +4824,7 @@ INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [Langu
     [isDisabled]="false"
     [elementName]="''edit:Partner_details.Contact_person_second_phone''"
     [(dataValue)]="self.contactPerson.phone2"
-></cr-control-edit></div></div><div class="row undefined"><div class=''col-md-4''><cr-checkbox-control
+></cr-control-edit></div></div><div class="row "><div class=''col-md-4''><cr-checkbox-control
     [dataLabel]="''''"
     [translateKeys]="''PARTNER.DETAILS.CONTACT_PERSON.PARTNER_CLUB''"
     [isDisabled]="false"
@@ -4818,10 +4834,10 @@ INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [Langu
 ></cr-checkbox-control></div><div class=''col-md-8''><cr-dropdown-smart-control
     [elementName]="''smart-dropdown:Partner_details.Contact_person_partner''"
     [permissionSettings]="{
-        isAccessRead: self.authService.endpoints[self.EndpointName.partner_id_dropdown_GET]?.isAccessGranted,
-        isAccessEdit: self.authService.endpoints[self.EndpointName.partner_dropdown_GET]?.isAccessGranted && (
-            self.isNew ? self.authService.endpoints[self.EndpointName.partner_POST]?.isAccessGranted :
-            self.authService.endpoints[self.EndpointName.partner_id_PUT]?.isAccessGranted)
+        isAccessRead: (self.EndpointName.partner_id_dropdown_GET | endpointAccessGrantedPipe),
+        isAccessEdit: (self.EndpointName.partner_dropdown_GET | endpointAccessGrantedPipe) && (
+            self.isNew ? (self.EndpointName.partner_POST | endpointAccessGrantedPipe) :
+            (self.EndpointName.partner_id_PUT | endpointAccessGrantedPipe))
     }"
     [dataCacheName]="''ContactPersonListDropdownCache''"
     [(value)]="self.contactPerson.selfPartnerId"
@@ -4838,7 +4854,7 @@ INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [Langu
     [label]="''''"
     [class]=''""''
 ></cr-dropdown-smart-control>
-</div></div><div class="row undefined"><div class=''col-md-6''><cr-control-datepicker
+</div></div><div class="row "><div class=''col-md-6''><cr-control-datepicker
     [elementName]="''date:Partner_details.Contact_person_registration_date''"
     [(dataValue)]="self.contactPerson.registrationDate"
     [dataLabel]="''''"
@@ -4848,10 +4864,9 @@ INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [Langu
 ></cr-control-datepicker></div><div class=''col-md-6''><cr-dropdown-smart-control
     [elementName]="''smart-dropdown:Partner_details.Contact_person_creation_store''"
     [permissionSettings]="{
-        isAccessRead: self.authService.endpoints[self.EndpointName.partner__location_objectId_dropdown_GET]?.isAccessGranted,
-        isAccessEdit: self.authService.endpoints[self.EndpointName.partner__location_dropdown_GET]?.isAccessGranted && (
-            self.isNew ? self.authService.endpoints[self.EndpointName.partner_POST]?.isAccessGranted :
-            self.authService.endpoints[self.EndpointName.partner_id_PUT]?.isAccessGranted)
+        isAccessRead: (self.EndpointName.partner__location_objectId_dropdown_GET | endpointAccessGrantedPipe),
+        isAccessEdit: (self.EndpointName.partner__location_dropdown_GET | endpointAccessGrantedPipe) && (
+            self.isNew ? (self.EndpointName.partner_POST | endpointAccessGrantedPipe) : (self.EndpointName.partner_id_PUT | endpointAccessGrantedPipe))
     }"
     [dataCacheName]="''ContactPersonCreationStoreDropdownCache''"
     [(value)]="self.contactPerson.creationStoreId"
@@ -4868,7 +4883,7 @@ INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [Langu
     [label]="''''"
     [class]=''""''
 ></cr-dropdown-smart-control>
-</div></div><div class="row undefined"><div class=''col-md-12''><cr-control-edit 
+</div></div><div class="row "><div class=''col-md-12''><cr-control-edit 
     [translateKeys]="''PARTNER.DETAILS.CONTACT_PERSON.REMARK''" 
     [dataLabel]="''''"
     [customClass]=''""''
@@ -4890,10 +4905,8 @@ INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [Langu
       >
         <ng-template crPanelContent>
           <cr-partner-mailing-category-control
-    [editable]="true && (self.isNew ? 
-            self.authService.getEndpointAccessGranted(self.EndpointName.partner_POST) :
-            self.authService.getEndpointAccessGranted(self.EndpointName.partner_id_PUT))"
-
+    [editable]="self.isNew ? (self.EndpointName.partner_POST | endpointAccessGrantedPipe) :
+        (self.EndpointName.partner_id_PUT | endpointAccessGrantedPipe)"
     [partnerId]="self.contactPerson.id"
     [(selectedMailingCategory)]="self.contactPerson.mailingCategories"
     (editClickEvent)="self.onEditMailingCategory()"
@@ -4903,7 +4916,7 @@ INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [Langu
         </ng-template>
       </cr-panel></div></div>
         </ng-template>
-      </cr-panel></ng-container>', '2022-12-20 09:04:48.3900000 +00:00', 48, N'N', 'dd3731c6-697a-4b3d-80aa-7675683f38ab', 1, NULL)
+      </cr-panel></ng-container>', '2022-12-27 14:00:57.7166667 +00:00', 54, N'N', 'adef105f-50f6-4e3d-aefa-a83977fc8bfc', 1, NULL)
 INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [LanguageID], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('a82eded3-4251-ed11-8e5d-4ccc6a2bb6d6', '0e00aebd-4251-ed11-8e5d-4ccc6a2bb6d6', 2, N'<ng-container><cr-title-header
     [titleTranslateKey]="''PARTNER.DETAILS.CONTACT_PERSON.DETAILS_TITLE''"
     [title]="''''"
@@ -4916,7 +4929,7 @@ INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [Langu
         [customClass]="''''"
       >
         <ng-template crPanelContent>
-          <div class="row undefined"><div class=''col-md-6''><div class="row undefined"><div class=''col-md-4''><cr-control-edit 
+          <div class="row "><div class=''col-md-6''><div class="row "><div class=''col-md-4''><cr-control-edit 
     [translateKeys]="''PARTNER.DETAILS.CONTACT_PERSON.CODE''" 
     [dataLabel]="''''"
     [customClass]=''""''
@@ -4943,7 +4956,7 @@ INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [Langu
     [(dataValue)]="self.contactPerson.lastName"
     [validator]="self.validator"
     [validationField]="''lastName''"
-></cr-control-edit></div></div><div class="row undefined"><div class=''col-md-4''><cr-control-edit 
+></cr-control-edit></div></div><div class="row "><div class=''col-md-4''><cr-control-edit 
     [translateKeys]="''PARTNER.DETAILS.CONTACT_PERSON.DISPLAY_NAME''" 
     [dataLabel]="''''"
     [customClass]=''""''
@@ -4962,7 +4975,7 @@ INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [Langu
     [dataTranslateKeyField]="''translateKey''"
     [(currentItemValue)]="self.contactPerson.contactPersonType"
     [getListItemsFunction]="self.loadContactPersonTypeListForDropdownFn"
-    [validator]="self.contactPersonValidator"
+    [validator]="self.validator"
     [validationField]="''contactPersonType.id''"
     [unselectedItemValue]="{id: null, translateKey: ''COMMON.NOT_SELECTED''}"
     [labelTranslateKey]="''PARTNER.DETAILS.CONTACT_PERSON.CONTACT_PERSON_TYPE''"
@@ -4978,7 +4991,7 @@ INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [Langu
     [(dataValue)]="self.contactPerson.email"
     [validator]="self.validator"
     [validationField]="''email''"
-></cr-control-edit></div></div><div class="row undefined"><div class=''col-md-4''><cr-control-edit 
+></cr-control-edit></div></div><div class="row "><div class=''col-md-4''><cr-control-edit 
     [translateKeys]="''PARTNER.DETAILS.CONTACT_PERSON.CELLULAR''" 
     [dataLabel]="''''"
     [customClass]=''""''
@@ -4999,7 +5012,7 @@ INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [Langu
     [isDisabled]="false"
     [elementName]="''edit:Partner_details.Contact_person_passport''"
     [(dataValue)]="self.contactPerson.passport"
-></cr-control-edit></div></div><div class="row undefined"><div class=''col-md-4''><cr-control-edit 
+></cr-control-edit></div></div><div class="row "><div class=''col-md-4''><cr-control-edit 
     [translateKeys]="''PARTNER.DETAILS.CONTACT_PERSON.FAX''" 
     [dataLabel]="''''"
     [customClass]=''""''
@@ -5020,7 +5033,7 @@ INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [Langu
     [isDisabled]="false"
     [elementName]="''edit:Partner_details.Contact_person_second_phone''"
     [(dataValue)]="self.contactPerson.phone2"
-></cr-control-edit></div></div><div class="row undefined"><div class=''col-md-4''><cr-checkbox-control
+></cr-control-edit></div></div><div class="row "><div class=''col-md-4''><cr-checkbox-control
     [dataLabel]="''''"
     [translateKeys]="''PARTNER.DETAILS.CONTACT_PERSON.PARTNER_CLUB''"
     [isDisabled]="false"
@@ -5030,10 +5043,10 @@ INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [Langu
 ></cr-checkbox-control></div><div class=''col-md-8''><cr-dropdown-smart-control
     [elementName]="''smart-dropdown:Partner_details.Contact_person_partner''"
     [permissionSettings]="{
-        isAccessRead: self.authService.endpoints[self.EndpointName.partner_id_dropdown_GET]?.isAccessGranted,
-        isAccessEdit: self.authService.endpoints[self.EndpointName.partner_dropdown_GET]?.isAccessGranted && (
-            self.isNew ? self.authService.endpoints[self.EndpointName.partner_POST]?.isAccessGranted :
-            self.authService.endpoints[self.EndpointName.partner_id_PUT]?.isAccessGranted)
+        isAccessRead: (self.EndpointName.partner_id_dropdown_GET | endpointAccessGrantedPipe),
+        isAccessEdit: (self.EndpointName.partner_dropdown_GET | endpointAccessGrantedPipe) && (
+            self.isNew ? (self.EndpointName.partner_POST | endpointAccessGrantedPipe) :
+            (self.EndpointName.partner_id_PUT | endpointAccessGrantedPipe))
     }"
     [dataCacheName]="''ContactPersonListDropdownCache''"
     [(value)]="self.contactPerson.selfPartnerId"
@@ -5050,7 +5063,7 @@ INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [Langu
     [label]="''''"
     [class]=''""''
 ></cr-dropdown-smart-control>
-</div></div><div class="row undefined"><div class=''col-md-6''><cr-control-datepicker
+</div></div><div class="row "><div class=''col-md-6''><cr-control-datepicker
     [elementName]="''date:Partner_details.Contact_person_registration_date''"
     [(dataValue)]="self.contactPerson.registrationDate"
     [dataLabel]="''''"
@@ -5060,10 +5073,9 @@ INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [Langu
 ></cr-control-datepicker></div><div class=''col-md-6''><cr-dropdown-smart-control
     [elementName]="''smart-dropdown:Partner_details.Contact_person_creation_store''"
     [permissionSettings]="{
-        isAccessRead: self.authService.endpoints[self.EndpointName.partner__location_objectId_dropdown_GET]?.isAccessGranted,
-        isAccessEdit: self.authService.endpoints[self.EndpointName.partner__location_dropdown_GET]?.isAccessGranted && (
-            self.isNew ? self.authService.endpoints[self.EndpointName.partner_POST]?.isAccessGranted :
-            self.authService.endpoints[self.EndpointName.partner_id_PUT]?.isAccessGranted)
+        isAccessRead: (self.EndpointName.partner__location_objectId_dropdown_GET | endpointAccessGrantedPipe),
+        isAccessEdit: (self.EndpointName.partner__location_dropdown_GET | endpointAccessGrantedPipe) && (
+            self.isNew ? (self.EndpointName.partner_POST | endpointAccessGrantedPipe) : (self.EndpointName.partner_id_PUT | endpointAccessGrantedPipe))
     }"
     [dataCacheName]="''ContactPersonCreationStoreDropdownCache''"
     [(value)]="self.contactPerson.creationStoreId"
@@ -5080,7 +5092,7 @@ INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [Langu
     [label]="''''"
     [class]=''""''
 ></cr-dropdown-smart-control>
-</div></div><div class="row undefined"><div class=''col-md-12''><cr-control-edit 
+</div></div><div class="row "><div class=''col-md-12''><cr-control-edit 
     [translateKeys]="''PARTNER.DETAILS.CONTACT_PERSON.REMARK''" 
     [dataLabel]="''''"
     [customClass]=''""''
@@ -5102,10 +5114,8 @@ INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [Langu
       >
         <ng-template crPanelContent>
           <cr-partner-mailing-category-control
-    [editable]="true && (self.isNew ? 
-            self.authService.getEndpointAccessGranted(self.EndpointName.partner_POST) :
-            self.authService.getEndpointAccessGranted(self.EndpointName.partner_id_PUT))"
-
+    [editable]="self.isNew ? (self.EndpointName.partner_POST | endpointAccessGrantedPipe) :
+        (self.EndpointName.partner_id_PUT | endpointAccessGrantedPipe)"
     [partnerId]="self.contactPerson.id"
     [(selectedMailingCategory)]="self.contactPerson.mailingCategories"
     (editClickEvent)="self.onEditMailingCategory()"
@@ -5115,7 +5125,7 @@ INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [Langu
         </ng-template>
       </cr-panel></div></div>
         </ng-template>
-      </cr-panel></ng-container>', '2022-12-20 09:04:48.3900000 +00:00', 48, N'N', '847ec37e-a047-4d5d-832a-b72be243cd94', 1, NULL)
+      </cr-panel></ng-container>', '2022-12-27 14:00:57.7166667 +00:00', 54, N'N', 'cf67b357-4bad-47d3-9a61-8f4fe6aaeed0', 1, NULL)
 INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [LanguageID], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('e3f251ee-575c-ed11-8e5e-4ccc6a2bb6d6', '7bcdf1fd-535c-ed11-8e5e-4ccc6a2bb6d6', 1, N'<ng-container><cr-title-header
     [titleTranslateKey]="''PARTNER.DETAILS.ADDRESS.DETAILS_TITLE''"
     [title]="''''"
@@ -5245,7 +5255,7 @@ INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [Langu
     [maxlength]="20"
 ></cr-control-edit></div></div>
         </ng-template>
-      </cr-panel></ng-container>', '2022-12-20 09:04:49.0833333 +00:00', 19, N'N', '23fc1b2b-c717-4244-a3ab-fd73a8dbecff', 1, NULL)
+      </cr-panel></ng-container>', '2022-12-27 14:00:58.7400000 +00:00', 23, N'N', '2d9eaa44-046a-445b-8477-4395c1b63e22', 1, NULL)
 INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [LanguageID], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('e4f251ee-575c-ed11-8e5e-4ccc6a2bb6d6', '7bcdf1fd-535c-ed11-8e5e-4ccc6a2bb6d6', 2, N'<ng-container><cr-title-header
     [titleTranslateKey]="''PARTNER.DETAILS.ADDRESS.DETAILS_TITLE''"
     [title]="''''"
@@ -5375,7 +5385,7 @@ INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [Langu
     [maxlength]="20"
 ></cr-control-edit></div></div>
         </ng-template>
-      </cr-panel></ng-container>', '2022-12-20 09:04:49.0833333 +00:00', 19, N'N', '5c4822f9-eae6-40c0-b418-e26b6485577a', 1, NULL)
+      </cr-panel></ng-container>', '2022-12-27 14:00:58.7400000 +00:00', 23, N'N', 'c7ea22d0-d173-4fe8-9a26-b3e2e77bc474', 1, NULL)
 INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [LanguageID], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('636da689-625c-ed11-8e5e-4ccc6a2bb6d6', 'bbd312cc-5b5c-ed11-8e5e-4ccc6a2bb6d6', 1, N'<ng-container><cr-title-header
     [titleTranslateKey]="''PARTNER.DETAILS.CONTACT_PERSON.DETAILS_TITLE''"
     [title]="''''"
@@ -5388,7 +5398,7 @@ INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [Langu
         [customClass]="''''"
       >
         <ng-template crPanelContent>
-          <div class="row undefined"><div class=''col-md-6''><div class="row undefined"><div class=''col-md-4''><cr-control-edit 
+          <div class="row "><div class=''col-md-6''><div class="row "><div class=''col-md-4''><cr-control-edit 
     [translateKeys]="''PARTNER.DETAILS.CONTACT_PERSON.CODE''" 
     [dataLabel]="''''"
     [customClass]=''""''
@@ -5415,7 +5425,7 @@ INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [Langu
     [(dataValue)]="self.contactPerson.lastName"
     [validator]="self.validator"
     [validationField]="''lastName''"
-></cr-control-edit></div></div><div class="row undefined"><div class=''col-md-4''><cr-control-edit 
+></cr-control-edit></div></div><div class="row "><div class=''col-md-4''><cr-control-edit 
     [translateKeys]="''PARTNER.DETAILS.CONTACT_PERSON.DISPLAY_NAME''" 
     [dataLabel]="''''"
     [customClass]=''""''
@@ -5434,7 +5444,7 @@ INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [Langu
     [dataTranslateKeyField]="''translateKey''"
     [(currentItemValue)]="self.contactPerson.contactPersonType"
     [getListItemsFunction]="self.loadContactPersonTypeListForDropdownFn"
-    [validator]="self.contactPersonValidator"
+    [validator]="self.validator"
     [validationField]="''contactPersonType.id''"
     [unselectedItemValue]="{id: null, translateKey: ''COMMON.NOT_SELECTED''}"
     [labelTranslateKey]="''PARTNER.DETAILS.CONTACT_PERSON.CONTACT_PERSON_TYPE''"
@@ -5450,7 +5460,7 @@ INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [Langu
     [(dataValue)]="self.contactPerson.email"
     [validator]="self.validator"
     [validationField]="''email''"
-></cr-control-edit></div></div><div class="row undefined"><div class=''col-md-4''><cr-control-edit 
+></cr-control-edit></div></div><div class="row "><div class=''col-md-4''><cr-control-edit 
     [translateKeys]="''PARTNER.DETAILS.CONTACT_PERSON.CELLULAR''" 
     [dataLabel]="''''"
     [customClass]=''""''
@@ -5471,7 +5481,7 @@ INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [Langu
     [isDisabled]="false"
     [elementName]="''edit:Partner_details.Contact_person_passport''"
     [(dataValue)]="self.contactPerson.passport"
-></cr-control-edit></div></div><div class="row undefined"><div class=''col-md-4''><cr-control-edit 
+></cr-control-edit></div></div><div class="row "><div class=''col-md-4''><cr-control-edit 
     [translateKeys]="''PARTNER.DETAILS.CONTACT_PERSON.FAX''" 
     [dataLabel]="''''"
     [customClass]=''""''
@@ -5492,7 +5502,7 @@ INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [Langu
     [isDisabled]="false"
     [elementName]="''edit:Partner_details.Contact_person_second_phone''"
     [(dataValue)]="self.contactPerson.phone2"
-></cr-control-edit></div></div><div class="row undefined"><div class=''col-md-4''><cr-checkbox-control
+></cr-control-edit></div></div><div class="row "><div class=''col-md-4''><cr-checkbox-control
     [dataLabel]="''''"
     [translateKeys]="''PARTNER.DETAILS.CONTACT_PERSON.PARTNER_CLUB''"
     [isDisabled]="false"
@@ -5502,10 +5512,10 @@ INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [Langu
 ></cr-checkbox-control></div><div class=''col-md-8''><cr-dropdown-smart-control
     [elementName]="''smart-dropdown:Partner_details.Contact_person_partner''"
     [permissionSettings]="{
-        isAccessRead: self.authService.endpoints[self.EndpointName.partner_id_dropdown_GET]?.isAccessGranted,
-        isAccessEdit: self.authService.endpoints[self.EndpointName.partner_dropdown_GET]?.isAccessGranted && (
-            self.isNew ? self.authService.endpoints[self.EndpointName.partner_POST]?.isAccessGranted :
-            self.authService.endpoints[self.EndpointName.partner_id_PUT]?.isAccessGranted)
+        isAccessRead: (self.EndpointName.partner_id_dropdown_GET | endpointAccessGrantedPipe),
+        isAccessEdit: (self.EndpointName.partner_dropdown_GET | endpointAccessGrantedPipe) && (
+            self.isNew ? (self.EndpointName.partner_POST | endpointAccessGrantedPipe) :
+            (self.EndpointName.partner_id_PUT | endpointAccessGrantedPipe))
     }"
     [dataCacheName]="''ContactPersonListDropdownCache''"
     [(value)]="self.contactPerson.selfPartnerId"
@@ -5522,7 +5532,7 @@ INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [Langu
     [label]="''''"
     [class]=''""''
 ></cr-dropdown-smart-control>
-</div></div><div class="row undefined"><div class=''col-md-6''><cr-control-datepicker
+</div></div><div class="row "><div class=''col-md-6''><cr-control-datepicker
     [elementName]="''date:Partner_details.Contact_person_registration_date''"
     [(dataValue)]="self.contactPerson.registrationDate"
     [dataLabel]="''''"
@@ -5532,10 +5542,9 @@ INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [Langu
 ></cr-control-datepicker></div><div class=''col-md-6''><cr-dropdown-smart-control
     [elementName]="''smart-dropdown:Partner_details.Contact_person_creation_store''"
     [permissionSettings]="{
-        isAccessRead: self.authService.endpoints[self.EndpointName.partner__location_objectId_dropdown_GET]?.isAccessGranted,
-        isAccessEdit: self.authService.endpoints[self.EndpointName.partner__location_dropdown_GET]?.isAccessGranted && (
-            self.isNew ? self.authService.endpoints[self.EndpointName.partner_POST]?.isAccessGranted :
-            self.authService.endpoints[self.EndpointName.partner_id_PUT]?.isAccessGranted)
+        isAccessRead: (self.EndpointName.partner__location_objectId_dropdown_GET | endpointAccessGrantedPipe),
+        isAccessEdit: (self.EndpointName.partner__location_dropdown_GET | endpointAccessGrantedPipe) && (
+            self.isNew ? (self.EndpointName.partner_POST | endpointAccessGrantedPipe) : (self.EndpointName.partner_id_PUT | endpointAccessGrantedPipe))
     }"
     [dataCacheName]="''ContactPersonCreationStoreDropdownCache''"
     [(value)]="self.contactPerson.creationStoreId"
@@ -5552,7 +5561,7 @@ INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [Langu
     [label]="''''"
     [class]=''""''
 ></cr-dropdown-smart-control>
-</div></div><div class="row undefined"><div class=''col-md-12''><cr-control-edit 
+</div></div><div class="row "><div class=''col-md-12''><cr-control-edit 
     [translateKeys]="''PARTNER.DETAILS.CONTACT_PERSON.REMARK''" 
     [dataLabel]="''''"
     [customClass]=''""''
@@ -5574,10 +5583,8 @@ INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [Langu
       >
         <ng-template crPanelContent>
           <cr-partner-mailing-category-control
-    [editable]="true && (self.isNew ? 
-            self.authService.getEndpointAccessGranted(self.EndpointName.partner_POST) :
-            self.authService.getEndpointAccessGranted(self.EndpointName.partner_id_PUT))"
-
+    [editable]="self.isNew ? (self.EndpointName.partner_POST | endpointAccessGrantedPipe) :
+        (self.EndpointName.partner_id_PUT | endpointAccessGrantedPipe)"
     [partnerId]="self.contactPerson.id"
     [(selectedMailingCategory)]="self.contactPerson.mailingCategories"
     (editClickEvent)="self.onEditMailingCategory()"
@@ -5587,7 +5594,7 @@ INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [Langu
         </ng-template>
       </cr-panel></div></div>
         </ng-template>
-      </cr-panel></ng-container>', '2022-12-20 09:04:49.8000000 +00:00', 11, N'N', 'ab7e29d5-7cce-4a4b-a156-e4de3f9a494b', 1, NULL)
+      </cr-panel></ng-container>', '2022-12-27 14:01:00.1800000 +00:00', 16, N'N', '1480e378-492f-4197-9e27-636fd4cc842d', 1, NULL)
 INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [LanguageID], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('646da689-625c-ed11-8e5e-4ccc6a2bb6d6', 'bbd312cc-5b5c-ed11-8e5e-4ccc6a2bb6d6', 2, N'<ng-container><cr-title-header
     [titleTranslateKey]="''PARTNER.DETAILS.CONTACT_PERSON.DETAILS_TITLE''"
     [title]="''''"
@@ -5600,7 +5607,7 @@ INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [Langu
         [customClass]="''''"
       >
         <ng-template crPanelContent>
-          <div class="row undefined"><div class=''col-md-6''><div class="row undefined"><div class=''col-md-4''><cr-control-edit 
+          <div class="row "><div class=''col-md-6''><div class="row "><div class=''col-md-4''><cr-control-edit 
     [translateKeys]="''PARTNER.DETAILS.CONTACT_PERSON.CODE''" 
     [dataLabel]="''''"
     [customClass]=''""''
@@ -5627,7 +5634,7 @@ INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [Langu
     [(dataValue)]="self.contactPerson.lastName"
     [validator]="self.validator"
     [validationField]="''lastName''"
-></cr-control-edit></div></div><div class="row undefined"><div class=''col-md-4''><cr-control-edit 
+></cr-control-edit></div></div><div class="row "><div class=''col-md-4''><cr-control-edit 
     [translateKeys]="''PARTNER.DETAILS.CONTACT_PERSON.DISPLAY_NAME''" 
     [dataLabel]="''''"
     [customClass]=''""''
@@ -5646,7 +5653,7 @@ INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [Langu
     [dataTranslateKeyField]="''translateKey''"
     [(currentItemValue)]="self.contactPerson.contactPersonType"
     [getListItemsFunction]="self.loadContactPersonTypeListForDropdownFn"
-    [validator]="self.contactPersonValidator"
+    [validator]="self.validator"
     [validationField]="''contactPersonType.id''"
     [unselectedItemValue]="{id: null, translateKey: ''COMMON.NOT_SELECTED''}"
     [labelTranslateKey]="''PARTNER.DETAILS.CONTACT_PERSON.CONTACT_PERSON_TYPE''"
@@ -5662,7 +5669,7 @@ INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [Langu
     [(dataValue)]="self.contactPerson.email"
     [validator]="self.validator"
     [validationField]="''email''"
-></cr-control-edit></div></div><div class="row undefined"><div class=''col-md-4''><cr-control-edit 
+></cr-control-edit></div></div><div class="row "><div class=''col-md-4''><cr-control-edit 
     [translateKeys]="''PARTNER.DETAILS.CONTACT_PERSON.CELLULAR''" 
     [dataLabel]="''''"
     [customClass]=''""''
@@ -5683,7 +5690,7 @@ INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [Langu
     [isDisabled]="false"
     [elementName]="''edit:Partner_details.Contact_person_passport''"
     [(dataValue)]="self.contactPerson.passport"
-></cr-control-edit></div></div><div class="row undefined"><div class=''col-md-4''><cr-control-edit 
+></cr-control-edit></div></div><div class="row "><div class=''col-md-4''><cr-control-edit 
     [translateKeys]="''PARTNER.DETAILS.CONTACT_PERSON.FAX''" 
     [dataLabel]="''''"
     [customClass]=''""''
@@ -5704,7 +5711,7 @@ INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [Langu
     [isDisabled]="false"
     [elementName]="''edit:Partner_details.Contact_person_second_phone''"
     [(dataValue)]="self.contactPerson.phone2"
-></cr-control-edit></div></div><div class="row undefined"><div class=''col-md-4''><cr-checkbox-control
+></cr-control-edit></div></div><div class="row "><div class=''col-md-4''><cr-checkbox-control
     [dataLabel]="''''"
     [translateKeys]="''PARTNER.DETAILS.CONTACT_PERSON.PARTNER_CLUB''"
     [isDisabled]="false"
@@ -5714,10 +5721,10 @@ INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [Langu
 ></cr-checkbox-control></div><div class=''col-md-8''><cr-dropdown-smart-control
     [elementName]="''smart-dropdown:Partner_details.Contact_person_partner''"
     [permissionSettings]="{
-        isAccessRead: self.authService.endpoints[self.EndpointName.partner_id_dropdown_GET]?.isAccessGranted,
-        isAccessEdit: self.authService.endpoints[self.EndpointName.partner_dropdown_GET]?.isAccessGranted && (
-            self.isNew ? self.authService.endpoints[self.EndpointName.partner_POST]?.isAccessGranted :
-            self.authService.endpoints[self.EndpointName.partner_id_PUT]?.isAccessGranted)
+        isAccessRead: (self.EndpointName.partner_id_dropdown_GET | endpointAccessGrantedPipe),
+        isAccessEdit: (self.EndpointName.partner_dropdown_GET | endpointAccessGrantedPipe) && (
+            self.isNew ? (self.EndpointName.partner_POST | endpointAccessGrantedPipe) :
+            (self.EndpointName.partner_id_PUT | endpointAccessGrantedPipe))
     }"
     [dataCacheName]="''ContactPersonListDropdownCache''"
     [(value)]="self.contactPerson.selfPartnerId"
@@ -5734,7 +5741,7 @@ INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [Langu
     [label]="''''"
     [class]=''""''
 ></cr-dropdown-smart-control>
-</div></div><div class="row undefined"><div class=''col-md-6''><cr-control-datepicker
+</div></div><div class="row "><div class=''col-md-6''><cr-control-datepicker
     [elementName]="''date:Partner_details.Contact_person_registration_date''"
     [(dataValue)]="self.contactPerson.registrationDate"
     [dataLabel]="''''"
@@ -5744,10 +5751,9 @@ INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [Langu
 ></cr-control-datepicker></div><div class=''col-md-6''><cr-dropdown-smart-control
     [elementName]="''smart-dropdown:Partner_details.Contact_person_creation_store''"
     [permissionSettings]="{
-        isAccessRead: self.authService.endpoints[self.EndpointName.partner__location_objectId_dropdown_GET]?.isAccessGranted,
-        isAccessEdit: self.authService.endpoints[self.EndpointName.partner__location_dropdown_GET]?.isAccessGranted && (
-            self.isNew ? self.authService.endpoints[self.EndpointName.partner_POST]?.isAccessGranted :
-            self.authService.endpoints[self.EndpointName.partner_id_PUT]?.isAccessGranted)
+        isAccessRead: (self.EndpointName.partner__location_objectId_dropdown_GET | endpointAccessGrantedPipe),
+        isAccessEdit: (self.EndpointName.partner__location_dropdown_GET | endpointAccessGrantedPipe) && (
+            self.isNew ? (self.EndpointName.partner_POST | endpointAccessGrantedPipe) : (self.EndpointName.partner_id_PUT | endpointAccessGrantedPipe))
     }"
     [dataCacheName]="''ContactPersonCreationStoreDropdownCache''"
     [(value)]="self.contactPerson.creationStoreId"
@@ -5764,7 +5770,7 @@ INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [Langu
     [label]="''''"
     [class]=''""''
 ></cr-dropdown-smart-control>
-</div></div><div class="row undefined"><div class=''col-md-12''><cr-control-edit 
+</div></div><div class="row "><div class=''col-md-12''><cr-control-edit 
     [translateKeys]="''PARTNER.DETAILS.CONTACT_PERSON.REMARK''" 
     [dataLabel]="''''"
     [customClass]=''""''
@@ -5786,10 +5792,8 @@ INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [Langu
       >
         <ng-template crPanelContent>
           <cr-partner-mailing-category-control
-    [editable]="true && (self.isNew ? 
-            self.authService.getEndpointAccessGranted(self.EndpointName.partner_POST) :
-            self.authService.getEndpointAccessGranted(self.EndpointName.partner_id_PUT))"
-
+    [editable]="self.isNew ? (self.EndpointName.partner_POST | endpointAccessGrantedPipe) :
+        (self.EndpointName.partner_id_PUT | endpointAccessGrantedPipe)"
     [partnerId]="self.contactPerson.id"
     [(selectedMailingCategory)]="self.contactPerson.mailingCategories"
     (editClickEvent)="self.onEditMailingCategory()"
@@ -5799,4 +5803,4 @@ INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [Langu
         </ng-template>
       </cr-panel></div></div>
         </ng-template>
-      </cr-panel></ng-container>', '2022-12-20 09:04:49.8000000 +00:00', 11, N'N', 'fabdf9f5-7db8-40ef-8eab-c936d10b92c0', 1, NULL)
+      </cr-panel></ng-container>', '2022-12-27 14:01:00.1800000 +00:00', 16, N'N', '6911a0e5-c5ff-4605-b735-71bdf6775bd4', 1, NULL)
