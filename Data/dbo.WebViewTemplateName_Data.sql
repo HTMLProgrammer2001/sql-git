@@ -1,4 +1,4 @@
-INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID], [BookmarkName], [BookmarkDescription], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('c3beb4c4-9a86-ed11-8360-02f176033ddb', 'c2beb4c4-9a86-ed11-8360-02f176033ddb', 1, N'', N'', N'
+INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID], [BookmarkName], [BookmarkDescription], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('29ef4390-6d87-ed11-8360-02f176033ddb', '28ef4390-6d87-ed11-8360-02f176033ddb', 1, NULL, NULL, N'
         <div class=''cr-popup-content-wrapper'' [class.cr-popup-is-shown]=''self.popupTab.tabs.length > 1''>
           <cr-popup-tabs
             [popupTabs]=''self.popupTab.tabs''
@@ -14,17 +14,78 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
       <ng-template [ngIf]="self.popupTab.tabs[self.popupTab.activeTabIndex].type == ''general'' && self.popupTab.activeTabIndex == i">
         <div *ngIf=''self.popupTab.activeTabIndex != self.popupTab.tabs.length - 1'' class=''cr-popup-blocker''></div>
         <cr-title-header
-    [titleTranslateKey]="''MANAGE_DATA_COLLECTIONS.SEASON.TITLE''"
+    [titleTranslateKey]="''MANAGE_DATA_COLLECTIONS.LIST.TITLE''"
     [title]="''''"
     (buttonClickEvent)="self.onTitleButtonClick($event)"
     [buttonSettings]="self.titleHeaderButtonSettings"
 ></cr-title-header>
       <cr-panel
+        [panelTemplateType]="''collapsible-panel''"
+        [expanded]="self.panelsViewState?.[''filter''] ?? true"
+        (expandedChange)="self.panelStateChange(''filter'', $event)"
+        [titleTranslateKey]="true ? ''MANAGE_DATA_COLLECTIONS.FILTER.FILTER'' : null"
+        [title]="true ? null : ''סינון''"
+        [customClass]="''''"
+        [headerClass]="''''"
+        [validator]="self.validator"
+        [validatorGroupName]="''filter''"
+        [containFields]=''[]''
+      >
+        <ng-template crPanelContent>
+          <div class="row "><div class=''col-lg-2''><cr-control-edit 
+    [translateKeys]="''MANAGE_DATA_COLLECTIONS.FILTER.CODE''" 
+    [dataLabel]="''''"
+    [customClass]=''""''
+    [isDisabled]="false"
+    [elementName]="''edit:Collection_list.Code''"
+    [(dataValue)]="self.cache.filter.code"
+></cr-control-edit></div><div class=''col-lg-2''><cr-control-edit 
+    [translateKeys]="''MANAGE_DATA_COLLECTIONS.FILTER.DISPLAY_NAME''" 
+    [dataLabel]="''''"
+    [customClass]=''""''
+    [isDisabled]="false"
+    [elementName]="''edit:Collection_list.Display_name''"
+    [(dataValue)]="self.cache.filter.displayName"
+></cr-control-edit></div><div class=''col-lg-2''><cr-control-edit 
+    [translateKeys]="''MANAGE_DATA_COLLECTIONS.FILTER.PRINT_NAME''" 
+    [dataLabel]="''''"
+    [customClass]=''""''
+    [isDisabled]="false"
+    [elementName]="''edit:Collection_list.Print_name''"
+    [(dataValue)]="self.cache.filter.printName"
+></cr-control-edit></div><div class=''col-lg-2''><cr-control-datepicker
+    [elementName]="''datepicker:Collection_list.Start_date''"
+    [(dataValue)]="self.cache.filter.startDate"
+    [dataLabel]="''''"
+    [translateKeys]="''MANAGE_DATA_COLLECTIONS.FILTER.START_DATE''"
+    [class]=''""'' 
+    [isDisabled]="false"
+></cr-control-datepicker></div><div class=''col-lg-2''><cr-checkbox-control
+    [dataLabel]="''''"
+    [translateKeys]="''MANAGE_DATA_COLLECTIONS.FILTER.SHOW_ACTIVE''"
+    [isDisabled]="false"
+    [class]=''""''
+    [elementName]="''checkbox:Collection_list.Active''"
+    [(dataValue)]="self.cache.filter.active"
+></cr-checkbox-control></div><div class=''col-lg-2''><cr-button-control 
+    [buttonTemplateType]="''underlined-action-button''"
+    [text]="''''"
+    [textTranslateKey]="''COMMON.SEARCH''"
+    [classArray]=''["d-block","ml-auto"]''
+    [width]="''''"
+    [height]="''''"
+    [icon]="''undefined''"
+    (buttonClickEvent)="self.changeFilter()"
+    *ngIf="(self.EndpointName.item_collection_GET | endpointAccessGrantedPipe)"
+></cr-button-control></div></div>
+        </ng-template>
+      </cr-panel>
+      <cr-panel
         [panelTemplateType]="''panel''"
         [expanded]="self.panelsViewState?.[''undefined''] ?? true"
         (expandedChange)="self.panelStateChange(''undefined'', $event)"
-        [titleTranslateKey]="true ? ''MANAGE_DATA_COLLECTIONS.SEASON.TITLE'' : null"
-        [title]="true ? null : ''קולקציה עונתית''"
+        [titleTranslateKey]="true ? ''MANAGE_DATA_COLLECTIONS.LIST.TITLE'' : null"
+        [title]="true ? null : ''קולקציה''"
         [customClass]="''''"
         [headerClass]="''''"
         [validator]="self.validator"
@@ -32,50 +93,43 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
         [containFields]=''[]''
       >
         <ng-template crPanelContent>
-          <div class="cr-grid-outer-wrapper">
+          <div class="cr-grid-relative-wrapper">
       <div #gridWrapper class="cr-grid-wrapper-new">
         <cr-edit-grid-server-paging
-          (changeStatus)="self.onChangeGridStatus($event)"
-          (createActionEvent)="self.onCreate($event)"
+          (cellClickEvent)="self.cellClick($event)"
           (deleteActionEvent)="self.onRemove($event)"
           (pageChangeEvent)="self.changePage($event)"
           (selectionChanged)="self.onSelectionChange($event)"
-          (updateActionEvent)="self.onUpdate($event)"
-          [allowCreateAction]="true"
           [allowDeleteAction]="true"
-          [allowUpdateAction]="true"
-          [columnSettings]=''self.columnSettings | dynamicColumnSettings:[{"field":"code","titleTranslateKey":"MANAGE_DATA_COLLECTIONS.SEASON.GRID.CODE","hidden":false,"sortOrder":1},{"field":"displayName","titleTranslateKey":"MANAGE_DATA_COLLECTIONS.SEASON.GRID.DISPLAY_NAME","hidden":false,"sortOrder":2},{"field":"printName","titleTranslateKey":"MANAGE_DATA_COLLECTIONS.SEASON.GRID.PRINT_NAME","hidden":false,"sortOrder":3}]''
-          [dataCacheName]="''CollectionSeasonList''"
-          [dataSource]="self.dataSource"
-          [elementName]="''edit-grid-server-paging:Seasons.Grid''"
           [hasSorter]="true"
-          [isRefreshOnCreate]="true"
+          [columnSettings]=''self.columnSettings | dynamicColumnSettings:[{"field":"code","titleTranslateKey":"MANAGE_DATA_COLLECTIONS.LIST.GRID.CODE","hidden":false,"sortOrder":1},{"field":"displayName","titleTranslateKey":"MANAGE_DATA_COLLECTIONS.LIST.GRID.DISPLAY_NAME","hidden":false,"sortOrder":2},{"field":"printName","titleTranslateKey":"MANAGE_DATA_COLLECTIONS.LIST.GRID.PRINT_NAME","hidden":false,"sortOrder":3},{"field":"startDate","titleTranslateKey":"MANAGE_DATA_COLLECTIONS.LIST.GRID.START_DATE","hidden":false,"sortOrder":4},{"field":"isActive","titleTranslateKey":"MANAGE_DATA_COLLECTIONS.LIST.GRID.ACTIVE","hidden":false,"sortOrder":5}]''
+          [dataCacheName]="''CollectionListGrid''"
+          [dataSource]="self.dataSource"
+          [elementName]="''edit-grid-server-paging:Collection_list.Grid''"
           [isRefreshOnDelete]="true"
 
-          [isRefreshOnUpdate]="true"
           [pageable]="true"
           [permissionSettings]="{
-          isAccessDelete: (self.EndpointName.item_collection_season_id_DELETE | endpointAccessGrantedPipe),
-          isAccessUpdate: (self.EndpointName.item_collection_season_id_PUT | endpointAccessGrantedPipe),
-          isAccessCreate: (self.EndpointName.item_collection_season_POST | endpointAccessGrantedPipe),
-          isAccessRead: (self.EndpointName.item_collection_season_GET | endpointAccessGrantedPipe)
+          isAccessDelete: (self.EndpointName.item_collection_id_DELETE | endpointAccessGrantedPipe)
         }"
           [resizable]="true"
           [uniqueField]="''id''"
-          [validator]="self.validator"
-          [class]=''undefined''
         ></cr-edit-grid-server-paging>
 
         <cr-sort
           (changeSort)="self.changeSortHandler($event)"
+          [permissionSettings]="(self.EndpointName.item_collection_id_sort_order_PUT | endpointAccessGrantedPipe)"
           [disableButtons]="{
-          toFirst: self.cache.firstSelected || self.cache.isEditMode,
-          oneUp: self.cache.firstSelected || self.cache.isEditMode,
-          oneDown: self.cache.lastSelected || self.cache.isEditMode,
-          toLast: self.cache.lastSelected || self.cache.isEditMode
+          toFirst: self.cache.firstSelected || !self.isFilterEmpty(),
+          oneUp: self.cache.firstSelected || !self.isFilterEmpty(),
+          oneDown: self.cache.lastSelected || !self.isFilterEmpty(),
+          toLast: self.cache.lastSelected || !self.isFilterEmpty()
         }"
           [gridWrapper]="gridWrapper"
-          [permissionSettings]="(self.EndpointName.item_collection_season_id_sort_order_PUT | endpointAccessGrantedPipe)"
+          [hideButtons]="{
+          toFirst: self.dataSource?.responseList.length < 2,
+          toLast: self.dataSource?.responseList.length < 2
+        }"
         ></cr-sort>
       </div>
     </div>
@@ -87,8 +141,8 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
               </ng-container>
             </ng-container>
           </div>
-        </div>', '2022-12-28 10:55:32.3666667 +00:00', 5, N'N', '1119ccf2-83c8-473b-9a74-21bf25379a62', 1, NULL)
-INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID], [BookmarkName], [BookmarkDescription], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('c4beb4c4-9a86-ed11-8360-02f176033ddb', 'c2beb4c4-9a86-ed11-8360-02f176033ddb', 2, N'', N'', N'
+        </div>', '2022-12-29 12:24:16.7633333 +00:00', 6, N'N', 'b5e1ba29-9fa5-4df6-b265-e6806edb651d', 1, NULL)
+INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID], [BookmarkName], [BookmarkDescription], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('2aef4390-6d87-ed11-8360-02f176033ddb', '28ef4390-6d87-ed11-8360-02f176033ddb', 2, NULL, NULL, N'
         <div class=''cr-popup-content-wrapper'' [class.cr-popup-is-shown]=''self.popupTab.tabs.length > 1''>
           <cr-popup-tabs
             [popupTabs]=''self.popupTab.tabs''
@@ -104,17 +158,78 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
       <ng-template [ngIf]="self.popupTab.tabs[self.popupTab.activeTabIndex].type == ''general'' && self.popupTab.activeTabIndex == i">
         <div *ngIf=''self.popupTab.activeTabIndex != self.popupTab.tabs.length - 1'' class=''cr-popup-blocker''></div>
         <cr-title-header
-    [titleTranslateKey]="''MANAGE_DATA_COLLECTIONS.SEASON.TITLE''"
+    [titleTranslateKey]="''MANAGE_DATA_COLLECTIONS.LIST.TITLE''"
     [title]="''''"
     (buttonClickEvent)="self.onTitleButtonClick($event)"
     [buttonSettings]="self.titleHeaderButtonSettings"
 ></cr-title-header>
       <cr-panel
+        [panelTemplateType]="''collapsible-panel''"
+        [expanded]="self.panelsViewState?.[''filter''] ?? true"
+        (expandedChange)="self.panelStateChange(''filter'', $event)"
+        [titleTranslateKey]="true ? ''MANAGE_DATA_COLLECTIONS.FILTER.FILTER'' : null"
+        [title]="true ? null : ''Filters''"
+        [customClass]="''''"
+        [headerClass]="''''"
+        [validator]="self.validator"
+        [validatorGroupName]="''filter''"
+        [containFields]=''[]''
+      >
+        <ng-template crPanelContent>
+          <div class="row "><div class=''col-lg-2''><cr-control-edit 
+    [translateKeys]="''MANAGE_DATA_COLLECTIONS.FILTER.CODE''" 
+    [dataLabel]="''''"
+    [customClass]=''""''
+    [isDisabled]="false"
+    [elementName]="''edit:Collection_list.Code''"
+    [(dataValue)]="self.cache.filter.code"
+></cr-control-edit></div><div class=''col-lg-2''><cr-control-edit 
+    [translateKeys]="''MANAGE_DATA_COLLECTIONS.FILTER.DISPLAY_NAME''" 
+    [dataLabel]="''''"
+    [customClass]=''""''
+    [isDisabled]="false"
+    [elementName]="''edit:Collection_list.Display_name''"
+    [(dataValue)]="self.cache.filter.displayName"
+></cr-control-edit></div><div class=''col-lg-2''><cr-control-edit 
+    [translateKeys]="''MANAGE_DATA_COLLECTIONS.FILTER.PRINT_NAME''" 
+    [dataLabel]="''''"
+    [customClass]=''""''
+    [isDisabled]="false"
+    [elementName]="''edit:Collection_list.Print_name''"
+    [(dataValue)]="self.cache.filter.printName"
+></cr-control-edit></div><div class=''col-lg-2''><cr-control-datepicker
+    [elementName]="''datepicker:Collection_list.Start_date''"
+    [(dataValue)]="self.cache.filter.startDate"
+    [dataLabel]="''''"
+    [translateKeys]="''MANAGE_DATA_COLLECTIONS.FILTER.START_DATE''"
+    [class]=''""'' 
+    [isDisabled]="false"
+></cr-control-datepicker></div><div class=''col-lg-2''><cr-checkbox-control
+    [dataLabel]="''''"
+    [translateKeys]="''MANAGE_DATA_COLLECTIONS.FILTER.SHOW_ACTIVE''"
+    [isDisabled]="false"
+    [class]=''""''
+    [elementName]="''checkbox:Collection_list.Active''"
+    [(dataValue)]="self.cache.filter.active"
+></cr-checkbox-control></div><div class=''col-lg-2''><cr-button-control 
+    [buttonTemplateType]="''underlined-action-button''"
+    [text]="''''"
+    [textTranslateKey]="''COMMON.SEARCH''"
+    [classArray]=''["d-block","ml-auto"]''
+    [width]="''''"
+    [height]="''''"
+    [icon]="''undefined''"
+    (buttonClickEvent)="self.changeFilter()"
+    *ngIf="(self.EndpointName.item_collection_GET | endpointAccessGrantedPipe)"
+></cr-button-control></div></div>
+        </ng-template>
+      </cr-panel>
+      <cr-panel
         [panelTemplateType]="''panel''"
         [expanded]="self.panelsViewState?.[''undefined''] ?? true"
         (expandedChange)="self.panelStateChange(''undefined'', $event)"
-        [titleTranslateKey]="true ? ''MANAGE_DATA_COLLECTIONS.SEASON.TITLE'' : null"
-        [title]="true ? null : ''Collection seasons''"
+        [titleTranslateKey]="true ? ''MANAGE_DATA_COLLECTIONS.LIST.TITLE'' : null"
+        [title]="true ? null : ''Collections''"
         [customClass]="''''"
         [headerClass]="''''"
         [validator]="self.validator"
@@ -122,50 +237,43 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
         [containFields]=''[]''
       >
         <ng-template crPanelContent>
-          <div class="cr-grid-outer-wrapper">
+          <div class="cr-grid-relative-wrapper">
       <div #gridWrapper class="cr-grid-wrapper-new">
         <cr-edit-grid-server-paging
-          (changeStatus)="self.onChangeGridStatus($event)"
-          (createActionEvent)="self.onCreate($event)"
+          (cellClickEvent)="self.cellClick($event)"
           (deleteActionEvent)="self.onRemove($event)"
           (pageChangeEvent)="self.changePage($event)"
           (selectionChanged)="self.onSelectionChange($event)"
-          (updateActionEvent)="self.onUpdate($event)"
-          [allowCreateAction]="true"
           [allowDeleteAction]="true"
-          [allowUpdateAction]="true"
-          [columnSettings]=''self.columnSettings | dynamicColumnSettings:[{"field":"code","titleTranslateKey":"MANAGE_DATA_COLLECTIONS.SEASON.GRID.CODE","hidden":false,"sortOrder":1},{"field":"displayName","titleTranslateKey":"MANAGE_DATA_COLLECTIONS.SEASON.GRID.DISPLAY_NAME","hidden":false,"sortOrder":2},{"field":"printName","titleTranslateKey":"MANAGE_DATA_COLLECTIONS.SEASON.GRID.PRINT_NAME","hidden":false,"sortOrder":3}]''
-          [dataCacheName]="''CollectionSeasonList''"
-          [dataSource]="self.dataSource"
-          [elementName]="''edit-grid-server-paging:Seasons.Grid''"
           [hasSorter]="true"
-          [isRefreshOnCreate]="true"
+          [columnSettings]=''self.columnSettings | dynamicColumnSettings:[{"field":"code","titleTranslateKey":"MANAGE_DATA_COLLECTIONS.LIST.GRID.CODE","hidden":false,"sortOrder":1},{"field":"displayName","titleTranslateKey":"MANAGE_DATA_COLLECTIONS.LIST.GRID.DISPLAY_NAME","hidden":false,"sortOrder":2},{"field":"printName","titleTranslateKey":"MANAGE_DATA_COLLECTIONS.LIST.GRID.PRINT_NAME","hidden":false,"sortOrder":3},{"field":"startDate","titleTranslateKey":"MANAGE_DATA_COLLECTIONS.LIST.GRID.START_DATE","hidden":false,"sortOrder":4},{"field":"isActive","titleTranslateKey":"MANAGE_DATA_COLLECTIONS.LIST.GRID.ACTIVE","hidden":false,"sortOrder":5}]''
+          [dataCacheName]="''CollectionListGrid''"
+          [dataSource]="self.dataSource"
+          [elementName]="''edit-grid-server-paging:Collection_list.Grid''"
           [isRefreshOnDelete]="true"
 
-          [isRefreshOnUpdate]="true"
           [pageable]="true"
           [permissionSettings]="{
-          isAccessDelete: (self.EndpointName.item_collection_season_id_DELETE | endpointAccessGrantedPipe),
-          isAccessUpdate: (self.EndpointName.item_collection_season_id_PUT | endpointAccessGrantedPipe),
-          isAccessCreate: (self.EndpointName.item_collection_season_POST | endpointAccessGrantedPipe),
-          isAccessRead: (self.EndpointName.item_collection_season_GET | endpointAccessGrantedPipe)
+          isAccessDelete: (self.EndpointName.item_collection_id_DELETE | endpointAccessGrantedPipe)
         }"
           [resizable]="true"
           [uniqueField]="''id''"
-          [validator]="self.validator"
-          [class]=''undefined''
         ></cr-edit-grid-server-paging>
 
         <cr-sort
           (changeSort)="self.changeSortHandler($event)"
+          [permissionSettings]="(self.EndpointName.item_collection_id_sort_order_PUT | endpointAccessGrantedPipe)"
           [disableButtons]="{
-          toFirst: self.cache.firstSelected || self.cache.isEditMode,
-          oneUp: self.cache.firstSelected || self.cache.isEditMode,
-          oneDown: self.cache.lastSelected || self.cache.isEditMode,
-          toLast: self.cache.lastSelected || self.cache.isEditMode
+          toFirst: self.cache.firstSelected || !self.isFilterEmpty(),
+          oneUp: self.cache.firstSelected || !self.isFilterEmpty(),
+          oneDown: self.cache.lastSelected || !self.isFilterEmpty(),
+          toLast: self.cache.lastSelected || !self.isFilterEmpty()
         }"
           [gridWrapper]="gridWrapper"
-          [permissionSettings]="(self.EndpointName.item_collection_season_id_sort_order_PUT | endpointAccessGrantedPipe)"
+          [hideButtons]="{
+          toFirst: self.dataSource?.responseList.length < 2,
+          toLast: self.dataSource?.responseList.length < 2
+        }"
         ></cr-sort>
       </div>
     </div>
@@ -177,8 +285,8 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
               </ng-container>
             </ng-container>
           </div>
-        </div>', '2022-12-28 10:55:32.3666667 +00:00', 5, N'N', 'cdb7b203-fa4f-4b02-b36c-b6d080b09c98', 1, NULL)
-INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID], [BookmarkName], [BookmarkDescription], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('56f30421-a286-ed11-8360-02f176033ddb', '55f30421-a286-ed11-8360-02f176033ddb', 1, N'', N'', N'
+        </div>', '2022-12-29 12:24:16.7633333 +00:00', 6, N'N', '5508e7a2-5263-4676-8f25-04eedd8e7cea', 1, NULL)
+INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID], [BookmarkName], [BookmarkDescription], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('21e44fd7-7e87-ed11-8360-02f176033ddb', '20e44fd7-7e87-ed11-8360-02f176033ddb', 1, NULL, NULL, N'
         <div class=''cr-popup-content-wrapper'' [class.cr-popup-is-shown]=''self.popupTab.tabs.length > 1''>
           <cr-popup-tabs
             [popupTabs]=''self.popupTab.tabs''
@@ -194,50 +302,112 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
       <ng-template [ngIf]="self.popupTab.tabs[self.popupTab.activeTabIndex].type == ''general'' && self.popupTab.activeTabIndex == i">
         <div *ngIf=''self.popupTab.activeTabIndex != self.popupTab.tabs.length - 1'' class=''cr-popup-blocker''></div>
         <cr-title-header
-    [titleTranslateKey]="''MANAGE_DATA_COLLECTIONS.YEAR.TITLE''"
+    [titleTranslateKey]="''MANAGE_DATA_COLLECTIONS.ITEM.TITLE''"
     [title]="''''"
+    [titleValue]="self.titleValueText"
+    [additionalTranslateKeys]="''COMMON.NEW''"
     (buttonClickEvent)="self.onTitleButtonClick($event)"
     [buttonSettings]="self.titleHeaderButtonSettings"
+    [titleValueTranslateKey]="self.isNew ? ''COMMON.NEW'' : null"
 ></cr-title-header>
       <cr-panel
-        [panelTemplateType]="''panel''"
-        [expanded]="self.panelsViewState?.[''undefined''] ?? true"
-        (expandedChange)="self.panelStateChange(''undefined'', $event)"
-        [titleTranslateKey]="true ? ''MANAGE_DATA_COLLECTIONS.YEAR.TITLE'' : null"
-        [title]="true ? null : ''קולקציה שנתית''"
+        [panelTemplateType]="''well''"
         [customClass]="''''"
-        [headerClass]="''''"
-        [validator]="self.validator"
-        [validatorGroupName]="''undefined''"
-        [containFields]=''[]''
       >
         <ng-template crPanelContent>
-          <div class="cr-grid-wrapper-new">
-    <cr-edit-grid-server-paging
-      (createActionEvent)="self.onCreate($event)"
-      (deleteActionEvent)="self.onRemove($event)"
-      (pageChangeEvent)="self.changePage($event)"
-      (updateActionEvent)="self.onUpdate($event)"
-      [allowCreateAction]="true"
-      [allowDeleteAction]="true"
-      [allowUpdateAction]="true"
-      [columnSettings]=''self.columnSettings | dynamicColumnSettings:[{"field":"code","titleTranslateKey":"MANAGE_DATA_COLLECTIONS.YEAR.GRID.CODE","hidden":false,"sortOrder":1},{"field":"displayName","titleTranslateKey":"MANAGE_DATA_COLLECTIONS.YEAR.GRID.DISPLAY_NAME","hidden":false,"sortOrder":2}]''
-      [dataCacheName]="''CollectionYearsList''"
-      [dataSource]="self.dataSource"
-      [elementName]="''edit-grid-server-paging:Years.Grid''"
-      [pageable]="true"
-
-      [permissionSettings]="{
-          isAccessDelete: (self.EndpointName.item_collection_year_id_DELETE | endpointAccessGrantedPipe),
-          isAccessUpdate: (self.EndpointName.item_collection_year_id_PUT | endpointAccessGrantedPipe),
-          isAccessCreate: (self.EndpointName.item_collection_year_POST | endpointAccessGrantedPipe),
-          isAccessRead: (self.EndpointName.item_collection_year_GET | endpointAccessGrantedPipe)
+          <div class="row cr-bottom-row-border"><div class=''col-lg-3''><cr-control-edit
+    [(dataValue)]="self.collection.code"
+    [elementName]="''edit:Collection_details.Code''"
+    [permissionSettings]="{
+            isAccessEdit: isNew ? (self.EndpointName.item_collection_POST | endpointAccessGrantedPipe) :
+              (self.EndpointName.item_collection_id_PUT | endpointAccessGrantedPipe)
+          }"
+    [validator]="self.validator"
+    [validationField]="''code''"
+    [translateKeys]="''MANAGE_DATA_COLLECTIONS.ITEM.CODE''" 
+    [dataLabel]="''''"
+    [customClass]=''""''
+></cr-control-edit></div><div class=''col-lg-3''><cr-control-edit
+          [(dataValue)]="self.collection.displayName"
+          (dataValueChange)="self.changeTitle()"
+          [elementName]="''edit:Collection_details.Display_name''"
+          [permissionSettings]="{
+            isAccessEdit: self.isNew ? (self.EndpointName.item_collection_POST | endpointAccessGrantedPipe) :
+              (self.EndpointName.item_collection_id_PUT | endpointAccessGrantedPipe)
+          }"
+          [translateKeys]="''MANAGE_DATA_COLLECTIONS.ITEM.DISPLAY_NAME''" 
+          [dataLabel]="''''"
+          [customClass]=''""''
+          [isDisabled]="false"
+          [validationField]="''displayName''"
+          [validator]="self.validator"
+        ></cr-control-edit></div><div class=''col-lg-3''><cr-control-edit
+          [(dataValue)]="self.collection.printName"
+          [elementName]="''edit:Collection_details.Print_name''"
+          [permissionSettings]="{
+            isAccessEdit: self.isNew ? (self.EndpointName.item_collection_POST | endpointAccessGrantedPipe) :
+              (self.EndpointName.item_collection_id_PUT | endpointAccessGrantedPipe)
+          }"
+          [translateKeys]="''MANAGE_DATA_COLLECTIONS.ITEM.PRINT_NAME''" 
+          [dataLabel]="''''"
+          [customClass]=''""''
+          [isDisabled]="false"
+        ></cr-control-edit></div><div class=''col-lg-3''><cr-control-datepicker
+    [(dataValue)]="self.collection.startDate"
+    [elementName]="''edit:Collection_details.Start_date''"
+    [permissionSettings]="{
+            isAccessEdit: self.isNew ? (self.EndpointName.item_collection_POST | endpointAccessGrantedPipe) :
+              (self.EndpointName.item_collection_id_PUT | endpointAccessGrantedPipe)
+          }"
+    [dataLabel]="''''"
+    [translateKeys]="''MANAGE_DATA_COLLECTIONS.ITEM.START_DATE''"
+    [class]=''""'' 
+    [isDisabled]="false"
+></cr-control-datepicker></div></div><div class="row cr-bottom-row-border"><div class=''col-sm-6''><cr-multi-select-smart-control
+    [(values)]="self.collection.years"
+    [dataCacheName]="''CollectionYearsMultiselect''"
+    [elementName]="''multi-select-smart-control:Collection_details.Years''"
+    [getListItemsFunction]="self.loadCollectionYearsMultiselectFunction"
+    [getSelectedItemsFunction]="self.loadCollectionYearMultiselectItemFunction"
+    [permissionSettings]="{
+          isAccessRead: (self.EndpointName.item_collection__item_collection_year_dropdown_GET | endpointAccessGrantedPipe),
+          isAccessEdit: (self.isNew ? (self.EndpointName.item_collection_POST | endpointAccessGrantedPipe) :
+              (self.EndpointName.item_collection_id_PUT | endpointAccessGrantedPipe)) &&
+             (self.EndpointName.item_collection__item_collection_year_dropdown_ids_GET | endpointAccessGrantedPipe)
         }"
-      [resizable]="true"
-      [uniqueField]="''id''"
-      [validator]="self.validator"
-    ></cr-edit-grid-server-paging>
-  </div>
+    [textField]="''name''"
+    [valueField]="''id''"
+    [translateKeys]="''MANAGE_DATA_COLLECTIONS.ITEM.YEARS''"
+    [dataLabel]="''''"
+    [class]=''""''
+></cr-multi-select-smart-control></div><div class=''col-sm-6''><cr-multi-select-smart-control
+    [(values)]="self.collection.seasons"
+    [dataCacheName]="''CollectionSeasonsMultiselect''"
+    [elementName]="''multi-select-smart-control:Collection_details.Seasons''"
+    [getListItemsFunction]="self.loadCollectionSeasonsMultiselectFunction"
+    [getSelectedItemsFunction]="self.loadCollectionSeasonMultiselectItemFunction"
+    [permissionSettings]="{
+          isAccessRead: (self.EndpointName.item_collection__item_collection_season_dropdown_GET | endpointAccessGrantedPipe),
+          isAccessEdit: (self.isNew ? (self.EndpointName.item_collection_POST | endpointAccessGrantedPipe) :
+              (self.EndpointName.item_collection_id_PUT | endpointAccessGrantedPipe)) &&
+            (self.EndpointName.item_collection__item_collection_season_dropdown_ids_GET | endpointAccessGrantedPipe)
+        }"
+    [textField]="''name''"
+    [valueField]="''id''"
+    [translateKeys]="''MANAGE_DATA_COLLECTIONS.ITEM.SEASONS''"
+    [dataLabel]="''''"
+    [class]=''""''
+></cr-multi-select-smart-control></div></div><div class="row "><div class=''col-sm-4''><cr-checkbox-control
+          [(dataValue)]="self.collection.isActive"
+          [elementName]="''checkbox:Collection_details:Active''"
+          [permissionSettings]="{
+            isAccessEdit: self.isNew ? (self.EndpointName.item_collection_POST | endpointAccessGrantedPipe) :
+              (self.EndpointName.item_collection_id_PUT | endpointAccessGrantedPipe)
+          }"
+          [dataLabel]="''''"
+          [translateKeys]="''MANAGE_DATA_COLLECTIONS.ITEM.ACTIVE''"
+         [class]=''""''
+        ></cr-checkbox-control></div><div class=''col-md-6''></div></div>
         </ng-template>
       </cr-panel>
       </ng-template>
@@ -246,8 +416,8 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
               </ng-container>
             </ng-container>
           </div>
-        </div>', '2022-12-28 11:38:32.2466667 +00:00', 2, N'N', 'bdb48189-976f-4590-bbe5-0b608ad16be8', 1, NULL)
-INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID], [BookmarkName], [BookmarkDescription], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('57f30421-a286-ed11-8360-02f176033ddb', '55f30421-a286-ed11-8360-02f176033ddb', 2, N'', N'', N'
+        </div>', '2023-01-03 09:34:48.7700000 +00:00', 5, N'N', 'ecc3f3ca-25d7-4e43-aef4-52b02c3956db', 1, NULL)
+INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID], [BookmarkName], [BookmarkDescription], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('22e44fd7-7e87-ed11-8360-02f176033ddb', '20e44fd7-7e87-ed11-8360-02f176033ddb', 2, NULL, NULL, N'
         <div class=''cr-popup-content-wrapper'' [class.cr-popup-is-shown]=''self.popupTab.tabs.length > 1''>
           <cr-popup-tabs
             [popupTabs]=''self.popupTab.tabs''
@@ -263,50 +433,112 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
       <ng-template [ngIf]="self.popupTab.tabs[self.popupTab.activeTabIndex].type == ''general'' && self.popupTab.activeTabIndex == i">
         <div *ngIf=''self.popupTab.activeTabIndex != self.popupTab.tabs.length - 1'' class=''cr-popup-blocker''></div>
         <cr-title-header
-    [titleTranslateKey]="''MANAGE_DATA_COLLECTIONS.YEAR.TITLE''"
+    [titleTranslateKey]="''MANAGE_DATA_COLLECTIONS.ITEM.TITLE''"
     [title]="''''"
+    [titleValue]="self.titleValueText"
+    [additionalTranslateKeys]="''COMMON.NEW''"
     (buttonClickEvent)="self.onTitleButtonClick($event)"
     [buttonSettings]="self.titleHeaderButtonSettings"
+    [titleValueTranslateKey]="self.isNew ? ''COMMON.NEW'' : null"
 ></cr-title-header>
       <cr-panel
-        [panelTemplateType]="''panel''"
-        [expanded]="self.panelsViewState?.[''undefined''] ?? true"
-        (expandedChange)="self.panelStateChange(''undefined'', $event)"
-        [titleTranslateKey]="true ? ''MANAGE_DATA_COLLECTIONS.YEAR.TITLE'' : null"
-        [title]="true ? null : ''Collection years''"
+        [panelTemplateType]="''well''"
         [customClass]="''''"
-        [headerClass]="''''"
-        [validator]="self.validator"
-        [validatorGroupName]="''undefined''"
-        [containFields]=''[]''
       >
         <ng-template crPanelContent>
-          <div class="cr-grid-wrapper-new">
-    <cr-edit-grid-server-paging
-      (createActionEvent)="self.onCreate($event)"
-      (deleteActionEvent)="self.onRemove($event)"
-      (pageChangeEvent)="self.changePage($event)"
-      (updateActionEvent)="self.onUpdate($event)"
-      [allowCreateAction]="true"
-      [allowDeleteAction]="true"
-      [allowUpdateAction]="true"
-      [columnSettings]=''self.columnSettings | dynamicColumnSettings:[{"field":"code","titleTranslateKey":"MANAGE_DATA_COLLECTIONS.YEAR.GRID.CODE","hidden":false,"sortOrder":1},{"field":"displayName","titleTranslateKey":"MANAGE_DATA_COLLECTIONS.YEAR.GRID.DISPLAY_NAME","hidden":false,"sortOrder":2}]''
-      [dataCacheName]="''CollectionYearsList''"
-      [dataSource]="self.dataSource"
-      [elementName]="''edit-grid-server-paging:Years.Grid''"
-      [pageable]="true"
-
-      [permissionSettings]="{
-          isAccessDelete: (self.EndpointName.item_collection_year_id_DELETE | endpointAccessGrantedPipe),
-          isAccessUpdate: (self.EndpointName.item_collection_year_id_PUT | endpointAccessGrantedPipe),
-          isAccessCreate: (self.EndpointName.item_collection_year_POST | endpointAccessGrantedPipe),
-          isAccessRead: (self.EndpointName.item_collection_year_GET | endpointAccessGrantedPipe)
+          <div class="row cr-bottom-row-border"><div class=''col-lg-3''><cr-control-edit
+    [(dataValue)]="self.collection.code"
+    [elementName]="''edit:Collection_details.Code''"
+    [permissionSettings]="{
+            isAccessEdit: isNew ? (self.EndpointName.item_collection_POST | endpointAccessGrantedPipe) :
+              (self.EndpointName.item_collection_id_PUT | endpointAccessGrantedPipe)
+          }"
+    [validator]="self.validator"
+    [validationField]="''code''"
+    [translateKeys]="''MANAGE_DATA_COLLECTIONS.ITEM.CODE''" 
+    [dataLabel]="''''"
+    [customClass]=''""''
+></cr-control-edit></div><div class=''col-lg-3''><cr-control-edit
+          [(dataValue)]="self.collection.displayName"
+          (dataValueChange)="self.changeTitle()"
+          [elementName]="''edit:Collection_details.Display_name''"
+          [permissionSettings]="{
+            isAccessEdit: self.isNew ? (self.EndpointName.item_collection_POST | endpointAccessGrantedPipe) :
+              (self.EndpointName.item_collection_id_PUT | endpointAccessGrantedPipe)
+          }"
+          [translateKeys]="''MANAGE_DATA_COLLECTIONS.ITEM.DISPLAY_NAME''" 
+          [dataLabel]="''''"
+          [customClass]=''""''
+          [isDisabled]="false"
+          [validationField]="''displayName''"
+          [validator]="self.validator"
+        ></cr-control-edit></div><div class=''col-lg-3''><cr-control-edit
+          [(dataValue)]="self.collection.printName"
+          [elementName]="''edit:Collection_details.Print_name''"
+          [permissionSettings]="{
+            isAccessEdit: self.isNew ? (self.EndpointName.item_collection_POST | endpointAccessGrantedPipe) :
+              (self.EndpointName.item_collection_id_PUT | endpointAccessGrantedPipe)
+          }"
+          [translateKeys]="''MANAGE_DATA_COLLECTIONS.ITEM.PRINT_NAME''" 
+          [dataLabel]="''''"
+          [customClass]=''""''
+          [isDisabled]="false"
+        ></cr-control-edit></div><div class=''col-lg-3''><cr-control-datepicker
+    [(dataValue)]="self.collection.startDate"
+    [elementName]="''edit:Collection_details.Start_date''"
+    [permissionSettings]="{
+            isAccessEdit: self.isNew ? (self.EndpointName.item_collection_POST | endpointAccessGrantedPipe) :
+              (self.EndpointName.item_collection_id_PUT | endpointAccessGrantedPipe)
+          }"
+    [dataLabel]="''''"
+    [translateKeys]="''MANAGE_DATA_COLLECTIONS.ITEM.START_DATE''"
+    [class]=''""'' 
+    [isDisabled]="false"
+></cr-control-datepicker></div></div><div class="row cr-bottom-row-border"><div class=''col-sm-6''><cr-multi-select-smart-control
+    [(values)]="self.collection.years"
+    [dataCacheName]="''CollectionYearsMultiselect''"
+    [elementName]="''multi-select-smart-control:Collection_details.Years''"
+    [getListItemsFunction]="self.loadCollectionYearsMultiselectFunction"
+    [getSelectedItemsFunction]="self.loadCollectionYearMultiselectItemFunction"
+    [permissionSettings]="{
+          isAccessRead: (self.EndpointName.item_collection__item_collection_year_dropdown_GET | endpointAccessGrantedPipe),
+          isAccessEdit: (self.isNew ? (self.EndpointName.item_collection_POST | endpointAccessGrantedPipe) :
+              (self.EndpointName.item_collection_id_PUT | endpointAccessGrantedPipe)) &&
+             (self.EndpointName.item_collection__item_collection_year_dropdown_ids_GET | endpointAccessGrantedPipe)
         }"
-      [resizable]="true"
-      [uniqueField]="''id''"
-      [validator]="self.validator"
-    ></cr-edit-grid-server-paging>
-  </div>
+    [textField]="''name''"
+    [valueField]="''id''"
+    [translateKeys]="''MANAGE_DATA_COLLECTIONS.ITEM.YEARS''"
+    [dataLabel]="''''"
+    [class]=''""''
+></cr-multi-select-smart-control></div><div class=''col-sm-6''><cr-multi-select-smart-control
+    [(values)]="self.collection.seasons"
+    [dataCacheName]="''CollectionSeasonsMultiselect''"
+    [elementName]="''multi-select-smart-control:Collection_details.Seasons''"
+    [getListItemsFunction]="self.loadCollectionSeasonsMultiselectFunction"
+    [getSelectedItemsFunction]="self.loadCollectionSeasonMultiselectItemFunction"
+    [permissionSettings]="{
+          isAccessRead: (self.EndpointName.item_collection__item_collection_season_dropdown_GET | endpointAccessGrantedPipe),
+          isAccessEdit: (self.isNew ? (self.EndpointName.item_collection_POST | endpointAccessGrantedPipe) :
+              (self.EndpointName.item_collection_id_PUT | endpointAccessGrantedPipe)) &&
+            (self.EndpointName.item_collection__item_collection_season_dropdown_ids_GET | endpointAccessGrantedPipe)
+        }"
+    [textField]="''name''"
+    [valueField]="''id''"
+    [translateKeys]="''MANAGE_DATA_COLLECTIONS.ITEM.SEASONS''"
+    [dataLabel]="''''"
+    [class]=''""''
+></cr-multi-select-smart-control></div></div><div class="row "><div class=''col-sm-4''><cr-checkbox-control
+          [(dataValue)]="self.collection.isActive"
+          [elementName]="''checkbox:Collection_details:Active''"
+          [permissionSettings]="{
+            isAccessEdit: self.isNew ? (self.EndpointName.item_collection_POST | endpointAccessGrantedPipe) :
+              (self.EndpointName.item_collection_id_PUT | endpointAccessGrantedPipe)
+          }"
+          [dataLabel]="''''"
+          [translateKeys]="''MANAGE_DATA_COLLECTIONS.ITEM.ACTIVE''"
+         [class]=''""''
+        ></cr-checkbox-control></div><div class=''col-md-6''></div></div>
         </ng-template>
       </cr-panel>
       </ng-template>
@@ -315,7 +547,411 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
               </ng-container>
             </ng-container>
           </div>
-        </div>', '2022-12-28 11:38:32.2466667 +00:00', 2, N'N', '5626ca00-7081-47b4-8087-80a9371619f5', 1, NULL)
+        </div>', '2023-01-03 09:34:48.7700000 +00:00', 5, N'N', 'fd66b457-3f16-4632-87c1-577018f4a926', 1, NULL)
+INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID], [BookmarkName], [BookmarkDescription], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('5def16e7-7e87-ed11-8360-02f176033ddb', '5cef16e7-7e87-ed11-8360-02f176033ddb', 1, NULL, NULL, N'
+        <div class=''cr-popup-content-wrapper'' [class.cr-popup-is-shown]=''self.popupTab.tabs.length > 1''>
+          <cr-popup-tabs
+            [popupTabs]=''self.popupTab.tabs''
+            [activePopup]=''self.popupTab.activeTabIndex''
+            (closePopup)=''self.removePopupTab($event)''
+            (changeActive)=''self.changeActiveTab($event)''
+          ></cr-popup-tabs>
+          <div class=''cr-details-inner-container''>
+            <ng-container *ngFor=''let tab of self.popupTab.tabs; index as i;''>
+              <ng-container [ngSwitch]=''tab.type''>
+                
+    <ng-template [ngSwitchCase]="''general''">
+      <ng-template [ngIf]="self.popupTab.tabs[self.popupTab.activeTabIndex].type == ''general'' && self.popupTab.activeTabIndex == i">
+        <div *ngIf=''self.popupTab.activeTabIndex != self.popupTab.tabs.length - 1'' class=''cr-popup-blocker''></div>
+        <cr-title-header
+    [titleTranslateKey]="''MANAGE_DATA_COLLECTIONS.ITEM.TITLE''"
+    [title]="''''"
+    [titleValue]="self.titleValueText"
+    [additionalTranslateKeys]="''COMMON.NEW''"
+    (buttonClickEvent)="self.onTitleButtonClick($event)"
+    [buttonSettings]="self.titleHeaderButtonSettings"
+    [titleValueTranslateKey]="self.isNew ? ''COMMON.NEW'' : null"
+></cr-title-header>
+      <cr-panel
+        [panelTemplateType]="''well''"
+        [customClass]="''''"
+      >
+        <ng-template crPanelContent>
+          <div class="row cr-bottom-row-border"><div class=''col-lg-3''><cr-control-edit
+    [(dataValue)]="self.collection.code"
+    [elementName]="''edit:Collection_details.Code''"
+    [permissionSettings]="{
+            isAccessEdit: isNew ? (self.EndpointName.item_collection_POST | endpointAccessGrantedPipe) :
+              (self.EndpointName.item_collection_id_PUT | endpointAccessGrantedPipe)
+          }"
+    [validator]="self.validator"
+    [validationField]="''code''"
+    [translateKeys]="''MANAGE_DATA_COLLECTIONS.ITEM.CODE''" 
+    [dataLabel]="''''"
+    [customClass]=''""''
+></cr-control-edit></div><div class=''col-lg-3''><cr-control-edit
+          [(dataValue)]="self.collection.displayName"
+          (dataValueChange)="self.changeTitle()"
+          [elementName]="''edit:Collection_details.Display_name''"
+          [permissionSettings]="{
+            isAccessEdit: self.isNew ? (self.EndpointName.item_collection_POST | endpointAccessGrantedPipe) :
+              (self.EndpointName.item_collection_id_PUT | endpointAccessGrantedPipe)
+          }"
+          [translateKeys]="''MANAGE_DATA_COLLECTIONS.ITEM.DISPLAY_NAME''" 
+          [dataLabel]="''''"
+          [customClass]=''""''
+          [isDisabled]="false"
+          [validationField]="''displayName''"
+          [validator]="self.validator"
+        ></cr-control-edit></div><div class=''col-lg-3''><cr-control-edit
+          [(dataValue)]="self.collection.printName"
+          [elementName]="''edit:Collection_details.Print_name''"
+          [permissionSettings]="{
+            isAccessEdit: self.isNew ? (self.EndpointName.item_collection_POST | endpointAccessGrantedPipe) :
+              (self.EndpointName.item_collection_id_PUT | endpointAccessGrantedPipe)
+          }"
+          [translateKeys]="''MANAGE_DATA_COLLECTIONS.ITEM.PRINT_NAME''" 
+          [dataLabel]="''''"
+          [customClass]=''""''
+          [isDisabled]="false"
+        ></cr-control-edit></div><div class=''col-lg-3''><cr-control-datepicker
+    [(dataValue)]="self.collection.startDate"
+    [elementName]="''edit:Collection_details.Start_date''"
+    [permissionSettings]="{
+            isAccessEdit: self.isNew ? (self.EndpointName.item_collection_POST | endpointAccessGrantedPipe) :
+              (self.EndpointName.item_collection_id_PUT | endpointAccessGrantedPipe)
+          }"
+    [dataLabel]="''''"
+    [translateKeys]="''MANAGE_DATA_COLLECTIONS.ITEM.START_DATE''"
+    [class]=''""'' 
+    [isDisabled]="false"
+></cr-control-datepicker></div></div><div class="row cr-bottom-row-border"><div class=''col-sm-6''><cr-multi-select-smart-control
+    [(values)]="self.collection.years"
+    [dataCacheName]="''CollectionYearsMultiselect''"
+    [elementName]="''multi-select-smart-control:Collection_details.Years''"
+    [getListItemsFunction]="self.loadCollectionYearsMultiselectFunction"
+    [getSelectedItemsFunction]="self.loadCollectionYearMultiselectItemFunction"
+    [permissionSettings]="{
+          isAccessRead: (self.EndpointName.item_collection__item_collection_year_dropdown_GET | endpointAccessGrantedPipe),
+          isAccessEdit: (self.isNew ? (self.EndpointName.item_collection_POST | endpointAccessGrantedPipe) :
+              (self.EndpointName.item_collection_id_PUT | endpointAccessGrantedPipe)) &&
+             (self.EndpointName.item_collection__item_collection_year_dropdown_ids_GET | endpointAccessGrantedPipe)
+        }"
+    [textField]="''name''"
+    [valueField]="''id''"
+    [translateKeys]="''MANAGE_DATA_COLLECTIONS.ITEM.YEARS''"
+    [dataLabel]="''''"
+    [class]=''""''
+></cr-multi-select-smart-control></div><div class=''col-sm-6''><cr-multi-select-smart-control
+    [(values)]="self.collection.seasons"
+    [dataCacheName]="''CollectionSeasonsMultiselect''"
+    [elementName]="''multi-select-smart-control:Collection_details.Seasons''"
+    [getListItemsFunction]="self.loadCollectionSeasonsMultiselectFunction"
+    [getSelectedItemsFunction]="self.loadCollectionSeasonMultiselectItemFunction"
+    [permissionSettings]="{
+          isAccessRead: (self.EndpointName.item_collection__item_collection_season_dropdown_GET | endpointAccessGrantedPipe),
+          isAccessEdit: (self.isNew ? (self.EndpointName.item_collection_POST | endpointAccessGrantedPipe) :
+              (self.EndpointName.item_collection_id_PUT | endpointAccessGrantedPipe)) &&
+            (self.EndpointName.item_collection__item_collection_season_dropdown_ids_GET | endpointAccessGrantedPipe)
+        }"
+    [textField]="''name''"
+    [valueField]="''id''"
+    [translateKeys]="''MANAGE_DATA_COLLECTIONS.ITEM.SEASONS''"
+    [dataLabel]="''''"
+    [class]=''""''
+></cr-multi-select-smart-control></div></div><div class="row "><div class=''col-sm-4''><cr-checkbox-control
+          [(dataValue)]="self.collection.isActive"
+          [elementName]="''checkbox:Collection_details:Active''"
+          [permissionSettings]="{
+            isAccessEdit: self.isNew ? (self.EndpointName.item_collection_POST | endpointAccessGrantedPipe) :
+              (self.EndpointName.item_collection_id_PUT | endpointAccessGrantedPipe)
+          }"
+          [dataLabel]="''''"
+          [translateKeys]="''MANAGE_DATA_COLLECTIONS.ITEM.ACTIVE''"
+         [class]=''""''
+        ></cr-checkbox-control></div><div class=''col-md-6''></div></div>
+        </ng-template>
+      </cr-panel>
+      </ng-template>
+    </ng-template>
+    
+              </ng-container>
+            </ng-container>
+          </div>
+        </div>', '2023-01-03 09:35:06.8500000 +00:00', 6, N'N', '04c6acb8-7afa-49d2-aa4f-e6a41a8f01cb', 1, NULL)
+INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID], [BookmarkName], [BookmarkDescription], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('5eef16e7-7e87-ed11-8360-02f176033ddb', '5cef16e7-7e87-ed11-8360-02f176033ddb', 2, NULL, NULL, N'
+        <div class=''cr-popup-content-wrapper'' [class.cr-popup-is-shown]=''self.popupTab.tabs.length > 1''>
+          <cr-popup-tabs
+            [popupTabs]=''self.popupTab.tabs''
+            [activePopup]=''self.popupTab.activeTabIndex''
+            (closePopup)=''self.removePopupTab($event)''
+            (changeActive)=''self.changeActiveTab($event)''
+          ></cr-popup-tabs>
+          <div class=''cr-details-inner-container''>
+            <ng-container *ngFor=''let tab of self.popupTab.tabs; index as i;''>
+              <ng-container [ngSwitch]=''tab.type''>
+                
+    <ng-template [ngSwitchCase]="''general''">
+      <ng-template [ngIf]="self.popupTab.tabs[self.popupTab.activeTabIndex].type == ''general'' && self.popupTab.activeTabIndex == i">
+        <div *ngIf=''self.popupTab.activeTabIndex != self.popupTab.tabs.length - 1'' class=''cr-popup-blocker''></div>
+        <cr-title-header
+    [titleTranslateKey]="''MANAGE_DATA_COLLECTIONS.ITEM.TITLE''"
+    [title]="''''"
+    [titleValue]="self.titleValueText"
+    [additionalTranslateKeys]="''COMMON.NEW''"
+    (buttonClickEvent)="self.onTitleButtonClick($event)"
+    [buttonSettings]="self.titleHeaderButtonSettings"
+    [titleValueTranslateKey]="self.isNew ? ''COMMON.NEW'' : null"
+></cr-title-header>
+      <cr-panel
+        [panelTemplateType]="''well''"
+        [customClass]="''''"
+      >
+        <ng-template crPanelContent>
+          <div class="row cr-bottom-row-border"><div class=''col-lg-3''><cr-control-edit
+    [(dataValue)]="self.collection.code"
+    [elementName]="''edit:Collection_details.Code''"
+    [permissionSettings]="{
+            isAccessEdit: isNew ? (self.EndpointName.item_collection_POST | endpointAccessGrantedPipe) :
+              (self.EndpointName.item_collection_id_PUT | endpointAccessGrantedPipe)
+          }"
+    [validator]="self.validator"
+    [validationField]="''code''"
+    [translateKeys]="''MANAGE_DATA_COLLECTIONS.ITEM.CODE''" 
+    [dataLabel]="''''"
+    [customClass]=''""''
+></cr-control-edit></div><div class=''col-lg-3''><cr-control-edit
+          [(dataValue)]="self.collection.displayName"
+          (dataValueChange)="self.changeTitle()"
+          [elementName]="''edit:Collection_details.Display_name''"
+          [permissionSettings]="{
+            isAccessEdit: self.isNew ? (self.EndpointName.item_collection_POST | endpointAccessGrantedPipe) :
+              (self.EndpointName.item_collection_id_PUT | endpointAccessGrantedPipe)
+          }"
+          [translateKeys]="''MANAGE_DATA_COLLECTIONS.ITEM.DISPLAY_NAME''" 
+          [dataLabel]="''''"
+          [customClass]=''""''
+          [isDisabled]="false"
+          [validationField]="''displayName''"
+          [validator]="self.validator"
+        ></cr-control-edit></div><div class=''col-lg-3''><cr-control-edit
+          [(dataValue)]="self.collection.printName"
+          [elementName]="''edit:Collection_details.Print_name''"
+          [permissionSettings]="{
+            isAccessEdit: self.isNew ? (self.EndpointName.item_collection_POST | endpointAccessGrantedPipe) :
+              (self.EndpointName.item_collection_id_PUT | endpointAccessGrantedPipe)
+          }"
+          [translateKeys]="''MANAGE_DATA_COLLECTIONS.ITEM.PRINT_NAME''" 
+          [dataLabel]="''''"
+          [customClass]=''""''
+          [isDisabled]="false"
+        ></cr-control-edit></div><div class=''col-lg-3''><cr-control-datepicker
+    [(dataValue)]="self.collection.startDate"
+    [elementName]="''edit:Collection_details.Start_date''"
+    [permissionSettings]="{
+            isAccessEdit: self.isNew ? (self.EndpointName.item_collection_POST | endpointAccessGrantedPipe) :
+              (self.EndpointName.item_collection_id_PUT | endpointAccessGrantedPipe)
+          }"
+    [dataLabel]="''''"
+    [translateKeys]="''MANAGE_DATA_COLLECTIONS.ITEM.START_DATE''"
+    [class]=''""'' 
+    [isDisabled]="false"
+></cr-control-datepicker></div></div><div class="row cr-bottom-row-border"><div class=''col-sm-6''><cr-multi-select-smart-control
+    [(values)]="self.collection.years"
+    [dataCacheName]="''CollectionYearsMultiselect''"
+    [elementName]="''multi-select-smart-control:Collection_details.Years''"
+    [getListItemsFunction]="self.loadCollectionYearsMultiselectFunction"
+    [getSelectedItemsFunction]="self.loadCollectionYearMultiselectItemFunction"
+    [permissionSettings]="{
+          isAccessRead: (self.EndpointName.item_collection__item_collection_year_dropdown_GET | endpointAccessGrantedPipe),
+          isAccessEdit: (self.isNew ? (self.EndpointName.item_collection_POST | endpointAccessGrantedPipe) :
+              (self.EndpointName.item_collection_id_PUT | endpointAccessGrantedPipe)) &&
+             (self.EndpointName.item_collection__item_collection_year_dropdown_ids_GET | endpointAccessGrantedPipe)
+        }"
+    [textField]="''name''"
+    [valueField]="''id''"
+    [translateKeys]="''MANAGE_DATA_COLLECTIONS.ITEM.YEARS''"
+    [dataLabel]="''''"
+    [class]=''""''
+></cr-multi-select-smart-control></div><div class=''col-sm-6''><cr-multi-select-smart-control
+    [(values)]="self.collection.seasons"
+    [dataCacheName]="''CollectionSeasonsMultiselect''"
+    [elementName]="''multi-select-smart-control:Collection_details.Seasons''"
+    [getListItemsFunction]="self.loadCollectionSeasonsMultiselectFunction"
+    [getSelectedItemsFunction]="self.loadCollectionSeasonMultiselectItemFunction"
+    [permissionSettings]="{
+          isAccessRead: (self.EndpointName.item_collection__item_collection_season_dropdown_GET | endpointAccessGrantedPipe),
+          isAccessEdit: (self.isNew ? (self.EndpointName.item_collection_POST | endpointAccessGrantedPipe) :
+              (self.EndpointName.item_collection_id_PUT | endpointAccessGrantedPipe)) &&
+            (self.EndpointName.item_collection__item_collection_season_dropdown_ids_GET | endpointAccessGrantedPipe)
+        }"
+    [textField]="''name''"
+    [valueField]="''id''"
+    [translateKeys]="''MANAGE_DATA_COLLECTIONS.ITEM.SEASONS''"
+    [dataLabel]="''''"
+    [class]=''""''
+></cr-multi-select-smart-control></div></div><div class="row "><div class=''col-sm-4''><cr-checkbox-control
+          [(dataValue)]="self.collection.isActive"
+          [elementName]="''checkbox:Collection_details:Active''"
+          [permissionSettings]="{
+            isAccessEdit: self.isNew ? (self.EndpointName.item_collection_POST | endpointAccessGrantedPipe) :
+              (self.EndpointName.item_collection_id_PUT | endpointAccessGrantedPipe)
+          }"
+          [dataLabel]="''''"
+          [translateKeys]="''MANAGE_DATA_COLLECTIONS.ITEM.ACTIVE''"
+         [class]=''""''
+        ></cr-checkbox-control></div><div class=''col-md-6''></div></div>
+        </ng-template>
+      </cr-panel>
+      </ng-template>
+    </ng-template>
+    
+              </ng-container>
+            </ng-container>
+          </div>
+        </div>', '2023-01-03 09:35:06.8500000 +00:00', 6, N'N', '5dab5e05-66ee-4579-a146-a05c425128a9', 1, NULL)
+INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID], [BookmarkName], [BookmarkDescription], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('cc6a72ba-5b8b-ed11-8360-02f176033ddb', 'cb6a72ba-5b8b-ed11-8360-02f176033ddb', 1, NULL, NULL, N'
+        <div class=''cr-popup-content-wrapper'' [class.cr-popup-is-shown]=''self.popupTab.tabs.length > 1''>
+          <cr-popup-tabs
+            [popupTabs]=''self.popupTab.tabs''
+            [activePopup]=''self.popupTab.activeTabIndex''
+            (closePopup)=''self.removePopupTab($event)''
+            (changeActive)=''self.changeActiveTab($event)''
+          ></cr-popup-tabs>
+          <div class=''cr-details-inner-container''>
+            <ng-container *ngFor=''let tab of self.popupTab.tabs; index as i;''>
+              <ng-container [ngSwitch]=''tab.type''>
+                
+    <ng-template [ngSwitchCase]="''general''">
+      <ng-template [ngIf]="self.popupTab.tabs[self.popupTab.activeTabIndex].type == ''general'' && self.popupTab.activeTabIndex == i">
+        <div *ngIf=''self.popupTab.activeTabIndex != self.popupTab.tabs.length - 1'' class=''cr-popup-blocker''></div>
+        <cr-title-header
+    [titleTranslateKey]="''DOCUMENT_TYPE.LIST.TITLE''"
+    [title]="''''"
+    (buttonClickEvent)="self.onTitleButtonClick($event)"
+    [buttonSettings]="self.titleHeaderButtonSettings"
+></cr-title-header>
+      <cr-panel
+        [panelTemplateType]="''panel''"
+        [expanded]="self.panelsViewState?.[''undefined''] ?? true"
+        (expandedChange)="self.panelStateChange(''undefined'', $event)"
+        [titleTranslateKey]="true ? ''DOCUMENT_TYPE.LIST.TITLE_GRID'' : null"
+        [title]="true ? null : ''סוגי מסמכים''"
+        [customClass]="''''"
+        [headerClass]="''''"
+        [validator]="self.validator"
+        [validatorGroupName]="''undefined''"
+        [containFields]=''[]''
+      >
+        <ng-template crPanelContent>
+          <div class="cr-grid-wrapper-new">
+                  <cr-edit-grid-server-paging
+                    [elementName]="''edit-grid-server-paging:Document_type_list.Grid''"
+                    [permissionSettings]="{
+                    isAccessRead: (self.EndpointName.document_series_type_GET | endpointAccessGrantedPipe)
+                  }"
+                    [dataSource]="self.gridData"
+                    [columnSettings]=''self.columnSettings | dynamicColumnSettings:[{"field":"code","titleTranslateKey":"DOCUMENT_TYPE.LIST.GRID.CODE","hidden":false,"sortOrder":1},{"field":"typeName","titleTranslateKey":"DOCUMENT_TYPE.LIST.GRID.TYPE","hidden":false,"sortOrder":2},{"field":"subTypeName","titleTranslateKey":"DOCUMENT_TYPE.LIST.GRID.SUB_TYPE","hidden":false,"sortOrder":3}]''
+                    [pageable]="true"
+                    [resizable]="true"
+                    [uniqueField]="''code''"
+                    (cellClickEvent)="self.cellClick($event)"
+                    (pageChangeEvent)="self.changePage($event)"
+                    [dataCacheName]="''document-type-grid-cache''"
+                  ></cr-edit-grid-server-paging>
+                </div>
+        </ng-template>
+      </cr-panel>
+      </ng-template>
+    </ng-template>
+    
+        <ng-template [ngSwitchCase]="''invoice-series-list''">
+          <ng-template
+            [ngIf]="self.popupTab.tabs[self.popupTab.activeTabIndex].type == ''invoice-series-list'' && self.popupTab.activeTabIndex == i">
+            <div *ngIf=''self.popupTab.activeTabIndex != self.popupTab.tabs.length - 1'' class=''cr-popup-blocker''></div>
+            <cr-document-type-invoice-series-list
+    [selectedInvoiceSeries]="self.selectedInvoiceSeries"
+    [subTemplateId]="''00AAB747-5F8B-ED11-8360-02F176033DDB''"
+    (closeClickEvent)="self.removePopupTab($event)">
+</cr-document-type-invoice-series-list>
+          </ng-template>
+        </ng-template>
+      
+              </ng-container>
+            </ng-container>
+          </div>
+        </div>', '2023-01-03 12:33:49.2966667 +00:00', 4, N'N', '674c3f46-2870-478e-b0dd-da3f3f5432dd', 1, NULL)
+INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID], [BookmarkName], [BookmarkDescription], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('cd6a72ba-5b8b-ed11-8360-02f176033ddb', 'cb6a72ba-5b8b-ed11-8360-02f176033ddb', 2, NULL, NULL, N'
+        <div class=''cr-popup-content-wrapper'' [class.cr-popup-is-shown]=''self.popupTab.tabs.length > 1''>
+          <cr-popup-tabs
+            [popupTabs]=''self.popupTab.tabs''
+            [activePopup]=''self.popupTab.activeTabIndex''
+            (closePopup)=''self.removePopupTab($event)''
+            (changeActive)=''self.changeActiveTab($event)''
+          ></cr-popup-tabs>
+          <div class=''cr-details-inner-container''>
+            <ng-container *ngFor=''let tab of self.popupTab.tabs; index as i;''>
+              <ng-container [ngSwitch]=''tab.type''>
+                
+    <ng-template [ngSwitchCase]="''general''">
+      <ng-template [ngIf]="self.popupTab.tabs[self.popupTab.activeTabIndex].type == ''general'' && self.popupTab.activeTabIndex == i">
+        <div *ngIf=''self.popupTab.activeTabIndex != self.popupTab.tabs.length - 1'' class=''cr-popup-blocker''></div>
+        <cr-title-header
+    [titleTranslateKey]="''DOCUMENT_TYPE.LIST.TITLE''"
+    [title]="''''"
+    (buttonClickEvent)="self.onTitleButtonClick($event)"
+    [buttonSettings]="self.titleHeaderButtonSettings"
+></cr-title-header>
+      <cr-panel
+        [panelTemplateType]="''panel''"
+        [expanded]="self.panelsViewState?.[''undefined''] ?? true"
+        (expandedChange)="self.panelStateChange(''undefined'', $event)"
+        [titleTranslateKey]="true ? ''DOCUMENT_TYPE.LIST.TITLE_GRID'' : null"
+        [title]="true ? null : ''Document types''"
+        [customClass]="''''"
+        [headerClass]="''''"
+        [validator]="self.validator"
+        [validatorGroupName]="''undefined''"
+        [containFields]=''[]''
+      >
+        <ng-template crPanelContent>
+          <div class="cr-grid-wrapper-new">
+                  <cr-edit-grid-server-paging
+                    [elementName]="''edit-grid-server-paging:Document_type_list.Grid''"
+                    [permissionSettings]="{
+                    isAccessRead: (self.EndpointName.document_series_type_GET | endpointAccessGrantedPipe)
+                  }"
+                    [dataSource]="self.gridData"
+                    [columnSettings]=''self.columnSettings | dynamicColumnSettings:[{"field":"code","titleTranslateKey":"DOCUMENT_TYPE.LIST.GRID.CODE","hidden":false,"sortOrder":1},{"field":"typeName","titleTranslateKey":"DOCUMENT_TYPE.LIST.GRID.TYPE","hidden":false,"sortOrder":2},{"field":"subTypeName","titleTranslateKey":"DOCUMENT_TYPE.LIST.GRID.SUB_TYPE","hidden":false,"sortOrder":3}]''
+                    [pageable]="true"
+                    [resizable]="true"
+                    [uniqueField]="''code''"
+                    (cellClickEvent)="self.cellClick($event)"
+                    (pageChangeEvent)="self.changePage($event)"
+                    [dataCacheName]="''document-type-grid-cache''"
+                  ></cr-edit-grid-server-paging>
+                </div>
+        </ng-template>
+      </cr-panel>
+      </ng-template>
+    </ng-template>
+    
+        <ng-template [ngSwitchCase]="''invoice-series-list''">
+          <ng-template
+            [ngIf]="self.popupTab.tabs[self.popupTab.activeTabIndex].type == ''invoice-series-list'' && self.popupTab.activeTabIndex == i">
+            <div *ngIf=''self.popupTab.activeTabIndex != self.popupTab.tabs.length - 1'' class=''cr-popup-blocker''></div>
+            <cr-document-type-invoice-series-list
+    [selectedInvoiceSeries]="self.selectedInvoiceSeries"
+    [subTemplateId]="''00AAB747-5F8B-ED11-8360-02F176033DDB''"
+    (closeClickEvent)="self.removePopupTab($event)">
+</cr-document-type-invoice-series-list>
+          </ng-template>
+        </ng-template>
+      
+              </ng-container>
+            </ng-container>
+          </div>
+        </div>', '2023-01-03 12:33:49.2966667 +00:00', 4, N'N', 'f7ee4a7b-3e81-42f5-83a3-3d4a6c4bdef3', 1, NULL)
 INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID], [BookmarkName], [BookmarkDescription], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('9b16e302-a86c-ed11-835f-02f176033ddb', '9a16e302-a86c-ed11-835f-02f176033ddb', 1, N'', N'', N'
         <div class=''cr-popup-content-wrapper'' [class.cr-popup-is-shown]=''self.popupTab.tabs.length > 1''>
           <cr-popup-tabs
@@ -8440,200 +9076,6 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
             </ng-container>
           </div>
         </div>', '2022-12-27 14:01:55.6966667 +00:00', 7, N'N', '94e9edf0-58a9-43e4-9744-5f603c7c7e35', 1, NULL)
-INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID], [BookmarkName], [BookmarkDescription], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('079ae794-927f-ed11-835f-02f176033ddb', '069ae794-927f-ed11-835f-02f176033ddb', 1, N'', N'', N'
-        <div class=''cr-popup-content-wrapper'' [class.cr-popup-is-shown]=''self.popupTab.tabs.length > 1''>
-          <cr-popup-tabs
-            [popupTabs]=''self.popupTab.tabs''
-            [activePopup]=''self.popupTab.activeTabIndex''
-            (closePopup)=''self.removePopupTab($event)''
-            (changeActive)=''self.changeActiveTab($event)''
-          ></cr-popup-tabs>
-          <div class=''cr-details-inner-container''>
-            <ng-container *ngFor=''let tab of self.popupTab.tabs; index as i;''>
-              <ng-container [ngSwitch]=''tab.type''>
-                
-    <ng-template [ngSwitchCase]="''general''">
-      <ng-template [ngIf]="self.popupTab.tabs[self.popupTab.activeTabIndex].type == ''general'' && self.popupTab.activeTabIndex == i">
-        <div *ngIf=''self.popupTab.activeTabIndex != self.popupTab.tabs.length - 1'' class=''cr-popup-blocker''></div>
-        <cr-title-header
-    [titleTranslateKey]="''TAX_GROUP.LIST.TITLE''"
-    [title]="''''"
-    (buttonClickEvent)="self.onTitleButtonClick($event)"
-    [buttonSettings]="self.titleHeaderButtonSettings"
-></cr-title-header>
-      <cr-panel
-        [panelTemplateType]="''collapsible-panel''"
-        [expanded]="self.panelsViewState?.[''filter''] ?? true"
-        (expandedChange)="self.panelStateChange(''filter'', $event)"
-        [titleTranslateKey]="true ? ''TAX_GROUP.LIST.FILTER.TITLE'' : null"
-        [title]="true ? null : ''Selection criteria he''"
-        [customClass]="''''"
-        [headerClass]="''''"
-        [validator]="self.validator"
-        [validatorGroupName]="''filter''"
-        [containFields]=''[]''
-      >
-        <ng-template crPanelContent>
-          <div class="row undefined"><div class=''col-md-2''><cr-control-edit 
-    [translateKeys]="''TAX_GROUP.LIST.FILTER.CODE''" 
-    [dataLabel]="''''"
-    [customClass]=''""''
-    [isDisabled]="false"
-    [elementName]="''edit:Tax_group_list.Code''"
-    [(dataValue)]="self.taxGroupFilterRequest.code"
-></cr-control-edit></div><div class=''col-md-2''><cr-control-edit 
-    [translateKeys]="''TAX_GROUP.LIST.FILTER.NAME''" 
-    [dataLabel]="''''"
-    [customClass]=''""''
-    [isDisabled]="false"
-    [elementName]="''edit:Tax_group_list.Name''"
-    [(dataValue)]="self.taxGroupFilterRequest.name"
-></cr-control-edit></div><div class=''col-md-8''><cr-button-control 
-    [buttonTemplateType]="''underlined-action-button''"
-    [text]="''''"
-    [textTranslateKey]="''COMMON.SEARCH''"
-    [classArray]=''["d-block","ml-auto"]''
-    [width]="''''"
-    [height]="''''"
-    [icon]="''undefined''"
-    (buttonClickEvent)="self.changeFilter()"
-    *ngIf="(self.EndpointName.tax_group_GET | endpointAccessGrantedPipe)"
-></cr-button-control></div></div>
-        </ng-template>
-      </cr-panel>
-      <cr-panel
-        [panelTemplateType]="''panel''"
-        [expanded]="self.panelsViewState?.[''undefined''] ?? true"
-        (expandedChange)="self.panelStateChange(''undefined'', $event)"
-        [titleTranslateKey]="true ? ''TAX_GROUP.LIST.GRID.TITLE'' : null"
-        [title]="true ? null : ''VAT Groups he''"
-        [customClass]="''''"
-        [headerClass]="''''"
-        [validator]="self.validator"
-        [validatorGroupName]="''undefined''"
-        [containFields]=''[]''
-      >
-        <ng-template crPanelContent>
-          <div class="cr-grid-wrapper-new">
-    <cr-edit-grid-server-paging
-        (cellClickEvent)="self.cellClick($event)"
-        (pageChangeEvent)="self.changePage($event)"
-        [columnSettings]=''self.columnSettings''
-        [dataCacheName]="''TaxGroupGrid''"
-        [dataSource]="self.gridData"
-        [elementName]="''edit-grid-server-paging:TaxGroup_list.Grid''"
-        [pageable]="true"
-        [resizable]="true"
-        [uniqueField]="''id''"
-        [class]="undefined"
-      ></cr-edit-grid-server-paging>
-</div>
-        </ng-template>
-      </cr-panel>
-      </ng-template>
-    </ng-template>
-    
-              </ng-container>
-            </ng-container>
-          </div>
-        </div>', '2022-12-27 14:01:56.8800000 +00:00', 7, N'N', '7d09a462-ee92-48d0-95e1-9be1791e1b72', 1, NULL)
-INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID], [BookmarkName], [BookmarkDescription], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('089ae794-927f-ed11-835f-02f176033ddb', '069ae794-927f-ed11-835f-02f176033ddb', 2, N'', N'', N'
-        <div class=''cr-popup-content-wrapper'' [class.cr-popup-is-shown]=''self.popupTab.tabs.length > 1''>
-          <cr-popup-tabs
-            [popupTabs]=''self.popupTab.tabs''
-            [activePopup]=''self.popupTab.activeTabIndex''
-            (closePopup)=''self.removePopupTab($event)''
-            (changeActive)=''self.changeActiveTab($event)''
-          ></cr-popup-tabs>
-          <div class=''cr-details-inner-container''>
-            <ng-container *ngFor=''let tab of self.popupTab.tabs; index as i;''>
-              <ng-container [ngSwitch]=''tab.type''>
-                
-    <ng-template [ngSwitchCase]="''general''">
-      <ng-template [ngIf]="self.popupTab.tabs[self.popupTab.activeTabIndex].type == ''general'' && self.popupTab.activeTabIndex == i">
-        <div *ngIf=''self.popupTab.activeTabIndex != self.popupTab.tabs.length - 1'' class=''cr-popup-blocker''></div>
-        <cr-title-header
-    [titleTranslateKey]="''TAX_GROUP.LIST.TITLE''"
-    [title]="''''"
-    (buttonClickEvent)="self.onTitleButtonClick($event)"
-    [buttonSettings]="self.titleHeaderButtonSettings"
-></cr-title-header>
-      <cr-panel
-        [panelTemplateType]="''collapsible-panel''"
-        [expanded]="self.panelsViewState?.[''filter''] ?? true"
-        (expandedChange)="self.panelStateChange(''filter'', $event)"
-        [titleTranslateKey]="true ? ''TAX_GROUP.LIST.FILTER.TITLE'' : null"
-        [title]="true ? null : ''Selection criteria''"
-        [customClass]="''''"
-        [headerClass]="''''"
-        [validator]="self.validator"
-        [validatorGroupName]="''filter''"
-        [containFields]=''[]''
-      >
-        <ng-template crPanelContent>
-          <div class="row undefined"><div class=''col-md-2''><cr-control-edit 
-    [translateKeys]="''TAX_GROUP.LIST.FILTER.CODE''" 
-    [dataLabel]="''''"
-    [customClass]=''""''
-    [isDisabled]="false"
-    [elementName]="''edit:Tax_group_list.Code''"
-    [(dataValue)]="self.taxGroupFilterRequest.code"
-></cr-control-edit></div><div class=''col-md-2''><cr-control-edit 
-    [translateKeys]="''TAX_GROUP.LIST.FILTER.NAME''" 
-    [dataLabel]="''''"
-    [customClass]=''""''
-    [isDisabled]="false"
-    [elementName]="''edit:Tax_group_list.Name''"
-    [(dataValue)]="self.taxGroupFilterRequest.name"
-></cr-control-edit></div><div class=''col-md-8''><cr-button-control 
-    [buttonTemplateType]="''underlined-action-button''"
-    [text]="''''"
-    [textTranslateKey]="''COMMON.SEARCH''"
-    [classArray]=''["d-block","ml-auto"]''
-    [width]="''''"
-    [height]="''''"
-    [icon]="''undefined''"
-    (buttonClickEvent)="self.changeFilter()"
-    *ngIf="(self.EndpointName.tax_group_GET | endpointAccessGrantedPipe)"
-></cr-button-control></div></div>
-        </ng-template>
-      </cr-panel>
-      <cr-panel
-        [panelTemplateType]="''panel''"
-        [expanded]="self.panelsViewState?.[''undefined''] ?? true"
-        (expandedChange)="self.panelStateChange(''undefined'', $event)"
-        [titleTranslateKey]="true ? ''TAX_GROUP.LIST.GRID.TITLE'' : null"
-        [title]="true ? null : ''VAT Groups''"
-        [customClass]="''''"
-        [headerClass]="''''"
-        [validator]="self.validator"
-        [validatorGroupName]="''undefined''"
-        [containFields]=''[]''
-      >
-        <ng-template crPanelContent>
-          <div class="cr-grid-wrapper-new">
-    <cr-edit-grid-server-paging
-        (cellClickEvent)="self.cellClick($event)"
-        (pageChangeEvent)="self.changePage($event)"
-        [columnSettings]=''self.columnSettings''
-        [dataCacheName]="''TaxGroupGrid''"
-        [dataSource]="self.gridData"
-        [elementName]="''edit-grid-server-paging:TaxGroup_list.Grid''"
-        [pageable]="true"
-        [resizable]="true"
-        [uniqueField]="''id''"
-        [class]="undefined"
-      ></cr-edit-grid-server-paging>
-</div>
-        </ng-template>
-      </cr-panel>
-      </ng-template>
-    </ng-template>
-    
-              </ng-container>
-            </ng-container>
-          </div>
-        </div>', '2022-12-27 14:01:56.8800000 +00:00', 7, N'N', '532649e2-a287-4d4d-8fa2-805d3ae99640', 1, NULL)
 INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID], [BookmarkName], [BookmarkDescription], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('374fafa4-927f-ed11-835f-02f176033ddb', '364fafa4-927f-ed11-835f-02f176033ddb', 1, NULL, NULL, N'
         <div class=''cr-popup-content-wrapper'' [class.cr-popup-is-shown]=''self.popupTab.tabs.length > 1''>
           <cr-popup-tabs
@@ -10766,6 +11208,990 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
             </ng-container>
           </div>
         </div>', '2022-12-27 14:02:08.7066667 +00:00', 18, N'N', '308e4ecb-cbac-427c-a034-36b2fcb9e1a0', 1, NULL)
+INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID], [BookmarkName], [BookmarkDescription], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('d9f8337a-a982-ed11-8360-02f176033ddb', 'd8f8337a-a982-ed11-8360-02f176033ddb', 1, N'', N'', N'
+        <div class=''cr-popup-content-wrapper'' [class.cr-popup-is-shown]=''self.popupTab.tabs.length > 1''>
+          <cr-popup-tabs
+            [popupTabs]=''self.popupTab.tabs''
+            [activePopup]=''self.popupTab.activeTabIndex''
+            (closePopup)=''self.removePopupTab($event)''
+            (changeActive)=''self.changeActiveTab($event)''
+          ></cr-popup-tabs>
+          <div class=''cr-details-inner-container''>
+            <ng-container *ngFor=''let tab of self.popupTab.tabs; index as i;''>
+              <ng-container [ngSwitch]=''tab.type''>
+                
+    <ng-template [ngSwitchCase]="''general''">
+      <ng-template [ngIf]="self.popupTab.tabs[self.popupTab.activeTabIndex].type == ''general'' && self.popupTab.activeTabIndex == i">
+        <div *ngIf=''self.popupTab.activeTabIndex != self.popupTab.tabs.length - 1'' class=''cr-popup-blocker''></div>
+        <cr-title-header
+    [titleTranslateKey]="''SERIES.FILTER.TITLE''"
+    [title]="''''"
+    (buttonClickEvent)="self.onTitleButtonClick($event)"
+    [buttonSettings]="self.titleHeaderButtonSettings"
+></cr-title-header>
+      <cr-panel
+        [panelTemplateType]="''collapsible-panel''"
+        [expanded]="self.panelsViewState?.[''filter''] ?? true"
+        (expandedChange)="self.panelStateChange(''filter'', $event)"
+        [titleTranslateKey]="true ? ''SERIES.FILTER.TITLE'' : null"
+        [title]="true ? null : ''סדרת קופונים''"
+        [customClass]="''''"
+        [headerClass]="''''"
+        [validator]="self.validator"
+        [validatorGroupName]="''filter''"
+        [containFields]=''[]''
+      >
+        <ng-template crPanelContent>
+          <div class="row undefined"><div class=''col-lg-4''><cr-control-edit 
+    [translateKeys]="''SERIES.FILTER.CODE''" 
+    [dataLabel]="''''"
+    [customClass]=''""''
+    [isDisabled]="false"
+    [elementName]="''edit:Coupon_series.Code''"
+    [(dataValue)]="self.seriesListFilterRequest.code"
+    [permissionSettings]="{isAccessEdit: (self.EndpointName.coupon_series_GET | endpointAccessGrantedPipe)}"
+></cr-control-edit></div><div class=''col-lg-4''><cr-control-edit 
+    [translateKeys]="''SERIES.FILTER.NAME''" 
+    [dataLabel]="''''"
+    [customClass]=''""''
+    [isDisabled]="false"
+    [elementName]="''edit:Coupon_series.Name''"
+    [(dataValue)]="self.seriesListFilterRequest.name"
+    [permissionSettings]="{isAccessEdit: (self.EndpointName.coupon_series_GET | endpointAccessGrantedPipe)}"
+></cr-control-edit>
+</div><div class=''col-lg-4''><cr-button-control 
+    [buttonTemplateType]="''underlined-action-button''"
+    [text]="''''"
+    [textTranslateKey]="''COMMON.SEARCH''"
+    [classArray]=''["d-block","ml-auto"]''
+    [width]="''''"
+    [height]="''''"
+    [icon]="''undefined''"
+    (buttonClickEvent)="self.changeFilter()"
+    *ngIf="(self.EndpointName.coupon_series_GET | endpointAccessGrantedPipe)"
+></cr-button-control></div></div>
+        </ng-template>
+      </cr-panel>
+      <cr-panel
+        [panelTemplateType]="''panel''"
+        [expanded]="self.panelsViewState?.[''undefined''] ?? true"
+        (expandedChange)="self.panelStateChange(''undefined'', $event)"
+        [titleTranslateKey]="true ? ''SERIES.LIST.GRID_TITLE'' : null"
+        [title]="true ? null : ''סדרה ''"
+        [customClass]="''''"
+        [headerClass]="''''"
+        [validator]="self.validator"
+        [validatorGroupName]="''undefined''"
+        [containFields]=''[]''
+      >
+        <ng-template crPanelContent>
+          <div class="cr-grid-wrapper-new">
+      <cr-edit-grid-server-paging
+        [elementName]="''edit-grid-server-paging:Coupon_series.Grid''"
+        [dataSource]="self.gridData"
+        [columnSettings]=''self.columnSettings | dynamicColumnSettings:[{"field":"code","titleTranslateKey":"SERIES.LIST.CODE","hidden":false,"sortOrder":1},{"field":"displayName","titleTranslateKey":"SERIES.LIST.NAME","hidden":false,"sortOrder":2},{"field":"genFrom","titleTranslateKey":"SERIES.LIST.FROM","hidden":false,"sortOrder":3},{"field":"genTo","titleTranslateKey":"SERIES.LIST.TO","hidden":false,"sortOrder":4},{"field":"manualDiscountPrice","titleTranslateKey":"SERIES.LIST.MANUAL_DISCOUNT_PRICE","hidden":false,"sortOrder":5},{"field":"couponsGenerated","titleTranslateKey":"SERIES.LIST.GENERATED","hidden":false,"sortOrder":6}]''
+        [pageable]="true"
+        [resizable]="true"
+        [uniqueField]="''id''"
+        (pageChangeEvent)="self.changePage($event)"
+        (cellClickEvent)="self.cellClick($event)"
+        [dataCacheName]="''coupon-series-grid-cache''"
+        [class]=''undefined''
+      ></cr-edit-grid-server-paging>
+    </div>
+        </ng-template>
+      </cr-panel>
+      </ng-template>
+    </ng-template>
+    
+              </ng-container>
+            </ng-container>
+          </div>
+        </div>', '2022-12-28 13:59:51.8566667 +00:00', 11, N'N', '0f8c5ea1-0c2a-4d9c-aa81-97d2fad49425', 1, NULL)
+INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID], [BookmarkName], [BookmarkDescription], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('daf8337a-a982-ed11-8360-02f176033ddb', 'd8f8337a-a982-ed11-8360-02f176033ddb', 2, N'', N'', N'
+        <div class=''cr-popup-content-wrapper'' [class.cr-popup-is-shown]=''self.popupTab.tabs.length > 1''>
+          <cr-popup-tabs
+            [popupTabs]=''self.popupTab.tabs''
+            [activePopup]=''self.popupTab.activeTabIndex''
+            (closePopup)=''self.removePopupTab($event)''
+            (changeActive)=''self.changeActiveTab($event)''
+          ></cr-popup-tabs>
+          <div class=''cr-details-inner-container''>
+            <ng-container *ngFor=''let tab of self.popupTab.tabs; index as i;''>
+              <ng-container [ngSwitch]=''tab.type''>
+                
+    <ng-template [ngSwitchCase]="''general''">
+      <ng-template [ngIf]="self.popupTab.tabs[self.popupTab.activeTabIndex].type == ''general'' && self.popupTab.activeTabIndex == i">
+        <div *ngIf=''self.popupTab.activeTabIndex != self.popupTab.tabs.length - 1'' class=''cr-popup-blocker''></div>
+        <cr-title-header
+    [titleTranslateKey]="''SERIES.FILTER.TITLE''"
+    [title]="''''"
+    (buttonClickEvent)="self.onTitleButtonClick($event)"
+    [buttonSettings]="self.titleHeaderButtonSettings"
+></cr-title-header>
+      <cr-panel
+        [panelTemplateType]="''collapsible-panel''"
+        [expanded]="self.panelsViewState?.[''filter''] ?? true"
+        (expandedChange)="self.panelStateChange(''filter'', $event)"
+        [titleTranslateKey]="true ? ''SERIES.FILTER.TITLE'' : null"
+        [title]="true ? null : ''Coupon series''"
+        [customClass]="''''"
+        [headerClass]="''''"
+        [validator]="self.validator"
+        [validatorGroupName]="''filter''"
+        [containFields]=''[]''
+      >
+        <ng-template crPanelContent>
+          <div class="row undefined"><div class=''col-lg-4''><cr-control-edit 
+    [translateKeys]="''SERIES.FILTER.CODE''" 
+    [dataLabel]="''''"
+    [customClass]=''""''
+    [isDisabled]="false"
+    [elementName]="''edit:Coupon_series.Code''"
+    [(dataValue)]="self.seriesListFilterRequest.code"
+    [permissionSettings]="{isAccessEdit: (self.EndpointName.coupon_series_GET | endpointAccessGrantedPipe)}"
+></cr-control-edit></div><div class=''col-lg-4''><cr-control-edit 
+    [translateKeys]="''SERIES.FILTER.NAME''" 
+    [dataLabel]="''''"
+    [customClass]=''""''
+    [isDisabled]="false"
+    [elementName]="''edit:Coupon_series.Name''"
+    [(dataValue)]="self.seriesListFilterRequest.name"
+    [permissionSettings]="{isAccessEdit: (self.EndpointName.coupon_series_GET | endpointAccessGrantedPipe)}"
+></cr-control-edit>
+</div><div class=''col-lg-4''><cr-button-control 
+    [buttonTemplateType]="''underlined-action-button''"
+    [text]="''''"
+    [textTranslateKey]="''COMMON.SEARCH''"
+    [classArray]=''["d-block","ml-auto"]''
+    [width]="''''"
+    [height]="''''"
+    [icon]="''undefined''"
+    (buttonClickEvent)="self.changeFilter()"
+    *ngIf="(self.EndpointName.coupon_series_GET | endpointAccessGrantedPipe)"
+></cr-button-control></div></div>
+        </ng-template>
+      </cr-panel>
+      <cr-panel
+        [panelTemplateType]="''panel''"
+        [expanded]="self.panelsViewState?.[''undefined''] ?? true"
+        (expandedChange)="self.panelStateChange(''undefined'', $event)"
+        [titleTranslateKey]="true ? ''SERIES.LIST.GRID_TITLE'' : null"
+        [title]="true ? null : ''Series''"
+        [customClass]="''''"
+        [headerClass]="''''"
+        [validator]="self.validator"
+        [validatorGroupName]="''undefined''"
+        [containFields]=''[]''
+      >
+        <ng-template crPanelContent>
+          <div class="cr-grid-wrapper-new">
+      <cr-edit-grid-server-paging
+        [elementName]="''edit-grid-server-paging:Coupon_series.Grid''"
+        [dataSource]="self.gridData"
+        [columnSettings]=''self.columnSettings | dynamicColumnSettings:[{"field":"code","titleTranslateKey":"SERIES.LIST.CODE","hidden":false,"sortOrder":1},{"field":"displayName","titleTranslateKey":"SERIES.LIST.NAME","hidden":false,"sortOrder":2},{"field":"genFrom","titleTranslateKey":"SERIES.LIST.FROM","hidden":false,"sortOrder":3},{"field":"genTo","titleTranslateKey":"SERIES.LIST.TO","hidden":false,"sortOrder":4},{"field":"manualDiscountPrice","titleTranslateKey":"SERIES.LIST.MANUAL_DISCOUNT_PRICE","hidden":false,"sortOrder":5},{"field":"couponsGenerated","titleTranslateKey":"SERIES.LIST.GENERATED","hidden":false,"sortOrder":6}]''
+        [pageable]="true"
+        [resizable]="true"
+        [uniqueField]="''id''"
+        (pageChangeEvent)="self.changePage($event)"
+        (cellClickEvent)="self.cellClick($event)"
+        [dataCacheName]="''coupon-series-grid-cache''"
+        [class]=''undefined''
+      ></cr-edit-grid-server-paging>
+    </div>
+        </ng-template>
+      </cr-panel>
+      </ng-template>
+    </ng-template>
+    
+              </ng-container>
+            </ng-container>
+          </div>
+        </div>', '2022-12-28 13:59:51.8566667 +00:00', 11, N'N', 'a5c6e480-ee25-41ee-959d-9ba708db7549', 1, NULL)
+INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID], [BookmarkName], [BookmarkDescription], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('edbd5a0c-c282-ed11-8360-02f176033ddb', 'ecbd5a0c-c282-ed11-8360-02f176033ddb', 1, N'', N'', N'
+        <div class=''cr-popup-content-wrapper'' [class.cr-popup-is-shown]=''self.popupTab.tabs.length > 1''>
+          <cr-popup-tabs
+            [popupTabs]=''self.popupTab.tabs''
+            [activePopup]=''self.popupTab.activeTabIndex''
+            (closePopup)=''self.removePopupTab($event)''
+            (changeActive)=''self.changeActiveTab($event)''
+          ></cr-popup-tabs>
+          <div class=''cr-details-inner-container''>
+            <ng-container *ngFor=''let tab of self.popupTab.tabs; index as i;''>
+              <ng-container [ngSwitch]=''tab.type''>
+                
+    <ng-template [ngSwitchCase]="''general''">
+      <ng-template [ngIf]="self.popupTab.tabs[self.popupTab.activeTabIndex].type == ''general'' && self.popupTab.activeTabIndex == i">
+        <div *ngIf=''self.popupTab.activeTabIndex != self.popupTab.tabs.length - 1'' class=''cr-popup-blocker''></div>
+        <cr-title-header
+    [titleTranslateKey]="''SERIES.DETAILS.TITLE''"
+    [title]="''''"
+    [titleValue]="self.titleValueText"
+    [additionalTranslateKeys]="''COMMON.NEW''"
+    (buttonClickEvent)="self.onTitleButtonClick($event)"
+    [buttonSettings]="self.titleHeaderButtonSettings"
+    [titleValueTranslateKey]="self.isNewSeries ? ''COMMON.NEW'' : null"
+></cr-title-header>
+        <ng-template [ngIf]="self.series">
+            
+      <cr-panel
+        [panelTemplateType]="''well''"
+        [customClass]="''''"
+      >
+        <ng-template crPanelContent>
+          <div class="row align-items-start"><div class=''col-lg-8''><div class="row cr-bottom-row-border"><div class=''col-lg-3''><cr-control-edit
+    [(dataValue)]="self.series.code"
+    [elementName]="''edit:Coupon_series_details.Code''"
+    [permissionSettings]="{
+            isAccessEdit: self.isNewSeries ? (self.EndpointName.coupon_series_POST | endpointAccessGrantedPipe) :
+              (self.EndpointName.coupon_series_id_PUT | endpointAccessGrantedPipe)
+          }"
+    [validator]="self.validator"
+    [validationField]="''code''"
+    [translateKeys]="''SERIES.DETAILS.CODE''" 
+    [dataLabel]="''''"
+    [customClass]=''""''
+    [isDisabled]="!self.isNewSeries || false"
+></cr-control-edit></div><div class=''col-lg-3''><cr-control-edit
+    [(dataValue)]="self.series.displayName"
+    [elementName]="''edit:Coupon_series_details.Name''"
+    [permissionSettings]="{
+            isAccessEdit: self.isNewSeries ? (self.EndpointName.coupon_series_POST | endpointAccessGrantedPipe) :
+              (self.EndpointName.coupon_series_id_PUT | endpointAccessGrantedPipe)
+          }"
+    [validator]="self.validator"
+    [validationField]="''displayName''"
+    [translateKeys]="''SERIES.DETAILS.NAME''" 
+    [dataLabel]="''''"
+    [customClass]=''""''
+    [isDisabled]="false"
+    (dataValueChange)="self.changeTitle()"
+></cr-control-edit></div><div class=''col-lg-3''><cr-numeric-control
+    [elementName]="''numeric:Coupon_series_details.Coupon_valid_days''"
+    [(dataValue)]="self.series.couponValidDays"
+    [permissionSettings]="{
+                    isAccessEdit: self.isNewSeries ?
+                    (self.EndpointName.coupon_series_POST | endpointAccessGrantedPipe):
+                    (self.EndpointName.coupon_series_id_PUT | endpointAccessGrantedPipe)
+                  }"
+    [validationField]="''couponValidDays''"
+    [validator]="self.validator"      
+    [dataLabel]="''''" 
+    [translateKeys]="''SERIES.DETAILS.COUPON_VALID_DAYS''" 
+    [customClass]=''""''
+    [format]="''n0''" 
+    [decimals]="null" 
+    [min]="null" 
+    [max]="null"
+    [autoCorrectMinMax]="false"
+></cr-numeric-control></div><div class=''col-lg-3''><cr-checkbox-control
+    [elementName]="''checkbox:Coupon_series_details.No_range''"
+    [permissionSettings]="{
+        isAccessEdit: self.isNewSeries ?
+            (self.EndpointName.coupon_series_POST | endpointAccessGrantedPipe):
+            (self.EndpointName.coupon_series_id_PUT | endpointAccessGrantedPipe)
+    }"
+    [(dataValue)]="self.series.withoutRange"
+    [dataLabel]="''''"
+    [translateKeys]="''SERIES.DETAILS.NO_RANGE''"
+    [isDisabled]="!self.isNewSeries"
+    [class]=''""''
+    (dataValueChange)="self.onNoRangeChange()"
+></cr-checkbox-control></div></div>
+        <ng-template [ngIf]="!self.series.withoutRange">
+            <div class="row cr-bottom-row-border"><div class=''col-lg-3''><cr-numeric-control
+    [elementName]="''numeric:Coupon_series_details.Coupon_range_from''"
+    [(dataValue)]="self.series.genFrom"
+    [permissionSettings]="{
+        isAccessEdit: self.isNewSeries ?
+            (self.EndpointName.coupon_series_POST | endpointAccessGrantedPipe):
+            (self.EndpointName.coupon_series_id_PUT | endpointAccessGrantedPipe)
+    }"
+    [validationField]="''genFrom''"
+    [validator]="self.validator"      
+    [dataLabel]="''''" 
+    [translateKeys]="''SERIES.DETAILS.COUPONS_RANGE_FROM''" 
+    [customClass]=''""''
+    [format]="''n0''" 
+    [decimals]="null" 
+    [min]="null" 
+    [max]="2147483647"
+    [autoCorrectMinMax]="true"
+    [isDisabled]="!self.isNewSeries"
+></cr-numeric-control></div><div class=''col-lg-3''><cr-numeric-control
+    [elementName]="''numeric:Coupon_series_details.Coupon_range_to''"
+    [(dataValue)]="self.series.genTo"
+    [permissionSettings]="{
+        isAccessEdit: self.isNewSeries ?
+            (self.EndpointName.coupon_series_POST | endpointAccessGrantedPipe):
+            (self.EndpointName.coupon_series_id_PUT | endpointAccessGrantedPipe)
+    }"
+    [validationField]="''genTo''"
+    [validator]="self.validator"      
+    [dataLabel]="''''" 
+    [translateKeys]="''SERIES.DETAILS.COUPONS_RANGE_TO''" 
+    [customClass]=''""''
+    [format]="''n0''" 
+    [decimals]="null" 
+    [min]="null" 
+    [max]="2147483647"
+    [autoCorrectMinMax]="true"
+></cr-numeric-control></div><div class=''col-lg-3''><cr-control-edit
+    [(dataValue)]="self.series.nextCouponNumber"
+    [elementName]="''edit:Coupon_series_details.Next_coupon_number''"
+    [permissionSettings]="{
+            isAccessEdit: self.isNewSeries ? (self.EndpointName.coupon_series_POST | endpointAccessGrantedPipe) :
+              (self.EndpointName.coupon_series_id_PUT | endpointAccessGrantedPipe)
+          }"
+    [translateKeys]="''SERIES.DETAILS.NEXT_COUPON_NUMBER''" 
+    [dataLabel]="''''"
+    [customClass]=''""''
+    [isDisabled]="true"
+    [isReadOnly]="true"
+></cr-control-edit></div><div class=''col-lg-3''><cr-dropdown-smart-control
+    [elementName]="''smart-dropdown:Coupon_series_details.Status''"
+    [permissionSettings]="{
+        isAccessEdit: self.isNewSeries ?
+            (self.EndpointName.coupon_series_POST | endpointAccessGrantedPipe):
+            (self.EndpointName.coupon_series_id_PUT | endpointAccessGrantedPipe)
+    }"
+    [(value)]="self.series.couponsGenerated"
+    [textField]="''name''"
+    [valueField]="''propertyBoolean''"
+    [isDisabled]="true"
+    [isReadOnly]="true"
+    [getListItemsFunction]="self.getSeriesCouponStatusDropdownListFn$"
+    [getOneItemFunction]="self.getSeriesCouponStatusItemDropdownFn$"
+    [dataCacheName]="''SeriesDetailsStatusDropdownCache''"
+    [labelTranslateKey]="''SERIES.DETAILS.CLOSED''"
+    [label]="''''"
+    [class]=''""''
+></cr-dropdown-smart-control>
+</div></div>
+        </ng-template><div class="row undefined"><div class=''col-lg-6''><cr-checkbox-control
+    [elementName]="''checkbox:Coupon_series_details.Manual_discount_price''"
+    [permissionSettings]="{
+        isAccessEdit: self.isNewSeries ?
+            (self.EndpointName.coupon_series_POST | endpointAccessGrantedPipe):
+            (self.EndpointName.coupon_series_id_PUT | endpointAccessGrantedPipe)
+    }"
+    [(dataValue)]="self.series.manualDiscountPrice"
+    [dataLabel]="''''"
+    [translateKeys]="''SERIES.DETAILS.AS_VOUCHER''"
+    [class]=''""''
+></cr-checkbox-control></div><div class=''col-md-6''></div></div></div><div class=''col-lg-4''><div class="row undefined"><div class=''col-lg-12''><cr-text-area-control
+    [(dataValue)]="self.series.voucherText"
+    [elementName]="''textarea:Coupon_series_details.Voucher_text''"
+    [permissionSettings]="{
+              isAccessEdit: self.isNewSeries ?
+                (self.EndpointName.coupon_series_POST | endpointAccessGrantedPipe):
+                (self.EndpointName.coupon_series_id_PUT | endpointAccessGrantedPipe)
+              }"
+    [dataLabel]="''''"
+    [translateKeys]="''SERIES.DETAILS.VOUCHER_TEXT''"
+    [class]=''""'' 
+    [isDisabled]="false"
+    [rows]="10"
+    [maxlength]="50000"
+></cr-text-area-control></div><div class=''col-md-6''></div></div></div></div>
+        </ng-template>
+      </cr-panel>
+        </ng-template>
+      </ng-template>
+    </ng-template>
+    
+              </ng-container>
+            </ng-container>
+          </div>
+        </div>', '2022-12-28 14:14:55.8100000 +00:00', 18, N'N', 'cf5a9180-86e0-4d82-9f71-4c60a15b56f8', 1, NULL)
+INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID], [BookmarkName], [BookmarkDescription], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('eebd5a0c-c282-ed11-8360-02f176033ddb', 'ecbd5a0c-c282-ed11-8360-02f176033ddb', 2, N'', N'', N'
+        <div class=''cr-popup-content-wrapper'' [class.cr-popup-is-shown]=''self.popupTab.tabs.length > 1''>
+          <cr-popup-tabs
+            [popupTabs]=''self.popupTab.tabs''
+            [activePopup]=''self.popupTab.activeTabIndex''
+            (closePopup)=''self.removePopupTab($event)''
+            (changeActive)=''self.changeActiveTab($event)''
+          ></cr-popup-tabs>
+          <div class=''cr-details-inner-container''>
+            <ng-container *ngFor=''let tab of self.popupTab.tabs; index as i;''>
+              <ng-container [ngSwitch]=''tab.type''>
+                
+    <ng-template [ngSwitchCase]="''general''">
+      <ng-template [ngIf]="self.popupTab.tabs[self.popupTab.activeTabIndex].type == ''general'' && self.popupTab.activeTabIndex == i">
+        <div *ngIf=''self.popupTab.activeTabIndex != self.popupTab.tabs.length - 1'' class=''cr-popup-blocker''></div>
+        <cr-title-header
+    [titleTranslateKey]="''SERIES.DETAILS.TITLE''"
+    [title]="''''"
+    [titleValue]="self.titleValueText"
+    [additionalTranslateKeys]="''COMMON.NEW''"
+    (buttonClickEvent)="self.onTitleButtonClick($event)"
+    [buttonSettings]="self.titleHeaderButtonSettings"
+    [titleValueTranslateKey]="self.isNewSeries ? ''COMMON.NEW'' : null"
+></cr-title-header>
+        <ng-template [ngIf]="self.series">
+            
+      <cr-panel
+        [panelTemplateType]="''well''"
+        [customClass]="''''"
+      >
+        <ng-template crPanelContent>
+          <div class="row align-items-start"><div class=''col-lg-8''><div class="row cr-bottom-row-border"><div class=''col-lg-3''><cr-control-edit
+    [(dataValue)]="self.series.code"
+    [elementName]="''edit:Coupon_series_details.Code''"
+    [permissionSettings]="{
+            isAccessEdit: self.isNewSeries ? (self.EndpointName.coupon_series_POST | endpointAccessGrantedPipe) :
+              (self.EndpointName.coupon_series_id_PUT | endpointAccessGrantedPipe)
+          }"
+    [validator]="self.validator"
+    [validationField]="''code''"
+    [translateKeys]="''SERIES.DETAILS.CODE''" 
+    [dataLabel]="''''"
+    [customClass]=''""''
+    [isDisabled]="!self.isNewSeries || false"
+></cr-control-edit></div><div class=''col-lg-3''><cr-control-edit
+    [(dataValue)]="self.series.displayName"
+    [elementName]="''edit:Coupon_series_details.Name''"
+    [permissionSettings]="{
+            isAccessEdit: self.isNewSeries ? (self.EndpointName.coupon_series_POST | endpointAccessGrantedPipe) :
+              (self.EndpointName.coupon_series_id_PUT | endpointAccessGrantedPipe)
+          }"
+    [validator]="self.validator"
+    [validationField]="''displayName''"
+    [translateKeys]="''SERIES.DETAILS.NAME''" 
+    [dataLabel]="''''"
+    [customClass]=''""''
+    [isDisabled]="false"
+    (dataValueChange)="self.changeTitle()"
+></cr-control-edit></div><div class=''col-lg-3''><cr-numeric-control
+    [elementName]="''numeric:Coupon_series_details.Coupon_valid_days''"
+    [(dataValue)]="self.series.couponValidDays"
+    [permissionSettings]="{
+                    isAccessEdit: self.isNewSeries ?
+                    (self.EndpointName.coupon_series_POST | endpointAccessGrantedPipe):
+                    (self.EndpointName.coupon_series_id_PUT | endpointAccessGrantedPipe)
+                  }"
+    [validationField]="''couponValidDays''"
+    [validator]="self.validator"      
+    [dataLabel]="''''" 
+    [translateKeys]="''SERIES.DETAILS.COUPON_VALID_DAYS''" 
+    [customClass]=''""''
+    [format]="''n0''" 
+    [decimals]="null" 
+    [min]="null" 
+    [max]="null"
+    [autoCorrectMinMax]="false"
+></cr-numeric-control></div><div class=''col-lg-3''><cr-checkbox-control
+    [elementName]="''checkbox:Coupon_series_details.No_range''"
+    [permissionSettings]="{
+        isAccessEdit: self.isNewSeries ?
+            (self.EndpointName.coupon_series_POST | endpointAccessGrantedPipe):
+            (self.EndpointName.coupon_series_id_PUT | endpointAccessGrantedPipe)
+    }"
+    [(dataValue)]="self.series.withoutRange"
+    [dataLabel]="''''"
+    [translateKeys]="''SERIES.DETAILS.NO_RANGE''"
+    [isDisabled]="!self.isNewSeries"
+    [class]=''""''
+    (dataValueChange)="self.onNoRangeChange()"
+></cr-checkbox-control></div></div>
+        <ng-template [ngIf]="!self.series.withoutRange">
+            <div class="row cr-bottom-row-border"><div class=''col-lg-3''><cr-numeric-control
+    [elementName]="''numeric:Coupon_series_details.Coupon_range_from''"
+    [(dataValue)]="self.series.genFrom"
+    [permissionSettings]="{
+        isAccessEdit: self.isNewSeries ?
+            (self.EndpointName.coupon_series_POST | endpointAccessGrantedPipe):
+            (self.EndpointName.coupon_series_id_PUT | endpointAccessGrantedPipe)
+    }"
+    [validationField]="''genFrom''"
+    [validator]="self.validator"      
+    [dataLabel]="''''" 
+    [translateKeys]="''SERIES.DETAILS.COUPONS_RANGE_FROM''" 
+    [customClass]=''""''
+    [format]="''n0''" 
+    [decimals]="null" 
+    [min]="null" 
+    [max]="2147483647"
+    [autoCorrectMinMax]="true"
+    [isDisabled]="!self.isNewSeries"
+></cr-numeric-control></div><div class=''col-lg-3''><cr-numeric-control
+    [elementName]="''numeric:Coupon_series_details.Coupon_range_to''"
+    [(dataValue)]="self.series.genTo"
+    [permissionSettings]="{
+        isAccessEdit: self.isNewSeries ?
+            (self.EndpointName.coupon_series_POST | endpointAccessGrantedPipe):
+            (self.EndpointName.coupon_series_id_PUT | endpointAccessGrantedPipe)
+    }"
+    [validationField]="''genTo''"
+    [validator]="self.validator"      
+    [dataLabel]="''''" 
+    [translateKeys]="''SERIES.DETAILS.COUPONS_RANGE_TO''" 
+    [customClass]=''""''
+    [format]="''n0''" 
+    [decimals]="null" 
+    [min]="null" 
+    [max]="2147483647"
+    [autoCorrectMinMax]="true"
+></cr-numeric-control></div><div class=''col-lg-3''><cr-control-edit
+    [(dataValue)]="self.series.nextCouponNumber"
+    [elementName]="''edit:Coupon_series_details.Next_coupon_number''"
+    [permissionSettings]="{
+            isAccessEdit: self.isNewSeries ? (self.EndpointName.coupon_series_POST | endpointAccessGrantedPipe) :
+              (self.EndpointName.coupon_series_id_PUT | endpointAccessGrantedPipe)
+          }"
+    [translateKeys]="''SERIES.DETAILS.NEXT_COUPON_NUMBER''" 
+    [dataLabel]="''''"
+    [customClass]=''""''
+    [isDisabled]="true"
+    [isReadOnly]="true"
+></cr-control-edit></div><div class=''col-lg-3''><cr-dropdown-smart-control
+    [elementName]="''smart-dropdown:Coupon_series_details.Status''"
+    [permissionSettings]="{
+        isAccessEdit: self.isNewSeries ?
+            (self.EndpointName.coupon_series_POST | endpointAccessGrantedPipe):
+            (self.EndpointName.coupon_series_id_PUT | endpointAccessGrantedPipe)
+    }"
+    [(value)]="self.series.couponsGenerated"
+    [textField]="''name''"
+    [valueField]="''propertyBoolean''"
+    [isDisabled]="true"
+    [isReadOnly]="true"
+    [getListItemsFunction]="self.getSeriesCouponStatusDropdownListFn$"
+    [getOneItemFunction]="self.getSeriesCouponStatusItemDropdownFn$"
+    [dataCacheName]="''SeriesDetailsStatusDropdownCache''"
+    [labelTranslateKey]="''SERIES.DETAILS.CLOSED''"
+    [label]="''''"
+    [class]=''""''
+></cr-dropdown-smart-control>
+</div></div>
+        </ng-template><div class="row undefined"><div class=''col-lg-6''><cr-checkbox-control
+    [elementName]="''checkbox:Coupon_series_details.Manual_discount_price''"
+    [permissionSettings]="{
+        isAccessEdit: self.isNewSeries ?
+            (self.EndpointName.coupon_series_POST | endpointAccessGrantedPipe):
+            (self.EndpointName.coupon_series_id_PUT | endpointAccessGrantedPipe)
+    }"
+    [(dataValue)]="self.series.manualDiscountPrice"
+    [dataLabel]="''''"
+    [translateKeys]="''SERIES.DETAILS.AS_VOUCHER''"
+    [class]=''""''
+></cr-checkbox-control></div><div class=''col-md-6''></div></div></div><div class=''col-lg-4''><div class="row undefined"><div class=''col-lg-12''><cr-text-area-control
+    [(dataValue)]="self.series.voucherText"
+    [elementName]="''textarea:Coupon_series_details.Voucher_text''"
+    [permissionSettings]="{
+              isAccessEdit: self.isNewSeries ?
+                (self.EndpointName.coupon_series_POST | endpointAccessGrantedPipe):
+                (self.EndpointName.coupon_series_id_PUT | endpointAccessGrantedPipe)
+              }"
+    [dataLabel]="''''"
+    [translateKeys]="''SERIES.DETAILS.VOUCHER_TEXT''"
+    [class]=''""'' 
+    [isDisabled]="false"
+    [rows]="10"
+    [maxlength]="50000"
+></cr-text-area-control></div><div class=''col-md-6''></div></div></div></div>
+        </ng-template>
+      </cr-panel>
+        </ng-template>
+      </ng-template>
+    </ng-template>
+    
+              </ng-container>
+            </ng-container>
+          </div>
+        </div>', '2022-12-28 14:14:55.8100000 +00:00', 18, N'N', '418db067-1369-4d25-9656-9455f654fad3', 1, NULL)
+INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID], [BookmarkName], [BookmarkDescription], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('f25d5825-c282-ed11-8360-02f176033ddb', 'f15d5825-c282-ed11-8360-02f176033ddb', 1, N'', N'', N'
+        <div class=''cr-popup-content-wrapper'' [class.cr-popup-is-shown]=''self.popupTab.tabs.length > 1''>
+          <cr-popup-tabs
+            [popupTabs]=''self.popupTab.tabs''
+            [activePopup]=''self.popupTab.activeTabIndex''
+            (closePopup)=''self.removePopupTab($event)''
+            (changeActive)=''self.changeActiveTab($event)''
+          ></cr-popup-tabs>
+          <div class=''cr-details-inner-container''>
+            <ng-container *ngFor=''let tab of self.popupTab.tabs; index as i;''>
+              <ng-container [ngSwitch]=''tab.type''>
+                
+    <ng-template [ngSwitchCase]="''general''">
+      <ng-template [ngIf]="self.popupTab.tabs[self.popupTab.activeTabIndex].type == ''general'' && self.popupTab.activeTabIndex == i">
+        <div *ngIf=''self.popupTab.activeTabIndex != self.popupTab.tabs.length - 1'' class=''cr-popup-blocker''></div>
+        <cr-title-header
+    [titleTranslateKey]="''SERIES.DETAILS.TITLE''"
+    [title]="''''"
+    [titleValue]="self.titleValueText"
+    [additionalTranslateKeys]="''COMMON.NEW''"
+    (buttonClickEvent)="self.onTitleButtonClick($event)"
+    [buttonSettings]="self.titleHeaderButtonSettings"
+    [titleValueTranslateKey]="self.isNewSeries ? ''COMMON.NEW'' : null"
+></cr-title-header>
+        <ng-template [ngIf]="self.series">
+            
+      <cr-panel
+        [panelTemplateType]="''well''"
+        [customClass]="''''"
+      >
+        <ng-template crPanelContent>
+          <div class="row undefined"><div class=''col-lg-8''><div class="row cr-bottom-row-border"><div class=''col-lg-3''><cr-control-edit
+    [(dataValue)]="self.series.code"
+    [elementName]="''edit:Coupon_series_details.Code''"
+    [permissionSettings]="{
+            isAccessEdit: self.isNewSeries ? (self.EndpointName.coupon_series_POST | endpointAccessGrantedPipe) :
+              (self.EndpointName.coupon_series_id_PUT | endpointAccessGrantedPipe)
+          }"
+    [validator]="self.validator"
+    [validationField]="''code''"
+    [translateKeys]="''SERIES.DETAILS.CODE''" 
+    [dataLabel]="''''"
+    [customClass]=''""''
+    [isDisabled]="!self.isNewSeries || false"
+></cr-control-edit></div><div class=''col-lg-3''><cr-control-edit
+    [(dataValue)]="self.series.displayName"
+    [elementName]="''edit:Coupon_series_details.Name''"
+    [permissionSettings]="{
+            isAccessEdit: self.isNewSeries ? (self.EndpointName.coupon_series_POST | endpointAccessGrantedPipe) :
+              (self.EndpointName.coupon_series_id_PUT | endpointAccessGrantedPipe)
+          }"
+    [validator]="self.validator"
+    [validationField]="''displayName''"
+    [translateKeys]="''SERIES.DETAILS.NAME''" 
+    [dataLabel]="''''"
+    [customClass]=''""''
+    [isDisabled]="false"
+    (dataValueChange)="self.changeTitle()"
+></cr-control-edit></div><div class=''col-lg-3''><cr-numeric-control
+    [elementName]="''numeric:Coupon_series_details.Coupon_valid_days''"
+    [(dataValue)]="self.series.couponValidDays"
+    [permissionSettings]="{
+                    isAccessEdit: self.isNewSeries ?
+                    (self.EndpointName.coupon_series_POST | endpointAccessGrantedPipe):
+                    (self.EndpointName.coupon_series_id_PUT | endpointAccessGrantedPipe)
+                  }"
+    [validationField]="''couponValidDays''"
+    [validator]="self.validator"      
+    [dataLabel]="''''" 
+    [translateKeys]="''SERIES.DETAILS.COUPON_VALID_DAYS''" 
+    [customClass]=''""''
+    [format]="''n0''" 
+    [decimals]="null" 
+    [min]="null" 
+    [max]="null"
+    [autoCorrectMinMax]="false"
+></cr-numeric-control></div><div class=''col-lg-3''><cr-checkbox-control
+    [elementName]="''checkbox:Coupon_series_details.No_range''"
+    [permissionSettings]="{
+        isAccessEdit: self.isNewSeries ?
+            (self.EndpointName.coupon_series_POST | endpointAccessGrantedPipe):
+            (self.EndpointName.coupon_series_id_PUT | endpointAccessGrantedPipe)
+    }"
+    [(dataValue)]="self.series.withoutRange"
+    [dataLabel]="''''"
+    [translateKeys]="''SERIES.DETAILS.NO_RANGE''"
+    [isDisabled]="!self.isNewSeries"
+    [class]=''""''
+    (dataValueChange)="self.onNoRangeChange()"
+></cr-checkbox-control></div></div>
+        <ng-template [ngIf]="!self.series.withoutRange">
+            <div class="row cr-bottom-row-border"><div class=''col-lg-3''><cr-numeric-control
+    [elementName]="''numeric:Coupon_series_details.Coupon_range_from''"
+    [(dataValue)]="self.series.genFrom"
+    [permissionSettings]="{
+        isAccessEdit: self.isNewSeries ?
+            (self.EndpointName.coupon_series_POST | endpointAccessGrantedPipe):
+            (self.EndpointName.coupon_series_id_PUT | endpointAccessGrantedPipe)
+    }"
+    [validationField]="''genFrom''"
+    [validator]="self.validator"      
+    [dataLabel]="''''" 
+    [translateKeys]="''SERIES.DETAILS.COUPONS_RANGE_FROM''" 
+    [customClass]=''""''
+    [format]="''n0''" 
+    [decimals]="null" 
+    [min]="null" 
+    [max]="2147483647"
+    [autoCorrectMinMax]="true"
+    [isDisabled]="!self.isNewSeries"
+></cr-numeric-control></div><div class=''col-lg-3''><cr-numeric-control
+    [elementName]="''numeric:Coupon_series_details.Coupon_range_to''"
+    [(dataValue)]="self.series.genTo"
+    [permissionSettings]="{
+        isAccessEdit: self.isNewSeries ?
+            (self.EndpointName.coupon_series_POST | endpointAccessGrantedPipe):
+            (self.EndpointName.coupon_series_id_PUT | endpointAccessGrantedPipe)
+    }"
+    [validationField]="''genTo''"
+    [validator]="self.validator"      
+    [dataLabel]="''''" 
+    [translateKeys]="''SERIES.DETAILS.COUPONS_RANGE_TO''" 
+    [customClass]=''""''
+    [format]="''n0''" 
+    [decimals]="null" 
+    [min]="null" 
+    [max]="2147483647"
+    [autoCorrectMinMax]="true"
+></cr-numeric-control></div><div class=''col-lg-3''><cr-control-edit
+    [(dataValue)]="self.series.nextCouponNumber"
+    [elementName]="''edit:Coupon_series_details.Next_coupon_number''"
+    [permissionSettings]="{
+            isAccessEdit: self.isNewSeries ? (self.EndpointName.coupon_series_POST | endpointAccessGrantedPipe) :
+              (self.EndpointName.coupon_series_id_PUT | endpointAccessGrantedPipe)
+          }"
+    [translateKeys]="''SERIES.DETAILS.NEXT_COUPON_NUMBER''" 
+    [dataLabel]="''''"
+    [customClass]=''""''
+    [isDisabled]="true"
+    [isReadOnly]="true"
+></cr-control-edit></div><div class=''col-lg-3''><cr-dropdown-smart-control
+    [elementName]="''smart-dropdown:Coupon_series_details.Status''"
+    [permissionSettings]="{
+        isAccessEdit: self.isNewSeries ?
+            (self.EndpointName.coupon_series_POST | endpointAccessGrantedPipe):
+            (self.EndpointName.coupon_series_id_PUT | endpointAccessGrantedPipe)
+    }"
+    [(value)]="self.series.couponsGenerated"
+    [textField]="''name''"
+    [valueField]="''propertyBoolean''"
+    [isDisabled]="true"
+    [isReadOnly]="true"
+    [getListItemsFunction]="self.getSeriesCouponStatusDropdownListFn$"
+    [getOneItemFunction]="self.getSeriesCouponStatusItemDropdownFn$"
+    [dataCacheName]="''SeriesDetailsStatusDropdownCache''"
+    [labelTranslateKey]="''SERIES.DETAILS.CLOSED''"
+    [label]="''''"
+    [class]=''""''
+></cr-dropdown-smart-control>
+</div></div>
+        </ng-template><div class="row undefined"><div class=''col-lg-6''><cr-checkbox-control
+    [elementName]="''checkbox:Coupon_series_details.Manual_discount_price''"
+    [permissionSettings]="{
+        isAccessEdit: self.isNewSeries ?
+            (self.EndpointName.coupon_series_POST | endpointAccessGrantedPipe):
+            (self.EndpointName.coupon_series_id_PUT | endpointAccessGrantedPipe)
+    }"
+    [(dataValue)]="self.series.manualDiscountPrice"
+    [dataLabel]="''''"
+    [translateKeys]="''SERIES.DETAILS.AS_VOUCHER''"
+    [class]=''""''
+></cr-checkbox-control></div><div class=''col-lg-6''></div></div></div><div class=''col-lg-4''><div class="row undefined"><div class=''col-lg-12''><cr-text-area-control
+    [(dataValue)]="self.series.voucherText"
+    [elementName]="''textarea:Coupon_series_details.Voucher_text''"
+    [permissionSettings]="{
+              isAccessEdit: self.isNewSeries ?
+                (self.EndpointName.coupon_series_POST | endpointAccessGrantedPipe):
+                (self.EndpointName.coupon_series_id_PUT | endpointAccessGrantedPipe)
+              }"
+    [dataLabel]="''''"
+    [translateKeys]="''SERIES.DETAILS.VOUCHER_TEXT''"
+    [class]=''""'' 
+    [isDisabled]="false"
+    [rows]="10"
+    [maxlength]="50000"
+></cr-text-area-control></div><div class=''col-md-6''></div></div></div></div>
+        </ng-template>
+      </cr-panel>
+        </ng-template>
+      </ng-template>
+    </ng-template>
+    
+              </ng-container>
+            </ng-container>
+          </div>
+        </div>', '2022-12-28 14:17:11.3166667 +00:00', 12, N'N', '6f0e5511-1eae-4e82-8b73-f10eba64661f', 1, NULL)
+INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID], [BookmarkName], [BookmarkDescription], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('f35d5825-c282-ed11-8360-02f176033ddb', 'f15d5825-c282-ed11-8360-02f176033ddb', 2, N'', N'', N'
+        <div class=''cr-popup-content-wrapper'' [class.cr-popup-is-shown]=''self.popupTab.tabs.length > 1''>
+          <cr-popup-tabs
+            [popupTabs]=''self.popupTab.tabs''
+            [activePopup]=''self.popupTab.activeTabIndex''
+            (closePopup)=''self.removePopupTab($event)''
+            (changeActive)=''self.changeActiveTab($event)''
+          ></cr-popup-tabs>
+          <div class=''cr-details-inner-container''>
+            <ng-container *ngFor=''let tab of self.popupTab.tabs; index as i;''>
+              <ng-container [ngSwitch]=''tab.type''>
+                
+    <ng-template [ngSwitchCase]="''general''">
+      <ng-template [ngIf]="self.popupTab.tabs[self.popupTab.activeTabIndex].type == ''general'' && self.popupTab.activeTabIndex == i">
+        <div *ngIf=''self.popupTab.activeTabIndex != self.popupTab.tabs.length - 1'' class=''cr-popup-blocker''></div>
+        <cr-title-header
+    [titleTranslateKey]="''SERIES.DETAILS.TITLE''"
+    [title]="''''"
+    [titleValue]="self.titleValueText"
+    [additionalTranslateKeys]="''COMMON.NEW''"
+    (buttonClickEvent)="self.onTitleButtonClick($event)"
+    [buttonSettings]="self.titleHeaderButtonSettings"
+    [titleValueTranslateKey]="self.isNewSeries ? ''COMMON.NEW'' : null"
+></cr-title-header>
+        <ng-template [ngIf]="self.series">
+            
+      <cr-panel
+        [panelTemplateType]="''well''"
+        [customClass]="''''"
+      >
+        <ng-template crPanelContent>
+          <div class="row undefined"><div class=''col-lg-8''><div class="row cr-bottom-row-border"><div class=''col-lg-3''><cr-control-edit
+    [(dataValue)]="self.series.code"
+    [elementName]="''edit:Coupon_series_details.Code''"
+    [permissionSettings]="{
+            isAccessEdit: self.isNewSeries ? (self.EndpointName.coupon_series_POST | endpointAccessGrantedPipe) :
+              (self.EndpointName.coupon_series_id_PUT | endpointAccessGrantedPipe)
+          }"
+    [validator]="self.validator"
+    [validationField]="''code''"
+    [translateKeys]="''SERIES.DETAILS.CODE''" 
+    [dataLabel]="''''"
+    [customClass]=''""''
+    [isDisabled]="!self.isNewSeries || false"
+></cr-control-edit></div><div class=''col-lg-3''><cr-control-edit
+    [(dataValue)]="self.series.displayName"
+    [elementName]="''edit:Coupon_series_details.Name''"
+    [permissionSettings]="{
+            isAccessEdit: self.isNewSeries ? (self.EndpointName.coupon_series_POST | endpointAccessGrantedPipe) :
+              (self.EndpointName.coupon_series_id_PUT | endpointAccessGrantedPipe)
+          }"
+    [validator]="self.validator"
+    [validationField]="''displayName''"
+    [translateKeys]="''SERIES.DETAILS.NAME''" 
+    [dataLabel]="''''"
+    [customClass]=''""''
+    [isDisabled]="false"
+    (dataValueChange)="self.changeTitle()"
+></cr-control-edit></div><div class=''col-lg-3''><cr-numeric-control
+    [elementName]="''numeric:Coupon_series_details.Coupon_valid_days''"
+    [(dataValue)]="self.series.couponValidDays"
+    [permissionSettings]="{
+                    isAccessEdit: self.isNewSeries ?
+                    (self.EndpointName.coupon_series_POST | endpointAccessGrantedPipe):
+                    (self.EndpointName.coupon_series_id_PUT | endpointAccessGrantedPipe)
+                  }"
+    [validationField]="''couponValidDays''"
+    [validator]="self.validator"      
+    [dataLabel]="''''" 
+    [translateKeys]="''SERIES.DETAILS.COUPON_VALID_DAYS''" 
+    [customClass]=''""''
+    [format]="''n0''" 
+    [decimals]="null" 
+    [min]="null" 
+    [max]="null"
+    [autoCorrectMinMax]="false"
+></cr-numeric-control></div><div class=''col-lg-3''><cr-checkbox-control
+    [elementName]="''checkbox:Coupon_series_details.No_range''"
+    [permissionSettings]="{
+        isAccessEdit: self.isNewSeries ?
+            (self.EndpointName.coupon_series_POST | endpointAccessGrantedPipe):
+            (self.EndpointName.coupon_series_id_PUT | endpointAccessGrantedPipe)
+    }"
+    [(dataValue)]="self.series.withoutRange"
+    [dataLabel]="''''"
+    [translateKeys]="''SERIES.DETAILS.NO_RANGE''"
+    [isDisabled]="!self.isNewSeries"
+    [class]=''""''
+    (dataValueChange)="self.onNoRangeChange()"
+></cr-checkbox-control></div></div>
+        <ng-template [ngIf]="!self.series.withoutRange">
+            <div class="row cr-bottom-row-border"><div class=''col-lg-3''><cr-numeric-control
+    [elementName]="''numeric:Coupon_series_details.Coupon_range_from''"
+    [(dataValue)]="self.series.genFrom"
+    [permissionSettings]="{
+        isAccessEdit: self.isNewSeries ?
+            (self.EndpointName.coupon_series_POST | endpointAccessGrantedPipe):
+            (self.EndpointName.coupon_series_id_PUT | endpointAccessGrantedPipe)
+    }"
+    [validationField]="''genFrom''"
+    [validator]="self.validator"      
+    [dataLabel]="''''" 
+    [translateKeys]="''SERIES.DETAILS.COUPONS_RANGE_FROM''" 
+    [customClass]=''""''
+    [format]="''n0''" 
+    [decimals]="null" 
+    [min]="null" 
+    [max]="2147483647"
+    [autoCorrectMinMax]="true"
+    [isDisabled]="!self.isNewSeries"
+></cr-numeric-control></div><div class=''col-lg-3''><cr-numeric-control
+    [elementName]="''numeric:Coupon_series_details.Coupon_range_to''"
+    [(dataValue)]="self.series.genTo"
+    [permissionSettings]="{
+        isAccessEdit: self.isNewSeries ?
+            (self.EndpointName.coupon_series_POST | endpointAccessGrantedPipe):
+            (self.EndpointName.coupon_series_id_PUT | endpointAccessGrantedPipe)
+    }"
+    [validationField]="''genTo''"
+    [validator]="self.validator"      
+    [dataLabel]="''''" 
+    [translateKeys]="''SERIES.DETAILS.COUPONS_RANGE_TO''" 
+    [customClass]=''""''
+    [format]="''n0''" 
+    [decimals]="null" 
+    [min]="null" 
+    [max]="2147483647"
+    [autoCorrectMinMax]="true"
+></cr-numeric-control></div><div class=''col-lg-3''><cr-control-edit
+    [(dataValue)]="self.series.nextCouponNumber"
+    [elementName]="''edit:Coupon_series_details.Next_coupon_number''"
+    [permissionSettings]="{
+            isAccessEdit: self.isNewSeries ? (self.EndpointName.coupon_series_POST | endpointAccessGrantedPipe) :
+              (self.EndpointName.coupon_series_id_PUT | endpointAccessGrantedPipe)
+          }"
+    [translateKeys]="''SERIES.DETAILS.NEXT_COUPON_NUMBER''" 
+    [dataLabel]="''''"
+    [customClass]=''""''
+    [isDisabled]="true"
+    [isReadOnly]="true"
+></cr-control-edit></div><div class=''col-lg-3''><cr-dropdown-smart-control
+    [elementName]="''smart-dropdown:Coupon_series_details.Status''"
+    [permissionSettings]="{
+        isAccessEdit: self.isNewSeries ?
+            (self.EndpointName.coupon_series_POST | endpointAccessGrantedPipe):
+            (self.EndpointName.coupon_series_id_PUT | endpointAccessGrantedPipe)
+    }"
+    [(value)]="self.series.couponsGenerated"
+    [textField]="''name''"
+    [valueField]="''propertyBoolean''"
+    [isDisabled]="true"
+    [isReadOnly]="true"
+    [getListItemsFunction]="self.getSeriesCouponStatusDropdownListFn$"
+    [getOneItemFunction]="self.getSeriesCouponStatusItemDropdownFn$"
+    [dataCacheName]="''SeriesDetailsStatusDropdownCache''"
+    [labelTranslateKey]="''SERIES.DETAILS.CLOSED''"
+    [label]="''''"
+    [class]=''""''
+></cr-dropdown-smart-control>
+</div></div>
+        </ng-template><div class="row undefined"><div class=''col-lg-6''><cr-checkbox-control
+    [elementName]="''checkbox:Coupon_series_details.Manual_discount_price''"
+    [permissionSettings]="{
+        isAccessEdit: self.isNewSeries ?
+            (self.EndpointName.coupon_series_POST | endpointAccessGrantedPipe):
+            (self.EndpointName.coupon_series_id_PUT | endpointAccessGrantedPipe)
+    }"
+    [(dataValue)]="self.series.manualDiscountPrice"
+    [dataLabel]="''''"
+    [translateKeys]="''SERIES.DETAILS.AS_VOUCHER''"
+    [class]=''""''
+></cr-checkbox-control></div><div class=''col-lg-6''></div></div></div><div class=''col-lg-4''><div class="row undefined"><div class=''col-lg-12''><cr-text-area-control
+    [(dataValue)]="self.series.voucherText"
+    [elementName]="''textarea:Coupon_series_details.Voucher_text''"
+    [permissionSettings]="{
+              isAccessEdit: self.isNewSeries ?
+                (self.EndpointName.coupon_series_POST | endpointAccessGrantedPipe):
+                (self.EndpointName.coupon_series_id_PUT | endpointAccessGrantedPipe)
+              }"
+    [dataLabel]="''''"
+    [translateKeys]="''SERIES.DETAILS.VOUCHER_TEXT''"
+    [class]=''""'' 
+    [isDisabled]="false"
+    [rows]="10"
+    [maxlength]="50000"
+></cr-text-area-control></div><div class=''col-md-6''></div></div></div></div>
+        </ng-template>
+      </cr-panel>
+        </ng-template>
+      </ng-template>
+    </ng-template>
+    
+              </ng-container>
+            </ng-container>
+          </div>
+        </div>', '2022-12-28 14:17:11.3166667 +00:00', 12, N'N', '07a29285-cda8-4293-8b6d-abc98734d656', 1, NULL)
 INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID], [BookmarkName], [BookmarkDescription], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('37bfaff4-2285-ed11-8360-02f176033ddb', '36bfaff4-2285-ed11-8360-02f176033ddb', 1, N'', N'', N'
         <div class=''cr-popup-content-wrapper'' [class.cr-popup-is-shown]=''self.popupTab.tabs.length > 1''>
           <cr-popup-tabs
@@ -10880,7 +12306,7 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
             </ng-container>
           </div>
         </div>', '2022-12-27 14:02:15.1700000 +00:00', 4, N'N', '4d20f985-56c8-4aca-9814-abf8ba869768', 1, NULL)
-INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID], [BookmarkName], [BookmarkDescription], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('ee819b05-4351-ed11-8e5d-4ccc6a2bb6d6', 'd4ae82e8-4251-ed11-8e5d-4ccc6a2bb6d6', 1, NULL, NULL, N'
+INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID], [BookmarkName], [BookmarkDescription], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('060fbf53-d185-ed11-8360-02f176033ddb', '050fbf53-d185-ed11-8360-02f176033ddb', 1, N'', N'', N'
         <div class=''cr-popup-content-wrapper'' [class.cr-popup-is-shown]=''self.popupTab.tabs.length > 1''>
           <cr-popup-tabs
             [popupTabs]=''self.popupTab.tabs''
@@ -10896,168 +12322,84 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
       <ng-template [ngIf]="self.popupTab.tabs[self.popupTab.activeTabIndex].type == ''general'' && self.popupTab.activeTabIndex == i">
         <div *ngIf=''self.popupTab.activeTabIndex != self.popupTab.tabs.length - 1'' class=''cr-popup-blocker''></div>
         <cr-title-header
-    [titleTranslateKey]="''PARTNER.GRID.TITLE''"
+    [titleTranslateKey]="''ROLE.DETAILS.TITLE''"
     [title]="''''"
+    [titleValue]="self.titleValueText"
+    [additionalTranslateKeys]="''COMMON.NEW''"
     (buttonClickEvent)="self.onTitleButtonClick($event)"
     [buttonSettings]="self.titleHeaderButtonSettings"
+    [titleValueTranslateKey]="self.isNew ? ''COMMON.NEW'' : null"
 ></cr-title-header>
+        <ng-template [ngIf]="self.currentItem">
+            
+      <cr-panel
+        [panelTemplateType]="''well''"
+        [customClass]="''''"
+      >
+        <ng-template crPanelContent>
+          <div class="row "><div class=''col-lg-4''><cr-control-edit
+    [(dataValue)]="self.currentItem.code"
+    [elementName]="''edit:Role_details.Code''"
+    [permissionSettings]="{
+        isAccessEdit: self.isNew ? (self.EndpointName.role_POST | endpointAccessGrantedPipe) :
+            (self.EndpointName.role_id_PUT | endpointAccessGrantedPipe)
+    }"
+    [validator]="self.validator"
+    [validationField]="''code''"
+    [translateKeys]="''ROLE.DETAILS.CODE''" 
+    [dataLabel]="''''"
+    [customClass]=''""''
+    [isDisabled]="self.currentItem.isDeleted"
+></cr-control-edit></div><div class=''col-lg-4''><cr-control-edit
+    [(dataValue)]="self.currentItem.name"
+    [elementName]="''edit:Role_details.Name''"
+    [permissionSettings]="{
+        isAccessEdit: self.isNew ? (self.EndpointName.role_POST | endpointAccessGrantedPipe) :
+            (self.EndpointName.role_id_PUT | endpointAccessGrantedPipe)
+    }"
+    [validator]="self.validator"
+    [validationField]="''name''"
+    [translateKeys]="''ROLE.DETAILS.NAME''" 
+    [dataLabel]="''''"
+    [customClass]=''""''
+    [isDisabled]="self.currentItem.isDeleted"
+    (dataValueChange)="self.changeTitle()"
+></cr-control-edit></div></div>
+        </ng-template>
+      </cr-panel>
       <cr-panel
         [panelTemplateType]="''collapsible-panel''"
-        [expanded]="self.panelsViewState?.[''general''] ?? true"
-        (expandedChange)="self.panelStateChange(''general'', $event)"
-        [titleTranslateKey]="true ? ''COMMON.PANEL.FILTERS'' : null"
-        [title]="true ? null : ''חתך הגדרות''"
+        [expanded]="self.panelsViewState?.[''permissions''] ?? true"
+        (expandedChange)="self.panelStateChange(''permissions'', $event)"
+        [titleTranslateKey]="true ? ''ROLE.DETAILS.PERMISSIONS.TITLE'' : null"
+        [title]="true ? null : ''Permissions he''"
         [customClass]="''''"
         [headerClass]="''''"
         [validator]="self.validator"
-        [validatorGroupName]="''general''"
+        [validatorGroupName]="''permissions''"
         [containFields]=''[]''
       >
         <ng-template crPanelContent>
-          <div class="row undefined"><div class=''col-md-2''><cr-control-edit 
-    [translateKeys]="''PARTNER.FILTER.PARTNER_CODE''" 
-    [dataLabel]="''''"
-    [customClass]=''""''
-    [isDisabled]="false"
-    [(dataValue)]="self.partnerListFilter.partnerCode"
-></cr-control-edit></div><div class=''col-md-2''><cr-control-edit 
-    [translateKeys]="''PARTNER.FILTER.FIRST_NAME''" 
-    [dataLabel]="''''"
-    [customClass]=''""''
-    [isDisabled]="false"
-    [(dataValue)]="self.partnerListFilter.firstName"
-></cr-control-edit>
-</div><div class=''col-md-2''><cr-control-edit 
-    [translateKeys]="''PARTNER.FILTER.LAST_NAME''" 
-    [dataLabel]="''''"
-    [customClass]=''""''
-    [isDisabled]="false"
-    [(dataValue)]="self.partnerListFilter.lastName"
-></cr-control-edit></div><div class=''col-md-2''><cr-dropdown-smart-control
-    [(value)]="self.partnerListFilter.partnerTypeId"
-    [contextMenuOperations]="[''copyToClipboard'']"
-    [dataCacheName]="''PartnerTypeDropdownSearchCache''"
-    [dataTranslateKeyField]="''translateKey''"
-    [elementName]="''smart-dropdown:Partner_list.Partner_type''"
-    [getListItemsFunction]="self.partnerTypeListFn"
-    [labelTranslateKey]="''''"
-    [label]="''סוג פרטנר''"
+          <cr-role-permission-tree
+    *ngIf="(self.EndpointName.role__function_tree_list_GET | endpointAccessGrantedPipe)"
+    [isNew]="self.isNew"
+    [(selected)]="self.currentItem.functions"
+    [editable]="!self.currentItem.isDeleted && (self.isNew
+        ? (self.EndpointName.role_POST | endpointAccessGrantedPipe)
+        : (self.EndpointName.role_id_PUT | endpointAccessGrantedPipe))"
     [class]=''""''
-    [permissionSettings]="{
-        isAccessEdit: self.authService.getEndpointAccessGranted(self.EndpointName.partner_type_GET)
-    }"
-    [textField]="''displayName''"
-    [unselectedItemValue]="{id: null, translateKey: ''COMMON.MOCK_OBJ.NOT_SELECTED''}"
-    [valueField]="''id''"
-    [isDropdownListOpenWhenKeyboardIsPrinted]="true"
-    [isDropdownListOverrideEnterKeyBehaviour]="true"
-    (onEnterKey)="self.changeFilter()"
-></cr-dropdown-smart-control></div><div class=''col-md-2''><cr-dropdown-smart-control
-    (navigateToEvent)="self.navigateTo($event)"
-    [(value)]="self.partnerListFilter.groupId"
-    [contextMenuOperations]="[''copyToClipboard'', ''navigateTo'']"
-    [dataCacheName]="''PartnerGroupDropdownSearchCache''"
-    [dataTranslateKeyField]="''translateKey''"
-    [elementName]="''smart-dropdown:Partner_list.Partner_group''"
-    [getListItemsFunction]="self.partnerGroupListFn"
-    [isCleanListWhenAdditionalParameterChanged]="true"
-    [labelTranslateKey]="''PARTNER.FILTER.PARTNER_GROUP''"
-    [label]="''''"
-    [class]=''""''
-    [listItemsFunctionAdditionalParameter]="self.partnerListFilter.partnerTypeId"
-    [permissionSettings]="{
-        isAccessEdit: self.authService.getEndpointAccessGranted(self.EndpointName.partner__partner_group_GET)
-    }"
-    [requestDataWhenOpen]="true"
-    [textField]="''name''"
-    [unselectedItemValue]="{id: null, translateKey: ''COMMON.MOCK_OBJ.NOT_SELECTED''}"
-    [useCodeInList]="true"
-    [useCodeInValue]="true"
-    [valueField]="''id''"
-    [isDropdownListOpenWhenKeyboardIsPrinted]="true"
-    [isDropdownListOverrideEnterKeyBehaviour]="true"
-    (onEnterKey)="self.changeFilter()"
-></cr-dropdown-smart-control>
-</div><div class=''col-md-2''><cr-control-edit 
-    [translateKeys]="''PARTNER.FILTER.PASSPORT''" 
-    [dataLabel]="''''"
-    [customClass]=''""''
-    [isDisabled]="false"
-    [(dataValue)]="self.partnerListFilter.passport"
-></cr-control-edit></div></div><div class="row undefined"><div class=''col-md-2''><cr-control-edit 
-    [translateKeys]="''PARTNER.FILTER.PHONE_NUMBER_1''" 
-    [dataLabel]="''''"
-    [customClass]=''""''
-    [isDisabled]="false"
-    [(dataValue)]="self.partnerListFilter.phone1"
-></cr-control-edit></div><div class=''col-md-2''><cr-control-edit 
-    [translateKeys]="''PARTNER.FILTER.PHONE_NUMBER_2''" 
-    [dataLabel]="''''"
-    [customClass]=''""''
-    [isDisabled]="false"
-    [(dataValue)]="self.partnerListFilter.phone2"
-></cr-control-edit></div><div class=''col-md-2''><cr-control-edit 
-    [translateKeys]="''PARTNER.FILTER.EMAIL''" 
-    [dataLabel]="''''"
-    [customClass]=''""''
-    [isDisabled]="false"
-    [(dataValue)]="self.partnerListFilter.EMail"
-></cr-control-edit></div><div class=''col-md-4''><cr-checkbox-control
-    [dataLabel]="''''"
-    [translateKeys]="''COMMON.SHOW_DELETED''"
-    [isDisabled]="false"
-    [class]=''""''
-    [(dataValue)]="self.partnerListFilter.showDeleted"
-></cr-checkbox-control></div><div class=''col-md-2''><cr-button-control 
-    [buttonTemplateType]="''underlined-action-button''"
-    [text]="''''"
-    [textTranslateKey]="''COMMON.SEARCH''"
-    [classArray]=''["d-block","ml-auto"]''
-    [width]="''''"
-    [height]="''''"
-    [icon]="''undefined''"
-    (buttonClickEvent)="self.changeFilter()"
-    *ngIf="self.authService.getEndpointAccessGranted(self.EndpointName.partner_GET)"
-></cr-button-control></div></div>
+></cr-role-permission-tree>
         </ng-template>
       </cr-panel>
-      <cr-panel
-        [panelTemplateType]="''panel''"
-        [expanded]="self.panelsViewState?.[''undefined''] ?? true"
-        (expandedChange)="self.panelStateChange(''undefined'', $event)"
-        [titleTranslateKey]="true ? ''PARTNER.GRID.TITLE'' : null"
-        [title]="true ? null : ''רשימת כרטיסים''"
-        [customClass]="''''"
-        [headerClass]="''''"
-        [validator]="self.validator"
-        [validatorGroupName]="''undefined''"
-        [containFields]=''[]''
-      >
-        <ng-template crPanelContent>
-          <div class="cr-grid-wrapper-new">
-    <cr-edit-grid-server-paging
-        (cellClickEvent)="self.cellClick($event)"
-        (pageChangeEvent)="self.changePage($event)"
-        [columnSettings]=''self.columnSettings | dynamicColumnSettings:[{"field":"partnerType","titleTranslateKey":"PARTNER.GRID.TYPE","hidden":false,"sortOrder":2},{"field":"partnerCode","titleTranslateKey":"PARTNER.GRID.CODE","hidden":false,"sortOrder":1},{"field":"firstName","titleTranslateKey":"PARTNER.GRID.FIRST_NAME","hidden":false,"sortOrder":3},{"field":"lastName","titleTranslateKey":"PARTNER.GRID.LAST_NAME","hidden":false,"sortOrder":4},{"field":"passport","titleTranslateKey":"PARTNER.GRID.PASSPORT","hidden":false,"sortOrder":5},{"field":"phone1","titleTranslateKey":"PARTNER.GRID.PHONE","hidden":false,"sortOrder":6},{"field":"partnerGroups","titleTranslateKey":"PARTNER.GRID.GROUPS","hidden":false,"sortOrder":7},{"field":"isValid","titleTranslateKey":"PARTNER.GRID.VALID","hidden":false,"sortOrder":8},{"field":"balance","titleTranslateKey":"PARTNER.GRID.BALANCE","hidden":false,"sortOrder":9},{"field":"registrationDate","titleTranslateKey":"PARTNER.GRID.REGISTRATION_DATE","hidden":false,"sortOrder":10},{"field":"isDeleted","titleTranslateKey":"PARTNER.GRID.IS_DELETED","hidden":false,"sortOrder":11}]''
-        [dataCacheName]="''partnerGrid''"
-        [dataSource]="self.dataSource"
-        [elementName]="''edit-grid-server-paging:Partner_list.Grid''"
-        [pageable]="true"
-        [resizable]="true"
-        [uniqueField]="''id''"
-        [class]="undefined"
-      ></cr-edit-grid-server-paging>
-</div>
         </ng-template>
-      </cr-panel>
       </ng-template>
     </ng-template>
     
               </ng-container>
             </ng-container>
           </div>
-        </div>', '2022-12-27 14:01:26.6100000 +00:00', 200, N'N', '3feb5465-f549-4213-afcd-858dadaada0a', 1, NULL)
-INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID], [BookmarkName], [BookmarkDescription], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('ef819b05-4351-ed11-8e5d-4ccc6a2bb6d6', 'd4ae82e8-4251-ed11-8e5d-4ccc6a2bb6d6', 2, NULL, NULL, N'
+        </div>', '2022-12-28 15:04:31.2333333 +00:00', 9, N'N', 'e47e1c52-1c03-4130-9ea3-3fcf73a5e09a', 1, NULL)
+INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID], [BookmarkName], [BookmarkDescription], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('070fbf53-d185-ed11-8360-02f176033ddb', '050fbf53-d185-ed11-8360-02f176033ddb', 2, N'', N'', N'
         <div class=''cr-popup-content-wrapper'' [class.cr-popup-is-shown]=''self.popupTab.tabs.length > 1''>
           <cr-popup-tabs
             [popupTabs]=''self.popupTab.tabs''
@@ -11073,168 +12415,84 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
       <ng-template [ngIf]="self.popupTab.tabs[self.popupTab.activeTabIndex].type == ''general'' && self.popupTab.activeTabIndex == i">
         <div *ngIf=''self.popupTab.activeTabIndex != self.popupTab.tabs.length - 1'' class=''cr-popup-blocker''></div>
         <cr-title-header
-    [titleTranslateKey]="''PARTNER.GRID.TITLE''"
+    [titleTranslateKey]="''ROLE.DETAILS.TITLE''"
     [title]="''''"
+    [titleValue]="self.titleValueText"
+    [additionalTranslateKeys]="''COMMON.NEW''"
     (buttonClickEvent)="self.onTitleButtonClick($event)"
     [buttonSettings]="self.titleHeaderButtonSettings"
+    [titleValueTranslateKey]="self.isNew ? ''COMMON.NEW'' : null"
 ></cr-title-header>
+        <ng-template [ngIf]="self.currentItem">
+            
+      <cr-panel
+        [panelTemplateType]="''well''"
+        [customClass]="''''"
+      >
+        <ng-template crPanelContent>
+          <div class="row "><div class=''col-lg-4''><cr-control-edit
+    [(dataValue)]="self.currentItem.code"
+    [elementName]="''edit:Role_details.Code''"
+    [permissionSettings]="{
+        isAccessEdit: self.isNew ? (self.EndpointName.role_POST | endpointAccessGrantedPipe) :
+            (self.EndpointName.role_id_PUT | endpointAccessGrantedPipe)
+    }"
+    [validator]="self.validator"
+    [validationField]="''code''"
+    [translateKeys]="''ROLE.DETAILS.CODE''" 
+    [dataLabel]="''''"
+    [customClass]=''""''
+    [isDisabled]="self.currentItem.isDeleted"
+></cr-control-edit></div><div class=''col-lg-4''><cr-control-edit
+    [(dataValue)]="self.currentItem.name"
+    [elementName]="''edit:Role_details.Name''"
+    [permissionSettings]="{
+        isAccessEdit: self.isNew ? (self.EndpointName.role_POST | endpointAccessGrantedPipe) :
+            (self.EndpointName.role_id_PUT | endpointAccessGrantedPipe)
+    }"
+    [validator]="self.validator"
+    [validationField]="''name''"
+    [translateKeys]="''ROLE.DETAILS.NAME''" 
+    [dataLabel]="''''"
+    [customClass]=''""''
+    [isDisabled]="self.currentItem.isDeleted"
+    (dataValueChange)="self.changeTitle()"
+></cr-control-edit></div></div>
+        </ng-template>
+      </cr-panel>
       <cr-panel
         [panelTemplateType]="''collapsible-panel''"
-        [expanded]="self.panelsViewState?.[''general''] ?? true"
-        (expandedChange)="self.panelStateChange(''general'', $event)"
-        [titleTranslateKey]="true ? ''COMMON.PANEL.FILTERS'' : null"
-        [title]="true ? null : ''Selection criteria''"
+        [expanded]="self.panelsViewState?.[''permissions''] ?? true"
+        (expandedChange)="self.panelStateChange(''permissions'', $event)"
+        [titleTranslateKey]="true ? ''ROLE.DETAILS.PERMISSIONS.TITLE'' : null"
+        [title]="true ? null : ''Permissions''"
         [customClass]="''''"
         [headerClass]="''''"
         [validator]="self.validator"
-        [validatorGroupName]="''general''"
+        [validatorGroupName]="''permissions''"
         [containFields]=''[]''
       >
         <ng-template crPanelContent>
-          <div class="row undefined"><div class=''col-md-2''><cr-control-edit 
-    [translateKeys]="''PARTNER.FILTER.PARTNER_CODE''" 
-    [dataLabel]="''''"
-    [customClass]=''""''
-    [isDisabled]="false"
-    [(dataValue)]="self.partnerListFilter.partnerCode"
-></cr-control-edit></div><div class=''col-md-2''><cr-control-edit 
-    [translateKeys]="''PARTNER.FILTER.FIRST_NAME''" 
-    [dataLabel]="''''"
-    [customClass]=''""''
-    [isDisabled]="false"
-    [(dataValue)]="self.partnerListFilter.firstName"
-></cr-control-edit>
-</div><div class=''col-md-2''><cr-control-edit 
-    [translateKeys]="''PARTNER.FILTER.LAST_NAME''" 
-    [dataLabel]="''''"
-    [customClass]=''""''
-    [isDisabled]="false"
-    [(dataValue)]="self.partnerListFilter.lastName"
-></cr-control-edit></div><div class=''col-md-2''><cr-dropdown-smart-control
-    [(value)]="self.partnerListFilter.partnerTypeId"
-    [contextMenuOperations]="[''copyToClipboard'']"
-    [dataCacheName]="''PartnerTypeDropdownSearchCache''"
-    [dataTranslateKeyField]="''translateKey''"
-    [elementName]="''smart-dropdown:Partner_list.Partner_type''"
-    [getListItemsFunction]="self.partnerTypeListFn"
-    [labelTranslateKey]="''''"
-    [label]="''Partner type''"
+          <cr-role-permission-tree
+    *ngIf="(self.EndpointName.role__function_tree_list_GET | endpointAccessGrantedPipe)"
+    [isNew]="self.isNew"
+    [(selected)]="self.currentItem.functions"
+    [editable]="!self.currentItem.isDeleted && (self.isNew
+        ? (self.EndpointName.role_POST | endpointAccessGrantedPipe)
+        : (self.EndpointName.role_id_PUT | endpointAccessGrantedPipe))"
     [class]=''""''
-    [permissionSettings]="{
-        isAccessEdit: self.authService.getEndpointAccessGranted(self.EndpointName.partner_type_GET)
-    }"
-    [textField]="''displayName''"
-    [unselectedItemValue]="{id: null, translateKey: ''COMMON.MOCK_OBJ.NOT_SELECTED''}"
-    [valueField]="''id''"
-    [isDropdownListOpenWhenKeyboardIsPrinted]="true"
-    [isDropdownListOverrideEnterKeyBehaviour]="true"
-    (onEnterKey)="self.changeFilter()"
-></cr-dropdown-smart-control></div><div class=''col-md-2''><cr-dropdown-smart-control
-    (navigateToEvent)="self.navigateTo($event)"
-    [(value)]="self.partnerListFilter.groupId"
-    [contextMenuOperations]="[''copyToClipboard'', ''navigateTo'']"
-    [dataCacheName]="''PartnerGroupDropdownSearchCache''"
-    [dataTranslateKeyField]="''translateKey''"
-    [elementName]="''smart-dropdown:Partner_list.Partner_group''"
-    [getListItemsFunction]="self.partnerGroupListFn"
-    [isCleanListWhenAdditionalParameterChanged]="true"
-    [labelTranslateKey]="''PARTNER.FILTER.PARTNER_GROUP''"
-    [label]="''''"
-    [class]=''""''
-    [listItemsFunctionAdditionalParameter]="self.partnerListFilter.partnerTypeId"
-    [permissionSettings]="{
-        isAccessEdit: self.authService.getEndpointAccessGranted(self.EndpointName.partner__partner_group_GET)
-    }"
-    [requestDataWhenOpen]="true"
-    [textField]="''name''"
-    [unselectedItemValue]="{id: null, translateKey: ''COMMON.MOCK_OBJ.NOT_SELECTED''}"
-    [useCodeInList]="true"
-    [useCodeInValue]="true"
-    [valueField]="''id''"
-    [isDropdownListOpenWhenKeyboardIsPrinted]="true"
-    [isDropdownListOverrideEnterKeyBehaviour]="true"
-    (onEnterKey)="self.changeFilter()"
-></cr-dropdown-smart-control>
-</div><div class=''col-md-2''><cr-control-edit 
-    [translateKeys]="''PARTNER.FILTER.PASSPORT''" 
-    [dataLabel]="''''"
-    [customClass]=''""''
-    [isDisabled]="false"
-    [(dataValue)]="self.partnerListFilter.passport"
-></cr-control-edit></div></div><div class="row undefined"><div class=''col-md-2''><cr-control-edit 
-    [translateKeys]="''PARTNER.FILTER.PHONE_NUMBER_1''" 
-    [dataLabel]="''''"
-    [customClass]=''""''
-    [isDisabled]="false"
-    [(dataValue)]="self.partnerListFilter.phone1"
-></cr-control-edit></div><div class=''col-md-2''><cr-control-edit 
-    [translateKeys]="''PARTNER.FILTER.PHONE_NUMBER_2''" 
-    [dataLabel]="''''"
-    [customClass]=''""''
-    [isDisabled]="false"
-    [(dataValue)]="self.partnerListFilter.phone2"
-></cr-control-edit></div><div class=''col-md-2''><cr-control-edit 
-    [translateKeys]="''PARTNER.FILTER.EMAIL''" 
-    [dataLabel]="''''"
-    [customClass]=''""''
-    [isDisabled]="false"
-    [(dataValue)]="self.partnerListFilter.EMail"
-></cr-control-edit></div><div class=''col-md-4''><cr-checkbox-control
-    [dataLabel]="''''"
-    [translateKeys]="''COMMON.SHOW_DELETED''"
-    [isDisabled]="false"
-    [class]=''""''
-    [(dataValue)]="self.partnerListFilter.showDeleted"
-></cr-checkbox-control></div><div class=''col-md-2''><cr-button-control 
-    [buttonTemplateType]="''underlined-action-button''"
-    [text]="''''"
-    [textTranslateKey]="''COMMON.SEARCH''"
-    [classArray]=''["d-block","ml-auto"]''
-    [width]="''''"
-    [height]="''''"
-    [icon]="''undefined''"
-    (buttonClickEvent)="self.changeFilter()"
-    *ngIf="self.authService.getEndpointAccessGranted(self.EndpointName.partner_GET)"
-></cr-button-control></div></div>
+></cr-role-permission-tree>
         </ng-template>
       </cr-panel>
-      <cr-panel
-        [panelTemplateType]="''panel''"
-        [expanded]="self.panelsViewState?.[''undefined''] ?? true"
-        (expandedChange)="self.panelStateChange(''undefined'', $event)"
-        [titleTranslateKey]="true ? ''PARTNER.GRID.TITLE'' : null"
-        [title]="true ? null : ''Partner List''"
-        [customClass]="''''"
-        [headerClass]="''''"
-        [validator]="self.validator"
-        [validatorGroupName]="''undefined''"
-        [containFields]=''[]''
-      >
-        <ng-template crPanelContent>
-          <div class="cr-grid-wrapper-new">
-    <cr-edit-grid-server-paging
-        (cellClickEvent)="self.cellClick($event)"
-        (pageChangeEvent)="self.changePage($event)"
-        [columnSettings]=''self.columnSettings | dynamicColumnSettings:[{"field":"partnerType","titleTranslateKey":"PARTNER.GRID.TYPE","hidden":false,"sortOrder":2},{"field":"partnerCode","titleTranslateKey":"PARTNER.GRID.CODE","hidden":false,"sortOrder":1},{"field":"firstName","titleTranslateKey":"PARTNER.GRID.FIRST_NAME","hidden":false,"sortOrder":3},{"field":"lastName","titleTranslateKey":"PARTNER.GRID.LAST_NAME","hidden":false,"sortOrder":4},{"field":"passport","titleTranslateKey":"PARTNER.GRID.PASSPORT","hidden":false,"sortOrder":5},{"field":"phone1","titleTranslateKey":"PARTNER.GRID.PHONE","hidden":false,"sortOrder":6},{"field":"partnerGroups","titleTranslateKey":"PARTNER.GRID.GROUPS","hidden":false,"sortOrder":7},{"field":"isValid","titleTranslateKey":"PARTNER.GRID.VALID","hidden":false,"sortOrder":8},{"field":"balance","titleTranslateKey":"PARTNER.GRID.BALANCE","hidden":false,"sortOrder":9},{"field":"registrationDate","titleTranslateKey":"PARTNER.GRID.REGISTRATION_DATE","hidden":false,"sortOrder":10},{"field":"isDeleted","titleTranslateKey":"PARTNER.GRID.IS_DELETED","hidden":false,"sortOrder":11}]''
-        [dataCacheName]="''partnerGrid''"
-        [dataSource]="self.dataSource"
-        [elementName]="''edit-grid-server-paging:Partner_list.Grid''"
-        [pageable]="true"
-        [resizable]="true"
-        [uniqueField]="''id''"
-        [class]="undefined"
-      ></cr-edit-grid-server-paging>
-</div>
         </ng-template>
-      </cr-panel>
       </ng-template>
     </ng-template>
     
               </ng-container>
             </ng-container>
           </div>
-        </div>', '2022-12-27 14:01:26.6100000 +00:00', 200, N'N', '112b9356-5c20-421a-8d13-facbde625bc4', 1, NULL)
-INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID], [BookmarkName], [BookmarkDescription], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('f0819b05-4351-ed11-8e5d-4ccc6a2bb6d6', 'd5ae82e8-4251-ed11-8e5d-4ccc6a2bb6d6', 1, NULL, NULL, N'
+        </div>', '2022-12-28 15:04:31.2333333 +00:00', 9, N'N', '3f1ed97c-431d-48dd-ad4f-23bd5184bff1', 1, NULL)
+INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID], [BookmarkName], [BookmarkDescription], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('e4dfa869-d185-ed11-8360-02f176033ddb', 'e3dfa869-d185-ed11-8360-02f176033ddb', 1, N'', N'', N'
         <div class=''cr-popup-content-wrapper'' [class.cr-popup-is-shown]=''self.popupTab.tabs.length > 1''>
           <cr-popup-tabs
             [popupTabs]=''self.popupTab.tabs''
@@ -11249,1035 +12507,85 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
     <ng-template [ngSwitchCase]="''general''">
       <ng-template [ngIf]="self.popupTab.tabs[self.popupTab.activeTabIndex].type == ''general'' && self.popupTab.activeTabIndex == i">
         <div *ngIf=''self.popupTab.activeTabIndex != self.popupTab.tabs.length - 1'' class=''cr-popup-blocker''></div>
-        
-        <ng-template [ngIf]="self.partnerDetails">
-            <cr-title-header
-    [titleTranslateKey]="''PARTNER.DETAILS.TITLE''"
+        <cr-title-header
+    [titleTranslateKey]="''ROLE.DETAILS.TITLE''"
     [title]="''''"
     [titleValue]="self.titleValueText"
     [additionalTranslateKeys]="''COMMON.NEW''"
-    [buttonSettings]="self.titleHeaderButtonSettings"
     (buttonClickEvent)="self.onTitleButtonClick($event)"
+    [buttonSettings]="self.titleHeaderButtonSettings"
+    [titleValueTranslateKey]="self.isNew ? ''COMMON.NEW'' : null"
 ></cr-title-header>
+        <ng-template [ngIf]="self.currentItem">
+            
       <cr-panel
         [panelTemplateType]="''well''"
         [customClass]="''''"
       >
         <ng-template crPanelContent>
-          <div class="row "><div class=''col-md-2''><cr-control-edit
-    [elementName]="''edit:Partner_details.Partner_code''"
+          <div class="row "><div class=''col-lg-4''><cr-control-edit
+    [(dataValue)]="self.currentItem.code"
+    [elementName]="''edit:Role_details.Code''"
     [permissionSettings]="{
-        isAccessEdit: self.isNew ? self.authService.getEndpointAccessGranted(self.EndpointName.partner_POST) :
-            self.authService.getEndpointAccessGranted(self.EndpointName.partner_id_PUT)
+        isAccessEdit: self.isNew ? (self.EndpointName.role_POST | endpointAccessGrantedPipe) :
+            (self.EndpointName.role_id_PUT | endpointAccessGrantedPipe)
     }"
-
-    [(dataValue)]="self.partnerDetails.partnerCode"
     [validator]="self.validator"
-    [validationField]="''partnerCode''"
-    [translateKeys]="''PARTNER.DETAILS.HEADER.PARTNER_CODE''" 
+    [validationField]="''code''"
+    [translateKeys]="''ROLE.DETAILS.CODE''" 
     [dataLabel]="''''"
     [customClass]=''""''
-    [isDisabled]="!self.isNew || false"
-></cr-control-edit></div><div class=''col-md-2''><cr-control-edit
-    [elementName]="''edit:Partner_details.First_name''"
+    [isDisabled]="self.currentItem.isDeleted"
+></cr-control-edit></div><div class=''col-lg-4''><cr-control-edit
+    [(dataValue)]="self.currentItem.name"
+    [elementName]="''edit:Role_details.Name''"
     [permissionSettings]="{
-        isAccessEdit: self.isNew ? self.authService.getEndpointAccessGranted(self.EndpointName.partner_POST) :
-            self.authService.getEndpointAccessGranted(self.EndpointName.partner_id_PUT)
+        isAccessEdit: self.isNew ? (self.EndpointName.role_POST | endpointAccessGrantedPipe) :
+            (self.EndpointName.role_id_PUT | endpointAccessGrantedPipe)
     }"
-
-    [(dataValue)]="self.partnerDetails.firstName"
-    (dataValueChange)="self.onChangeTitleValue()"
-    [validationField]="''firstName''"
     [validator]="self.validator"
-    [translateKeys]="''PARTNER.DETAILS.HEADER.FIRST_NAME''" 
+    [validationField]="''name''"
+    [translateKeys]="''ROLE.DETAILS.NAME''" 
     [dataLabel]="''''"
     [customClass]=''""''
-    [isDisabled]="false"
-></cr-control-edit></div><div class=''col-md-2''><cr-control-edit
-    [elementName]="''edit:Partner_details.Last_name''"
-    [permissionSettings]="{
-        isAccessEdit: self.isNew ? self.authService.getEndpointAccessGranted(self.EndpointName.partner_POST) :
-            self.authService.getEndpointAccessGranted(self.EndpointName.partner_id_PUT)
-    }"
-
-    [(dataValue)]="self.partnerDetails.lastName"
-    (dataValueChange)="self.onChangeTitleValue()"
-    [translateKeys]="''PARTNER.DETAILS.HEADER.LAST_NAME''" 
-    [dataLabel]="''''"
-    [customClass]=''""''
-    [isDisabled]="false"
-></cr-control-edit></div><div class=''col-md-2''><cr-dropdown-smart-control
-    [elementName]="''smart-dropdown:Partner_details.Partner_type''"
-    [permissionSettings]="{
-        isAccessRead: self.authService.getEndpointAccessGranted(self.EndpointName.partner_type_id_GET),
-        isAccessEdit: (self.isNew ? self.authService.getEndpointAccessGranted(self.EndpointName.partner_POST) :
-            self.authService.getEndpointAccessGranted(self.EndpointName.partner_id_PUT)) &&
-            self.authService.getEndpointAccessGranted(self.EndpointName.partner_type_GET) 
-    }"
-    [dataCacheName]="''PartnerTypeDropdownCache''"
-    [labelTranslateKey]="''PARTNER.DETAILS.HEADER.PARTNER_TYPE''"
-    [(value)]="self.partnerDetails.partnerTypeId"
-    [textField]="''displayName''"
-    [valueField]="''id''"
-    [getOneItemFunction]="self.loadPartnerTypeForDropdownFn"
-    [getListItemsFunction]="self.loadPartnerTypeListForDropdownFn"
-    [unselectedItemValue]="{id: null, translateKey: ''COMMON.MOCK_OBJ.NOT_SELECTED''}"
-    [dataTranslateKeyField]="''translateKey''"
-    [validator]="self.validator"
-    [validationField]="''partnerTypeId''"
-    [labelTranslateKey]="''PARTNER.DETAILS.HEADER.PARTNER_TYPE''"
-    [label]="''''"
-    [class]=''""''
-></cr-dropdown-smart-control></div><div class=''col-md-2''><cr-control-edit
-    [elementName]="''edit:Partner_details.Government_id''"
-    [permissionSettings]="{
-        isAccessEdit: self.isNew ? self.authService.getEndpointAccessGranted(self.EndpointName.partner_POST) :
-            self.authService.getEndpointAccessGranted(self.EndpointName.partner_id_PUT)
-    }"
-
-    [(dataValue)]="self.partnerDetails.govId"
-    [validator]="self.validator"
-    [validationField]="''govId''"
-    [translateKeys]="''PARTNER.DETAILS.HEADER.GOVERNMENT_ID''" 
-    [dataLabel]="''''"
-    [customClass]=''""''
-    [isDisabled]="false"
-></cr-control-edit></div><div class=''col-md-2''><cr-numeric-control
-    [elementName]="''numeric:Partner_details.Balance''"
-    [dataValue]="self.partnerDetails.balance"
-    [isDisabled]="true"
-    [dataLabel]="''''" 
-    [translateKeys]="''PARTNER.DETAILS.HEADER.BALANCE''" 
-    [customClass]=''""''
-    [format]="null" 
-    [decimals]="null" 
-    [min]="null" 
-    [max]="null"
-    [autoCorrectMinMax]="false"
-></cr-numeric-control></div></div>
+    [isDisabled]="self.currentItem.isDeleted"
+    (dataValueChange)="self.changeTitle()"
+></cr-control-edit></div></div>
         </ng-template>
       </cr-panel>
       <cr-panel
         [panelTemplateType]="''collapsible-panel''"
-        [expanded]="self.panelsViewState?.[''general''] ?? false"
-        (expandedChange)="self.panelStateChange(''general'', $event)"
-        [titleTranslateKey]="true ? ''PARTNER.DETAILS.GENERAL.TITLE'' : null"
-        [title]="true ? null : ''כללי''"
+        [expanded]="self.panelsViewState?.[''permissions''] ?? true"
+        (expandedChange)="self.panelStateChange(''permissions'', $event)"
+        [titleTranslateKey]="true ? ''ROLE.DETAILS.PERMISSIONS.TITLE'' : null"
+        [title]="true ? null : ''Permissions he''"
         [customClass]="''''"
         [headerClass]="''''"
         [validator]="self.validator"
-        [validatorGroupName]="''general''"
-        [containFields]=''["bDay","eMail","passport","validFrom","validTo","frozenFrom","frozenTo"]''
-      >
-        <ng-template crPanelContent>
-          <div class="row "><div class=''col-md-2''><cr-dropdown-smart-control
-    [elementName]="''smart-dropdown:Partner_details.Gender''"
-    [dataCacheName]="''PartnerGenderDropdownCache''"
-    [permissionSettings]="{
-        isAccessEdit: self.isNew ? self.authService.endpoints[self.EndpointName.partner_POST]?.isAccessGranted :
-            self.authService.endpoints[self.EndpointName.partner_id_PUT]?.isAccessGranted
-        }"
-    [labelTranslateKey]="''PARTNER.DETAILS.GENERAL.GENDER''"
-    [(value)]="self.partnerDetails.gender"
-    [getListItemsFunction]="self.getGenderTypeDropdownList$"
-    [getOneItemFunction]="self.getGenderItemDropdown$"
-    [valueField]="''code''"
-    [textField]="''name''"
-    [dataTranslateKeyField]="''translateKey''"
-    [unselectedItemValue]="{code: null, translateKey: ''COMMON.MOCK_OBJ.NOT_SELECTED''}"
-    [labelTranslateKey]="''PARTNER.DETAILS.GENERAL.GENDER''"
-    [label]="''''"
-    [class]=''""''>
-</cr-dropdown-smart-control></div><div class=''col-md-2''><cr-control-datepicker
-    [elementName]="''date:Partner_details.Birthday''"
-    [permissionSettings]="{
-        isAccessEdit: self.isNew ? self.authService.getEndpointAccessGranted(self.EndpointName.partner_POST) :
-            self.authService.getEndpointAccessGranted(self.EndpointName.partner_id_PUT)
-    }"
-
-    [(dataValue)]="self.partnerDetails.bDay"
-    [validator]="self.validator"
-    [validationField]="''bDay''"
-    [dataLabel]="''''"
-    [translateKeys]="''PARTNER.DETAILS.GENERAL.BIRTHDAY''"
-    [class]=''""'' 
-    [isDisabled]="false"
-></cr-control-datepicker></div><div class=''col-md-2''><cr-control-edit
-    [elementName]="''edit:Partner_details.Creation_store''"
-    [(dataValue)]="self.creationStoreName"
-    [translateKeys]="''PARTNER.DETAILS.GENERAL.CREATION_STORE''" 
-    [dataLabel]="''''"
-    [customClass]=''""''
-    [isDisabled]="true"
-></cr-control-edit></div><div class=''col-md-2''><cr-dropdown-smart-control
-    [elementName]="''smart-dropdown:Partner_details.Linked_store''"
-    [permissionSettings]="{
-        isAccessRead: self.authService.getEndpointAccessGranted(self.EndpointName.partner__location_objectId_dropdown_GET),
-        isAccessEdit: (self.isNew ? self.authService.getEndpointAccessGranted(self.EndpointName.partner_POST) :
-            self.authService.getEndpointAccessGranted(self.EndpointName.partner_id_PUT)) &&
-            self.authService.getEndpointAccessGranted(self.EndpointName.partner__location_dropdown_GET)
-    }"
-
-    [dataCacheName]="''PartnerStoreListDropdownCache''"
-    [(value)]="self.partnerDetails.linkedStoreId"
-    [textField]="''name''"
-    [valueField]="''id''"
-    [getOneItemFunction]="self.loadStoreForDropdownFn"
-    [getListItemsFunction]="self.loadStoreListForDropdownFn"
-    [useCodeInList]="true"
-    [useCodeInValue]="true"
-    [unselectedItemValue]="{id: null, translateKey: ''COMMON.MOCK_OBJ.NOT_SELECTED''}"
-    [dataTranslateKeyField]="''translateKey''"
-    [labelTranslateKey]="''PARTNER.DETAILS.GENERAL.LINKED_STORE''"
-    [label]="''''"
-    [class]=''""''
-></cr-dropdown-smart-control></div><div class=''col-md-4''><cr-dropdown-smart-control
-    [elementName]="''smart-dropdown:Partner_details.Parent_partner''"
-    [permissionSettings]="{
-        isAccessRead: self.authService.getEndpointAccessGranted(self.EndpointName.partner_id_dropdown_GET),
-        isAccessEdit: (self.isNew ? self.authService.getEndpointAccessGranted(self.EndpointName.partner_POST) :
-            self.authService.getEndpointAccessGranted(self.EndpointName.partner_id_PUT)) &&
-            self.authService.getEndpointAccessGranted(self.EndpointName.partner_dropdown_GET)
-    }"
-
-    [dataCacheName]="''PartnerParentListDropdownCache''"
-    [(value)]="self.partnerDetails.parentPartnerId"
-    [textField]="''name''"
-    [valueField]="''id''"
-    [getOneItemFunction]="self.loadPartnerParentForDropdownFn"
-    [getListItemsFunction]="self.loadPartnerParentListForDropdownFn"
-    [useCodeInList]="true"
-    [useCodeInValue]="true"
-    [codeField]="''code''"
-    [unselectedItemValue]="{id: null, translateKey: ''COMMON.MOCK_OBJ.NOT_SELECTED''}"
-    [dataTranslateKeyField]="''translateKey''"
-    [labelTranslateKey]="''PARTNER.DETAILS.GENERAL.PARENT_PARTNER''"
-    [label]="''''"
-    [class]=''""''
-></cr-dropdown-smart-control></div></div><div class="row "><div class=''col-md-2''><cr-control-edit
-    [elementName]="''edit:Partner_details.Phone_number_1''"
-    [permissionSettings]="{
-        isAccessEdit: self.isNew ? self.authService.getEndpointAccessGranted(self.EndpointName.partner_POST) :
-            self.authService.getEndpointAccessGranted(self.EndpointName.partner_id_PUT)
-    }"
-
-    [(dataValue)]="self.partnerDetails.phone1"
-    [translateKeys]="''PARTNER.DETAILS.GENERAL.PHONE_NUMBER_1''" 
-    [dataLabel]="''''"
-    [customClass]=''""''
-    [isDisabled]="false"
-></cr-control-edit></div><div class=''col-md-2''><cr-control-edit
-    [elementName]="''edit:Partner_details.Phone_number_2''"
-    [permissionSettings]="{
-        isAccessEdit: self.isNew ? self.authService.getEndpointAccessGranted(self.EndpointName.partner_POST) :
-            self.authService.getEndpointAccessGranted(self.EndpointName.partner_id_PUT)
-    }"
-
-    [(dataValue)]="self.partnerDetails.phone2"
-    [translateKeys]="''PARTNER.DETAILS.GENERAL.PHONE_NUMBER_2''" 
-    [dataLabel]="''''"
-    [customClass]=''""''
-    [isDisabled]="false"
-></cr-control-edit></div><div class=''col-md-2''><cr-control-edit
-    [elementName]="''edit:Partner_details.Cellular''"
-    [permissionSettings]="{
-        isAccessEdit: self.isNew ? self.authService.getEndpointAccessGranted(self.EndpointName.partner_POST) :
-            self.authService.getEndpointAccessGranted(self.EndpointName.partner_id_PUT)
-    }"
-
-    [(dataValue)]="self.partnerDetails.cellular"
-    [translateKeys]="''PARTNER.DETAILS.GENERAL.CELLULAR''" 
-    [dataLabel]="''''"
-    [customClass]=''""''
-    [isDisabled]="false"
-></cr-control-edit></div><div class=''col-md-2''><cr-control-edit
-    [elementName]="''edit:Partner_details.Fax''"
-    [permissionSettings]="{
-        isAccessEdit: self.isNew ? self.authService.getEndpointAccessGranted(self.EndpointName.partner_POST) :
-            self.authService.getEndpointAccessGranted(self.EndpointName.partner_id_PUT)
-    }"
-
-    [(dataValue)]="self.partnerDetails.fax"
-    [translateKeys]="''PARTNER.DETAILS.GENERAL.FAX''" 
-    [dataLabel]="''''"
-    [customClass]=''""''
-    [isDisabled]="false"
-></cr-control-edit></div><div class=''col-md-4''><cr-control-edit
-    [elementName]="''edit:Partner_details.Email''"
-    [permissionSettings]="{
-        isAccessEdit: self.isNew ? self.authService.getEndpointAccessGranted(self.EndpointName.partner_POST) :
-            self.authService.getEndpointAccessGranted(self.EndpointName.partner_id_PUT)
-    }"
-
-    [(dataValue)]="self.partnerDetails.eMail"
-    [validator]="self.validator"
-    [validationField]="''eMail''"
-    [translateKeys]="''PARTNER.DETAILS.GENERAL.EMAIL''" 
-    [dataLabel]="''''"
-    [customClass]=''""''
-    [isDisabled]="false"
-></cr-control-edit></div></div><div class="row "><div class=''col-md-6''><div class="row "><div class=''col-md-4''><cr-checkbox-control
-    [elementName]="''checkbox:Partner_details.Tourist''"
-    [permissionSettings]="{
-        isAccessEdit: self.isNew ? self.authService.getEndpointAccessGranted(self.EndpointName.partner_POST) :
-            self.authService.getEndpointAccessGranted(self.EndpointName.partner_id_PUT)
-    }"
-
-    [(dataValue)]="self.partnerDetails.isTourist"
-    (dataValueChange)="self.touristValueChanged($event)"
-    [dataLabel]="''''"
-    [translateKeys]="''PARTNER.DETAILS.GENERAL.TOURIST''"
-    [isDisabled]="false"
-    [class]=''""''
-></cr-checkbox-control></div><div class=''col-md-4''><cr-control-edit
-    [elementName]="''edit:Partner_details.Passport''"
-    [permissionSettings]="{
-        isAccessEdit: self.isNew ? self.authService.getEndpointAccessGranted(self.EndpointName.partner_POST) :
-            self.authService.getEndpointAccessGranted(self.EndpointName.partner_id_PUT)
-    }"
-
-    [(dataValue)]="self.partnerDetails.passport"
-    [validator]="self.validator"
-    [validationField]="''passport''"
-    [translateKeys]="''PARTNER.DETAILS.GENERAL.PASSPORT''" 
-    [dataLabel]="''''"
-    [customClass]=''""''
-    [isDisabled]="false"
-></cr-control-edit></div><div class=''col-md-4''><cr-control-edit
-    [elementName]="''edit:Partner_details.International_passport''"
-    [permissionSettings]="{
-        isAccessEdit: self.isNew ? self.authService.getEndpointAccessGranted(self.EndpointName.partner_POST) :
-            self.authService.getEndpointAccessGranted(self.EndpointName.partner_id_PUT)
-    }"
-
-    [(dataValue)]="self.partnerDetails.interPassport"
-    [translateKeys]="''PARTNER.DETAILS.GENERAL.INTERNATIONAL_PASSPORT''" 
-    [dataLabel]="''''"
-    [customClass]=''""''
-    [isDisabled]="false"
-></cr-control-edit></div></div><div class="row "><div class=''col-md-4''><cr-checkbox-control
-    [elementName]="''checkbox:Partner_details.Valid''"
-    [permissionSettings]="{
-        isAccessEdit: self.isNew ? self.authService.getEndpointAccessGranted(self.EndpointName.partner_POST) :
-            self.authService.getEndpointAccessGranted(self.EndpointName.partner_id_PUT)
-    }"
-
-    [(dataValue)]="self.partnerDetails.isValid"
-    (dataValueChange)="self.changeValidCheckbox($event)"
-    [dataLabel]="''''"
-    [translateKeys]="''PARTNER.DETAILS.GENERAL.VALID''"
-    [isDisabled]="false"
-    [class]=''""''
-></cr-checkbox-control></div><div class=''col-md-4''><cr-control-datepicker
-    [elementName]="''date:Partner_details.Valid_date_from''"
-    [permissionSettings]="{
-        isAccessEdit: self.isNew ? self.authService.getEndpointAccessGranted(self.EndpointName.partner_POST) :
-            self.authService.getEndpointAccessGranted(self.EndpointName.partner_id_PUT)
-    }"
-
-    [(dataValue)]="self.partnerDetails.validFrom"
-    [validator]="self.validator"
-    [validationField]="''validFrom''"
-    [dataLabel]="''''"
-    [translateKeys]="''PARTNER.DETAILS.GENERAL.DATE_FROM''"
-    [class]=''""'' 
-    [isDisabled]="!self.partnerDetails.isValid || false"
-></cr-control-datepicker></div><div class=''col-md-4''><cr-control-datepicker
-    [elementName]="''date:Partner_details.Valid_date_to''"
-    [permissionSettings]="{
-        isAccessEdit: self.isNew ? self.authService.getEndpointAccessGranted(self.EndpointName.partner_POST) :
-            self.authService.getEndpointAccessGranted(self.EndpointName.partner_id_PUT)
-    }"
-
-    [(dataValue)]="self.partnerDetails.validTo"
-    [isDisabled]="!self.partnerDetails.isValid || false"
-    [validator]="self.validator"
-    [validationField]="''validTo''"
-    [dataLabel]="''''"
-    [translateKeys]="''PARTNER.DETAILS.GENERAL.DATE_TO''"
-    [class]=''""'' 
-    [isDisabled]="!self.partnerDetails.isValid || false"
-></cr-control-datepicker></div></div><div class="row "><div class=''col-md-4''><cr-checkbox-control
-    [elementName]="''checkbox:Partner_details.Frozen''"
-    [permissionSettings]="{
-        isAccessEdit: self.isNew ? self.authService.getEndpointAccessGranted(self.EndpointName.partner_POST) :
-            self.authService.getEndpointAccessGranted(self.EndpointName.partner_id_PUT)
-    }"
-
-    [(dataValue)]="self.partnerDetails.isFrozen"
-    (dataValueChange)="changeFrozenCheckbox($event)"
-    [dataLabel]="''''"
-    [translateKeys]="''PARTNER.DETAILS.GENERAL.FROZEN''"
-    [isDisabled]="false"
-    [class]=''""''
-></cr-checkbox-control></div><div class=''col-md-4''><cr-control-datepicker
-    [elementName]="''date:Partner_details.Frozen_date_from''"
-    [permissionSettings]="{
-        isAccessEdit: self.isNew ? self.authService.getEndpointAccessGranted(self.EndpointName.partner_POST) :
-            self.authService.getEndpointAccessGranted(self.EndpointName.partner_id_PUT)
-    }"
-
-    [(dataValue)]="self.partnerDetails.frozenFrom"
-    [isDisabled]="!self.partnerDetails.isFrozen || false"
-    [validator]="self.validator"
-    [validationField]="''frozenFrom''"
-    [dataLabel]="''''"
-    [translateKeys]="''PARTNER.DETAILS.GENERAL.DATE_FROM''"
-    [class]=''""'' 
-></cr-control-datepicker></div><div class=''col-md-4''><cr-control-datepicker
-    [elementName]="''date:Partner_details.Frozen_date_to''"
-    [permissionSettings]="{
-        isAccessEdit: self.isNew ? self.authService.getEndpointAccessGranted(self.EndpointName.partner_POST) :
-            self.authService.getEndpointAccessGranted(self.EndpointName.partner_id_PUT)
-    }"
-
-    [(dataValue)]="self.partnerDetails.frozenTo"
-    [validator]="self.validator"
-    [validationField]="''frozenTo''"
-    [dataLabel]="''''"
-    [translateKeys]="''PARTNER.DETAILS.GENERAL.DATE_TO''"
-    [class]=''""'' 
-    [isDisabled]="!self.partnerDetails.isFrozen || false"
-></cr-control-datepicker></div></div><div class="row "><div class=''col-md-4''><cr-checkbox-control
-    [elementName]="''checkbox:Partner_details.Is_data_approved''"
-    [permissionSettings]="{
-        isAccessEdit: self.isNew ? self.authService.getEndpointAccessGranted(self.EndpointName.partner_POST) :
-            self.authService.getEndpointAccessGranted(self.EndpointName.partner_id_PUT)
-    }"
-
-    [(dataValue)]="self.partnerDetails.isDataApproved"
-    [dataLabel]="''''"
-    [translateKeys]="''PARTNER.DETAILS.GENERAL.IS_DATA_APPROVED''"
-    [isDisabled]="false"
-    [class]=''""''
-></cr-checkbox-control></div><div class=''col-md-8''><cr-control-edit
-    [translateKeys]="''PARTNER.DETAILS.GENERAL.UPDATE_EMPLOYEE''"
-    [dataLabel]="''''"
-    [isDisabled]="true"
-    [customClass]=''""''
-    [dataValue]="self.partnerDetails.updateEmployee?.name"
-    [elementName]="''label:Partner_details.Update_employee''"
-></cr-control-edit></div></div></div><div class=''col-md-6''>
-      <cr-panel
-        [panelTemplateType]="''panel''"
-        [expanded]="self.panelsViewState?.[''undefined''] ?? true"
-        (expandedChange)="self.panelStateChange(''undefined'', $event)"
-        [titleTranslateKey]="true ? ''PARTNER.DETAILS.GENERAL.MAILING_CATEGORIES'' : null"
-        [title]="true ? null : ''דרכי התקשרות''"
-        [customClass]="''cr-mailing-wrapper''"
-        [headerClass]="''cr-panel-header-wrapper-light''"
-        [validator]="self.validator"
-        [validatorGroupName]="''undefined''"
+        [validatorGroupName]="''permissions''"
         [containFields]=''[]''
       >
         <ng-template crPanelContent>
-          <cr-partner-mailing-category-control
-    [editable]="true && (self.isNew ? 
-            self.authService.getEndpointAccessGranted(self.EndpointName.partner_POST) :
-            self.authService.getEndpointAccessGranted(self.EndpointName.partner_id_PUT))"
-
-    [partnerId]="self.partnerDetails.id"
-    [(selectedMailingCategory)]="self.partnerDetails.mailingCategories"
-    (editClickEvent)="self.onEditMailingCategory()"
-    [class]=''""''
-    [editIcon]="''icon-edit''"
-></cr-partner-mailing-category-control>
-        </ng-template>
-      </cr-panel></div></div>
-        </ng-template>
-      </cr-panel>
-      <cr-panel
-        [panelTemplateType]="''collapsible-panel''"
-        [expanded]="self.panelsViewState?.[''paymentTerms''] ?? false"
-        (expandedChange)="self.panelStateChange(''paymentTerms'', $event)"
-        [titleTranslateKey]="true ? ''PARTNER.DETAILS.PAYMENT_TERMS.TITLE'' : null"
-        [title]="true ? null : ''תנאי תשלום''"
-        [customClass]="''''"
-        [headerClass]="''''"
-        [validator]="self.validator"
-        [validatorGroupName]="''paymentTerms''"
-        [containFields]=''[]''
-      >
-        <ng-template crPanelContent>
-          <div class="row "><div class=''col-md-2''><cr-dropdown-smart-control
-    [elementName]="''smart-dropdown:Partner_details.Price_list''"
-    [permissionSettings]="{
-        isAccessRead: self.authService.getEndpointAccessGranted(self.EndpointName.partner__item_price_id_dropdown_GET),
-        isAccessEdit: (self.isNew ? self.authService.getEndpointAccessGranted(self.EndpointName.partner_POST) :
-            self.authService.getEndpointAccessGranted(self.EndpointName.partner_id_PUT)) &&
-            self.authService.getEndpointAccessGranted(self.EndpointName.partner__item_price_dropdown_GET)
-    }"
-
-    [dataCacheName]="''PartnerPriceListDropdownCache''"
-    [(value)]="self.partnerDetails.priceListId"
-    [textField]="''displayName''"
-    [valueField]="''id''"
-    [getOneItemFunction]="self.loadPartnerPriceForDropdownFn"
-    [getListItemsFunction]="self.loadPartnerPriceListForDropdownFn"
-    [useCodeInList]="true"
-    [useCodeInValue]="true"
-    [unselectedItemValue]="{id: null, translateKey: ''COMMON.MOCK_OBJ.NOT_SELECTED''}"
-    [dataTranslateKeyField]="''translateKey''"
-    (valueChange)="self.onPriceListChanged()"
-    [labelTranslateKey]="''PARTNER.DETAILS.PAYMENT_TERMS.PRICE_LIST''"
-    [label]="''''"
-    [class]=''""''
-></cr-dropdown-smart-control>
-</div><div class=''col-md-2''><cr-dropdown-smart-control
-    [elementName]="''smart-dropdown:Partner_details.Price_number''"
-    [permissionSettings]="{
-        isAccessRead: self.authService.getEndpointAccessGranted(self.EndpointName.partner__item_price_priceListId_price_number_id_dropdown_GET),
-        isAccessEdit: (self.isNew ? self.authService.getEndpointAccessGranted(self.EndpointName.partner_POST) :
-            self.authService.getEndpointAccessGranted(self.EndpointName.partner_id_PUT)) &&
-            self.authService.getEndpointAccessGranted(self.EndpointName.partner__item_price_priceListId_price_number_dropdown_GET)
-    }"
-    
-    [dataCacheName]="''PartnerPriceNumberListDropdownCache''"
-    [isDisabled]="self.partnerDetails.priceListId === null"
-    [(value)]="self.partnerDetails.priceNumberId"
-    [textField]="''displayName''"
-    [valueField]="''id''"
-    [getOneItemFunction]="self.loadPartnerPriceNumberForDropdownFn"
-    [getListItemsFunction]="self.loadPartnerPriceNumberListForDropdownFn"
-    [listItemsFunctionAdditionalParameter]="self.partnerDetails.priceListId"
-    [requestDataWhenOpen]="true"
-    [useCodeInList]="true"
-    [useCodeInValue]="true"
-    [unselectedItemValue]="{id: null, translateKey: ''COMMON.MOCK_OBJ.NOT_SELECTED''}"
-    [dataTranslateKeyField]="''translateKey''"
-    [labelTranslateKey]="''PARTNER.DETAILS.PAYMENT_TERMS.PRICE_NUMBER''"
-    [label]="''''"
-    [class]=''""''
-></cr-dropdown-smart-control>
-</div></div><div class="row "><div class=''col-md-2''><cr-numeric-control
-    [elementName]="''numeric:Partner_details.Credit_limit''"
-    [permissionSettings]="{
-        isAccessEdit: self.isNew ? self.authService.getEndpointAccessGranted(self.EndpointName.partner_POST) :
-            self.authService.getEndpointAccessGranted(self.EndpointName.partner_id_PUT)
-    }"
-
-    [dataValue]="self.partnerDetails.creditLimit"
-    [isDisabled]="false"
-    [dataLabel]="''''" 
-    [translateKeys]="''PARTNER.DETAILS.PAYMENT_TERMS.CREDIT_LIMIT''" 
-    [customClass]=''""''
-    [format]="null" 
-    [decimals]="null" 
-    [min]="null" 
-    [max]="null"
-    [autoCorrectMinMax]="false"
-></cr-numeric-control></div><div class=''col-md-2''><cr-numeric-control
-    [elementName]="''numeric:Partner_details.Obligo_limit''"
-    [permissionSettings]="{
-        isAccessEdit: self.isNew ? self.authService.getEndpointAccessGranted(self.EndpointName.partner_POST) :
-            self.authService.getEndpointAccessGranted(self.EndpointName.partner_id_PUT)
-    }"
-
-    [dataValue]="self.partnerDetails.obligoLimit"
-    [isDisabled]="false"
-    [dataLabel]="''''" 
-    [translateKeys]="''PARTNER.DETAILS.PAYMENT_TERMS.OBLIGO_LIMIT''" 
-    [customClass]=''""''
-    [format]="null" 
-    [decimals]="null" 
-    [min]="null" 
-    [max]="null"
-    [autoCorrectMinMax]="false"
-></cr-numeric-control></div></div><div class="row "><div class=''col-md-2''><cr-numeric-control
-    [elementName]="''numeric:Partner_details.Budget_limit''"
-    [dataValue]="self.partnerDetails.budgetLimit"
-    [isDisabled]="true"
-    [dataLabel]="''''" 
-    [translateKeys]="''PARTNER.DETAILS.PAYMENT_TERMS.BUDGET_LIMIT''" 
-    [customClass]=''""''
-    [format]="null" 
-    [decimals]="null" 
-    [min]="null" 
-    [max]="null"
-    [autoCorrectMinMax]="false"
-></cr-numeric-control></div><div class=''col-md-2''><cr-dropdown-smart-control
-    [elementName]="''smart-dropdown:Partner_details.Budget_type''"
-    [permissionSettings]="{
-        isAccessEdit: self.isNew ? self.authService.endpoints[self.EndpointName.partner_POST]?.isAccessGranted :
-            self.authService.endpoints[self.EndpointName.partner_id_PUT]?.isAccessGranted
-        }"
-    [value]="self.partnerDetails.budgetTypeId ? self.partnerDetails.budgetTypeId : null"
-    [textField]="''name''"
-    [valueField]="''uid''"
-    [getListItemsFunction]="self.getBudgetTypeDropdownList$"
-    [getOneItemFunction]="self.getBudgetTypeItemDropdown$"
-    (valueChange)="self.onBudgetTypeChanged($event)"
-    [dataTranslateKeyField]="''translateKey''"
-    [unselectedItemValue]="{uid: null, translateKey: ''COMMON.MOCK_OBJ.NOT_SELECTED''}"
-    [labelTranslateKey]="''PARTNER.DETAILS.PAYMENT_TERMS.BUDGET_TYPE''"
-    [label]="''''"
-    [class]=''""''
-                          ></cr-dropdown-smart-control></div><div class=''col-md-2''>
-        <ng-template [ngIf]="self.partnerDetails?.budgetTypeId === 1">
-            <cr-dropdown-smart-control
-    [(value)]="self.partnerDetails.budgetStartMonth"
-    [elementName]="''smart-dropdown:Partner_details.Budget_start_month''"
-    [permissionSettings]="{
-        isAccessEdit: self.isNew ? self.authService.endpoints[self.EndpointName.partner_POST]?.isAccessGranted :
-           self.authService.endpoints[self.EndpointName.partner_id_PUT]?.isAccessGranted
-    }"
-    [textField]="''name''"
-    [valueField]="''uid''"
-    [dataCacheName]="''PartnerBudgetStartMonthDropdownCache''"
-
-    [getListItemsFunction]="self.getMonthDropdownList$"
-    [getOneItemFunction]="self.getMonthItemDropdown$"
-    [dataTranslateKeyField]="''translateKey''"
-    [unselectedItemValue]="{uid: null, translateKey: ''COMMON.MOCK_OBJ.NOT_SELECTED''}"
-    [isDisabled]="false"
-    [labelTranslateKey]="''PARTNER.DETAILS.PAYMENT_TERMS.BUDGET_START_MONTH''"
-    [label]="''''"
-    [class]=''""''
-></cr-dropdown-smart-control>
-
-        </ng-template></div></div>
-        </ng-template>
-      </cr-panel>
-      <cr-panel
-        [panelTemplateType]="''collapsible-panel''"
-        [expanded]="self.panelsViewState?.[''statistic''] ?? false"
-        (expandedChange)="self.panelStateChange(''statistic'', $event)"
-        [titleTranslateKey]="true ? ''PARTNER.PANEL.STATISTIC'' : null"
-        [title]="true ? null : ''נתונים סטטיסטיים''"
-        [customClass]="''''"
-        [headerClass]="''''"
-        [validator]="self.validator"
-        [validatorGroupName]="''statistic''"
-        [containFields]=''[]''
-      >
-        <ng-template crPanelContent>
-          <div class="row "><div class=''col-md-2''><cr-numeric-control
-    [elementName]="''numeric:Partner_details.Total_amount''"
-    [dataValue]="self.partnerDetails.totalAmount"
-    [isDisabled]="true"
-    [dataLabel]="''''" 
-    [translateKeys]="''PARTNER.DETAILS.STATISTIC.TOTAL_AMOUNT''" 
-    [customClass]=''""''
-    [format]="''n0''" 
-    [decimals]="null" 
-    [min]="null" 
-    [max]="null"
-    [autoCorrectMinMax]="false"
-></cr-numeric-control></div><div class=''col-md-2''><cr-numeric-control
-    [elementName]="''numeric:Partner_details.Sales_count''"
-    [dataValue]="self.partnerDetails.salesCount"
-    [isDisabled]="true"
-    [dataLabel]="''''" 
-    [translateKeys]="''PARTNER.DETAILS.STATISTIC.SALES_COUNT''" 
-    [customClass]=''""''
-    [format]="''n0''" 
-    [decimals]="null" 
-    [min]="null" 
-    [max]="null"
-    [autoCorrectMinMax]="false"
-></cr-numeric-control></div><div class=''col-md-2''><cr-numeric-control
-    [elementName]="''numeric:Partner_details.Returns_count''"
-    [dataValue]="self.partnerDetails.returnsCount"
-    [isDisabled]="true"
-    [dataLabel]="''''" 
-    [translateKeys]="''PARTNER.DETAILS.STATISTIC.RETURNS_COUNT''" 
-    [customClass]=''""''
-    [format]="''n0''" 
-    [decimals]="null" 
-    [min]="null" 
-    [max]="null"
-    [autoCorrectMinMax]="false"
-></cr-numeric-control></div><div class=''col-md-2''><cr-control-datepicker
-    [elementName]="''date:Partner_details.Registration_date''"
-    [permissionSettings]="{
-        isAccessEdit: self.isNew ? self.authService.getEndpointAccessGranted(self.EndpointName.partner_POST) :
-            self.authService.getEndpointAccessGranted(self.EndpointName.partner_id_PUT)
-    }"
-
-    [(dataValue)]="self.partnerDetails.registrationDate"
-    [dataLabel]="''''"
-    [translateKeys]="''PARTNER.DETAILS.STATISTIC.REGISTRATION_DATE''"
-    [class]=''""'' 
-    [isDisabled]="false"
-></cr-control-datepicker></div><div class=''col-md-2''><cr-control-datepicker
-    [elementName]="''date:Partner_details.Last_sale_date''"
-    [permissionSettings]="{
-        isAccessEdit: self.isNew ? self.authService.getEndpointAccessGranted(self.EndpointName.partner_POST) :
-            self.authService.getEndpointAccessGranted(self.EndpointName.partner_id_PUT)
-    }"
-
-    [(dataValue)]="self.partnerDetails.lastSaleDate"
-    [dataLabel]="''''"
-    [translateKeys]="''PARTNER.DETAILS.STATISTIC.LAST_SALE_DATE''"
-    [class]=''""'' 
-    [isDisabled]="false"
-></cr-control-datepicker></div><div class=''col-md-2''><cr-dropdown-smart-control
-    [elementName]="''smart-dropdown:Partner_details.Linked_store''"
-    [permissionSettings]="{
-        isAccessRead: self.authService.getEndpointAccessGranted(self.EndpointName.partner__location_objectId_dropdown_GET),
-        isAccessEdit: (self.isNew ? self.authService.getEndpointAccessGranted(self.EndpointName.partner_POST) :
-            self.authService.getEndpointAccessGranted(self.EndpointName.partner_id_PUT)) &&
-            self.authService.getEndpointAccessGranted(self.EndpointName.partner__location_dropdown_GET)
-    }"
-
-    [dataCacheName]="''PartnerStoreListDropdownCache''"
-    [(value)]="self.partnerDetails.linkedStoreId"
-    [textField]="''name''"
-    [valueField]="''id''"
-    [getOneItemFunction]="self.loadStoreForDropdownFn"
-    [getListItemsFunction]="self.loadStoreListForDropdownFn"
-    [useCodeInList]="true"
-    [useCodeInValue]="true"
-    [unselectedItemValue]="{id: null, translateKey: ''COMMON.MOCK_OBJ.NOT_SELECTED''}"
-    [dataTranslateKeyField]="''translateKey''"
-    [labelTranslateKey]="''PARTNER.DETAILS.GENERAL.LINKED_STORE''"
-    [label]="''''"
-    [class]=''""''
-></cr-dropdown-smart-control></div></div>
-        </ng-template>
-      </cr-panel>
-      <cr-panel
-        [panelTemplateType]="''collapsible-panel''"
-        [expanded]="self.panelsViewState?.[''groups''] ?? false"
-        (expandedChange)="self.panelStateChange(''groups'', $event)"
-        [titleTranslateKey]="true ? ''PARTNER.PANEL.GROUPS'' : null"
-        [title]="true ? null : ''קבוצות''"
-        [customClass]="''''"
-        [headerClass]="''''"
-        [validator]="self.validator"
-        [validatorGroupName]="''groups''"
-        [containFields]=''["partnerGroups"]''
-      >
-        <ng-template crPanelContent>
-          <cr-partner-group-control
-    [editable]="true && (self.isNew ? 
-            self.authService.getEndpointAccessGranted(self.EndpointName.partner_POST) :
-            self.authService.getEndpointAccessGranted(self.EndpointName.partner_id_PUT))"
-
-    [partnerId]="self.partnerDetails.id"
-    [(selectedGroups)]="self.partnerDetails.partnerGroups"
-    [class]=''""''
-    [editIcon]="''icon-edit''"
-    (editClickEvent)="self.onEditPartnerGroup()"
-></cr-partner-group-control>
-        </ng-template>
-      </cr-panel>
-      <cr-panel
-        [panelTemplateType]="''collapsible-panel''"
-        [expanded]="self.panelsViewState?.[''addresses''] ?? false"
-        (expandedChange)="self.panelStateChange(''addresses'', $event)"
-        [titleTranslateKey]="true ? ''PARTNER.PANEL.ADDRESSES'' : null"
-        [title]="true ? null : ''כתובות''"
-        [customClass]="''''"
-        [headerClass]="''''"
-        [validator]="self.validator"
-        [validatorGroupName]="''addresses''"
-        [containFields]=''[]''
-      >
-        <ng-template crPanelContent>
-          <cr-partner-address-list
-    (openAddressPopup)="self.onCreatePartnerAddresses()"
-    (editAddressPopup)="self.onEditPartnerAddresses($event)"
-    [editable]="true"
-    [class]=''""''
+          <cr-role-permission-tree
+    *ngIf="(self.EndpointName.role__function_tree_list_GET | endpointAccessGrantedPipe)"
     [isNew]="self.isNew"
-    [partner]="self.partnerDetails"
-></cr-partner-address-list>
-        </ng-template>
-      </cr-panel>
-      <cr-panel
-        [panelTemplateType]="''collapsible-panel''"
-        [expanded]="self.panelsViewState?.[''contactPersons''] ?? false"
-        (expandedChange)="self.panelStateChange(''contactPersons'', $event)"
-        [titleTranslateKey]="true ? ''PARTNER.PANEL.CONTACT_PERSONS'' : null"
-        [title]="true ? null : ''Contact persons he''"
-        [customClass]="''''"
-        [headerClass]="''''"
-        [validator]="self.validator"
-        [validatorGroupName]="''contactPersons''"
-        [containFields]=''[]''
-      >
-        <ng-template crPanelContent>
-          <cr-partner-contact-persons-list
-    (openAddressPopup)="self.onCreatePartnerContactPersons()"
-    (editAddressPopup)="self.onEditPartnerContactPersons($event)"
-    [isNew]="self.isNew"
-    [partner]="self.partnerDetails"
+    [(selected)]="self.currentItem.functions"
+    [editable]="!self.currentItem.isDeleted && (self.isNew
+        ? (self.EndpointName.role_POST | endpointAccessGrantedPipe)
+        : (self.EndpointName.role_id_PUT | endpointAccessGrantedPipe))"
     [class]=''""''
-></cr-partner-contact-persons-list>
-        </ng-template>
-      </cr-panel>
-      <cr-panel
-        [panelTemplateType]="''collapsible-panel''"
-        [expanded]="self.panelsViewState?.[''cards''] ?? false"
-        (expandedChange)="self.panelStateChange(''cards'', $event)"
-        [titleTranslateKey]="true ? ''PARTNER.PANEL.CARDS'' : null"
-        [title]="true ? null : ''מספרי כרטיס נוספים''"
-        [customClass]="''''"
-        [headerClass]="''''"
-        [validator]="self.validator"
-        [validatorGroupName]="''cards''"
-        [containFields]=''[]''
-      >
-        <ng-template crPanelContent>
-          <cr-partner-cards-list
-    [editable]="true"
-    [class]=''""''
-    [partnerId]="self.partnerDetails.id"
-    [isDeletedPartner]="self.partnerDetails.isDeleted"
-></cr-partner-cards-list>
-        </ng-template>
-      </cr-panel>
-      <cr-panel
-        [panelTemplateType]="''collapsible-panel''"
-        [expanded]="self.panelsViewState?.[''points''] ?? false"
-        (expandedChange)="self.panelStateChange(''points'', $event)"
-        [titleTranslateKey]="true ? ''PARTNER.PANEL.POINT'' : null"
-        [title]="true ? null : ''נקודות נאמנות''"
-        [customClass]="''''"
-        [headerClass]="''''"
-        [validator]="self.validator"
-        [validatorGroupName]="''points''"
-        [containFields]=''[]''
-      >
-        <ng-template crPanelContent>
-          <cr-partner-point 
-    [class]=''""''
-    [partnerID]="self.partnerDetails.id"
-></cr-partner-point>
-        </ng-template>
-      </cr-panel>
-      <cr-panel
-        [panelTemplateType]="''collapsible-panel''"
-        [expanded]="self.panelsViewState?.[''pointHistory''] ?? false"
-        (expandedChange)="self.panelStateChange(''pointHistory'', $event)"
-        [titleTranslateKey]="true ? ''PARTNER.PANEL.POINT_HISTORY'' : null"
-        [title]="true ? null : ''היסטוריית נקודות''"
-        [customClass]="''''"
-        [headerClass]="''''"
-        [validator]="self.validator"
-        [validatorGroupName]="''pointHistory''"
-        [containFields]=''[]''
-      >
-        <ng-template crPanelContent>
-          <cr-partner-point-history
-    [class]=''""''
-    [partnerId]="self.partnerDetails.id"
-></cr-partner-point-history>
-        </ng-template>
-      </cr-panel>
-      <cr-panel
-        [panelTemplateType]="''collapsible-panel''"
-        [expanded]="self.panelsViewState?.[''transactionHistory''] ?? false"
-        (expandedChange)="self.panelStateChange(''transactionHistory'', $event)"
-        [titleTranslateKey]="true ? ''PARTNER.PANEL.HISTORY'' : null"
-        [title]="true ? null : ''היסטוריה''"
-        [customClass]="''''"
-        [headerClass]="''''"
-        [validator]="self.validator"
-        [validatorGroupName]="''transactionHistory''"
-        [containFields]=''[]''
-      >
-        <ng-template crPanelContent>
-          <cr-partner-transaction-history
-    [class]=''""''
-    [partnerId]="self.partnerDetails.id"
-></cr-partner-transaction-history>
-        </ng-template>
-      </cr-panel>
-      <cr-panel
-        [panelTemplateType]="''collapsible-panel''"
-        [expanded]="self.panelsViewState?.[''discountBudget''] ?? false"
-        (expandedChange)="self.panelStateChange(''discountBudget'', $event)"
-        [titleTranslateKey]="true ? ''PARTNER.PANEL.DISCOUNT_BUDGET'' : null"
-        [title]="true ? null : ''תקציב הנחות''"
-        [customClass]="''''"
-        [headerClass]="''''"
-        [validator]="self.validator"
-        [validatorGroupName]="''discountBudget''"
-        [containFields]=''[]''
-      >
-        <ng-template crPanelContent>
-          <cr-partner-discount-budget 
-    [class]=''""''
-    [partnerId]="self.partnerDetails.id"
-></cr-partner-discount-budget>
-        </ng-template>
-      </cr-panel>
-      <cr-panel
-        [panelTemplateType]="''collapsible-panel''"
-        [expanded]="self.panelsViewState?.[''udf''] ?? false"
-        (expandedChange)="self.panelStateChange(''udf'', $event)"
-        [titleTranslateKey]="true ? ''PARTNER.PANEL.UDF'' : null"
-        [title]="true ? null : ''UDF he''"
-        [customClass]="''''"
-        [headerClass]="''''"
-        [validator]="self.validator"
-        [validatorGroupName]="''udf''"
-        [containFields]=''[]''
-      >
-        <ng-template crPanelContent>
-          <cr-udf-list
-    [cacheName]="''PartnerUserFieldViewStateCache''"
-    *ngIf="self.authService.endpoints[self.EndpointName.partner__user_defined_field_GET]?.isAccessGranted &&
-        self.authService.endpoints[self.EndpointName.partner__user_defined_field_default_value_GET]?.isAccessGranted; else noAccess"
-    [isNew]="self.isNew"
-    [udf]="self.partnerDetails.udf"
-    [viewName]="''Partner_details''"
-    [loadUserDefinedFieldListForDropdownFn$]="self.loadUserDefinedFieldListForDropdownFn$"
-    [getUserFields$]="self.getUserFields$"
-    [loadUserFields$]="self.loadUserFields$"
-    [getUserFieldsDefault$]="self.getUserFieldsDefault$"
-    [class]=''""''
-></cr-udf-list>
-<ng-template #noAccess>
-    <div class="cr-no-read-access p-2">
-        {{''COMMON.GRID.NO_READ_ACCESS'' | translate}}
-    </div>
-</ng-template>
-        </ng-template>
-      </cr-panel>
-      <cr-panel
-        [panelTemplateType]="''collapsible-panel''"
-        [expanded]="self.panelsViewState?.[''remark''] ?? false"
-        (expandedChange)="self.panelStateChange(''remark'', $event)"
-        [titleTranslateKey]="true ? ''PARTNER.PANEL.REMARK'' : null"
-        [title]="true ? null : ''הערה''"
-        [customClass]="''''"
-        [headerClass]="''''"
-        [validator]="self.validator"
-        [validatorGroupName]="''remark''"
-        [containFields]=''[]''
-      >
-        <ng-template crPanelContent>
-          <div class="row "><div class=''col-md-12''><cr-text-area-control
-    [elementName]="''textarea:Partner_details.Remark''"
-    [(dataValue)]="self.partnerDetails.remark"
-    [dataLabel]="''''"
-    [translateKeys]="''''"
-    [class]=''""'' 
-    [isDisabled]="false"
-    [rows]="2"
-    [maxlength]="50000"
-    [permissionSettings]="{
-        isAccessEdit: self.isNew ? self.authService.getEndpointAccessGranted(self.EndpointName.partner_POST) :
-            self.authService.getEndpointAccessGranted(self.EndpointName.partner_id_PUT)
-    }"
-></cr-text-area-control></div><div class=''col-md-6''></div></div>
+></cr-role-permission-tree>
         </ng-template>
       </cr-panel>
         </ng-template>
       </ng-template>
     </ng-template>
     
-        <ng-template [ngSwitchCase]="''manage-mailing-category-partner''">
-          <ng-template
-            [ngIf]="self.popupTab.tabs[self.popupTab.activeTabIndex].type == ''manage-mailing-category-partner'' && self.popupTab.activeTabIndex == i">
-            <div *ngIf=''self.popupTab.activeTabIndex != self.popupTab.tabs.length - 1'' class=''cr-popup-blocker''></div>
-            <cr-partner-mailing-category-manage-dynamic
-    [subTemplateId]="''0900AEBD-4251-ED11-8E5D-4CCC6A2BB6D6''"
-    [(selectedMailingCategory)]="self.partnerDetails.mailingCategories"
-    (cancelClickEvent)="self.onCloseMailingCategory()"
-    (confirmClickEvent)="self.onCloseMailingCategory()"
-></cr-partner-mailing-category-manage-dynamic>
-
-          </ng-template>
-        </ng-template>
-      
-        <ng-template [ngSwitchCase]="''manage-partner-groups''">
-          <ng-template
-            [ngIf]="self.popupTab.tabs[self.popupTab.activeTabIndex].type == ''manage-partner-groups'' && self.popupTab.activeTabIndex == i">
-            <div *ngIf=''self.popupTab.activeTabIndex != self.popupTab.tabs.length - 1'' class=''cr-popup-blocker''></div>
-            <cr-partner-group-manage-dynamic
-    [subTemplateId]="''0A00AEBD-4251-ED11-8E5D-4CCC6A2BB6D6''"
-    [partnerId]="self.partnerDetails.id"
-    [partnerTypeId]="self.partnerDetails.partnerTypeId"
-    [(selectedGroups)]="self.partnerDetails.partnerGroups"
-    (cancelClickEvent)="self.onClosePartnerGroup()"
-    (confirmClickEvent)="self.onClosePartnerGroup()"
-></cr-partner-group-manage-dynamic>
-          </ng-template>
-        </ng-template>
-      
-        <ng-template [ngSwitchCase]="''manage-partner-addresses-create''">
-          <ng-template
-            [ngIf]="self.popupTab.tabs[self.popupTab.activeTabIndex].type == ''manage-partner-addresses-create'' && self.popupTab.activeTabIndex == i">
-            <div *ngIf=''self.popupTab.activeTabIndex != self.popupTab.tabs.length - 1'' class=''cr-popup-blocker''></div>
-            <cr-addresses-details-dynamic
-    [subTemplateId]="''0B00AEBD-4251-ED11-8E5D-4CCC6A2BB6D6''"
-    (closeClickEvent)="self.onClosePartnerAddresses()"
-    [isNew]="true"
-    [itemAddress]="self.partnerDetailsAddress"
-    (newAddress)="self.onConfirmPartnerAddresses($event, true)"
-></cr-addresses-details-dynamic>
-
-          </ng-template>
-        </ng-template>
-      
-        <ng-template [ngSwitchCase]="''manage-mailing-category-contact-person''">
-          <ng-template
-            [ngIf]="self.popupTab.tabs[self.popupTab.activeTabIndex].type == ''manage-mailing-category-contact-person'' && self.popupTab.activeTabIndex == i">
-            <div *ngIf=''self.popupTab.activeTabIndex != self.popupTab.tabs.length - 1'' class=''cr-popup-blocker''></div>
-            <cr-partner-mailing-category-manage-dynamic
-    [subTemplateId]="''0900AEBD-4251-ED11-8E5D-4CCC6A2BB6D6''"
-    (selectedMailingCategoryChange)="self.partnerDetailsContactPerson.mailingCategories = $event"
-    [(selectedMailingCategory)]="self.partnerDetailsContactPerson.mailingCategories"
-    (cancelClickEvent)="self.onCloseMailingCategory()"
-    (confirmClickEvent)="self.onCloseMailingCategory()"
-></cr-partner-mailing-category-manage-dynamic>
-
-          </ng-template>
-        </ng-template>
-      
-        <ng-template [ngSwitchCase]="''manage-partner-addresses-update''">
-          <ng-template
-            [ngIf]="self.popupTab.tabs[self.popupTab.activeTabIndex].type == ''manage-partner-addresses-update'' && self.popupTab.activeTabIndex == i">
-            <div *ngIf=''self.popupTab.activeTabIndex != self.popupTab.tabs.length - 1'' class=''cr-popup-blocker''></div>
-            <cr-addresses-details-dynamic
-    [subTemplateId]="''7BCDF1FD-535C-ED11-8E5E-4CCC6A2BB6D6''"
-    [isNew]="false"
-    (closeClickEvent)="self.onClosePartnerAddresses()"
-    (confirmAddress)="self.onConfirmPartnerAddresses($event)"
-    [itemAddress]="self.partnerDetailsAddress"
-></cr-addresses-details-dynamic>
-          </ng-template>
-        </ng-template>
-      
-        <ng-template [ngSwitchCase]="''manage-partner-contact-persons-update''">
-          <ng-template
-            [ngIf]="self.popupTab.tabs[self.popupTab.activeTabIndex].type == ''manage-partner-contact-persons-update'' && self.popupTab.activeTabIndex == i">
-            <div *ngIf=''self.popupTab.activeTabIndex != self.popupTab.tabs.length - 1'' class=''cr-popup-blocker''></div>
-            <cr-partner-contact-persons-details
-    [subTemplateId]="''BBD312CC-5B5C-ED11-8E5E-4CCC6A2BB6D6''"
-    (openMailingCategory)="self.onEditContactPersonMailingCategory()"
-    (closeClickEvent)="self.onClosePartnerContactPersons()"
-    (confirmContactPerson)="self.onConfirmPartnerContactPersons($event)"
-    [itemContactPerson]="self.partnerDetailsContactPerson"
-></cr-partner-contact-persons-details>
-          </ng-template>
-        </ng-template>
-      
-        <ng-template [ngSwitchCase]="''manage-partner-contact-persons-create''">
-          <ng-template
-            [ngIf]="self.popupTab.tabs[self.popupTab.activeTabIndex].type == ''manage-partner-contact-persons-create'' && self.popupTab.activeTabIndex == i">
-            <div *ngIf=''self.popupTab.activeTabIndex != self.popupTab.tabs.length - 1'' class=''cr-popup-blocker''></div>
-            <cr-partner-contact-persons-details
-    [subTemplateId]="''0E00AEBD-4251-ED11-8E5D-4CCC6A2BB6D6''"
-    (openMailingCategory)="self.onEditContactPersonMailingCategory()"
-    (closeClickEvent)="self.onClosePartnerContactPersons()"
-    [isNew]="true"
-    [itemContactPerson]="self.partnerDetailsContactPerson"
-    (newContactPerson)="self.onConfirmPartnerContactPersons($event, true)"
-></cr-partner-contact-persons-details>
-
-          </ng-template>
-        </ng-template>
-      
               </ng-container>
             </ng-container>
           </div>
-        </div>', '2022-12-27 14:01:28.6833333 +00:00', 223, N'N', '980490fd-a1c1-4ae1-bbe1-e120c1f8a46b', 1, NULL)
-INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID], [BookmarkName], [BookmarkDescription], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('f1819b05-4351-ed11-8e5d-4ccc6a2bb6d6', 'd5ae82e8-4251-ed11-8e5d-4ccc6a2bb6d6', 2, NULL, NULL, N'
+        </div>', '2022-12-28 15:03:43.2166667 +00:00', 12, N'N', '705d2504-25fe-43d2-8ebe-cd788bad7d98', 1, NULL)
+INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID], [BookmarkName], [BookmarkDescription], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('e5dfa869-d185-ed11-8360-02f176033ddb', 'e3dfa869-d185-ed11-8360-02f176033ddb', 2, N'', N'', N'
         <div class=''cr-popup-content-wrapper'' [class.cr-popup-is-shown]=''self.popupTab.tabs.length > 1''>
           <cr-popup-tabs
             [popupTabs]=''self.popupTab.tabs''
@@ -12292,1034 +12600,84 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
     <ng-template [ngSwitchCase]="''general''">
       <ng-template [ngIf]="self.popupTab.tabs[self.popupTab.activeTabIndex].type == ''general'' && self.popupTab.activeTabIndex == i">
         <div *ngIf=''self.popupTab.activeTabIndex != self.popupTab.tabs.length - 1'' class=''cr-popup-blocker''></div>
-        
-        <ng-template [ngIf]="self.partnerDetails">
-            <cr-title-header
-    [titleTranslateKey]="''PARTNER.DETAILS.TITLE''"
+        <cr-title-header
+    [titleTranslateKey]="''ROLE.DETAILS.TITLE''"
     [title]="''''"
     [titleValue]="self.titleValueText"
     [additionalTranslateKeys]="''COMMON.NEW''"
-    [buttonSettings]="self.titleHeaderButtonSettings"
     (buttonClickEvent)="self.onTitleButtonClick($event)"
+    [buttonSettings]="self.titleHeaderButtonSettings"
+    [titleValueTranslateKey]="self.isNew ? ''COMMON.NEW'' : null"
 ></cr-title-header>
+        <ng-template [ngIf]="self.currentItem">
+            
       <cr-panel
         [panelTemplateType]="''well''"
         [customClass]="''''"
       >
         <ng-template crPanelContent>
-          <div class="row "><div class=''col-md-2''><cr-control-edit
-    [elementName]="''edit:Partner_details.Partner_code''"
+          <div class="row "><div class=''col-lg-4''><cr-control-edit
+    [(dataValue)]="self.currentItem.code"
+    [elementName]="''edit:Role_details.Code''"
     [permissionSettings]="{
-        isAccessEdit: self.isNew ? self.authService.getEndpointAccessGranted(self.EndpointName.partner_POST) :
-            self.authService.getEndpointAccessGranted(self.EndpointName.partner_id_PUT)
+        isAccessEdit: self.isNew ? (self.EndpointName.role_POST | endpointAccessGrantedPipe) :
+            (self.EndpointName.role_id_PUT | endpointAccessGrantedPipe)
     }"
-
-    [(dataValue)]="self.partnerDetails.partnerCode"
     [validator]="self.validator"
-    [validationField]="''partnerCode''"
-    [translateKeys]="''PARTNER.DETAILS.HEADER.PARTNER_CODE''" 
+    [validationField]="''code''"
+    [translateKeys]="''ROLE.DETAILS.CODE''" 
     [dataLabel]="''''"
     [customClass]=''""''
-    [isDisabled]="!self.isNew || false"
-></cr-control-edit></div><div class=''col-md-2''><cr-control-edit
-    [elementName]="''edit:Partner_details.First_name''"
+    [isDisabled]="self.currentItem.isDeleted"
+></cr-control-edit></div><div class=''col-lg-4''><cr-control-edit
+    [(dataValue)]="self.currentItem.name"
+    [elementName]="''edit:Role_details.Name''"
     [permissionSettings]="{
-        isAccessEdit: self.isNew ? self.authService.getEndpointAccessGranted(self.EndpointName.partner_POST) :
-            self.authService.getEndpointAccessGranted(self.EndpointName.partner_id_PUT)
+        isAccessEdit: self.isNew ? (self.EndpointName.role_POST | endpointAccessGrantedPipe) :
+            (self.EndpointName.role_id_PUT | endpointAccessGrantedPipe)
     }"
-
-    [(dataValue)]="self.partnerDetails.firstName"
-    (dataValueChange)="self.onChangeTitleValue()"
-    [validationField]="''firstName''"
     [validator]="self.validator"
-    [translateKeys]="''PARTNER.DETAILS.HEADER.FIRST_NAME''" 
+    [validationField]="''name''"
+    [translateKeys]="''ROLE.DETAILS.NAME''" 
     [dataLabel]="''''"
     [customClass]=''""''
-    [isDisabled]="false"
-></cr-control-edit></div><div class=''col-md-2''><cr-control-edit
-    [elementName]="''edit:Partner_details.Last_name''"
-    [permissionSettings]="{
-        isAccessEdit: self.isNew ? self.authService.getEndpointAccessGranted(self.EndpointName.partner_POST) :
-            self.authService.getEndpointAccessGranted(self.EndpointName.partner_id_PUT)
-    }"
-
-    [(dataValue)]="self.partnerDetails.lastName"
-    (dataValueChange)="self.onChangeTitleValue()"
-    [translateKeys]="''PARTNER.DETAILS.HEADER.LAST_NAME''" 
-    [dataLabel]="''''"
-    [customClass]=''""''
-    [isDisabled]="false"
-></cr-control-edit></div><div class=''col-md-2''><cr-dropdown-smart-control
-    [elementName]="''smart-dropdown:Partner_details.Partner_type''"
-    [permissionSettings]="{
-        isAccessRead: self.authService.getEndpointAccessGranted(self.EndpointName.partner_type_id_GET),
-        isAccessEdit: (self.isNew ? self.authService.getEndpointAccessGranted(self.EndpointName.partner_POST) :
-            self.authService.getEndpointAccessGranted(self.EndpointName.partner_id_PUT)) &&
-            self.authService.getEndpointAccessGranted(self.EndpointName.partner_type_GET) 
-    }"
-    [dataCacheName]="''PartnerTypeDropdownCache''"
-    [labelTranslateKey]="''PARTNER.DETAILS.HEADER.PARTNER_TYPE''"
-    [(value)]="self.partnerDetails.partnerTypeId"
-    [textField]="''displayName''"
-    [valueField]="''id''"
-    [getOneItemFunction]="self.loadPartnerTypeForDropdownFn"
-    [getListItemsFunction]="self.loadPartnerTypeListForDropdownFn"
-    [unselectedItemValue]="{id: null, translateKey: ''COMMON.MOCK_OBJ.NOT_SELECTED''}"
-    [dataTranslateKeyField]="''translateKey''"
-    [validator]="self.validator"
-    [validationField]="''partnerTypeId''"
-    [labelTranslateKey]="''PARTNER.DETAILS.HEADER.PARTNER_TYPE''"
-    [label]="''''"
-    [class]=''""''
-></cr-dropdown-smart-control></div><div class=''col-md-2''><cr-control-edit
-    [elementName]="''edit:Partner_details.Government_id''"
-    [permissionSettings]="{
-        isAccessEdit: self.isNew ? self.authService.getEndpointAccessGranted(self.EndpointName.partner_POST) :
-            self.authService.getEndpointAccessGranted(self.EndpointName.partner_id_PUT)
-    }"
-
-    [(dataValue)]="self.partnerDetails.govId"
-    [validator]="self.validator"
-    [validationField]="''govId''"
-    [translateKeys]="''PARTNER.DETAILS.HEADER.GOVERNMENT_ID''" 
-    [dataLabel]="''''"
-    [customClass]=''""''
-    [isDisabled]="false"
-></cr-control-edit></div><div class=''col-md-2''><cr-numeric-control
-    [elementName]="''numeric:Partner_details.Balance''"
-    [dataValue]="self.partnerDetails.balance"
-    [isDisabled]="true"
-    [dataLabel]="''''" 
-    [translateKeys]="''PARTNER.DETAILS.HEADER.BALANCE''" 
-    [customClass]=''""''
-    [format]="null" 
-    [decimals]="null" 
-    [min]="null" 
-    [max]="null"
-    [autoCorrectMinMax]="false"
-></cr-numeric-control></div></div>
+    [isDisabled]="self.currentItem.isDeleted"
+    (dataValueChange)="self.changeTitle()"
+></cr-control-edit></div></div>
         </ng-template>
       </cr-panel>
       <cr-panel
         [panelTemplateType]="''collapsible-panel''"
-        [expanded]="self.panelsViewState?.[''general''] ?? false"
-        (expandedChange)="self.panelStateChange(''general'', $event)"
-        [titleTranslateKey]="true ? ''PARTNER.DETAILS.GENERAL.TITLE'' : null"
-        [title]="true ? null : ''General''"
+        [expanded]="self.panelsViewState?.[''permissions''] ?? true"
+        (expandedChange)="self.panelStateChange(''permissions'', $event)"
+        [titleTranslateKey]="true ? ''ROLE.DETAILS.PERMISSIONS.TITLE'' : null"
+        [title]="true ? null : ''Permissions''"
         [customClass]="''''"
         [headerClass]="''''"
         [validator]="self.validator"
-        [validatorGroupName]="''general''"
-        [containFields]=''["bDay","eMail","passport","validFrom","validTo","frozenFrom","frozenTo"]''
-      >
-        <ng-template crPanelContent>
-          <div class="row "><div class=''col-md-2''><cr-dropdown-smart-control
-    [elementName]="''smart-dropdown:Partner_details.Gender''"
-    [dataCacheName]="''PartnerGenderDropdownCache''"
-    [permissionSettings]="{
-        isAccessEdit: self.isNew ? self.authService.endpoints[self.EndpointName.partner_POST]?.isAccessGranted :
-            self.authService.endpoints[self.EndpointName.partner_id_PUT]?.isAccessGranted
-        }"
-    [labelTranslateKey]="''PARTNER.DETAILS.GENERAL.GENDER''"
-    [(value)]="self.partnerDetails.gender"
-    [getListItemsFunction]="self.getGenderTypeDropdownList$"
-    [getOneItemFunction]="self.getGenderItemDropdown$"
-    [valueField]="''code''"
-    [textField]="''name''"
-    [dataTranslateKeyField]="''translateKey''"
-    [unselectedItemValue]="{code: null, translateKey: ''COMMON.MOCK_OBJ.NOT_SELECTED''}"
-    [labelTranslateKey]="''PARTNER.DETAILS.GENERAL.GENDER''"
-    [label]="''''"
-    [class]=''""''>
-</cr-dropdown-smart-control></div><div class=''col-md-2''><cr-control-datepicker
-    [elementName]="''date:Partner_details.Birthday''"
-    [permissionSettings]="{
-        isAccessEdit: self.isNew ? self.authService.getEndpointAccessGranted(self.EndpointName.partner_POST) :
-            self.authService.getEndpointAccessGranted(self.EndpointName.partner_id_PUT)
-    }"
-
-    [(dataValue)]="self.partnerDetails.bDay"
-    [validator]="self.validator"
-    [validationField]="''bDay''"
-    [dataLabel]="''''"
-    [translateKeys]="''PARTNER.DETAILS.GENERAL.BIRTHDAY''"
-    [class]=''""'' 
-    [isDisabled]="false"
-></cr-control-datepicker></div><div class=''col-md-2''><cr-control-edit
-    [elementName]="''edit:Partner_details.Creation_store''"
-    [(dataValue)]="self.creationStoreName"
-    [translateKeys]="''PARTNER.DETAILS.GENERAL.CREATION_STORE''" 
-    [dataLabel]="''''"
-    [customClass]=''""''
-    [isDisabled]="true"
-></cr-control-edit></div><div class=''col-md-2''><cr-dropdown-smart-control
-    [elementName]="''smart-dropdown:Partner_details.Linked_store''"
-    [permissionSettings]="{
-        isAccessRead: self.authService.getEndpointAccessGranted(self.EndpointName.partner__location_objectId_dropdown_GET),
-        isAccessEdit: (self.isNew ? self.authService.getEndpointAccessGranted(self.EndpointName.partner_POST) :
-            self.authService.getEndpointAccessGranted(self.EndpointName.partner_id_PUT)) &&
-            self.authService.getEndpointAccessGranted(self.EndpointName.partner__location_dropdown_GET)
-    }"
-
-    [dataCacheName]="''PartnerStoreListDropdownCache''"
-    [(value)]="self.partnerDetails.linkedStoreId"
-    [textField]="''name''"
-    [valueField]="''id''"
-    [getOneItemFunction]="self.loadStoreForDropdownFn"
-    [getListItemsFunction]="self.loadStoreListForDropdownFn"
-    [useCodeInList]="true"
-    [useCodeInValue]="true"
-    [unselectedItemValue]="{id: null, translateKey: ''COMMON.MOCK_OBJ.NOT_SELECTED''}"
-    [dataTranslateKeyField]="''translateKey''"
-    [labelTranslateKey]="''PARTNER.DETAILS.GENERAL.LINKED_STORE''"
-    [label]="''''"
-    [class]=''""''
-></cr-dropdown-smart-control></div><div class=''col-md-4''><cr-dropdown-smart-control
-    [elementName]="''smart-dropdown:Partner_details.Parent_partner''"
-    [permissionSettings]="{
-        isAccessRead: self.authService.getEndpointAccessGranted(self.EndpointName.partner_id_dropdown_GET),
-        isAccessEdit: (self.isNew ? self.authService.getEndpointAccessGranted(self.EndpointName.partner_POST) :
-            self.authService.getEndpointAccessGranted(self.EndpointName.partner_id_PUT)) &&
-            self.authService.getEndpointAccessGranted(self.EndpointName.partner_dropdown_GET)
-    }"
-
-    [dataCacheName]="''PartnerParentListDropdownCache''"
-    [(value)]="self.partnerDetails.parentPartnerId"
-    [textField]="''name''"
-    [valueField]="''id''"
-    [getOneItemFunction]="self.loadPartnerParentForDropdownFn"
-    [getListItemsFunction]="self.loadPartnerParentListForDropdownFn"
-    [useCodeInList]="true"
-    [useCodeInValue]="true"
-    [codeField]="''code''"
-    [unselectedItemValue]="{id: null, translateKey: ''COMMON.MOCK_OBJ.NOT_SELECTED''}"
-    [dataTranslateKeyField]="''translateKey''"
-    [labelTranslateKey]="''PARTNER.DETAILS.GENERAL.PARENT_PARTNER''"
-    [label]="''''"
-    [class]=''""''
-></cr-dropdown-smart-control></div></div><div class="row "><div class=''col-md-2''><cr-control-edit
-    [elementName]="''edit:Partner_details.Phone_number_1''"
-    [permissionSettings]="{
-        isAccessEdit: self.isNew ? self.authService.getEndpointAccessGranted(self.EndpointName.partner_POST) :
-            self.authService.getEndpointAccessGranted(self.EndpointName.partner_id_PUT)
-    }"
-
-    [(dataValue)]="self.partnerDetails.phone1"
-    [translateKeys]="''PARTNER.DETAILS.GENERAL.PHONE_NUMBER_1''" 
-    [dataLabel]="''''"
-    [customClass]=''""''
-    [isDisabled]="false"
-></cr-control-edit></div><div class=''col-md-2''><cr-control-edit
-    [elementName]="''edit:Partner_details.Phone_number_2''"
-    [permissionSettings]="{
-        isAccessEdit: self.isNew ? self.authService.getEndpointAccessGranted(self.EndpointName.partner_POST) :
-            self.authService.getEndpointAccessGranted(self.EndpointName.partner_id_PUT)
-    }"
-
-    [(dataValue)]="self.partnerDetails.phone2"
-    [translateKeys]="''PARTNER.DETAILS.GENERAL.PHONE_NUMBER_2''" 
-    [dataLabel]="''''"
-    [customClass]=''""''
-    [isDisabled]="false"
-></cr-control-edit></div><div class=''col-md-2''><cr-control-edit
-    [elementName]="''edit:Partner_details.Cellular''"
-    [permissionSettings]="{
-        isAccessEdit: self.isNew ? self.authService.getEndpointAccessGranted(self.EndpointName.partner_POST) :
-            self.authService.getEndpointAccessGranted(self.EndpointName.partner_id_PUT)
-    }"
-
-    [(dataValue)]="self.partnerDetails.cellular"
-    [translateKeys]="''PARTNER.DETAILS.GENERAL.CELLULAR''" 
-    [dataLabel]="''''"
-    [customClass]=''""''
-    [isDisabled]="false"
-></cr-control-edit></div><div class=''col-md-2''><cr-control-edit
-    [elementName]="''edit:Partner_details.Fax''"
-    [permissionSettings]="{
-        isAccessEdit: self.isNew ? self.authService.getEndpointAccessGranted(self.EndpointName.partner_POST) :
-            self.authService.getEndpointAccessGranted(self.EndpointName.partner_id_PUT)
-    }"
-
-    [(dataValue)]="self.partnerDetails.fax"
-    [translateKeys]="''PARTNER.DETAILS.GENERAL.FAX''" 
-    [dataLabel]="''''"
-    [customClass]=''""''
-    [isDisabled]="false"
-></cr-control-edit></div><div class=''col-md-4''><cr-control-edit
-    [elementName]="''edit:Partner_details.Email''"
-    [permissionSettings]="{
-        isAccessEdit: self.isNew ? self.authService.getEndpointAccessGranted(self.EndpointName.partner_POST) :
-            self.authService.getEndpointAccessGranted(self.EndpointName.partner_id_PUT)
-    }"
-
-    [(dataValue)]="self.partnerDetails.eMail"
-    [validator]="self.validator"
-    [validationField]="''eMail''"
-    [translateKeys]="''PARTNER.DETAILS.GENERAL.EMAIL''" 
-    [dataLabel]="''''"
-    [customClass]=''""''
-    [isDisabled]="false"
-></cr-control-edit></div></div><div class="row "><div class=''col-md-6''><div class="row "><div class=''col-md-4''><cr-checkbox-control
-    [elementName]="''checkbox:Partner_details.Tourist''"
-    [permissionSettings]="{
-        isAccessEdit: self.isNew ? self.authService.getEndpointAccessGranted(self.EndpointName.partner_POST) :
-            self.authService.getEndpointAccessGranted(self.EndpointName.partner_id_PUT)
-    }"
-
-    [(dataValue)]="self.partnerDetails.isTourist"
-    (dataValueChange)="self.touristValueChanged($event)"
-    [dataLabel]="''''"
-    [translateKeys]="''PARTNER.DETAILS.GENERAL.TOURIST''"
-    [isDisabled]="false"
-    [class]=''""''
-></cr-checkbox-control></div><div class=''col-md-4''><cr-control-edit
-    [elementName]="''edit:Partner_details.Passport''"
-    [permissionSettings]="{
-        isAccessEdit: self.isNew ? self.authService.getEndpointAccessGranted(self.EndpointName.partner_POST) :
-            self.authService.getEndpointAccessGranted(self.EndpointName.partner_id_PUT)
-    }"
-
-    [(dataValue)]="self.partnerDetails.passport"
-    [validator]="self.validator"
-    [validationField]="''passport''"
-    [translateKeys]="''PARTNER.DETAILS.GENERAL.PASSPORT''" 
-    [dataLabel]="''''"
-    [customClass]=''""''
-    [isDisabled]="false"
-></cr-control-edit></div><div class=''col-md-4''><cr-control-edit
-    [elementName]="''edit:Partner_details.International_passport''"
-    [permissionSettings]="{
-        isAccessEdit: self.isNew ? self.authService.getEndpointAccessGranted(self.EndpointName.partner_POST) :
-            self.authService.getEndpointAccessGranted(self.EndpointName.partner_id_PUT)
-    }"
-
-    [(dataValue)]="self.partnerDetails.interPassport"
-    [translateKeys]="''PARTNER.DETAILS.GENERAL.INTERNATIONAL_PASSPORT''" 
-    [dataLabel]="''''"
-    [customClass]=''""''
-    [isDisabled]="false"
-></cr-control-edit></div></div><div class="row "><div class=''col-md-4''><cr-checkbox-control
-    [elementName]="''checkbox:Partner_details.Valid''"
-    [permissionSettings]="{
-        isAccessEdit: self.isNew ? self.authService.getEndpointAccessGranted(self.EndpointName.partner_POST) :
-            self.authService.getEndpointAccessGranted(self.EndpointName.partner_id_PUT)
-    }"
-
-    [(dataValue)]="self.partnerDetails.isValid"
-    (dataValueChange)="self.changeValidCheckbox($event)"
-    [dataLabel]="''''"
-    [translateKeys]="''PARTNER.DETAILS.GENERAL.VALID''"
-    [isDisabled]="false"
-    [class]=''""''
-></cr-checkbox-control></div><div class=''col-md-4''><cr-control-datepicker
-    [elementName]="''date:Partner_details.Valid_date_from''"
-    [permissionSettings]="{
-        isAccessEdit: self.isNew ? self.authService.getEndpointAccessGranted(self.EndpointName.partner_POST) :
-            self.authService.getEndpointAccessGranted(self.EndpointName.partner_id_PUT)
-    }"
-
-    [(dataValue)]="self.partnerDetails.validFrom"
-    [validator]="self.validator"
-    [validationField]="''validFrom''"
-    [dataLabel]="''''"
-    [translateKeys]="''PARTNER.DETAILS.GENERAL.DATE_FROM''"
-    [class]=''""'' 
-    [isDisabled]="!self.partnerDetails.isValid || false"
-></cr-control-datepicker></div><div class=''col-md-4''><cr-control-datepicker
-    [elementName]="''date:Partner_details.Valid_date_to''"
-    [permissionSettings]="{
-        isAccessEdit: self.isNew ? self.authService.getEndpointAccessGranted(self.EndpointName.partner_POST) :
-            self.authService.getEndpointAccessGranted(self.EndpointName.partner_id_PUT)
-    }"
-
-    [(dataValue)]="self.partnerDetails.validTo"
-    [isDisabled]="!self.partnerDetails.isValid || false"
-    [validator]="self.validator"
-    [validationField]="''validTo''"
-    [dataLabel]="''''"
-    [translateKeys]="''PARTNER.DETAILS.GENERAL.DATE_TO''"
-    [class]=''""'' 
-    [isDisabled]="!self.partnerDetails.isValid || false"
-></cr-control-datepicker></div></div><div class="row "><div class=''col-md-4''><cr-checkbox-control
-    [elementName]="''checkbox:Partner_details.Frozen''"
-    [permissionSettings]="{
-        isAccessEdit: self.isNew ? self.authService.getEndpointAccessGranted(self.EndpointName.partner_POST) :
-            self.authService.getEndpointAccessGranted(self.EndpointName.partner_id_PUT)
-    }"
-
-    [(dataValue)]="self.partnerDetails.isFrozen"
-    (dataValueChange)="changeFrozenCheckbox($event)"
-    [dataLabel]="''''"
-    [translateKeys]="''PARTNER.DETAILS.GENERAL.FROZEN''"
-    [isDisabled]="false"
-    [class]=''""''
-></cr-checkbox-control></div><div class=''col-md-4''><cr-control-datepicker
-    [elementName]="''date:Partner_details.Frozen_date_from''"
-    [permissionSettings]="{
-        isAccessEdit: self.isNew ? self.authService.getEndpointAccessGranted(self.EndpointName.partner_POST) :
-            self.authService.getEndpointAccessGranted(self.EndpointName.partner_id_PUT)
-    }"
-
-    [(dataValue)]="self.partnerDetails.frozenFrom"
-    [isDisabled]="!self.partnerDetails.isFrozen || false"
-    [validator]="self.validator"
-    [validationField]="''frozenFrom''"
-    [dataLabel]="''''"
-    [translateKeys]="''PARTNER.DETAILS.GENERAL.DATE_FROM''"
-    [class]=''""'' 
-></cr-control-datepicker></div><div class=''col-md-4''><cr-control-datepicker
-    [elementName]="''date:Partner_details.Frozen_date_to''"
-    [permissionSettings]="{
-        isAccessEdit: self.isNew ? self.authService.getEndpointAccessGranted(self.EndpointName.partner_POST) :
-            self.authService.getEndpointAccessGranted(self.EndpointName.partner_id_PUT)
-    }"
-
-    [(dataValue)]="self.partnerDetails.frozenTo"
-    [validator]="self.validator"
-    [validationField]="''frozenTo''"
-    [dataLabel]="''''"
-    [translateKeys]="''PARTNER.DETAILS.GENERAL.DATE_TO''"
-    [class]=''""'' 
-    [isDisabled]="!self.partnerDetails.isFrozen || false"
-></cr-control-datepicker></div></div><div class="row "><div class=''col-md-4''><cr-checkbox-control
-    [elementName]="''checkbox:Partner_details.Is_data_approved''"
-    [permissionSettings]="{
-        isAccessEdit: self.isNew ? self.authService.getEndpointAccessGranted(self.EndpointName.partner_POST) :
-            self.authService.getEndpointAccessGranted(self.EndpointName.partner_id_PUT)
-    }"
-
-    [(dataValue)]="self.partnerDetails.isDataApproved"
-    [dataLabel]="''''"
-    [translateKeys]="''PARTNER.DETAILS.GENERAL.IS_DATA_APPROVED''"
-    [isDisabled]="false"
-    [class]=''""''
-></cr-checkbox-control></div><div class=''col-md-8''><cr-control-edit
-    [translateKeys]="''PARTNER.DETAILS.GENERAL.UPDATE_EMPLOYEE''"
-    [dataLabel]="''''"
-    [isDisabled]="true"
-    [customClass]=''""''
-    [dataValue]="self.partnerDetails.updateEmployee?.name"
-    [elementName]="''label:Partner_details.Update_employee''"
-></cr-control-edit></div></div></div><div class=''col-md-6''>
-      <cr-panel
-        [panelTemplateType]="''panel''"
-        [expanded]="self.panelsViewState?.[''undefined''] ?? true"
-        (expandedChange)="self.panelStateChange(''undefined'', $event)"
-        [titleTranslateKey]="true ? ''PARTNER.DETAILS.GENERAL.MAILING_CATEGORIES'' : null"
-        [title]="true ? null : ''Mailing categories''"
-        [customClass]="''cr-mailing-wrapper''"
-        [headerClass]="''cr-panel-header-wrapper-light''"
-        [validator]="self.validator"
-        [validatorGroupName]="''undefined''"
+        [validatorGroupName]="''permissions''"
         [containFields]=''[]''
       >
         <ng-template crPanelContent>
-          <cr-partner-mailing-category-control
-    [editable]="true && (self.isNew ? 
-            self.authService.getEndpointAccessGranted(self.EndpointName.partner_POST) :
-            self.authService.getEndpointAccessGranted(self.EndpointName.partner_id_PUT))"
-
-    [partnerId]="self.partnerDetails.id"
-    [(selectedMailingCategory)]="self.partnerDetails.mailingCategories"
-    (editClickEvent)="self.onEditMailingCategory()"
-    [class]=''""''
-    [editIcon]="''icon-edit''"
-></cr-partner-mailing-category-control>
-        </ng-template>
-      </cr-panel></div></div>
-        </ng-template>
-      </cr-panel>
-      <cr-panel
-        [panelTemplateType]="''collapsible-panel''"
-        [expanded]="self.panelsViewState?.[''paymentTerms''] ?? false"
-        (expandedChange)="self.panelStateChange(''paymentTerms'', $event)"
-        [titleTranslateKey]="true ? ''PARTNER.DETAILS.PAYMENT_TERMS.TITLE'' : null"
-        [title]="true ? null : ''Payment terms''"
-        [customClass]="''''"
-        [headerClass]="''''"
-        [validator]="self.validator"
-        [validatorGroupName]="''paymentTerms''"
-        [containFields]=''[]''
-      >
-        <ng-template crPanelContent>
-          <div class="row "><div class=''col-md-2''><cr-dropdown-smart-control
-    [elementName]="''smart-dropdown:Partner_details.Price_list''"
-    [permissionSettings]="{
-        isAccessRead: self.authService.getEndpointAccessGranted(self.EndpointName.partner__item_price_id_dropdown_GET),
-        isAccessEdit: (self.isNew ? self.authService.getEndpointAccessGranted(self.EndpointName.partner_POST) :
-            self.authService.getEndpointAccessGranted(self.EndpointName.partner_id_PUT)) &&
-            self.authService.getEndpointAccessGranted(self.EndpointName.partner__item_price_dropdown_GET)
-    }"
-
-    [dataCacheName]="''PartnerPriceListDropdownCache''"
-    [(value)]="self.partnerDetails.priceListId"
-    [textField]="''displayName''"
-    [valueField]="''id''"
-    [getOneItemFunction]="self.loadPartnerPriceForDropdownFn"
-    [getListItemsFunction]="self.loadPartnerPriceListForDropdownFn"
-    [useCodeInList]="true"
-    [useCodeInValue]="true"
-    [unselectedItemValue]="{id: null, translateKey: ''COMMON.MOCK_OBJ.NOT_SELECTED''}"
-    [dataTranslateKeyField]="''translateKey''"
-    (valueChange)="self.onPriceListChanged()"
-    [labelTranslateKey]="''PARTNER.DETAILS.PAYMENT_TERMS.PRICE_LIST''"
-    [label]="''''"
-    [class]=''""''
-></cr-dropdown-smart-control>
-</div><div class=''col-md-2''><cr-dropdown-smart-control
-    [elementName]="''smart-dropdown:Partner_details.Price_number''"
-    [permissionSettings]="{
-        isAccessRead: self.authService.getEndpointAccessGranted(self.EndpointName.partner__item_price_priceListId_price_number_id_dropdown_GET),
-        isAccessEdit: (self.isNew ? self.authService.getEndpointAccessGranted(self.EndpointName.partner_POST) :
-            self.authService.getEndpointAccessGranted(self.EndpointName.partner_id_PUT)) &&
-            self.authService.getEndpointAccessGranted(self.EndpointName.partner__item_price_priceListId_price_number_dropdown_GET)
-    }"
-    
-    [dataCacheName]="''PartnerPriceNumberListDropdownCache''"
-    [isDisabled]="self.partnerDetails.priceListId === null"
-    [(value)]="self.partnerDetails.priceNumberId"
-    [textField]="''displayName''"
-    [valueField]="''id''"
-    [getOneItemFunction]="self.loadPartnerPriceNumberForDropdownFn"
-    [getListItemsFunction]="self.loadPartnerPriceNumberListForDropdownFn"
-    [listItemsFunctionAdditionalParameter]="self.partnerDetails.priceListId"
-    [requestDataWhenOpen]="true"
-    [useCodeInList]="true"
-    [useCodeInValue]="true"
-    [unselectedItemValue]="{id: null, translateKey: ''COMMON.MOCK_OBJ.NOT_SELECTED''}"
-    [dataTranslateKeyField]="''translateKey''"
-    [labelTranslateKey]="''PARTNER.DETAILS.PAYMENT_TERMS.PRICE_NUMBER''"
-    [label]="''''"
-    [class]=''""''
-></cr-dropdown-smart-control>
-</div></div><div class="row "><div class=''col-md-2''><cr-numeric-control
-    [elementName]="''numeric:Partner_details.Credit_limit''"
-    [permissionSettings]="{
-        isAccessEdit: self.isNew ? self.authService.getEndpointAccessGranted(self.EndpointName.partner_POST) :
-            self.authService.getEndpointAccessGranted(self.EndpointName.partner_id_PUT)
-    }"
-
-    [dataValue]="self.partnerDetails.creditLimit"
-    [isDisabled]="false"
-    [dataLabel]="''''" 
-    [translateKeys]="''PARTNER.DETAILS.PAYMENT_TERMS.CREDIT_LIMIT''" 
-    [customClass]=''""''
-    [format]="null" 
-    [decimals]="null" 
-    [min]="null" 
-    [max]="null"
-    [autoCorrectMinMax]="false"
-></cr-numeric-control></div><div class=''col-md-2''><cr-numeric-control
-    [elementName]="''numeric:Partner_details.Obligo_limit''"
-    [permissionSettings]="{
-        isAccessEdit: self.isNew ? self.authService.getEndpointAccessGranted(self.EndpointName.partner_POST) :
-            self.authService.getEndpointAccessGranted(self.EndpointName.partner_id_PUT)
-    }"
-
-    [dataValue]="self.partnerDetails.obligoLimit"
-    [isDisabled]="false"
-    [dataLabel]="''''" 
-    [translateKeys]="''PARTNER.DETAILS.PAYMENT_TERMS.OBLIGO_LIMIT''" 
-    [customClass]=''""''
-    [format]="null" 
-    [decimals]="null" 
-    [min]="null" 
-    [max]="null"
-    [autoCorrectMinMax]="false"
-></cr-numeric-control></div></div><div class="row "><div class=''col-md-2''><cr-numeric-control
-    [elementName]="''numeric:Partner_details.Budget_limit''"
-    [dataValue]="self.partnerDetails.budgetLimit"
-    [isDisabled]="true"
-    [dataLabel]="''''" 
-    [translateKeys]="''PARTNER.DETAILS.PAYMENT_TERMS.BUDGET_LIMIT''" 
-    [customClass]=''""''
-    [format]="null" 
-    [decimals]="null" 
-    [min]="null" 
-    [max]="null"
-    [autoCorrectMinMax]="false"
-></cr-numeric-control></div><div class=''col-md-2''><cr-dropdown-smart-control
-    [elementName]="''smart-dropdown:Partner_details.Budget_type''"
-    [permissionSettings]="{
-        isAccessEdit: self.isNew ? self.authService.endpoints[self.EndpointName.partner_POST]?.isAccessGranted :
-            self.authService.endpoints[self.EndpointName.partner_id_PUT]?.isAccessGranted
-        }"
-    [value]="self.partnerDetails.budgetTypeId ? self.partnerDetails.budgetTypeId : null"
-    [textField]="''name''"
-    [valueField]="''uid''"
-    [getListItemsFunction]="self.getBudgetTypeDropdownList$"
-    [getOneItemFunction]="self.getBudgetTypeItemDropdown$"
-    (valueChange)="self.onBudgetTypeChanged($event)"
-    [dataTranslateKeyField]="''translateKey''"
-    [unselectedItemValue]="{uid: null, translateKey: ''COMMON.MOCK_OBJ.NOT_SELECTED''}"
-    [labelTranslateKey]="''PARTNER.DETAILS.PAYMENT_TERMS.BUDGET_TYPE''"
-    [label]="''''"
-    [class]=''""''
-                          ></cr-dropdown-smart-control></div><div class=''col-md-2''>
-        <ng-template [ngIf]="self.partnerDetails?.budgetTypeId === 1">
-            <cr-dropdown-smart-control
-    [(value)]="self.partnerDetails.budgetStartMonth"
-    [elementName]="''smart-dropdown:Partner_details.Budget_start_month''"
-    [permissionSettings]="{
-        isAccessEdit: self.isNew ? self.authService.endpoints[self.EndpointName.partner_POST]?.isAccessGranted :
-           self.authService.endpoints[self.EndpointName.partner_id_PUT]?.isAccessGranted
-    }"
-    [textField]="''name''"
-    [valueField]="''uid''"
-    [dataCacheName]="''PartnerBudgetStartMonthDropdownCache''"
-
-    [getListItemsFunction]="self.getMonthDropdownList$"
-    [getOneItemFunction]="self.getMonthItemDropdown$"
-    [dataTranslateKeyField]="''translateKey''"
-    [unselectedItemValue]="{uid: null, translateKey: ''COMMON.MOCK_OBJ.NOT_SELECTED''}"
-    [isDisabled]="false"
-    [labelTranslateKey]="''PARTNER.DETAILS.PAYMENT_TERMS.BUDGET_START_MONTH''"
-    [label]="''''"
-    [class]=''""''
-></cr-dropdown-smart-control>
-
-        </ng-template></div></div>
-        </ng-template>
-      </cr-panel>
-      <cr-panel
-        [panelTemplateType]="''collapsible-panel''"
-        [expanded]="self.panelsViewState?.[''statistic''] ?? false"
-        (expandedChange)="self.panelStateChange(''statistic'', $event)"
-        [titleTranslateKey]="true ? ''PARTNER.PANEL.STATISTIC'' : null"
-        [title]="true ? null : ''Statistic''"
-        [customClass]="''''"
-        [headerClass]="''''"
-        [validator]="self.validator"
-        [validatorGroupName]="''statistic''"
-        [containFields]=''[]''
-      >
-        <ng-template crPanelContent>
-          <div class="row "><div class=''col-md-2''><cr-numeric-control
-    [elementName]="''numeric:Partner_details.Total_amount''"
-    [dataValue]="self.partnerDetails.totalAmount"
-    [isDisabled]="true"
-    [dataLabel]="''''" 
-    [translateKeys]="''PARTNER.DETAILS.STATISTIC.TOTAL_AMOUNT''" 
-    [customClass]=''""''
-    [format]="''n0''" 
-    [decimals]="null" 
-    [min]="null" 
-    [max]="null"
-    [autoCorrectMinMax]="false"
-></cr-numeric-control></div><div class=''col-md-2''><cr-numeric-control
-    [elementName]="''numeric:Partner_details.Sales_count''"
-    [dataValue]="self.partnerDetails.salesCount"
-    [isDisabled]="true"
-    [dataLabel]="''''" 
-    [translateKeys]="''PARTNER.DETAILS.STATISTIC.SALES_COUNT''" 
-    [customClass]=''""''
-    [format]="''n0''" 
-    [decimals]="null" 
-    [min]="null" 
-    [max]="null"
-    [autoCorrectMinMax]="false"
-></cr-numeric-control></div><div class=''col-md-2''><cr-numeric-control
-    [elementName]="''numeric:Partner_details.Returns_count''"
-    [dataValue]="self.partnerDetails.returnsCount"
-    [isDisabled]="true"
-    [dataLabel]="''''" 
-    [translateKeys]="''PARTNER.DETAILS.STATISTIC.RETURNS_COUNT''" 
-    [customClass]=''""''
-    [format]="''n0''" 
-    [decimals]="null" 
-    [min]="null" 
-    [max]="null"
-    [autoCorrectMinMax]="false"
-></cr-numeric-control></div><div class=''col-md-2''><cr-control-datepicker
-    [elementName]="''date:Partner_details.Registration_date''"
-    [permissionSettings]="{
-        isAccessEdit: self.isNew ? self.authService.getEndpointAccessGranted(self.EndpointName.partner_POST) :
-            self.authService.getEndpointAccessGranted(self.EndpointName.partner_id_PUT)
-    }"
-
-    [(dataValue)]="self.partnerDetails.registrationDate"
-    [dataLabel]="''''"
-    [translateKeys]="''PARTNER.DETAILS.STATISTIC.REGISTRATION_DATE''"
-    [class]=''""'' 
-    [isDisabled]="false"
-></cr-control-datepicker></div><div class=''col-md-2''><cr-control-datepicker
-    [elementName]="''date:Partner_details.Last_sale_date''"
-    [permissionSettings]="{
-        isAccessEdit: self.isNew ? self.authService.getEndpointAccessGranted(self.EndpointName.partner_POST) :
-            self.authService.getEndpointAccessGranted(self.EndpointName.partner_id_PUT)
-    }"
-
-    [(dataValue)]="self.partnerDetails.lastSaleDate"
-    [dataLabel]="''''"
-    [translateKeys]="''PARTNER.DETAILS.STATISTIC.LAST_SALE_DATE''"
-    [class]=''""'' 
-    [isDisabled]="false"
-></cr-control-datepicker></div><div class=''col-md-2''><cr-dropdown-smart-control
-    [elementName]="''smart-dropdown:Partner_details.Linked_store''"
-    [permissionSettings]="{
-        isAccessRead: self.authService.getEndpointAccessGranted(self.EndpointName.partner__location_objectId_dropdown_GET),
-        isAccessEdit: (self.isNew ? self.authService.getEndpointAccessGranted(self.EndpointName.partner_POST) :
-            self.authService.getEndpointAccessGranted(self.EndpointName.partner_id_PUT)) &&
-            self.authService.getEndpointAccessGranted(self.EndpointName.partner__location_dropdown_GET)
-    }"
-
-    [dataCacheName]="''PartnerStoreListDropdownCache''"
-    [(value)]="self.partnerDetails.linkedStoreId"
-    [textField]="''name''"
-    [valueField]="''id''"
-    [getOneItemFunction]="self.loadStoreForDropdownFn"
-    [getListItemsFunction]="self.loadStoreListForDropdownFn"
-    [useCodeInList]="true"
-    [useCodeInValue]="true"
-    [unselectedItemValue]="{id: null, translateKey: ''COMMON.MOCK_OBJ.NOT_SELECTED''}"
-    [dataTranslateKeyField]="''translateKey''"
-    [labelTranslateKey]="''PARTNER.DETAILS.GENERAL.LINKED_STORE''"
-    [label]="''''"
-    [class]=''""''
-></cr-dropdown-smart-control></div></div>
-        </ng-template>
-      </cr-panel>
-      <cr-panel
-        [panelTemplateType]="''collapsible-panel''"
-        [expanded]="self.panelsViewState?.[''groups''] ?? false"
-        (expandedChange)="self.panelStateChange(''groups'', $event)"
-        [titleTranslateKey]="true ? ''PARTNER.PANEL.GROUPS'' : null"
-        [title]="true ? null : ''Groups''"
-        [customClass]="''''"
-        [headerClass]="''''"
-        [validator]="self.validator"
-        [validatorGroupName]="''groups''"
-        [containFields]=''["partnerGroups"]''
-      >
-        <ng-template crPanelContent>
-          <cr-partner-group-control
-    [editable]="true && (self.isNew ? 
-            self.authService.getEndpointAccessGranted(self.EndpointName.partner_POST) :
-            self.authService.getEndpointAccessGranted(self.EndpointName.partner_id_PUT))"
-
-    [partnerId]="self.partnerDetails.id"
-    [(selectedGroups)]="self.partnerDetails.partnerGroups"
-    [class]=''""''
-    [editIcon]="''icon-edit''"
-    (editClickEvent)="self.onEditPartnerGroup()"
-></cr-partner-group-control>
-        </ng-template>
-      </cr-panel>
-      <cr-panel
-        [panelTemplateType]="''collapsible-panel''"
-        [expanded]="self.panelsViewState?.[''addresses''] ?? false"
-        (expandedChange)="self.panelStateChange(''addresses'', $event)"
-        [titleTranslateKey]="true ? ''PARTNER.PANEL.ADDRESSES'' : null"
-        [title]="true ? null : ''Addresses''"
-        [customClass]="''''"
-        [headerClass]="''''"
-        [validator]="self.validator"
-        [validatorGroupName]="''addresses''"
-        [containFields]=''[]''
-      >
-        <ng-template crPanelContent>
-          <cr-partner-address-list
-    (openAddressPopup)="self.onCreatePartnerAddresses()"
-    (editAddressPopup)="self.onEditPartnerAddresses($event)"
-    [editable]="true"
-    [class]=''""''
+          <cr-role-permission-tree
+    *ngIf="(self.EndpointName.role__function_tree_list_GET | endpointAccessGrantedPipe)"
     [isNew]="self.isNew"
-    [partner]="self.partnerDetails"
-></cr-partner-address-list>
-        </ng-template>
-      </cr-panel>
-      <cr-panel
-        [panelTemplateType]="''collapsible-panel''"
-        [expanded]="self.panelsViewState?.[''contactPersons''] ?? false"
-        (expandedChange)="self.panelStateChange(''contactPersons'', $event)"
-        [titleTranslateKey]="true ? ''PARTNER.PANEL.CONTACT_PERSONS'' : null"
-        [title]="true ? null : ''Contact persons''"
-        [customClass]="''''"
-        [headerClass]="''''"
-        [validator]="self.validator"
-        [validatorGroupName]="''contactPersons''"
-        [containFields]=''[]''
-      >
-        <ng-template crPanelContent>
-          <cr-partner-contact-persons-list
-    (openAddressPopup)="self.onCreatePartnerContactPersons()"
-    (editAddressPopup)="self.onEditPartnerContactPersons($event)"
-    [isNew]="self.isNew"
-    [partner]="self.partnerDetails"
+    [(selected)]="self.currentItem.functions"
+    [editable]="!self.currentItem.isDeleted && (self.isNew
+        ? (self.EndpointName.role_POST | endpointAccessGrantedPipe)
+        : (self.EndpointName.role_id_PUT | endpointAccessGrantedPipe))"
     [class]=''""''
-></cr-partner-contact-persons-list>
-        </ng-template>
-      </cr-panel>
-      <cr-panel
-        [panelTemplateType]="''collapsible-panel''"
-        [expanded]="self.panelsViewState?.[''cards''] ?? false"
-        (expandedChange)="self.panelStateChange(''cards'', $event)"
-        [titleTranslateKey]="true ? ''PARTNER.PANEL.CARDS'' : null"
-        [title]="true ? null : ''Additional card numbers''"
-        [customClass]="''''"
-        [headerClass]="''''"
-        [validator]="self.validator"
-        [validatorGroupName]="''cards''"
-        [containFields]=''[]''
-      >
-        <ng-template crPanelContent>
-          <cr-partner-cards-list
-    [editable]="true"
-    [class]=''""''
-    [partnerId]="self.partnerDetails.id"
-    [isDeletedPartner]="self.partnerDetails.isDeleted"
-></cr-partner-cards-list>
-        </ng-template>
-      </cr-panel>
-      <cr-panel
-        [panelTemplateType]="''collapsible-panel''"
-        [expanded]="self.panelsViewState?.[''points''] ?? false"
-        (expandedChange)="self.panelStateChange(''points'', $event)"
-        [titleTranslateKey]="true ? ''PARTNER.PANEL.POINT'' : null"
-        [title]="true ? null : ''Loyalty points''"
-        [customClass]="''''"
-        [headerClass]="''''"
-        [validator]="self.validator"
-        [validatorGroupName]="''points''"
-        [containFields]=''[]''
-      >
-        <ng-template crPanelContent>
-          <cr-partner-point 
-    [class]=''""''
-    [partnerID]="self.partnerDetails.id"
-></cr-partner-point>
-        </ng-template>
-      </cr-panel>
-      <cr-panel
-        [panelTemplateType]="''collapsible-panel''"
-        [expanded]="self.panelsViewState?.[''pointHistory''] ?? false"
-        (expandedChange)="self.panelStateChange(''pointHistory'', $event)"
-        [titleTranslateKey]="true ? ''PARTNER.PANEL.POINT_HISTORY'' : null"
-        [title]="true ? null : ''Point history''"
-        [customClass]="''''"
-        [headerClass]="''''"
-        [validator]="self.validator"
-        [validatorGroupName]="''pointHistory''"
-        [containFields]=''[]''
-      >
-        <ng-template crPanelContent>
-          <cr-partner-point-history
-    [class]=''""''
-    [partnerId]="self.partnerDetails.id"
-></cr-partner-point-history>
-        </ng-template>
-      </cr-panel>
-      <cr-panel
-        [panelTemplateType]="''collapsible-panel''"
-        [expanded]="self.panelsViewState?.[''transactionHistory''] ?? false"
-        (expandedChange)="self.panelStateChange(''transactionHistory'', $event)"
-        [titleTranslateKey]="true ? ''PARTNER.PANEL.HISTORY'' : null"
-        [title]="true ? null : ''History''"
-        [customClass]="''''"
-        [headerClass]="''''"
-        [validator]="self.validator"
-        [validatorGroupName]="''transactionHistory''"
-        [containFields]=''[]''
-      >
-        <ng-template crPanelContent>
-          <cr-partner-transaction-history
-    [class]=''""''
-    [partnerId]="self.partnerDetails.id"
-></cr-partner-transaction-history>
-        </ng-template>
-      </cr-panel>
-      <cr-panel
-        [panelTemplateType]="''collapsible-panel''"
-        [expanded]="self.panelsViewState?.[''discountBudget''] ?? false"
-        (expandedChange)="self.panelStateChange(''discountBudget'', $event)"
-        [titleTranslateKey]="true ? ''PARTNER.PANEL.DISCOUNT_BUDGET'' : null"
-        [title]="true ? null : ''Discount budget''"
-        [customClass]="''''"
-        [headerClass]="''''"
-        [validator]="self.validator"
-        [validatorGroupName]="''discountBudget''"
-        [containFields]=''[]''
-      >
-        <ng-template crPanelContent>
-          <cr-partner-discount-budget 
-    [class]=''""''
-    [partnerId]="self.partnerDetails.id"
-></cr-partner-discount-budget>
-        </ng-template>
-      </cr-panel>
-      <cr-panel
-        [panelTemplateType]="''collapsible-panel''"
-        [expanded]="self.panelsViewState?.[''udf''] ?? false"
-        (expandedChange)="self.panelStateChange(''udf'', $event)"
-        [titleTranslateKey]="true ? ''PARTNER.PANEL.UDF'' : null"
-        [title]="true ? null : ''UDF''"
-        [customClass]="''''"
-        [headerClass]="''''"
-        [validator]="self.validator"
-        [validatorGroupName]="''udf''"
-        [containFields]=''[]''
-      >
-        <ng-template crPanelContent>
-          <cr-udf-list
-    [cacheName]="''PartnerUserFieldViewStateCache''"
-    *ngIf="self.authService.endpoints[self.EndpointName.partner__user_defined_field_GET]?.isAccessGranted &&
-        self.authService.endpoints[self.EndpointName.partner__user_defined_field_default_value_GET]?.isAccessGranted; else noAccess"
-    [isNew]="self.isNew"
-    [udf]="self.partnerDetails.udf"
-    [viewName]="''Partner_details''"
-    [loadUserDefinedFieldListForDropdownFn$]="self.loadUserDefinedFieldListForDropdownFn$"
-    [getUserFields$]="self.getUserFields$"
-    [loadUserFields$]="self.loadUserFields$"
-    [getUserFieldsDefault$]="self.getUserFieldsDefault$"
-    [class]=''""''
-></cr-udf-list>
-<ng-template #noAccess>
-    <div class="cr-no-read-access p-2">
-        {{''COMMON.GRID.NO_READ_ACCESS'' | translate}}
-    </div>
-</ng-template>
-        </ng-template>
-      </cr-panel>
-      <cr-panel
-        [panelTemplateType]="''collapsible-panel''"
-        [expanded]="self.panelsViewState?.[''remark''] ?? false"
-        (expandedChange)="self.panelStateChange(''remark'', $event)"
-        [titleTranslateKey]="true ? ''PARTNER.PANEL.REMARK'' : null"
-        [title]="true ? null : ''Remark''"
-        [customClass]="''''"
-        [headerClass]="''''"
-        [validator]="self.validator"
-        [validatorGroupName]="''remark''"
-        [containFields]=''[]''
-      >
-        <ng-template crPanelContent>
-          <div class="row "><div class=''col-md-12''><cr-text-area-control
-    [elementName]="''textarea:Partner_details.Remark''"
-    [(dataValue)]="self.partnerDetails.remark"
-    [dataLabel]="''''"
-    [translateKeys]="''''"
-    [class]=''""'' 
-    [isDisabled]="false"
-    [rows]="2"
-    [maxlength]="50000"
-    [permissionSettings]="{
-        isAccessEdit: self.isNew ? self.authService.getEndpointAccessGranted(self.EndpointName.partner_POST) :
-            self.authService.getEndpointAccessGranted(self.EndpointName.partner_id_PUT)
-    }"
-></cr-text-area-control></div><div class=''col-md-6''></div></div>
+></cr-role-permission-tree>
         </ng-template>
       </cr-panel>
         </ng-template>
       </ng-template>
     </ng-template>
     
-        <ng-template [ngSwitchCase]="''manage-mailing-category-partner''">
-          <ng-template
-            [ngIf]="self.popupTab.tabs[self.popupTab.activeTabIndex].type == ''manage-mailing-category-partner'' && self.popupTab.activeTabIndex == i">
-            <div *ngIf=''self.popupTab.activeTabIndex != self.popupTab.tabs.length - 1'' class=''cr-popup-blocker''></div>
-            <cr-partner-mailing-category-manage-dynamic
-    [subTemplateId]="''0900AEBD-4251-ED11-8E5D-4CCC6A2BB6D6''"
-    [(selectedMailingCategory)]="self.partnerDetails.mailingCategories"
-    (cancelClickEvent)="self.onCloseMailingCategory()"
-    (confirmClickEvent)="self.onCloseMailingCategory()"
-></cr-partner-mailing-category-manage-dynamic>
-
-          </ng-template>
-        </ng-template>
-      
-        <ng-template [ngSwitchCase]="''manage-partner-groups''">
-          <ng-template
-            [ngIf]="self.popupTab.tabs[self.popupTab.activeTabIndex].type == ''manage-partner-groups'' && self.popupTab.activeTabIndex == i">
-            <div *ngIf=''self.popupTab.activeTabIndex != self.popupTab.tabs.length - 1'' class=''cr-popup-blocker''></div>
-            <cr-partner-group-manage-dynamic
-    [subTemplateId]="''0A00AEBD-4251-ED11-8E5D-4CCC6A2BB6D6''"
-    [partnerId]="self.partnerDetails.id"
-    [partnerTypeId]="self.partnerDetails.partnerTypeId"
-    [(selectedGroups)]="self.partnerDetails.partnerGroups"
-    (cancelClickEvent)="self.onClosePartnerGroup()"
-    (confirmClickEvent)="self.onClosePartnerGroup()"
-></cr-partner-group-manage-dynamic>
-          </ng-template>
-        </ng-template>
-      
-        <ng-template [ngSwitchCase]="''manage-partner-addresses-create''">
-          <ng-template
-            [ngIf]="self.popupTab.tabs[self.popupTab.activeTabIndex].type == ''manage-partner-addresses-create'' && self.popupTab.activeTabIndex == i">
-            <div *ngIf=''self.popupTab.activeTabIndex != self.popupTab.tabs.length - 1'' class=''cr-popup-blocker''></div>
-            <cr-addresses-details-dynamic
-    [subTemplateId]="''0B00AEBD-4251-ED11-8E5D-4CCC6A2BB6D6''"
-    (closeClickEvent)="self.onClosePartnerAddresses()"
-    [isNew]="true"
-    [itemAddress]="self.partnerDetailsAddress"
-    (newAddress)="self.onConfirmPartnerAddresses($event, true)"
-></cr-addresses-details-dynamic>
-
-          </ng-template>
-        </ng-template>
-      
-        <ng-template [ngSwitchCase]="''manage-mailing-category-contact-person''">
-          <ng-template
-            [ngIf]="self.popupTab.tabs[self.popupTab.activeTabIndex].type == ''manage-mailing-category-contact-person'' && self.popupTab.activeTabIndex == i">
-            <div *ngIf=''self.popupTab.activeTabIndex != self.popupTab.tabs.length - 1'' class=''cr-popup-blocker''></div>
-            <cr-partner-mailing-category-manage-dynamic
-    [subTemplateId]="''0900AEBD-4251-ED11-8E5D-4CCC6A2BB6D6''"
-    (selectedMailingCategoryChange)="self.partnerDetailsContactPerson.mailingCategories = $event"
-    [(selectedMailingCategory)]="self.partnerDetailsContactPerson.mailingCategories"
-    (cancelClickEvent)="self.onCloseMailingCategory()"
-    (confirmClickEvent)="self.onCloseMailingCategory()"
-></cr-partner-mailing-category-manage-dynamic>
-
-          </ng-template>
-        </ng-template>
-      
-        <ng-template [ngSwitchCase]="''manage-partner-addresses-update''">
-          <ng-template
-            [ngIf]="self.popupTab.tabs[self.popupTab.activeTabIndex].type == ''manage-partner-addresses-update'' && self.popupTab.activeTabIndex == i">
-            <div *ngIf=''self.popupTab.activeTabIndex != self.popupTab.tabs.length - 1'' class=''cr-popup-blocker''></div>
-            <cr-addresses-details-dynamic
-    [subTemplateId]="''7BCDF1FD-535C-ED11-8E5E-4CCC6A2BB6D6''"
-    [isNew]="false"
-    (closeClickEvent)="self.onClosePartnerAddresses()"
-    (confirmAddress)="self.onConfirmPartnerAddresses($event)"
-    [itemAddress]="self.partnerDetailsAddress"
-></cr-addresses-details-dynamic>
-          </ng-template>
-        </ng-template>
-      
-        <ng-template [ngSwitchCase]="''manage-partner-contact-persons-update''">
-          <ng-template
-            [ngIf]="self.popupTab.tabs[self.popupTab.activeTabIndex].type == ''manage-partner-contact-persons-update'' && self.popupTab.activeTabIndex == i">
-            <div *ngIf=''self.popupTab.activeTabIndex != self.popupTab.tabs.length - 1'' class=''cr-popup-blocker''></div>
-            <cr-partner-contact-persons-details
-    [subTemplateId]="''BBD312CC-5B5C-ED11-8E5E-4CCC6A2BB6D6''"
-    (openMailingCategory)="self.onEditContactPersonMailingCategory()"
-    (closeClickEvent)="self.onClosePartnerContactPersons()"
-    (confirmContactPerson)="self.onConfirmPartnerContactPersons($event)"
-    [itemContactPerson]="self.partnerDetailsContactPerson"
-></cr-partner-contact-persons-details>
-          </ng-template>
-        </ng-template>
-      
-        <ng-template [ngSwitchCase]="''manage-partner-contact-persons-create''">
-          <ng-template
-            [ngIf]="self.popupTab.tabs[self.popupTab.activeTabIndex].type == ''manage-partner-contact-persons-create'' && self.popupTab.activeTabIndex == i">
-            <div *ngIf=''self.popupTab.activeTabIndex != self.popupTab.tabs.length - 1'' class=''cr-popup-blocker''></div>
-            <cr-partner-contact-persons-details
-    [subTemplateId]="''0E00AEBD-4251-ED11-8E5D-4CCC6A2BB6D6''"
-    (openMailingCategory)="self.onEditContactPersonMailingCategory()"
-    (closeClickEvent)="self.onClosePartnerContactPersons()"
-    [isNew]="true"
-    [itemContactPerson]="self.partnerDetailsContactPerson"
-    (newContactPerson)="self.onConfirmPartnerContactPersons($event, true)"
-></cr-partner-contact-persons-details>
-
-          </ng-template>
-        </ng-template>
-      
               </ng-container>
             </ng-container>
           </div>
-        </div>', '2022-12-27 14:01:28.6833333 +00:00', 223, N'N', 'a5e51d5c-2c04-47ab-9eb2-e20d02a0c2ee', 1, NULL)
+        </div>', '2022-12-28 15:03:43.2166667 +00:00', 12, N'N', 'c6d908e7-ce82-4842-940a-0ec28f10538a', 1, NULL)
 INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID], [BookmarkName], [BookmarkDescription], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('f2819b05-4351-ed11-8e5d-4ccc6a2bb6d6', 'd6ae82e8-4251-ed11-8e5d-4ccc6a2bb6d6', 1, NULL, NULL, N'
         <div class=''cr-popup-content-wrapper'' [class.cr-popup-is-shown]=''self.popupTab.tabs.length > 1''>
           <cr-popup-tabs
@@ -24817,7 +24175,7 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
             </ng-container>
           </div>
         </div>', '2022-12-27 14:01:35.1466667 +00:00', 87, N'N', '3eb5266c-6b6b-4e6e-9fb7-afc34989f0e2', 1, NULL)
-INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID], [BookmarkName], [BookmarkDescription], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('d9f8337a-a982-ed11-8360-02f176033ddb', 'd8f8337a-a982-ed11-8360-02f176033ddb', 1, N'', N'', N'
+INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID], [BookmarkName], [BookmarkDescription], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('079ae794-927f-ed11-835f-02f176033ddb', '069ae794-927f-ed11-835f-02f176033ddb', 1, N'', N'', N'
         <div class=''cr-popup-content-wrapper'' [class.cr-popup-is-shown]=''self.popupTab.tabs.length > 1''>
           <cr-popup-tabs
             [popupTabs]=''self.popupTab.tabs''
@@ -24833,7 +24191,7 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
       <ng-template [ngIf]="self.popupTab.tabs[self.popupTab.activeTabIndex].type == ''general'' && self.popupTab.activeTabIndex == i">
         <div *ngIf=''self.popupTab.activeTabIndex != self.popupTab.tabs.length - 1'' class=''cr-popup-blocker''></div>
         <cr-title-header
-    [titleTranslateKey]="''SERIES.FILTER.TITLE''"
+    [titleTranslateKey]="''TAX_GROUP.LIST.TITLE''"
     [title]="''''"
     (buttonClickEvent)="self.onTitleButtonClick($event)"
     [buttonSettings]="self.titleHeaderButtonSettings"
@@ -24842,8 +24200,8 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
         [panelTemplateType]="''collapsible-panel''"
         [expanded]="self.panelsViewState?.[''filter''] ?? true"
         (expandedChange)="self.panelStateChange(''filter'', $event)"
-        [titleTranslateKey]="true ? ''SERIES.FILTER.TITLE'' : null"
-        [title]="true ? null : ''סדרת קופונים''"
+        [titleTranslateKey]="true ? ''TAX_GROUP.LIST.FILTER.TITLE'' : null"
+        [title]="true ? null : ''Selection criteria he''"
         [customClass]="''''"
         [headerClass]="''''"
         [validator]="self.validator"
@@ -24851,24 +24209,21 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
         [containFields]=''[]''
       >
         <ng-template crPanelContent>
-          <div class="row undefined"><div class=''col-lg-4''><cr-control-edit 
-    [translateKeys]="''SERIES.FILTER.CODE''" 
+          <div class="row undefined"><div class=''col-md-2''><cr-control-edit 
+    [translateKeys]="''TAX_GROUP.LIST.FILTER.CODE''" 
     [dataLabel]="''''"
     [customClass]=''""''
     [isDisabled]="false"
-    [elementName]="''edit:Coupon_series.Code''"
-    [(dataValue)]="self.seriesListFilterRequest.code"
-    [permissionSettings]="{isAccessEdit: (self.EndpointName.coupon_series_GET | endpointAccessGrantedPipe)}"
-></cr-control-edit></div><div class=''col-lg-4''><cr-control-edit 
-    [translateKeys]="''SERIES.FILTER.NAME''" 
+    [elementName]="''edit:Tax_group_list.Code''"
+    [(dataValue)]="self.taxGroupFilterRequest.code"
+></cr-control-edit></div><div class=''col-md-2''><cr-control-edit 
+    [translateKeys]="''TAX_GROUP.LIST.FILTER.NAME''" 
     [dataLabel]="''''"
     [customClass]=''""''
     [isDisabled]="false"
-    [elementName]="''edit:Coupon_series.Name''"
-    [(dataValue)]="self.seriesListFilterRequest.name"
-    [permissionSettings]="{isAccessEdit: (self.EndpointName.coupon_series_GET | endpointAccessGrantedPipe)}"
-></cr-control-edit>
-</div><div class=''col-lg-4''><cr-button-control 
+    [elementName]="''edit:Tax_group_list.Name''"
+    [(dataValue)]="self.taxGroupFilterRequest.name"
+></cr-control-edit></div><div class=''col-md-8''><cr-button-control 
     [buttonTemplateType]="''underlined-action-button''"
     [text]="''''"
     [textTranslateKey]="''COMMON.SEARCH''"
@@ -24877,7 +24232,7 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
     [height]="''''"
     [icon]="''undefined''"
     (buttonClickEvent)="self.changeFilter()"
-    *ngIf="(self.EndpointName.coupon_series_GET | endpointAccessGrantedPipe)"
+    *ngIf="(self.EndpointName.tax_group_GET | endpointAccessGrantedPipe)"
 ></cr-button-control></div></div>
         </ng-template>
       </cr-panel>
@@ -24885,8 +24240,8 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
         [panelTemplateType]="''panel''"
         [expanded]="self.panelsViewState?.[''undefined''] ?? true"
         (expandedChange)="self.panelStateChange(''undefined'', $event)"
-        [titleTranslateKey]="true ? ''SERIES.LIST.GRID_TITLE'' : null"
-        [title]="true ? null : ''סדרה ''"
+        [titleTranslateKey]="true ? ''TAX_GROUP.LIST.GRID.TITLE'' : null"
+        [title]="true ? null : ''VAT Groups he''"
         [customClass]="''''"
         [headerClass]="''''"
         [validator]="self.validator"
@@ -24895,18 +24250,205 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
       >
         <ng-template crPanelContent>
           <div class="cr-grid-wrapper-new">
-      <cr-edit-grid-server-paging
-        [elementName]="''edit-grid-server-paging:Coupon_series.Grid''"
+    <cr-edit-grid-server-paging
+        (cellClickEvent)="self.cellClick($event)"
+        (pageChangeEvent)="self.changePage($event)"
+        [columnSettings]=''self.columnSettings''
+        [dataCacheName]="''TaxGroupGrid''"
         [dataSource]="self.gridData"
-        [columnSettings]=''self.columnSettings | dynamicColumnSettings:[{"field":"code","titleTranslateKey":"SERIES.LIST.CODE","hidden":false,"sortOrder":1},{"field":"displayName","titleTranslateKey":"SERIES.LIST.NAME","hidden":false,"sortOrder":2},{"field":"genFrom","titleTranslateKey":"SERIES.LIST.FROM","hidden":false,"sortOrder":3},{"field":"genTo","titleTranslateKey":"SERIES.LIST.TO","hidden":false,"sortOrder":4},{"field":"manualDiscountPrice","titleTranslateKey":"SERIES.LIST.MANUAL_DISCOUNT_PRICE","hidden":false,"sortOrder":5},{"field":"couponsGenerated","titleTranslateKey":"SERIES.LIST.GENERATED","hidden":false,"sortOrder":6}]''
+        [elementName]="''edit-grid-server-paging:TaxGroup_list.Grid''"
         [pageable]="true"
         [resizable]="true"
         [uniqueField]="''id''"
-        (pageChangeEvent)="self.changePage($event)"
-        (cellClickEvent)="self.cellClick($event)"
-        [dataCacheName]="''coupon-series-grid-cache''"
-        [class]=''undefined''
+        [class]="undefined"
       ></cr-edit-grid-server-paging>
+</div>
+        </ng-template>
+      </cr-panel>
+      </ng-template>
+    </ng-template>
+    
+              </ng-container>
+            </ng-container>
+          </div>
+        </div>', '2023-01-03 13:31:13.9266667 +00:00', 9, N'N', 'a3350312-db91-455c-9eda-3df6e10e7380', 1, NULL)
+INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID], [BookmarkName], [BookmarkDescription], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('089ae794-927f-ed11-835f-02f176033ddb', '069ae794-927f-ed11-835f-02f176033ddb', 2, N'', N'', N'
+        <div class=''cr-popup-content-wrapper'' [class.cr-popup-is-shown]=''self.popupTab.tabs.length > 1''>
+          <cr-popup-tabs
+            [popupTabs]=''self.popupTab.tabs''
+            [activePopup]=''self.popupTab.activeTabIndex''
+            (closePopup)=''self.removePopupTab($event)''
+            (changeActive)=''self.changeActiveTab($event)''
+          ></cr-popup-tabs>
+          <div class=''cr-details-inner-container''>
+            <ng-container *ngFor=''let tab of self.popupTab.tabs; index as i;''>
+              <ng-container [ngSwitch]=''tab.type''>
+                
+    <ng-template [ngSwitchCase]="''general''">
+      <ng-template [ngIf]="self.popupTab.tabs[self.popupTab.activeTabIndex].type == ''general'' && self.popupTab.activeTabIndex == i">
+        <div *ngIf=''self.popupTab.activeTabIndex != self.popupTab.tabs.length - 1'' class=''cr-popup-blocker''></div>
+        <cr-title-header
+    [titleTranslateKey]="''TAX_GROUP.LIST.TITLE''"
+    [title]="''''"
+    (buttonClickEvent)="self.onTitleButtonClick($event)"
+    [buttonSettings]="self.titleHeaderButtonSettings"
+></cr-title-header>
+      <cr-panel
+        [panelTemplateType]="''collapsible-panel''"
+        [expanded]="self.panelsViewState?.[''filter''] ?? true"
+        (expandedChange)="self.panelStateChange(''filter'', $event)"
+        [titleTranslateKey]="true ? ''TAX_GROUP.LIST.FILTER.TITLE'' : null"
+        [title]="true ? null : ''Selection criteria''"
+        [customClass]="''''"
+        [headerClass]="''''"
+        [validator]="self.validator"
+        [validatorGroupName]="''filter''"
+        [containFields]=''[]''
+      >
+        <ng-template crPanelContent>
+          <div class="row undefined"><div class=''col-md-2''><cr-control-edit 
+    [translateKeys]="''TAX_GROUP.LIST.FILTER.CODE''" 
+    [dataLabel]="''''"
+    [customClass]=''""''
+    [isDisabled]="false"
+    [elementName]="''edit:Tax_group_list.Code''"
+    [(dataValue)]="self.taxGroupFilterRequest.code"
+></cr-control-edit></div><div class=''col-md-2''><cr-control-edit 
+    [translateKeys]="''TAX_GROUP.LIST.FILTER.NAME''" 
+    [dataLabel]="''''"
+    [customClass]=''""''
+    [isDisabled]="false"
+    [elementName]="''edit:Tax_group_list.Name''"
+    [(dataValue)]="self.taxGroupFilterRequest.name"
+></cr-control-edit></div><div class=''col-md-8''><cr-button-control 
+    [buttonTemplateType]="''underlined-action-button''"
+    [text]="''''"
+    [textTranslateKey]="''COMMON.SEARCH''"
+    [classArray]=''["d-block","ml-auto"]''
+    [width]="''''"
+    [height]="''''"
+    [icon]="''undefined''"
+    (buttonClickEvent)="self.changeFilter()"
+    *ngIf="(self.EndpointName.tax_group_GET | endpointAccessGrantedPipe)"
+></cr-button-control></div></div>
+        </ng-template>
+      </cr-panel>
+      <cr-panel
+        [panelTemplateType]="''panel''"
+        [expanded]="self.panelsViewState?.[''undefined''] ?? true"
+        (expandedChange)="self.panelStateChange(''undefined'', $event)"
+        [titleTranslateKey]="true ? ''TAX_GROUP.LIST.GRID.TITLE'' : null"
+        [title]="true ? null : ''VAT Groups''"
+        [customClass]="''''"
+        [headerClass]="''''"
+        [validator]="self.validator"
+        [validatorGroupName]="''undefined''"
+        [containFields]=''[]''
+      >
+        <ng-template crPanelContent>
+          <div class="cr-grid-wrapper-new">
+    <cr-edit-grid-server-paging
+        (cellClickEvent)="self.cellClick($event)"
+        (pageChangeEvent)="self.changePage($event)"
+        [columnSettings]=''self.columnSettings''
+        [dataCacheName]="''TaxGroupGrid''"
+        [dataSource]="self.gridData"
+        [elementName]="''edit-grid-server-paging:TaxGroup_list.Grid''"
+        [pageable]="true"
+        [resizable]="true"
+        [uniqueField]="''id''"
+        [class]="undefined"
+      ></cr-edit-grid-server-paging>
+</div>
+        </ng-template>
+      </cr-panel>
+      </ng-template>
+    </ng-template>
+    
+              </ng-container>
+            </ng-container>
+          </div>
+        </div>', '2023-01-03 13:31:13.9266667 +00:00', 9, N'N', '1636bdfb-05b1-4acb-84d7-2bc4e085c450', 1, NULL)
+INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID], [BookmarkName], [BookmarkDescription], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('c3beb4c4-9a86-ed11-8360-02f176033ddb', 'c2beb4c4-9a86-ed11-8360-02f176033ddb', 1, NULL, NULL, N'
+        <div class=''cr-popup-content-wrapper'' [class.cr-popup-is-shown]=''self.popupTab.tabs.length > 1''>
+          <cr-popup-tabs
+            [popupTabs]=''self.popupTab.tabs''
+            [activePopup]=''self.popupTab.activeTabIndex''
+            (closePopup)=''self.removePopupTab($event)''
+            (changeActive)=''self.changeActiveTab($event)''
+          ></cr-popup-tabs>
+          <div class=''cr-details-inner-container''>
+            <ng-container *ngFor=''let tab of self.popupTab.tabs; index as i;''>
+              <ng-container [ngSwitch]=''tab.type''>
+                
+    <ng-template [ngSwitchCase]="''general''">
+      <ng-template [ngIf]="self.popupTab.tabs[self.popupTab.activeTabIndex].type == ''general'' && self.popupTab.activeTabIndex == i">
+        <div *ngIf=''self.popupTab.activeTabIndex != self.popupTab.tabs.length - 1'' class=''cr-popup-blocker''></div>
+        <cr-title-header
+    [titleTranslateKey]="''MANAGE_DATA_COLLECTIONS.SEASON.TITLE''"
+    [title]="''''"
+    (buttonClickEvent)="self.onTitleButtonClick($event)"
+    [buttonSettings]="self.titleHeaderButtonSettings"
+></cr-title-header>
+      <cr-panel
+        [panelTemplateType]="''panel''"
+        [expanded]="self.panelsViewState?.[''undefined''] ?? true"
+        (expandedChange)="self.panelStateChange(''undefined'', $event)"
+        [titleTranslateKey]="true ? ''MANAGE_DATA_COLLECTIONS.SEASON.TITLE'' : null"
+        [title]="true ? null : ''קולקציה עונתית''"
+        [customClass]="''''"
+        [headerClass]="''''"
+        [validator]="self.validator"
+        [validatorGroupName]="''undefined''"
+        [containFields]=''[]''
+      >
+        <ng-template crPanelContent>
+          <div class="cr-grid-outer-wrapper">
+      <div #gridWrapper class="cr-grid-wrapper-new">
+        <cr-edit-grid-server-paging
+          (changeStatus)="self.onChangeGridStatus($event)"
+          (createActionEvent)="self.onCreate($event)"
+          (deleteActionEvent)="self.onRemove($event)"
+          (pageChangeEvent)="self.changePage($event)"
+          (selectionChanged)="self.onSelectionChange($event)"
+          (updateActionEvent)="self.onUpdate($event)"
+          [allowCreateAction]="true"
+          [allowDeleteAction]="true"
+          [allowUpdateAction]="true"
+          [columnSettings]=''self.columnSettings | dynamicColumnSettings:[{"field":"code","titleTranslateKey":"MANAGE_DATA_COLLECTIONS.SEASON.GRID.CODE","hidden":false,"sortOrder":1},{"field":"displayName","titleTranslateKey":"MANAGE_DATA_COLLECTIONS.SEASON.GRID.DISPLAY_NAME","hidden":false,"sortOrder":2},{"field":"printName","titleTranslateKey":"MANAGE_DATA_COLLECTIONS.SEASON.GRID.PRINT_NAME","hidden":false,"sortOrder":3}]''
+          [dataCacheName]="''CollectionSeasonList''"
+          [dataSource]="self.dataSource"
+          [elementName]="''edit-grid-server-paging:Seasons.Grid''"
+          [hasSorter]="true"
+          [isRefreshOnCreate]="true"
+          [isRefreshOnDelete]="true"
+
+          [isRefreshOnUpdate]="true"
+          [pageable]="true"
+          [permissionSettings]="{
+          isAccessDelete: (self.EndpointName.item_collection_season_id_DELETE | endpointAccessGrantedPipe),
+          isAccessUpdate: (self.EndpointName.item_collection_season_id_PUT | endpointAccessGrantedPipe),
+          isAccessCreate: (self.EndpointName.item_collection_season_POST | endpointAccessGrantedPipe),
+          isAccessRead: (self.EndpointName.item_collection_season_GET | endpointAccessGrantedPipe)
+        }"
+          [resizable]="true"
+          [uniqueField]="''id''"
+          [validator]="self.validator"
+          [class]=''undefined''
+        ></cr-edit-grid-server-paging>
+
+        <cr-sort
+          (changeSort)="self.changeSortHandler($event)"
+          [disableButtons]="{
+          toFirst: self.cache.firstSelected || self.cache.isEditMode,
+          oneUp: self.cache.firstSelected || self.cache.isEditMode,
+          oneDown: self.cache.lastSelected || self.cache.isEditMode,
+          toLast: self.cache.lastSelected || self.cache.isEditMode
+        }"
+          [gridWrapper]="gridWrapper"
+          [permissionSettings]="(self.EndpointName.item_collection_season_id_sort_order_PUT | endpointAccessGrantedPipe)"
+        ></cr-sort>
+      </div>
     </div>
         </ng-template>
       </cr-panel>
@@ -24916,8 +24458,8 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
               </ng-container>
             </ng-container>
           </div>
-        </div>', '2022-12-28 13:59:51.8566667 +00:00', 11, N'N', '0f8c5ea1-0c2a-4d9c-aa81-97d2fad49425', 1, NULL)
-INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID], [BookmarkName], [BookmarkDescription], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('daf8337a-a982-ed11-8360-02f176033ddb', 'd8f8337a-a982-ed11-8360-02f176033ddb', 2, N'', N'', N'
+        </div>', '2022-12-28 10:55:32.3666667 +00:00', 5, N'N', '1119ccf2-83c8-473b-9a74-21bf25379a62', 1, NULL)
+INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID], [BookmarkName], [BookmarkDescription], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('c4beb4c4-9a86-ed11-8360-02f176033ddb', 'c2beb4c4-9a86-ed11-8360-02f176033ddb', 2, NULL, NULL, N'
         <div class=''cr-popup-content-wrapper'' [class.cr-popup-is-shown]=''self.popupTab.tabs.length > 1''>
           <cr-popup-tabs
             [popupTabs]=''self.popupTab.tabs''
@@ -24933,60 +24475,17 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
       <ng-template [ngIf]="self.popupTab.tabs[self.popupTab.activeTabIndex].type == ''general'' && self.popupTab.activeTabIndex == i">
         <div *ngIf=''self.popupTab.activeTabIndex != self.popupTab.tabs.length - 1'' class=''cr-popup-blocker''></div>
         <cr-title-header
-    [titleTranslateKey]="''SERIES.FILTER.TITLE''"
+    [titleTranslateKey]="''MANAGE_DATA_COLLECTIONS.SEASON.TITLE''"
     [title]="''''"
     (buttonClickEvent)="self.onTitleButtonClick($event)"
     [buttonSettings]="self.titleHeaderButtonSettings"
 ></cr-title-header>
       <cr-panel
-        [panelTemplateType]="''collapsible-panel''"
-        [expanded]="self.panelsViewState?.[''filter''] ?? true"
-        (expandedChange)="self.panelStateChange(''filter'', $event)"
-        [titleTranslateKey]="true ? ''SERIES.FILTER.TITLE'' : null"
-        [title]="true ? null : ''Coupon series''"
-        [customClass]="''''"
-        [headerClass]="''''"
-        [validator]="self.validator"
-        [validatorGroupName]="''filter''"
-        [containFields]=''[]''
-      >
-        <ng-template crPanelContent>
-          <div class="row undefined"><div class=''col-lg-4''><cr-control-edit 
-    [translateKeys]="''SERIES.FILTER.CODE''" 
-    [dataLabel]="''''"
-    [customClass]=''""''
-    [isDisabled]="false"
-    [elementName]="''edit:Coupon_series.Code''"
-    [(dataValue)]="self.seriesListFilterRequest.code"
-    [permissionSettings]="{isAccessEdit: (self.EndpointName.coupon_series_GET | endpointAccessGrantedPipe)}"
-></cr-control-edit></div><div class=''col-lg-4''><cr-control-edit 
-    [translateKeys]="''SERIES.FILTER.NAME''" 
-    [dataLabel]="''''"
-    [customClass]=''""''
-    [isDisabled]="false"
-    [elementName]="''edit:Coupon_series.Name''"
-    [(dataValue)]="self.seriesListFilterRequest.name"
-    [permissionSettings]="{isAccessEdit: (self.EndpointName.coupon_series_GET | endpointAccessGrantedPipe)}"
-></cr-control-edit>
-</div><div class=''col-lg-4''><cr-button-control 
-    [buttonTemplateType]="''underlined-action-button''"
-    [text]="''''"
-    [textTranslateKey]="''COMMON.SEARCH''"
-    [classArray]=''["d-block","ml-auto"]''
-    [width]="''''"
-    [height]="''''"
-    [icon]="''undefined''"
-    (buttonClickEvent)="self.changeFilter()"
-    *ngIf="(self.EndpointName.coupon_series_GET | endpointAccessGrantedPipe)"
-></cr-button-control></div></div>
-        </ng-template>
-      </cr-panel>
-      <cr-panel
         [panelTemplateType]="''panel''"
         [expanded]="self.panelsViewState?.[''undefined''] ?? true"
         (expandedChange)="self.panelStateChange(''undefined'', $event)"
-        [titleTranslateKey]="true ? ''SERIES.LIST.GRID_TITLE'' : null"
-        [title]="true ? null : ''Series''"
+        [titleTranslateKey]="true ? ''MANAGE_DATA_COLLECTIONS.SEASON.TITLE'' : null"
+        [title]="true ? null : ''Collection seasons''"
         [customClass]="''''"
         [headerClass]="''''"
         [validator]="self.validator"
@@ -24994,19 +24493,52 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
         [containFields]=''[]''
       >
         <ng-template crPanelContent>
-          <div class="cr-grid-wrapper-new">
-      <cr-edit-grid-server-paging
-        [elementName]="''edit-grid-server-paging:Coupon_series.Grid''"
-        [dataSource]="self.gridData"
-        [columnSettings]=''self.columnSettings | dynamicColumnSettings:[{"field":"code","titleTranslateKey":"SERIES.LIST.CODE","hidden":false,"sortOrder":1},{"field":"displayName","titleTranslateKey":"SERIES.LIST.NAME","hidden":false,"sortOrder":2},{"field":"genFrom","titleTranslateKey":"SERIES.LIST.FROM","hidden":false,"sortOrder":3},{"field":"genTo","titleTranslateKey":"SERIES.LIST.TO","hidden":false,"sortOrder":4},{"field":"manualDiscountPrice","titleTranslateKey":"SERIES.LIST.MANUAL_DISCOUNT_PRICE","hidden":false,"sortOrder":5},{"field":"couponsGenerated","titleTranslateKey":"SERIES.LIST.GENERATED","hidden":false,"sortOrder":6}]''
-        [pageable]="true"
-        [resizable]="true"
-        [uniqueField]="''id''"
-        (pageChangeEvent)="self.changePage($event)"
-        (cellClickEvent)="self.cellClick($event)"
-        [dataCacheName]="''coupon-series-grid-cache''"
-        [class]=''undefined''
-      ></cr-edit-grid-server-paging>
+          <div class="cr-grid-outer-wrapper">
+      <div #gridWrapper class="cr-grid-wrapper-new">
+        <cr-edit-grid-server-paging
+          (changeStatus)="self.onChangeGridStatus($event)"
+          (createActionEvent)="self.onCreate($event)"
+          (deleteActionEvent)="self.onRemove($event)"
+          (pageChangeEvent)="self.changePage($event)"
+          (selectionChanged)="self.onSelectionChange($event)"
+          (updateActionEvent)="self.onUpdate($event)"
+          [allowCreateAction]="true"
+          [allowDeleteAction]="true"
+          [allowUpdateAction]="true"
+          [columnSettings]=''self.columnSettings | dynamicColumnSettings:[{"field":"code","titleTranslateKey":"MANAGE_DATA_COLLECTIONS.SEASON.GRID.CODE","hidden":false,"sortOrder":1},{"field":"displayName","titleTranslateKey":"MANAGE_DATA_COLLECTIONS.SEASON.GRID.DISPLAY_NAME","hidden":false,"sortOrder":2},{"field":"printName","titleTranslateKey":"MANAGE_DATA_COLLECTIONS.SEASON.GRID.PRINT_NAME","hidden":false,"sortOrder":3}]''
+          [dataCacheName]="''CollectionSeasonList''"
+          [dataSource]="self.dataSource"
+          [elementName]="''edit-grid-server-paging:Seasons.Grid''"
+          [hasSorter]="true"
+          [isRefreshOnCreate]="true"
+          [isRefreshOnDelete]="true"
+
+          [isRefreshOnUpdate]="true"
+          [pageable]="true"
+          [permissionSettings]="{
+          isAccessDelete: (self.EndpointName.item_collection_season_id_DELETE | endpointAccessGrantedPipe),
+          isAccessUpdate: (self.EndpointName.item_collection_season_id_PUT | endpointAccessGrantedPipe),
+          isAccessCreate: (self.EndpointName.item_collection_season_POST | endpointAccessGrantedPipe),
+          isAccessRead: (self.EndpointName.item_collection_season_GET | endpointAccessGrantedPipe)
+        }"
+          [resizable]="true"
+          [uniqueField]="''id''"
+          [validator]="self.validator"
+          [class]=''undefined''
+        ></cr-edit-grid-server-paging>
+
+        <cr-sort
+          (changeSort)="self.changeSortHandler($event)"
+          [disableButtons]="{
+          toFirst: self.cache.firstSelected || self.cache.isEditMode,
+          oneUp: self.cache.firstSelected || self.cache.isEditMode,
+          oneDown: self.cache.lastSelected || self.cache.isEditMode,
+          toLast: self.cache.lastSelected || self.cache.isEditMode
+        }"
+          [gridWrapper]="gridWrapper"
+          [permissionSettings]="(self.EndpointName.item_collection_season_id_sort_order_PUT | endpointAccessGrantedPipe)"
+        ></cr-sort>
+      </div>
     </div>
         </ng-template>
       </cr-panel>
@@ -25016,8 +24548,8 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
               </ng-container>
             </ng-container>
           </div>
-        </div>', '2022-12-28 13:59:51.8566667 +00:00', 11, N'N', 'a5c6e480-ee25-41ee-959d-9ba708db7549', 1, NULL)
-INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID], [BookmarkName], [BookmarkDescription], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('edbd5a0c-c282-ed11-8360-02f176033ddb', 'ecbd5a0c-c282-ed11-8360-02f176033ddb', 1, N'', N'', N'
+        </div>', '2022-12-28 10:55:32.3666667 +00:00', 5, N'N', 'cdb7b203-fa4f-4b02-b36c-b6d080b09c98', 1, NULL)
+INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID], [BookmarkName], [BookmarkDescription], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('56f30421-a286-ed11-8360-02f176033ddb', '55f30421-a286-ed11-8360-02f176033ddb', 1, NULL, NULL, N'
         <div class=''cr-popup-content-wrapper'' [class.cr-popup-is-shown]=''self.popupTab.tabs.length > 1''>
           <cr-popup-tabs
             [popupTabs]=''self.popupTab.tabs''
@@ -25033,579 +24565,1526 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
       <ng-template [ngIf]="self.popupTab.tabs[self.popupTab.activeTabIndex].type == ''general'' && self.popupTab.activeTabIndex == i">
         <div *ngIf=''self.popupTab.activeTabIndex != self.popupTab.tabs.length - 1'' class=''cr-popup-blocker''></div>
         <cr-title-header
-    [titleTranslateKey]="''SERIES.DETAILS.TITLE''"
+    [titleTranslateKey]="''MANAGE_DATA_COLLECTIONS.YEAR.TITLE''"
+    [title]="''''"
+    (buttonClickEvent)="self.onTitleButtonClick($event)"
+    [buttonSettings]="self.titleHeaderButtonSettings"
+></cr-title-header>
+      <cr-panel
+        [panelTemplateType]="''panel''"
+        [expanded]="self.panelsViewState?.[''undefined''] ?? true"
+        (expandedChange)="self.panelStateChange(''undefined'', $event)"
+        [titleTranslateKey]="true ? ''MANAGE_DATA_COLLECTIONS.YEAR.TITLE'' : null"
+        [title]="true ? null : ''קולקציה שנתית''"
+        [customClass]="''''"
+        [headerClass]="''''"
+        [validator]="self.validator"
+        [validatorGroupName]="''undefined''"
+        [containFields]=''[]''
+      >
+        <ng-template crPanelContent>
+          <div class="cr-grid-wrapper-new">
+    <cr-edit-grid-server-paging
+      (createActionEvent)="self.onCreate($event)"
+      (deleteActionEvent)="self.onRemove($event)"
+      (pageChangeEvent)="self.changePage($event)"
+      (updateActionEvent)="self.onUpdate($event)"
+      [allowCreateAction]="true"
+      [allowDeleteAction]="true"
+      [allowUpdateAction]="true"
+      [columnSettings]=''self.columnSettings | dynamicColumnSettings:[{"field":"code","titleTranslateKey":"MANAGE_DATA_COLLECTIONS.YEAR.GRID.CODE","hidden":false,"sortOrder":1},{"field":"displayName","titleTranslateKey":"MANAGE_DATA_COLLECTIONS.YEAR.GRID.DISPLAY_NAME","hidden":false,"sortOrder":2}]''
+      [dataCacheName]="''CollectionYearsList''"
+      [dataSource]="self.dataSource"
+      [elementName]="''edit-grid-server-paging:Years.Grid''"
+      [pageable]="true"
+
+      [permissionSettings]="{
+          isAccessDelete: (self.EndpointName.item_collection_year_id_DELETE | endpointAccessGrantedPipe),
+          isAccessUpdate: (self.EndpointName.item_collection_year_id_PUT | endpointAccessGrantedPipe),
+          isAccessCreate: (self.EndpointName.item_collection_year_POST | endpointAccessGrantedPipe),
+          isAccessRead: (self.EndpointName.item_collection_year_GET | endpointAccessGrantedPipe)
+        }"
+      [resizable]="true"
+      [uniqueField]="''id''"
+      [validator]="self.validator"
+    ></cr-edit-grid-server-paging>
+  </div>
+        </ng-template>
+      </cr-panel>
+      </ng-template>
+    </ng-template>
+    
+              </ng-container>
+            </ng-container>
+          </div>
+        </div>', '2022-12-28 11:38:32.2466667 +00:00', 2, N'N', 'bdb48189-976f-4590-bbe5-0b608ad16be8', 1, NULL)
+INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID], [BookmarkName], [BookmarkDescription], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('57f30421-a286-ed11-8360-02f176033ddb', '55f30421-a286-ed11-8360-02f176033ddb', 2, NULL, NULL, N'
+        <div class=''cr-popup-content-wrapper'' [class.cr-popup-is-shown]=''self.popupTab.tabs.length > 1''>
+          <cr-popup-tabs
+            [popupTabs]=''self.popupTab.tabs''
+            [activePopup]=''self.popupTab.activeTabIndex''
+            (closePopup)=''self.removePopupTab($event)''
+            (changeActive)=''self.changeActiveTab($event)''
+          ></cr-popup-tabs>
+          <div class=''cr-details-inner-container''>
+            <ng-container *ngFor=''let tab of self.popupTab.tabs; index as i;''>
+              <ng-container [ngSwitch]=''tab.type''>
+                
+    <ng-template [ngSwitchCase]="''general''">
+      <ng-template [ngIf]="self.popupTab.tabs[self.popupTab.activeTabIndex].type == ''general'' && self.popupTab.activeTabIndex == i">
+        <div *ngIf=''self.popupTab.activeTabIndex != self.popupTab.tabs.length - 1'' class=''cr-popup-blocker''></div>
+        <cr-title-header
+    [titleTranslateKey]="''MANAGE_DATA_COLLECTIONS.YEAR.TITLE''"
+    [title]="''''"
+    (buttonClickEvent)="self.onTitleButtonClick($event)"
+    [buttonSettings]="self.titleHeaderButtonSettings"
+></cr-title-header>
+      <cr-panel
+        [panelTemplateType]="''panel''"
+        [expanded]="self.panelsViewState?.[''undefined''] ?? true"
+        (expandedChange)="self.panelStateChange(''undefined'', $event)"
+        [titleTranslateKey]="true ? ''MANAGE_DATA_COLLECTIONS.YEAR.TITLE'' : null"
+        [title]="true ? null : ''Collection years''"
+        [customClass]="''''"
+        [headerClass]="''''"
+        [validator]="self.validator"
+        [validatorGroupName]="''undefined''"
+        [containFields]=''[]''
+      >
+        <ng-template crPanelContent>
+          <div class="cr-grid-wrapper-new">
+    <cr-edit-grid-server-paging
+      (createActionEvent)="self.onCreate($event)"
+      (deleteActionEvent)="self.onRemove($event)"
+      (pageChangeEvent)="self.changePage($event)"
+      (updateActionEvent)="self.onUpdate($event)"
+      [allowCreateAction]="true"
+      [allowDeleteAction]="true"
+      [allowUpdateAction]="true"
+      [columnSettings]=''self.columnSettings | dynamicColumnSettings:[{"field":"code","titleTranslateKey":"MANAGE_DATA_COLLECTIONS.YEAR.GRID.CODE","hidden":false,"sortOrder":1},{"field":"displayName","titleTranslateKey":"MANAGE_DATA_COLLECTIONS.YEAR.GRID.DISPLAY_NAME","hidden":false,"sortOrder":2}]''
+      [dataCacheName]="''CollectionYearsList''"
+      [dataSource]="self.dataSource"
+      [elementName]="''edit-grid-server-paging:Years.Grid''"
+      [pageable]="true"
+
+      [permissionSettings]="{
+          isAccessDelete: (self.EndpointName.item_collection_year_id_DELETE | endpointAccessGrantedPipe),
+          isAccessUpdate: (self.EndpointName.item_collection_year_id_PUT | endpointAccessGrantedPipe),
+          isAccessCreate: (self.EndpointName.item_collection_year_POST | endpointAccessGrantedPipe),
+          isAccessRead: (self.EndpointName.item_collection_year_GET | endpointAccessGrantedPipe)
+        }"
+      [resizable]="true"
+      [uniqueField]="''id''"
+      [validator]="self.validator"
+    ></cr-edit-grid-server-paging>
+  </div>
+        </ng-template>
+      </cr-panel>
+      </ng-template>
+    </ng-template>
+    
+              </ng-container>
+            </ng-container>
+          </div>
+        </div>', '2022-12-28 11:38:32.2466667 +00:00', 2, N'N', '5626ca00-7081-47b4-8087-80a9371619f5', 1, NULL)
+INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID], [BookmarkName], [BookmarkDescription], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('ee819b05-4351-ed11-8e5d-4ccc6a2bb6d6', 'd4ae82e8-4251-ed11-8e5d-4ccc6a2bb6d6', 1, NULL, NULL, N'
+        <div class=''cr-popup-content-wrapper'' [class.cr-popup-is-shown]=''self.popupTab.tabs.length > 1''>
+          <cr-popup-tabs
+            [popupTabs]=''self.popupTab.tabs''
+            [activePopup]=''self.popupTab.activeTabIndex''
+            (closePopup)=''self.removePopupTab($event)''
+            (changeActive)=''self.changeActiveTab($event)''
+          ></cr-popup-tabs>
+          <div class=''cr-details-inner-container''>
+            <ng-container *ngFor=''let tab of self.popupTab.tabs; index as i;''>
+              <ng-container [ngSwitch]=''tab.type''>
+                
+    <ng-template [ngSwitchCase]="''general''">
+      <ng-template [ngIf]="self.popupTab.tabs[self.popupTab.activeTabIndex].type == ''general'' && self.popupTab.activeTabIndex == i">
+        <div *ngIf=''self.popupTab.activeTabIndex != self.popupTab.tabs.length - 1'' class=''cr-popup-blocker''></div>
+        <cr-title-header
+    [titleTranslateKey]="''PARTNER.GRID.TITLE''"
+    [title]="''''"
+    (buttonClickEvent)="self.onTitleButtonClick($event)"
+    [buttonSettings]="self.titleHeaderButtonSettings"
+></cr-title-header>
+      <cr-panel
+        [panelTemplateType]="''collapsible-panel''"
+        [expanded]="self.panelsViewState?.[''general''] ?? true"
+        (expandedChange)="self.panelStateChange(''general'', $event)"
+        [titleTranslateKey]="true ? ''COMMON.PANEL.FILTERS'' : null"
+        [title]="true ? null : ''חתך הגדרות''"
+        [customClass]="''''"
+        [headerClass]="''''"
+        [validator]="self.validator"
+        [validatorGroupName]="''general''"
+        [containFields]=''[]''
+      >
+        <ng-template crPanelContent>
+          <div class="row "><div class="col-lg-2"><cr-control-edit 
+    [translateKeys]="''PARTNER.FILTER.PARTNER_CODE''" 
+    [dataLabel]="''''"
+    [customClass]=''""''
+    [isDisabled]="false"
+    [(dataValue)]="self.partnerListFilter.partnerCode"
+></cr-control-edit></div><div class="col-lg-2"><cr-control-edit 
+    [translateKeys]="''PARTNER.FILTER.FIRST_NAME''" 
+    [dataLabel]="''''"
+    [customClass]=''""''
+    [isDisabled]="false"
+    [(dataValue)]="self.partnerListFilter.firstName"
+></cr-control-edit>
+</div><div class="col-lg-2"><cr-control-edit 
+    [translateKeys]="''PARTNER.FILTER.LAST_NAME''" 
+    [dataLabel]="''''"
+    [customClass]=''""''
+    [isDisabled]="false"
+    [(dataValue)]="self.partnerListFilter.lastName"
+></cr-control-edit></div><div class="col-lg-2"><cr-dropdown-smart-control
+    [(value)]="self.partnerListFilter.partnerTypeId"
+    [contextMenuOperations]="[''copyToClipboard'']"
+    [dataCacheName]="''PartnerTypeDropdownSearchCache''"
+    [dataTranslateKeyField]="''translateKey''"
+    [elementName]="''smart-dropdown:Partner_list.Partner_type''"
+    [getListItemsFunction]="self.partnerTypeListFn"
+    [labelTranslateKey]="''''"
+    [label]="''סוג פרטנר''"
+    [class]=''""''
+    [permissionSettings]="{
+        isAccessEdit: self.authService.getEndpointAccessGranted(self.EndpointName.partner_type_GET)
+    }"
+    [textField]="''displayName''"
+    [unselectedItemValue]="{id: null, translateKey: ''COMMON.MOCK_OBJ.NOT_SELECTED''}"
+    [valueField]="''id''"
+    [isDropdownListOpenWhenKeyboardIsPrinted]="true"
+    [isDropdownListOverrideEnterKeyBehaviour]="true"
+    (onEnterKey)="self.changeFilter()"
+></cr-dropdown-smart-control></div><div class="col-lg-2"><cr-dropdown-smart-control
+    (navigateToEvent)="self.navigateTo($event)"
+    [(value)]="self.partnerListFilter.groupId"
+    [contextMenuOperations]="[''copyToClipboard'', ''navigateTo'']"
+    [dataCacheName]="''PartnerGroupDropdownSearchCache''"
+    [dataTranslateKeyField]="''translateKey''"
+    [elementName]="''smart-dropdown:Partner_list.Partner_group''"
+    [getListItemsFunction]="self.partnerGroupListFn"
+    [isCleanListWhenAdditionalParameterChanged]="true"
+    [labelTranslateKey]="''PARTNER.FILTER.PARTNER_GROUP''"
+    [label]="''''"
+    [class]=''""''
+    [listItemsFunctionAdditionalParameter]="self.partnerListFilter.partnerTypeId"
+    [permissionSettings]="{
+        isAccessEdit: self.authService.getEndpointAccessGranted(self.EndpointName.partner__partner_group_GET)
+    }"
+    [requestDataWhenOpen]="true"
+    [textField]="''name''"
+    [unselectedItemValue]="{id: null, translateKey: ''COMMON.MOCK_OBJ.NOT_SELECTED''}"
+    [useCodeInList]="true"
+    [useCodeInValue]="true"
+    [valueField]="''id''"
+    [isDropdownListOpenWhenKeyboardIsPrinted]="true"
+    [isDropdownListOverrideEnterKeyBehaviour]="true"
+    (onEnterKey)="self.changeFilter()"
+></cr-dropdown-smart-control>
+</div><div class="col-lg-2"><cr-control-edit 
+    [translateKeys]="''PARTNER.FILTER.PASSPORT''" 
+    [dataLabel]="''''"
+    [customClass]=''""''
+    [isDisabled]="false"
+    [(dataValue)]="self.partnerListFilter.passport"
+></cr-control-edit></div></div><div class="row "><div class="col-lg-2"><cr-control-edit 
+    [translateKeys]="''PARTNER.FILTER.PHONE_NUMBER_1''" 
+    [dataLabel]="''''"
+    [customClass]=''""''
+    [isDisabled]="false"
+    [(dataValue)]="self.partnerListFilter.phone1"
+></cr-control-edit></div><div class="col-lg-2"><cr-control-edit 
+    [translateKeys]="''PARTNER.FILTER.PHONE_NUMBER_2''" 
+    [dataLabel]="''''"
+    [customClass]=''""''
+    [isDisabled]="false"
+    [(dataValue)]="self.partnerListFilter.phone2"
+></cr-control-edit></div><div class="col-lg-2"><cr-control-edit 
+    [translateKeys]="''PARTNER.FILTER.EMAIL''" 
+    [dataLabel]="''''"
+    [customClass]=''""''
+    [isDisabled]="false"
+    [(dataValue)]="self.partnerListFilter.EMail"
+></cr-control-edit></div><div class="col-lg-4"><cr-checkbox-control
+    [dataLabel]="''''"
+    [translateKeys]="''COMMON.SHOW_DELETED''"
+    [isDisabled]="false"
+    [class]=''""''
+    [(dataValue)]="self.partnerListFilter.showDeleted"
+></cr-checkbox-control></div><div class="col-lg-2"><cr-button-control 
+    [buttonTemplateType]="''underlined-action-button''"
+    [text]="''''"
+    [textTranslateKey]="''COMMON.SEARCH''"
+    [classArray]=''"d-block ml-auto"''
+    [width]="''''"
+    [height]="''''"
+    [icon]="''undefined''"
+    (buttonClickEvent)="self.changeFilter()"
+    *ngIf="self.authService.getEndpointAccessGranted(self.EndpointName.partner_GET)"
+></cr-button-control></div></div>
+        </ng-template>
+      </cr-panel>
+      <cr-panel
+        [panelTemplateType]="''panel''"
+        [expanded]="self.panelsViewState?.[''undefined''] ?? true"
+        (expandedChange)="self.panelStateChange(''undefined'', $event)"
+        [titleTranslateKey]="true ? ''PARTNER.GRID.TITLE'' : null"
+        [title]="true ? null : ''רשימת כרטיסים''"
+        [customClass]="''''"
+        [headerClass]="''''"
+        [validator]="self.validator"
+        [validatorGroupName]="''undefined''"
+        [containFields]=''[]''
+      >
+        <ng-template crPanelContent>
+          <div class="cr-grid-wrapper-new">
+    <cr-edit-grid-server-paging
+        (cellClickEvent)="self.cellClick($event)"
+        (pageChangeEvent)="self.changePage($event)"
+        [columnSettings]=''self.columnSettings | dynamicColumnSettings:[{"field":"partnerType","titleTranslateKey":"PARTNER.GRID.TYPE","hidden":false,"sortOrder":2},{"field":"partnerCode","titleTranslateKey":"PARTNER.GRID.CODE","hidden":false,"sortOrder":1},{"field":"firstName","titleTranslateKey":"PARTNER.GRID.FIRST_NAME","hidden":false,"sortOrder":3},{"field":"lastName","titleTranslateKey":"PARTNER.GRID.LAST_NAME","hidden":false,"sortOrder":4},{"field":"passport","titleTranslateKey":"PARTNER.GRID.PASSPORT","hidden":false,"sortOrder":5},{"field":"phone1","titleTranslateKey":"PARTNER.GRID.PHONE","hidden":false,"sortOrder":6},{"field":"partnerGroups","titleTranslateKey":"PARTNER.GRID.GROUPS","hidden":false,"sortOrder":7},{"field":"isValid","titleTranslateKey":"PARTNER.GRID.VALID","hidden":false,"sortOrder":8},{"field":"balance","titleTranslateKey":"PARTNER.GRID.BALANCE","hidden":false,"sortOrder":9},{"field":"registrationDate","titleTranslateKey":"PARTNER.GRID.REGISTRATION_DATE","hidden":false,"sortOrder":10},{"field":"isDeleted","titleTranslateKey":"PARTNER.GRID.IS_DELETED","hidden":false,"sortOrder":11}]''
+        [dataCacheName]="''partnerGrid''"
+        [dataSource]="self.dataSource"
+        [elementName]="''edit-grid-server-paging:Partner_list.Grid''"
+        [pageable]="true"
+        [resizable]="true"
+        [uniqueField]="''id''"
+        [class]="undefined"
+      ></cr-edit-grid-server-paging>
+</div>
+        </ng-template>
+      </cr-panel>
+      </ng-template>
+    </ng-template>
+    
+              </ng-container>
+            </ng-container>
+          </div>
+        </div>', '2023-01-04 15:17:38.4633333 +00:00', 203, N'N', 'f17a85c7-af46-4e04-acad-d817c1924955', 1, NULL)
+INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID], [BookmarkName], [BookmarkDescription], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('ef819b05-4351-ed11-8e5d-4ccc6a2bb6d6', 'd4ae82e8-4251-ed11-8e5d-4ccc6a2bb6d6', 2, NULL, NULL, N'
+        <div class=''cr-popup-content-wrapper'' [class.cr-popup-is-shown]=''self.popupTab.tabs.length > 1''>
+          <cr-popup-tabs
+            [popupTabs]=''self.popupTab.tabs''
+            [activePopup]=''self.popupTab.activeTabIndex''
+            (closePopup)=''self.removePopupTab($event)''
+            (changeActive)=''self.changeActiveTab($event)''
+          ></cr-popup-tabs>
+          <div class=''cr-details-inner-container''>
+            <ng-container *ngFor=''let tab of self.popupTab.tabs; index as i;''>
+              <ng-container [ngSwitch]=''tab.type''>
+                
+    <ng-template [ngSwitchCase]="''general''">
+      <ng-template [ngIf]="self.popupTab.tabs[self.popupTab.activeTabIndex].type == ''general'' && self.popupTab.activeTabIndex == i">
+        <div *ngIf=''self.popupTab.activeTabIndex != self.popupTab.tabs.length - 1'' class=''cr-popup-blocker''></div>
+        <cr-title-header
+    [titleTranslateKey]="''PARTNER.GRID.TITLE''"
+    [title]="''''"
+    (buttonClickEvent)="self.onTitleButtonClick($event)"
+    [buttonSettings]="self.titleHeaderButtonSettings"
+></cr-title-header>
+      <cr-panel
+        [panelTemplateType]="''collapsible-panel''"
+        [expanded]="self.panelsViewState?.[''general''] ?? true"
+        (expandedChange)="self.panelStateChange(''general'', $event)"
+        [titleTranslateKey]="true ? ''COMMON.PANEL.FILTERS'' : null"
+        [title]="true ? null : ''Selection criteria''"
+        [customClass]="''''"
+        [headerClass]="''''"
+        [validator]="self.validator"
+        [validatorGroupName]="''general''"
+        [containFields]=''[]''
+      >
+        <ng-template crPanelContent>
+          <div class="row "><div class="col-lg-2"><cr-control-edit 
+    [translateKeys]="''PARTNER.FILTER.PARTNER_CODE''" 
+    [dataLabel]="''''"
+    [customClass]=''""''
+    [isDisabled]="false"
+    [(dataValue)]="self.partnerListFilter.partnerCode"
+></cr-control-edit></div><div class="col-lg-2"><cr-control-edit 
+    [translateKeys]="''PARTNER.FILTER.FIRST_NAME''" 
+    [dataLabel]="''''"
+    [customClass]=''""''
+    [isDisabled]="false"
+    [(dataValue)]="self.partnerListFilter.firstName"
+></cr-control-edit>
+</div><div class="col-lg-2"><cr-control-edit 
+    [translateKeys]="''PARTNER.FILTER.LAST_NAME''" 
+    [dataLabel]="''''"
+    [customClass]=''""''
+    [isDisabled]="false"
+    [(dataValue)]="self.partnerListFilter.lastName"
+></cr-control-edit></div><div class="col-lg-2"><cr-dropdown-smart-control
+    [(value)]="self.partnerListFilter.partnerTypeId"
+    [contextMenuOperations]="[''copyToClipboard'']"
+    [dataCacheName]="''PartnerTypeDropdownSearchCache''"
+    [dataTranslateKeyField]="''translateKey''"
+    [elementName]="''smart-dropdown:Partner_list.Partner_type''"
+    [getListItemsFunction]="self.partnerTypeListFn"
+    [labelTranslateKey]="''''"
+    [label]="''Partner type''"
+    [class]=''""''
+    [permissionSettings]="{
+        isAccessEdit: self.authService.getEndpointAccessGranted(self.EndpointName.partner_type_GET)
+    }"
+    [textField]="''displayName''"
+    [unselectedItemValue]="{id: null, translateKey: ''COMMON.MOCK_OBJ.NOT_SELECTED''}"
+    [valueField]="''id''"
+    [isDropdownListOpenWhenKeyboardIsPrinted]="true"
+    [isDropdownListOverrideEnterKeyBehaviour]="true"
+    (onEnterKey)="self.changeFilter()"
+></cr-dropdown-smart-control></div><div class="col-lg-2"><cr-dropdown-smart-control
+    (navigateToEvent)="self.navigateTo($event)"
+    [(value)]="self.partnerListFilter.groupId"
+    [contextMenuOperations]="[''copyToClipboard'', ''navigateTo'']"
+    [dataCacheName]="''PartnerGroupDropdownSearchCache''"
+    [dataTranslateKeyField]="''translateKey''"
+    [elementName]="''smart-dropdown:Partner_list.Partner_group''"
+    [getListItemsFunction]="self.partnerGroupListFn"
+    [isCleanListWhenAdditionalParameterChanged]="true"
+    [labelTranslateKey]="''PARTNER.FILTER.PARTNER_GROUP''"
+    [label]="''''"
+    [class]=''""''
+    [listItemsFunctionAdditionalParameter]="self.partnerListFilter.partnerTypeId"
+    [permissionSettings]="{
+        isAccessEdit: self.authService.getEndpointAccessGranted(self.EndpointName.partner__partner_group_GET)
+    }"
+    [requestDataWhenOpen]="true"
+    [textField]="''name''"
+    [unselectedItemValue]="{id: null, translateKey: ''COMMON.MOCK_OBJ.NOT_SELECTED''}"
+    [useCodeInList]="true"
+    [useCodeInValue]="true"
+    [valueField]="''id''"
+    [isDropdownListOpenWhenKeyboardIsPrinted]="true"
+    [isDropdownListOverrideEnterKeyBehaviour]="true"
+    (onEnterKey)="self.changeFilter()"
+></cr-dropdown-smart-control>
+</div><div class="col-lg-2"><cr-control-edit 
+    [translateKeys]="''PARTNER.FILTER.PASSPORT''" 
+    [dataLabel]="''''"
+    [customClass]=''""''
+    [isDisabled]="false"
+    [(dataValue)]="self.partnerListFilter.passport"
+></cr-control-edit></div></div><div class="row "><div class="col-lg-2"><cr-control-edit 
+    [translateKeys]="''PARTNER.FILTER.PHONE_NUMBER_1''" 
+    [dataLabel]="''''"
+    [customClass]=''""''
+    [isDisabled]="false"
+    [(dataValue)]="self.partnerListFilter.phone1"
+></cr-control-edit></div><div class="col-lg-2"><cr-control-edit 
+    [translateKeys]="''PARTNER.FILTER.PHONE_NUMBER_2''" 
+    [dataLabel]="''''"
+    [customClass]=''""''
+    [isDisabled]="false"
+    [(dataValue)]="self.partnerListFilter.phone2"
+></cr-control-edit></div><div class="col-lg-2"><cr-control-edit 
+    [translateKeys]="''PARTNER.FILTER.EMAIL''" 
+    [dataLabel]="''''"
+    [customClass]=''""''
+    [isDisabled]="false"
+    [(dataValue)]="self.partnerListFilter.EMail"
+></cr-control-edit></div><div class="col-lg-4"><cr-checkbox-control
+    [dataLabel]="''''"
+    [translateKeys]="''COMMON.SHOW_DELETED''"
+    [isDisabled]="false"
+    [class]=''""''
+    [(dataValue)]="self.partnerListFilter.showDeleted"
+></cr-checkbox-control></div><div class="col-lg-2"><cr-button-control 
+    [buttonTemplateType]="''underlined-action-button''"
+    [text]="''''"
+    [textTranslateKey]="''COMMON.SEARCH''"
+    [classArray]=''"d-block ml-auto"''
+    [width]="''''"
+    [height]="''''"
+    [icon]="''undefined''"
+    (buttonClickEvent)="self.changeFilter()"
+    *ngIf="self.authService.getEndpointAccessGranted(self.EndpointName.partner_GET)"
+></cr-button-control></div></div>
+        </ng-template>
+      </cr-panel>
+      <cr-panel
+        [panelTemplateType]="''panel''"
+        [expanded]="self.panelsViewState?.[''undefined''] ?? true"
+        (expandedChange)="self.panelStateChange(''undefined'', $event)"
+        [titleTranslateKey]="true ? ''PARTNER.GRID.TITLE'' : null"
+        [title]="true ? null : ''Partner List''"
+        [customClass]="''''"
+        [headerClass]="''''"
+        [validator]="self.validator"
+        [validatorGroupName]="''undefined''"
+        [containFields]=''[]''
+      >
+        <ng-template crPanelContent>
+          <div class="cr-grid-wrapper-new">
+    <cr-edit-grid-server-paging
+        (cellClickEvent)="self.cellClick($event)"
+        (pageChangeEvent)="self.changePage($event)"
+        [columnSettings]=''self.columnSettings | dynamicColumnSettings:[{"field":"partnerType","titleTranslateKey":"PARTNER.GRID.TYPE","hidden":false,"sortOrder":2},{"field":"partnerCode","titleTranslateKey":"PARTNER.GRID.CODE","hidden":false,"sortOrder":1},{"field":"firstName","titleTranslateKey":"PARTNER.GRID.FIRST_NAME","hidden":false,"sortOrder":3},{"field":"lastName","titleTranslateKey":"PARTNER.GRID.LAST_NAME","hidden":false,"sortOrder":4},{"field":"passport","titleTranslateKey":"PARTNER.GRID.PASSPORT","hidden":false,"sortOrder":5},{"field":"phone1","titleTranslateKey":"PARTNER.GRID.PHONE","hidden":false,"sortOrder":6},{"field":"partnerGroups","titleTranslateKey":"PARTNER.GRID.GROUPS","hidden":false,"sortOrder":7},{"field":"isValid","titleTranslateKey":"PARTNER.GRID.VALID","hidden":false,"sortOrder":8},{"field":"balance","titleTranslateKey":"PARTNER.GRID.BALANCE","hidden":false,"sortOrder":9},{"field":"registrationDate","titleTranslateKey":"PARTNER.GRID.REGISTRATION_DATE","hidden":false,"sortOrder":10},{"field":"isDeleted","titleTranslateKey":"PARTNER.GRID.IS_DELETED","hidden":false,"sortOrder":11}]''
+        [dataCacheName]="''partnerGrid''"
+        [dataSource]="self.dataSource"
+        [elementName]="''edit-grid-server-paging:Partner_list.Grid''"
+        [pageable]="true"
+        [resizable]="true"
+        [uniqueField]="''id''"
+        [class]="undefined"
+      ></cr-edit-grid-server-paging>
+</div>
+        </ng-template>
+      </cr-panel>
+      </ng-template>
+    </ng-template>
+    
+              </ng-container>
+            </ng-container>
+          </div>
+        </div>', '2023-01-04 15:17:38.4633333 +00:00', 203, N'N', '9defb5a7-ce37-4fc3-9d65-f73bcbe7a0c8', 1, NULL)
+INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID], [BookmarkName], [BookmarkDescription], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('f0819b05-4351-ed11-8e5d-4ccc6a2bb6d6', 'd5ae82e8-4251-ed11-8e5d-4ccc6a2bb6d6', 1, NULL, NULL, N'
+        <div class=''cr-popup-content-wrapper'' [class.cr-popup-is-shown]=''self.popupTab.tabs.length > 1''>
+          <cr-popup-tabs
+            [popupTabs]=''self.popupTab.tabs''
+            [activePopup]=''self.popupTab.activeTabIndex''
+            (closePopup)=''self.removePopupTab($event)''
+            (changeActive)=''self.changeActiveTab($event)''
+          ></cr-popup-tabs>
+          <div class=''cr-details-inner-container''>
+            <ng-container *ngFor=''let tab of self.popupTab.tabs; index as i;''>
+              <ng-container [ngSwitch]=''tab.type''>
+                
+    <ng-template [ngSwitchCase]="''general''">
+      <ng-template [ngIf]="self.popupTab.tabs[self.popupTab.activeTabIndex].type == ''general'' && self.popupTab.activeTabIndex == i">
+        <div *ngIf=''self.popupTab.activeTabIndex != self.popupTab.tabs.length - 1'' class=''cr-popup-blocker''></div>
+        
+        <ng-template [ngIf]="self.partnerDetails">
+            <cr-title-header
+    [titleTranslateKey]="''PARTNER.DETAILS.TITLE''"
     [title]="''''"
     [titleValue]="self.titleValueText"
     [additionalTranslateKeys]="''COMMON.NEW''"
-    (buttonClickEvent)="self.onTitleButtonClick($event)"
     [buttonSettings]="self.titleHeaderButtonSettings"
-    [titleValueTranslateKey]="self.isNewSeries ? ''COMMON.NEW'' : null"
+    (buttonClickEvent)="self.onTitleButtonClick($event)"
 ></cr-title-header>
-        <ng-template [ngIf]="self.series">
-            
       <cr-panel
         [panelTemplateType]="''well''"
         [customClass]="''''"
       >
         <ng-template crPanelContent>
-          <div class="row align-items-start"><div class=''col-lg-8''><div class="row cr-bottom-row-border"><div class=''col-lg-3''><cr-control-edit
-    [(dataValue)]="self.series.code"
-    [elementName]="''edit:Coupon_series_details.Code''"
+          <div class="row undefined"><div class=''col-md-2''><cr-control-edit
+    [elementName]="''edit:Partner_details.Partner_code''"
     [permissionSettings]="{
-            isAccessEdit: self.isNewSeries ? (self.EndpointName.coupon_series_POST | endpointAccessGrantedPipe) :
-              (self.EndpointName.coupon_series_id_PUT | endpointAccessGrantedPipe)
-          }"
+        isAccessEdit: self.isNew ? self.authService.getEndpointAccessGranted(self.EndpointName.partner_POST) :
+            self.authService.getEndpointAccessGranted(self.EndpointName.partner_id_PUT)
+    }"
+
+    [(dataValue)]="self.partnerDetails.partnerCode"
     [validator]="self.validator"
-    [validationField]="''code''"
-    [translateKeys]="''SERIES.DETAILS.CODE''" 
+    [validationField]="''partnerCode''"
+    [translateKeys]="''PARTNER.DETAILS.HEADER.PARTNER_CODE''" 
     [dataLabel]="''''"
     [customClass]=''""''
-    [isDisabled]="!self.isNewSeries || false"
-></cr-control-edit></div><div class=''col-lg-3''><cr-control-edit
-    [(dataValue)]="self.series.displayName"
-    [elementName]="''edit:Coupon_series_details.Name''"
+    [isDisabled]="!self.isNew || false"
+></cr-control-edit></div><div class=''col-md-2''><cr-control-edit
+    [elementName]="''edit:Partner_details.First_name''"
     [permissionSettings]="{
-            isAccessEdit: self.isNewSeries ? (self.EndpointName.coupon_series_POST | endpointAccessGrantedPipe) :
-              (self.EndpointName.coupon_series_id_PUT | endpointAccessGrantedPipe)
-          }"
+        isAccessEdit: self.isNew ? self.authService.getEndpointAccessGranted(self.EndpointName.partner_POST) :
+            self.authService.getEndpointAccessGranted(self.EndpointName.partner_id_PUT)
+    }"
+
+    [(dataValue)]="self.partnerDetails.firstName"
+    (dataValueChange)="self.onChangeTitleValue()"
+    [validationField]="''firstName''"
     [validator]="self.validator"
-    [validationField]="''displayName''"
-    [translateKeys]="''SERIES.DETAILS.NAME''" 
+    [translateKeys]="''PARTNER.DETAILS.HEADER.FIRST_NAME''" 
     [dataLabel]="''''"
     [customClass]=''""''
     [isDisabled]="false"
-    (dataValueChange)="self.changeTitle()"
-></cr-control-edit></div><div class=''col-lg-3''><cr-numeric-control
-    [elementName]="''numeric:Coupon_series_details.Coupon_valid_days''"
-    [(dataValue)]="self.series.couponValidDays"
+></cr-control-edit></div><div class=''col-md-2''><cr-control-edit
+    [elementName]="''edit:Partner_details.Last_name''"
     [permissionSettings]="{
-                    isAccessEdit: self.isNewSeries ?
-                    (self.EndpointName.coupon_series_POST | endpointAccessGrantedPipe):
-                    (self.EndpointName.coupon_series_id_PUT | endpointAccessGrantedPipe)
-                  }"
-    [validationField]="''couponValidDays''"
-    [validator]="self.validator"      
+        isAccessEdit: self.isNew ? self.authService.getEndpointAccessGranted(self.EndpointName.partner_POST) :
+            self.authService.getEndpointAccessGranted(self.EndpointName.partner_id_PUT)
+    }"
+
+    [(dataValue)]="self.partnerDetails.lastName"
+    (dataValueChange)="self.onChangeTitleValue()"
+    [translateKeys]="''PARTNER.DETAILS.HEADER.LAST_NAME''" 
+    [dataLabel]="''''"
+    [customClass]=''""''
+    [isDisabled]="false"
+></cr-control-edit></div><div class=''col-md-2''><cr-dropdown-smart-control
+    [elementName]="''smart-dropdown:Partner_details.Partner_type''"
+    [permissionSettings]="{
+        isAccessRead: self.authService.getEndpointAccessGranted(self.EndpointName.partner_type_id_GET),
+        isAccessEdit: (self.isNew ? self.authService.getEndpointAccessGranted(self.EndpointName.partner_POST) :
+            self.authService.getEndpointAccessGranted(self.EndpointName.partner_id_PUT)) &&
+            self.authService.getEndpointAccessGranted(self.EndpointName.partner_type_GET) 
+    }"
+    [dataCacheName]="''PartnerTypeDropdownCache''"
+    [labelTranslateKey]="''PARTNER.DETAILS.HEADER.PARTNER_TYPE''"
+    [(value)]="self.partnerDetails.partnerTypeId"
+    [textField]="''displayName''"
+    [valueField]="''id''"
+    [getOneItemFunction]="self.loadPartnerTypeForDropdownFn"
+    [getListItemsFunction]="self.loadPartnerTypeListForDropdownFn"
+    [unselectedItemValue]="{id: null, translateKey: ''COMMON.MOCK_OBJ.NOT_SELECTED''}"
+    [dataTranslateKeyField]="''translateKey''"
+    [validator]="self.validator"
+    [validationField]="''partnerTypeId''"
+    [labelTranslateKey]="''PARTNER.DETAILS.HEADER.PARTNER_TYPE''"
+    [label]="''''"
+    [class]=''""''
+></cr-dropdown-smart-control></div><div class=''col-md-2''><cr-control-edit
+    [elementName]="''edit:Partner_details.Government_id''"
+    [permissionSettings]="{
+        isAccessEdit: self.isNew ? self.authService.getEndpointAccessGranted(self.EndpointName.partner_POST) :
+            self.authService.getEndpointAccessGranted(self.EndpointName.partner_id_PUT)
+    }"
+
+    [(dataValue)]="self.partnerDetails.govId"
+    [validator]="self.validator"
+    [validationField]="''govId''"
+    [translateKeys]="''PARTNER.DETAILS.HEADER.GOVERNMENT_ID''" 
+    [dataLabel]="''''"
+    [customClass]=''""''
+    [isDisabled]="false"
+></cr-control-edit></div><div class=''col-md-2''><cr-numeric-control
+    [elementName]="''numeric:Partner_details.Balance''"
+    [dataValue]="self.partnerDetails.balance"
+    [isDisabled]="true"
     [dataLabel]="''''" 
-    [translateKeys]="''SERIES.DETAILS.COUPON_VALID_DAYS''" 
+    [translateKeys]="''PARTNER.DETAILS.HEADER.BALANCE''" 
+    [customClass]=''""''
+    [format]="null" 
+    [decimals]="null" 
+    [min]="null" 
+    [max]="null"
+    [autoCorrectMinMax]="false"
+></cr-numeric-control></div></div>
+        </ng-template>
+      </cr-panel>
+      <cr-panel
+        [panelTemplateType]="''collapsible-panel''"
+        [expanded]="self.panelsViewState?.[''general''] ?? false"
+        (expandedChange)="self.panelStateChange(''general'', $event)"
+        [titleTranslateKey]="true ? ''PARTNER.DETAILS.GENERAL.TITLE'' : null"
+        [title]="true ? null : ''כללי''"
+        [customClass]="''''"
+        [headerClass]="''''"
+        [validator]="self.validator"
+        [validatorGroupName]="''general''"
+        [containFields]=''["bDay","eMail","passport","validFrom","validTo","frozenFrom","frozenTo"]''
+      >
+        <ng-template crPanelContent>
+          <div class="row undefined"><div class=''col-md-2''><cr-dropdown-smart-control
+    [elementName]="''smart-dropdown:Partner_details.Gender''"
+    [dataCacheName]="''PartnerGenderDropdownCache''"
+    [permissionSettings]="{
+        isAccessEdit: self.isNew ? self.authService.endpoints[self.EndpointName.partner_POST]?.isAccessGranted :
+            self.authService.endpoints[self.EndpointName.partner_id_PUT]?.isAccessGranted
+        }"
+    [labelTranslateKey]="''PARTNER.DETAILS.GENERAL.GENDER''"
+    [(value)]="self.partnerDetails.gender"
+    [getListItemsFunction]="self.getGenderTypeDropdownList$"
+    [getOneItemFunction]="self.getGenderItemDropdown$"
+    [valueField]="''code''"
+    [textField]="''name''"
+    [dataTranslateKeyField]="''translateKey''"
+    [unselectedItemValue]="{code: null, translateKey: ''COMMON.MOCK_OBJ.NOT_SELECTED''}"
+    [labelTranslateKey]="''PARTNER.DETAILS.GENERAL.GENDER''"
+    [label]="''''"
+    [class]=''""''>
+</cr-dropdown-smart-control></div><div class=''col-md-2''><cr-control-datepicker
+    [elementName]="''date:Partner_details.Birthday''"
+    [permissionSettings]="{
+        isAccessEdit: self.isNew ? self.authService.getEndpointAccessGranted(self.EndpointName.partner_POST) :
+            self.authService.getEndpointAccessGranted(self.EndpointName.partner_id_PUT)
+    }"
+
+    [(dataValue)]="self.partnerDetails.bDay"
+    [validator]="self.validator"
+    [validationField]="''bDay''"
+    [dataLabel]="''''"
+    [translateKeys]="''PARTNER.DETAILS.GENERAL.BIRTHDAY''"
+    [class]=''""'' 
+    [isDisabled]="false"
+></cr-control-datepicker></div><div class=''col-md-2''><cr-control-edit
+    [elementName]="''edit:Partner_details.Creation_store''"
+    [(dataValue)]="self.creationStoreName"
+    [translateKeys]="''PARTNER.DETAILS.GENERAL.CREATION_STORE''" 
+    [dataLabel]="''''"
+    [customClass]=''""''
+    [isDisabled]="true"
+></cr-control-edit></div><div class=''col-md-2''><cr-dropdown-smart-control
+    [elementName]="''smart-dropdown:Partner_details.Linked_store''"
+    [permissionSettings]="{
+        isAccessRead: self.authService.getEndpointAccessGranted(self.EndpointName.partner__location_objectId_dropdown_GET),
+        isAccessEdit: (self.isNew ? self.authService.getEndpointAccessGranted(self.EndpointName.partner_POST) :
+            self.authService.getEndpointAccessGranted(self.EndpointName.partner_id_PUT)) &&
+            self.authService.getEndpointAccessGranted(self.EndpointName.partner__location_dropdown_GET)
+    }"
+
+    [dataCacheName]="''PartnerStoreListDropdownCache''"
+    [(value)]="self.partnerDetails.linkedStoreId"
+    [textField]="''name''"
+    [valueField]="''id''"
+    [getOneItemFunction]="self.loadStoreForDropdownFn"
+    [getListItemsFunction]="self.loadStoreListForDropdownFn"
+    [useCodeInList]="true"
+    [useCodeInValue]="true"
+    [unselectedItemValue]="{id: null, translateKey: ''COMMON.MOCK_OBJ.NOT_SELECTED''}"
+    [dataTranslateKeyField]="''translateKey''"
+    [labelTranslateKey]="''PARTNER.DETAILS.GENERAL.LINKED_STORE''"
+    [label]="''''"
+    [class]=''""''
+></cr-dropdown-smart-control></div><div class=''col-md-4''><cr-dropdown-smart-control
+    [elementName]="''smart-dropdown:Partner_details.Parent_partner''"
+    [permissionSettings]="{
+        isAccessRead: self.authService.getEndpointAccessGranted(self.EndpointName.partner_id_dropdown_GET),
+        isAccessEdit: (self.isNew ? self.authService.getEndpointAccessGranted(self.EndpointName.partner_POST) :
+            self.authService.getEndpointAccessGranted(self.EndpointName.partner_id_PUT)) &&
+            self.authService.getEndpointAccessGranted(self.EndpointName.partner_dropdown_GET)
+    }"
+
+    [dataCacheName]="''PartnerParentListDropdownCache''"
+    [(value)]="self.partnerDetails.parentPartnerId"
+    [textField]="''name''"
+    [valueField]="''id''"
+    [getOneItemFunction]="self.loadPartnerParentForDropdownFn"
+    [getListItemsFunction]="self.loadPartnerParentListForDropdownFn"
+    [useCodeInList]="true"
+    [useCodeInValue]="true"
+    [codeField]="''code''"
+    [unselectedItemValue]="{id: null, translateKey: ''COMMON.MOCK_OBJ.NOT_SELECTED''}"
+    [dataTranslateKeyField]="''translateKey''"
+    [labelTranslateKey]="''PARTNER.DETAILS.GENERAL.PARENT_PARTNER''"
+    [label]="''''"
+    [class]=''""''
+></cr-dropdown-smart-control></div></div><div class="row undefined"><div class=''col-md-2''><cr-control-edit
+    [elementName]="''edit:Partner_details.Phone_number_1''"
+    [permissionSettings]="{
+        isAccessEdit: self.isNew ? self.authService.getEndpointAccessGranted(self.EndpointName.partner_POST) :
+            self.authService.getEndpointAccessGranted(self.EndpointName.partner_id_PUT)
+    }"
+
+    [(dataValue)]="self.partnerDetails.phone1"
+    [translateKeys]="''PARTNER.DETAILS.GENERAL.PHONE_NUMBER_1''" 
+    [dataLabel]="''''"
+    [customClass]=''""''
+    [isDisabled]="false"
+></cr-control-edit></div><div class=''col-md-2''><cr-control-edit
+    [elementName]="''edit:Partner_details.Phone_number_2''"
+    [permissionSettings]="{
+        isAccessEdit: self.isNew ? self.authService.getEndpointAccessGranted(self.EndpointName.partner_POST) :
+            self.authService.getEndpointAccessGranted(self.EndpointName.partner_id_PUT)
+    }"
+
+    [(dataValue)]="self.partnerDetails.phone2"
+    [translateKeys]="''PARTNER.DETAILS.GENERAL.PHONE_NUMBER_2''" 
+    [dataLabel]="''''"
+    [customClass]=''""''
+    [isDisabled]="false"
+></cr-control-edit></div><div class=''col-md-2''><cr-control-edit
+    [elementName]="''edit:Partner_details.Cellular''"
+    [permissionSettings]="{
+        isAccessEdit: self.isNew ? self.authService.getEndpointAccessGranted(self.EndpointName.partner_POST) :
+            self.authService.getEndpointAccessGranted(self.EndpointName.partner_id_PUT)
+    }"
+
+    [(dataValue)]="self.partnerDetails.cellular"
+    [translateKeys]="''PARTNER.DETAILS.GENERAL.CELLULAR''" 
+    [dataLabel]="''''"
+    [customClass]=''""''
+    [isDisabled]="false"
+></cr-control-edit></div><div class=''col-md-2''><cr-control-edit
+    [elementName]="''edit:Partner_details.Fax''"
+    [permissionSettings]="{
+        isAccessEdit: self.isNew ? self.authService.getEndpointAccessGranted(self.EndpointName.partner_POST) :
+            self.authService.getEndpointAccessGranted(self.EndpointName.partner_id_PUT)
+    }"
+
+    [(dataValue)]="self.partnerDetails.fax"
+    [translateKeys]="''PARTNER.DETAILS.GENERAL.FAX''" 
+    [dataLabel]="''''"
+    [customClass]=''""''
+    [isDisabled]="false"
+></cr-control-edit></div><div class=''col-md-4''><cr-control-edit
+    [elementName]="''edit:Partner_details.Email''"
+    [permissionSettings]="{
+        isAccessEdit: self.isNew ? self.authService.getEndpointAccessGranted(self.EndpointName.partner_POST) :
+            self.authService.getEndpointAccessGranted(self.EndpointName.partner_id_PUT)
+    }"
+
+    [(dataValue)]="self.partnerDetails.eMail"
+    [validator]="self.validator"
+    [validationField]="''eMail''"
+    [translateKeys]="''PARTNER.DETAILS.GENERAL.EMAIL''" 
+    [dataLabel]="''''"
+    [customClass]=''""''
+    [isDisabled]="false"
+></cr-control-edit></div></div><div class="row undefined"><div class=''col-md-6''><div class="row undefined"><div class=''col-md-4''><cr-checkbox-control
+    [elementName]="''checkbox:Partner_details.Tourist''"
+    [permissionSettings]="{
+        isAccessEdit: self.isNew ? self.authService.getEndpointAccessGranted(self.EndpointName.partner_POST) :
+            self.authService.getEndpointAccessGranted(self.EndpointName.partner_id_PUT)
+    }"
+
+    [(dataValue)]="self.partnerDetails.isTourist"
+    (dataValueChange)="self.touristValueChanged($event)"
+    [dataLabel]="''''"
+    [translateKeys]="''PARTNER.DETAILS.GENERAL.TOURIST''"
+    [isDisabled]="false"
+    [class]=''""''
+></cr-checkbox-control></div><div class=''col-md-4''><cr-control-edit
+    [elementName]="''edit:Partner_details.Passport''"
+    [permissionSettings]="{
+        isAccessEdit: self.isNew ? self.authService.getEndpointAccessGranted(self.EndpointName.partner_POST) :
+            self.authService.getEndpointAccessGranted(self.EndpointName.partner_id_PUT)
+    }"
+
+    [(dataValue)]="self.partnerDetails.passport"
+    [validator]="self.validator"
+    [validationField]="''passport''"
+    [translateKeys]="''PARTNER.DETAILS.GENERAL.PASSPORT''" 
+    [dataLabel]="''''"
+    [customClass]=''""''
+    [isDisabled]="false"
+></cr-control-edit></div><div class=''col-md-4''><cr-control-edit
+    [elementName]="''edit:Partner_details.International_passport''"
+    [permissionSettings]="{
+        isAccessEdit: self.isNew ? self.authService.getEndpointAccessGranted(self.EndpointName.partner_POST) :
+            self.authService.getEndpointAccessGranted(self.EndpointName.partner_id_PUT)
+    }"
+
+    [(dataValue)]="self.partnerDetails.interPassport"
+    [translateKeys]="''PARTNER.DETAILS.GENERAL.INTERNATIONAL_PASSPORT''" 
+    [dataLabel]="''''"
+    [customClass]=''""''
+    [isDisabled]="false"
+></cr-control-edit></div></div><div class="row undefined"><div class=''col-md-4''><cr-checkbox-control
+    [elementName]="''checkbox:Partner_details.Valid''"
+    [permissionSettings]="{
+        isAccessEdit: self.isNew ? self.authService.getEndpointAccessGranted(self.EndpointName.partner_POST) :
+            self.authService.getEndpointAccessGranted(self.EndpointName.partner_id_PUT)
+    }"
+
+    [(dataValue)]="self.partnerDetails.isValid"
+    (dataValueChange)="self.changeValidCheckbox($event)"
+    [dataLabel]="''''"
+    [translateKeys]="''PARTNER.DETAILS.GENERAL.VALID''"
+    [isDisabled]="false"
+    [class]=''""''
+></cr-checkbox-control></div><div class=''col-md-4''><cr-control-datepicker
+    [elementName]="''date:Partner_details.Valid_date_from''"
+    [permissionSettings]="{
+        isAccessEdit: self.isNew ? self.authService.getEndpointAccessGranted(self.EndpointName.partner_POST) :
+            self.authService.getEndpointAccessGranted(self.EndpointName.partner_id_PUT)
+    }"
+
+    [(dataValue)]="self.partnerDetails.validFrom"
+    [validator]="self.validator"
+    [validationField]="''validFrom''"
+    [dataLabel]="''''"
+    [translateKeys]="''PARTNER.DETAILS.GENERAL.DATE_FROM''"
+    [class]=''""'' 
+    [isDisabled]="!self.partnerDetails.isValid || false"
+></cr-control-datepicker></div><div class=''col-md-4''><cr-control-datepicker
+    [elementName]="''date:Partner_details.Valid_date_to''"
+    [permissionSettings]="{
+        isAccessEdit: self.isNew ? self.authService.getEndpointAccessGranted(self.EndpointName.partner_POST) :
+            self.authService.getEndpointAccessGranted(self.EndpointName.partner_id_PUT)
+    }"
+
+    [(dataValue)]="self.partnerDetails.validTo"
+    [isDisabled]="!self.partnerDetails.isValid || false"
+    [validator]="self.validator"
+    [validationField]="''validTo''"
+    [dataLabel]="''''"
+    [translateKeys]="''PARTNER.DETAILS.GENERAL.DATE_TO''"
+    [class]=''""'' 
+    [isDisabled]="!self.partnerDetails.isValid || false"
+></cr-control-datepicker></div></div><div class="row undefined"><div class=''col-md-4''><cr-checkbox-control
+    [elementName]="''checkbox:Partner_details.Frozen''"
+    [permissionSettings]="{
+        isAccessEdit: self.isNew ? self.authService.getEndpointAccessGranted(self.EndpointName.partner_POST) :
+            self.authService.getEndpointAccessGranted(self.EndpointName.partner_id_PUT)
+    }"
+
+    [(dataValue)]="self.partnerDetails.isFrozen"
+    (dataValueChange)="changeFrozenCheckbox($event)"
+    [dataLabel]="''''"
+    [translateKeys]="''PARTNER.DETAILS.GENERAL.FROZEN''"
+    [isDisabled]="false"
+    [class]=''""''
+></cr-checkbox-control></div><div class=''col-md-4''><cr-control-datepicker
+    [elementName]="''date:Partner_details.Frozen_date_from''"
+    [permissionSettings]="{
+        isAccessEdit: self.isNew ? self.authService.getEndpointAccessGranted(self.EndpointName.partner_POST) :
+            self.authService.getEndpointAccessGranted(self.EndpointName.partner_id_PUT)
+    }"
+
+    [(dataValue)]="self.partnerDetails.frozenFrom"
+    [isDisabled]="!self.partnerDetails.isFrozen || false"
+    [validator]="self.validator"
+    [validationField]="''frozenFrom''"
+    [dataLabel]="''''"
+    [translateKeys]="''PARTNER.DETAILS.GENERAL.DATE_FROM''"
+    [class]=''""'' 
+></cr-control-datepicker></div><div class=''col-md-4''><cr-control-datepicker
+    [elementName]="''date:Partner_details.Frozen_date_to''"
+    [permissionSettings]="{
+        isAccessEdit: self.isNew ? self.authService.getEndpointAccessGranted(self.EndpointName.partner_POST) :
+            self.authService.getEndpointAccessGranted(self.EndpointName.partner_id_PUT)
+    }"
+
+    [(dataValue)]="self.partnerDetails.frozenTo"
+    [validator]="self.validator"
+    [validationField]="''frozenTo''"
+    [dataLabel]="''''"
+    [translateKeys]="''PARTNER.DETAILS.GENERAL.DATE_TO''"
+    [class]=''""'' 
+    [isDisabled]="!self.partnerDetails.isFrozen || false"
+></cr-control-datepicker></div></div><div class="row undefined"><div class=''col-md-4''><cr-checkbox-control
+    [elementName]="''checkbox:Partner_details.Is_data_approved''"
+    [permissionSettings]="{
+        isAccessEdit: self.isNew ? self.authService.getEndpointAccessGranted(self.EndpointName.partner_POST) :
+            self.authService.getEndpointAccessGranted(self.EndpointName.partner_id_PUT)
+    }"
+
+    [(dataValue)]="self.partnerDetails.isDataApproved"
+    [dataLabel]="''''"
+    [translateKeys]="''PARTNER.DETAILS.GENERAL.IS_DATA_APPROVED''"
+    [isDisabled]="false"
+    [class]=''""''
+></cr-checkbox-control></div><div class=''col-md-8''><cr-control-edit
+    [translateKeys]="''PARTNER.DETAILS.GENERAL.UPDATE_EMPLOYEE''"
+    [dataLabel]="''''"
+    [isDisabled]="true"
+    [customClass]=''""''
+    [dataValue]="self.partnerDetails.updateEmployee?.name"
+    [elementName]="''label:Partner_details.Update_employee''"
+></cr-control-edit></div></div></div><div class=''col-md-6''>
+      <cr-panel
+        [panelTemplateType]="''panel''"
+        [expanded]="self.panelsViewState?.[''undefined''] ?? true"
+        (expandedChange)="self.panelStateChange(''undefined'', $event)"
+        [titleTranslateKey]="true ? ''PARTNER.DETAILS.GENERAL.MAILING_CATEGORIES'' : null"
+        [title]="true ? null : ''דרכי התקשרות''"
+        [customClass]="''cr-mailing-wrapper''"
+        [headerClass]="''cr-panel-header-wrapper-light''"
+        [validator]="self.validator"
+        [validatorGroupName]="''undefined''"
+        [containFields]=''[]''
+      >
+        <ng-template crPanelContent>
+          <cr-partner-mailing-category-control
+    [editable]="true && (self.isNew ? 
+            self.authService.getEndpointAccessGranted(self.EndpointName.partner_POST) :
+            self.authService.getEndpointAccessGranted(self.EndpointName.partner_id_PUT))"
+
+    [partnerId]="self.partnerDetails.id"
+    [(selectedMailingCategory)]="self.partnerDetails.mailingCategories"
+    (editClickEvent)="self.onEditMailingCategory()"
+    [class]=''""''
+    [editIcon]="''icon-edit''"
+></cr-partner-mailing-category-control>
+        </ng-template>
+      </cr-panel></div></div>
+        </ng-template>
+      </cr-panel>
+      <cr-panel
+        [panelTemplateType]="''collapsible-panel''"
+        [expanded]="self.panelsViewState?.[''paymentTerms''] ?? false"
+        (expandedChange)="self.panelStateChange(''paymentTerms'', $event)"
+        [titleTranslateKey]="true ? ''PARTNER.DETAILS.PAYMENT_TERMS.TITLE'' : null"
+        [title]="true ? null : ''תנאי תשלום''"
+        [customClass]="''''"
+        [headerClass]="''''"
+        [validator]="self.validator"
+        [validatorGroupName]="''paymentTerms''"
+        [containFields]=''[]''
+      >
+        <ng-template crPanelContent>
+          <div class="row undefined"><div class=''col-md-2''><cr-dropdown-smart-control
+    [elementName]="''smart-dropdown:Partner_details.Price_list''"
+    [permissionSettings]="{
+        isAccessRead: self.authService.getEndpointAccessGranted(self.EndpointName.partner__item_price_id_dropdown_GET),
+        isAccessEdit: (self.isNew ? self.authService.getEndpointAccessGranted(self.EndpointName.partner_POST) :
+            self.authService.getEndpointAccessGranted(self.EndpointName.partner_id_PUT)) &&
+            self.authService.getEndpointAccessGranted(self.EndpointName.partner__item_price_dropdown_GET)
+    }"
+
+    [dataCacheName]="''PartnerPriceListDropdownCache''"
+    [(value)]="self.partnerDetails.priceListId"
+    [textField]="''displayName''"
+    [valueField]="''id''"
+    [getOneItemFunction]="self.loadPartnerPriceForDropdownFn"
+    [getListItemsFunction]="self.loadPartnerPriceListForDropdownFn"
+    [useCodeInList]="true"
+    [useCodeInValue]="true"
+    [unselectedItemValue]="{id: null, translateKey: ''COMMON.MOCK_OBJ.NOT_SELECTED''}"
+    [dataTranslateKeyField]="''translateKey''"
+    (valueChange)="self.onPriceListChanged()"
+    [labelTranslateKey]="''PARTNER.DETAILS.PAYMENT_TERMS.PRICE_LIST''"
+    [label]="''''"
+    [class]=''""''
+></cr-dropdown-smart-control>
+</div><div class=''col-md-2''><cr-dropdown-smart-control
+    [elementName]="''smart-dropdown:Partner_details.Price_number''"
+    [permissionSettings]="{
+        isAccessRead: self.authService.getEndpointAccessGranted(self.EndpointName.partner__item_price_priceListId_price_number_id_dropdown_GET),
+        isAccessEdit: (self.isNew ? self.authService.getEndpointAccessGranted(self.EndpointName.partner_POST) :
+            self.authService.getEndpointAccessGranted(self.EndpointName.partner_id_PUT)) &&
+            self.authService.getEndpointAccessGranted(self.EndpointName.partner__item_price_priceListId_price_number_dropdown_GET)
+    }"
+    
+    [dataCacheName]="''PartnerPriceNumberListDropdownCache''"
+    [isDisabled]="self.partnerDetails.priceListId === null"
+    [(value)]="self.partnerDetails.priceNumberId"
+    [textField]="''displayName''"
+    [valueField]="''id''"
+    [getOneItemFunction]="self.loadPartnerPriceNumberForDropdownFn"
+    [getListItemsFunction]="self.loadPartnerPriceNumberListForDropdownFn"
+    [listItemsFunctionAdditionalParameter]="self.partnerDetails.priceListId"
+    [requestDataWhenOpen]="true"
+    [useCodeInList]="true"
+    [useCodeInValue]="true"
+    [unselectedItemValue]="{id: null, translateKey: ''COMMON.MOCK_OBJ.NOT_SELECTED''}"
+    [dataTranslateKeyField]="''translateKey''"
+    [labelTranslateKey]="''PARTNER.DETAILS.PAYMENT_TERMS.PRICE_NUMBER''"
+    [label]="''''"
+    [class]=''""''
+></cr-dropdown-smart-control>
+</div></div><div class="row undefined"><div class=''col-md-2''><cr-numeric-control
+    [elementName]="''numeric:Partner_details.Credit_limit''"
+    [permissionSettings]="{
+        isAccessEdit: self.isNew ? self.authService.getEndpointAccessGranted(self.EndpointName.partner_POST) :
+            self.authService.getEndpointAccessGranted(self.EndpointName.partner_id_PUT)
+    }"
+
+    [dataValue]="self.partnerDetails.creditLimit"
+    [isDisabled]="false"
+    [dataLabel]="''''" 
+    [translateKeys]="''PARTNER.DETAILS.PAYMENT_TERMS.CREDIT_LIMIT''" 
+    [customClass]=''""''
+    [format]="null" 
+    [decimals]="null" 
+    [min]="null" 
+    [max]="null"
+    [autoCorrectMinMax]="false"
+></cr-numeric-control></div><div class=''col-md-2''><cr-numeric-control
+    [elementName]="''numeric:Partner_details.Obligo_limit''"
+    [permissionSettings]="{
+        isAccessEdit: self.isNew ? self.authService.getEndpointAccessGranted(self.EndpointName.partner_POST) :
+            self.authService.getEndpointAccessGranted(self.EndpointName.partner_id_PUT)
+    }"
+
+    [dataValue]="self.partnerDetails.obligoLimit"
+    [isDisabled]="false"
+    [dataLabel]="''''" 
+    [translateKeys]="''PARTNER.DETAILS.PAYMENT_TERMS.OBLIGO_LIMIT''" 
+    [customClass]=''""''
+    [format]="null" 
+    [decimals]="null" 
+    [min]="null" 
+    [max]="null"
+    [autoCorrectMinMax]="false"
+></cr-numeric-control></div></div><div class="row undefined"><div class=''col-md-2''><cr-numeric-control
+    [elementName]="''numeric:Partner_details.Budget_limit''"
+    [dataValue]="self.partnerDetails.budgetLimit"
+    [isDisabled]="true"
+    [dataLabel]="''''" 
+    [translateKeys]="''PARTNER.DETAILS.PAYMENT_TERMS.BUDGET_LIMIT''" 
+    [customClass]=''""''
+    [format]="null" 
+    [decimals]="null" 
+    [min]="null" 
+    [max]="null"
+    [autoCorrectMinMax]="false"
+></cr-numeric-control></div><div class=''col-md-2''><cr-dropdown-smart-control
+    [elementName]="''smart-dropdown:Partner_details.Budget_type''"
+    [permissionSettings]="{
+        isAccessEdit: self.isNew ? self.authService.endpoints[self.EndpointName.partner_POST]?.isAccessGranted :
+            self.authService.endpoints[self.EndpointName.partner_id_PUT]?.isAccessGranted
+        }"
+    [value]="self.partnerDetails.budgetTypeId ? self.partnerDetails.budgetTypeId : null"
+    [textField]="''name''"
+    [valueField]="''uid''"
+    [getListItemsFunction]="self.getBudgetTypeDropdownList$"
+    [getOneItemFunction]="self.getBudgetTypeItemDropdown$"
+    (valueChange)="self.onBudgetTypeChanged($event)"
+    [dataTranslateKeyField]="''translateKey''"
+    [unselectedItemValue]="{uid: null, translateKey: ''COMMON.MOCK_OBJ.NOT_SELECTED''}"
+    [labelTranslateKey]="''PARTNER.DETAILS.PAYMENT_TERMS.BUDGET_TYPE''"
+    [label]="''''"
+    [class]=''""''
+                          ></cr-dropdown-smart-control></div><div class=''col-md-2''>
+        <ng-template [ngIf]="self.partnerDetails?.budgetTypeId === 1">
+            <cr-dropdown-smart-control
+    [(value)]="self.partnerDetails.budgetStartMonth"
+    [elementName]="''smart-dropdown:Partner_details.Budget_start_month''"
+    [permissionSettings]="{
+        isAccessEdit: self.isNew ? self.authService.endpoints[self.EndpointName.partner_POST]?.isAccessGranted :
+           self.authService.endpoints[self.EndpointName.partner_id_PUT]?.isAccessGranted
+    }"
+    [textField]="''name''"
+    [valueField]="''uid''"
+    [dataCacheName]="''PartnerBudgetStartMonthDropdownCache''"
+
+    [getListItemsFunction]="self.getMonthDropdownList$"
+    [getOneItemFunction]="self.getMonthItemDropdown$"
+    [dataTranslateKeyField]="''translateKey''"
+    [unselectedItemValue]="{uid: null, translateKey: ''COMMON.MOCK_OBJ.NOT_SELECTED''}"
+    [isDisabled]="false"
+    [labelTranslateKey]="''PARTNER.DETAILS.PAYMENT_TERMS.BUDGET_START_MONTH''"
+    [label]="''''"
+    [class]=''""''
+></cr-dropdown-smart-control>
+
+        </ng-template></div></div>
+        </ng-template>
+      </cr-panel>
+      <cr-panel
+        [panelTemplateType]="''collapsible-panel''"
+        [expanded]="self.panelsViewState?.[''statistic''] ?? false"
+        (expandedChange)="self.panelStateChange(''statistic'', $event)"
+        [titleTranslateKey]="true ? ''PARTNER.PANEL.STATISTIC'' : null"
+        [title]="true ? null : ''נתונים סטטיסטיים''"
+        [customClass]="''''"
+        [headerClass]="''''"
+        [validator]="self.validator"
+        [validatorGroupName]="''statistic''"
+        [containFields]=''[]''
+      >
+        <ng-template crPanelContent>
+          <div class="row undefined"><div class=''col-md-2''><cr-numeric-control
+    [elementName]="''numeric:Partner_details.Total_amount''"
+    [dataValue]="self.partnerDetails.totalAmount"
+    [isDisabled]="true"
+    [dataLabel]="''''" 
+    [translateKeys]="''PARTNER.DETAILS.STATISTIC.TOTAL_AMOUNT''" 
     [customClass]=''""''
     [format]="''n0''" 
     [decimals]="null" 
     [min]="null" 
     [max]="null"
     [autoCorrectMinMax]="false"
-></cr-numeric-control></div><div class=''col-lg-3''><cr-checkbox-control
-    [elementName]="''checkbox:Coupon_series_details.No_range''"
-    [permissionSettings]="{
-        isAccessEdit: self.isNewSeries ?
-            (self.EndpointName.coupon_series_POST | endpointAccessGrantedPipe):
-            (self.EndpointName.coupon_series_id_PUT | endpointAccessGrantedPipe)
-    }"
-    [(dataValue)]="self.series.withoutRange"
-    [dataLabel]="''''"
-    [translateKeys]="''SERIES.DETAILS.NO_RANGE''"
-    [isDisabled]="!self.isNewSeries"
-    [class]=''""''
-    (dataValueChange)="self.onNoRangeChange()"
-></cr-checkbox-control></div></div>
-        <ng-template [ngIf]="!self.series.withoutRange">
-            <div class="row cr-bottom-row-border"><div class=''col-lg-3''><cr-numeric-control
-    [elementName]="''numeric:Coupon_series_details.Coupon_range_from''"
-    [(dataValue)]="self.series.genFrom"
-    [permissionSettings]="{
-        isAccessEdit: self.isNewSeries ?
-            (self.EndpointName.coupon_series_POST | endpointAccessGrantedPipe):
-            (self.EndpointName.coupon_series_id_PUT | endpointAccessGrantedPipe)
-    }"
-    [validationField]="''genFrom''"
-    [validator]="self.validator"      
-    [dataLabel]="''''" 
-    [translateKeys]="''SERIES.DETAILS.COUPONS_RANGE_FROM''" 
-    [customClass]=''""''
-    [format]="''n0''" 
-    [decimals]="null" 
-    [min]="null" 
-    [max]="2147483647"
-    [autoCorrectMinMax]="true"
-    [isDisabled]="!self.isNewSeries"
-></cr-numeric-control></div><div class=''col-lg-3''><cr-numeric-control
-    [elementName]="''numeric:Coupon_series_details.Coupon_range_to''"
-    [(dataValue)]="self.series.genTo"
-    [permissionSettings]="{
-        isAccessEdit: self.isNewSeries ?
-            (self.EndpointName.coupon_series_POST | endpointAccessGrantedPipe):
-            (self.EndpointName.coupon_series_id_PUT | endpointAccessGrantedPipe)
-    }"
-    [validationField]="''genTo''"
-    [validator]="self.validator"      
-    [dataLabel]="''''" 
-    [translateKeys]="''SERIES.DETAILS.COUPONS_RANGE_TO''" 
-    [customClass]=''""''
-    [format]="''n0''" 
-    [decimals]="null" 
-    [min]="null" 
-    [max]="2147483647"
-    [autoCorrectMinMax]="true"
-></cr-numeric-control></div><div class=''col-lg-3''><cr-control-edit
-    [(dataValue)]="self.series.nextCouponNumber"
-    [elementName]="''edit:Coupon_series_details.Next_coupon_number''"
-    [permissionSettings]="{
-            isAccessEdit: self.isNewSeries ? (self.EndpointName.coupon_series_POST | endpointAccessGrantedPipe) :
-              (self.EndpointName.coupon_series_id_PUT | endpointAccessGrantedPipe)
-          }"
-    [translateKeys]="''SERIES.DETAILS.NEXT_COUPON_NUMBER''" 
-    [dataLabel]="''''"
-    [customClass]=''""''
+></cr-numeric-control></div><div class=''col-md-2''><cr-numeric-control
+    [elementName]="''numeric:Partner_details.Sales_count''"
+    [dataValue]="self.partnerDetails.salesCount"
     [isDisabled]="true"
-    [isReadOnly]="true"
-></cr-control-edit></div><div class=''col-lg-3''><cr-dropdown-smart-control
-    [elementName]="''smart-dropdown:Coupon_series_details.Status''"
-    [permissionSettings]="{
-        isAccessEdit: self.isNewSeries ?
-            (self.EndpointName.coupon_series_POST | endpointAccessGrantedPipe):
-            (self.EndpointName.coupon_series_id_PUT | endpointAccessGrantedPipe)
-    }"
-    [(value)]="self.series.couponsGenerated"
-    [textField]="''name''"
-    [valueField]="''propertyBoolean''"
-    [isDisabled]="true"
-    [isReadOnly]="true"
-    [getListItemsFunction]="self.getSeriesCouponStatusDropdownListFn$"
-    [getOneItemFunction]="self.getSeriesCouponStatusItemDropdownFn$"
-    [dataCacheName]="''SeriesDetailsStatusDropdownCache''"
-    [labelTranslateKey]="''SERIES.DETAILS.CLOSED''"
-    [label]="''''"
-    [class]=''""''
-></cr-dropdown-smart-control>
-</div></div>
-        </ng-template><div class="row undefined"><div class=''col-lg-6''><cr-checkbox-control
-    [elementName]="''checkbox:Coupon_series_details.Manual_discount_price''"
-    [permissionSettings]="{
-        isAccessEdit: self.isNewSeries ?
-            (self.EndpointName.coupon_series_POST | endpointAccessGrantedPipe):
-            (self.EndpointName.coupon_series_id_PUT | endpointAccessGrantedPipe)
-    }"
-    [(dataValue)]="self.series.manualDiscountPrice"
-    [dataLabel]="''''"
-    [translateKeys]="''SERIES.DETAILS.AS_VOUCHER''"
-    [class]=''""''
-></cr-checkbox-control></div><div class=''col-md-6''></div></div></div><div class=''col-lg-4''><div class="row undefined"><div class=''col-lg-12''><cr-text-area-control
-    [(dataValue)]="self.series.voucherText"
-    [elementName]="''textarea:Coupon_series_details.Voucher_text''"
-    [permissionSettings]="{
-              isAccessEdit: self.isNewSeries ?
-                (self.EndpointName.coupon_series_POST | endpointAccessGrantedPipe):
-                (self.EndpointName.coupon_series_id_PUT | endpointAccessGrantedPipe)
-              }"
-    [dataLabel]="''''"
-    [translateKeys]="''SERIES.DETAILS.VOUCHER_TEXT''"
-    [class]=''""'' 
-    [isDisabled]="false"
-    [rows]="10"
-    [maxlength]="50000"
-></cr-text-area-control></div><div class=''col-md-6''></div></div></div></div>
-        </ng-template>
-      </cr-panel>
-        </ng-template>
-      </ng-template>
-    </ng-template>
-    
-              </ng-container>
-            </ng-container>
-          </div>
-        </div>', '2022-12-28 14:14:55.8100000 +00:00', 18, N'N', 'cf5a9180-86e0-4d82-9f71-4c60a15b56f8', 1, NULL)
-INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID], [BookmarkName], [BookmarkDescription], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('eebd5a0c-c282-ed11-8360-02f176033ddb', 'ecbd5a0c-c282-ed11-8360-02f176033ddb', 2, N'', N'', N'
-        <div class=''cr-popup-content-wrapper'' [class.cr-popup-is-shown]=''self.popupTab.tabs.length > 1''>
-          <cr-popup-tabs
-            [popupTabs]=''self.popupTab.tabs''
-            [activePopup]=''self.popupTab.activeTabIndex''
-            (closePopup)=''self.removePopupTab($event)''
-            (changeActive)=''self.changeActiveTab($event)''
-          ></cr-popup-tabs>
-          <div class=''cr-details-inner-container''>
-            <ng-container *ngFor=''let tab of self.popupTab.tabs; index as i;''>
-              <ng-container [ngSwitch]=''tab.type''>
-                
-    <ng-template [ngSwitchCase]="''general''">
-      <ng-template [ngIf]="self.popupTab.tabs[self.popupTab.activeTabIndex].type == ''general'' && self.popupTab.activeTabIndex == i">
-        <div *ngIf=''self.popupTab.activeTabIndex != self.popupTab.tabs.length - 1'' class=''cr-popup-blocker''></div>
-        <cr-title-header
-    [titleTranslateKey]="''SERIES.DETAILS.TITLE''"
-    [title]="''''"
-    [titleValue]="self.titleValueText"
-    [additionalTranslateKeys]="''COMMON.NEW''"
-    (buttonClickEvent)="self.onTitleButtonClick($event)"
-    [buttonSettings]="self.titleHeaderButtonSettings"
-    [titleValueTranslateKey]="self.isNewSeries ? ''COMMON.NEW'' : null"
-></cr-title-header>
-        <ng-template [ngIf]="self.series">
-            
-      <cr-panel
-        [panelTemplateType]="''well''"
-        [customClass]="''''"
-      >
-        <ng-template crPanelContent>
-          <div class="row align-items-start"><div class=''col-lg-8''><div class="row cr-bottom-row-border"><div class=''col-lg-3''><cr-control-edit
-    [(dataValue)]="self.series.code"
-    [elementName]="''edit:Coupon_series_details.Code''"
-    [permissionSettings]="{
-            isAccessEdit: self.isNewSeries ? (self.EndpointName.coupon_series_POST | endpointAccessGrantedPipe) :
-              (self.EndpointName.coupon_series_id_PUT | endpointAccessGrantedPipe)
-          }"
-    [validator]="self.validator"
-    [validationField]="''code''"
-    [translateKeys]="''SERIES.DETAILS.CODE''" 
-    [dataLabel]="''''"
-    [customClass]=''""''
-    [isDisabled]="!self.isNewSeries || false"
-></cr-control-edit></div><div class=''col-lg-3''><cr-control-edit
-    [(dataValue)]="self.series.displayName"
-    [elementName]="''edit:Coupon_series_details.Name''"
-    [permissionSettings]="{
-            isAccessEdit: self.isNewSeries ? (self.EndpointName.coupon_series_POST | endpointAccessGrantedPipe) :
-              (self.EndpointName.coupon_series_id_PUT | endpointAccessGrantedPipe)
-          }"
-    [validator]="self.validator"
-    [validationField]="''displayName''"
-    [translateKeys]="''SERIES.DETAILS.NAME''" 
-    [dataLabel]="''''"
-    [customClass]=''""''
-    [isDisabled]="false"
-    (dataValueChange)="self.changeTitle()"
-></cr-control-edit></div><div class=''col-lg-3''><cr-numeric-control
-    [elementName]="''numeric:Coupon_series_details.Coupon_valid_days''"
-    [(dataValue)]="self.series.couponValidDays"
-    [permissionSettings]="{
-                    isAccessEdit: self.isNewSeries ?
-                    (self.EndpointName.coupon_series_POST | endpointAccessGrantedPipe):
-                    (self.EndpointName.coupon_series_id_PUT | endpointAccessGrantedPipe)
-                  }"
-    [validationField]="''couponValidDays''"
-    [validator]="self.validator"      
     [dataLabel]="''''" 
-    [translateKeys]="''SERIES.DETAILS.COUPON_VALID_DAYS''" 
+    [translateKeys]="''PARTNER.DETAILS.STATISTIC.SALES_COUNT''" 
     [customClass]=''""''
     [format]="''n0''" 
     [decimals]="null" 
     [min]="null" 
     [max]="null"
     [autoCorrectMinMax]="false"
-></cr-numeric-control></div><div class=''col-lg-3''><cr-checkbox-control
-    [elementName]="''checkbox:Coupon_series_details.No_range''"
-    [permissionSettings]="{
-        isAccessEdit: self.isNewSeries ?
-            (self.EndpointName.coupon_series_POST | endpointAccessGrantedPipe):
-            (self.EndpointName.coupon_series_id_PUT | endpointAccessGrantedPipe)
-    }"
-    [(dataValue)]="self.series.withoutRange"
-    [dataLabel]="''''"
-    [translateKeys]="''SERIES.DETAILS.NO_RANGE''"
-    [isDisabled]="!self.isNewSeries"
-    [class]=''""''
-    (dataValueChange)="self.onNoRangeChange()"
-></cr-checkbox-control></div></div>
-        <ng-template [ngIf]="!self.series.withoutRange">
-            <div class="row cr-bottom-row-border"><div class=''col-lg-3''><cr-numeric-control
-    [elementName]="''numeric:Coupon_series_details.Coupon_range_from''"
-    [(dataValue)]="self.series.genFrom"
-    [permissionSettings]="{
-        isAccessEdit: self.isNewSeries ?
-            (self.EndpointName.coupon_series_POST | endpointAccessGrantedPipe):
-            (self.EndpointName.coupon_series_id_PUT | endpointAccessGrantedPipe)
-    }"
-    [validationField]="''genFrom''"
-    [validator]="self.validator"      
-    [dataLabel]="''''" 
-    [translateKeys]="''SERIES.DETAILS.COUPONS_RANGE_FROM''" 
-    [customClass]=''""''
-    [format]="''n0''" 
-    [decimals]="null" 
-    [min]="null" 
-    [max]="2147483647"
-    [autoCorrectMinMax]="true"
-    [isDisabled]="!self.isNewSeries"
-></cr-numeric-control></div><div class=''col-lg-3''><cr-numeric-control
-    [elementName]="''numeric:Coupon_series_details.Coupon_range_to''"
-    [(dataValue)]="self.series.genTo"
-    [permissionSettings]="{
-        isAccessEdit: self.isNewSeries ?
-            (self.EndpointName.coupon_series_POST | endpointAccessGrantedPipe):
-            (self.EndpointName.coupon_series_id_PUT | endpointAccessGrantedPipe)
-    }"
-    [validationField]="''genTo''"
-    [validator]="self.validator"      
-    [dataLabel]="''''" 
-    [translateKeys]="''SERIES.DETAILS.COUPONS_RANGE_TO''" 
-    [customClass]=''""''
-    [format]="''n0''" 
-    [decimals]="null" 
-    [min]="null" 
-    [max]="2147483647"
-    [autoCorrectMinMax]="true"
-></cr-numeric-control></div><div class=''col-lg-3''><cr-control-edit
-    [(dataValue)]="self.series.nextCouponNumber"
-    [elementName]="''edit:Coupon_series_details.Next_coupon_number''"
-    [permissionSettings]="{
-            isAccessEdit: self.isNewSeries ? (self.EndpointName.coupon_series_POST | endpointAccessGrantedPipe) :
-              (self.EndpointName.coupon_series_id_PUT | endpointAccessGrantedPipe)
-          }"
-    [translateKeys]="''SERIES.DETAILS.NEXT_COUPON_NUMBER''" 
-    [dataLabel]="''''"
-    [customClass]=''""''
+></cr-numeric-control></div><div class=''col-md-2''><cr-numeric-control
+    [elementName]="''numeric:Partner_details.Returns_count''"
+    [dataValue]="self.partnerDetails.returnsCount"
     [isDisabled]="true"
-    [isReadOnly]="true"
-></cr-control-edit></div><div class=''col-lg-3''><cr-dropdown-smart-control
-    [elementName]="''smart-dropdown:Coupon_series_details.Status''"
-    [permissionSettings]="{
-        isAccessEdit: self.isNewSeries ?
-            (self.EndpointName.coupon_series_POST | endpointAccessGrantedPipe):
-            (self.EndpointName.coupon_series_id_PUT | endpointAccessGrantedPipe)
-    }"
-    [(value)]="self.series.couponsGenerated"
-    [textField]="''name''"
-    [valueField]="''propertyBoolean''"
-    [isDisabled]="true"
-    [isReadOnly]="true"
-    [getListItemsFunction]="self.getSeriesCouponStatusDropdownListFn$"
-    [getOneItemFunction]="self.getSeriesCouponStatusItemDropdownFn$"
-    [dataCacheName]="''SeriesDetailsStatusDropdownCache''"
-    [labelTranslateKey]="''SERIES.DETAILS.CLOSED''"
-    [label]="''''"
-    [class]=''""''
-></cr-dropdown-smart-control>
-</div></div>
-        </ng-template><div class="row undefined"><div class=''col-lg-6''><cr-checkbox-control
-    [elementName]="''checkbox:Coupon_series_details.Manual_discount_price''"
-    [permissionSettings]="{
-        isAccessEdit: self.isNewSeries ?
-            (self.EndpointName.coupon_series_POST | endpointAccessGrantedPipe):
-            (self.EndpointName.coupon_series_id_PUT | endpointAccessGrantedPipe)
-    }"
-    [(dataValue)]="self.series.manualDiscountPrice"
-    [dataLabel]="''''"
-    [translateKeys]="''SERIES.DETAILS.AS_VOUCHER''"
-    [class]=''""''
-></cr-checkbox-control></div><div class=''col-md-6''></div></div></div><div class=''col-lg-4''><div class="row undefined"><div class=''col-lg-12''><cr-text-area-control
-    [(dataValue)]="self.series.voucherText"
-    [elementName]="''textarea:Coupon_series_details.Voucher_text''"
-    [permissionSettings]="{
-              isAccessEdit: self.isNewSeries ?
-                (self.EndpointName.coupon_series_POST | endpointAccessGrantedPipe):
-                (self.EndpointName.coupon_series_id_PUT | endpointAccessGrantedPipe)
-              }"
-    [dataLabel]="''''"
-    [translateKeys]="''SERIES.DETAILS.VOUCHER_TEXT''"
-    [class]=''""'' 
-    [isDisabled]="false"
-    [rows]="10"
-    [maxlength]="50000"
-></cr-text-area-control></div><div class=''col-md-6''></div></div></div></div>
-        </ng-template>
-      </cr-panel>
-        </ng-template>
-      </ng-template>
-    </ng-template>
-    
-              </ng-container>
-            </ng-container>
-          </div>
-        </div>', '2022-12-28 14:14:55.8100000 +00:00', 18, N'N', '418db067-1369-4d25-9656-9455f654fad3', 1, NULL)
-INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID], [BookmarkName], [BookmarkDescription], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('f25d5825-c282-ed11-8360-02f176033ddb', 'f15d5825-c282-ed11-8360-02f176033ddb', 1, N'', N'', N'
-        <div class=''cr-popup-content-wrapper'' [class.cr-popup-is-shown]=''self.popupTab.tabs.length > 1''>
-          <cr-popup-tabs
-            [popupTabs]=''self.popupTab.tabs''
-            [activePopup]=''self.popupTab.activeTabIndex''
-            (closePopup)=''self.removePopupTab($event)''
-            (changeActive)=''self.changeActiveTab($event)''
-          ></cr-popup-tabs>
-          <div class=''cr-details-inner-container''>
-            <ng-container *ngFor=''let tab of self.popupTab.tabs; index as i;''>
-              <ng-container [ngSwitch]=''tab.type''>
-                
-    <ng-template [ngSwitchCase]="''general''">
-      <ng-template [ngIf]="self.popupTab.tabs[self.popupTab.activeTabIndex].type == ''general'' && self.popupTab.activeTabIndex == i">
-        <div *ngIf=''self.popupTab.activeTabIndex != self.popupTab.tabs.length - 1'' class=''cr-popup-blocker''></div>
-        <cr-title-header
-    [titleTranslateKey]="''SERIES.DETAILS.TITLE''"
-    [title]="''''"
-    [titleValue]="self.titleValueText"
-    [additionalTranslateKeys]="''COMMON.NEW''"
-    (buttonClickEvent)="self.onTitleButtonClick($event)"
-    [buttonSettings]="self.titleHeaderButtonSettings"
-    [titleValueTranslateKey]="self.isNewSeries ? ''COMMON.NEW'' : null"
-></cr-title-header>
-        <ng-template [ngIf]="self.series">
-            
-      <cr-panel
-        [panelTemplateType]="''well''"
-        [customClass]="''''"
-      >
-        <ng-template crPanelContent>
-          <div class="row undefined"><div class=''col-lg-8''><div class="row cr-bottom-row-border"><div class=''col-lg-3''><cr-control-edit
-    [(dataValue)]="self.series.code"
-    [elementName]="''edit:Coupon_series_details.Code''"
-    [permissionSettings]="{
-            isAccessEdit: self.isNewSeries ? (self.EndpointName.coupon_series_POST | endpointAccessGrantedPipe) :
-              (self.EndpointName.coupon_series_id_PUT | endpointAccessGrantedPipe)
-          }"
-    [validator]="self.validator"
-    [validationField]="''code''"
-    [translateKeys]="''SERIES.DETAILS.CODE''" 
-    [dataLabel]="''''"
-    [customClass]=''""''
-    [isDisabled]="!self.isNewSeries || false"
-></cr-control-edit></div><div class=''col-lg-3''><cr-control-edit
-    [(dataValue)]="self.series.displayName"
-    [elementName]="''edit:Coupon_series_details.Name''"
-    [permissionSettings]="{
-            isAccessEdit: self.isNewSeries ? (self.EndpointName.coupon_series_POST | endpointAccessGrantedPipe) :
-              (self.EndpointName.coupon_series_id_PUT | endpointAccessGrantedPipe)
-          }"
-    [validator]="self.validator"
-    [validationField]="''displayName''"
-    [translateKeys]="''SERIES.DETAILS.NAME''" 
-    [dataLabel]="''''"
-    [customClass]=''""''
-    [isDisabled]="false"
-    (dataValueChange)="self.changeTitle()"
-></cr-control-edit></div><div class=''col-lg-3''><cr-numeric-control
-    [elementName]="''numeric:Coupon_series_details.Coupon_valid_days''"
-    [(dataValue)]="self.series.couponValidDays"
-    [permissionSettings]="{
-                    isAccessEdit: self.isNewSeries ?
-                    (self.EndpointName.coupon_series_POST | endpointAccessGrantedPipe):
-                    (self.EndpointName.coupon_series_id_PUT | endpointAccessGrantedPipe)
-                  }"
-    [validationField]="''couponValidDays''"
-    [validator]="self.validator"      
     [dataLabel]="''''" 
-    [translateKeys]="''SERIES.DETAILS.COUPON_VALID_DAYS''" 
+    [translateKeys]="''PARTNER.DETAILS.STATISTIC.RETURNS_COUNT''" 
     [customClass]=''""''
     [format]="''n0''" 
     [decimals]="null" 
     [min]="null" 
     [max]="null"
     [autoCorrectMinMax]="false"
-></cr-numeric-control></div><div class=''col-lg-3''><cr-checkbox-control
-    [elementName]="''checkbox:Coupon_series_details.No_range''"
+></cr-numeric-control></div><div class=''col-md-2''><cr-control-datepicker
+    [elementName]="''date:Partner_details.Registration_date''"
     [permissionSettings]="{
-        isAccessEdit: self.isNewSeries ?
-            (self.EndpointName.coupon_series_POST | endpointAccessGrantedPipe):
-            (self.EndpointName.coupon_series_id_PUT | endpointAccessGrantedPipe)
+        isAccessEdit: self.isNew ? self.authService.getEndpointAccessGranted(self.EndpointName.partner_POST) :
+            self.authService.getEndpointAccessGranted(self.EndpointName.partner_id_PUT)
     }"
-    [(dataValue)]="self.series.withoutRange"
+
+    [(dataValue)]="self.partnerDetails.registrationDate"
     [dataLabel]="''''"
-    [translateKeys]="''SERIES.DETAILS.NO_RANGE''"
-    [isDisabled]="!self.isNewSeries"
-    [class]=''""''
-    (dataValueChange)="self.onNoRangeChange()"
-></cr-checkbox-control></div></div>
-        <ng-template [ngIf]="!self.series.withoutRange">
-            <div class="row cr-bottom-row-border"><div class=''col-lg-3''><cr-numeric-control
-    [elementName]="''numeric:Coupon_series_details.Coupon_range_from''"
-    [(dataValue)]="self.series.genFrom"
-    [permissionSettings]="{
-        isAccessEdit: self.isNewSeries ?
-            (self.EndpointName.coupon_series_POST | endpointAccessGrantedPipe):
-            (self.EndpointName.coupon_series_id_PUT | endpointAccessGrantedPipe)
-    }"
-    [validationField]="''genFrom''"
-    [validator]="self.validator"      
-    [dataLabel]="''''" 
-    [translateKeys]="''SERIES.DETAILS.COUPONS_RANGE_FROM''" 
-    [customClass]=''""''
-    [format]="''n0''" 
-    [decimals]="null" 
-    [min]="null" 
-    [max]="2147483647"
-    [autoCorrectMinMax]="true"
-    [isDisabled]="!self.isNewSeries"
-></cr-numeric-control></div><div class=''col-lg-3''><cr-numeric-control
-    [elementName]="''numeric:Coupon_series_details.Coupon_range_to''"
-    [(dataValue)]="self.series.genTo"
-    [permissionSettings]="{
-        isAccessEdit: self.isNewSeries ?
-            (self.EndpointName.coupon_series_POST | endpointAccessGrantedPipe):
-            (self.EndpointName.coupon_series_id_PUT | endpointAccessGrantedPipe)
-    }"
-    [validationField]="''genTo''"
-    [validator]="self.validator"      
-    [dataLabel]="''''" 
-    [translateKeys]="''SERIES.DETAILS.COUPONS_RANGE_TO''" 
-    [customClass]=''""''
-    [format]="''n0''" 
-    [decimals]="null" 
-    [min]="null" 
-    [max]="2147483647"
-    [autoCorrectMinMax]="true"
-></cr-numeric-control></div><div class=''col-lg-3''><cr-control-edit
-    [(dataValue)]="self.series.nextCouponNumber"
-    [elementName]="''edit:Coupon_series_details.Next_coupon_number''"
-    [permissionSettings]="{
-            isAccessEdit: self.isNewSeries ? (self.EndpointName.coupon_series_POST | endpointAccessGrantedPipe) :
-              (self.EndpointName.coupon_series_id_PUT | endpointAccessGrantedPipe)
-          }"
-    [translateKeys]="''SERIES.DETAILS.NEXT_COUPON_NUMBER''" 
-    [dataLabel]="''''"
-    [customClass]=''""''
-    [isDisabled]="true"
-    [isReadOnly]="true"
-></cr-control-edit></div><div class=''col-lg-3''><cr-dropdown-smart-control
-    [elementName]="''smart-dropdown:Coupon_series_details.Status''"
-    [permissionSettings]="{
-        isAccessEdit: self.isNewSeries ?
-            (self.EndpointName.coupon_series_POST | endpointAccessGrantedPipe):
-            (self.EndpointName.coupon_series_id_PUT | endpointAccessGrantedPipe)
-    }"
-    [(value)]="self.series.couponsGenerated"
-    [textField]="''name''"
-    [valueField]="''propertyBoolean''"
-    [isDisabled]="true"
-    [isReadOnly]="true"
-    [getListItemsFunction]="self.getSeriesCouponStatusDropdownListFn$"
-    [getOneItemFunction]="self.getSeriesCouponStatusItemDropdownFn$"
-    [dataCacheName]="''SeriesDetailsStatusDropdownCache''"
-    [labelTranslateKey]="''SERIES.DETAILS.CLOSED''"
-    [label]="''''"
-    [class]=''""''
-></cr-dropdown-smart-control>
-</div></div>
-        </ng-template><div class="row undefined"><div class=''col-lg-6''><cr-checkbox-control
-    [elementName]="''checkbox:Coupon_series_details.Manual_discount_price''"
-    [permissionSettings]="{
-        isAccessEdit: self.isNewSeries ?
-            (self.EndpointName.coupon_series_POST | endpointAccessGrantedPipe):
-            (self.EndpointName.coupon_series_id_PUT | endpointAccessGrantedPipe)
-    }"
-    [(dataValue)]="self.series.manualDiscountPrice"
-    [dataLabel]="''''"
-    [translateKeys]="''SERIES.DETAILS.AS_VOUCHER''"
-    [class]=''""''
-></cr-checkbox-control></div><div class=''col-lg-6''></div></div></div><div class=''col-lg-4''><div class="row undefined"><div class=''col-lg-12''><cr-text-area-control
-    [(dataValue)]="self.series.voucherText"
-    [elementName]="''textarea:Coupon_series_details.Voucher_text''"
-    [permissionSettings]="{
-              isAccessEdit: self.isNewSeries ?
-                (self.EndpointName.coupon_series_POST | endpointAccessGrantedPipe):
-                (self.EndpointName.coupon_series_id_PUT | endpointAccessGrantedPipe)
-              }"
-    [dataLabel]="''''"
-    [translateKeys]="''SERIES.DETAILS.VOUCHER_TEXT''"
+    [translateKeys]="''PARTNER.DETAILS.STATISTIC.REGISTRATION_DATE''"
     [class]=''""'' 
     [isDisabled]="false"
-    [rows]="10"
+></cr-control-datepicker></div><div class=''col-md-2''><cr-control-datepicker
+    [elementName]="''date:Partner_details.Last_sale_date''"
+    [permissionSettings]="{
+        isAccessEdit: self.isNew ? self.authService.getEndpointAccessGranted(self.EndpointName.partner_POST) :
+            self.authService.getEndpointAccessGranted(self.EndpointName.partner_id_PUT)
+    }"
+
+    [(dataValue)]="self.partnerDetails.lastSaleDate"
+    [dataLabel]="''''"
+    [translateKeys]="''PARTNER.DETAILS.STATISTIC.LAST_SALE_DATE''"
+    [class]=''""'' 
+    [isDisabled]="false"
+></cr-control-datepicker></div><div class=''col-md-2''><cr-dropdown-smart-control
+    [elementName]="''smart-dropdown:Partner_details.Linked_store''"
+    [permissionSettings]="{
+        isAccessRead: self.authService.getEndpointAccessGranted(self.EndpointName.partner__location_objectId_dropdown_GET),
+        isAccessEdit: (self.isNew ? self.authService.getEndpointAccessGranted(self.EndpointName.partner_POST) :
+            self.authService.getEndpointAccessGranted(self.EndpointName.partner_id_PUT)) &&
+            self.authService.getEndpointAccessGranted(self.EndpointName.partner__location_dropdown_GET)
+    }"
+
+    [dataCacheName]="''PartnerStoreListDropdownCache''"
+    [(value)]="self.partnerDetails.linkedStoreId"
+    [textField]="''name''"
+    [valueField]="''id''"
+    [getOneItemFunction]="self.loadStoreForDropdownFn"
+    [getListItemsFunction]="self.loadStoreListForDropdownFn"
+    [useCodeInList]="true"
+    [useCodeInValue]="true"
+    [unselectedItemValue]="{id: null, translateKey: ''COMMON.MOCK_OBJ.NOT_SELECTED''}"
+    [dataTranslateKeyField]="''translateKey''"
+    [labelTranslateKey]="''PARTNER.DETAILS.GENERAL.LINKED_STORE''"
+    [label]="''''"
+    [class]=''""''
+></cr-dropdown-smart-control></div></div>
+        </ng-template>
+      </cr-panel>
+      <cr-panel
+        [panelTemplateType]="''collapsible-panel''"
+        [expanded]="self.panelsViewState?.[''groups''] ?? false"
+        (expandedChange)="self.panelStateChange(''groups'', $event)"
+        [titleTranslateKey]="true ? ''PARTNER.PANEL.GROUPS'' : null"
+        [title]="true ? null : ''קבוצות''"
+        [customClass]="''''"
+        [headerClass]="''''"
+        [validator]="self.validator"
+        [validatorGroupName]="''groups''"
+        [containFields]=''["partnerGroups"]''
+      >
+        <ng-template crPanelContent>
+          <cr-partner-group-control
+    [editable]="true && (self.isNew ? 
+            self.authService.getEndpointAccessGranted(self.EndpointName.partner_POST) :
+            self.authService.getEndpointAccessGranted(self.EndpointName.partner_id_PUT))"
+
+    [partnerId]="self.partnerDetails.id"
+    [(selectedGroups)]="self.partnerDetails.partnerGroups"
+    [class]=''""''
+    [editIcon]="''icon-edit''"
+    (editClickEvent)="self.onEditPartnerGroup()"
+></cr-partner-group-control>
+        </ng-template>
+      </cr-panel>
+      <cr-panel
+        [panelTemplateType]="''collapsible-panel''"
+        [expanded]="self.panelsViewState?.[''addresses''] ?? false"
+        (expandedChange)="self.panelStateChange(''addresses'', $event)"
+        [titleTranslateKey]="true ? ''PARTNER.PANEL.ADDRESSES'' : null"
+        [title]="true ? null : ''כתובות''"
+        [customClass]="''''"
+        [headerClass]="''''"
+        [validator]="self.validator"
+        [validatorGroupName]="''addresses''"
+        [containFields]=''[]''
+      >
+        <ng-template crPanelContent>
+          <cr-partner-address-list
+    (openAddressPopup)="self.onCreatePartnerAddresses()"
+    (editAddressPopup)="self.onEditPartnerAddresses($event)"
+    [editable]="true"
+    [class]=''""''
+    [isNew]="self.isNew"
+    [partner]="self.partnerDetails"
+></cr-partner-address-list>
+        </ng-template>
+      </cr-panel>
+      <cr-panel
+        [panelTemplateType]="''collapsible-panel''"
+        [expanded]="self.panelsViewState?.[''contactPersons''] ?? false"
+        (expandedChange)="self.panelStateChange(''contactPersons'', $event)"
+        [titleTranslateKey]="true ? ''PARTNER.PANEL.CONTACT_PERSONS'' : null"
+        [title]="true ? null : ''Contact persons he''"
+        [customClass]="''''"
+        [headerClass]="''''"
+        [validator]="self.validator"
+        [validatorGroupName]="''contactPersons''"
+        [containFields]=''[]''
+      >
+        <ng-template crPanelContent>
+          <cr-partner-contact-persons-list
+    (openAddressPopup)="self.onCreatePartnerContactPersons()"
+    (editAddressPopup)="self.onEditPartnerContactPersons($event)"
+    [isNew]="self.isNew"
+    [partner]="self.partnerDetails"
+    [class]=''""''
+></cr-partner-contact-persons-list>
+        </ng-template>
+      </cr-panel>
+      <cr-panel
+        [panelTemplateType]="''collapsible-panel''"
+        [expanded]="self.panelsViewState?.[''cards''] ?? false"
+        (expandedChange)="self.panelStateChange(''cards'', $event)"
+        [titleTranslateKey]="true ? ''PARTNER.PANEL.CARDS'' : null"
+        [title]="true ? null : ''מספרי כרטיס נוספים''"
+        [customClass]="''''"
+        [headerClass]="''''"
+        [validator]="self.validator"
+        [validatorGroupName]="''cards''"
+        [containFields]=''[]''
+      >
+        <ng-template crPanelContent>
+          <cr-partner-cards-list
+    [editable]="true"
+    [class]=''""''
+    [partnerId]="self.partnerDetails.id"
+    [isDeletedPartner]="self.partnerDetails.isDeleted"
+></cr-partner-cards-list>
+        </ng-template>
+      </cr-panel>
+      <cr-panel
+        [panelTemplateType]="''collapsible-panel''"
+        [expanded]="self.panelsViewState?.[''points''] ?? false"
+        (expandedChange)="self.panelStateChange(''points'', $event)"
+        [titleTranslateKey]="true ? ''PARTNER.PANEL.POINT'' : null"
+        [title]="true ? null : ''נקודות נאמנות''"
+        [customClass]="''''"
+        [headerClass]="''''"
+        [validator]="self.validator"
+        [validatorGroupName]="''points''"
+        [containFields]=''[]''
+      >
+        <ng-template crPanelContent>
+          <cr-partner-point 
+    [class]=''""''
+    [partnerID]="self.partnerDetails.id"
+></cr-partner-point>
+        </ng-template>
+      </cr-panel>
+      <cr-panel
+        [panelTemplateType]="''collapsible-panel''"
+        [expanded]="self.panelsViewState?.[''pointHistory''] ?? false"
+        (expandedChange)="self.panelStateChange(''pointHistory'', $event)"
+        [titleTranslateKey]="true ? ''PARTNER.PANEL.POINT_HISTORY'' : null"
+        [title]="true ? null : ''היסטוריית נקודות''"
+        [customClass]="''''"
+        [headerClass]="''''"
+        [validator]="self.validator"
+        [validatorGroupName]="''pointHistory''"
+        [containFields]=''[]''
+      >
+        <ng-template crPanelContent>
+          <cr-partner-point-history
+    [class]=''""''
+    [partnerId]="self.partnerDetails.id"
+></cr-partner-point-history>
+        </ng-template>
+      </cr-panel>
+      <cr-panel
+        [panelTemplateType]="''collapsible-panel''"
+        [expanded]="self.panelsViewState?.[''transactionHistory''] ?? false"
+        (expandedChange)="self.panelStateChange(''transactionHistory'', $event)"
+        [titleTranslateKey]="true ? ''PARTNER.PANEL.TRANSACTION_HISTORY'' : null"
+        [title]="true ? null : ''היסטוריה''"
+        [customClass]="''''"
+        [headerClass]="''''"
+        [validator]="self.validator"
+        [validatorGroupName]="''transactionHistory''"
+        [containFields]=''[]''
+      >
+        <ng-template crPanelContent>
+          <cr-partner-transaction-history
+    [class]=''""''
+    [partnerId]="self.partnerDetails.id"
+></cr-partner-transaction-history>
+        </ng-template>
+      </cr-panel>
+      <cr-panel
+        [panelTemplateType]="''collapsible-panel''"
+        [expanded]="self.panelsViewState?.[''discountBudget''] ?? false"
+        (expandedChange)="self.panelStateChange(''discountBudget'', $event)"
+        [titleTranslateKey]="true ? ''PARTNER.PANEL.DISCOUNT_BUDGET'' : null"
+        [title]="true ? null : ''תקציב הנחות''"
+        [customClass]="''''"
+        [headerClass]="''''"
+        [validator]="self.validator"
+        [validatorGroupName]="''discountBudget''"
+        [containFields]=''[]''
+      >
+        <ng-template crPanelContent>
+          <cr-partner-discount-budget 
+    [class]=''""''
+    [partnerId]="self.partnerDetails.id"
+></cr-partner-discount-budget>
+        </ng-template>
+      </cr-panel>
+      <cr-panel
+        [panelTemplateType]="''collapsible-panel''"
+        [expanded]="self.panelsViewState?.[''udf''] ?? false"
+        (expandedChange)="self.panelStateChange(''udf'', $event)"
+        [titleTranslateKey]="true ? ''PARTNER.PANEL.UDF'' : null"
+        [title]="true ? null : ''UDF he''"
+        [customClass]="''''"
+        [headerClass]="''''"
+        [validator]="self.validator"
+        [validatorGroupName]="''udf''"
+        [containFields]=''[]''
+      >
+        <ng-template crPanelContent>
+          <cr-udf-list
+    [cacheName]="''PartnerUserFieldViewStateCache''"
+    *ngIf="self.authService.endpoints[self.EndpointName.partner__user_defined_field_GET]?.isAccessGranted &&
+        self.authService.endpoints[self.EndpointName.partner__user_defined_field_default_value_GET]?.isAccessGranted; else noAccess"
+    [isNew]="self.isNew"
+    [udf]="self.partnerDetails.udf"
+    [viewName]="''Partner_details''"
+    [loadUserDefinedFieldListForDropdownFn$]="self.loadUserDefinedFieldListForDropdownFn$"
+    [getUserFields$]="self.getUserFields$"
+    [loadUserFields$]="self.loadUserFields$"
+    [getUserFieldsDefault$]="self.getUserFieldsDefault$"
+    [class]=''""''
+></cr-udf-list>
+<ng-template #noAccess>
+    <div class="cr-no-read-access p-2">
+        {{''COMMON.GRID.NO_READ_ACCESS'' | translate}}
+    </div>
+</ng-template>
+        </ng-template>
+      </cr-panel>
+      <cr-panel
+        [panelTemplateType]="''collapsible-panel''"
+        [expanded]="self.panelsViewState?.[''remark''] ?? false"
+        (expandedChange)="self.panelStateChange(''remark'', $event)"
+        [titleTranslateKey]="true ? ''PARTNER.PANEL.REMARK'' : null"
+        [title]="true ? null : ''הערה''"
+        [customClass]="''''"
+        [headerClass]="''''"
+        [validator]="self.validator"
+        [validatorGroupName]="''remark''"
+        [containFields]=''[]''
+      >
+        <ng-template crPanelContent>
+          <div class="row undefined"><div class=''col-md-12''><cr-text-area-control
+    [elementName]="''textarea:Partner_details.Remark''"
+    [(dataValue)]="self.partnerDetails.remark"
+    [dataLabel]="''''"
+    [translateKeys]="''''"
+    [class]=''""'' 
+    [isDisabled]="false"
+    [rows]="2"
     [maxlength]="50000"
-></cr-text-area-control></div><div class=''col-md-6''></div></div></div></div>
+    [permissionSettings]="{
+        isAccessEdit: self.isNew ? self.authService.getEndpointAccessGranted(self.EndpointName.partner_POST) :
+            self.authService.getEndpointAccessGranted(self.EndpointName.partner_id_PUT)
+    }"
+></cr-text-area-control></div><div class=''col-md-6''></div></div>
         </ng-template>
       </cr-panel>
         </ng-template>
       </ng-template>
     </ng-template>
     
+        <ng-template [ngSwitchCase]="''manage-mailing-category-partner''">
+          <ng-template
+            [ngIf]="self.popupTab.tabs[self.popupTab.activeTabIndex].type == ''manage-mailing-category-partner'' && self.popupTab.activeTabIndex == i">
+            <div *ngIf=''self.popupTab.activeTabIndex != self.popupTab.tabs.length - 1'' class=''cr-popup-blocker''></div>
+            <cr-partner-mailing-category-manage-dynamic
+    [subTemplateId]="''0900AEBD-4251-ED11-8E5D-4CCC6A2BB6D6''"
+    [(selectedMailingCategory)]="self.partnerDetails.mailingCategories"
+    (cancelClickEvent)="self.onCloseMailingCategory()"
+    (confirmClickEvent)="self.onCloseMailingCategory()"
+></cr-partner-mailing-category-manage-dynamic>
+
+          </ng-template>
+        </ng-template>
+      
+        <ng-template [ngSwitchCase]="''manage-partner-groups''">
+          <ng-template
+            [ngIf]="self.popupTab.tabs[self.popupTab.activeTabIndex].type == ''manage-partner-groups'' && self.popupTab.activeTabIndex == i">
+            <div *ngIf=''self.popupTab.activeTabIndex != self.popupTab.tabs.length - 1'' class=''cr-popup-blocker''></div>
+            <cr-partner-group-manage-dynamic
+    [subTemplateId]="''0A00AEBD-4251-ED11-8E5D-4CCC6A2BB6D6''"
+    [partnerId]="self.partnerDetails.id"
+    [partnerTypeId]="self.partnerDetails.partnerTypeId"
+    [(selectedGroups)]="self.partnerDetails.partnerGroups"
+    (cancelClickEvent)="self.onClosePartnerGroup()"
+    (confirmClickEvent)="self.onClosePartnerGroup()"
+></cr-partner-group-manage-dynamic>
+          </ng-template>
+        </ng-template>
+      
+        <ng-template [ngSwitchCase]="''manage-partner-addresses-create''">
+          <ng-template
+            [ngIf]="self.popupTab.tabs[self.popupTab.activeTabIndex].type == ''manage-partner-addresses-create'' && self.popupTab.activeTabIndex == i">
+            <div *ngIf=''self.popupTab.activeTabIndex != self.popupTab.tabs.length - 1'' class=''cr-popup-blocker''></div>
+            <cr-addresses-details-dynamic
+    [subTemplateId]="''0B00AEBD-4251-ED11-8E5D-4CCC6A2BB6D6''"
+    (closeClickEvent)="self.onClosePartnerAddresses()"
+    [isNew]="true"
+    [itemAddress]="self.partnerDetailsAddress"
+    (newAddress)="self.onConfirmPartnerAddresses($event, true)"
+></cr-addresses-details-dynamic>
+
+          </ng-template>
+        </ng-template>
+      
+        <ng-template [ngSwitchCase]="''manage-mailing-category-contact-person''">
+          <ng-template
+            [ngIf]="self.popupTab.tabs[self.popupTab.activeTabIndex].type == ''manage-mailing-category-contact-person'' && self.popupTab.activeTabIndex == i">
+            <div *ngIf=''self.popupTab.activeTabIndex != self.popupTab.tabs.length - 1'' class=''cr-popup-blocker''></div>
+            <cr-partner-mailing-category-manage-dynamic
+    [subTemplateId]="''0900AEBD-4251-ED11-8E5D-4CCC6A2BB6D6''"
+    (selectedMailingCategoryChange)="self.partnerDetailsContactPerson.mailingCategories = $event"
+    [(selectedMailingCategory)]="self.partnerDetailsContactPerson.mailingCategories"
+    (cancelClickEvent)="self.onCloseMailingCategory()"
+    (confirmClickEvent)="self.onCloseMailingCategory()"
+></cr-partner-mailing-category-manage-dynamic>
+
+          </ng-template>
+        </ng-template>
+      
+        <ng-template [ngSwitchCase]="''manage-partner-addresses-update''">
+          <ng-template
+            [ngIf]="self.popupTab.tabs[self.popupTab.activeTabIndex].type == ''manage-partner-addresses-update'' && self.popupTab.activeTabIndex == i">
+            <div *ngIf=''self.popupTab.activeTabIndex != self.popupTab.tabs.length - 1'' class=''cr-popup-blocker''></div>
+            <cr-addresses-details-dynamic
+    [subTemplateId]="''7BCDF1FD-535C-ED11-8E5E-4CCC6A2BB6D6''"
+    [isNew]="false"
+    (closeClickEvent)="self.onClosePartnerAddresses()"
+    (confirmAddress)="self.onConfirmPartnerAddresses($event)"
+    [itemAddress]="self.partnerDetailsAddress"
+></cr-addresses-details-dynamic>
+          </ng-template>
+        </ng-template>
+      
+        <ng-template [ngSwitchCase]="''manage-partner-contact-persons-update''">
+          <ng-template
+            [ngIf]="self.popupTab.tabs[self.popupTab.activeTabIndex].type == ''manage-partner-contact-persons-update'' && self.popupTab.activeTabIndex == i">
+            <div *ngIf=''self.popupTab.activeTabIndex != self.popupTab.tabs.length - 1'' class=''cr-popup-blocker''></div>
+            <cr-partner-contact-persons-details
+    [subTemplateId]="''BBD312CC-5B5C-ED11-8E5E-4CCC6A2BB6D6''"
+    (openMailingCategory)="self.onEditContactPersonMailingCategory()"
+    (closeClickEvent)="self.onClosePartnerContactPersons()"
+    (confirmContactPerson)="self.onConfirmPartnerContactPersons($event)"
+    [itemContactPerson]="self.partnerDetailsContactPerson"
+></cr-partner-contact-persons-details>
+          </ng-template>
+        </ng-template>
+      
+        <ng-template [ngSwitchCase]="''manage-partner-contact-persons-create''">
+          <ng-template
+            [ngIf]="self.popupTab.tabs[self.popupTab.activeTabIndex].type == ''manage-partner-contact-persons-create'' && self.popupTab.activeTabIndex == i">
+            <div *ngIf=''self.popupTab.activeTabIndex != self.popupTab.tabs.length - 1'' class=''cr-popup-blocker''></div>
+            <cr-partner-contact-persons-details
+    [subTemplateId]="''0E00AEBD-4251-ED11-8E5D-4CCC6A2BB6D6''"
+    (openMailingCategory)="self.onEditContactPersonMailingCategory()"
+    (closeClickEvent)="self.onClosePartnerContactPersons()"
+    [isNew]="true"
+    [itemContactPerson]="self.partnerDetailsContactPerson"
+    (newContactPerson)="self.onConfirmPartnerContactPersons($event, true)"
+></cr-partner-contact-persons-details>
+
+          </ng-template>
+        </ng-template>
+      
               </ng-container>
             </ng-container>
           </div>
-        </div>', '2022-12-28 14:17:11.3166667 +00:00', 12, N'N', '6f0e5511-1eae-4e82-8b73-f10eba64661f', 1, NULL)
-INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID], [BookmarkName], [BookmarkDescription], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('f35d5825-c282-ed11-8360-02f176033ddb', 'f15d5825-c282-ed11-8360-02f176033ddb', 2, N'', N'', N'
+        </div>', '2023-01-03 09:57:41.6400000 +00:00', 224, N'N', 'edc879ae-403c-4a92-b695-80d7c53cdeff', 1, NULL)
+INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID], [BookmarkName], [BookmarkDescription], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('f1819b05-4351-ed11-8e5d-4ccc6a2bb6d6', 'd5ae82e8-4251-ed11-8e5d-4ccc6a2bb6d6', 2, NULL, NULL, N'
         <div class=''cr-popup-content-wrapper'' [class.cr-popup-is-shown]=''self.popupTab.tabs.length > 1''>
           <cr-popup-tabs
             [popupTabs]=''self.popupTab.tabs''
@@ -25620,556 +26099,1031 @@ INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID]
     <ng-template [ngSwitchCase]="''general''">
       <ng-template [ngIf]="self.popupTab.tabs[self.popupTab.activeTabIndex].type == ''general'' && self.popupTab.activeTabIndex == i">
         <div *ngIf=''self.popupTab.activeTabIndex != self.popupTab.tabs.length - 1'' class=''cr-popup-blocker''></div>
-        <cr-title-header
-    [titleTranslateKey]="''SERIES.DETAILS.TITLE''"
+        
+        <ng-template [ngIf]="self.partnerDetails">
+            <cr-title-header
+    [titleTranslateKey]="''PARTNER.DETAILS.TITLE''"
     [title]="''''"
     [titleValue]="self.titleValueText"
     [additionalTranslateKeys]="''COMMON.NEW''"
-    (buttonClickEvent)="self.onTitleButtonClick($event)"
     [buttonSettings]="self.titleHeaderButtonSettings"
-    [titleValueTranslateKey]="self.isNewSeries ? ''COMMON.NEW'' : null"
+    (buttonClickEvent)="self.onTitleButtonClick($event)"
 ></cr-title-header>
-        <ng-template [ngIf]="self.series">
-            
       <cr-panel
         [panelTemplateType]="''well''"
         [customClass]="''''"
       >
         <ng-template crPanelContent>
-          <div class="row undefined"><div class=''col-lg-8''><div class="row cr-bottom-row-border"><div class=''col-lg-3''><cr-control-edit
-    [(dataValue)]="self.series.code"
-    [elementName]="''edit:Coupon_series_details.Code''"
+          <div class="row undefined"><div class=''col-md-2''><cr-control-edit
+    [elementName]="''edit:Partner_details.Partner_code''"
     [permissionSettings]="{
-            isAccessEdit: self.isNewSeries ? (self.EndpointName.coupon_series_POST | endpointAccessGrantedPipe) :
-              (self.EndpointName.coupon_series_id_PUT | endpointAccessGrantedPipe)
-          }"
+        isAccessEdit: self.isNew ? self.authService.getEndpointAccessGranted(self.EndpointName.partner_POST) :
+            self.authService.getEndpointAccessGranted(self.EndpointName.partner_id_PUT)
+    }"
+
+    [(dataValue)]="self.partnerDetails.partnerCode"
     [validator]="self.validator"
-    [validationField]="''code''"
-    [translateKeys]="''SERIES.DETAILS.CODE''" 
+    [validationField]="''partnerCode''"
+    [translateKeys]="''PARTNER.DETAILS.HEADER.PARTNER_CODE''" 
     [dataLabel]="''''"
     [customClass]=''""''
-    [isDisabled]="!self.isNewSeries || false"
-></cr-control-edit></div><div class=''col-lg-3''><cr-control-edit
-    [(dataValue)]="self.series.displayName"
-    [elementName]="''edit:Coupon_series_details.Name''"
+    [isDisabled]="!self.isNew || false"
+></cr-control-edit></div><div class=''col-md-2''><cr-control-edit
+    [elementName]="''edit:Partner_details.First_name''"
     [permissionSettings]="{
-            isAccessEdit: self.isNewSeries ? (self.EndpointName.coupon_series_POST | endpointAccessGrantedPipe) :
-              (self.EndpointName.coupon_series_id_PUT | endpointAccessGrantedPipe)
-          }"
+        isAccessEdit: self.isNew ? self.authService.getEndpointAccessGranted(self.EndpointName.partner_POST) :
+            self.authService.getEndpointAccessGranted(self.EndpointName.partner_id_PUT)
+    }"
+
+    [(dataValue)]="self.partnerDetails.firstName"
+    (dataValueChange)="self.onChangeTitleValue()"
+    [validationField]="''firstName''"
     [validator]="self.validator"
-    [validationField]="''displayName''"
-    [translateKeys]="''SERIES.DETAILS.NAME''" 
+    [translateKeys]="''PARTNER.DETAILS.HEADER.FIRST_NAME''" 
     [dataLabel]="''''"
     [customClass]=''""''
     [isDisabled]="false"
-    (dataValueChange)="self.changeTitle()"
-></cr-control-edit></div><div class=''col-lg-3''><cr-numeric-control
-    [elementName]="''numeric:Coupon_series_details.Coupon_valid_days''"
-    [(dataValue)]="self.series.couponValidDays"
+></cr-control-edit></div><div class=''col-md-2''><cr-control-edit
+    [elementName]="''edit:Partner_details.Last_name''"
     [permissionSettings]="{
-                    isAccessEdit: self.isNewSeries ?
-                    (self.EndpointName.coupon_series_POST | endpointAccessGrantedPipe):
-                    (self.EndpointName.coupon_series_id_PUT | endpointAccessGrantedPipe)
-                  }"
-    [validationField]="''couponValidDays''"
-    [validator]="self.validator"      
+        isAccessEdit: self.isNew ? self.authService.getEndpointAccessGranted(self.EndpointName.partner_POST) :
+            self.authService.getEndpointAccessGranted(self.EndpointName.partner_id_PUT)
+    }"
+
+    [(dataValue)]="self.partnerDetails.lastName"
+    (dataValueChange)="self.onChangeTitleValue()"
+    [translateKeys]="''PARTNER.DETAILS.HEADER.LAST_NAME''" 
+    [dataLabel]="''''"
+    [customClass]=''""''
+    [isDisabled]="false"
+></cr-control-edit></div><div class=''col-md-2''><cr-dropdown-smart-control
+    [elementName]="''smart-dropdown:Partner_details.Partner_type''"
+    [permissionSettings]="{
+        isAccessRead: self.authService.getEndpointAccessGranted(self.EndpointName.partner_type_id_GET),
+        isAccessEdit: (self.isNew ? self.authService.getEndpointAccessGranted(self.EndpointName.partner_POST) :
+            self.authService.getEndpointAccessGranted(self.EndpointName.partner_id_PUT)) &&
+            self.authService.getEndpointAccessGranted(self.EndpointName.partner_type_GET) 
+    }"
+    [dataCacheName]="''PartnerTypeDropdownCache''"
+    [labelTranslateKey]="''PARTNER.DETAILS.HEADER.PARTNER_TYPE''"
+    [(value)]="self.partnerDetails.partnerTypeId"
+    [textField]="''displayName''"
+    [valueField]="''id''"
+    [getOneItemFunction]="self.loadPartnerTypeForDropdownFn"
+    [getListItemsFunction]="self.loadPartnerTypeListForDropdownFn"
+    [unselectedItemValue]="{id: null, translateKey: ''COMMON.MOCK_OBJ.NOT_SELECTED''}"
+    [dataTranslateKeyField]="''translateKey''"
+    [validator]="self.validator"
+    [validationField]="''partnerTypeId''"
+    [labelTranslateKey]="''PARTNER.DETAILS.HEADER.PARTNER_TYPE''"
+    [label]="''''"
+    [class]=''""''
+></cr-dropdown-smart-control></div><div class=''col-md-2''><cr-control-edit
+    [elementName]="''edit:Partner_details.Government_id''"
+    [permissionSettings]="{
+        isAccessEdit: self.isNew ? self.authService.getEndpointAccessGranted(self.EndpointName.partner_POST) :
+            self.authService.getEndpointAccessGranted(self.EndpointName.partner_id_PUT)
+    }"
+
+    [(dataValue)]="self.partnerDetails.govId"
+    [validator]="self.validator"
+    [validationField]="''govId''"
+    [translateKeys]="''PARTNER.DETAILS.HEADER.GOVERNMENT_ID''" 
+    [dataLabel]="''''"
+    [customClass]=''""''
+    [isDisabled]="false"
+></cr-control-edit></div><div class=''col-md-2''><cr-numeric-control
+    [elementName]="''numeric:Partner_details.Balance''"
+    [dataValue]="self.partnerDetails.balance"
+    [isDisabled]="true"
     [dataLabel]="''''" 
-    [translateKeys]="''SERIES.DETAILS.COUPON_VALID_DAYS''" 
+    [translateKeys]="''PARTNER.DETAILS.HEADER.BALANCE''" 
+    [customClass]=''""''
+    [format]="null" 
+    [decimals]="null" 
+    [min]="null" 
+    [max]="null"
+    [autoCorrectMinMax]="false"
+></cr-numeric-control></div></div>
+        </ng-template>
+      </cr-panel>
+      <cr-panel
+        [panelTemplateType]="''collapsible-panel''"
+        [expanded]="self.panelsViewState?.[''general''] ?? false"
+        (expandedChange)="self.panelStateChange(''general'', $event)"
+        [titleTranslateKey]="true ? ''PARTNER.DETAILS.GENERAL.TITLE'' : null"
+        [title]="true ? null : ''General''"
+        [customClass]="''''"
+        [headerClass]="''''"
+        [validator]="self.validator"
+        [validatorGroupName]="''general''"
+        [containFields]=''["bDay","eMail","passport","validFrom","validTo","frozenFrom","frozenTo"]''
+      >
+        <ng-template crPanelContent>
+          <div class="row undefined"><div class=''col-md-2''><cr-dropdown-smart-control
+    [elementName]="''smart-dropdown:Partner_details.Gender''"
+    [dataCacheName]="''PartnerGenderDropdownCache''"
+    [permissionSettings]="{
+        isAccessEdit: self.isNew ? self.authService.endpoints[self.EndpointName.partner_POST]?.isAccessGranted :
+            self.authService.endpoints[self.EndpointName.partner_id_PUT]?.isAccessGranted
+        }"
+    [labelTranslateKey]="''PARTNER.DETAILS.GENERAL.GENDER''"
+    [(value)]="self.partnerDetails.gender"
+    [getListItemsFunction]="self.getGenderTypeDropdownList$"
+    [getOneItemFunction]="self.getGenderItemDropdown$"
+    [valueField]="''code''"
+    [textField]="''name''"
+    [dataTranslateKeyField]="''translateKey''"
+    [unselectedItemValue]="{code: null, translateKey: ''COMMON.MOCK_OBJ.NOT_SELECTED''}"
+    [labelTranslateKey]="''PARTNER.DETAILS.GENERAL.GENDER''"
+    [label]="''''"
+    [class]=''""''>
+</cr-dropdown-smart-control></div><div class=''col-md-2''><cr-control-datepicker
+    [elementName]="''date:Partner_details.Birthday''"
+    [permissionSettings]="{
+        isAccessEdit: self.isNew ? self.authService.getEndpointAccessGranted(self.EndpointName.partner_POST) :
+            self.authService.getEndpointAccessGranted(self.EndpointName.partner_id_PUT)
+    }"
+
+    [(dataValue)]="self.partnerDetails.bDay"
+    [validator]="self.validator"
+    [validationField]="''bDay''"
+    [dataLabel]="''''"
+    [translateKeys]="''PARTNER.DETAILS.GENERAL.BIRTHDAY''"
+    [class]=''""'' 
+    [isDisabled]="false"
+></cr-control-datepicker></div><div class=''col-md-2''><cr-control-edit
+    [elementName]="''edit:Partner_details.Creation_store''"
+    [(dataValue)]="self.creationStoreName"
+    [translateKeys]="''PARTNER.DETAILS.GENERAL.CREATION_STORE''" 
+    [dataLabel]="''''"
+    [customClass]=''""''
+    [isDisabled]="true"
+></cr-control-edit></div><div class=''col-md-2''><cr-dropdown-smart-control
+    [elementName]="''smart-dropdown:Partner_details.Linked_store''"
+    [permissionSettings]="{
+        isAccessRead: self.authService.getEndpointAccessGranted(self.EndpointName.partner__location_objectId_dropdown_GET),
+        isAccessEdit: (self.isNew ? self.authService.getEndpointAccessGranted(self.EndpointName.partner_POST) :
+            self.authService.getEndpointAccessGranted(self.EndpointName.partner_id_PUT)) &&
+            self.authService.getEndpointAccessGranted(self.EndpointName.partner__location_dropdown_GET)
+    }"
+
+    [dataCacheName]="''PartnerStoreListDropdownCache''"
+    [(value)]="self.partnerDetails.linkedStoreId"
+    [textField]="''name''"
+    [valueField]="''id''"
+    [getOneItemFunction]="self.loadStoreForDropdownFn"
+    [getListItemsFunction]="self.loadStoreListForDropdownFn"
+    [useCodeInList]="true"
+    [useCodeInValue]="true"
+    [unselectedItemValue]="{id: null, translateKey: ''COMMON.MOCK_OBJ.NOT_SELECTED''}"
+    [dataTranslateKeyField]="''translateKey''"
+    [labelTranslateKey]="''PARTNER.DETAILS.GENERAL.LINKED_STORE''"
+    [label]="''''"
+    [class]=''""''
+></cr-dropdown-smart-control></div><div class=''col-md-4''><cr-dropdown-smart-control
+    [elementName]="''smart-dropdown:Partner_details.Parent_partner''"
+    [permissionSettings]="{
+        isAccessRead: self.authService.getEndpointAccessGranted(self.EndpointName.partner_id_dropdown_GET),
+        isAccessEdit: (self.isNew ? self.authService.getEndpointAccessGranted(self.EndpointName.partner_POST) :
+            self.authService.getEndpointAccessGranted(self.EndpointName.partner_id_PUT)) &&
+            self.authService.getEndpointAccessGranted(self.EndpointName.partner_dropdown_GET)
+    }"
+
+    [dataCacheName]="''PartnerParentListDropdownCache''"
+    [(value)]="self.partnerDetails.parentPartnerId"
+    [textField]="''name''"
+    [valueField]="''id''"
+    [getOneItemFunction]="self.loadPartnerParentForDropdownFn"
+    [getListItemsFunction]="self.loadPartnerParentListForDropdownFn"
+    [useCodeInList]="true"
+    [useCodeInValue]="true"
+    [codeField]="''code''"
+    [unselectedItemValue]="{id: null, translateKey: ''COMMON.MOCK_OBJ.NOT_SELECTED''}"
+    [dataTranslateKeyField]="''translateKey''"
+    [labelTranslateKey]="''PARTNER.DETAILS.GENERAL.PARENT_PARTNER''"
+    [label]="''''"
+    [class]=''""''
+></cr-dropdown-smart-control></div></div><div class="row undefined"><div class=''col-md-2''><cr-control-edit
+    [elementName]="''edit:Partner_details.Phone_number_1''"
+    [permissionSettings]="{
+        isAccessEdit: self.isNew ? self.authService.getEndpointAccessGranted(self.EndpointName.partner_POST) :
+            self.authService.getEndpointAccessGranted(self.EndpointName.partner_id_PUT)
+    }"
+
+    [(dataValue)]="self.partnerDetails.phone1"
+    [translateKeys]="''PARTNER.DETAILS.GENERAL.PHONE_NUMBER_1''" 
+    [dataLabel]="''''"
+    [customClass]=''""''
+    [isDisabled]="false"
+></cr-control-edit></div><div class=''col-md-2''><cr-control-edit
+    [elementName]="''edit:Partner_details.Phone_number_2''"
+    [permissionSettings]="{
+        isAccessEdit: self.isNew ? self.authService.getEndpointAccessGranted(self.EndpointName.partner_POST) :
+            self.authService.getEndpointAccessGranted(self.EndpointName.partner_id_PUT)
+    }"
+
+    [(dataValue)]="self.partnerDetails.phone2"
+    [translateKeys]="''PARTNER.DETAILS.GENERAL.PHONE_NUMBER_2''" 
+    [dataLabel]="''''"
+    [customClass]=''""''
+    [isDisabled]="false"
+></cr-control-edit></div><div class=''col-md-2''><cr-control-edit
+    [elementName]="''edit:Partner_details.Cellular''"
+    [permissionSettings]="{
+        isAccessEdit: self.isNew ? self.authService.getEndpointAccessGranted(self.EndpointName.partner_POST) :
+            self.authService.getEndpointAccessGranted(self.EndpointName.partner_id_PUT)
+    }"
+
+    [(dataValue)]="self.partnerDetails.cellular"
+    [translateKeys]="''PARTNER.DETAILS.GENERAL.CELLULAR''" 
+    [dataLabel]="''''"
+    [customClass]=''""''
+    [isDisabled]="false"
+></cr-control-edit></div><div class=''col-md-2''><cr-control-edit
+    [elementName]="''edit:Partner_details.Fax''"
+    [permissionSettings]="{
+        isAccessEdit: self.isNew ? self.authService.getEndpointAccessGranted(self.EndpointName.partner_POST) :
+            self.authService.getEndpointAccessGranted(self.EndpointName.partner_id_PUT)
+    }"
+
+    [(dataValue)]="self.partnerDetails.fax"
+    [translateKeys]="''PARTNER.DETAILS.GENERAL.FAX''" 
+    [dataLabel]="''''"
+    [customClass]=''""''
+    [isDisabled]="false"
+></cr-control-edit></div><div class=''col-md-4''><cr-control-edit
+    [elementName]="''edit:Partner_details.Email''"
+    [permissionSettings]="{
+        isAccessEdit: self.isNew ? self.authService.getEndpointAccessGranted(self.EndpointName.partner_POST) :
+            self.authService.getEndpointAccessGranted(self.EndpointName.partner_id_PUT)
+    }"
+
+    [(dataValue)]="self.partnerDetails.eMail"
+    [validator]="self.validator"
+    [validationField]="''eMail''"
+    [translateKeys]="''PARTNER.DETAILS.GENERAL.EMAIL''" 
+    [dataLabel]="''''"
+    [customClass]=''""''
+    [isDisabled]="false"
+></cr-control-edit></div></div><div class="row undefined"><div class=''col-md-6''><div class="row undefined"><div class=''col-md-4''><cr-checkbox-control
+    [elementName]="''checkbox:Partner_details.Tourist''"
+    [permissionSettings]="{
+        isAccessEdit: self.isNew ? self.authService.getEndpointAccessGranted(self.EndpointName.partner_POST) :
+            self.authService.getEndpointAccessGranted(self.EndpointName.partner_id_PUT)
+    }"
+
+    [(dataValue)]="self.partnerDetails.isTourist"
+    (dataValueChange)="self.touristValueChanged($event)"
+    [dataLabel]="''''"
+    [translateKeys]="''PARTNER.DETAILS.GENERAL.TOURIST''"
+    [isDisabled]="false"
+    [class]=''""''
+></cr-checkbox-control></div><div class=''col-md-4''><cr-control-edit
+    [elementName]="''edit:Partner_details.Passport''"
+    [permissionSettings]="{
+        isAccessEdit: self.isNew ? self.authService.getEndpointAccessGranted(self.EndpointName.partner_POST) :
+            self.authService.getEndpointAccessGranted(self.EndpointName.partner_id_PUT)
+    }"
+
+    [(dataValue)]="self.partnerDetails.passport"
+    [validator]="self.validator"
+    [validationField]="''passport''"
+    [translateKeys]="''PARTNER.DETAILS.GENERAL.PASSPORT''" 
+    [dataLabel]="''''"
+    [customClass]=''""''
+    [isDisabled]="false"
+></cr-control-edit></div><div class=''col-md-4''><cr-control-edit
+    [elementName]="''edit:Partner_details.International_passport''"
+    [permissionSettings]="{
+        isAccessEdit: self.isNew ? self.authService.getEndpointAccessGranted(self.EndpointName.partner_POST) :
+            self.authService.getEndpointAccessGranted(self.EndpointName.partner_id_PUT)
+    }"
+
+    [(dataValue)]="self.partnerDetails.interPassport"
+    [translateKeys]="''PARTNER.DETAILS.GENERAL.INTERNATIONAL_PASSPORT''" 
+    [dataLabel]="''''"
+    [customClass]=''""''
+    [isDisabled]="false"
+></cr-control-edit></div></div><div class="row undefined"><div class=''col-md-4''><cr-checkbox-control
+    [elementName]="''checkbox:Partner_details.Valid''"
+    [permissionSettings]="{
+        isAccessEdit: self.isNew ? self.authService.getEndpointAccessGranted(self.EndpointName.partner_POST) :
+            self.authService.getEndpointAccessGranted(self.EndpointName.partner_id_PUT)
+    }"
+
+    [(dataValue)]="self.partnerDetails.isValid"
+    (dataValueChange)="self.changeValidCheckbox($event)"
+    [dataLabel]="''''"
+    [translateKeys]="''PARTNER.DETAILS.GENERAL.VALID''"
+    [isDisabled]="false"
+    [class]=''""''
+></cr-checkbox-control></div><div class=''col-md-4''><cr-control-datepicker
+    [elementName]="''date:Partner_details.Valid_date_from''"
+    [permissionSettings]="{
+        isAccessEdit: self.isNew ? self.authService.getEndpointAccessGranted(self.EndpointName.partner_POST) :
+            self.authService.getEndpointAccessGranted(self.EndpointName.partner_id_PUT)
+    }"
+
+    [(dataValue)]="self.partnerDetails.validFrom"
+    [validator]="self.validator"
+    [validationField]="''validFrom''"
+    [dataLabel]="''''"
+    [translateKeys]="''PARTNER.DETAILS.GENERAL.DATE_FROM''"
+    [class]=''""'' 
+    [isDisabled]="!self.partnerDetails.isValid || false"
+></cr-control-datepicker></div><div class=''col-md-4''><cr-control-datepicker
+    [elementName]="''date:Partner_details.Valid_date_to''"
+    [permissionSettings]="{
+        isAccessEdit: self.isNew ? self.authService.getEndpointAccessGranted(self.EndpointName.partner_POST) :
+            self.authService.getEndpointAccessGranted(self.EndpointName.partner_id_PUT)
+    }"
+
+    [(dataValue)]="self.partnerDetails.validTo"
+    [isDisabled]="!self.partnerDetails.isValid || false"
+    [validator]="self.validator"
+    [validationField]="''validTo''"
+    [dataLabel]="''''"
+    [translateKeys]="''PARTNER.DETAILS.GENERAL.DATE_TO''"
+    [class]=''""'' 
+    [isDisabled]="!self.partnerDetails.isValid || false"
+></cr-control-datepicker></div></div><div class="row undefined"><div class=''col-md-4''><cr-checkbox-control
+    [elementName]="''checkbox:Partner_details.Frozen''"
+    [permissionSettings]="{
+        isAccessEdit: self.isNew ? self.authService.getEndpointAccessGranted(self.EndpointName.partner_POST) :
+            self.authService.getEndpointAccessGranted(self.EndpointName.partner_id_PUT)
+    }"
+
+    [(dataValue)]="self.partnerDetails.isFrozen"
+    (dataValueChange)="changeFrozenCheckbox($event)"
+    [dataLabel]="''''"
+    [translateKeys]="''PARTNER.DETAILS.GENERAL.FROZEN''"
+    [isDisabled]="false"
+    [class]=''""''
+></cr-checkbox-control></div><div class=''col-md-4''><cr-control-datepicker
+    [elementName]="''date:Partner_details.Frozen_date_from''"
+    [permissionSettings]="{
+        isAccessEdit: self.isNew ? self.authService.getEndpointAccessGranted(self.EndpointName.partner_POST) :
+            self.authService.getEndpointAccessGranted(self.EndpointName.partner_id_PUT)
+    }"
+
+    [(dataValue)]="self.partnerDetails.frozenFrom"
+    [isDisabled]="!self.partnerDetails.isFrozen || false"
+    [validator]="self.validator"
+    [validationField]="''frozenFrom''"
+    [dataLabel]="''''"
+    [translateKeys]="''PARTNER.DETAILS.GENERAL.DATE_FROM''"
+    [class]=''""'' 
+></cr-control-datepicker></div><div class=''col-md-4''><cr-control-datepicker
+    [elementName]="''date:Partner_details.Frozen_date_to''"
+    [permissionSettings]="{
+        isAccessEdit: self.isNew ? self.authService.getEndpointAccessGranted(self.EndpointName.partner_POST) :
+            self.authService.getEndpointAccessGranted(self.EndpointName.partner_id_PUT)
+    }"
+
+    [(dataValue)]="self.partnerDetails.frozenTo"
+    [validator]="self.validator"
+    [validationField]="''frozenTo''"
+    [dataLabel]="''''"
+    [translateKeys]="''PARTNER.DETAILS.GENERAL.DATE_TO''"
+    [class]=''""'' 
+    [isDisabled]="!self.partnerDetails.isFrozen || false"
+></cr-control-datepicker></div></div><div class="row undefined"><div class=''col-md-4''><cr-checkbox-control
+    [elementName]="''checkbox:Partner_details.Is_data_approved''"
+    [permissionSettings]="{
+        isAccessEdit: self.isNew ? self.authService.getEndpointAccessGranted(self.EndpointName.partner_POST) :
+            self.authService.getEndpointAccessGranted(self.EndpointName.partner_id_PUT)
+    }"
+
+    [(dataValue)]="self.partnerDetails.isDataApproved"
+    [dataLabel]="''''"
+    [translateKeys]="''PARTNER.DETAILS.GENERAL.IS_DATA_APPROVED''"
+    [isDisabled]="false"
+    [class]=''""''
+></cr-checkbox-control></div><div class=''col-md-8''><cr-control-edit
+    [translateKeys]="''PARTNER.DETAILS.GENERAL.UPDATE_EMPLOYEE''"
+    [dataLabel]="''''"
+    [isDisabled]="true"
+    [customClass]=''""''
+    [dataValue]="self.partnerDetails.updateEmployee?.name"
+    [elementName]="''label:Partner_details.Update_employee''"
+></cr-control-edit></div></div></div><div class=''col-md-6''>
+      <cr-panel
+        [panelTemplateType]="''panel''"
+        [expanded]="self.panelsViewState?.[''undefined''] ?? true"
+        (expandedChange)="self.panelStateChange(''undefined'', $event)"
+        [titleTranslateKey]="true ? ''PARTNER.DETAILS.GENERAL.MAILING_CATEGORIES'' : null"
+        [title]="true ? null : ''Mailing categories''"
+        [customClass]="''cr-mailing-wrapper''"
+        [headerClass]="''cr-panel-header-wrapper-light''"
+        [validator]="self.validator"
+        [validatorGroupName]="''undefined''"
+        [containFields]=''[]''
+      >
+        <ng-template crPanelContent>
+          <cr-partner-mailing-category-control
+    [editable]="true && (self.isNew ? 
+            self.authService.getEndpointAccessGranted(self.EndpointName.partner_POST) :
+            self.authService.getEndpointAccessGranted(self.EndpointName.partner_id_PUT))"
+
+    [partnerId]="self.partnerDetails.id"
+    [(selectedMailingCategory)]="self.partnerDetails.mailingCategories"
+    (editClickEvent)="self.onEditMailingCategory()"
+    [class]=''""''
+    [editIcon]="''icon-edit''"
+></cr-partner-mailing-category-control>
+        </ng-template>
+      </cr-panel></div></div>
+        </ng-template>
+      </cr-panel>
+      <cr-panel
+        [panelTemplateType]="''collapsible-panel''"
+        [expanded]="self.panelsViewState?.[''paymentTerms''] ?? false"
+        (expandedChange)="self.panelStateChange(''paymentTerms'', $event)"
+        [titleTranslateKey]="true ? ''PARTNER.DETAILS.PAYMENT_TERMS.TITLE'' : null"
+        [title]="true ? null : ''Payment terms''"
+        [customClass]="''''"
+        [headerClass]="''''"
+        [validator]="self.validator"
+        [validatorGroupName]="''paymentTerms''"
+        [containFields]=''[]''
+      >
+        <ng-template crPanelContent>
+          <div class="row undefined"><div class=''col-md-2''><cr-dropdown-smart-control
+    [elementName]="''smart-dropdown:Partner_details.Price_list''"
+    [permissionSettings]="{
+        isAccessRead: self.authService.getEndpointAccessGranted(self.EndpointName.partner__item_price_id_dropdown_GET),
+        isAccessEdit: (self.isNew ? self.authService.getEndpointAccessGranted(self.EndpointName.partner_POST) :
+            self.authService.getEndpointAccessGranted(self.EndpointName.partner_id_PUT)) &&
+            self.authService.getEndpointAccessGranted(self.EndpointName.partner__item_price_dropdown_GET)
+    }"
+
+    [dataCacheName]="''PartnerPriceListDropdownCache''"
+    [(value)]="self.partnerDetails.priceListId"
+    [textField]="''displayName''"
+    [valueField]="''id''"
+    [getOneItemFunction]="self.loadPartnerPriceForDropdownFn"
+    [getListItemsFunction]="self.loadPartnerPriceListForDropdownFn"
+    [useCodeInList]="true"
+    [useCodeInValue]="true"
+    [unselectedItemValue]="{id: null, translateKey: ''COMMON.MOCK_OBJ.NOT_SELECTED''}"
+    [dataTranslateKeyField]="''translateKey''"
+    (valueChange)="self.onPriceListChanged()"
+    [labelTranslateKey]="''PARTNER.DETAILS.PAYMENT_TERMS.PRICE_LIST''"
+    [label]="''''"
+    [class]=''""''
+></cr-dropdown-smart-control>
+</div><div class=''col-md-2''><cr-dropdown-smart-control
+    [elementName]="''smart-dropdown:Partner_details.Price_number''"
+    [permissionSettings]="{
+        isAccessRead: self.authService.getEndpointAccessGranted(self.EndpointName.partner__item_price_priceListId_price_number_id_dropdown_GET),
+        isAccessEdit: (self.isNew ? self.authService.getEndpointAccessGranted(self.EndpointName.partner_POST) :
+            self.authService.getEndpointAccessGranted(self.EndpointName.partner_id_PUT)) &&
+            self.authService.getEndpointAccessGranted(self.EndpointName.partner__item_price_priceListId_price_number_dropdown_GET)
+    }"
+    
+    [dataCacheName]="''PartnerPriceNumberListDropdownCache''"
+    [isDisabled]="self.partnerDetails.priceListId === null"
+    [(value)]="self.partnerDetails.priceNumberId"
+    [textField]="''displayName''"
+    [valueField]="''id''"
+    [getOneItemFunction]="self.loadPartnerPriceNumberForDropdownFn"
+    [getListItemsFunction]="self.loadPartnerPriceNumberListForDropdownFn"
+    [listItemsFunctionAdditionalParameter]="self.partnerDetails.priceListId"
+    [requestDataWhenOpen]="true"
+    [useCodeInList]="true"
+    [useCodeInValue]="true"
+    [unselectedItemValue]="{id: null, translateKey: ''COMMON.MOCK_OBJ.NOT_SELECTED''}"
+    [dataTranslateKeyField]="''translateKey''"
+    [labelTranslateKey]="''PARTNER.DETAILS.PAYMENT_TERMS.PRICE_NUMBER''"
+    [label]="''''"
+    [class]=''""''
+></cr-dropdown-smart-control>
+</div></div><div class="row undefined"><div class=''col-md-2''><cr-numeric-control
+    [elementName]="''numeric:Partner_details.Credit_limit''"
+    [permissionSettings]="{
+        isAccessEdit: self.isNew ? self.authService.getEndpointAccessGranted(self.EndpointName.partner_POST) :
+            self.authService.getEndpointAccessGranted(self.EndpointName.partner_id_PUT)
+    }"
+
+    [dataValue]="self.partnerDetails.creditLimit"
+    [isDisabled]="false"
+    [dataLabel]="''''" 
+    [translateKeys]="''PARTNER.DETAILS.PAYMENT_TERMS.CREDIT_LIMIT''" 
+    [customClass]=''""''
+    [format]="null" 
+    [decimals]="null" 
+    [min]="null" 
+    [max]="null"
+    [autoCorrectMinMax]="false"
+></cr-numeric-control></div><div class=''col-md-2''><cr-numeric-control
+    [elementName]="''numeric:Partner_details.Obligo_limit''"
+    [permissionSettings]="{
+        isAccessEdit: self.isNew ? self.authService.getEndpointAccessGranted(self.EndpointName.partner_POST) :
+            self.authService.getEndpointAccessGranted(self.EndpointName.partner_id_PUT)
+    }"
+
+    [dataValue]="self.partnerDetails.obligoLimit"
+    [isDisabled]="false"
+    [dataLabel]="''''" 
+    [translateKeys]="''PARTNER.DETAILS.PAYMENT_TERMS.OBLIGO_LIMIT''" 
+    [customClass]=''""''
+    [format]="null" 
+    [decimals]="null" 
+    [min]="null" 
+    [max]="null"
+    [autoCorrectMinMax]="false"
+></cr-numeric-control></div></div><div class="row undefined"><div class=''col-md-2''><cr-numeric-control
+    [elementName]="''numeric:Partner_details.Budget_limit''"
+    [dataValue]="self.partnerDetails.budgetLimit"
+    [isDisabled]="true"
+    [dataLabel]="''''" 
+    [translateKeys]="''PARTNER.DETAILS.PAYMENT_TERMS.BUDGET_LIMIT''" 
+    [customClass]=''""''
+    [format]="null" 
+    [decimals]="null" 
+    [min]="null" 
+    [max]="null"
+    [autoCorrectMinMax]="false"
+></cr-numeric-control></div><div class=''col-md-2''><cr-dropdown-smart-control
+    [elementName]="''smart-dropdown:Partner_details.Budget_type''"
+    [permissionSettings]="{
+        isAccessEdit: self.isNew ? self.authService.endpoints[self.EndpointName.partner_POST]?.isAccessGranted :
+            self.authService.endpoints[self.EndpointName.partner_id_PUT]?.isAccessGranted
+        }"
+    [value]="self.partnerDetails.budgetTypeId ? self.partnerDetails.budgetTypeId : null"
+    [textField]="''name''"
+    [valueField]="''uid''"
+    [getListItemsFunction]="self.getBudgetTypeDropdownList$"
+    [getOneItemFunction]="self.getBudgetTypeItemDropdown$"
+    (valueChange)="self.onBudgetTypeChanged($event)"
+    [dataTranslateKeyField]="''translateKey''"
+    [unselectedItemValue]="{uid: null, translateKey: ''COMMON.MOCK_OBJ.NOT_SELECTED''}"
+    [labelTranslateKey]="''PARTNER.DETAILS.PAYMENT_TERMS.BUDGET_TYPE''"
+    [label]="''''"
+    [class]=''""''
+                          ></cr-dropdown-smart-control></div><div class=''col-md-2''>
+        <ng-template [ngIf]="self.partnerDetails?.budgetTypeId === 1">
+            <cr-dropdown-smart-control
+    [(value)]="self.partnerDetails.budgetStartMonth"
+    [elementName]="''smart-dropdown:Partner_details.Budget_start_month''"
+    [permissionSettings]="{
+        isAccessEdit: self.isNew ? self.authService.endpoints[self.EndpointName.partner_POST]?.isAccessGranted :
+           self.authService.endpoints[self.EndpointName.partner_id_PUT]?.isAccessGranted
+    }"
+    [textField]="''name''"
+    [valueField]="''uid''"
+    [dataCacheName]="''PartnerBudgetStartMonthDropdownCache''"
+
+    [getListItemsFunction]="self.getMonthDropdownList$"
+    [getOneItemFunction]="self.getMonthItemDropdown$"
+    [dataTranslateKeyField]="''translateKey''"
+    [unselectedItemValue]="{uid: null, translateKey: ''COMMON.MOCK_OBJ.NOT_SELECTED''}"
+    [isDisabled]="false"
+    [labelTranslateKey]="''PARTNER.DETAILS.PAYMENT_TERMS.BUDGET_START_MONTH''"
+    [label]="''''"
+    [class]=''""''
+></cr-dropdown-smart-control>
+
+        </ng-template></div></div>
+        </ng-template>
+      </cr-panel>
+      <cr-panel
+        [panelTemplateType]="''collapsible-panel''"
+        [expanded]="self.panelsViewState?.[''statistic''] ?? false"
+        (expandedChange)="self.panelStateChange(''statistic'', $event)"
+        [titleTranslateKey]="true ? ''PARTNER.PANEL.STATISTIC'' : null"
+        [title]="true ? null : ''Statistic''"
+        [customClass]="''''"
+        [headerClass]="''''"
+        [validator]="self.validator"
+        [validatorGroupName]="''statistic''"
+        [containFields]=''[]''
+      >
+        <ng-template crPanelContent>
+          <div class="row undefined"><div class=''col-md-2''><cr-numeric-control
+    [elementName]="''numeric:Partner_details.Total_amount''"
+    [dataValue]="self.partnerDetails.totalAmount"
+    [isDisabled]="true"
+    [dataLabel]="''''" 
+    [translateKeys]="''PARTNER.DETAILS.STATISTIC.TOTAL_AMOUNT''" 
     [customClass]=''""''
     [format]="''n0''" 
     [decimals]="null" 
     [min]="null" 
     [max]="null"
     [autoCorrectMinMax]="false"
-></cr-numeric-control></div><div class=''col-lg-3''><cr-checkbox-control
-    [elementName]="''checkbox:Coupon_series_details.No_range''"
-    [permissionSettings]="{
-        isAccessEdit: self.isNewSeries ?
-            (self.EndpointName.coupon_series_POST | endpointAccessGrantedPipe):
-            (self.EndpointName.coupon_series_id_PUT | endpointAccessGrantedPipe)
-    }"
-    [(dataValue)]="self.series.withoutRange"
-    [dataLabel]="''''"
-    [translateKeys]="''SERIES.DETAILS.NO_RANGE''"
-    [isDisabled]="!self.isNewSeries"
-    [class]=''""''
-    (dataValueChange)="self.onNoRangeChange()"
-></cr-checkbox-control></div></div>
-        <ng-template [ngIf]="!self.series.withoutRange">
-            <div class="row cr-bottom-row-border"><div class=''col-lg-3''><cr-numeric-control
-    [elementName]="''numeric:Coupon_series_details.Coupon_range_from''"
-    [(dataValue)]="self.series.genFrom"
-    [permissionSettings]="{
-        isAccessEdit: self.isNewSeries ?
-            (self.EndpointName.coupon_series_POST | endpointAccessGrantedPipe):
-            (self.EndpointName.coupon_series_id_PUT | endpointAccessGrantedPipe)
-    }"
-    [validationField]="''genFrom''"
-    [validator]="self.validator"      
+></cr-numeric-control></div><div class=''col-md-2''><cr-numeric-control
+    [elementName]="''numeric:Partner_details.Sales_count''"
+    [dataValue]="self.partnerDetails.salesCount"
+    [isDisabled]="true"
     [dataLabel]="''''" 
-    [translateKeys]="''SERIES.DETAILS.COUPONS_RANGE_FROM''" 
+    [translateKeys]="''PARTNER.DETAILS.STATISTIC.SALES_COUNT''" 
     [customClass]=''""''
     [format]="''n0''" 
     [decimals]="null" 
     [min]="null" 
-    [max]="2147483647"
-    [autoCorrectMinMax]="true"
-    [isDisabled]="!self.isNewSeries"
-></cr-numeric-control></div><div class=''col-lg-3''><cr-numeric-control
-    [elementName]="''numeric:Coupon_series_details.Coupon_range_to''"
-    [(dataValue)]="self.series.genTo"
-    [permissionSettings]="{
-        isAccessEdit: self.isNewSeries ?
-            (self.EndpointName.coupon_series_POST | endpointAccessGrantedPipe):
-            (self.EndpointName.coupon_series_id_PUT | endpointAccessGrantedPipe)
-    }"
-    [validationField]="''genTo''"
-    [validator]="self.validator"      
+    [max]="null"
+    [autoCorrectMinMax]="false"
+></cr-numeric-control></div><div class=''col-md-2''><cr-numeric-control
+    [elementName]="''numeric:Partner_details.Returns_count''"
+    [dataValue]="self.partnerDetails.returnsCount"
+    [isDisabled]="true"
     [dataLabel]="''''" 
-    [translateKeys]="''SERIES.DETAILS.COUPONS_RANGE_TO''" 
+    [translateKeys]="''PARTNER.DETAILS.STATISTIC.RETURNS_COUNT''" 
     [customClass]=''""''
     [format]="''n0''" 
     [decimals]="null" 
     [min]="null" 
-    [max]="2147483647"
-    [autoCorrectMinMax]="true"
-></cr-numeric-control></div><div class=''col-lg-3''><cr-control-edit
-    [(dataValue)]="self.series.nextCouponNumber"
-    [elementName]="''edit:Coupon_series_details.Next_coupon_number''"
+    [max]="null"
+    [autoCorrectMinMax]="false"
+></cr-numeric-control></div><div class=''col-md-2''><cr-control-datepicker
+    [elementName]="''date:Partner_details.Registration_date''"
     [permissionSettings]="{
-            isAccessEdit: self.isNewSeries ? (self.EndpointName.coupon_series_POST | endpointAccessGrantedPipe) :
-              (self.EndpointName.coupon_series_id_PUT | endpointAccessGrantedPipe)
-          }"
-    [translateKeys]="''SERIES.DETAILS.NEXT_COUPON_NUMBER''" 
-    [dataLabel]="''''"
-    [customClass]=''""''
-    [isDisabled]="true"
-    [isReadOnly]="true"
-></cr-control-edit></div><div class=''col-lg-3''><cr-dropdown-smart-control
-    [elementName]="''smart-dropdown:Coupon_series_details.Status''"
-    [permissionSettings]="{
-        isAccessEdit: self.isNewSeries ?
-            (self.EndpointName.coupon_series_POST | endpointAccessGrantedPipe):
-            (self.EndpointName.coupon_series_id_PUT | endpointAccessGrantedPipe)
+        isAccessEdit: self.isNew ? self.authService.getEndpointAccessGranted(self.EndpointName.partner_POST) :
+            self.authService.getEndpointAccessGranted(self.EndpointName.partner_id_PUT)
     }"
-    [(value)]="self.series.couponsGenerated"
-    [textField]="''name''"
-    [valueField]="''propertyBoolean''"
-    [isDisabled]="true"
-    [isReadOnly]="true"
-    [getListItemsFunction]="self.getSeriesCouponStatusDropdownListFn$"
-    [getOneItemFunction]="self.getSeriesCouponStatusItemDropdownFn$"
-    [dataCacheName]="''SeriesDetailsStatusDropdownCache''"
-    [labelTranslateKey]="''SERIES.DETAILS.CLOSED''"
-    [label]="''''"
-    [class]=''""''
-></cr-dropdown-smart-control>
-</div></div>
-        </ng-template><div class="row undefined"><div class=''col-lg-6''><cr-checkbox-control
-    [elementName]="''checkbox:Coupon_series_details.Manual_discount_price''"
-    [permissionSettings]="{
-        isAccessEdit: self.isNewSeries ?
-            (self.EndpointName.coupon_series_POST | endpointAccessGrantedPipe):
-            (self.EndpointName.coupon_series_id_PUT | endpointAccessGrantedPipe)
-    }"
-    [(dataValue)]="self.series.manualDiscountPrice"
+
+    [(dataValue)]="self.partnerDetails.registrationDate"
     [dataLabel]="''''"
-    [translateKeys]="''SERIES.DETAILS.AS_VOUCHER''"
-    [class]=''""''
-></cr-checkbox-control></div><div class=''col-lg-6''></div></div></div><div class=''col-lg-4''><div class="row undefined"><div class=''col-lg-12''><cr-text-area-control
-    [(dataValue)]="self.series.voucherText"
-    [elementName]="''textarea:Coupon_series_details.Voucher_text''"
-    [permissionSettings]="{
-              isAccessEdit: self.isNewSeries ?
-                (self.EndpointName.coupon_series_POST | endpointAccessGrantedPipe):
-                (self.EndpointName.coupon_series_id_PUT | endpointAccessGrantedPipe)
-              }"
-    [dataLabel]="''''"
-    [translateKeys]="''SERIES.DETAILS.VOUCHER_TEXT''"
+    [translateKeys]="''PARTNER.DETAILS.STATISTIC.REGISTRATION_DATE''"
     [class]=''""'' 
     [isDisabled]="false"
-    [rows]="10"
+></cr-control-datepicker></div><div class=''col-md-2''><cr-control-datepicker
+    [elementName]="''date:Partner_details.Last_sale_date''"
+    [permissionSettings]="{
+        isAccessEdit: self.isNew ? self.authService.getEndpointAccessGranted(self.EndpointName.partner_POST) :
+            self.authService.getEndpointAccessGranted(self.EndpointName.partner_id_PUT)
+    }"
+
+    [(dataValue)]="self.partnerDetails.lastSaleDate"
+    [dataLabel]="''''"
+    [translateKeys]="''PARTNER.DETAILS.STATISTIC.LAST_SALE_DATE''"
+    [class]=''""'' 
+    [isDisabled]="false"
+></cr-control-datepicker></div><div class=''col-md-2''><cr-dropdown-smart-control
+    [elementName]="''smart-dropdown:Partner_details.Linked_store''"
+    [permissionSettings]="{
+        isAccessRead: self.authService.getEndpointAccessGranted(self.EndpointName.partner__location_objectId_dropdown_GET),
+        isAccessEdit: (self.isNew ? self.authService.getEndpointAccessGranted(self.EndpointName.partner_POST) :
+            self.authService.getEndpointAccessGranted(self.EndpointName.partner_id_PUT)) &&
+            self.authService.getEndpointAccessGranted(self.EndpointName.partner__location_dropdown_GET)
+    }"
+
+    [dataCacheName]="''PartnerStoreListDropdownCache''"
+    [(value)]="self.partnerDetails.linkedStoreId"
+    [textField]="''name''"
+    [valueField]="''id''"
+    [getOneItemFunction]="self.loadStoreForDropdownFn"
+    [getListItemsFunction]="self.loadStoreListForDropdownFn"
+    [useCodeInList]="true"
+    [useCodeInValue]="true"
+    [unselectedItemValue]="{id: null, translateKey: ''COMMON.MOCK_OBJ.NOT_SELECTED''}"
+    [dataTranslateKeyField]="''translateKey''"
+    [labelTranslateKey]="''PARTNER.DETAILS.GENERAL.LINKED_STORE''"
+    [label]="''''"
+    [class]=''""''
+></cr-dropdown-smart-control></div></div>
+        </ng-template>
+      </cr-panel>
+      <cr-panel
+        [panelTemplateType]="''collapsible-panel''"
+        [expanded]="self.panelsViewState?.[''groups''] ?? false"
+        (expandedChange)="self.panelStateChange(''groups'', $event)"
+        [titleTranslateKey]="true ? ''PARTNER.PANEL.GROUPS'' : null"
+        [title]="true ? null : ''Groups''"
+        [customClass]="''''"
+        [headerClass]="''''"
+        [validator]="self.validator"
+        [validatorGroupName]="''groups''"
+        [containFields]=''["partnerGroups"]''
+      >
+        <ng-template crPanelContent>
+          <cr-partner-group-control
+    [editable]="true && (self.isNew ? 
+            self.authService.getEndpointAccessGranted(self.EndpointName.partner_POST) :
+            self.authService.getEndpointAccessGranted(self.EndpointName.partner_id_PUT))"
+
+    [partnerId]="self.partnerDetails.id"
+    [(selectedGroups)]="self.partnerDetails.partnerGroups"
+    [class]=''""''
+    [editIcon]="''icon-edit''"
+    (editClickEvent)="self.onEditPartnerGroup()"
+></cr-partner-group-control>
+        </ng-template>
+      </cr-panel>
+      <cr-panel
+        [panelTemplateType]="''collapsible-panel''"
+        [expanded]="self.panelsViewState?.[''addresses''] ?? false"
+        (expandedChange)="self.panelStateChange(''addresses'', $event)"
+        [titleTranslateKey]="true ? ''PARTNER.PANEL.ADDRESSES'' : null"
+        [title]="true ? null : ''Addresses''"
+        [customClass]="''''"
+        [headerClass]="''''"
+        [validator]="self.validator"
+        [validatorGroupName]="''addresses''"
+        [containFields]=''[]''
+      >
+        <ng-template crPanelContent>
+          <cr-partner-address-list
+    (openAddressPopup)="self.onCreatePartnerAddresses()"
+    (editAddressPopup)="self.onEditPartnerAddresses($event)"
+    [editable]="true"
+    [class]=''""''
+    [isNew]="self.isNew"
+    [partner]="self.partnerDetails"
+></cr-partner-address-list>
+        </ng-template>
+      </cr-panel>
+      <cr-panel
+        [panelTemplateType]="''collapsible-panel''"
+        [expanded]="self.panelsViewState?.[''contactPersons''] ?? false"
+        (expandedChange)="self.panelStateChange(''contactPersons'', $event)"
+        [titleTranslateKey]="true ? ''PARTNER.PANEL.CONTACT_PERSONS'' : null"
+        [title]="true ? null : ''Contact persons''"
+        [customClass]="''''"
+        [headerClass]="''''"
+        [validator]="self.validator"
+        [validatorGroupName]="''contactPersons''"
+        [containFields]=''[]''
+      >
+        <ng-template crPanelContent>
+          <cr-partner-contact-persons-list
+    (openAddressPopup)="self.onCreatePartnerContactPersons()"
+    (editAddressPopup)="self.onEditPartnerContactPersons($event)"
+    [isNew]="self.isNew"
+    [partner]="self.partnerDetails"
+    [class]=''""''
+></cr-partner-contact-persons-list>
+        </ng-template>
+      </cr-panel>
+      <cr-panel
+        [panelTemplateType]="''collapsible-panel''"
+        [expanded]="self.panelsViewState?.[''cards''] ?? false"
+        (expandedChange)="self.panelStateChange(''cards'', $event)"
+        [titleTranslateKey]="true ? ''PARTNER.PANEL.CARDS'' : null"
+        [title]="true ? null : ''Additional card numbers''"
+        [customClass]="''''"
+        [headerClass]="''''"
+        [validator]="self.validator"
+        [validatorGroupName]="''cards''"
+        [containFields]=''[]''
+      >
+        <ng-template crPanelContent>
+          <cr-partner-cards-list
+    [editable]="true"
+    [class]=''""''
+    [partnerId]="self.partnerDetails.id"
+    [isDeletedPartner]="self.partnerDetails.isDeleted"
+></cr-partner-cards-list>
+        </ng-template>
+      </cr-panel>
+      <cr-panel
+        [panelTemplateType]="''collapsible-panel''"
+        [expanded]="self.panelsViewState?.[''points''] ?? false"
+        (expandedChange)="self.panelStateChange(''points'', $event)"
+        [titleTranslateKey]="true ? ''PARTNER.PANEL.POINT'' : null"
+        [title]="true ? null : ''Loyalty points''"
+        [customClass]="''''"
+        [headerClass]="''''"
+        [validator]="self.validator"
+        [validatorGroupName]="''points''"
+        [containFields]=''[]''
+      >
+        <ng-template crPanelContent>
+          <cr-partner-point 
+    [class]=''""''
+    [partnerID]="self.partnerDetails.id"
+></cr-partner-point>
+        </ng-template>
+      </cr-panel>
+      <cr-panel
+        [panelTemplateType]="''collapsible-panel''"
+        [expanded]="self.panelsViewState?.[''pointHistory''] ?? false"
+        (expandedChange)="self.panelStateChange(''pointHistory'', $event)"
+        [titleTranslateKey]="true ? ''PARTNER.PANEL.POINT_HISTORY'' : null"
+        [title]="true ? null : ''Point history''"
+        [customClass]="''''"
+        [headerClass]="''''"
+        [validator]="self.validator"
+        [validatorGroupName]="''pointHistory''"
+        [containFields]=''[]''
+      >
+        <ng-template crPanelContent>
+          <cr-partner-point-history
+    [class]=''""''
+    [partnerId]="self.partnerDetails.id"
+></cr-partner-point-history>
+        </ng-template>
+      </cr-panel>
+      <cr-panel
+        [panelTemplateType]="''collapsible-panel''"
+        [expanded]="self.panelsViewState?.[''transactionHistory''] ?? false"
+        (expandedChange)="self.panelStateChange(''transactionHistory'', $event)"
+        [titleTranslateKey]="true ? ''PARTNER.PANEL.TRANSACTION_HISTORY'' : null"
+        [title]="true ? null : ''Transaction history''"
+        [customClass]="''''"
+        [headerClass]="''''"
+        [validator]="self.validator"
+        [validatorGroupName]="''transactionHistory''"
+        [containFields]=''[]''
+      >
+        <ng-template crPanelContent>
+          <cr-partner-transaction-history
+    [class]=''""''
+    [partnerId]="self.partnerDetails.id"
+></cr-partner-transaction-history>
+        </ng-template>
+      </cr-panel>
+      <cr-panel
+        [panelTemplateType]="''collapsible-panel''"
+        [expanded]="self.panelsViewState?.[''discountBudget''] ?? false"
+        (expandedChange)="self.panelStateChange(''discountBudget'', $event)"
+        [titleTranslateKey]="true ? ''PARTNER.PANEL.DISCOUNT_BUDGET'' : null"
+        [title]="true ? null : ''Discount budget''"
+        [customClass]="''''"
+        [headerClass]="''''"
+        [validator]="self.validator"
+        [validatorGroupName]="''discountBudget''"
+        [containFields]=''[]''
+      >
+        <ng-template crPanelContent>
+          <cr-partner-discount-budget 
+    [class]=''""''
+    [partnerId]="self.partnerDetails.id"
+></cr-partner-discount-budget>
+        </ng-template>
+      </cr-panel>
+      <cr-panel
+        [panelTemplateType]="''collapsible-panel''"
+        [expanded]="self.panelsViewState?.[''udf''] ?? false"
+        (expandedChange)="self.panelStateChange(''udf'', $event)"
+        [titleTranslateKey]="true ? ''PARTNER.PANEL.UDF'' : null"
+        [title]="true ? null : ''UDF''"
+        [customClass]="''''"
+        [headerClass]="''''"
+        [validator]="self.validator"
+        [validatorGroupName]="''udf''"
+        [containFields]=''[]''
+      >
+        <ng-template crPanelContent>
+          <cr-udf-list
+    [cacheName]="''PartnerUserFieldViewStateCache''"
+    *ngIf="self.authService.endpoints[self.EndpointName.partner__user_defined_field_GET]?.isAccessGranted &&
+        self.authService.endpoints[self.EndpointName.partner__user_defined_field_default_value_GET]?.isAccessGranted; else noAccess"
+    [isNew]="self.isNew"
+    [udf]="self.partnerDetails.udf"
+    [viewName]="''Partner_details''"
+    [loadUserDefinedFieldListForDropdownFn$]="self.loadUserDefinedFieldListForDropdownFn$"
+    [getUserFields$]="self.getUserFields$"
+    [loadUserFields$]="self.loadUserFields$"
+    [getUserFieldsDefault$]="self.getUserFieldsDefault$"
+    [class]=''""''
+></cr-udf-list>
+<ng-template #noAccess>
+    <div class="cr-no-read-access p-2">
+        {{''COMMON.GRID.NO_READ_ACCESS'' | translate}}
+    </div>
+</ng-template>
+        </ng-template>
+      </cr-panel>
+      <cr-panel
+        [panelTemplateType]="''collapsible-panel''"
+        [expanded]="self.panelsViewState?.[''remark''] ?? false"
+        (expandedChange)="self.panelStateChange(''remark'', $event)"
+        [titleTranslateKey]="true ? ''PARTNER.PANEL.REMARK'' : null"
+        [title]="true ? null : ''Remark''"
+        [customClass]="''''"
+        [headerClass]="''''"
+        [validator]="self.validator"
+        [validatorGroupName]="''remark''"
+        [containFields]=''[]''
+      >
+        <ng-template crPanelContent>
+          <div class="row undefined"><div class=''col-md-12''><cr-text-area-control
+    [elementName]="''textarea:Partner_details.Remark''"
+    [(dataValue)]="self.partnerDetails.remark"
+    [dataLabel]="''''"
+    [translateKeys]="''''"
+    [class]=''""'' 
+    [isDisabled]="false"
+    [rows]="2"
     [maxlength]="50000"
-></cr-text-area-control></div><div class=''col-md-6''></div></div></div></div>
+    [permissionSettings]="{
+        isAccessEdit: self.isNew ? self.authService.getEndpointAccessGranted(self.EndpointName.partner_POST) :
+            self.authService.getEndpointAccessGranted(self.EndpointName.partner_id_PUT)
+    }"
+></cr-text-area-control></div><div class=''col-md-6''></div></div>
         </ng-template>
       </cr-panel>
         </ng-template>
       </ng-template>
     </ng-template>
     
+        <ng-template [ngSwitchCase]="''manage-mailing-category-partner''">
+          <ng-template
+            [ngIf]="self.popupTab.tabs[self.popupTab.activeTabIndex].type == ''manage-mailing-category-partner'' && self.popupTab.activeTabIndex == i">
+            <div *ngIf=''self.popupTab.activeTabIndex != self.popupTab.tabs.length - 1'' class=''cr-popup-blocker''></div>
+            <cr-partner-mailing-category-manage-dynamic
+    [subTemplateId]="''0900AEBD-4251-ED11-8E5D-4CCC6A2BB6D6''"
+    [(selectedMailingCategory)]="self.partnerDetails.mailingCategories"
+    (cancelClickEvent)="self.onCloseMailingCategory()"
+    (confirmClickEvent)="self.onCloseMailingCategory()"
+></cr-partner-mailing-category-manage-dynamic>
+
+          </ng-template>
+        </ng-template>
+      
+        <ng-template [ngSwitchCase]="''manage-partner-groups''">
+          <ng-template
+            [ngIf]="self.popupTab.tabs[self.popupTab.activeTabIndex].type == ''manage-partner-groups'' && self.popupTab.activeTabIndex == i">
+            <div *ngIf=''self.popupTab.activeTabIndex != self.popupTab.tabs.length - 1'' class=''cr-popup-blocker''></div>
+            <cr-partner-group-manage-dynamic
+    [subTemplateId]="''0A00AEBD-4251-ED11-8E5D-4CCC6A2BB6D6''"
+    [partnerId]="self.partnerDetails.id"
+    [partnerTypeId]="self.partnerDetails.partnerTypeId"
+    [(selectedGroups)]="self.partnerDetails.partnerGroups"
+    (cancelClickEvent)="self.onClosePartnerGroup()"
+    (confirmClickEvent)="self.onClosePartnerGroup()"
+></cr-partner-group-manage-dynamic>
+          </ng-template>
+        </ng-template>
+      
+        <ng-template [ngSwitchCase]="''manage-partner-addresses-create''">
+          <ng-template
+            [ngIf]="self.popupTab.tabs[self.popupTab.activeTabIndex].type == ''manage-partner-addresses-create'' && self.popupTab.activeTabIndex == i">
+            <div *ngIf=''self.popupTab.activeTabIndex != self.popupTab.tabs.length - 1'' class=''cr-popup-blocker''></div>
+            <cr-addresses-details-dynamic
+    [subTemplateId]="''0B00AEBD-4251-ED11-8E5D-4CCC6A2BB6D6''"
+    (closeClickEvent)="self.onClosePartnerAddresses()"
+    [isNew]="true"
+    [itemAddress]="self.partnerDetailsAddress"
+    (newAddress)="self.onConfirmPartnerAddresses($event, true)"
+></cr-addresses-details-dynamic>
+
+          </ng-template>
+        </ng-template>
+      
+        <ng-template [ngSwitchCase]="''manage-mailing-category-contact-person''">
+          <ng-template
+            [ngIf]="self.popupTab.tabs[self.popupTab.activeTabIndex].type == ''manage-mailing-category-contact-person'' && self.popupTab.activeTabIndex == i">
+            <div *ngIf=''self.popupTab.activeTabIndex != self.popupTab.tabs.length - 1'' class=''cr-popup-blocker''></div>
+            <cr-partner-mailing-category-manage-dynamic
+    [subTemplateId]="''0900AEBD-4251-ED11-8E5D-4CCC6A2BB6D6''"
+    (selectedMailingCategoryChange)="self.partnerDetailsContactPerson.mailingCategories = $event"
+    [(selectedMailingCategory)]="self.partnerDetailsContactPerson.mailingCategories"
+    (cancelClickEvent)="self.onCloseMailingCategory()"
+    (confirmClickEvent)="self.onCloseMailingCategory()"
+></cr-partner-mailing-category-manage-dynamic>
+
+          </ng-template>
+        </ng-template>
+      
+        <ng-template [ngSwitchCase]="''manage-partner-addresses-update''">
+          <ng-template
+            [ngIf]="self.popupTab.tabs[self.popupTab.activeTabIndex].type == ''manage-partner-addresses-update'' && self.popupTab.activeTabIndex == i">
+            <div *ngIf=''self.popupTab.activeTabIndex != self.popupTab.tabs.length - 1'' class=''cr-popup-blocker''></div>
+            <cr-addresses-details-dynamic
+    [subTemplateId]="''7BCDF1FD-535C-ED11-8E5E-4CCC6A2BB6D6''"
+    [isNew]="false"
+    (closeClickEvent)="self.onClosePartnerAddresses()"
+    (confirmAddress)="self.onConfirmPartnerAddresses($event)"
+    [itemAddress]="self.partnerDetailsAddress"
+></cr-addresses-details-dynamic>
+          </ng-template>
+        </ng-template>
+      
+        <ng-template [ngSwitchCase]="''manage-partner-contact-persons-update''">
+          <ng-template
+            [ngIf]="self.popupTab.tabs[self.popupTab.activeTabIndex].type == ''manage-partner-contact-persons-update'' && self.popupTab.activeTabIndex == i">
+            <div *ngIf=''self.popupTab.activeTabIndex != self.popupTab.tabs.length - 1'' class=''cr-popup-blocker''></div>
+            <cr-partner-contact-persons-details
+    [subTemplateId]="''BBD312CC-5B5C-ED11-8E5E-4CCC6A2BB6D6''"
+    (openMailingCategory)="self.onEditContactPersonMailingCategory()"
+    (closeClickEvent)="self.onClosePartnerContactPersons()"
+    (confirmContactPerson)="self.onConfirmPartnerContactPersons($event)"
+    [itemContactPerson]="self.partnerDetailsContactPerson"
+></cr-partner-contact-persons-details>
+          </ng-template>
+        </ng-template>
+      
+        <ng-template [ngSwitchCase]="''manage-partner-contact-persons-create''">
+          <ng-template
+            [ngIf]="self.popupTab.tabs[self.popupTab.activeTabIndex].type == ''manage-partner-contact-persons-create'' && self.popupTab.activeTabIndex == i">
+            <div *ngIf=''self.popupTab.activeTabIndex != self.popupTab.tabs.length - 1'' class=''cr-popup-blocker''></div>
+            <cr-partner-contact-persons-details
+    [subTemplateId]="''0E00AEBD-4251-ED11-8E5D-4CCC6A2BB6D6''"
+    (openMailingCategory)="self.onEditContactPersonMailingCategory()"
+    (closeClickEvent)="self.onClosePartnerContactPersons()"
+    [isNew]="true"
+    [itemContactPerson]="self.partnerDetailsContactPerson"
+    (newContactPerson)="self.onConfirmPartnerContactPersons($event, true)"
+></cr-partner-contact-persons-details>
+
+          </ng-template>
+        </ng-template>
+      
               </ng-container>
             </ng-container>
           </div>
-        </div>', '2022-12-28 14:17:11.3166667 +00:00', 12, N'N', '07a29285-cda8-4293-8b6d-abc98734d656', 1, NULL)
-INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID], [BookmarkName], [BookmarkDescription], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('060fbf53-d185-ed11-8360-02f176033ddb', '050fbf53-d185-ed11-8360-02f176033ddb', 1, N'', N'', N'
-        <div class=''cr-popup-content-wrapper'' [class.cr-popup-is-shown]=''self.popupTab.tabs.length > 1''>
-          <cr-popup-tabs
-            [popupTabs]=''self.popupTab.tabs''
-            [activePopup]=''self.popupTab.activeTabIndex''
-            (closePopup)=''self.removePopupTab($event)''
-            (changeActive)=''self.changeActiveTab($event)''
-          ></cr-popup-tabs>
-          <div class=''cr-details-inner-container''>
-            <ng-container *ngFor=''let tab of self.popupTab.tabs; index as i;''>
-              <ng-container [ngSwitch]=''tab.type''>
-                
-    <ng-template [ngSwitchCase]="''general''">
-      <ng-template [ngIf]="self.popupTab.tabs[self.popupTab.activeTabIndex].type == ''general'' && self.popupTab.activeTabIndex == i">
-        <div *ngIf=''self.popupTab.activeTabIndex != self.popupTab.tabs.length - 1'' class=''cr-popup-blocker''></div>
-        <cr-title-header
-    [titleTranslateKey]="''ROLE.DETAILS.TITLE''"
-    [title]="''''"
-    [titleValue]="self.titleValueText"
-    [additionalTranslateKeys]="''COMMON.NEW''"
-    (buttonClickEvent)="self.onTitleButtonClick($event)"
-    [buttonSettings]="self.titleHeaderButtonSettings"
-    [titleValueTranslateKey]="self.isNew ? ''COMMON.NEW'' : null"
-></cr-title-header>
-        <ng-template [ngIf]="self.currentItem">
-            
-      <cr-panel
-        [panelTemplateType]="''well''"
-        [customClass]="''''"
-      >
-        <ng-template crPanelContent>
-          <div class="row "><div class=''col-lg-4''><cr-control-edit
-    [(dataValue)]="self.currentItem.code"
-    [elementName]="''edit:Role_details.Code''"
-    [permissionSettings]="{
-        isAccessEdit: self.isNew ? (self.EndpointName.role_POST | endpointAccessGrantedPipe) :
-            (self.EndpointName.role_id_PUT | endpointAccessGrantedPipe)
-    }"
-    [validator]="self.validator"
-    [validationField]="''code''"
-    [translateKeys]="''ROLE.DETAILS.CODE''" 
-    [dataLabel]="''''"
-    [customClass]=''""''
-    [isDisabled]="self.currentItem.isDeleted"
-></cr-control-edit></div><div class=''col-lg-4''><cr-control-edit
-    [(dataValue)]="self.currentItem.name"
-    [elementName]="''edit:Role_details.Name''"
-    [permissionSettings]="{
-        isAccessEdit: self.isNew ? (self.EndpointName.role_POST | endpointAccessGrantedPipe) :
-            (self.EndpointName.role_id_PUT | endpointAccessGrantedPipe)
-    }"
-    [validator]="self.validator"
-    [validationField]="''name''"
-    [translateKeys]="''ROLE.DETAILS.NAME''" 
-    [dataLabel]="''''"
-    [customClass]=''""''
-    [isDisabled]="self.currentItem.isDeleted"
-    (dataValueChange)="self.changeTitle()"
-></cr-control-edit></div></div>
-        </ng-template>
-      </cr-panel>
-      <cr-panel
-        [panelTemplateType]="''collapsible-panel''"
-        [expanded]="self.panelsViewState?.[''permissions''] ?? true"
-        (expandedChange)="self.panelStateChange(''permissions'', $event)"
-        [titleTranslateKey]="true ? ''ROLE.DETAILS.PERMISSIONS.TITLE'' : null"
-        [title]="true ? null : ''Permissions he''"
-        [customClass]="''''"
-        [headerClass]="''''"
-        [validator]="self.validator"
-        [validatorGroupName]="''permissions''"
-        [containFields]=''[]''
-      >
-        <ng-template crPanelContent>
-          <cr-role-permission-tree
-    *ngIf="(self.EndpointName.role__function_tree_list_GET | endpointAccessGrantedPipe)"
-    [isNew]="self.isNew"
-    [(selected)]="self.currentItem.functions"
-    [editable]="!self.currentItem.isDeleted && (self.isNew
-        ? (self.EndpointName.role_POST | endpointAccessGrantedPipe)
-        : (self.EndpointName.role_id_PUT | endpointAccessGrantedPipe))"
-    [class]=''""''
-></cr-role-permission-tree>
-        </ng-template>
-      </cr-panel>
-        </ng-template>
-      </ng-template>
-    </ng-template>
-    
-              </ng-container>
-            </ng-container>
-          </div>
-        </div>', '2022-12-28 15:04:31.2333333 +00:00', 9, N'N', 'e47e1c52-1c03-4130-9ea3-3fcf73a5e09a', 1, NULL)
-INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID], [BookmarkName], [BookmarkDescription], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('070fbf53-d185-ed11-8360-02f176033ddb', '050fbf53-d185-ed11-8360-02f176033ddb', 2, N'', N'', N'
-        <div class=''cr-popup-content-wrapper'' [class.cr-popup-is-shown]=''self.popupTab.tabs.length > 1''>
-          <cr-popup-tabs
-            [popupTabs]=''self.popupTab.tabs''
-            [activePopup]=''self.popupTab.activeTabIndex''
-            (closePopup)=''self.removePopupTab($event)''
-            (changeActive)=''self.changeActiveTab($event)''
-          ></cr-popup-tabs>
-          <div class=''cr-details-inner-container''>
-            <ng-container *ngFor=''let tab of self.popupTab.tabs; index as i;''>
-              <ng-container [ngSwitch]=''tab.type''>
-                
-    <ng-template [ngSwitchCase]="''general''">
-      <ng-template [ngIf]="self.popupTab.tabs[self.popupTab.activeTabIndex].type == ''general'' && self.popupTab.activeTabIndex == i">
-        <div *ngIf=''self.popupTab.activeTabIndex != self.popupTab.tabs.length - 1'' class=''cr-popup-blocker''></div>
-        <cr-title-header
-    [titleTranslateKey]="''ROLE.DETAILS.TITLE''"
-    [title]="''''"
-    [titleValue]="self.titleValueText"
-    [additionalTranslateKeys]="''COMMON.NEW''"
-    (buttonClickEvent)="self.onTitleButtonClick($event)"
-    [buttonSettings]="self.titleHeaderButtonSettings"
-    [titleValueTranslateKey]="self.isNew ? ''COMMON.NEW'' : null"
-></cr-title-header>
-        <ng-template [ngIf]="self.currentItem">
-            
-      <cr-panel
-        [panelTemplateType]="''well''"
-        [customClass]="''''"
-      >
-        <ng-template crPanelContent>
-          <div class="row "><div class=''col-lg-4''><cr-control-edit
-    [(dataValue)]="self.currentItem.code"
-    [elementName]="''edit:Role_details.Code''"
-    [permissionSettings]="{
-        isAccessEdit: self.isNew ? (self.EndpointName.role_POST | endpointAccessGrantedPipe) :
-            (self.EndpointName.role_id_PUT | endpointAccessGrantedPipe)
-    }"
-    [validator]="self.validator"
-    [validationField]="''code''"
-    [translateKeys]="''ROLE.DETAILS.CODE''" 
-    [dataLabel]="''''"
-    [customClass]=''""''
-    [isDisabled]="self.currentItem.isDeleted"
-></cr-control-edit></div><div class=''col-lg-4''><cr-control-edit
-    [(dataValue)]="self.currentItem.name"
-    [elementName]="''edit:Role_details.Name''"
-    [permissionSettings]="{
-        isAccessEdit: self.isNew ? (self.EndpointName.role_POST | endpointAccessGrantedPipe) :
-            (self.EndpointName.role_id_PUT | endpointAccessGrantedPipe)
-    }"
-    [validator]="self.validator"
-    [validationField]="''name''"
-    [translateKeys]="''ROLE.DETAILS.NAME''" 
-    [dataLabel]="''''"
-    [customClass]=''""''
-    [isDisabled]="self.currentItem.isDeleted"
-    (dataValueChange)="self.changeTitle()"
-></cr-control-edit></div></div>
-        </ng-template>
-      </cr-panel>
-      <cr-panel
-        [panelTemplateType]="''collapsible-panel''"
-        [expanded]="self.panelsViewState?.[''permissions''] ?? true"
-        (expandedChange)="self.panelStateChange(''permissions'', $event)"
-        [titleTranslateKey]="true ? ''ROLE.DETAILS.PERMISSIONS.TITLE'' : null"
-        [title]="true ? null : ''Permissions''"
-        [customClass]="''''"
-        [headerClass]="''''"
-        [validator]="self.validator"
-        [validatorGroupName]="''permissions''"
-        [containFields]=''[]''
-      >
-        <ng-template crPanelContent>
-          <cr-role-permission-tree
-    *ngIf="(self.EndpointName.role__function_tree_list_GET | endpointAccessGrantedPipe)"
-    [isNew]="self.isNew"
-    [(selected)]="self.currentItem.functions"
-    [editable]="!self.currentItem.isDeleted && (self.isNew
-        ? (self.EndpointName.role_POST | endpointAccessGrantedPipe)
-        : (self.EndpointName.role_id_PUT | endpointAccessGrantedPipe))"
-    [class]=''""''
-></cr-role-permission-tree>
-        </ng-template>
-      </cr-panel>
-        </ng-template>
-      </ng-template>
-    </ng-template>
-    
-              </ng-container>
-            </ng-container>
-          </div>
-        </div>', '2022-12-28 15:04:31.2333333 +00:00', 9, N'N', '3f1ed97c-431d-48dd-ad4f-23bd5184bff1', 1, NULL)
-INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID], [BookmarkName], [BookmarkDescription], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('e4dfa869-d185-ed11-8360-02f176033ddb', 'e3dfa869-d185-ed11-8360-02f176033ddb', 1, N'', N'', N'
-        <div class=''cr-popup-content-wrapper'' [class.cr-popup-is-shown]=''self.popupTab.tabs.length > 1''>
-          <cr-popup-tabs
-            [popupTabs]=''self.popupTab.tabs''
-            [activePopup]=''self.popupTab.activeTabIndex''
-            (closePopup)=''self.removePopupTab($event)''
-            (changeActive)=''self.changeActiveTab($event)''
-          ></cr-popup-tabs>
-          <div class=''cr-details-inner-container''>
-            <ng-container *ngFor=''let tab of self.popupTab.tabs; index as i;''>
-              <ng-container [ngSwitch]=''tab.type''>
-                
-    <ng-template [ngSwitchCase]="''general''">
-      <ng-template [ngIf]="self.popupTab.tabs[self.popupTab.activeTabIndex].type == ''general'' && self.popupTab.activeTabIndex == i">
-        <div *ngIf=''self.popupTab.activeTabIndex != self.popupTab.tabs.length - 1'' class=''cr-popup-blocker''></div>
-        <cr-title-header
-    [titleTranslateKey]="''ROLE.DETAILS.TITLE''"
-    [title]="''''"
-    [titleValue]="self.titleValueText"
-    [additionalTranslateKeys]="''COMMON.NEW''"
-    (buttonClickEvent)="self.onTitleButtonClick($event)"
-    [buttonSettings]="self.titleHeaderButtonSettings"
-    [titleValueTranslateKey]="self.isNew ? ''COMMON.NEW'' : null"
-></cr-title-header>
-        <ng-template [ngIf]="self.currentItem">
-            
-      <cr-panel
-        [panelTemplateType]="''well''"
-        [customClass]="''''"
-      >
-        <ng-template crPanelContent>
-          <div class="row "><div class=''col-lg-4''><cr-control-edit
-    [(dataValue)]="self.currentItem.code"
-    [elementName]="''edit:Role_details.Code''"
-    [permissionSettings]="{
-        isAccessEdit: self.isNew ? (self.EndpointName.role_POST | endpointAccessGrantedPipe) :
-            (self.EndpointName.role_id_PUT | endpointAccessGrantedPipe)
-    }"
-    [validator]="self.validator"
-    [validationField]="''code''"
-    [translateKeys]="''ROLE.DETAILS.CODE''" 
-    [dataLabel]="''''"
-    [customClass]=''""''
-    [isDisabled]="self.currentItem.isDeleted"
-></cr-control-edit></div><div class=''col-lg-4''><cr-control-edit
-    [(dataValue)]="self.currentItem.name"
-    [elementName]="''edit:Role_details.Name''"
-    [permissionSettings]="{
-        isAccessEdit: self.isNew ? (self.EndpointName.role_POST | endpointAccessGrantedPipe) :
-            (self.EndpointName.role_id_PUT | endpointAccessGrantedPipe)
-    }"
-    [validator]="self.validator"
-    [validationField]="''name''"
-    [translateKeys]="''ROLE.DETAILS.NAME''" 
-    [dataLabel]="''''"
-    [customClass]=''""''
-    [isDisabled]="self.currentItem.isDeleted"
-    (dataValueChange)="self.changeTitle()"
-></cr-control-edit></div></div>
-        </ng-template>
-      </cr-panel>
-      <cr-panel
-        [panelTemplateType]="''collapsible-panel''"
-        [expanded]="self.panelsViewState?.[''permissions''] ?? true"
-        (expandedChange)="self.panelStateChange(''permissions'', $event)"
-        [titleTranslateKey]="true ? ''ROLE.DETAILS.PERMISSIONS.TITLE'' : null"
-        [title]="true ? null : ''Permissions he''"
-        [customClass]="''''"
-        [headerClass]="''''"
-        [validator]="self.validator"
-        [validatorGroupName]="''permissions''"
-        [containFields]=''[]''
-      >
-        <ng-template crPanelContent>
-          <cr-role-permission-tree
-    *ngIf="(self.EndpointName.role__function_tree_list_GET | endpointAccessGrantedPipe)"
-    [isNew]="self.isNew"
-    [(selected)]="self.currentItem.functions"
-    [editable]="!self.currentItem.isDeleted && (self.isNew
-        ? (self.EndpointName.role_POST | endpointAccessGrantedPipe)
-        : (self.EndpointName.role_id_PUT | endpointAccessGrantedPipe))"
-    [class]=''""''
-></cr-role-permission-tree>
-        </ng-template>
-      </cr-panel>
-        </ng-template>
-      </ng-template>
-    </ng-template>
-    
-              </ng-container>
-            </ng-container>
-          </div>
-        </div>', '2022-12-28 15:03:43.2166667 +00:00', 12, N'N', '705d2504-25fe-43d2-8ebe-cd788bad7d98', 1, NULL)
-INSERT INTO [dbo].[WebViewTemplateName] ([ID], [WebViewTemplateID], [LanguageID], [BookmarkName], [BookmarkDescription], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('e5dfa869-d185-ed11-8360-02f176033ddb', 'e3dfa869-d185-ed11-8360-02f176033ddb', 2, N'', N'', N'
-        <div class=''cr-popup-content-wrapper'' [class.cr-popup-is-shown]=''self.popupTab.tabs.length > 1''>
-          <cr-popup-tabs
-            [popupTabs]=''self.popupTab.tabs''
-            [activePopup]=''self.popupTab.activeTabIndex''
-            (closePopup)=''self.removePopupTab($event)''
-            (changeActive)=''self.changeActiveTab($event)''
-          ></cr-popup-tabs>
-          <div class=''cr-details-inner-container''>
-            <ng-container *ngFor=''let tab of self.popupTab.tabs; index as i;''>
-              <ng-container [ngSwitch]=''tab.type''>
-                
-    <ng-template [ngSwitchCase]="''general''">
-      <ng-template [ngIf]="self.popupTab.tabs[self.popupTab.activeTabIndex].type == ''general'' && self.popupTab.activeTabIndex == i">
-        <div *ngIf=''self.popupTab.activeTabIndex != self.popupTab.tabs.length - 1'' class=''cr-popup-blocker''></div>
-        <cr-title-header
-    [titleTranslateKey]="''ROLE.DETAILS.TITLE''"
-    [title]="''''"
-    [titleValue]="self.titleValueText"
-    [additionalTranslateKeys]="''COMMON.NEW''"
-    (buttonClickEvent)="self.onTitleButtonClick($event)"
-    [buttonSettings]="self.titleHeaderButtonSettings"
-    [titleValueTranslateKey]="self.isNew ? ''COMMON.NEW'' : null"
-></cr-title-header>
-        <ng-template [ngIf]="self.currentItem">
-            
-      <cr-panel
-        [panelTemplateType]="''well''"
-        [customClass]="''''"
-      >
-        <ng-template crPanelContent>
-          <div class="row "><div class=''col-lg-4''><cr-control-edit
-    [(dataValue)]="self.currentItem.code"
-    [elementName]="''edit:Role_details.Code''"
-    [permissionSettings]="{
-        isAccessEdit: self.isNew ? (self.EndpointName.role_POST | endpointAccessGrantedPipe) :
-            (self.EndpointName.role_id_PUT | endpointAccessGrantedPipe)
-    }"
-    [validator]="self.validator"
-    [validationField]="''code''"
-    [translateKeys]="''ROLE.DETAILS.CODE''" 
-    [dataLabel]="''''"
-    [customClass]=''""''
-    [isDisabled]="self.currentItem.isDeleted"
-></cr-control-edit></div><div class=''col-lg-4''><cr-control-edit
-    [(dataValue)]="self.currentItem.name"
-    [elementName]="''edit:Role_details.Name''"
-    [permissionSettings]="{
-        isAccessEdit: self.isNew ? (self.EndpointName.role_POST | endpointAccessGrantedPipe) :
-            (self.EndpointName.role_id_PUT | endpointAccessGrantedPipe)
-    }"
-    [validator]="self.validator"
-    [validationField]="''name''"
-    [translateKeys]="''ROLE.DETAILS.NAME''" 
-    [dataLabel]="''''"
-    [customClass]=''""''
-    [isDisabled]="self.currentItem.isDeleted"
-    (dataValueChange)="self.changeTitle()"
-></cr-control-edit></div></div>
-        </ng-template>
-      </cr-panel>
-      <cr-panel
-        [panelTemplateType]="''collapsible-panel''"
-        [expanded]="self.panelsViewState?.[''permissions''] ?? true"
-        (expandedChange)="self.panelStateChange(''permissions'', $event)"
-        [titleTranslateKey]="true ? ''ROLE.DETAILS.PERMISSIONS.TITLE'' : null"
-        [title]="true ? null : ''Permissions''"
-        [customClass]="''''"
-        [headerClass]="''''"
-        [validator]="self.validator"
-        [validatorGroupName]="''permissions''"
-        [containFields]=''[]''
-      >
-        <ng-template crPanelContent>
-          <cr-role-permission-tree
-    *ngIf="(self.EndpointName.role__function_tree_list_GET | endpointAccessGrantedPipe)"
-    [isNew]="self.isNew"
-    [(selected)]="self.currentItem.functions"
-    [editable]="!self.currentItem.isDeleted && (self.isNew
-        ? (self.EndpointName.role_POST | endpointAccessGrantedPipe)
-        : (self.EndpointName.role_id_PUT | endpointAccessGrantedPipe))"
-    [class]=''""''
-></cr-role-permission-tree>
-        </ng-template>
-      </cr-panel>
-        </ng-template>
-      </ng-template>
-    </ng-template>
-    
-              </ng-container>
-            </ng-container>
-          </div>
-        </div>', '2022-12-28 15:03:43.2166667 +00:00', 12, N'N', 'c6d908e7-ce82-4842-940a-0ec28f10538a', 1, NULL)
+        </div>', '2023-01-03 09:57:41.6400000 +00:00', 224, N'N', '188d6e20-e451-4119-9a70-ab66298f743c', 1, NULL)

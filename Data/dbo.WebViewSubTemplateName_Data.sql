@@ -1,525 +1,99 @@
-INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [LanguageID], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('a52eded3-4251-ed11-8e5d-4ccc6a2bb6d6', '0c00aebd-4251-ed11-8e5d-4ccc6a2bb6d6', 1, N'<ng-container><cr-title-header
-    [titleTranslateKey]="''PARTNER.DETAILS.ADDRESS.DETAILS_TITLE''"
+INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [LanguageID], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('21348755-628b-ed11-8360-02f176033ddb', '00aab747-5f8b-ed11-8360-02f176033ddb', 1, N'<ng-container><cr-title-header
+    [titleTranslateKey]="''DOCUMENT_TYPE.INVOICE_SERIES.LIST.TITLE''"
     [title]="''''"
     (buttonClickEvent)="self.onTitleButtonClick($event)"
     [buttonSettings]="self.titleHeaderButtonSettings"
+    [titleValue]="self.titleValueText"
 ></cr-title-header>
       <cr-panel
-        [panelTemplateType]="''well''"
+        [panelTemplateType]="''panel''"
+        [expanded]="self.panelsViewState?.[''undefined''] ?? true"
+        (expandedChange)="self.panelStateChange(''undefined'', $event)"
+        [titleTranslateKey]="true ? ''DOCUMENT_TYPE.INVOICE_SERIES.LIST.TITLE_GRID'' : null"
+        [title]="true ? null : ''סדרת חשבוניות''"
         [customClass]="''''"
+        [headerClass]="''''"
+        [validator]="self.validator"
+        [validatorGroupName]="''undefined''"
+        [containFields]=''[]''
       >
         <ng-template crPanelContent>
-          <div class="row"><div class=''col-md-2''><cr-dropdown-smart-control
-    [elementName]="''smart-dropdown:Partner_details.Address_type''"
-    [dataCacheName]="''AddressTypeDropdownCache''"
-    [useCache]="false"
-    [(value)]="self.address.partnerAddressType.id"
-    [textField]="''name''"
-    [valueField]="''id''"
-    [dataTranslateKeyField]="''translateKey''"
-    [(currentItemValue)]="self.address.partnerAddressType"
-    [getListItemsFunction]="self.loadAddressTypeListForDropdownFn"
-    [validator]="self.addressValidator"
-    [validationField]="''partnerAddressType.id''"
-    [unselectedItemValue]="{id: null, translateKey: ''COMMON.NOT_SELECTED''}"
-    [labelTranslateKey]="''PARTNER.DETAILS.ADDRESS.ADDRESS_TYPE''"
-    [label]="''''"
-    [class]=''""''
-></cr-dropdown-smart-control>
-</div><div class=''col-md-2''><cr-combobox-smart-control
-    [elementName]="''smart-combobox:Partner_details.Address_state''"
-    [dataCacheName]="''ItemStateComboboxCache''"
-    [useCache]="false"
-    [(value)]="self.address.state.id"
-    [(currentItemValue)]="self.address.state"
-    [textField]="''name''"
-    [valueField]="''id''"
-    [getListItemsFunction]="self.loadAddressStateListFunction"
-    [translateKeys]="''PARTNER.DETAILS.ADDRESS.COUNTRY''"
-    [dataLabel]="''''"
-    [valueField]="''id''"
-    [class]=''""''
-    [useCache]="false"
-></cr-combobox-smart-control></div><div class=''col-md-2''><cr-combobox-smart-control
-    [elementName]="''smart-combobox:Partner_details.Address_country''"
-    [dataCacheName]="''ItemCountryComboboxCache''"
-    [useCache]="false"
-    [(value)]="self.address.country.id"
-    [(currentItemValue)]="self.address.country"
-    [textField]="''name''"
-    [valueField]="''id''"
-    [getListItemsFunction]="self.loadAddressCountryListFunction"
-    [translateKeys]="''PARTNER.DETAILS.ADDRESS.STATE''"
-    [dataLabel]="''''"
-    [valueField]="''id''"
-    [class]=''""''
-    [useCache]="false"
-></cr-combobox-smart-control></div><div class=''col-md-2''><cr-combobox-smart-control
-    [elementName]="''smart-combobox:Partner_details.Address_country''"
-    [useCache]="false"
-    [dataCacheName]="''ItemCountyComboboxCache''"
-    [(value)]="self.address.county.id"
-    [(currentItemValue)]="self.address.county"
-    [textField]="''name''"
-    [valueField]="''id''"
-    [getListItemsFunction]="self.loadAddressCountyListFunction"
-    [translateKeys]="''PARTNER.DETAILS.ADDRESS.COUNTY''"
-    [dataLabel]="''''"
-    [valueField]="''id''"
-    [class]=''""''
-    [useCache]="false"
-></cr-combobox-smart-control></div><div class=''col-md-2''><cr-combobox-smart-control
-    [elementName]="''smart-combobox:Partner_details.Address_city''"
-    [useCache]="false"
-    [dataCacheName]="''ItemCityComboboxCache''"
-    [(value)]="self.address.city.id"
-    [(currentItemValue)]="self.address.city"
-    [textField]="''name''"
-    [valueField]="''id''"
-    [getListItemsFunction]="self.loadAddressCityListFunction"
-    [translateKeys]="''PARTNER.DETAILS.ADDRESS.CITY''"
-    [dataLabel]="''''"
-    [valueField]="''id''"
-    [class]=''""''
-    [useCache]="false"
-></cr-combobox-smart-control></div></div><div class="row"><div class=''col-md-2''><cr-control-edit 
-    [translateKeys]="''PARTNER.DETAILS.ADDRESS.ZIP''" 
-    [dataLabel]="''''"
-    [customClass]=''""''
-    [isDisabled]="false"
-    [elementName]="''edit:Partner_details.Address_zip''"
-    [(dataValue)]="self.address.zip"
-></cr-control-edit></div><div class=''col-md-2''><cr-combobox-smart-control
-    [elementName]="''smart-combobox:Partner_details.Address_street''"
-    [useCache]="false"
-    [dataCacheName]="''ItemStreetComboboxCache''"
-    [(value)]="self.address.street.id"
-    [(currentItemValue)]="self.address.street"
-    [textField]="''name''"
-    [valueField]="''id''"
-    [getListItemsFunction]="self.loadAddressStreetListFunction"
-    [translateKeys]="''PARTNER.DETAILS.ADDRESS.STREET''"
-    [dataLabel]="''''"
-    [valueField]="''id''"
-    [class]=''""''
-    [useCache]="false"
-></cr-combobox-smart-control></div><div class=''col-md-2''><cr-control-edit 
-    [translateKeys]="''PARTNER.DETAILS.ADDRESS.BLOCK''" 
-    [dataLabel]="''''"
-    [customClass]=''""''
-    [isDisabled]="false"
-    [elementName]="''edit:Partner_details.Address_block''"
-    [(dataValue)]="self.address.block"
-></cr-control-edit></div><div class=''col-md-2''><cr-control-edit 
-    [translateKeys]="''PARTNER.DETAILS.ADDRESS.STREET_NUMBER''" 
-    [dataLabel]="''''"
-    [customClass]=''""''
-    [isDisabled]="false"
-    [elementName]="''edit:Partner_details.Address_street_number''"
-    [(dataValue)]="self.address.streetNo"
-></cr-control-edit></div><div class=''col-md-2''><cr-control-edit 
-    [translateKeys]="''PARTNER.DETAILS.ADDRESS.APARTMENT''" 
-    [dataLabel]="''''"
-    [customClass]=''""''
-    [isDisabled]="false"
-    [elementName]="''edit:Partner_details.Address_appartment''"
-    [(dataValue)]="self.address.apartment"
-    [maxlength]="20"
-></cr-control-edit></div></div>
+          <div class="cr-grid-wrapper-new">
+    <cr-edit-grid-server-paging
+      (createActionEvent)="self.createHandler($event)"
+      (deleteActionEvent)="self.deleteHandler($event)"
+      (pageChangeEvent)="self.pageChange($event)"
+      (updateActionEvent)="self.updateHandler($event)"
+      [allowCreateAction]="true"
+      [allowDeleteAction]="true"
+      [allowUpdateAction]="true"
+      [columnSettings]=''self.columnSettings | dynamicColumnSettings:[{"field":"code","titleTranslateKey":"DOCUMENT_TYPE.INVOICE_SERIES.LIST.GRID.CODE","hidden":false,"sortOrder":1},{"field":"numberFrom","titleTranslateKey":"DOCUMENT_TYPE.INVOICE_SERIES.LIST.GRID.FIRST_NUMBER","hidden":false,"sortOrder":2},{"field":"numberTo","titleTranslateKey":"DOCUMENT_TYPE.INVOICE_SERIES.LIST.GRID.LAST_NUMBER","hidden":false,"sortOrder":3},{"field":"isActive","titleTranslateKey":"DOCUMENT_TYPE.INVOICE_SERIES.LIST.GRID.IS_ACTIVE","hidden":false,"sortOrder":4}]''
+      [dataCacheName]="''DocumentTypeInvoiceSeriesGrid''"
+      [dataSource]="self.dataSource"
+      [elementName]="''edit-grid-server-paging:Document_type_list.Invoice_series_grid''"
+      [pageable]="true"
+      [permissionSettings]="{
+          isAccessRead: (self.EndpointName.document_series_GET | endpointAccessGrantedPipe),
+          isAccessCreate: (self.EndpointName.document_series_POST | endpointAccessGrantedPipe),
+          isAccessUpdate: (self.EndpointName.document_series_id_PUT | endpointAccessGrantedPipe),
+          isAccessDelete: (self.EndpointName.document_series_id_DELETE | endpointAccessGrantedPipe)
+        }"
+      [resizable]="true"
+      [uniqueField]="''id''"
+      [validator]="self.invoiceSeriesValidator"
+      [class]="undefined"
+    ></cr-edit-grid-server-paging>
+      </div>
         </ng-template>
-      </cr-panel></ng-container>', '2022-07-15 18:18:43.7933333 +00:00', 12, N'N', '212d0826-c535-4058-8b24-227da51422b6', 1, NULL)
-INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [LanguageID], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('a62eded3-4251-ed11-8e5d-4ccc6a2bb6d6', '0c00aebd-4251-ed11-8e5d-4ccc6a2bb6d6', 2, N'<ng-container><cr-title-header
-    [titleTranslateKey]="''PARTNER.DETAILS.ADDRESS.DETAILS_TITLE''"
+      </cr-panel></ng-container>', '2023-01-03 12:37:17.4166667 +00:00', 2, N'N', 'a4269a54-d16a-4d4d-8001-817045d872f6', 1, NULL)
+INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [LanguageID], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('22348755-628b-ed11-8360-02f176033ddb', '00aab747-5f8b-ed11-8360-02f176033ddb', 2, N'<ng-container><cr-title-header
+    [titleTranslateKey]="''DOCUMENT_TYPE.INVOICE_SERIES.LIST.TITLE''"
     [title]="''''"
     (buttonClickEvent)="self.onTitleButtonClick($event)"
     [buttonSettings]="self.titleHeaderButtonSettings"
+    [titleValue]="self.titleValueText"
 ></cr-title-header>
       <cr-panel
-        [panelTemplateType]="''well''"
+        [panelTemplateType]="''panel''"
+        [expanded]="self.panelsViewState?.[''undefined''] ?? true"
+        (expandedChange)="self.panelStateChange(''undefined'', $event)"
+        [titleTranslateKey]="true ? ''DOCUMENT_TYPE.INVOICE_SERIES.LIST.TITLE_GRID'' : null"
+        [title]="true ? null : ''Invoice series''"
         [customClass]="''''"
+        [headerClass]="''''"
+        [validator]="self.validator"
+        [validatorGroupName]="''undefined''"
+        [containFields]=''[]''
       >
         <ng-template crPanelContent>
-          <div class="row"><div class=''col-md-2''><cr-dropdown-smart-control
-    [elementName]="''smart-dropdown:Partner_details.Address_type''"
-    [dataCacheName]="''AddressTypeDropdownCache''"
-    [useCache]="false"
-    [(value)]="self.address.partnerAddressType.id"
-    [textField]="''name''"
-    [valueField]="''id''"
-    [dataTranslateKeyField]="''translateKey''"
-    [(currentItemValue)]="self.address.partnerAddressType"
-    [getListItemsFunction]="self.loadAddressTypeListForDropdownFn"
-    [validator]="self.addressValidator"
-    [validationField]="''partnerAddressType.id''"
-    [unselectedItemValue]="{id: null, translateKey: ''COMMON.NOT_SELECTED''}"
-    [labelTranslateKey]="''PARTNER.DETAILS.ADDRESS.ADDRESS_TYPE''"
-    [label]="''''"
-    [class]=''""''
-></cr-dropdown-smart-control>
-</div><div class=''col-md-2''><cr-combobox-smart-control
-    [elementName]="''smart-combobox:Partner_details.Address_state''"
-    [dataCacheName]="''ItemStateComboboxCache''"
-    [useCache]="false"
-    [(value)]="self.address.state.id"
-    [(currentItemValue)]="self.address.state"
-    [textField]="''name''"
-    [valueField]="''id''"
-    [getListItemsFunction]="self.loadAddressStateListFunction"
-    [translateKeys]="''PARTNER.DETAILS.ADDRESS.COUNTRY''"
-    [dataLabel]="''''"
-    [valueField]="''id''"
-    [class]=''""''
-    [useCache]="false"
-></cr-combobox-smart-control></div><div class=''col-md-2''><cr-combobox-smart-control
-    [elementName]="''smart-combobox:Partner_details.Address_country''"
-    [dataCacheName]="''ItemCountryComboboxCache''"
-    [useCache]="false"
-    [(value)]="self.address.country.id"
-    [(currentItemValue)]="self.address.country"
-    [textField]="''name''"
-    [valueField]="''id''"
-    [getListItemsFunction]="self.loadAddressCountryListFunction"
-    [translateKeys]="''PARTNER.DETAILS.ADDRESS.STATE''"
-    [dataLabel]="''''"
-    [valueField]="''id''"
-    [class]=''""''
-    [useCache]="false"
-></cr-combobox-smart-control></div><div class=''col-md-2''><cr-combobox-smart-control
-    [elementName]="''smart-combobox:Partner_details.Address_country''"
-    [useCache]="false"
-    [dataCacheName]="''ItemCountyComboboxCache''"
-    [(value)]="self.address.county.id"
-    [(currentItemValue)]="self.address.county"
-    [textField]="''name''"
-    [valueField]="''id''"
-    [getListItemsFunction]="self.loadAddressCountyListFunction"
-    [translateKeys]="''PARTNER.DETAILS.ADDRESS.COUNTY''"
-    [dataLabel]="''''"
-    [valueField]="''id''"
-    [class]=''""''
-    [useCache]="false"
-></cr-combobox-smart-control></div><div class=''col-md-2''><cr-combobox-smart-control
-    [elementName]="''smart-combobox:Partner_details.Address_city''"
-    [useCache]="false"
-    [dataCacheName]="''ItemCityComboboxCache''"
-    [(value)]="self.address.city.id"
-    [(currentItemValue)]="self.address.city"
-    [textField]="''name''"
-    [valueField]="''id''"
-    [getListItemsFunction]="self.loadAddressCityListFunction"
-    [translateKeys]="''PARTNER.DETAILS.ADDRESS.CITY''"
-    [dataLabel]="''''"
-    [valueField]="''id''"
-    [class]=''""''
-    [useCache]="false"
-></cr-combobox-smart-control></div></div><div class="row"><div class=''col-md-2''><cr-control-edit 
-    [translateKeys]="''PARTNER.DETAILS.ADDRESS.ZIP''" 
-    [dataLabel]="''''"
-    [customClass]=''""''
-    [isDisabled]="false"
-    [elementName]="''edit:Partner_details.Address_zip''"
-    [(dataValue)]="self.address.zip"
-></cr-control-edit></div><div class=''col-md-2''><cr-combobox-smart-control
-    [elementName]="''smart-combobox:Partner_details.Address_street''"
-    [useCache]="false"
-    [dataCacheName]="''ItemStreetComboboxCache''"
-    [(value)]="self.address.street.id"
-    [(currentItemValue)]="self.address.street"
-    [textField]="''name''"
-    [valueField]="''id''"
-    [getListItemsFunction]="self.loadAddressStreetListFunction"
-    [translateKeys]="''PARTNER.DETAILS.ADDRESS.STREET''"
-    [dataLabel]="''''"
-    [valueField]="''id''"
-    [class]=''""''
-    [useCache]="false"
-></cr-combobox-smart-control></div><div class=''col-md-2''><cr-control-edit 
-    [translateKeys]="''PARTNER.DETAILS.ADDRESS.BLOCK''" 
-    [dataLabel]="''''"
-    [customClass]=''""''
-    [isDisabled]="false"
-    [elementName]="''edit:Partner_details.Address_block''"
-    [(dataValue)]="self.address.block"
-></cr-control-edit></div><div class=''col-md-2''><cr-control-edit 
-    [translateKeys]="''PARTNER.DETAILS.ADDRESS.STREET_NUMBER''" 
-    [dataLabel]="''''"
-    [customClass]=''""''
-    [isDisabled]="false"
-    [elementName]="''edit:Partner_details.Address_street_number''"
-    [(dataValue)]="self.address.streetNo"
-></cr-control-edit></div><div class=''col-md-2''><cr-control-edit 
-    [translateKeys]="''PARTNER.DETAILS.ADDRESS.APARTMENT''" 
-    [dataLabel]="''''"
-    [customClass]=''""''
-    [isDisabled]="false"
-    [elementName]="''edit:Partner_details.Address_appartment''"
-    [(dataValue)]="self.address.apartment"
-    [maxlength]="20"
-></cr-control-edit></div></div>
+          <div class="cr-grid-wrapper-new">
+    <cr-edit-grid-server-paging
+      (createActionEvent)="self.createHandler($event)"
+      (deleteActionEvent)="self.deleteHandler($event)"
+      (pageChangeEvent)="self.pageChange($event)"
+      (updateActionEvent)="self.updateHandler($event)"
+      [allowCreateAction]="true"
+      [allowDeleteAction]="true"
+      [allowUpdateAction]="true"
+      [columnSettings]=''self.columnSettings | dynamicColumnSettings:[{"field":"code","titleTranslateKey":"DOCUMENT_TYPE.INVOICE_SERIES.LIST.GRID.CODE","hidden":false,"sortOrder":1},{"field":"numberFrom","titleTranslateKey":"DOCUMENT_TYPE.INVOICE_SERIES.LIST.GRID.FIRST_NUMBER","hidden":false,"sortOrder":2},{"field":"numberTo","titleTranslateKey":"DOCUMENT_TYPE.INVOICE_SERIES.LIST.GRID.LAST_NUMBER","hidden":false,"sortOrder":3},{"field":"isActive","titleTranslateKey":"DOCUMENT_TYPE.INVOICE_SERIES.LIST.GRID.IS_ACTIVE","hidden":false,"sortOrder":4}]''
+      [dataCacheName]="''DocumentTypeInvoiceSeriesGrid''"
+      [dataSource]="self.dataSource"
+      [elementName]="''edit-grid-server-paging:Document_type_list.Invoice_series_grid''"
+      [pageable]="true"
+      [permissionSettings]="{
+          isAccessRead: (self.EndpointName.document_series_GET | endpointAccessGrantedPipe),
+          isAccessCreate: (self.EndpointName.document_series_POST | endpointAccessGrantedPipe),
+          isAccessUpdate: (self.EndpointName.document_series_id_PUT | endpointAccessGrantedPipe),
+          isAccessDelete: (self.EndpointName.document_series_id_DELETE | endpointAccessGrantedPipe)
+        }"
+      [resizable]="true"
+      [uniqueField]="''id''"
+      [validator]="self.invoiceSeriesValidator"
+      [class]="undefined"
+    ></cr-edit-grid-server-paging>
+      </div>
         </ng-template>
-      </cr-panel></ng-container>', '2022-07-15 18:18:43.7933333 +00:00', 12, N'N', '352f4953-8f8f-4251-9d34-672f240a995f', 1, NULL)
-INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [LanguageID], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('a92eded3-4251-ed11-8e5d-4ccc6a2bb6d6', '0f00aebd-4251-ed11-8e5d-4ccc6a2bb6d6', 1, N'<ng-container><cr-title-header
-    [titleTranslateKey]="''PARTNER.DETAILS.ADDRESS.DETAILS_TITLE''"
-    [title]="''''"
-    (buttonClickEvent)="self.onTitleButtonClick($event)"
-    [buttonSettings]="self.titleHeaderButtonSettings"
-></cr-title-header>
-      <cr-panel
-        [panelTemplateType]="''well''"
-        [customClass]="''''"
-      >
-        <ng-template crPanelContent>
-          <div class="row"><div class=''col-md-6''><cr-dropdown-smart-control
-    [elementName]="''smart-dropdown:Partner_details.Address_type''"
-    [dataCacheName]="''AddressTypeDropdownCache''"
-    [useCache]="false"
-    [(value)]="self.address.partnerAddressType.id"
-    [textField]="''name''"
-    [valueField]="''id''"
-    [dataTranslateKeyField]="''translateKey''"
-    [(currentItemValue)]="self.address.partnerAddressType"
-    [getListItemsFunction]="self.loadAddressTypeListForDropdownFn"
-    [validator]="self.addressValidator"
-    [validationField]="''partnerAddressType.id''"
-    [unselectedItemValue]="{id: null, translateKey: ''COMMON.NOT_SELECTED''}"
-    [labelTranslateKey]="''PARTNER.DETAILS.ADDRESS.ADDRESS_TYPE''"
-    [label]="''''"
-    [class]=''""''
-></cr-dropdown-smart-control>
-</div><div class=''col-md-6''><cr-combobox-smart-control
-    [elementName]="''smart-combobox:Partner_details.Address_state''"
-    [dataCacheName]="''ItemStateComboboxCache''"
-    [useCache]="false"
-    [(value)]="self.address.state.id"
-    [(currentItemValue)]="self.address.state"
-    [textField]="''name''"
-    [valueField]="''id''"
-    [getListItemsFunction]="self.loadAddressStateListFunction"
-    [translateKeys]="''PARTNER.DETAILS.ADDRESS.COUNTRY''"
-    [dataLabel]="''''"
-    [valueField]="''id''"
-    [class]=''""''
-    [useCache]="false"
-></cr-combobox-smart-control></div></div><div class="row"><div class=''col-md-6''><cr-combobox-smart-control
-    [elementName]="''smart-combobox:Partner_details.Address_country''"
-    [dataCacheName]="''ItemCountryComboboxCache''"
-    [useCache]="false"
-    [(value)]="self.address.country.id"
-    [(currentItemValue)]="self.address.country"
-    [textField]="''name''"
-    [valueField]="''id''"
-    [getListItemsFunction]="self.loadAddressCountryListFunction"
-    [translateKeys]="''PARTNER.DETAILS.ADDRESS.STATE''"
-    [dataLabel]="''''"
-    [valueField]="''id''"
-    [class]=''""''
-    [useCache]="false"
-></cr-combobox-smart-control></div><div class=''col-md-6''><cr-combobox-smart-control
-    [elementName]="''smart-combobox:Partner_details.Address_country''"
-    [useCache]="false"
-    [dataCacheName]="''ItemCountyComboboxCache''"
-    [(value)]="self.address.county.id"
-    [(currentItemValue)]="self.address.county"
-    [textField]="''name''"
-    [valueField]="''id''"
-    [getListItemsFunction]="self.loadAddressCountyListFunction"
-    [translateKeys]="''PARTNER.DETAILS.ADDRESS.COUNTY''"
-    [dataLabel]="''''"
-    [valueField]="''id''"
-    [class]=''""''
-    [useCache]="false"
-></cr-combobox-smart-control></div></div><div class="row"><div class=''col-md-6''><cr-combobox-smart-control
-    [elementName]="''smart-combobox:Partner_details.Address_city''"
-    [useCache]="false"
-    [dataCacheName]="''ItemCityComboboxCache''"
-    [(value)]="self.address.city.id"
-    [(currentItemValue)]="self.address.city"
-    [textField]="''name''"
-    [valueField]="''id''"
-    [getListItemsFunction]="self.loadAddressCityListFunction"
-    [translateKeys]="''PARTNER.DETAILS.ADDRESS.CITY''"
-    [dataLabel]="''''"
-    [valueField]="''id''"
-    [class]=''""''
-    [useCache]="false"
-></cr-combobox-smart-control></div><div class=''col-md-6''><cr-control-edit 
-    [translateKeys]="''PARTNER.DETAILS.ADDRESS.ZIP''" 
-    [dataLabel]="''''"
-    [customClass]=''""''
-    [isDisabled]="false"
-    [elementName]="''edit:Partner_details.Address_zip''"
-    [(dataValue)]="self.address.zip"
-></cr-control-edit></div></div><div class="row"><div class=''col-md-6''><cr-combobox-smart-control
-    [elementName]="''smart-combobox:Partner_details.Address_street''"
-    [useCache]="false"
-    [dataCacheName]="''ItemStreetComboboxCache''"
-    [(value)]="self.address.street.id"
-    [(currentItemValue)]="self.address.street"
-    [textField]="''name''"
-    [valueField]="''id''"
-    [getListItemsFunction]="self.loadAddressStreetListFunction"
-    [translateKeys]="''PARTNER.DETAILS.ADDRESS.STREET''"
-    [dataLabel]="''''"
-    [valueField]="''id''"
-    [class]=''""''
-    [useCache]="false"
-></cr-combobox-smart-control></div><div class=''col-md-6''><cr-control-edit 
-    [translateKeys]="''PARTNER.DETAILS.ADDRESS.BLOCK''" 
-    [dataLabel]="''''"
-    [customClass]=''""''
-    [isDisabled]="false"
-    [elementName]="''edit:Partner_details.Address_block''"
-    [(dataValue)]="self.address.block"
-></cr-control-edit></div></div><div class="row"><div class=''col-md-6''><cr-control-edit 
-    [translateKeys]="''PARTNER.DETAILS.ADDRESS.STREET_NUMBER''" 
-    [dataLabel]="''''"
-    [customClass]=''""''
-    [isDisabled]="false"
-    [elementName]="''edit:Partner_details.Address_street_number''"
-    [(dataValue)]="self.address.streetNo"
-></cr-control-edit></div><div class=''col-md-6''><cr-control-edit 
-    [translateKeys]="''PARTNER.DETAILS.ADDRESS.APARTMENT''" 
-    [dataLabel]="''''"
-    [customClass]=''""''
-    [isDisabled]="false"
-    [elementName]="''edit:Partner_details.Address_appartment''"
-    [(dataValue)]="self.address.apartment"
-    [maxlength]="20"
-></cr-control-edit></div></div>
-        </ng-template>
-      </cr-panel></ng-container>', '2022-11-04 15:53:37.3300000 +00:00', 15, N'N', 'cb97a6fa-de0d-4dee-88fb-6989b7cf5bbb', 1, NULL)
-INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [LanguageID], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('aa2eded3-4251-ed11-8e5d-4ccc6a2bb6d6', '0f00aebd-4251-ed11-8e5d-4ccc6a2bb6d6', 2, N'<ng-container><cr-title-header
-    [titleTranslateKey]="''PARTNER.DETAILS.ADDRESS.DETAILS_TITLE''"
-    [title]="''''"
-    (buttonClickEvent)="self.onTitleButtonClick($event)"
-    [buttonSettings]="self.titleHeaderButtonSettings"
-></cr-title-header>
-      <cr-panel
-        [panelTemplateType]="''well''"
-        [customClass]="''''"
-      >
-        <ng-template crPanelContent>
-          <div class="row"><div class=''col-md-6''><cr-dropdown-smart-control
-    [elementName]="''smart-dropdown:Partner_details.Address_type''"
-    [dataCacheName]="''AddressTypeDropdownCache''"
-    [useCache]="false"
-    [(value)]="self.address.partnerAddressType.id"
-    [textField]="''name''"
-    [valueField]="''id''"
-    [dataTranslateKeyField]="''translateKey''"
-    [(currentItemValue)]="self.address.partnerAddressType"
-    [getListItemsFunction]="self.loadAddressTypeListForDropdownFn"
-    [validator]="self.addressValidator"
-    [validationField]="''partnerAddressType.id''"
-    [unselectedItemValue]="{id: null, translateKey: ''COMMON.NOT_SELECTED''}"
-    [labelTranslateKey]="''PARTNER.DETAILS.ADDRESS.ADDRESS_TYPE''"
-    [label]="''''"
-    [class]=''""''
-></cr-dropdown-smart-control>
-</div><div class=''col-md-6''><cr-combobox-smart-control
-    [elementName]="''smart-combobox:Partner_details.Address_state''"
-    [dataCacheName]="''ItemStateComboboxCache''"
-    [useCache]="false"
-    [(value)]="self.address.state.id"
-    [(currentItemValue)]="self.address.state"
-    [textField]="''name''"
-    [valueField]="''id''"
-    [getListItemsFunction]="self.loadAddressStateListFunction"
-    [translateKeys]="''PARTNER.DETAILS.ADDRESS.COUNTRY''"
-    [dataLabel]="''''"
-    [valueField]="''id''"
-    [class]=''""''
-    [useCache]="false"
-></cr-combobox-smart-control></div></div><div class="row"><div class=''col-md-6''><cr-combobox-smart-control
-    [elementName]="''smart-combobox:Partner_details.Address_country''"
-    [dataCacheName]="''ItemCountryComboboxCache''"
-    [useCache]="false"
-    [(value)]="self.address.country.id"
-    [(currentItemValue)]="self.address.country"
-    [textField]="''name''"
-    [valueField]="''id''"
-    [getListItemsFunction]="self.loadAddressCountryListFunction"
-    [translateKeys]="''PARTNER.DETAILS.ADDRESS.STATE''"
-    [dataLabel]="''''"
-    [valueField]="''id''"
-    [class]=''""''
-    [useCache]="false"
-></cr-combobox-smart-control></div><div class=''col-md-6''><cr-combobox-smart-control
-    [elementName]="''smart-combobox:Partner_details.Address_country''"
-    [useCache]="false"
-    [dataCacheName]="''ItemCountyComboboxCache''"
-    [(value)]="self.address.county.id"
-    [(currentItemValue)]="self.address.county"
-    [textField]="''name''"
-    [valueField]="''id''"
-    [getListItemsFunction]="self.loadAddressCountyListFunction"
-    [translateKeys]="''PARTNER.DETAILS.ADDRESS.COUNTY''"
-    [dataLabel]="''''"
-    [valueField]="''id''"
-    [class]=''""''
-    [useCache]="false"
-></cr-combobox-smart-control></div></div><div class="row"><div class=''col-md-6''><cr-combobox-smart-control
-    [elementName]="''smart-combobox:Partner_details.Address_city''"
-    [useCache]="false"
-    [dataCacheName]="''ItemCityComboboxCache''"
-    [(value)]="self.address.city.id"
-    [(currentItemValue)]="self.address.city"
-    [textField]="''name''"
-    [valueField]="''id''"
-    [getListItemsFunction]="self.loadAddressCityListFunction"
-    [translateKeys]="''PARTNER.DETAILS.ADDRESS.CITY''"
-    [dataLabel]="''''"
-    [valueField]="''id''"
-    [class]=''""''
-    [useCache]="false"
-></cr-combobox-smart-control></div><div class=''col-md-6''><cr-control-edit 
-    [translateKeys]="''PARTNER.DETAILS.ADDRESS.ZIP''" 
-    [dataLabel]="''''"
-    [customClass]=''""''
-    [isDisabled]="false"
-    [elementName]="''edit:Partner_details.Address_zip''"
-    [(dataValue)]="self.address.zip"
-></cr-control-edit></div></div><div class="row"><div class=''col-md-6''><cr-combobox-smart-control
-    [elementName]="''smart-combobox:Partner_details.Address_street''"
-    [useCache]="false"
-    [dataCacheName]="''ItemStreetComboboxCache''"
-    [(value)]="self.address.street.id"
-    [(currentItemValue)]="self.address.street"
-    [textField]="''name''"
-    [valueField]="''id''"
-    [getListItemsFunction]="self.loadAddressStreetListFunction"
-    [translateKeys]="''PARTNER.DETAILS.ADDRESS.STREET''"
-    [dataLabel]="''''"
-    [valueField]="''id''"
-    [class]=''""''
-    [useCache]="false"
-></cr-combobox-smart-control></div><div class=''col-md-6''><cr-control-edit 
-    [translateKeys]="''PARTNER.DETAILS.ADDRESS.BLOCK''" 
-    [dataLabel]="''''"
-    [customClass]=''""''
-    [isDisabled]="false"
-    [elementName]="''edit:Partner_details.Address_block''"
-    [(dataValue)]="self.address.block"
-></cr-control-edit></div></div><div class="row"><div class=''col-md-6''><cr-control-edit 
-    [translateKeys]="''PARTNER.DETAILS.ADDRESS.STREET_NUMBER''" 
-    [dataLabel]="''''"
-    [customClass]=''""''
-    [isDisabled]="false"
-    [elementName]="''edit:Partner_details.Address_street_number''"
-    [(dataValue)]="self.address.streetNo"
-></cr-control-edit></div><div class=''col-md-6''><cr-control-edit 
-    [translateKeys]="''PARTNER.DETAILS.ADDRESS.APARTMENT''" 
-    [dataLabel]="''''"
-    [customClass]=''""''
-    [isDisabled]="false"
-    [elementName]="''edit:Partner_details.Address_appartment''"
-    [(dataValue)]="self.address.apartment"
-    [maxlength]="20"
-></cr-control-edit></div></div>
-        </ng-template>
-      </cr-panel></ng-container>', '2022-11-04 15:53:37.7000000 +00:00', 15, N'N', '9c9f8ba1-7f43-4214-b85b-bd8c781218df', 1, NULL)
-INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [LanguageID], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('02bc7c81-5c51-ed11-8e5d-4ccc6a2bb6d6', '1000aebd-4251-ed11-8e5d-4ccc6a2bb6d6', 1, N'<ng-container></ng-container>', '2022-12-08 11:16:08.3533333 +00:00', 31, N'N', 'de724d57-9f6f-41e2-929e-6384e6582f2d', 1, NULL)
-INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [LanguageID], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('03bc7c81-5c51-ed11-8e5d-4ccc6a2bb6d6', '1000aebd-4251-ed11-8e5d-4ccc6a2bb6d6', 2, N'<ng-container></ng-container>', '2022-12-08 11:16:08.3533333 +00:00', 31, N'N', 'e9a457b8-7f87-4d35-86d8-3f800f1392c4', 1, NULL)
+      </cr-panel></ng-container>', '2023-01-03 12:37:17.4166667 +00:00', 2, N'N', 'ed834903-9736-4ad2-8ac0-6a71a3ac6a29', 1, NULL)
 INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [LanguageID], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('dbb6a30d-296b-ed11-835f-02f176033ddb', 'd98d4cf1-1d6b-ed11-835f-02f176033ddb', 1, N'<ng-container><cr-title-header
     (buttonClickEvent)="self.onTitleButtonClick($event)"
     [additionalTranslateKeys]="''COMMON.NEW''"
@@ -4708,6 +4282,266 @@ INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [Langu
 ></cr-control-edit></div></div>
         </ng-template>
       </cr-panel></ng-container>', '2022-12-27 14:00:56.5833333 +00:00', 83, N'N', '2cb78f87-2446-43be-ac57-4bb503572a66', 1, NULL)
+INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [LanguageID], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('a52eded3-4251-ed11-8e5d-4ccc6a2bb6d6', '0c00aebd-4251-ed11-8e5d-4ccc6a2bb6d6', 1, N'<ng-container><cr-title-header
+    [titleTranslateKey]="''PARTNER.DETAILS.ADDRESS.DETAILS_TITLE''"
+    [title]="''''"
+    (buttonClickEvent)="self.onTitleButtonClick($event)"
+    [buttonSettings]="self.titleHeaderButtonSettings"
+></cr-title-header>
+      <cr-panel
+        [panelTemplateType]="''well''"
+        [customClass]="''''"
+      >
+        <ng-template crPanelContent>
+          <div class="row"><div class=''col-md-2''><cr-dropdown-smart-control
+    [elementName]="''smart-dropdown:Partner_details.Address_type''"
+    [dataCacheName]="''AddressTypeDropdownCache''"
+    [useCache]="false"
+    [(value)]="self.address.partnerAddressType.id"
+    [textField]="''name''"
+    [valueField]="''id''"
+    [dataTranslateKeyField]="''translateKey''"
+    [(currentItemValue)]="self.address.partnerAddressType"
+    [getListItemsFunction]="self.loadAddressTypeListForDropdownFn"
+    [validator]="self.addressValidator"
+    [validationField]="''partnerAddressType.id''"
+    [unselectedItemValue]="{id: null, translateKey: ''COMMON.NOT_SELECTED''}"
+    [labelTranslateKey]="''PARTNER.DETAILS.ADDRESS.ADDRESS_TYPE''"
+    [label]="''''"
+    [class]=''""''
+></cr-dropdown-smart-control>
+</div><div class=''col-md-2''><cr-combobox-smart-control
+    [elementName]="''smart-combobox:Partner_details.Address_state''"
+    [dataCacheName]="''ItemStateComboboxCache''"
+    [useCache]="false"
+    [(value)]="self.address.state.id"
+    [(currentItemValue)]="self.address.state"
+    [textField]="''name''"
+    [valueField]="''id''"
+    [getListItemsFunction]="self.loadAddressStateListFunction"
+    [translateKeys]="''PARTNER.DETAILS.ADDRESS.COUNTRY''"
+    [dataLabel]="''''"
+    [valueField]="''id''"
+    [class]=''""''
+    [useCache]="false"
+></cr-combobox-smart-control></div><div class=''col-md-2''><cr-combobox-smart-control
+    [elementName]="''smart-combobox:Partner_details.Address_country''"
+    [dataCacheName]="''ItemCountryComboboxCache''"
+    [useCache]="false"
+    [(value)]="self.address.country.id"
+    [(currentItemValue)]="self.address.country"
+    [textField]="''name''"
+    [valueField]="''id''"
+    [getListItemsFunction]="self.loadAddressCountryListFunction"
+    [translateKeys]="''PARTNER.DETAILS.ADDRESS.STATE''"
+    [dataLabel]="''''"
+    [valueField]="''id''"
+    [class]=''""''
+    [useCache]="false"
+></cr-combobox-smart-control></div><div class=''col-md-2''><cr-combobox-smart-control
+    [elementName]="''smart-combobox:Partner_details.Address_country''"
+    [useCache]="false"
+    [dataCacheName]="''ItemCountyComboboxCache''"
+    [(value)]="self.address.county.id"
+    [(currentItemValue)]="self.address.county"
+    [textField]="''name''"
+    [valueField]="''id''"
+    [getListItemsFunction]="self.loadAddressCountyListFunction"
+    [translateKeys]="''PARTNER.DETAILS.ADDRESS.COUNTY''"
+    [dataLabel]="''''"
+    [valueField]="''id''"
+    [class]=''""''
+    [useCache]="false"
+></cr-combobox-smart-control></div><div class=''col-md-2''><cr-combobox-smart-control
+    [elementName]="''smart-combobox:Partner_details.Address_city''"
+    [useCache]="false"
+    [dataCacheName]="''ItemCityComboboxCache''"
+    [(value)]="self.address.city.id"
+    [(currentItemValue)]="self.address.city"
+    [textField]="''name''"
+    [valueField]="''id''"
+    [getListItemsFunction]="self.loadAddressCityListFunction"
+    [translateKeys]="''PARTNER.DETAILS.ADDRESS.CITY''"
+    [dataLabel]="''''"
+    [valueField]="''id''"
+    [class]=''""''
+    [useCache]="false"
+></cr-combobox-smart-control></div></div><div class="row"><div class=''col-md-2''><cr-control-edit 
+    [translateKeys]="''PARTNER.DETAILS.ADDRESS.ZIP''" 
+    [dataLabel]="''''"
+    [customClass]=''""''
+    [isDisabled]="false"
+    [elementName]="''edit:Partner_details.Address_zip''"
+    [(dataValue)]="self.address.zip"
+></cr-control-edit></div><div class=''col-md-2''><cr-combobox-smart-control
+    [elementName]="''smart-combobox:Partner_details.Address_street''"
+    [useCache]="false"
+    [dataCacheName]="''ItemStreetComboboxCache''"
+    [(value)]="self.address.street.id"
+    [(currentItemValue)]="self.address.street"
+    [textField]="''name''"
+    [valueField]="''id''"
+    [getListItemsFunction]="self.loadAddressStreetListFunction"
+    [translateKeys]="''PARTNER.DETAILS.ADDRESS.STREET''"
+    [dataLabel]="''''"
+    [valueField]="''id''"
+    [class]=''""''
+    [useCache]="false"
+></cr-combobox-smart-control></div><div class=''col-md-2''><cr-control-edit 
+    [translateKeys]="''PARTNER.DETAILS.ADDRESS.BLOCK''" 
+    [dataLabel]="''''"
+    [customClass]=''""''
+    [isDisabled]="false"
+    [elementName]="''edit:Partner_details.Address_block''"
+    [(dataValue)]="self.address.block"
+></cr-control-edit></div><div class=''col-md-2''><cr-control-edit 
+    [translateKeys]="''PARTNER.DETAILS.ADDRESS.STREET_NUMBER''" 
+    [dataLabel]="''''"
+    [customClass]=''""''
+    [isDisabled]="false"
+    [elementName]="''edit:Partner_details.Address_street_number''"
+    [(dataValue)]="self.address.streetNo"
+></cr-control-edit></div><div class=''col-md-2''><cr-control-edit 
+    [translateKeys]="''PARTNER.DETAILS.ADDRESS.APARTMENT''" 
+    [dataLabel]="''''"
+    [customClass]=''""''
+    [isDisabled]="false"
+    [elementName]="''edit:Partner_details.Address_appartment''"
+    [(dataValue)]="self.address.apartment"
+    [maxlength]="20"
+></cr-control-edit></div></div>
+        </ng-template>
+      </cr-panel></ng-container>', '2022-07-15 18:18:43.7933333 +00:00', 12, N'N', '212d0826-c535-4058-8b24-227da51422b6', 1, NULL)
+INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [LanguageID], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('a62eded3-4251-ed11-8e5d-4ccc6a2bb6d6', '0c00aebd-4251-ed11-8e5d-4ccc6a2bb6d6', 2, N'<ng-container><cr-title-header
+    [titleTranslateKey]="''PARTNER.DETAILS.ADDRESS.DETAILS_TITLE''"
+    [title]="''''"
+    (buttonClickEvent)="self.onTitleButtonClick($event)"
+    [buttonSettings]="self.titleHeaderButtonSettings"
+></cr-title-header>
+      <cr-panel
+        [panelTemplateType]="''well''"
+        [customClass]="''''"
+      >
+        <ng-template crPanelContent>
+          <div class="row"><div class=''col-md-2''><cr-dropdown-smart-control
+    [elementName]="''smart-dropdown:Partner_details.Address_type''"
+    [dataCacheName]="''AddressTypeDropdownCache''"
+    [useCache]="false"
+    [(value)]="self.address.partnerAddressType.id"
+    [textField]="''name''"
+    [valueField]="''id''"
+    [dataTranslateKeyField]="''translateKey''"
+    [(currentItemValue)]="self.address.partnerAddressType"
+    [getListItemsFunction]="self.loadAddressTypeListForDropdownFn"
+    [validator]="self.addressValidator"
+    [validationField]="''partnerAddressType.id''"
+    [unselectedItemValue]="{id: null, translateKey: ''COMMON.NOT_SELECTED''}"
+    [labelTranslateKey]="''PARTNER.DETAILS.ADDRESS.ADDRESS_TYPE''"
+    [label]="''''"
+    [class]=''""''
+></cr-dropdown-smart-control>
+</div><div class=''col-md-2''><cr-combobox-smart-control
+    [elementName]="''smart-combobox:Partner_details.Address_state''"
+    [dataCacheName]="''ItemStateComboboxCache''"
+    [useCache]="false"
+    [(value)]="self.address.state.id"
+    [(currentItemValue)]="self.address.state"
+    [textField]="''name''"
+    [valueField]="''id''"
+    [getListItemsFunction]="self.loadAddressStateListFunction"
+    [translateKeys]="''PARTNER.DETAILS.ADDRESS.COUNTRY''"
+    [dataLabel]="''''"
+    [valueField]="''id''"
+    [class]=''""''
+    [useCache]="false"
+></cr-combobox-smart-control></div><div class=''col-md-2''><cr-combobox-smart-control
+    [elementName]="''smart-combobox:Partner_details.Address_country''"
+    [dataCacheName]="''ItemCountryComboboxCache''"
+    [useCache]="false"
+    [(value)]="self.address.country.id"
+    [(currentItemValue)]="self.address.country"
+    [textField]="''name''"
+    [valueField]="''id''"
+    [getListItemsFunction]="self.loadAddressCountryListFunction"
+    [translateKeys]="''PARTNER.DETAILS.ADDRESS.STATE''"
+    [dataLabel]="''''"
+    [valueField]="''id''"
+    [class]=''""''
+    [useCache]="false"
+></cr-combobox-smart-control></div><div class=''col-md-2''><cr-combobox-smart-control
+    [elementName]="''smart-combobox:Partner_details.Address_country''"
+    [useCache]="false"
+    [dataCacheName]="''ItemCountyComboboxCache''"
+    [(value)]="self.address.county.id"
+    [(currentItemValue)]="self.address.county"
+    [textField]="''name''"
+    [valueField]="''id''"
+    [getListItemsFunction]="self.loadAddressCountyListFunction"
+    [translateKeys]="''PARTNER.DETAILS.ADDRESS.COUNTY''"
+    [dataLabel]="''''"
+    [valueField]="''id''"
+    [class]=''""''
+    [useCache]="false"
+></cr-combobox-smart-control></div><div class=''col-md-2''><cr-combobox-smart-control
+    [elementName]="''smart-combobox:Partner_details.Address_city''"
+    [useCache]="false"
+    [dataCacheName]="''ItemCityComboboxCache''"
+    [(value)]="self.address.city.id"
+    [(currentItemValue)]="self.address.city"
+    [textField]="''name''"
+    [valueField]="''id''"
+    [getListItemsFunction]="self.loadAddressCityListFunction"
+    [translateKeys]="''PARTNER.DETAILS.ADDRESS.CITY''"
+    [dataLabel]="''''"
+    [valueField]="''id''"
+    [class]=''""''
+    [useCache]="false"
+></cr-combobox-smart-control></div></div><div class="row"><div class=''col-md-2''><cr-control-edit 
+    [translateKeys]="''PARTNER.DETAILS.ADDRESS.ZIP''" 
+    [dataLabel]="''''"
+    [customClass]=''""''
+    [isDisabled]="false"
+    [elementName]="''edit:Partner_details.Address_zip''"
+    [(dataValue)]="self.address.zip"
+></cr-control-edit></div><div class=''col-md-2''><cr-combobox-smart-control
+    [elementName]="''smart-combobox:Partner_details.Address_street''"
+    [useCache]="false"
+    [dataCacheName]="''ItemStreetComboboxCache''"
+    [(value)]="self.address.street.id"
+    [(currentItemValue)]="self.address.street"
+    [textField]="''name''"
+    [valueField]="''id''"
+    [getListItemsFunction]="self.loadAddressStreetListFunction"
+    [translateKeys]="''PARTNER.DETAILS.ADDRESS.STREET''"
+    [dataLabel]="''''"
+    [valueField]="''id''"
+    [class]=''""''
+    [useCache]="false"
+></cr-combobox-smart-control></div><div class=''col-md-2''><cr-control-edit 
+    [translateKeys]="''PARTNER.DETAILS.ADDRESS.BLOCK''" 
+    [dataLabel]="''''"
+    [customClass]=''""''
+    [isDisabled]="false"
+    [elementName]="''edit:Partner_details.Address_block''"
+    [(dataValue)]="self.address.block"
+></cr-control-edit></div><div class=''col-md-2''><cr-control-edit 
+    [translateKeys]="''PARTNER.DETAILS.ADDRESS.STREET_NUMBER''" 
+    [dataLabel]="''''"
+    [customClass]=''""''
+    [isDisabled]="false"
+    [elementName]="''edit:Partner_details.Address_street_number''"
+    [(dataValue)]="self.address.streetNo"
+></cr-control-edit></div><div class=''col-md-2''><cr-control-edit 
+    [translateKeys]="''PARTNER.DETAILS.ADDRESS.APARTMENT''" 
+    [dataLabel]="''''"
+    [customClass]=''""''
+    [isDisabled]="false"
+    [elementName]="''edit:Partner_details.Address_appartment''"
+    [(dataValue)]="self.address.apartment"
+    [maxlength]="20"
+></cr-control-edit></div></div>
+        </ng-template>
+      </cr-panel></ng-container>', '2022-07-15 18:18:43.7933333 +00:00', 12, N'N', '352f4953-8f8f-4251-9d34-672f240a995f', 1, NULL)
 INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [LanguageID], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('a72eded3-4251-ed11-8e5d-4ccc6a2bb6d6', '0e00aebd-4251-ed11-8e5d-4ccc6a2bb6d6', 1, N'<ng-container><cr-title-header
     [titleTranslateKey]="''PARTNER.DETAILS.CONTACT_PERSON.DETAILS_TITLE''"
     [title]="''''"
@@ -5126,6 +4960,268 @@ INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [Langu
       </cr-panel></div></div>
         </ng-template>
       </cr-panel></ng-container>', '2022-12-27 14:00:57.7166667 +00:00', 54, N'N', 'cf67b357-4bad-47d3-9a61-8f4fe6aaeed0', 1, NULL)
+INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [LanguageID], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('a92eded3-4251-ed11-8e5d-4ccc6a2bb6d6', '0f00aebd-4251-ed11-8e5d-4ccc6a2bb6d6', 1, N'<ng-container><cr-title-header
+    [titleTranslateKey]="''PARTNER.DETAILS.ADDRESS.DETAILS_TITLE''"
+    [title]="''''"
+    (buttonClickEvent)="self.onTitleButtonClick($event)"
+    [buttonSettings]="self.titleHeaderButtonSettings"
+></cr-title-header>
+      <cr-panel
+        [panelTemplateType]="''well''"
+        [customClass]="''''"
+      >
+        <ng-template crPanelContent>
+          <div class="row"><div class=''col-md-6''><cr-dropdown-smart-control
+    [elementName]="''smart-dropdown:Partner_details.Address_type''"
+    [dataCacheName]="''AddressTypeDropdownCache''"
+    [useCache]="false"
+    [(value)]="self.address.partnerAddressType.id"
+    [textField]="''name''"
+    [valueField]="''id''"
+    [dataTranslateKeyField]="''translateKey''"
+    [(currentItemValue)]="self.address.partnerAddressType"
+    [getListItemsFunction]="self.loadAddressTypeListForDropdownFn"
+    [validator]="self.addressValidator"
+    [validationField]="''partnerAddressType.id''"
+    [unselectedItemValue]="{id: null, translateKey: ''COMMON.NOT_SELECTED''}"
+    [labelTranslateKey]="''PARTNER.DETAILS.ADDRESS.ADDRESS_TYPE''"
+    [label]="''''"
+    [class]=''""''
+></cr-dropdown-smart-control>
+</div><div class=''col-md-6''><cr-combobox-smart-control
+    [elementName]="''smart-combobox:Partner_details.Address_state''"
+    [dataCacheName]="''ItemStateComboboxCache''"
+    [useCache]="false"
+    [(value)]="self.address.state.id"
+    [(currentItemValue)]="self.address.state"
+    [textField]="''name''"
+    [valueField]="''id''"
+    [getListItemsFunction]="self.loadAddressStateListFunction"
+    [translateKeys]="''PARTNER.DETAILS.ADDRESS.COUNTRY''"
+    [dataLabel]="''''"
+    [valueField]="''id''"
+    [class]=''""''
+    [useCache]="false"
+></cr-combobox-smart-control></div></div><div class="row"><div class=''col-md-6''><cr-combobox-smart-control
+    [elementName]="''smart-combobox:Partner_details.Address_country''"
+    [dataCacheName]="''ItemCountryComboboxCache''"
+    [useCache]="false"
+    [(value)]="self.address.country.id"
+    [(currentItemValue)]="self.address.country"
+    [textField]="''name''"
+    [valueField]="''id''"
+    [getListItemsFunction]="self.loadAddressCountryListFunction"
+    [translateKeys]="''PARTNER.DETAILS.ADDRESS.STATE''"
+    [dataLabel]="''''"
+    [valueField]="''id''"
+    [class]=''""''
+    [useCache]="false"
+></cr-combobox-smart-control></div><div class=''col-md-6''><cr-combobox-smart-control
+    [elementName]="''smart-combobox:Partner_details.Address_country''"
+    [useCache]="false"
+    [dataCacheName]="''ItemCountyComboboxCache''"
+    [(value)]="self.address.county.id"
+    [(currentItemValue)]="self.address.county"
+    [textField]="''name''"
+    [valueField]="''id''"
+    [getListItemsFunction]="self.loadAddressCountyListFunction"
+    [translateKeys]="''PARTNER.DETAILS.ADDRESS.COUNTY''"
+    [dataLabel]="''''"
+    [valueField]="''id''"
+    [class]=''""''
+    [useCache]="false"
+></cr-combobox-smart-control></div></div><div class="row"><div class=''col-md-6''><cr-combobox-smart-control
+    [elementName]="''smart-combobox:Partner_details.Address_city''"
+    [useCache]="false"
+    [dataCacheName]="''ItemCityComboboxCache''"
+    [(value)]="self.address.city.id"
+    [(currentItemValue)]="self.address.city"
+    [textField]="''name''"
+    [valueField]="''id''"
+    [getListItemsFunction]="self.loadAddressCityListFunction"
+    [translateKeys]="''PARTNER.DETAILS.ADDRESS.CITY''"
+    [dataLabel]="''''"
+    [valueField]="''id''"
+    [class]=''""''
+    [useCache]="false"
+></cr-combobox-smart-control></div><div class=''col-md-6''><cr-control-edit 
+    [translateKeys]="''PARTNER.DETAILS.ADDRESS.ZIP''" 
+    [dataLabel]="''''"
+    [customClass]=''""''
+    [isDisabled]="false"
+    [elementName]="''edit:Partner_details.Address_zip''"
+    [(dataValue)]="self.address.zip"
+></cr-control-edit></div></div><div class="row"><div class=''col-md-6''><cr-combobox-smart-control
+    [elementName]="''smart-combobox:Partner_details.Address_street''"
+    [useCache]="false"
+    [dataCacheName]="''ItemStreetComboboxCache''"
+    [(value)]="self.address.street.id"
+    [(currentItemValue)]="self.address.street"
+    [textField]="''name''"
+    [valueField]="''id''"
+    [getListItemsFunction]="self.loadAddressStreetListFunction"
+    [translateKeys]="''PARTNER.DETAILS.ADDRESS.STREET''"
+    [dataLabel]="''''"
+    [valueField]="''id''"
+    [class]=''""''
+    [useCache]="false"
+></cr-combobox-smart-control></div><div class=''col-md-6''><cr-control-edit 
+    [translateKeys]="''PARTNER.DETAILS.ADDRESS.BLOCK''" 
+    [dataLabel]="''''"
+    [customClass]=''""''
+    [isDisabled]="false"
+    [elementName]="''edit:Partner_details.Address_block''"
+    [(dataValue)]="self.address.block"
+></cr-control-edit></div></div><div class="row"><div class=''col-md-6''><cr-control-edit 
+    [translateKeys]="''PARTNER.DETAILS.ADDRESS.STREET_NUMBER''" 
+    [dataLabel]="''''"
+    [customClass]=''""''
+    [isDisabled]="false"
+    [elementName]="''edit:Partner_details.Address_street_number''"
+    [(dataValue)]="self.address.streetNo"
+></cr-control-edit></div><div class=''col-md-6''><cr-control-edit 
+    [translateKeys]="''PARTNER.DETAILS.ADDRESS.APARTMENT''" 
+    [dataLabel]="''''"
+    [customClass]=''""''
+    [isDisabled]="false"
+    [elementName]="''edit:Partner_details.Address_appartment''"
+    [(dataValue)]="self.address.apartment"
+    [maxlength]="20"
+></cr-control-edit></div></div>
+        </ng-template>
+      </cr-panel></ng-container>', '2022-11-04 15:53:37.3300000 +00:00', 15, N'N', 'cb97a6fa-de0d-4dee-88fb-6989b7cf5bbb', 1, NULL)
+INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [LanguageID], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('aa2eded3-4251-ed11-8e5d-4ccc6a2bb6d6', '0f00aebd-4251-ed11-8e5d-4ccc6a2bb6d6', 2, N'<ng-container><cr-title-header
+    [titleTranslateKey]="''PARTNER.DETAILS.ADDRESS.DETAILS_TITLE''"
+    [title]="''''"
+    (buttonClickEvent)="self.onTitleButtonClick($event)"
+    [buttonSettings]="self.titleHeaderButtonSettings"
+></cr-title-header>
+      <cr-panel
+        [panelTemplateType]="''well''"
+        [customClass]="''''"
+      >
+        <ng-template crPanelContent>
+          <div class="row"><div class=''col-md-6''><cr-dropdown-smart-control
+    [elementName]="''smart-dropdown:Partner_details.Address_type''"
+    [dataCacheName]="''AddressTypeDropdownCache''"
+    [useCache]="false"
+    [(value)]="self.address.partnerAddressType.id"
+    [textField]="''name''"
+    [valueField]="''id''"
+    [dataTranslateKeyField]="''translateKey''"
+    [(currentItemValue)]="self.address.partnerAddressType"
+    [getListItemsFunction]="self.loadAddressTypeListForDropdownFn"
+    [validator]="self.addressValidator"
+    [validationField]="''partnerAddressType.id''"
+    [unselectedItemValue]="{id: null, translateKey: ''COMMON.NOT_SELECTED''}"
+    [labelTranslateKey]="''PARTNER.DETAILS.ADDRESS.ADDRESS_TYPE''"
+    [label]="''''"
+    [class]=''""''
+></cr-dropdown-smart-control>
+</div><div class=''col-md-6''><cr-combobox-smart-control
+    [elementName]="''smart-combobox:Partner_details.Address_state''"
+    [dataCacheName]="''ItemStateComboboxCache''"
+    [useCache]="false"
+    [(value)]="self.address.state.id"
+    [(currentItemValue)]="self.address.state"
+    [textField]="''name''"
+    [valueField]="''id''"
+    [getListItemsFunction]="self.loadAddressStateListFunction"
+    [translateKeys]="''PARTNER.DETAILS.ADDRESS.COUNTRY''"
+    [dataLabel]="''''"
+    [valueField]="''id''"
+    [class]=''""''
+    [useCache]="false"
+></cr-combobox-smart-control></div></div><div class="row"><div class=''col-md-6''><cr-combobox-smart-control
+    [elementName]="''smart-combobox:Partner_details.Address_country''"
+    [dataCacheName]="''ItemCountryComboboxCache''"
+    [useCache]="false"
+    [(value)]="self.address.country.id"
+    [(currentItemValue)]="self.address.country"
+    [textField]="''name''"
+    [valueField]="''id''"
+    [getListItemsFunction]="self.loadAddressCountryListFunction"
+    [translateKeys]="''PARTNER.DETAILS.ADDRESS.STATE''"
+    [dataLabel]="''''"
+    [valueField]="''id''"
+    [class]=''""''
+    [useCache]="false"
+></cr-combobox-smart-control></div><div class=''col-md-6''><cr-combobox-smart-control
+    [elementName]="''smart-combobox:Partner_details.Address_country''"
+    [useCache]="false"
+    [dataCacheName]="''ItemCountyComboboxCache''"
+    [(value)]="self.address.county.id"
+    [(currentItemValue)]="self.address.county"
+    [textField]="''name''"
+    [valueField]="''id''"
+    [getListItemsFunction]="self.loadAddressCountyListFunction"
+    [translateKeys]="''PARTNER.DETAILS.ADDRESS.COUNTY''"
+    [dataLabel]="''''"
+    [valueField]="''id''"
+    [class]=''""''
+    [useCache]="false"
+></cr-combobox-smart-control></div></div><div class="row"><div class=''col-md-6''><cr-combobox-smart-control
+    [elementName]="''smart-combobox:Partner_details.Address_city''"
+    [useCache]="false"
+    [dataCacheName]="''ItemCityComboboxCache''"
+    [(value)]="self.address.city.id"
+    [(currentItemValue)]="self.address.city"
+    [textField]="''name''"
+    [valueField]="''id''"
+    [getListItemsFunction]="self.loadAddressCityListFunction"
+    [translateKeys]="''PARTNER.DETAILS.ADDRESS.CITY''"
+    [dataLabel]="''''"
+    [valueField]="''id''"
+    [class]=''""''
+    [useCache]="false"
+></cr-combobox-smart-control></div><div class=''col-md-6''><cr-control-edit 
+    [translateKeys]="''PARTNER.DETAILS.ADDRESS.ZIP''" 
+    [dataLabel]="''''"
+    [customClass]=''""''
+    [isDisabled]="false"
+    [elementName]="''edit:Partner_details.Address_zip''"
+    [(dataValue)]="self.address.zip"
+></cr-control-edit></div></div><div class="row"><div class=''col-md-6''><cr-combobox-smart-control
+    [elementName]="''smart-combobox:Partner_details.Address_street''"
+    [useCache]="false"
+    [dataCacheName]="''ItemStreetComboboxCache''"
+    [(value)]="self.address.street.id"
+    [(currentItemValue)]="self.address.street"
+    [textField]="''name''"
+    [valueField]="''id''"
+    [getListItemsFunction]="self.loadAddressStreetListFunction"
+    [translateKeys]="''PARTNER.DETAILS.ADDRESS.STREET''"
+    [dataLabel]="''''"
+    [valueField]="''id''"
+    [class]=''""''
+    [useCache]="false"
+></cr-combobox-smart-control></div><div class=''col-md-6''><cr-control-edit 
+    [translateKeys]="''PARTNER.DETAILS.ADDRESS.BLOCK''" 
+    [dataLabel]="''''"
+    [customClass]=''""''
+    [isDisabled]="false"
+    [elementName]="''edit:Partner_details.Address_block''"
+    [(dataValue)]="self.address.block"
+></cr-control-edit></div></div><div class="row"><div class=''col-md-6''><cr-control-edit 
+    [translateKeys]="''PARTNER.DETAILS.ADDRESS.STREET_NUMBER''" 
+    [dataLabel]="''''"
+    [customClass]=''""''
+    [isDisabled]="false"
+    [elementName]="''edit:Partner_details.Address_street_number''"
+    [(dataValue)]="self.address.streetNo"
+></cr-control-edit></div><div class=''col-md-6''><cr-control-edit 
+    [translateKeys]="''PARTNER.DETAILS.ADDRESS.APARTMENT''" 
+    [dataLabel]="''''"
+    [customClass]=''""''
+    [isDisabled]="false"
+    [elementName]="''edit:Partner_details.Address_appartment''"
+    [(dataValue)]="self.address.apartment"
+    [maxlength]="20"
+></cr-control-edit></div></div>
+        </ng-template>
+      </cr-panel></ng-container>', '2022-11-04 15:53:37.7000000 +00:00', 15, N'N', '9c9f8ba1-7f43-4214-b85b-bd8c781218df', 1, NULL)
+INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [LanguageID], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('02bc7c81-5c51-ed11-8e5d-4ccc6a2bb6d6', '1000aebd-4251-ed11-8e5d-4ccc6a2bb6d6', 1, N'<ng-container></ng-container>', '2022-12-08 11:16:08.3533333 +00:00', 31, N'N', 'de724d57-9f6f-41e2-929e-6384e6582f2d', 1, NULL)
+INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [LanguageID], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('03bc7c81-5c51-ed11-8e5d-4ccc6a2bb6d6', '1000aebd-4251-ed11-8e5d-4ccc6a2bb6d6', 2, N'<ng-container></ng-container>', '2022-12-08 11:16:08.3533333 +00:00', 31, N'N', 'e9a457b8-7f87-4d35-86d8-3f800f1392c4', 1, NULL)
 INSERT INTO [dbo].[WebViewSubTemplateName] ([ID], [WebViewSubTemplateID], [LanguageID], [TemplateHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('e3f251ee-575c-ed11-8e5e-4ccc6a2bb6d6', '7bcdf1fd-535c-ed11-8e5e-4ccc6a2bb6d6', 1, N'<ng-container><cr-title-header
     [titleTranslateKey]="''PARTNER.DETAILS.ADDRESS.DETAILS_TITLE''"
     [title]="''''"

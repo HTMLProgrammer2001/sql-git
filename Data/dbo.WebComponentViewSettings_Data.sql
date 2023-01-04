@@ -1,19 +1,143 @@
-INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('ab5eed98-9a86-ed11-8360-02f176033ddb', '393c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'collection-season-list-grid', N'Collection season list grid', N'{
+INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('d60f24a0-5287-ed11-8360-02f176033ddb', '3c3c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'collection-list-header', N'Header', N'{
+    "defaultValue": {
+        "isUseTranslateKey": true,
+        "translateKey": "MANAGE_DATA_COLLECTIONS.LIST.TITLE"
+    },
+    "fieldSettings": {
+        "titleHeader": {
+            "elements": [
+                {
+                    "appearance": "icon-button",
+                    "iconSvg": "icon-pin",
+                    "template": "custom" 
+                },
+                {
+                    "appearance": "icon-button",
+                    "iconSvg": "icon-add",
+                    "template": "custom"
+                },
+                {
+                    "appearance": "icon-button",
+                    "iconSvg": "icon-close",
+                    "template": "custom"
+                }
+            ]
+        }
+    }
+}', N'<cr-title-header
+    [titleTranslateKey]="{{translateKey}}"
+    [title]="{{label}}"
+    (buttonClickEvent)="self.onTitleButtonClick($event)"
+    [buttonSettings]="self.titleHeaderButtonSettings"
+></cr-title-header>', '2022-12-29 08:27:27.2139350 +00:00', 1, N'N', '20423bf3-4726-4469-9024-36ee465c2e66', 1, NULL, '2022-12-29 08:27:27.2139350 +00:00')
+INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('3bcc933d-5387-ed11-8360-02f176033ddb', '373c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'collection-list-code', N'Code', N'{
+    "defaultValue": {
+        "isUseTranslateKey": true,
+        "translateKey": "MANAGE_DATA_COLLECTIONS.FILTER.CODE"
+    }
+}', N'<cr-control-edit 
+    [translateKeys]="{{translateKey}}" 
+    [dataLabel]="{{label}}"
+    [customClass]=''{{classes}}''
+    [isDisabled]="{{disabled}}"
+    [elementName]="''edit:Collection_list.Code''"
+    [(dataValue)]="self.cache.filter.code"
+></cr-control-edit>', '2022-12-29 12:16:12.0900000 +00:00', 2, N'N', '56c886a5-fa2d-4a4b-9e7d-f1abd94cb8f7', 1, NULL, '2022-12-29 08:31:51.3484987 +00:00')
+INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('6e2a11be-5387-ed11-8360-02f176033ddb', '373c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'collection-list-display-name', N'Display name', N'{
+    "defaultValue": {
+        "isUseTranslateKey": true,
+        "translateKey": "MANAGE_DATA_COLLECTIONS.FILTER.DISPLAY_NAME"
+    }
+}', N'<cr-control-edit 
+    [translateKeys]="{{translateKey}}" 
+    [dataLabel]="{{label}}"
+    [customClass]=''{{classes}}''
+    [isDisabled]="{{disabled}}"
+    [elementName]="''edit:Collection_list.Display_name''"
+    [(dataValue)]="self.cache.filter.displayName"
+></cr-control-edit>', '2022-12-29 12:16:25.7533333 +00:00', 2, N'N', 'eb86ac02-b5ae-4c4f-b425-1c208969ac42', 1, NULL, '2022-12-29 08:35:26.9184750 +00:00')
+INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('3a6b3e23-5487-ed11-8360-02f176033ddb', '373c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'collection-list-print-name', N'Print name', N'{
+    "defaultValue": {
+        "isUseTranslateKey": true,
+        "translateKey": "MANAGE_DATA_COLLECTIONS.FILTER.PRINT_NAME"
+    }
+}', N'<cr-control-edit 
+    [translateKeys]="{{translateKey}}" 
+    [dataLabel]="{{label}}"
+    [customClass]=''{{classes}}''
+    [isDisabled]="{{disabled}}"
+    [elementName]="''edit:Collection_list.Print_name''"
+    [(dataValue)]="self.cache.filter.printName"
+></cr-control-edit>', '2022-12-29 12:16:38.8366667 +00:00', 2, N'N', 'f275affd-3868-46c7-b5eb-710531828e0c', 1, NULL, '2022-12-29 08:38:16.6649274 +00:00')
+INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('2f6ccb31-5587-ed11-8360-02f176033ddb', '3f3c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'collection-list-start-date', N'Start date', N'{
+    "defaultValue": {
+        "isUseTranslateKey": true,
+        "translateKey": "MANAGE_DATA_COLLECTIONS.FILTER.START_DATE"
+    }
+}', N'<cr-control-datepicker
+    [elementName]="''datepicker:Collection_list.Start_date''"
+    [(dataValue)]="self.cache.filter.startDate"
+    [dataLabel]="{{label}}"
+    [translateKeys]="{{translateKey}}"
+    [class]=''{{classes}}'' 
+    [isDisabled]="{{disabled}}"
+></cr-control-datepicker>', '2022-12-29 12:23:05.7666667 +00:00', 2, N'N', 'c27896e4-efdd-4356-8833-3d49b5f4c1b3', 1, NULL, '2022-12-29 08:45:50.5738415 +00:00')
+INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('66121fc8-5587-ed11-8360-02f176033ddb', '383c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'collection-list-show-active', N'Show active', N'{
+    "defaultValue": {
+        "isUseTranslateKey": true,
+        "translateKey": "MANAGE_DATA_COLLECTIONS.FILTER.SHOW_ACTIVE"
+    }
+}', N'<cr-checkbox-control
+    [dataLabel]="{{label}}"
+    [translateKeys]="{{translateKey}}"
+    [isDisabled]="{{disabled}}"
+    [class]=''{{classes}}''
+    [elementName]="''checkbox:Collection_list.Active''"
+    [(dataValue)]="self.cache.filter.active"
+></cr-checkbox-control>', '2022-12-29 08:50:02.7802854 +00:00', 1, N'N', 'dbcb4e37-cf09-4bab-ad04-377fbf6c6e4b', 1, NULL, '2022-12-29 08:50:02.7802854 +00:00')
+INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('09a75761-6a87-ed11-8360-02f176033ddb', '3a3c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'collection-list-search', N'Search', N'{
+    "defaultValue": {
+        "isUseTranslateKey": true,
+        "translateKey": "COMMON.SEARCH",
+        "buttonType": "underlined-action-button"
+    }
+}', N'<cr-button-control 
+    [buttonTemplateType]="{{buttonTemplateType}}"
+    [text]="{{label}}"
+    [textTranslateKey]="{{translateKey}}"
+    [classArray]=''{{classes}}''
+    [width]="{{width}}"
+    [height]="{{height}}"
+    [icon]="{{icon}}"
+    (buttonClickEvent)="self.changeFilter()"
+    *ngIf="(self.EndpointName.item_collection_GET | endpointAccessGrantedPipe)"
+></cr-button-control>', '2022-12-29 11:17:29.7770889 +00:00', 1, N'N', '73916ff5-8eb7-43b3-bf41-67556966925d', 1, NULL, '2022-12-29 11:17:29.7770889 +00:00')
+INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('cb17c5f4-6c87-ed11-8360-02f176033ddb', '393c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'collection-list-grid', N'Collection list grid', N'{
     "defaultValue": {
         "dynamicColumnSettings": [
             {
                 "field": "code",
-                "titleTranslateKey": "MANAGE_DATA_COLLECTIONS.SEASON.GRID.CODE",
+                "titleTranslateKey": "MANAGE_DATA_COLLECTIONS.LIST.GRID.CODE",
                 "hidden": false
             },
             {
                 "field": "displayName",
-                "titleTranslateKey": "MANAGE_DATA_COLLECTIONS.SEASON.GRID.DISPLAY_NAME",
+                "titleTranslateKey": "MANAGE_DATA_COLLECTIONS.LIST.GRID.DISPLAY_NAME",
                 "hidden": false
             },
             {
                 "field": "printName",
-                "titleTranslateKey": "MANAGE_DATA_COLLECTIONS.SEASON.GRID.PRINT_NAME",
+                "titleTranslateKey": "MANAGE_DATA_COLLECTIONS.LIST.GRID.PRINT_NAME",
+                "hidden": false
+            },
+            {
+                "field": "startDate",
+                "titleTranslateKey": "MANAGE_DATA_COLLECTIONS.LIST.GRID.START_DATE",
+                "hidden": false
+            },
+            {
+                "field": "isActive",
+                "titleTranslateKey": "MANAGE_DATA_COLLECTIONS.LIST.GRID.ACTIVE",
                 "hidden": false
             }
         ]
@@ -21,22 +145,34 @@ INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebComponentID], [Code], [N
     "fieldSettings": {
         "grid": {
             "uniqueField": "id",
+            "userSort": true,
             "columns": [
                 {
-                    "type": "text",
+                    "type": "link",
                     "field": "code",
-                    "titleTranslateKey": "MANAGE_DATA_COLLECTIONS.SEASON.GRID.CODE"
+                    "titleTranslateKey": "MANAGE_DATA_COLLECTIONS.LIST.GRID.CODE",
+                    "disableIf": null
                 },
                 {
                     "type": "text",
                     "field": "displayName",
-                    "titleTranslateKey": "MANAGE_DATA_COLLECTIONS.SEASON.GRID.DISPLAY_NAME"
+                    "titleTranslateKey": "MANAGE_DATA_COLLECTIONS.LIST.GRID.DISPLAY_NAME"
                 },
                 {
                     "type": "text",
-                    "field": "printName",
-                    "titleTranslateKey": "MANAGE_DATA_COLLECTIONS.SEASON.GRID.PRINT_NAME",
-                    "isNotUseValidation": true
+                    "titleTranslateKey": "MANAGE_DATA_COLLECTIONS.LIST.GRID.PRINT_NAME",
+                    "field": "printName"
+                },
+                {
+                    "type": "date",
+                    "titleTranslateKey": "MANAGE_DATA_COLLECTIONS.LIST.GRID.START_DATE",
+                    "field": "startDate"
+                },
+                {
+                    "type": "boolean",
+                    "titleTranslateKey": "MANAGE_DATA_COLLECTIONS.LIST.GRID.ACTIVE",
+                    "field": "isActive",
+                    "autoFit": true
                 }
             ],
             "previewDataSource": {
@@ -44,7 +180,9 @@ INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebComponentID], [Code], [N
                     {
                         "code": "test",
                         "displayName": "test",
-                        "printName": "test"
+                        "printName": "test",
+                        "startDate": "Thu Dec 29 2022 13:35:36 GMT+0200 (Eastern European Standard Time)",
+                        "isActive": false
                     }
                 ],
                 "page": 1,
@@ -53,57 +191,244 @@ INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebComponentID], [Code], [N
             }
         }
     }
-}', N'<div class="cr-grid-outer-wrapper">
+}', N'<div class="cr-grid-relative-wrapper">
       <div #gridWrapper class="cr-grid-wrapper-new">
         <cr-edit-grid-server-paging
-          (changeStatus)="self.onChangeGridStatus($event)"
-          (createActionEvent)="self.onCreate($event)"
+          (cellClickEvent)="self.cellClick($event)"
           (deleteActionEvent)="self.onRemove($event)"
           (pageChangeEvent)="self.changePage($event)"
           (selectionChanged)="self.onSelectionChange($event)"
-          (updateActionEvent)="self.onUpdate($event)"
-          [allowCreateAction]="true"
           [allowDeleteAction]="true"
-          [allowUpdateAction]="true"
-          [columnSettings]=''self.columnSettings | dynamicColumnSettings:{{dynamicColumnSettings}}''
-          [dataCacheName]="''CollectionSeasonList''"
-          [dataSource]="self.dataSource"
-          [elementName]="''edit-grid-server-paging:Seasons.Grid''"
           [hasSorter]="true"
-          [isRefreshOnCreate]="true"
+          [columnSettings]=''self.columnSettings | dynamicColumnSettings:{{dynamicColumnSettings}}''
+          [dataCacheName]="''CollectionListGrid''"
+          [dataSource]="self.dataSource"
+          [elementName]="''edit-grid-server-paging:Collection_list.Grid''"
           [isRefreshOnDelete]="true"
 
-          [isRefreshOnUpdate]="true"
           [pageable]="true"
           [permissionSettings]="{
-          isAccessDelete: (self.EndpointName.item_collection_season_id_DELETE | endpointAccessGrantedPipe),
-          isAccessUpdate: (self.EndpointName.item_collection_season_id_PUT | endpointAccessGrantedPipe),
-          isAccessCreate: (self.EndpointName.item_collection_season_POST | endpointAccessGrantedPipe),
-          isAccessRead: (self.EndpointName.item_collection_season_GET | endpointAccessGrantedPipe)
-        }"
+            isAccessDelete: (self.EndpointName.item_collection_id_DELETE | endpointAccessGrantedPipe)
+          }"
           [resizable]="true"
           [uniqueField]="''id''"
-          [validator]="self.validator"
           [class]=''{{classes}}''
         ></cr-edit-grid-server-paging>
 
         <cr-sort
           (changeSort)="self.changeSortHandler($event)"
+          [permissionSettings]="(self.EndpointName.item_collection_id_sort_order_PUT | endpointAccessGrantedPipe)"
           [disableButtons]="{
-          toFirst: self.cache.firstSelected || self.cache.isEditMode,
-          oneUp: self.cache.firstSelected || self.cache.isEditMode,
-          oneDown: self.cache.lastSelected || self.cache.isEditMode,
-          toLast: self.cache.lastSelected || self.cache.isEditMode
+          toFirst: self.cache.firstSelected || !self.isFilterEmpty(),
+          oneUp: self.cache.firstSelected || !self.isFilterEmpty(),
+          oneDown: self.cache.lastSelected || !self.isFilterEmpty(),
+          toLast: self.cache.lastSelected || !self.isFilterEmpty()
         }"
           [gridWrapper]="gridWrapper"
-          [permissionSettings]="(self.EndpointName.item_collection_season_id_sort_order_PUT | endpointAccessGrantedPipe)"
+          [hideButtons]="{
+          toFirst: self.dataSource?.responseList.length < 2,
+          toLast: self.dataSource?.responseList.length < 2
+        }"
         ></cr-sort>
       </div>
-    </div>', '2022-12-28 10:55:06.6066667 +00:00', 2, N'N', '19af5c50-aa86-4885-8a86-5484a8bfc65a', 1, NULL, '2022-12-28 10:30:07.7132075 +00:00')
-INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('a3f56ffe-a086-ed11-8360-02f176033ddb', '3c3c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'collection-year-list-header', N'Header', N'{
+    </div>', '2023-01-03 15:32:30.9966667 +00:00', 3, N'N', '23da2e62-57c2-4762-bdf1-7d14f0c03110', 1, NULL, '2022-12-29 11:35:56.1128523 +00:00')
+INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('f9d203f9-7987-ed11-8360-02f176033ddb', '3c3c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'collection-details-header', N'Header', N'{
     "defaultValue": {
         "isUseTranslateKey": true,
-        "translateKey": "MANAGE_DATA_COLLECTIONS.YEAR.TITLE"
+        "translateKey": "MANAGE_DATA_COLLECTIONS.ITEM.TITLE"
+    },
+    "fieldSettings": {
+        "titleHeader": {
+            "elements": [
+                {
+                    "appearance": "icon-button",
+                    "iconSvg": "icon-delete",
+                    "template": "custom"
+                },
+                {
+                    "appearance": "icon-button",
+                    "iconSvg": "icon-refresh",
+                    "template": "custom"
+                },
+                {
+                    "appearance": "primary-button",
+                    "nameTranslateKey": "COMMON.BUTTON.SAVE",
+                    "template": "custom"
+                },
+                {
+                    "appearance": "icon-button",
+                    "iconSvg": "icon-close",
+                    "template": "custom"
+                }
+            ]
+        }
+    }
+}', N'<cr-title-header
+    [titleTranslateKey]="{{translateKey}}"
+    [title]="{{label}}"
+    [titleValue]="self.titleValueText"
+    [additionalTranslateKeys]="''COMMON.NEW''"
+    (buttonClickEvent)="self.onTitleButtonClick($event)"
+    [buttonSettings]="self.titleHeaderButtonSettings"
+    [titleValueTranslateKey]="self.isNew ? ''COMMON.NEW'' : null"
+></cr-title-header>', '2022-12-29 13:09:06.6923385 +00:00', 1, N'N', '747d1682-9fdc-455f-b64e-5139f1d9f887', 1, NULL, '2022-12-29 13:09:06.6923385 +00:00')
+INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('cc824201-7a87-ed11-8360-02f176033ddb', '373c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'string', N'First name', N'{
+    "defaultValue": {
+        "isUseTranslateKey": true,
+        "translateKey": "PARTNER.FILTER.FIRST_NAME"
+    }
+}', N'<cr-control-edit 
+    [translateKeys]="{{translateKey}}" 
+    [dataLabel]="{{label}}"
+    [customClass]=''{{classes}}''
+    [isDisabled]="{{disabled}}"
+    [(dataValue)]="self.partnerListFilter.firstName"
+></cr-control-edit>
+', '2022-12-29 13:09:35.7766667 +00:00', 2, N'Y', 'cb43580e-a265-4a2c-a316-c528ba948786', 1, NULL, '2022-12-29 13:09:20.5249356 +00:00')
+INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('adeb186f-7a87-ed11-8360-02f176033ddb', '373c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'collection-details-code', N'Code', N'{
+    "defaultValue": {
+        "isUseTranslateKey": true,
+        "translateKey": "MANAGE_DATA_COLLECTIONS.ITEM.CODE"
+    },
+    "fieldSettings": {
+        "validationField": "code"
+    }
+}', N'<cr-control-edit
+    [(dataValue)]="self.collection.code"
+    [elementName]="''edit:Collection_details.Code''"
+    [permissionSettings]="{
+            isAccessEdit: isNew ? (self.EndpointName.item_collection_POST | endpointAccessGrantedPipe) :
+              (self.EndpointName.item_collection_id_PUT | endpointAccessGrantedPipe)
+          }"
+    [validator]="self.validator"
+    [validationField]="''code''"
+    [translateKeys]="{{translateKey}}" 
+    [dataLabel]="{{label}}"
+    [customClass]=''{{classes}}''
+></cr-control-edit>', '2022-12-29 13:12:24.8017453 +00:00', 1, N'N', '57a3b750-0fe3-43cc-9535-cb14cd1c9b20', 1, NULL, '2022-12-29 13:12:24.8017453 +00:00')
+INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('5804940e-7b87-ed11-8360-02f176033ddb', '373c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'collection-details-name', N'Name', N'{
+    "defaultValue": {
+        "isUseTranslateKey": true,
+        "translateKey": "MANAGE_DATA_COLLECTIONS.ITEM.DISPLAY_NAME"
+    },
+    "fieldSettings": {
+        "validationField": "displayName"
+    }
+}', N'<cr-control-edit
+    [(dataValue)]="self.collection.displayName"
+    (dataValueChange)="self.changeTitle()"
+    [elementName]="''edit:Collection_details.Display_name''"
+    [permissionSettings]="{
+        isAccessEdit: self.isNew ? (self.EndpointName.item_collection_POST | endpointAccessGrantedPipe) :
+            (self.EndpointName.item_collection_id_PUT | endpointAccessGrantedPipe)
+    }"
+    [translateKeys]="{{translateKey}}" 
+    [dataLabel]="{{label}}"
+    [customClass]=''{{classes}}''
+    [isDisabled]="{{disabled}}"
+    [validationField]="''displayName''"
+    [validator]="self.validator"
+></cr-control-edit>', '2023-01-03 15:42:21.4466667 +00:00', 3, N'N', 'f668c0a9-fafb-4bd5-86f7-79e2cbb833da', 1, NULL, '2022-12-29 13:16:52.3662040 +00:00')
+INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('fb3e8ebd-7b87-ed11-8360-02f176033ddb', '373c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'collection-details-print-name', N'Print name', N'{
+    "defaultValue": {
+        "isUseTranslateKey": true,
+        "translateKey": "MANAGE_DATA_COLLECTIONS.ITEM.PRINT_NAME"
+    }
+}', N'<cr-control-edit
+    [(dataValue)]="self.collection.printName"
+    [elementName]="''edit:Collection_details.Print_name''"
+    [permissionSettings]="{
+        isAccessEdit: self.isNew ? (self.EndpointName.item_collection_POST | endpointAccessGrantedPipe) :
+            (self.EndpointName.item_collection_id_PUT | endpointAccessGrantedPipe)
+    }"
+    [translateKeys]="{{translateKey}}" 
+    [dataLabel]="{{label}}"
+    [customClass]=''{{classes}}''
+    [isDisabled]="{{disabled}}"
+></cr-control-edit>', '2023-01-03 15:42:56.2633333 +00:00', 4, N'N', '0e7df3b0-7ca9-44bd-bd52-b8af733c8edd', 1, NULL, '2022-12-29 13:21:45.9296635 +00:00')
+INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('83184f58-7c87-ed11-8360-02f176033ddb', '3f3c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'collection-details-start-date', N'Start date', N'{
+    "defaultValue": {
+        "isUseTranslateKey": true,
+        "translateKey": "MANAGE_DATA_COLLECTIONS.ITEM.START_DATE"
+    }
+}', N'<cr-control-datepicker
+    [(dataValue)]="self.collection.startDate"
+    [elementName]="''edit:Collection_details.Start_date''"
+    [permissionSettings]="{
+            isAccessEdit: self.isNew ? (self.EndpointName.item_collection_POST | endpointAccessGrantedPipe) :
+              (self.EndpointName.item_collection_id_PUT | endpointAccessGrantedPipe)
+          }"
+    [dataLabel]="{{label}}"
+    [translateKeys]="{{translateKey}}"
+    [class]=''{{classes}}'' 
+    [isDisabled]="{{disabled}}"
+></cr-control-datepicker>', '2023-01-03 09:31:55.4000000 +00:00', 3, N'N', '261b9825-3312-4d62-a1ce-1cfbf995b829', 1, NULL, '2022-12-29 13:26:05.5626499 +00:00')
+INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('3c070999-7d87-ed11-8360-02f176033ddb', '07bc3452-8469-ed11-835f-02f176033ddb', N'collection-details-years', N'Years', N'{
+    "defaultValue": {
+        "isUseTranslateKey": true,
+        "translateKey": "MANAGE_DATA_COLLECTIONS.ITEM.YEARS"
+    }
+}', N'<cr-multi-select-smart-control
+    [(values)]="self.collection.years"
+    [dataCacheName]="''CollectionYearsMultiselect''"
+    [elementName]="''multi-select-smart-control:Collection_details.Years''"
+    [getListItemsFunction]="self.loadCollectionYearsMultiselectFunction"
+    [getSelectedItemsFunction]="self.loadCollectionYearMultiselectItemFunction"
+    [permissionSettings]="{
+          isAccessRead: (self.EndpointName.item_collection__item_collection_year_dropdown_GET | endpointAccessGrantedPipe),
+          isAccessEdit: (self.isNew ? (self.EndpointName.item_collection_POST | endpointAccessGrantedPipe) :
+              (self.EndpointName.item_collection_id_PUT | endpointAccessGrantedPipe)) &&
+             (self.EndpointName.item_collection__item_collection_year_dropdown_ids_GET | endpointAccessGrantedPipe)
+        }"
+    [textField]="''name''"
+    [valueField]="''id''"
+    [translateKeys]="{{translateKey}}"
+    [dataLabel]="{{label}}"
+    [class]=''{{classes}}''
+></cr-multi-select-smart-control>', '2023-01-03 09:33:00.1366667 +00:00', 2, N'N', '8ba000f9-abad-413e-8b6a-877ec38a8240', 1, NULL, '2022-12-29 13:35:03.6520892 +00:00')
+INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('1f8f09f9-7d87-ed11-8360-02f176033ddb', '07bc3452-8469-ed11-835f-02f176033ddb', N'collection-details-seasons', N'Seasons', N'{
+    "defaultValue": {
+        "isUseTranslateKey": true,
+        "translateKey": "MANAGE_DATA_COLLECTIONS.ITEM.SEASONS"
+    }
+}', N'<cr-multi-select-smart-control
+    [(values)]="self.collection.seasons"
+    [dataCacheName]="''CollectionSeasonsMultiselect''"
+    [elementName]="''multi-select-smart-control:Collection_details.Seasons''"
+    [getListItemsFunction]="self.loadCollectionSeasonsMultiselectFunction"
+    [getSelectedItemsFunction]="self.loadCollectionSeasonMultiselectItemFunction"
+    [permissionSettings]="{
+          isAccessRead: (self.EndpointName.item_collection__item_collection_season_dropdown_GET | endpointAccessGrantedPipe),
+          isAccessEdit: (self.isNew ? (self.EndpointName.item_collection_POST | endpointAccessGrantedPipe) :
+              (self.EndpointName.item_collection_id_PUT | endpointAccessGrantedPipe)) &&
+            (self.EndpointName.item_collection__item_collection_season_dropdown_ids_GET | endpointAccessGrantedPipe)
+        }"
+    [textField]="''name''"
+    [valueField]="''id''"
+    [translateKeys]="{{translateKey}}"
+    [dataLabel]="{{label}}"
+    [class]=''{{classes}}''
+></cr-multi-select-smart-control>', '2022-12-29 13:37:44.7168415 +00:00', 1, N'N', '9ba12749-f827-4339-9b6a-bb211ce1badb', 1, NULL, '2022-12-29 13:37:44.7168415 +00:00')
+INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('a728a78c-7e87-ed11-8360-02f176033ddb', '383c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'collection-details-active', N'Active', N'{
+    "defaultValue": {
+        "isUseTranslateKey": true,
+        "translateKey": "MANAGE_DATA_COLLECTIONS.ITEM.ACTIVE"
+    }
+}', N'<cr-checkbox-control
+    [(dataValue)]="self.collection.isActive"
+    [elementName]="''checkbox:Collection_details:Active''"
+    [permissionSettings]="{
+        isAccessEdit: self.isNew ? (self.EndpointName.item_collection_POST | endpointAccessGrantedPipe) :
+            (self.EndpointName.item_collection_id_PUT | endpointAccessGrantedPipe)
+    }"
+    [dataLabel]="{{label}}"
+    [translateKeys]="{{translateKey}}"
+    [class]=''{{classes}}''
+></cr-checkbox-control>', '2023-01-03 15:45:46.3333333 +00:00', 4, N'N', '5148672e-2fb5-4682-9139-3613c6ed4713', 1, NULL, '2022-12-29 13:41:52.3747623 +00:00')
+INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('5f73cd36-5a8b-ed11-8360-02f176033ddb', '3c3c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'document-type-list-header', N'Header', N'{
+    "defaultValue": {
+        "isUseTranslateKey": true,
+        "translateKey": "DOCUMENT_TYPE.LIST.TITLE"
     },
     "fieldSettings": {
         "titleHeader": {
@@ -131,42 +456,55 @@ INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebComponentID], [Code], [N
     [title]="{{label}}"
     (buttonClickEvent)="self.onTitleButtonClick($event)"
     [buttonSettings]="self.titleHeaderButtonSettings"
-></cr-title-header>', '2022-12-28 11:15:54.9992995 +00:00', 1, N'N', '9d29c463-968a-4764-a38b-1b9aa39217dc', 1, NULL, '2022-12-28 11:15:54.9992995 +00:00')
-INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('c7c7fdb6-a186-ed11-8360-02f176033ddb', '393c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'collection-year-list-grid', N'Collection year list grid', N'{
+></cr-title-header>', '2023-01-03 11:31:51.1104991 +00:00', 1, N'N', '785d1051-0750-4120-87cf-a4a83e76c691', 1, NULL, '2023-01-03 11:31:51.1104991 +00:00')
+INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('d019b37c-5b8b-ed11-8360-02f176033ddb', '393c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'document-type-list-grid', N'Document type list grid', N'{
     "defaultValue": {
         "dynamicColumnSettings": [
             {
                 "field": "code",
-                "titleTranslateKey": "MANAGE_DATA_COLLECTIONS.YEAR.GRID.CODE",
+                "titleTranslateKey": "DOCUMENT_TYPE.LIST.GRID.CODE",
                 "hidden": false
             },
             {
-                "field": "displayName",
-                "titleTranslateKey": "MANAGE_DATA_COLLECTIONS.YEAR.GRID.DISPLAY_NAME",
+                "field": "typeName",
+                "titleTranslateKey": "DOCUMENT_TYPE.LIST.GRID.TYPE",
+                "hidden": false
+            },
+            {
+                "field": "subTypeName",
+                "titleTranslateKey": "DOCUMENT_TYPE.LIST.GRID.SUB_TYPE",
                 "hidden": false
             }
         ]
     },
     "fieldSettings": {
         "grid": {
-            "uniqueField": "id",
+            "uniqueField": "code",
             "columns": [
                 {
-                    "type": "text",
+                    "type": "link",
                     "field": "code",
-                    "titleTranslateKey": "MANAGE_DATA_COLLECTIONS.YEAR.GRID.CODE"
+                    "titleTranslateKey": "DOCUMENT_TYPE.LIST.GRID.CODE",
+                    "width": "300px"
                 },
                 {
                     "type": "text",
-                    "field": "displayName",
-                    "titleTranslateKey": "MANAGE_DATA_COLLECTIONS.YEAR.GRID.DISPLAY_NAME"
+                    "field": "typeName",
+                    "titleTranslateKey": "DOCUMENT_TYPE.LIST.GRID.TYPE"
+                },
+                {
+                    "type": "text",
+                    "titleTranslateKey": "DOCUMENT_TYPE.LIST.GRID.SUB_TYPE",
+                    "field": "subTypeName"
                 }
             ],
             "previewDataSource": {
                 "responseList": [
                     {
-                        "code": "test",
-                        "displayName": "test"
+                        "id": 1,
+                        "code": "1-1",
+                        "typeName": "Tax document",
+                        "subTypeName": "Sale"
                     }
                 ],
                 "page": 1,
@@ -177,30 +515,21 @@ INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebComponentID], [Code], [N
     }
 }', N'<div class="cr-grid-wrapper-new">
     <cr-edit-grid-server-paging
-      (createActionEvent)="self.onCreate($event)"
-      (deleteActionEvent)="self.onRemove($event)"
-      (pageChangeEvent)="self.changePage($event)"
-      (updateActionEvent)="self.onUpdate($event)"
-      [allowCreateAction]="true"
-      [allowDeleteAction]="true"
-      [allowUpdateAction]="true"
-      [columnSettings]=''self.columnSettings | dynamicColumnSettings:{{dynamicColumnSettings}}''
-      [dataCacheName]="''CollectionYearsList''"
-      [dataSource]="self.dataSource"
-      [elementName]="''edit-grid-server-paging:Years.Grid''"
-      [pageable]="true"
-
-      [permissionSettings]="{
-          isAccessDelete: (self.EndpointName.item_collection_year_id_DELETE | endpointAccessGrantedPipe),
-          isAccessUpdate: (self.EndpointName.item_collection_year_id_PUT | endpointAccessGrantedPipe),
-          isAccessCreate: (self.EndpointName.item_collection_year_POST | endpointAccessGrantedPipe),
-          isAccessRead: (self.EndpointName.item_collection_year_GET | endpointAccessGrantedPipe)
+        [elementName]="''edit-grid-server-paging:Document_type_list.Grid''"
+        [permissionSettings]="{
+            isAccessRead: (self.EndpointName.document_series_type_GET | endpointAccessGrantedPipe)
         }"
-      [resizable]="true"
-      [uniqueField]="''id''"
-      [validator]="self.validator"
+        [dataSource]="self.gridData"
+        [columnSettings]=''self.columnSettings | dynamicColumnSettings:{{dynamicColumnSettings}}''
+        [pageable]="true"
+        [resizable]="true"
+        [uniqueField]="''code''"
+        (cellClickEvent)="self.cellClick($event)"
+        (pageChangeEvent)="self.changePage($event)"
+        [dataCacheName]="''document-type-grid-cache''"
+        [class]=''{{classes}}''
     ></cr-edit-grid-server-paging>
-  </div>', '2022-12-28 11:22:08.5866667 +00:00', 2, N'N', '94b3e72d-5924-4d67-a62d-4e3de7a03f70', 1, NULL, '2022-12-28 11:21:04.6295111 +00:00')
+</div>', '2023-01-03 16:42:47.0733333 +00:00', 3, N'N', '150f9d3b-5591-4fdd-bdce-039a46d2ec86', 1, NULL, '2023-01-03 11:40:57.8750544 +00:00')
 INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('3ea1684d-7c69-ed11-835f-02f176033ddb', '3d3c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'item-details-hierarchy1', N'Hierarchy 1', N'{
     "defaultValue": {
         "isUseItemHierarchyLabel": true,
@@ -4776,6 +5105,264 @@ INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebComponentID], [Code], [N
     (buttonClickEvent)="self.changeFilter()"
     *ngIf="(self.EndpointName.coupon_series_GET | endpointAccessGrantedPipe)"
 ></cr-button-control>', '2022-12-23 09:42:56.8598850 +00:00', 1, N'N', '676116cb-53c7-4a1c-9cfe-35a3b622417a', 1, NULL, '2022-12-23 09:42:56.8598850 +00:00')
+INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('99dfcaf1-a882-ed11-8360-02f176033ddb', '393c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'coupon-series-list-grid', N'Coupon series list grid', N'{
+    "defaultValue": {
+        "dynamicColumnSettings": [
+            {
+                "field": "code",
+                "titleTranslateKey": "SERIES.LIST.CODE",
+                "hidden": false
+            },
+            {
+                "field": "displayName",
+                "titleTranslateKey": "SERIES.LIST.NAME",
+                "hidden": false
+            },
+            {
+                "field": "genFrom",
+                "titleTranslateKey": "SERIES.LIST.FROM",
+                "hidden": false
+            },
+            {
+                "field": "genTo",
+                "titleTranslateKey": "SERIES.LIST.TO",
+                "hidden": false
+            },
+            {
+                "field": "manualDiscountPrice",
+                "titleTranslateKey": "SERIES.LIST.MANUAL_DISCOUNT_PRICE",
+                "hidden": false
+            },
+            {
+                "field": "couponsGenerated",
+                "titleTranslateKey": "SERIES.LIST.GENERATED",
+                "hidden": false
+            }
+        ]
+    },
+    "fieldSettings": {
+        "grid": {
+            "uniqueField": "id",
+            "columns": [
+                {
+                    "type": "link",
+                    "field": "code",
+                    "titleTranslateKey": "SERIES.LIST.CODE",
+                    "disableIf": null
+                },
+                {
+                    "type": "text",
+                    "field": "displayName",
+                    "titleTranslateKey": "SERIES.LIST.NAME"
+                },
+                {
+                    "type": "numeric",
+                    "field": "genFrom",
+                    "titleTranslateKey": "SERIES.LIST.FROM"
+                },
+                {
+                    "type": "numeric",
+                    "field": "genTo",
+                    "titleTranslateKey": "SERIES.LIST.TO"
+                },
+                {
+                    "type": "boolean",
+                    "field": "manualDiscountPrice",
+                    "titleTranslateKey": "SERIES.LIST.MANUAL_DISCOUNT_PRICE",
+                    "autoFit": true
+                },
+                {
+                    "titleTranslateKey": "SERIES.LIST.GENERATED",
+                    "field": "couponsGenerated",
+                    "type": "boolean",
+                    "autoFit": true
+                }
+            ],
+            "previewDataSource": {
+                "responseList": [
+                    {
+                        "code": "1",
+                        "couponsGenerated": false,
+                        "displayName": "Coupon series",
+                        "manualDiscountPrice": false,
+                        "genTo": 1000,
+                        "genFrom": 1
+                    }
+                ],
+                "page": 1,
+                "size": 5,
+                "totalElements": 1
+            }
+        }
+    }
+}', N'<div class="cr-grid-wrapper-new">
+      <cr-edit-grid-server-paging
+        [elementName]="''edit-grid-server-paging:Coupon_series.Grid''"
+        [dataSource]="self.gridData"
+        [columnSettings]=''self.columnSettings | dynamicColumnSettings:{{dynamicColumnSettings}}''
+        [pageable]="true"
+        [resizable]="true"
+        [uniqueField]="''id''"
+        (pageChangeEvent)="self.changePage($event)"
+        (cellClickEvent)="self.cellClick($event)"
+        [dataCacheName]="''coupon-series-grid-cache''"
+        [class]=''{{classes}}''
+      ></cr-edit-grid-server-paging>
+    </div>', '2022-12-28 13:57:55.9766667 +00:00', 4, N'N', '1300a6c7-17cf-4f81-a8ef-5bcfab0bb574', 1, NULL, '2022-12-23 10:02:45.1074585 +00:00')
+INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('bde03c10-b782-ed11-8360-02f176033ddb', '373c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'coupon-series-details-code', N'Code', N'{
+    "defaultValue": {
+        "isUseTranslateKey": true,
+        "translateKey": "SERIES.DETAILS.CODE"
+    },
+    "fieldSettings": {
+        "validationField": "code"
+    }
+}', N'<cr-control-edit
+    [(dataValue)]="self.series.code"
+    [elementName]="''edit:Coupon_series_details.Code''"
+    [permissionSettings]="{
+            isAccessEdit: self.isNewSeries ? (self.EndpointName.coupon_series_POST | endpointAccessGrantedPipe) :
+              (self.EndpointName.coupon_series_id_PUT | endpointAccessGrantedPipe)
+          }"
+    [validator]="self.validator"
+    [validationField]="''code''"
+    [translateKeys]="{{translateKey}}" 
+    [dataLabel]="{{label}}"
+    [customClass]=''{{classes}}''
+    [isDisabled]="!self.isNewSeries || {{disabled}}"
+></cr-control-edit>', '2022-12-28 14:03:04.3900000 +00:00', 3, N'N', 'ac143ea2-3735-4fa3-a8b2-8b053953eb3e', 1, NULL, '2022-12-23 11:43:49.1404605 +00:00')
+INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('6715caf0-b782-ed11-8360-02f176033ddb', '373c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'coupon-series-details-name', N'Name', N'{
+    "defaultValue": {
+        "isUseTranslateKey": true,
+        "translateKey": "SERIES.DETAILS.NAME"
+    },
+    "fieldSettings": {
+        "validationField": "displayName"
+    }
+}', N'<cr-control-edit
+    [(dataValue)]="self.series.displayName"
+    [elementName]="''edit:Coupon_series_details.Name''"
+    [permissionSettings]="{
+            isAccessEdit: self.isNewSeries ? (self.EndpointName.coupon_series_POST | endpointAccessGrantedPipe) :
+              (self.EndpointName.coupon_series_id_PUT | endpointAccessGrantedPipe)
+          }"
+    [validator]="self.validator"
+    [validationField]="''displayName''"
+    [translateKeys]="{{translateKey}}" 
+    [dataLabel]="{{label}}"
+    [customClass]=''{{classes}}''
+    [isDisabled]="{{disabled}}"
+    (dataValueChange)="self.changeTitle()"
+></cr-control-edit>', '2022-12-28 14:03:31.5300000 +00:00', 3, N'N', '86d4f25c-8674-46cc-b696-879b88832c8f', 1, NULL, '2022-12-23 11:50:05.8755047 +00:00')
+INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('aed8a6e4-b882-ed11-8360-02f176033ddb', '3e3c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'coupon-series-details-valid-days', N'Coupon valid days', N'{
+    "defaultValue": {
+        "isUseTranslateKey": true,
+        "translateKey": "SERIES.DETAILS.COUPON_VALID_DAYS",
+        "format": "''n0''"
+    },
+    "fieldSettings": {
+        "validationField": "couponValidDays"
+    }
+}', N'<cr-numeric-control
+    [elementName]="''numeric:Coupon_series_details.Coupon_valid_days''"
+    [(dataValue)]="self.series.couponValidDays"
+    [permissionSettings]="{
+                    isAccessEdit: self.isNewSeries ?
+                    (self.EndpointName.coupon_series_POST | endpointAccessGrantedPipe):
+                    (self.EndpointName.coupon_series_id_PUT | endpointAccessGrantedPipe)
+                  }"
+    [validationField]="''couponValidDays''"
+    [validator]="self.validator"      
+    [dataLabel]="{{label}}" 
+    [translateKeys]="{{translateKey}}" 
+    [customClass]=''{{classes}}''
+    [format]="{{format}}" 
+    [decimals]="{{decimals}}" 
+    [min]="{{min}}" 
+    [max]="{{max}}"
+    [autoCorrectMinMax]="{{autoCorrectMinMax}}"
+></cr-numeric-control>', '2022-12-28 14:04:04.2100000 +00:00', 2, N'N', '5b75b1f7-5771-43b9-95e9-5f97c3eb428f', 1, NULL, '2022-12-23 11:56:55.0086446 +00:00')
+INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('cfe27deb-ba82-ed11-8360-02f176033ddb', '383c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'coupon-series-details-no-range', N'No range', N'{
+    "defaultValue": {
+        "isUseTranslateKey": true,
+        "translateKey": "SERIES.DETAILS.NO_RANGE",
+        "isDisabled": false
+    }
+}', N'<cr-checkbox-control
+    [elementName]="''checkbox:Coupon_series_details.No_range''"
+    [permissionSettings]="{
+        isAccessEdit: self.isNewSeries ?
+            (self.EndpointName.coupon_series_POST | endpointAccessGrantedPipe):
+            (self.EndpointName.coupon_series_id_PUT | endpointAccessGrantedPipe)
+    }"
+    [(dataValue)]="self.series.withoutRange"
+    [dataLabel]="{{label}}"
+    [translateKeys]="{{translateKey}}"
+    [isDisabled]="!self.isNewSeries"
+    [class]=''{{classes}}''
+    (dataValueChange)="self.onNoRangeChange()"
+></cr-checkbox-control>', '2022-12-28 14:04:53.0666667 +00:00', 3, N'N', 'b5edc180-9458-466a-8ca6-bd73c0afb8a1', 1, NULL, '2022-12-23 12:11:25.4777167 +00:00')
+INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('2389c4c0-bb82-ed11-8360-02f176033ddb', '3e3c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'coupon-series-details-range-from', N'Coupon range from ', N'{
+    "defaultValue": {
+        "isUseTranslateKey": true,
+        "translateKey": "SERIES.DETAILS.COUPONS_RANGE_FROM",
+        "format": "''n0''",
+        "autoCorrectMinMax": true,
+        "max": 2147483647
+    },
+    "fieldSettings": {
+        "validationField": "genFrom"
+    }
+}', N'<cr-numeric-control
+    [elementName]="''numeric:Coupon_series_details.Coupon_range_from''"
+    [(dataValue)]="self.series.genFrom"
+    [permissionSettings]="{
+        isAccessEdit: self.isNewSeries ?
+            (self.EndpointName.coupon_series_POST | endpointAccessGrantedPipe):
+            (self.EndpointName.coupon_series_id_PUT | endpointAccessGrantedPipe)
+    }"
+    [validationField]="''genFrom''"
+    [validator]="self.validator"      
+    [dataLabel]="{{label}}" 
+    [translateKeys]="{{translateKey}}" 
+    [customClass]=''{{classes}}''
+    [format]="{{format}}" 
+    [decimals]="{{decimals}}" 
+    [min]="{{min}}" 
+    [max]="{{max}}"
+    [autoCorrectMinMax]="{{autoCorrectMinMax}}"
+    [isDisabled]="!self.isNewSeries"
+></cr-numeric-control>', '2022-12-28 14:05:43.4933333 +00:00', 3, N'N', 'd78e24bd-86b1-48cb-a327-4e66ba0eae66', 1, NULL, '2022-12-23 12:17:23.2954275 +00:00')
+INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('d00f6450-bd82-ed11-8360-02f176033ddb', '3e3c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'coupon-series-details-range-to', N'Coupon range to', N'{
+    "defaultValue": {
+        "isUseTranslateKey": true,
+        "translateKey": "SERIES.DETAILS.COUPONS_RANGE_TO",
+        "format": "''n0''",
+        "autoCorrectMinMax": true,
+        "max": 2147483647
+    },
+    "fieldSettings": {
+        "validationField": "genTo"
+    }
+}', N'<cr-numeric-control
+    [elementName]="''numeric:Coupon_series_details.Coupon_range_to''"
+    [(dataValue)]="self.series.genTo"
+    [permissionSettings]="{
+        isAccessEdit: self.isNewSeries ?
+            (self.EndpointName.coupon_series_POST | endpointAccessGrantedPipe):
+            (self.EndpointName.coupon_series_id_PUT | endpointAccessGrantedPipe)
+    }"
+    [validationField]="''genTo''"
+    [validator]="self.validator"      
+    [dataLabel]="{{label}}" 
+    [translateKeys]="{{translateKey}}" 
+    [customClass]=''{{classes}}''
+    [format]="{{format}}" 
+    [decimals]="{{decimals}}" 
+    [min]="{{min}}" 
+    [max]="{{max}}"
+    [autoCorrectMinMax]="{{autoCorrectMinMax}}"
+></cr-numeric-control>', '2022-12-28 14:06:56.8133333 +00:00', 3, N'N', 'b7e89c0d-fcf1-474d-bb70-a0b7b85c9523', 1, NULL, '2022-12-23 12:28:33.7518160 +00:00')
 INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('55308202-be82-ed11-8360-02f176033ddb', '373c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'coupon-series-details-next-coupon-number', N'Next coupon number', N'{
     "defaultValue": {
         "isUseTranslateKey": true,
@@ -4794,6 +5381,68 @@ INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebComponentID], [Code], [N
     [isDisabled]="true"
     [isReadOnly]="true"
 ></cr-control-edit>', '2022-12-26 12:27:27.6500000 +00:00', 4, N'N', 'cbac5d1d-a4ed-4b9d-9f46-a6c2f9b9a104', 1, NULL, '2022-12-23 12:33:32.5837013 +00:00')
+INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('489cfac3-be82-ed11-8360-02f176033ddb', '3d3c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'coupon-series-details-status', N'Status', N'{
+    "defaultValue": {
+        "isUseTranslateKey": true,
+        "translateKey": "SERIES.DETAILS.CLOSED"
+    }
+}', N'<cr-dropdown-smart-control
+    [elementName]="''smart-dropdown:Coupon_series_details.Status''"
+    [permissionSettings]="{
+        isAccessEdit: self.isNewSeries ?
+            (self.EndpointName.coupon_series_POST | endpointAccessGrantedPipe):
+            (self.EndpointName.coupon_series_id_PUT | endpointAccessGrantedPipe)
+    }"
+    [(value)]="self.series.couponsGenerated"
+    [textField]="''name''"
+    [valueField]="''propertyBoolean''"
+    [isDisabled]="true"
+    [isReadOnly]="true"
+    [getListItemsFunction]="self.getSeriesCouponStatusDropdownListFn$"
+    [getOneItemFunction]="self.getSeriesCouponStatusItemDropdownFn$"
+    [dataCacheName]="''SeriesDetailsStatusDropdownCache''"
+    [labelTranslateKey]="{{translateKey}}"
+    [label]="{{label}}"
+    [class]=''{{classes}}''
+></cr-dropdown-smart-control>
+', '2022-12-28 14:08:15.7366667 +00:00', 3, N'N', 'ef2ba6e6-5e54-4c2d-9cb8-3a37af7546b8', 1, NULL, '2022-12-23 12:38:57.1731656 +00:00')
+INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('906acc71-bf82-ed11-8360-02f176033ddb', '383c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'coupon-series-details-manual-discount-price', N'Manual discount price', N'{
+    "defaultValue": {
+        "isUseTranslateKey": true,
+        "translateKey": "SERIES.DETAILS.AS_VOUCHER"
+    }
+}', N'<cr-checkbox-control
+    [elementName]="''checkbox:Coupon_series_details.Manual_discount_price''"
+    [permissionSettings]="{
+        isAccessEdit: self.isNewSeries ?
+            (self.EndpointName.coupon_series_POST | endpointAccessGrantedPipe):
+            (self.EndpointName.coupon_series_id_PUT | endpointAccessGrantedPipe)
+    }"
+    [(dataValue)]="self.series.manualDiscountPrice"
+    [dataLabel]="{{label}}"
+    [translateKeys]="{{translateKey}}"
+    [class]=''{{classes}}''
+></cr-checkbox-control>', '2022-12-28 14:08:40.3500000 +00:00', 2, N'N', 'ac105f87-7880-403e-a486-b0e2ccec258a', 1, NULL, '2022-12-23 12:43:48.7939856 +00:00')
+INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('5d00f26a-c182-ed11-8360-02f176033ddb', '453c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'coupon-series-voucher-text', N'Voucher text', N'{
+    "defaultValue": {
+        "isUseTranslateKey": true,
+        "translateKey": "SERIES.DETAILS.VOUCHER_TEXT"
+    }
+}', N'<cr-text-area-control
+    [(dataValue)]="self.series.voucherText"
+    [elementName]="''textarea:Coupon_series_details.Voucher_text''"
+    [permissionSettings]="{
+              isAccessEdit: self.isNewSeries ?
+                (self.EndpointName.coupon_series_POST | endpointAccessGrantedPipe):
+                (self.EndpointName.coupon_series_id_PUT | endpointAccessGrantedPipe)
+              }"
+    [dataLabel]="{{label}}"
+    [translateKeys]="{{translateKey}}"
+    [class]=''{{classes}}'' 
+    [isDisabled]="{{disabled}}"
+    [rows]="10"
+    [maxlength]="{{maxLength}}"
+></cr-text-area-control>', '2022-12-28 14:11:47.2066667 +00:00', 7, N'N', 'dcd53aa8-e500-4d25-9eeb-35081f296ecf', 1, NULL, '2022-12-23 12:57:56.2897117 +00:00')
 INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('480d206f-c382-ed11-8360-02f176033ddb', '3c3c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'coupon-series-details-title-header', N'Header', N'{
     "defaultValue": {
         "isUseTranslateKey": true,
@@ -4876,6 +5525,161 @@ INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebComponentID], [Code], [N
     (buttonClickEvent)="self.onTitleButtonClick($event)"
     [buttonSettings]="self.titleHeaderButtonSettings"
 ></cr-title-header>', '2022-12-26 13:32:12.4934745 +00:00', 1, N'N', '97eb7f23-7509-48c5-8c01-012be2391ffb', 1, NULL, '2022-12-26 13:32:12.4934745 +00:00')
+INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('6d2442a6-2285-ed11-8360-02f176033ddb', '393c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'role-list-grid', N'Role list grid', N'{
+    "defaultValue": {
+        "dynamicColumnSettings": [
+            {
+                "field": "code",
+                "titleTranslateKey": "ROLE.LIST.GRID.CODE",
+                "hidden": false
+            },
+            {
+                "field": "name",
+                "titleTranslateKey": "ROLE.LIST.GRID.NAME",
+                "hidden": false
+            }
+        ]
+    },
+    "fieldSettings": {
+        "grid": {
+            "uniqueField": "id",
+            "columns": [
+                {
+                    "type": "link",
+                    "field": "code",
+                    "titleTranslateKey": "ROLE.LIST.GRID.CODE",
+                    "disableIf": null
+                },
+                {
+                    "type": "text",
+                    "field": "name",
+                    "titleTranslateKey": "ROLE.LIST.GRID.NAME"
+                }
+            ],
+            "previewDataSource": {
+                "responseList": [
+                    {
+                        "id": 1,
+                        "code": "dev",
+                        "name": "dev"
+                    }
+                ],
+                "page": 1,
+                "size": 5,
+                "totalElements": 1
+            }
+        }
+    }
+}', N' <div class="cr-grid-wrapper-new">
+    <cr-edit-grid-server-paging
+        [elementName]="''edit-grid-server-paging:Role_list.Grid''"
+        [dataSource]="self.dataSource"
+        [columnSettings]=''self.columnSettings | dynamicColumnSettings:{{dynamicColumnSettings}}''
+        [pageable]="true"
+        [resizable]="true"
+        [uniqueField]="''id''"
+        (pageChangeEvent)="self.changePage($event)"
+        (cellClickEvent)="self.cellClick($event)"
+        [dataCacheName]="''role-grid-cache''"
+        [class]=''{{classes}}''
+    ></cr-edit-grid-server-paging>
+</div>', '2022-12-28 14:35:17.5633333 +00:00', 3, N'N', '4ccc569f-112d-40ed-9b07-dffd6758dc27', 1, NULL, '2022-12-26 13:38:59.3088237 +00:00')
+INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('117e1c7d-c085-ed11-8360-02f176033ddb', '373c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'role-details-code', N'Code', N'{
+    "defaultValue": {
+        "isUseTranslateKey": true,
+        "translateKey": "ROLE.DETAILS.CODE"
+    },
+    "fieldSettings": {
+        "validationField": "code"
+    }
+}', N'<cr-control-edit
+    [(dataValue)]="self.currentItem.code"
+    [elementName]="''edit:Role_details.Code''"
+    [permissionSettings]="{
+        isAccessEdit: self.isNew ? (self.EndpointName.role_POST | endpointAccessGrantedPipe) :
+            (self.EndpointName.role_id_PUT | endpointAccessGrantedPipe)
+    }"
+    [validator]="self.validator"
+    [validationField]="''code''"
+    [translateKeys]="{{translateKey}}" 
+    [dataLabel]="{{label}}"
+    [customClass]=''{{classes}}''
+    [isDisabled]="self.currentItem.isDeleted"
+></cr-control-edit>', '2022-12-28 14:38:06.6233333 +00:00', 2, N'N', '496cfb1a-95de-4829-82c9-2c614286e2d0', 1, NULL, '2022-12-27 08:28:50.7587729 +00:00')
+INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('3530d70c-c185-ed11-8360-02f176033ddb', '373c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'role-details-name', N'Name', N'{
+    "defaultValue": {
+        "isUseTranslateKey": true,
+        "translateKey": "ROLE.DETAILS.NAME"
+    },
+    "fieldSettings": {
+        "validationField": "name"
+    }
+}', N'<cr-control-edit
+    [(dataValue)]="self.currentItem.name"
+    [elementName]="''edit:Role_details.Name''"
+    [permissionSettings]="{
+        isAccessEdit: self.isNew ? (self.EndpointName.role_POST | endpointAccessGrantedPipe) :
+            (self.EndpointName.role_id_PUT | endpointAccessGrantedPipe)
+    }"
+    [validator]="self.validator"
+    [validationField]="''name''"
+    [translateKeys]="{{translateKey}}" 
+    [dataLabel]="{{label}}"
+    [customClass]=''{{classes}}''
+    [isDisabled]="self.currentItem.isDeleted"
+    (dataValueChange)="self.changeTitle()"
+></cr-control-edit>', '2022-12-28 14:38:31.1933333 +00:00', 2, N'N', 'afff9011-9122-441b-88e5-71064c744fa7', 1, NULL, '2022-12-27 08:32:51.8964917 +00:00')
+INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('83bf531e-d085-ed11-8360-02f176033ddb', 'f8e29e4a-cf85-ed11-8360-02f176033ddb', N'role-permission-tree', N'Role permission tree', N'{
+    "defaultValue": {}
+}', N'<cr-role-permission-tree
+    *ngIf="(self.EndpointName.role__function_tree_list_GET | endpointAccessGrantedPipe)"
+    [isNew]="self.isNew"
+    [(selected)]="self.currentItem.functions"
+    [editable]="!self.currentItem.isDeleted && (self.isNew
+        ? (self.EndpointName.role_POST | endpointAccessGrantedPipe)
+        : (self.EndpointName.role_id_PUT | endpointAccessGrantedPipe))"
+    [class]=''{{classes}}''
+></cr-role-permission-tree>', '2022-12-28 14:39:09.7300000 +00:00', 7, N'N', '1b6b0924-ca7d-4a5e-af19-c640a53147f4', 1, NULL, '2022-12-27 10:20:43.6850179 +00:00')
+INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('6820250a-d185-ed11-8360-02f176033ddb', '3c3c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'role-details-title-header', N'Header', N'{
+    "defaultValue": {
+        "isUseTranslateKey": true,
+        "translateKey": "ROLE.DETAILS.TITLE"
+    },
+    "fieldSettings": {
+        "titleHeader": {
+            "elements": [
+                {
+                    "appearance": "icon-button",
+                    "iconSvg": "icon-refresh",
+                    "template": "custom"
+                },
+                {
+                    "appearance": "icon-button",
+                    "iconSvg": "icon-add",
+                    "template": "custom"
+                },
+                {
+                    "appearance": "primary-button",
+                    "nameTranslateKey": "COMMON.BUTTON.SAVE",
+                    "template": "custom"
+                },
+                {
+                    "appearance": "icon-button",
+                    "iconSvg": "icon-close",
+                    "template": "custom"
+                }
+            ]
+        }
+    }
+}', N'<cr-title-header
+    [titleTranslateKey]="{{translateKey}}"
+    [title]="{{label}}"
+    [titleValue]="self.titleValueText"
+    [additionalTranslateKeys]="''COMMON.NEW''"
+    (buttonClickEvent)="self.onTitleButtonClick($event)"
+    [buttonSettings]="self.titleHeaderButtonSettings"
+    [titleValueTranslateKey]="self.isNew ? ''COMMON.NEW'' : null"
+></cr-title-header>', '2022-12-28 14:41:37.0166667 +00:00', 3, N'N', 'd666a455-4e1e-490f-a982-ba0e365b5554', 1, NULL, '2022-12-27 10:27:19.3217768 +00:00')
 INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('99bfd727-9986-ed11-8360-02f176033ddb', '3c3c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'collection-season-list-header', N'Header', N'{
     "defaultValue": {
         "isUseTranslateKey": true,
@@ -4908,6 +5712,38 @@ INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebComponentID], [Code], [N
     (buttonClickEvent)="self.onTitleButtonClick($event)"
     [buttonSettings]="self.titleHeaderButtonSettings"
 ></cr-title-header>', '2022-12-28 10:19:48.4922393 +00:00', 1, N'N', '83a4999f-7abc-44c9-afa3-9041dee5ca28', 1, NULL, '2022-12-28 10:19:48.4922393 +00:00')
+INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('a3f56ffe-a086-ed11-8360-02f176033ddb', '3c3c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'collection-year-list-header', N'Header', N'{
+    "defaultValue": {
+        "isUseTranslateKey": true,
+        "translateKey": "MANAGE_DATA_COLLECTIONS.YEAR.TITLE"
+    },
+    "fieldSettings": {
+        "titleHeader": {
+            "elements": [
+                {
+                    "appearance": "icon-button",
+                    "iconSvg": "icon-pin",
+                    "template": "custom" 
+                },
+                {
+                    "appearance": "icon-button",
+                    "iconSvg": "icon-refresh",
+                    "template": "custom"
+                },
+                {
+                    "appearance": "icon-button",
+                    "iconSvg": "icon-close",
+                    "template": "custom"
+                }
+            ]
+        }
+    }
+}', N'<cr-title-header
+    [titleTranslateKey]="{{translateKey}}"
+    [title]="{{label}}"
+    (buttonClickEvent)="self.onTitleButtonClick($event)"
+    [buttonSettings]="self.titleHeaderButtonSettings"
+></cr-title-header>', '2022-12-28 11:15:54.9992995 +00:00', 1, N'N', '9d29c463-968a-4764-a38b-1b9aa39217dc', 1, NULL, '2022-12-28 11:15:54.9992995 +00:00')
 INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('983fe7fc-e84e-ed11-8e5d-4ccc6a2bb6d6', '373c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'partner-list-first-name', N'First name', N'{
     "defaultValue": {
         "isUseTranslateKey": true,
@@ -7226,37 +8062,22 @@ INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebComponentID], [Code], [N
     [label]="{{label}}"
     [class]=''{{classes}}''
 ></cr-dropdown-smart-control>', '2022-11-25 09:48:59.3733333 +00:00', 3, N'N', 'd45337c9-1f66-49f6-9edb-e092945a2cd1', 1, NULL, '2022-11-15 18:57:39.2067900 +02:00')
-INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('99dfcaf1-a882-ed11-8360-02f176033ddb', '393c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'coupon-series-list-grid', N'Coupon series list grid', N'{
+INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('ab5eed98-9a86-ed11-8360-02f176033ddb', '393c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'collection-season-list-grid', N'Collection season list grid', N'{
     "defaultValue": {
         "dynamicColumnSettings": [
             {
                 "field": "code",
-                "titleTranslateKey": "SERIES.LIST.CODE",
+                "titleTranslateKey": "MANAGE_DATA_COLLECTIONS.SEASON.GRID.CODE",
                 "hidden": false
             },
             {
                 "field": "displayName",
-                "titleTranslateKey": "SERIES.LIST.NAME",
+                "titleTranslateKey": "MANAGE_DATA_COLLECTIONS.SEASON.GRID.DISPLAY_NAME",
                 "hidden": false
             },
             {
-                "field": "genFrom",
-                "titleTranslateKey": "SERIES.LIST.FROM",
-                "hidden": false
-            },
-            {
-                "field": "genTo",
-                "titleTranslateKey": "SERIES.LIST.TO",
-                "hidden": false
-            },
-            {
-                "field": "manualDiscountPrice",
-                "titleTranslateKey": "SERIES.LIST.MANUAL_DISCOUNT_PRICE",
-                "hidden": false
-            },
-            {
-                "field": "couponsGenerated",
-                "titleTranslateKey": "SERIES.LIST.GENERATED",
+                "field": "printName",
+                "titleTranslateKey": "MANAGE_DATA_COLLECTIONS.SEASON.GRID.PRINT_NAME",
                 "hidden": false
             }
         ]
@@ -7266,48 +8087,120 @@ INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebComponentID], [Code], [N
             "uniqueField": "id",
             "columns": [
                 {
-                    "type": "link",
+                    "type": "text",
                     "field": "code",
-                    "titleTranslateKey": "SERIES.LIST.CODE",
-                    "disableIf": null
+                    "titleTranslateKey": "MANAGE_DATA_COLLECTIONS.SEASON.GRID.CODE"
                 },
                 {
                     "type": "text",
                     "field": "displayName",
-                    "titleTranslateKey": "SERIES.LIST.NAME"
+                    "titleTranslateKey": "MANAGE_DATA_COLLECTIONS.SEASON.GRID.DISPLAY_NAME"
                 },
                 {
-                    "type": "numeric",
-                    "field": "genFrom",
-                    "titleTranslateKey": "SERIES.LIST.FROM"
-                },
-                {
-                    "type": "numeric",
-                    "field": "genTo",
-                    "titleTranslateKey": "SERIES.LIST.TO"
-                },
-                {
-                    "type": "boolean",
-                    "field": "manualDiscountPrice",
-                    "titleTranslateKey": "SERIES.LIST.MANUAL_DISCOUNT_PRICE",
-                    "autoFit": true
-                },
-                {
-                    "titleTranslateKey": "SERIES.LIST.GENERATED",
-                    "field": "couponsGenerated",
-                    "type": "boolean",
-                    "autoFit": true
+                    "type": "text",
+                    "field": "printName",
+                    "titleTranslateKey": "MANAGE_DATA_COLLECTIONS.SEASON.GRID.PRINT_NAME",
+                    "isNotUseValidation": true
                 }
             ],
             "previewDataSource": {
                 "responseList": [
                     {
-                        "code": "1",
-                        "couponsGenerated": false,
-                        "displayName": "Coupon series",
-                        "manualDiscountPrice": false,
-                        "genTo": 1000,
-                        "genFrom": 1
+                        "id": 1,
+                        "code": "test",
+                        "displayName": "test",
+                        "printName": "test"
+                    }
+                ],
+                "page": 1,
+                "size": 5,
+                "totalElements": 1
+            }
+        }
+    }
+}', N'<div class="cr-grid-outer-wrapper">
+      <div #gridWrapper class="cr-grid-wrapper-new">
+        <cr-edit-grid-server-paging
+          (changeStatus)="self.onChangeGridStatus($event)"
+          (createActionEvent)="self.onCreate($event)"
+          (deleteActionEvent)="self.onRemove($event)"
+          (pageChangeEvent)="self.changePage($event)"
+          (selectionChanged)="self.onSelectionChange($event)"
+          (updateActionEvent)="self.onUpdate($event)"
+          [allowCreateAction]="true"
+          [allowDeleteAction]="true"
+          [allowUpdateAction]="true"
+          [columnSettings]=''self.columnSettings | dynamicColumnSettings:{{dynamicColumnSettings}}''
+          [dataCacheName]="''CollectionSeasonList''"
+          [dataSource]="self.dataSource"
+          [elementName]="''edit-grid-server-paging:Seasons.Grid''"
+          [hasSorter]="true"
+          [isRefreshOnCreate]="true"
+          [isRefreshOnDelete]="true"
+
+          [isRefreshOnUpdate]="true"
+          [pageable]="true"
+          [permissionSettings]="{
+          isAccessDelete: (self.EndpointName.item_collection_season_id_DELETE | endpointAccessGrantedPipe),
+          isAccessUpdate: (self.EndpointName.item_collection_season_id_PUT | endpointAccessGrantedPipe),
+          isAccessCreate: (self.EndpointName.item_collection_season_POST | endpointAccessGrantedPipe),
+          isAccessRead: (self.EndpointName.item_collection_season_GET | endpointAccessGrantedPipe)
+        }"
+          [resizable]="true"
+          [uniqueField]="''id''"
+          [validator]="self.validator"
+          [class]=''{{classes}}''
+        ></cr-edit-grid-server-paging>
+
+        <cr-sort
+          (changeSort)="self.changeSortHandler($event)"
+          [disableButtons]="{
+          toFirst: self.cache.firstSelected || self.cache.isEditMode,
+          oneUp: self.cache.firstSelected || self.cache.isEditMode,
+          oneDown: self.cache.lastSelected || self.cache.isEditMode,
+          toLast: self.cache.lastSelected || self.cache.isEditMode
+        }"
+          [gridWrapper]="gridWrapper"
+          [permissionSettings]="(self.EndpointName.item_collection_season_id_sort_order_PUT | endpointAccessGrantedPipe)"
+        ></cr-sort>
+      </div>
+    </div>', '2023-01-03 15:39:22.3400000 +00:00', 3, N'N', '0aa0b5a1-9e83-4583-ae06-bca9004d83ea', 1, NULL, '2022-12-28 10:30:07.7132075 +00:00')
+INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('c7c7fdb6-a186-ed11-8360-02f176033ddb', '393c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'collection-year-list-grid', N'Collection year list grid', N'{
+    "defaultValue": {
+        "dynamicColumnSettings": [
+            {
+                "field": "code",
+                "titleTranslateKey": "MANAGE_DATA_COLLECTIONS.YEAR.GRID.CODE",
+                "hidden": false
+            },
+            {
+                "field": "displayName",
+                "titleTranslateKey": "MANAGE_DATA_COLLECTIONS.YEAR.GRID.DISPLAY_NAME",
+                "hidden": false
+            }
+        ]
+    },
+    "fieldSettings": {
+        "grid": {
+            "uniqueField": "id",
+            "columns": [
+                {
+                    "type": "text",
+                    "field": "code",
+                    "titleTranslateKey": "MANAGE_DATA_COLLECTIONS.YEAR.GRID.CODE"
+                },
+                {
+                    "type": "text",
+                    "field": "displayName",
+                    "titleTranslateKey": "MANAGE_DATA_COLLECTIONS.YEAR.GRID.DISPLAY_NAME"
+                }
+            ],
+            "previewDataSource": {
+                "responseList": [
+                    {
+                        "id": 1,
+                        "code": "test",
+                        "displayName": "test"
                     }
                 ],
                 "page": 1,
@@ -7317,387 +8210,29 @@ INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebComponentID], [Code], [N
         }
     }
 }', N'<div class="cr-grid-wrapper-new">
-      <cr-edit-grid-server-paging
-        [elementName]="''edit-grid-server-paging:Coupon_series.Grid''"
-        [dataSource]="self.gridData"
-        [columnSettings]=''self.columnSettings | dynamicColumnSettings:{{dynamicColumnSettings}}''
-        [pageable]="true"
-        [resizable]="true"
-        [uniqueField]="''id''"
-        (pageChangeEvent)="self.changePage($event)"
-        (cellClickEvent)="self.cellClick($event)"
-        [dataCacheName]="''coupon-series-grid-cache''"
-        [class]=''{{classes}}''
-      ></cr-edit-grid-server-paging>
-    </div>', '2022-12-28 13:57:55.9766667 +00:00', 4, N'N', '1300a6c7-17cf-4f81-a8ef-5bcfab0bb574', 1, NULL, '2022-12-23 10:02:45.1074585 +00:00')
-INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('bde03c10-b782-ed11-8360-02f176033ddb', '373c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'coupon-series-details-code', N'Code', N'{
-    "defaultValue": {
-        "isUseTranslateKey": true,
-        "translateKey": "SERIES.DETAILS.CODE"
-    },
-    "fieldSettings": {
-        "validationField": "code"
-    }
-}', N'<cr-control-edit
-    [(dataValue)]="self.series.code"
-    [elementName]="''edit:Coupon_series_details.Code''"
-    [permissionSettings]="{
-            isAccessEdit: self.isNewSeries ? (self.EndpointName.coupon_series_POST | endpointAccessGrantedPipe) :
-              (self.EndpointName.coupon_series_id_PUT | endpointAccessGrantedPipe)
-          }"
-    [validator]="self.validator"
-    [validationField]="''code''"
-    [translateKeys]="{{translateKey}}" 
-    [dataLabel]="{{label}}"
-    [customClass]=''{{classes}}''
-    [isDisabled]="!self.isNewSeries || {{disabled}}"
-></cr-control-edit>', '2022-12-28 14:03:04.3900000 +00:00', 3, N'N', 'ac143ea2-3735-4fa3-a8b2-8b053953eb3e', 1, NULL, '2022-12-23 11:43:49.1404605 +00:00')
-INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('6715caf0-b782-ed11-8360-02f176033ddb', '373c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'coupon-series-details-name', N'Name', N'{
-    "defaultValue": {
-        "isUseTranslateKey": true,
-        "translateKey": "SERIES.DETAILS.NAME"
-    },
-    "fieldSettings": {
-        "validationField": "displayName"
-    }
-}', N'<cr-control-edit
-    [(dataValue)]="self.series.displayName"
-    [elementName]="''edit:Coupon_series_details.Name''"
-    [permissionSettings]="{
-            isAccessEdit: self.isNewSeries ? (self.EndpointName.coupon_series_POST | endpointAccessGrantedPipe) :
-              (self.EndpointName.coupon_series_id_PUT | endpointAccessGrantedPipe)
-          }"
-    [validator]="self.validator"
-    [validationField]="''displayName''"
-    [translateKeys]="{{translateKey}}" 
-    [dataLabel]="{{label}}"
-    [customClass]=''{{classes}}''
-    [isDisabled]="{{disabled}}"
-    (dataValueChange)="self.changeTitle()"
-></cr-control-edit>', '2022-12-28 14:03:31.5300000 +00:00', 3, N'N', '86d4f25c-8674-46cc-b696-879b88832c8f', 1, NULL, '2022-12-23 11:50:05.8755047 +00:00')
-INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('aed8a6e4-b882-ed11-8360-02f176033ddb', '3e3c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'coupon-series-details-valid-days', N'Coupon valid days', N'{
-    "defaultValue": {
-        "isUseTranslateKey": true,
-        "translateKey": "SERIES.DETAILS.COUPON_VALID_DAYS",
-        "format": "''n0''"
-    },
-    "fieldSettings": {
-        "validationField": "couponValidDays"
-    }
-}', N'<cr-numeric-control
-    [elementName]="''numeric:Coupon_series_details.Coupon_valid_days''"
-    [(dataValue)]="self.series.couponValidDays"
-    [permissionSettings]="{
-                    isAccessEdit: self.isNewSeries ?
-                    (self.EndpointName.coupon_series_POST | endpointAccessGrantedPipe):
-                    (self.EndpointName.coupon_series_id_PUT | endpointAccessGrantedPipe)
-                  }"
-    [validationField]="''couponValidDays''"
-    [validator]="self.validator"      
-    [dataLabel]="{{label}}" 
-    [translateKeys]="{{translateKey}}" 
-    [customClass]=''{{classes}}''
-    [format]="{{format}}" 
-    [decimals]="{{decimals}}" 
-    [min]="{{min}}" 
-    [max]="{{max}}"
-    [autoCorrectMinMax]="{{autoCorrectMinMax}}"
-></cr-numeric-control>', '2022-12-28 14:04:04.2100000 +00:00', 2, N'N', '5b75b1f7-5771-43b9-95e9-5f97c3eb428f', 1, NULL, '2022-12-23 11:56:55.0086446 +00:00')
-INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('cfe27deb-ba82-ed11-8360-02f176033ddb', '383c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'coupon-series-details-no-range', N'No range', N'{
-    "defaultValue": {
-        "isUseTranslateKey": true,
-        "translateKey": "SERIES.DETAILS.NO_RANGE",
-        "isDisabled": false
-    }
-}', N'<cr-checkbox-control
-    [elementName]="''checkbox:Coupon_series_details.No_range''"
-    [permissionSettings]="{
-        isAccessEdit: self.isNewSeries ?
-            (self.EndpointName.coupon_series_POST | endpointAccessGrantedPipe):
-            (self.EndpointName.coupon_series_id_PUT | endpointAccessGrantedPipe)
-    }"
-    [(dataValue)]="self.series.withoutRange"
-    [dataLabel]="{{label}}"
-    [translateKeys]="{{translateKey}}"
-    [isDisabled]="!self.isNewSeries"
-    [class]=''{{classes}}''
-    (dataValueChange)="self.onNoRangeChange()"
-></cr-checkbox-control>', '2022-12-28 14:04:53.0666667 +00:00', 3, N'N', 'b5edc180-9458-466a-8ca6-bd73c0afb8a1', 1, NULL, '2022-12-23 12:11:25.4777167 +00:00')
-INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('2389c4c0-bb82-ed11-8360-02f176033ddb', '3e3c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'coupon-series-details-range-from', N'Coupon range from ', N'{
-    "defaultValue": {
-        "isUseTranslateKey": true,
-        "translateKey": "SERIES.DETAILS.COUPONS_RANGE_FROM",
-        "format": "''n0''",
-        "autoCorrectMinMax": true,
-        "max": 2147483647
-    },
-    "fieldSettings": {
-        "validationField": "genFrom"
-    }
-}', N'<cr-numeric-control
-    [elementName]="''numeric:Coupon_series_details.Coupon_range_from''"
-    [(dataValue)]="self.series.genFrom"
-    [permissionSettings]="{
-        isAccessEdit: self.isNewSeries ?
-            (self.EndpointName.coupon_series_POST | endpointAccessGrantedPipe):
-            (self.EndpointName.coupon_series_id_PUT | endpointAccessGrantedPipe)
-    }"
-    [validationField]="''genFrom''"
-    [validator]="self.validator"      
-    [dataLabel]="{{label}}" 
-    [translateKeys]="{{translateKey}}" 
-    [customClass]=''{{classes}}''
-    [format]="{{format}}" 
-    [decimals]="{{decimals}}" 
-    [min]="{{min}}" 
-    [max]="{{max}}"
-    [autoCorrectMinMax]="{{autoCorrectMinMax}}"
-    [isDisabled]="!self.isNewSeries"
-></cr-numeric-control>', '2022-12-28 14:05:43.4933333 +00:00', 3, N'N', 'd78e24bd-86b1-48cb-a327-4e66ba0eae66', 1, NULL, '2022-12-23 12:17:23.2954275 +00:00')
-INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('d00f6450-bd82-ed11-8360-02f176033ddb', '3e3c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'coupon-series-details-range-to', N'Coupon range to', N'{
-    "defaultValue": {
-        "isUseTranslateKey": true,
-        "translateKey": "SERIES.DETAILS.COUPONS_RANGE_TO",
-        "format": "''n0''",
-        "autoCorrectMinMax": true,
-        "max": 2147483647
-    },
-    "fieldSettings": {
-        "validationField": "genTo"
-    }
-}', N'<cr-numeric-control
-    [elementName]="''numeric:Coupon_series_details.Coupon_range_to''"
-    [(dataValue)]="self.series.genTo"
-    [permissionSettings]="{
-        isAccessEdit: self.isNewSeries ?
-            (self.EndpointName.coupon_series_POST | endpointAccessGrantedPipe):
-            (self.EndpointName.coupon_series_id_PUT | endpointAccessGrantedPipe)
-    }"
-    [validationField]="''genTo''"
-    [validator]="self.validator"      
-    [dataLabel]="{{label}}" 
-    [translateKeys]="{{translateKey}}" 
-    [customClass]=''{{classes}}''
-    [format]="{{format}}" 
-    [decimals]="{{decimals}}" 
-    [min]="{{min}}" 
-    [max]="{{max}}"
-    [autoCorrectMinMax]="{{autoCorrectMinMax}}"
-></cr-numeric-control>', '2022-12-28 14:06:56.8133333 +00:00', 3, N'N', 'b7e89c0d-fcf1-474d-bb70-a0b7b85c9523', 1, NULL, '2022-12-23 12:28:33.7518160 +00:00')
-INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('489cfac3-be82-ed11-8360-02f176033ddb', '3d3c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'coupon-series-details-status', N'Status', N'{
-    "defaultValue": {
-        "isUseTranslateKey": true,
-        "translateKey": "SERIES.DETAILS.CLOSED"
-    }
-}', N'<cr-dropdown-smart-control
-    [elementName]="''smart-dropdown:Coupon_series_details.Status''"
-    [permissionSettings]="{
-        isAccessEdit: self.isNewSeries ?
-            (self.EndpointName.coupon_series_POST | endpointAccessGrantedPipe):
-            (self.EndpointName.coupon_series_id_PUT | endpointAccessGrantedPipe)
-    }"
-    [(value)]="self.series.couponsGenerated"
-    [textField]="''name''"
-    [valueField]="''propertyBoolean''"
-    [isDisabled]="true"
-    [isReadOnly]="true"
-    [getListItemsFunction]="self.getSeriesCouponStatusDropdownListFn$"
-    [getOneItemFunction]="self.getSeriesCouponStatusItemDropdownFn$"
-    [dataCacheName]="''SeriesDetailsStatusDropdownCache''"
-    [labelTranslateKey]="{{translateKey}}"
-    [label]="{{label}}"
-    [class]=''{{classes}}''
-></cr-dropdown-smart-control>
-', '2022-12-28 14:08:15.7366667 +00:00', 3, N'N', 'ef2ba6e6-5e54-4c2d-9cb8-3a37af7546b8', 1, NULL, '2022-12-23 12:38:57.1731656 +00:00')
-INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('906acc71-bf82-ed11-8360-02f176033ddb', '383c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'coupon-series-details-manual-discount-price', N'Manual discount price', N'{
-    "defaultValue": {
-        "isUseTranslateKey": true,
-        "translateKey": "SERIES.DETAILS.AS_VOUCHER"
-    }
-}', N'<cr-checkbox-control
-    [elementName]="''checkbox:Coupon_series_details.Manual_discount_price''"
-    [permissionSettings]="{
-        isAccessEdit: self.isNewSeries ?
-            (self.EndpointName.coupon_series_POST | endpointAccessGrantedPipe):
-            (self.EndpointName.coupon_series_id_PUT | endpointAccessGrantedPipe)
-    }"
-    [(dataValue)]="self.series.manualDiscountPrice"
-    [dataLabel]="{{label}}"
-    [translateKeys]="{{translateKey}}"
-    [class]=''{{classes}}''
-></cr-checkbox-control>', '2022-12-28 14:08:40.3500000 +00:00', 2, N'N', 'ac105f87-7880-403e-a486-b0e2ccec258a', 1, NULL, '2022-12-23 12:43:48.7939856 +00:00')
-INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('5d00f26a-c182-ed11-8360-02f176033ddb', '453c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'coupon-series-voucher-text', N'Voucher text', N'{
-    "defaultValue": {
-        "isUseTranslateKey": true,
-        "translateKey": "SERIES.DETAILS.VOUCHER_TEXT"
-    }
-}', N'<cr-text-area-control
-    [(dataValue)]="self.series.voucherText"
-    [elementName]="''textarea:Coupon_series_details.Voucher_text''"
-    [permissionSettings]="{
-              isAccessEdit: self.isNewSeries ?
-                (self.EndpointName.coupon_series_POST | endpointAccessGrantedPipe):
-                (self.EndpointName.coupon_series_id_PUT | endpointAccessGrantedPipe)
-              }"
-    [dataLabel]="{{label}}"
-    [translateKeys]="{{translateKey}}"
-    [class]=''{{classes}}'' 
-    [isDisabled]="{{disabled}}"
-    [rows]="10"
-    [maxlength]="{{maxLength}}"
-></cr-text-area-control>', '2022-12-28 14:11:47.2066667 +00:00', 7, N'N', 'dcd53aa8-e500-4d25-9eeb-35081f296ecf', 1, NULL, '2022-12-23 12:57:56.2897117 +00:00')
-INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('6d2442a6-2285-ed11-8360-02f176033ddb', '393c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'role-list-grid', N'Role list grid', N'{
-    "defaultValue": {
-        "dynamicColumnSettings": [
-            {
-                "field": "code",
-                "titleTranslateKey": "ROLE.LIST.GRID.CODE",
-                "hidden": false
-            },
-            {
-                "field": "name",
-                "titleTranslateKey": "ROLE.LIST.GRID.NAME",
-                "hidden": false
-            }
-        ]
-    },
-    "fieldSettings": {
-        "grid": {
-            "uniqueField": "id",
-            "columns": [
-                {
-                    "type": "link",
-                    "field": "code",
-                    "titleTranslateKey": "ROLE.LIST.GRID.CODE",
-                    "disableIf": null
-                },
-                {
-                    "type": "text",
-                    "field": "name",
-                    "titleTranslateKey": "ROLE.LIST.GRID.NAME"
-                }
-            ],
-            "previewDataSource": {
-                "responseList": [
-                    {
-                        "id": 1,
-                        "code": "dev",
-                        "name": "dev"
-                    }
-                ],
-                "page": 1,
-                "size": 5,
-                "totalElements": 1
-            }
-        }
-    }
-}', N' <div class="cr-grid-wrapper-new">
     <cr-edit-grid-server-paging
-        [elementName]="''edit-grid-server-paging:Role_list.Grid''"
-        [dataSource]="self.dataSource"
-        [columnSettings]=''self.columnSettings | dynamicColumnSettings:{{dynamicColumnSettings}}''
-        [pageable]="true"
-        [resizable]="true"
-        [uniqueField]="''id''"
-        (pageChangeEvent)="self.changePage($event)"
-        (cellClickEvent)="self.cellClick($event)"
-        [dataCacheName]="''role-grid-cache''"
-        [class]=''{{classes}}''
+      (createActionEvent)="self.onCreate($event)"
+      (deleteActionEvent)="self.onRemove($event)"
+      (pageChangeEvent)="self.changePage($event)"
+      (updateActionEvent)="self.onUpdate($event)"
+      [allowCreateAction]="true"
+      [allowDeleteAction]="true"
+      [allowUpdateAction]="true"
+      [columnSettings]=''self.columnSettings | dynamicColumnSettings:{{dynamicColumnSettings}}''
+      [dataCacheName]="''CollectionYearsList''"
+      [dataSource]="self.dataSource"
+      [elementName]="''edit-grid-server-paging:Years.Grid''"
+      [pageable]="true"
+
+      [permissionSettings]="{
+          isAccessDelete: (self.EndpointName.item_collection_year_id_DELETE | endpointAccessGrantedPipe),
+          isAccessUpdate: (self.EndpointName.item_collection_year_id_PUT | endpointAccessGrantedPipe),
+          isAccessCreate: (self.EndpointName.item_collection_year_POST | endpointAccessGrantedPipe),
+          isAccessRead: (self.EndpointName.item_collection_year_GET | endpointAccessGrantedPipe)
+        }"
+      [resizable]="true"
+      [uniqueField]="''id''"
+      [validator]="self.validator"
+      [class]=''{{classes}}''
     ></cr-edit-grid-server-paging>
-</div>', '2022-12-28 14:35:17.5633333 +00:00', 3, N'N', '4ccc569f-112d-40ed-9b07-dffd6758dc27', 1, NULL, '2022-12-26 13:38:59.3088237 +00:00')
-INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('117e1c7d-c085-ed11-8360-02f176033ddb', '373c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'role-details-code', N'Code', N'{
-    "defaultValue": {
-        "isUseTranslateKey": true,
-        "translateKey": "ROLE.DETAILS.CODE"
-    },
-    "fieldSettings": {
-        "validationField": "code"
-    }
-}', N'<cr-control-edit
-    [(dataValue)]="self.currentItem.code"
-    [elementName]="''edit:Role_details.Code''"
-    [permissionSettings]="{
-        isAccessEdit: self.isNew ? (self.EndpointName.role_POST | endpointAccessGrantedPipe) :
-            (self.EndpointName.role_id_PUT | endpointAccessGrantedPipe)
-    }"
-    [validator]="self.validator"
-    [validationField]="''code''"
-    [translateKeys]="{{translateKey}}" 
-    [dataLabel]="{{label}}"
-    [customClass]=''{{classes}}''
-    [isDisabled]="self.currentItem.isDeleted"
-></cr-control-edit>', '2022-12-28 14:38:06.6233333 +00:00', 2, N'N', '496cfb1a-95de-4829-82c9-2c614286e2d0', 1, NULL, '2022-12-27 08:28:50.7587729 +00:00')
-INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('3530d70c-c185-ed11-8360-02f176033ddb', '373c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'role-details-name', N'Name', N'{
-    "defaultValue": {
-        "isUseTranslateKey": true,
-        "translateKey": "ROLE.DETAILS.NAME"
-    },
-    "fieldSettings": {
-        "validationField": "name"
-    }
-}', N'<cr-control-edit
-    [(dataValue)]="self.currentItem.name"
-    [elementName]="''edit:Role_details.Name''"
-    [permissionSettings]="{
-        isAccessEdit: self.isNew ? (self.EndpointName.role_POST | endpointAccessGrantedPipe) :
-            (self.EndpointName.role_id_PUT | endpointAccessGrantedPipe)
-    }"
-    [validator]="self.validator"
-    [validationField]="''name''"
-    [translateKeys]="{{translateKey}}" 
-    [dataLabel]="{{label}}"
-    [customClass]=''{{classes}}''
-    [isDisabled]="self.currentItem.isDeleted"
-    (dataValueChange)="self.changeTitle()"
-></cr-control-edit>', '2022-12-28 14:38:31.1933333 +00:00', 2, N'N', 'afff9011-9122-441b-88e5-71064c744fa7', 1, NULL, '2022-12-27 08:32:51.8964917 +00:00')
-INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('83bf531e-d085-ed11-8360-02f176033ddb', 'f8e29e4a-cf85-ed11-8360-02f176033ddb', N'role-permission-tree', N'Role permission tree', N'{
-    "defaultValue": {}
-}', N'<cr-role-permission-tree
-    *ngIf="(self.EndpointName.role__function_tree_list_GET | endpointAccessGrantedPipe)"
-    [isNew]="self.isNew"
-    [(selected)]="self.currentItem.functions"
-    [editable]="!self.currentItem.isDeleted && (self.isNew
-        ? (self.EndpointName.role_POST | endpointAccessGrantedPipe)
-        : (self.EndpointName.role_id_PUT | endpointAccessGrantedPipe))"
-    [class]=''{{classes}}''
-></cr-role-permission-tree>', '2022-12-28 14:39:09.7300000 +00:00', 7, N'N', '1b6b0924-ca7d-4a5e-af19-c640a53147f4', 1, NULL, '2022-12-27 10:20:43.6850179 +00:00')
-INSERT INTO [dbo].[WebComponentViewSettings] ([ID], [WebComponentID], [Code], [Name], [SettingsJson], [ComponentHtml], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser], [CreateDate]) VALUES ('6820250a-d185-ed11-8360-02f176033ddb', '3c3c9b68-e84e-ed11-8e5d-4ccc6a2bb6d6', N'role-details-title-header', N'Header', N'{
-    "defaultValue": {
-        "isUseTranslateKey": true,
-        "translateKey": "ROLE.DETAILS.TITLE"
-    },
-    "fieldSettings": {
-        "titleHeader": {
-            "elements": [
-                {
-                    "appearance": "icon-button",
-                    "iconSvg": "icon-refresh",
-                    "template": "custom"
-                },
-                {
-                    "appearance": "icon-button",
-                    "iconSvg": "icon-add",
-                    "template": "custom"
-                },
-                {
-                    "appearance": "primary-button",
-                    "nameTranslateKey": "COMMON.BUTTON.SAVE",
-                    "template": "custom"
-                },
-                {
-                    "appearance": "icon-button",
-                    "iconSvg": "icon-close",
-                    "template": "custom"
-                }
-            ]
-        }
-    }
-}', N'<cr-title-header
-    [titleTranslateKey]="{{translateKey}}"
-    [title]="{{label}}"
-    [titleValue]="self.titleValueText"
-    [additionalTranslateKeys]="''COMMON.NEW''"
-    (buttonClickEvent)="self.onTitleButtonClick($event)"
-    [buttonSettings]="self.titleHeaderButtonSettings"
-    [titleValueTranslateKey]="self.isNew ? ''COMMON.NEW'' : null"
-></cr-title-header>', '2022-12-28 14:41:37.0166667 +00:00', 3, N'N', 'd666a455-4e1e-490f-a982-ba0e365b5554', 1, NULL, '2022-12-27 10:27:19.3217768 +00:00')
+  </div>', '2023-01-03 15:36:55.4600000 +00:00', 4, N'N', 'f8f8cabf-da0b-4b76-a482-b2c774913483', 1, NULL, '2022-12-28 11:21:04.6295111 +00:00')
