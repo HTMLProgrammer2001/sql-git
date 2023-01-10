@@ -1,8 +1,3 @@
-INSERT INTO [dbo].[WebViewToViewSubAssociation] ([ID], [WebViewID], [WebViewSubID], [HtmlCode], [Html], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('a319d229-5f8b-ed11-8360-02f176033ddb', '9aba259b-598b-ed11-8360-02f176033ddb', '88d12dde-5e8b-ed11-8360-02f176033ddb', N'invoice-series-list', N'<cr-document-type-invoice-series-list
-    [selectedInvoiceSeries]="self.selectedInvoiceSeries"
-    [subTemplateId]="''{{subTemplateId}}''"
-    (closeClickEvent)="self.removePopupTab($event)">
-</cr-document-type-invoice-series-list>', '2023-01-03 16:36:09.1800000 +00:00', 3, N'N', '7dad16c9-bb5e-4e3a-ace0-3c35b0d5059f', 1, NULL)
 INSERT INTO [dbo].[WebViewToViewSubAssociation] ([ID], [WebViewID], [WebViewSubID], [HtmlCode], [Html], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('a89593ef-1c6b-ed11-835f-02f176033ddb', 'b211b499-f964-ed11-8e60-4ccc6a2bb6d6', 'a55e29d8-1b6b-ed11-835f-02f176033ddb', N'image-content-create', N'<cr-image-basket-details
     [subTemplateId]="''{{subTemplateId}}''"
     [image]="self.cache.selectedImageBasketContent"
@@ -306,63 +301,6 @@ INSERT INTO [dbo].[WebViewToViewSubAssociation] ([ID], [WebViewID], [WebViewSubI
     (delete)="self.onDeleteImageBasketContentPopUp($event)"
     (refresh)="self.onRefreshImageBasketContent()"
 ></cr-image-basket-details>', '2022-12-02 15:59:12.3866667 +00:00', 3, N'N', 'f4ac81cc-5e5e-48cd-9a83-1deddc3fcab8', 1, NULL)
-INSERT INTO [dbo].[WebViewToViewSubAssociation] ([ID], [WebViewID], [WebViewSubID], [HtmlCode], [Html], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('e704c8fb-b47f-ed11-835f-02f176033ddb', 'ddfe3a70-4251-ed11-8e5d-4ccc6a2bb6d6', '9a53528c-4a51-ed11-8e5d-4ccc6a2bb6d6', N'manage-definition', N'<cr-tax-group-definition
-    [subTemplateId]="''{{subTemplateId}}''"
-    [taxGroupLocation]="self.cache.editDefinitionLocation"
-    [isNewTaxGroupDefinition]="false"
-    [isNewTaxGroup]="self.isNew"
-    (addLocationsEvent)="self.addBasketLocationsPopulation()"
-    (editLocationsEvent)="self.onEditLocationsPopulation()"
-    (closeEvent)="self.onCloseDefinitionLocationTab()"
-    (updateEvent)="self.updateDefinitionLocation($event)"
-></cr-tax-group-definition>
-', '2022-12-20 12:26:04.5366667 +00:00', 4, N'N', '5d92ca92-e6ed-498d-a754-d7132b8a46ee', 1, NULL)
-INSERT INTO [dbo].[WebViewToViewSubAssociation] ([ID], [WebViewID], [WebViewSubID], [HtmlCode], [Html], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('e804c8fb-b47f-ed11-835f-02f176033ddb', 'ddfe3a70-4251-ed11-8e5d-4ccc6a2bb6d6', '138435b1-957f-ed11-835f-02f176033ddb', N'create-definition', N'<cr-tax-group-definition
-    [subTemplateId]="''{{subTemplateId}}''"
-    [taxGroupLocation]="self.cache.editDefinitionLocation"
-    [isNewTaxGroupDefinition]="true"
-    [isNewTaxGroup]="self.isNew"
-    (addLocationsEvent)="self.addBasketLocationsPopulation()"
-    (editLocationsEvent)="self.onEditLocationsPopulation()"
-    (closeEvent)="self.onCloseDefinitionLocationTab()"
-    (createEvent)="self.createDefinitionLocation($event)"
-></cr-tax-group-definition>
-', '2022-12-20 12:26:04.5366667 +00:00', 4, N'N', '56db7ac6-dbd0-477c-898c-e0a879768087', 1, NULL)
-INSERT INTO [dbo].[WebViewToViewSubAssociation] ([ID], [WebViewID], [WebViewSubID], [HtmlCode], [Html], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('e904c8fb-b47f-ed11-835f-02f176033ddb', 'ddfe3a70-4251-ed11-8e5d-4ccc6a2bb6d6', 'd79de476-b47f-ed11-835f-02f176033ddb', N'manage-baskets-locations-population', N'<cr-basket-population-edit
-    [subTemplateId]="''{{subTemplateId}}''"
-    [basket]="self.cache.editDefinitionLocation.locationBasketSet.baskets[self.cache.editDefinitionLocation.locationBasketSet.selectedBasketIndex].populationDetails"
-    [cacheName]="''taxGroupLocationsPopulationManage'' + self.cache.editedDefinitionLocationIndex"
-    [isBasketNameEnabled]="true"
-    [isBasketNameRequired]="true"
-    [lastExcludeNumber]="self.cache.editDefinitionLocation.locationBasketSet.lastExcludeNumber"
-    [lastIncludeNumber]="self.cache.editDefinitionLocation.locationBasketSet.lastIncludeNumber"
-    [propertyDropdownFn]="self.locationCriteriaPropertiesDropdownFn"
-    [titleContentTranslateKey]="''COMMON.BASKET.BASKET_EDIT.TITLE_MANAGE_LOCATION_CONTENT_POPULATION''"
-    [titleTranslateKey]="''COMMON.BASKET.BASKET_EDIT.TITLE_MANAGE_LOCATION_POPULATION''"
-    [typeDropdownFn]="self.locationCriteriaDropdownFn"
-    [valueDropdownFn]="self.locationCriteriaValuesDropdownFn"
-    (cancel)="self.onCancelLocationsPopulation()"
-    (confirm)="self.onSaveLocationsPopulation($event)"
-    [basketTypeFn$]="self.basketTypeFn"
-></cr-basket-population-edit>
-', '2022-12-20 12:26:04.5366667 +00:00', 4, N'N', '36aed7ba-768f-45ec-80bd-be5355d3607c', 1, NULL)
-INSERT INTO [dbo].[WebViewToViewSubAssociation] ([ID], [WebViewID], [WebViewSubID], [HtmlCode], [Html], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('ea04c8fb-b47f-ed11-835f-02f176033ddb', 'ddfe3a70-4251-ed11-8e5d-4ccc6a2bb6d6', '80bb6482-b47f-ed11-835f-02f176033ddb', N'create-baskets-locations-population', N'<cr-basket-population-edit
-    [subTemplateId]="''{{subTemplateId}}''"
-    [cacheName]="''taxGroupLocationsPopulationCreate'' + self.cache.editedDefinitionLocationIndex"
-    [isBasketNameEnabled]="true"
-    [isBasketNameRequired]="true"
-    [lastExcludeNumber]="self.cache.editDefinitionLocation.locationBasketSet.lastExcludeNumber"
-    [lastIncludeNumber]="self.cache.editDefinitionLocation.locationBasketSet.lastIncludeNumber"
-    [propertyDropdownFn]="self.locationCriteriaPropertiesDropdownFn"
-    [titleContentTranslateKey]="''COMMON.BASKET.BASKET_EDIT.TITLE_CREATE_LOCATION_CONTENT_POPULATION''"
-    [titleTranslateKey]="''COMMON.BASKET.BASKET_EDIT.TITLE_CREATE_LOCATION_POPULATION''"
-    [typeDropdownFn]="self.locationCriteriaDropdownFn"
-    [valueDropdownFn]="self.locationCriteriaValuesDropdownFn"
-    (cancel)="self.onCancelLocationsPopulation()"
-    (confirm)="self.onCreateLocationsPopulation($event)"
-    [basketTypeFn$]="self.basketTypeFn"
-></cr-basket-population-edit>
-', '2022-12-20 12:26:04.5366667 +00:00', 4, N'N', 'dfb3c440-5e68-42fe-b486-ff932b87b8fd', 1, NULL)
 INSERT INTO [dbo].[WebViewToViewSubAssociation] ([ID], [WebViewID], [WebViewSubID], [HtmlCode], [Html], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('031c7623-bb7f-ed11-835f-02f176033ddb', 'a6e647f0-917f-ed11-835f-02f176033ddb', '9a53528c-4a51-ed11-8e5d-4ccc6a2bb6d6', N'manage-definition', N'<cr-tax-group-definition
     [subTemplateId]="''{{subTemplateId}}''"
     [taxGroupLocation]="self.cache.editDefinitionLocation"
@@ -420,6 +358,11 @@ INSERT INTO [dbo].[WebViewToViewSubAssociation] ([ID], [WebViewID], [WebViewSubI
     [basketTypeFn$]="self.basketTypeFn"
 ></cr-basket-population-edit>
 ', '2022-12-20 12:26:20.1366667 +00:00', 3, N'N', '8ae4792c-366f-4c3e-bbf6-09003fc77669', 1, NULL)
+INSERT INTO [dbo].[WebViewToViewSubAssociation] ([ID], [WebViewID], [WebViewSubID], [HtmlCode], [Html], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('a319d229-5f8b-ed11-8360-02f176033ddb', '9aba259b-598b-ed11-8360-02f176033ddb', '88d12dde-5e8b-ed11-8360-02f176033ddb', N'invoice-series-list', N'<cr-document-type-invoice-series-list
+    [selectedInvoiceSeries]="self.selectedInvoiceSeries"
+    [subTemplateId]="''{{subTemplateId}}''"
+    (closeClickEvent)="self.removePopupTab($event)">
+</cr-document-type-invoice-series-list>', '2023-01-03 16:36:09.1800000 +00:00', 3, N'N', '7dad16c9-bb5e-4e3a-ace0-3c35b0d5059f', 1, NULL)
 INSERT INTO [dbo].[WebViewToViewSubAssociation] ([ID], [WebViewID], [WebViewSubID], [HtmlCode], [Html], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('95f78b5e-a258-ed11-8e5e-4ccc6a2bb6d6', 'd9fe3a70-4251-ed11-8e5d-4ccc6a2bb6d6', '9453528c-4a51-ed11-8e5d-4ccc6a2bb6d6', N'manage-mailing-category-partner', N'<cr-partner-mailing-category-manage-dynamic
     [subTemplateId]="''{{subTemplateId}}''"
     [(selectedMailingCategory)]="self.partnerDetails.mailingCategories"
@@ -584,3 +527,60 @@ INSERT INTO [dbo].[WebViewToViewSubAssociation] ([ID], [WebViewID], [WebViewSubI
     (newContactPerson)="self.onConfirmPartnerContactPersons($event, true)"
 ></cr-partner-contact-persons-details>
 ', '2022-11-04 19:17:17.5554197 +02:00', 1, N'N', '8dc73bc7-9af9-403a-814b-82e7922c219d', 1, NULL)
+INSERT INTO [dbo].[WebViewToViewSubAssociation] ([ID], [WebViewID], [WebViewSubID], [HtmlCode], [Html], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('e704c8fb-b47f-ed11-835f-02f176033ddb', 'ddfe3a70-4251-ed11-8e5d-4ccc6a2bb6d6', '9a53528c-4a51-ed11-8e5d-4ccc6a2bb6d6', N'manage-definition', N'<cr-tax-group-definition
+    [subTemplateId]="''{{subTemplateId}}''"
+    [taxGroupLocation]="self.cache.editDefinitionLocation"
+    [isNewTaxGroupDefinition]="false"
+    [isNewTaxGroup]="self.isNew"
+    (addLocationsEvent)="self.addBasketLocationsPopulation()"
+    (editLocationsEvent)="self.onEditLocationsPopulation()"
+    (closeEvent)="self.onCloseDefinitionLocationTab()"
+    (updateEvent)="self.updateDefinitionLocation($event)"
+></cr-tax-group-definition>
+', '2023-01-06 12:52:07.1300000 +00:00', 5, N'N', '887a81e7-c1f7-4458-b6be-de4ffc7d7a36', 1, NULL)
+INSERT INTO [dbo].[WebViewToViewSubAssociation] ([ID], [WebViewID], [WebViewSubID], [HtmlCode], [Html], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('e804c8fb-b47f-ed11-835f-02f176033ddb', 'ddfe3a70-4251-ed11-8e5d-4ccc6a2bb6d6', '138435b1-957f-ed11-835f-02f176033ddb', N'create-definition', N'<cr-tax-group-definition
+    [subTemplateId]="''{{subTemplateId}}''"
+    [taxGroupLocation]="self.cache.editDefinitionLocation"
+    [isNewTaxGroupDefinition]="true"
+    [isNewTaxGroup]="self.isNew"
+    (addLocationsEvent)="self.addBasketLocationsPopulation()"
+    (editLocationsEvent)="self.onEditLocationsPopulation()"
+    (closeEvent)="self.onCloseDefinitionLocationTab()"
+    (createEvent)="self.createDefinitionLocation($event)"
+></cr-tax-group-definition>
+', '2023-01-06 12:52:07.1300000 +00:00', 5, N'N', '5043d479-e779-49e0-9846-abddb5fafc51', 1, NULL)
+INSERT INTO [dbo].[WebViewToViewSubAssociation] ([ID], [WebViewID], [WebViewSubID], [HtmlCode], [Html], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('e904c8fb-b47f-ed11-835f-02f176033ddb', 'ddfe3a70-4251-ed11-8e5d-4ccc6a2bb6d6', 'd79de476-b47f-ed11-835f-02f176033ddb', N'manage-baskets-locations-population', N'<cr-basket-population-edit
+    [subTemplateId]="''{{subTemplateId}}''"
+    [basket]="self.cache.editDefinitionLocation.locationBasketSet.baskets[self.cache.editDefinitionLocation.locationBasketSet.selectedBasketIndex].populationDetails"
+    [cacheName]="''taxGroupLocationsPopulationManage'' + self.cache.editedDefinitionLocationIndex"
+    [isBasketNameEnabled]="true"
+    [isBasketNameRequired]="true"
+    [lastExcludeNumber]="self.cache.editDefinitionLocation.locationBasketSet.lastExcludeNumber"
+    [lastIncludeNumber]="self.cache.editDefinitionLocation.locationBasketSet.lastIncludeNumber"
+    [propertyDropdownFn]="self.locationCriteriaPropertiesDropdownFn"
+    [titleContentTranslateKey]="''COMMON.BASKET.BASKET_EDIT.TITLE_MANAGE_LOCATION_CONTENT_POPULATION''"
+    [titleTranslateKey]="''COMMON.BASKET.BASKET_EDIT.TITLE_MANAGE_LOCATION_POPULATION''"
+    [typeDropdownFn]="self.locationCriteriaDropdownFn"
+    [valueDropdownFn]="self.locationCriteriaValuesDropdownFn"
+    (cancel)="self.onCancelLocationsPopulation()"
+    (confirm)="self.onSaveLocationsPopulation($event)"
+    [basketTypeFn$]="self.basketTypeFn"
+></cr-basket-population-edit>
+', '2023-01-06 12:52:07.1300000 +00:00', 5, N'N', '0ae2c340-6fba-43ab-ab15-ff97047f1649', 1, NULL)
+INSERT INTO [dbo].[WebViewToViewSubAssociation] ([ID], [WebViewID], [WebViewSubID], [HtmlCode], [Html], [UpdateDate], [Version], [IsDeleted], [GUID], [AppType], [UpdateUser]) VALUES ('ea04c8fb-b47f-ed11-835f-02f176033ddb', 'ddfe3a70-4251-ed11-8e5d-4ccc6a2bb6d6', '80bb6482-b47f-ed11-835f-02f176033ddb', N'create-baskets-locations-population', N'<cr-basket-population-edit
+    [subTemplateId]="''{{subTemplateId}}''"
+    [cacheName]="''taxGroupLocationsPopulationCreate'' + self.cache.editedDefinitionLocationIndex"
+    [isBasketNameEnabled]="true"
+    [isBasketNameRequired]="true"
+    [lastExcludeNumber]="self.cache.editDefinitionLocation.locationBasketSet.lastExcludeNumber"
+    [lastIncludeNumber]="self.cache.editDefinitionLocation.locationBasketSet.lastIncludeNumber"
+    [propertyDropdownFn]="self.locationCriteriaPropertiesDropdownFn"
+    [titleContentTranslateKey]="''COMMON.BASKET.BASKET_EDIT.TITLE_CREATE_LOCATION_CONTENT_POPULATION''"
+    [titleTranslateKey]="''COMMON.BASKET.BASKET_EDIT.TITLE_CREATE_LOCATION_POPULATION''"
+    [typeDropdownFn]="self.locationCriteriaDropdownFn"
+    [valueDropdownFn]="self.locationCriteriaValuesDropdownFn"
+    (cancel)="self.onCancelLocationsPopulation()"
+    (confirm)="self.onCreateLocationsPopulation($event)"
+    [basketTypeFn$]="self.basketTypeFn"
+></cr-basket-population-edit>
+', '2023-01-06 12:52:07.1300000 +00:00', 5, N'N', 'a9224e47-d0d4-49f9-959b-cb9a8243bddf', 1, NULL)
